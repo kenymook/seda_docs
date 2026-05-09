@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SEDA UI Docs</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Документация">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">S</div>
+          <div>
+            <div class="brand-title">SEDA UI</div>
+            <div class="brand-caption">Documentation</div>
+          </div>
+        </div>
+
+        <label class="search">
+          <span class="search-label">Поиск</span>
+          <input id="searchInput" type="search" placeholder="Компонент, токен, раздел..." autocomplete="off" />
+        </label>
+
+        <nav id="nav" class="nav"></nav>
+      </aside>
+
+      <main class="content">
+        <div class="topbar">
+          <button id="menuButton" class="icon-button" type="button" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div id="breadcrumbs" class="breadcrumbs"></div>
+        </div>
+
+        <article id="document" class="document" aria-live="polite"></article>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

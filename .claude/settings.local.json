@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma__use_figma",
+      "mcp__figma__get_screenshot",
+      "Bash(winget upgrade:*)",
+      "mcp__figma__get_design_context",
+      "mcp__figma__get_variable_defs",
+      "mcp__figma__get_metadata",
+      "Bash(node:*)",
+      "mcp__claude_ai_Figma__get_screenshot",
+      "Bash(curl -s -o /tmp/template.png \"https://www.figma.com/api/mcp/asset/11e86333-2be7-4bb0-b9bd-72378a751747\")",
+      "Bash(curl -s -o /tmp/current.png \"https://www.figma.com/api/mcp/asset/c7c17e46-2d0c-450f-ae0f-670702b4776d\")",
+      "Bash(curl -s -o \"$TEMP/template.png\" \"https://www.figma.com/api/mcp/asset/11e86333-2be7-4bb0-b9bd-72378a751747\")",
+      "Bash(curl -s -o \"$TEMP/current.png\" \"https://www.figma.com/api/mcp/asset/c7c17e46-2d0c-450f-ae0f-670702b4776d\")",
+      "Bash(echo \"$TEMP\")",
+      "Bash(curl -s -o \"C:/Users/kauta/AppData/Local/Temp/template.png\" \"https://www.figma.com/api/mcp/asset/11e86333-2be7-4bb0-b9bd-72378a751747\")",
+      "Bash(curl -s -o \"C:/Users/kauta/AppData/Local/Temp/current.png\" \"https://www.figma.com/api/mcp/asset/c7c17e46-2d0c-450f-ae0f-670702b4776d\")",
+      "mcp__claude_ai_Figma__get_design_context",
+      "mcp__claude_ai_Figma__get_metadata",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(curl -s -o \"C:/Users/kauta/AppData/Local/Temp/template2.png\" \"https://www.figma.com/api/mcp/asset/8a698a1b-03f3-4ba8-8593-34f53de073e8\")",
+      "Bash(head -20 find C:/Users/kauta/Desktop -name *.js)",
+      "Bash(head -10 find C:/Users/kauta/Documents -name *.js)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/kauta/YandexDisk/SEDA AI/**)",
+      "Bash(done)",
+      "Bash(python3:*)",
+      "mcp__claude_ai_Figma__use_figma"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "Файл docs/theming.md был изменён. Выполни следующее:\n1. Прочитай файл D:/Claude_Figma/docs/theming.md\n2. Перейди на страницу '💎 Theming' в Figma файле h8wSwPpnlt91IQH7h4Kvj0\n3. Найди фрейм Content (node 2556:1819) внутри Guidelines (node 2556:1805)\n4. Удали все дочерние секции в Content и пересоздай их по структуре из markdown файла:\n   - Текстовые секции (О тематизации, Light и Dark режимы, Конвенция именования)\n   - Таблицы токенов для каждой группы (surface, container, border, text, link, status, shadow/focus)\n   Каждая таблица: колонки Token (чип), Role, Light, Dark\n5. Используй use_figma с fileKey h8wSwPpnlt91IQH7h4Kvj0 для всех изменений",
+            "if": "Write(*theming.md)",
+            "timeout": 180,
+            "statusMessage": "Синхронизация theming.md → Figma..."
+          },
+          {
+            "type": "agent",
+            "prompt": "Файл docs/theming.md был изменён. Выполни следующее:\n1. Прочитай файл D:/Claude_Figma/docs/theming.md\n2. Перейди на страницу '💎 Theming' в Figma файле h8wSwPpnlt91IQH7h4Kvj0\n3. Найди фрейм Content (node 2556:1819) внутри Guidelines (node 2556:1805)\n4. Удали все дочерние секции в Content и пересоздай их по структуре из markdown файла:\n   - Текстовые секции (О тематизации, Light и Dark режимы, Конвенция именования)\n   - Таблицы токенов для каждой группы (surface, container, border, text, link, status, shadow/focus)\n   Каждая таблица: колонки Token (чип), Role, Light, Dark\n5. Используй use_figma с fileKey h8wSwPpnlt91IQH7h4Kvj0 для всех изменений",
+            "if": "Edit(*theming.md)",
+            "timeout": 180,
+            "statusMessage": "Синхронизация theming.md → Figma..."
+          }
+        ]
+      }
+    ]
+  }
+}

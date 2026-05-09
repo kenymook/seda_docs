@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button — SEDA UI Spec</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f4f0;
+    --bg3: #eeedea;
+    --text-primary: #1a1a18;
+    --text-secondary: #5a5a56;
+    --text-tertiary: #8a8a84;
+    --border: rgba(0,0,0,0.08);
+    --border-md: rgba(0,0,0,0.13);
+    --info-bg: #eef5fe;
+    --info-text: #1a5cbf;
+    --success-bg: #edf7ee;
+    --success-text: #1a6b2a;
+    --warning-bg: #fef9e6;
+    --warning-text: #7a5500;
+    --danger-bg: #fdecea;
+    --danger-text: #b91c1c;
+    --brand: #0072f5;
+    --focus-ring: rgba(0,114,245,0.24);
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1a;
+      --bg2: #252523;
+      --bg3: #2e2e2b;
+      --text-primary: #f0efeb;
+      --text-secondary: #b0afa8;
+      --text-tertiary: #78786f;
+      --border: rgba(255,255,255,0.08);
+      --border-md: rgba(255,255,255,0.14);
+      --info-bg: #0f2547;
+      --info-text: #7eb8f7;
+      --success-bg: #0d2e12;
+      --success-text: #6ecf7e;
+      --warning-bg: #2a1f00;
+      --warning-text: #f0c050;
+      --danger-bg: #2d0f0f;
+      --danger-text: #f47070;
+      --brand: #4da3ff;
+    }
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .doc-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border-md); }
+  h1 { font-size: 26px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: var(--text-tertiary); display: flex; gap: 12px; flex-wrap: wrap; }
+  .badge { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 12px; color: var(--text-secondary); }
+
+  /* Nav */
+  .spec-nav { display: flex; gap: 2px; border-bottom: 0.5px solid var(--border); overflow-x: auto; margin-bottom: 2rem; }
+  .spec-nav button {
+    font-family: var(--font);
+    font-size: 13px;
+    padding: 8px 14px;
+    border: none;
+    background: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    transition: color .15s;
+  }
+  .spec-nav button.active { color: var(--text-primary); border-bottom-color: var(--text-primary); font-weight: 500; }
+  .spec-nav button:hover:not(.active) { color: var(--text-secondary); }
+
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* Sections */
+  h2 { font-size: 16px; font-weight: 600; margin: 2rem 0 .75rem; padding-top: 2rem; border-top: 0.5px solid var(--border); }
+  h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  h3 { font-size: 11px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: .06em; margin: 1.25rem 0 .5rem; }
+  p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: .75rem; }
+  p strong { color: var(--text-primary); font-weight: 500; }
+  p:last-child { margin-bottom: 0; }
+  code { font-family: var(--mono); font-size: 12px; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 4px; padding: 1px 5px; color: var(--text-primary); }
+
+  /* Tables */
+  .tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 1rem; }
+  .tbl th { text-align: left; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-tertiary); padding: 6px 12px; border-bottom: 0.5px solid var(--border-md); }
+  .tbl td { padding: 10px 12px; border-bottom: 0.5px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl td:first-child { font-weight: 500; color: var(--text-primary); white-space: nowrap; }
+  .tbl td code { font-size: 11px; }
+
+  /* Token table */
+  .tbl.tokens td:first-child { font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--text-primary); }
+  .tbl.tokens td:nth-child(3),
+  .tbl.tokens td:nth-child(4) { font-family: var(--mono); font-size: 11px; color: var(--info-text); }
+  .tbl.tokens td:nth-child(4) { color: var(--text-tertiary); }
+  .tbl.token-group-header td { background: var(--bg2); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--text-tertiary); padding: 6px 12px; }
+
+  /* Anatomy SVG */
+  .anatomy-wrap { background: var(--bg2); border-radius: var(--radius-lg); padding: 2rem 1.5rem 1.5rem; margin-bottom: 1rem; }
+
+  /* Type cards */
+  .type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+  .type-card { background: var(--bg); border: 0.5px solid var(--border-md); border-radius: var(--radius-md); padding: 14px 16px; }
+  .type-card-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-tertiary); margin-bottom: 6px; }
+  .type-card-name { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; }
+  .type-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .type-card-rule { font-size: 12px; color: var(--text-tertiary); margin-top: 10px; padding-top: 10px; border-top: 0.5px solid var(--border); }
+
+  /* Size preview */
+  .size-preview { height: var(--h); display: inline-flex; align-items: center; padding: 0 var(--px); border-radius: var(--r); background: var(--text-primary); font-size: var(--fs); color: var(--bg); font-weight: 500; }
+
+  /* State grid */
+  .states-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 1rem; }
+  .state-item { background: var(--bg2); border-radius: var(--radius-md); padding: 14px 12px; text-align: center; }
+  .state-demo { height: 36px; display: flex; align-items: center; justify-content: center; }
+  .state-name { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-top: 8px; }
+  .state-desc { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; line-height: 1.4; }
+
+  /* Do / Don't */
+  .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1rem; }
+  .dd-card { border-radius: var(--radius-md); padding: 14px 16px; border: 0.5px solid var(--border); }
+  .dd-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .dd-do .dd-label { color: var(--success-text); }
+  .dd-dont .dd-label { color: var(--danger-text); }
+  .dd-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* A11y items */
+  .a11y-list { display: flex; flex-direction: column; gap: 8px; }
+  .a11y-item { display: grid; grid-template-columns: 100px 1fr; gap: 12px; padding: 12px 14px; background: var(--bg2); border-radius: var(--radius-md); align-items: start; }
+  .a11y-cat { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-tertiary); padding-top: 1px; }
+  .a11y-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* Combo dots */
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .dot.y { background: var(--success-text); }
+  .dot.n { background: var(--danger-text); }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Button</h1>
+  <div class="subtitle">
+    <span class="badge">Actions</span>
+    <span class="badge">v1.0</span>
+    <span class="badge">SEDA UI</span>
+  </div>
+</div>
+
+<nav class="spec-nav">
+  <button class="active" onclick="switchTab('overview',this)">Overview</button>
+  <button onclick="switchTab('anatomy',this)">Anatomy</button>
+  <button onclick="switchTab('types',this)">Types</button>
+  <button onclick="switchTab('sizes',this)">Sizes</button>
+  <button onclick="switchTab('states',this)">States</button>
+  <button onclick="switchTab('behavior',this)">Behavior</button>
+  <button onclick="switchTab('a11y',this)">Accessibility</button>
+  <button onclick="switchTab('tokens',this)">Tokens</button>
+</nav>
+
+<!-- OVERVIEW -->
+<div class="tab-pane active" id="tab-overview">
+  <h2>What it is</h2>
+  <p>Button — основной элемент взаимодействия. Инициирует действие: отправку формы, подтверждение операции, переход к следующему шагу. В отличие от Link, Button не ведёт к ресурсу — он запускает процесс.</p>
+
+  <h2>When to use</h2>
+  <div class="dodont">
+    <div class="dd-card dd-do">
+      <div class="dd-label">Use</div>
+      <div class="dd-text">Когда нужно инициировать действие: отправить форму, подтвердить удаление, запустить процесс, сохранить изменения.</div>
+    </div>
+    <div class="dd-card dd-dont">
+      <div class="dd-label">Don't use</div>
+      <div class="dd-text">Когда нужна навигация к URL — используйте <strong>Link</strong>. Когда нужен выбор из вариантов — используйте <strong>Radio</strong> или <strong>Segmented Control</strong>.</div>
+    </div>
+  </div>
+
+  <h2>Core principles</h2>
+  <p><strong>Один Primary на контекст.</strong> Primary Button задаёт главное действие экрана. Несколько Primary одновременно размывают фокус.</p>
+  <p><strong>Иерархия через тип.</strong> Primary → Secondary → Ghost → Text отражает убывающую визуальную важность. Комбинируйте типы, чтобы расставить приоритеты.</p>
+  <p><strong>Destruction только для необратимого.</strong> Красный цвет — сигнал опасности. Используйте только там, где действие нельзя отменить.</p>
+</div>
+
+<!-- ANATOMY -->
+<div class="tab-pane" id="tab-anatomy">
+  <h2>Anatomy</h2>
+  <div class="anatomy-wrap">
+    <svg width="100%" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+      <!-- Button -->
+      <rect x="160" y="68" width="320" height="48" rx="10" fill="none" stroke="#8a8a84" stroke-width="1" stroke-dasharray="4 3"/>
+      <!-- icon-left -->
+      <rect x="178" y="84" width="16" height="16" rx="3" fill="none" stroke="#8a8a84" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="186" y="96" text-anchor="middle" font-size="10" fill="#8a8a84" font-family="-apple-system,sans-serif">✦</text>
+      <!-- label -->
+      <text x="320" y="97" text-anchor="middle" font-size="14" font-weight="500" fill="currentColor" font-family="-apple-system,sans-serif" dominant-baseline="central">Label</text>
+      <!-- icon-right -->
+      <rect x="446" y="84" width="16" height="16" rx="3" fill="none" stroke="#8a8a84" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="454" y="96" text-anchor="middle" font-size="10" fill="#8a8a84" font-family="-apple-system,sans-serif">✦</text>
+      <!-- height brace -->
+      <line x1="490" y1="68" x2="500" y2="68" stroke="#8a8a84" stroke-width="0.5"/>
+      <line x1="490" y1="116" x2="500" y2="116" stroke="#8a8a84" stroke-width="0.5"/>
+      <line x1="495" y1="68" x2="495" y2="116" stroke="#8a8a84" stroke-width="0.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+      <text x="506" y="93" dominant-baseline="central" font-size="11" fill="#8a8a84" font-family="-apple-system,sans-serif">height</text>
+      <!-- padding brace -->
+      <line x1="160" y1="130" x2="160" y2="140" stroke="#8a8a84" stroke-width="0.5"/>
+      <line x1="196" y1="130" x2="196" y2="140" stroke="#8a8a84" stroke-width="0.5"/>
+      <line x1="160" y1="135" x2="196" y2="135" stroke="#8a8a84" stroke-width="0.5" marker-end="url(#arr)" marker-start="url(#arr)"/>
+      <text x="178" y="150" text-anchor="middle" font-size="10" fill="#8a8a84" font-family="-apple-system,sans-serif">padding</text>
+      <!-- callout: icon-left -->
+      <line x1="186" y1="100" x2="80" y2="155" stroke="#8a8a84" stroke-width="0.5" stroke-dasharray="3 2"/>
+      <text x="76" y="162" text-anchor="end" font-size="12" fill="currentColor" font-family="-apple-system,sans-serif" font-weight="500">icon-left</text>
+      <text x="76" y="174" text-anchor="end" font-size="11" fill="#8a8a84" font-family="-apple-system,sans-serif">optional</text>
+      <!-- callout: label -->
+      <line x1="320" y1="116" x2="320" y2="162" stroke="#8a8a84" stroke-width="0.5" stroke-dasharray="3 2"/>
+      <text x="320" y="170" text-anchor="middle" font-size="12" fill="currentColor" font-family="-apple-system,sans-serif" font-weight="500">label</text>
+      <text x="320" y="182" text-anchor="middle" font-size="11" fill="#8a8a84" font-family="-apple-system,sans-serif">required</text>
+      <!-- callout: icon-right -->
+      <line x1="454" y1="100" x2="556" y2="155" stroke="#8a8a84" stroke-width="0.5" stroke-dasharray="3 2"/>
+      <text x="560" y="162" text-anchor="start" font-size="12" fill="currentColor" font-family="-apple-system,sans-serif" font-weight="500">icon-right</text>
+      <text x="560" y="174" text-anchor="start" font-size="11" fill="#8a8a84" font-family="-apple-system,sans-serif">optional</text>
+    </svg>
+  </div>
+
+  <h3>Slots</h3>
+  <table class="tbl">
+    <tr><th>Slot</th><th>Обязательность</th><th>Описание</th></tr>
+    <tr><td><code>label</code></td><td>required (кроме icon-only)</td><td>Текстовая метка. Глагол или глагольная фраза: «Сохранить», «Удалить проект»</td></tr>
+    <tr><td><code>icon-left</code></td><td>optional</td><td>Иконка слева от label. Усиливает смысл, не дублирует его</td></tr>
+    <tr><td><code>icon-right</code></td><td>optional</td><td>Иконка справа. Для внешней ссылки, раскрытия меню, загрузки</td></tr>
+  </table>
+</div>
+
+<!-- TYPES -->
+<div class="tab-pane" id="tab-types">
+  <h2>Types</h2>
+  <div class="type-grid">
+    <div class="type-card">
+      <div class="type-card-tag">primary</div>
+      <div class="type-card-name">Primary</div>
+      <div class="type-card-desc">Главное действие на экране. Залитый фон, максимальный визуальный вес.</div>
+      <div class="type-card-rule">⚠ Только один на контекст</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-tag">secondary</div>
+      <div class="type-card-name">Secondary</div>
+      <div class="type-card-desc">Второстепенное действие рядом с Primary. Обводка без заливки.</div>
+      <div class="type-card-rule">Чаще всего — в паре с Primary</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-tag">ghost</div>
+      <div class="type-card-name">Ghost</div>
+      <div class="type-card-desc">Третичное действие. Без фона и рамки, только текст + цвет.</div>
+      <div class="type-card-rule">Для вспомогательных действий</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-tag">text</div>
+      <div class="type-card-name">Text</div>
+      <div class="type-card-desc">Встраивается в текстовый контент. Без фона, рамки и боковых отступов.</div>
+      <div class="type-card-rule">Не использовать как основной CTA</div>
+    </div>
+    <div class="type-card">
+      <div class="type-card-tag">destruction</div>
+      <div class="type-card-name">Destruction</div>
+      <div class="type-card-desc">Необратимые действия: удаление, отзыв доступа. Красный сигнал опасности.</div>
+      <div class="type-card-rule">Только если действие нельзя отменить</div>
+    </div>
+  </div>
+
+  <h2>Modifiers</h2>
+  <table class="tbl">
+    <tr><th>Модификатор</th><th>Описание</th><th>Ограничения</th></tr>
+    <tr><td><code>icon-only</code></td><td>Только иконка, без label. Для тулбаров и компактных строк</td><td>Обязателен <code>aria-label</code></td></tr>
+    <tr><td><code>icon-left</code></td><td>Иконка слева от текста</td><td>Не комбинировать с <code>icon-right</code></td></tr>
+    <tr><td><code>icon-right</code></td><td>Иконка справа от текста</td><td>Не комбинировать с <code>icon-left</code></td></tr>
+    <tr><td><code>full-width</code></td><td>Растягивается на всю ширину контейнера</td><td>Только для одиночной кнопки, не группы</td></tr>
+  </table>
+
+  <h2>Type hierarchy</h2>
+  <table class="tbl">
+    <tr><th>Контекст</th><th>Primary</th><th>Secondary</th><th>Ghost / Text</th></tr>
+    <tr><td>Форма сохранения</td><td>Сохранить</td><td>Отменить</td><td>—</td></tr>
+    <tr><td>Диалог удаления</td><td>Destruction: Удалить</td><td>Отмена</td><td>—</td></tr>
+    <tr><td>Карточка объекта</td><td>Открыть</td><td>Редактировать</td><td>Поделиться</td></tr>
+  </table>
+</div>
+
+<!-- SIZES -->
+<div class="tab-pane" id="tab-sizes">
+  <h2>Sizes</h2>
+  <p>Button следует глобальной системе размеров SEDA UI. Параметры ниже соответствуют спецификации sizes.md с дополнительными горизонтальными отступами, специфичными для Button.</p>
+  <table class="tbl">
+    <tr><th>Size</th><th>Height</th><th>Font / Line</th><th>Radius</th><th>Padding H</th><th>Icon</th><th>Preview</th></tr>
+    <tr>
+      <td><code>small</code></td><td>24px</td><td>12px / 16px</td><td>6px</td><td>8px</td><td>14px</td>
+      <td><span class="size-preview" style="--h:24px;--r:6px;--fs:12px;--px:8px">Button</span></td>
+    </tr>
+    <tr>
+      <td><code>medium</code></td><td>32px</td><td>14px / 20px</td><td>8px</td><td>12px</td><td>16px</td>
+      <td><span class="size-preview" style="--h:32px;--r:8px;--fs:14px;--px:12px">Button</span></td>
+    </tr>
+    <tr>
+      <td><code>large</code></td><td>40px</td><td>16px / 24px</td><td>10px</td><td>16px</td><td>18px</td>
+      <td><span class="size-preview" style="--h:40px;--r:10px;--fs:16px;--px:16px">Button</span></td>
+    </tr>
+    <tr>
+      <td><code>extraLarge</code></td><td>48px</td><td>18px / 28px</td><td>12px</td><td>20px</td><td>20px</td>
+      <td><span class="size-preview" style="--h:48px;--r:12px;--fs:18px;--px:20px">Button</span></td>
+    </tr>
+  </table>
+
+  <h3>Когда какой размер</h3>
+  <table class="tbl">
+    <tr><th>Size</th><th>Типичный контекст</th></tr>
+    <tr><td><code>small</code></td><td>Строки таблиц, компактные тулбары, inline-действия</td></tr>
+    <tr><td><code>medium</code></td><td>Формы, карточки, боковые панели — дефолт</td></tr>
+    <tr><td><code>large</code></td><td>Главные CTA на landing, хедеры форм</td></tr>
+    <tr><td><code>extraLarge</code></td><td>Hero-секции, онбординг, крупные мобильные кнопки</td></tr>
+  </table>
+</div>
+
+<!-- STATES -->
+<div class="tab-pane" id="tab-states">
+  <h2>States</h2>
+  <div class="states-grid">
+    <div class="state-item">
+      <div class="state-demo">
+        <span style="padding:0 16px;height:32px;display:inline-flex;align-items:center;border-radius:8px;background:var(--text-primary);color:var(--bg);font-size:14px;font-weight:500">Button</span>
+      </div>
+      <div class="state-name">default</div>
+      <div class="state-desc">Исходное состояние</div>
+    </div>
+    <div class="state-item">
+      <div class="state-demo">
+        <span style="padding:0 16px;height:32px;display:inline-flex;align-items:center;border-radius:8px;background:var(--text-secondary);color:var(--bg);font-size:14px;font-weight:500">Button</span>
+      </div>
+      <div class="state-name">hover</div>
+      <div class="state-desc">Фон темнее на шаг</div>
+    </div>
+    <div class="state-item">
+      <div class="state-demo">
+        <span style="padding:0 16px;height:32px;display:inline-flex;align-items:center;border-radius:8px;background:var(--text-primary);color:var(--bg);font-size:14px;font-weight:500;transform:scale(0.97)">Button</span>
+      </div>
+      <div class="state-name">active</div>
+      <div class="state-desc">Лёгкое сжатие scale</div>
+    </div>
+    <div class="state-item">
+      <div class="state-demo">
+        <span style="padding:0 16px;height:32px;display:inline-flex;align-items:center;border-radius:8px;background:var(--text-primary);color:var(--bg);font-size:14px;font-weight:500;outline:3px solid var(--focus-ring);outline-offset:2px">Button</span>
+      </div>
+      <div class="state-name">focus</div>
+      <div class="state-desc">Кольцо focus/ring</div>
+    </div>
+    <div class="state-item">
+      <div class="state-demo">
+        <span style="padding:0 16px;height:32px;display:inline-flex;align-items:center;gap:6px;border-radius:8px;background:var(--text-primary);color:var(--bg);font-size:14px;font-weight:500;opacity:.6">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2" opacity=".8"/></svg>Loading
+        </span>
+      </div>
+      <div class="state-name">loading</div>
+      <div class="state-desc">Спиннер, label остаётся</div>
+    </div>
+    <div class="state-item">
+      <div class="state-demo">
+        <span style="padding:0 16px;height:32px;display:inline-flex;align-items:center;border-radius:8px;background:var(--bg2);color:var(--text-tertiary);font-size:14px;font-weight:500;cursor:not-allowed;border:0.5px solid var(--border)">Button</span>
+      </div>
+      <div class="state-name">disabled</div>
+      <div class="state-desc">Приглушённые цвета</div>
+    </div>
+  </div>
+
+  <h2>Valid state combinations</h2>
+  <table class="tbl">
+    <tr><th>Комбинация</th><th>Допустимо</th><th>Примечание</th></tr>
+    <tr><td><code>hover</code> + <code>focus</code></td><td><span class="dot y"></span> Да</td><td>Tab-навигация при наведении</td></tr>
+    <tr><td><code>active</code> + <code>focus</code></td><td><span class="dot y"></span> Да</td><td>Нажатие Enter / Space</td></tr>
+    <tr><td><code>loading</code> + <code>disabled</code></td><td><span class="dot y"></span> Да</td><td>Кнопка заблокирована во время запроса</td></tr>
+    <tr><td><code>hover</code> + <code>disabled</code></td><td><span class="dot n"></span> Нет</td><td>disabled отменяет все интерактивные состояния</td></tr>
+    <tr><td><code>loading</code> + <code>hover</code></td><td><span class="dot n"></span> Нет</td><td>В loading кнопка визуально недоступна</td></tr>
+  </table>
+</div>
+
+<!-- BEHAVIOR -->
+<div class="tab-pane" id="tab-behavior">
+  <h2>Keyboard interaction</h2>
+  <table class="tbl">
+    <tr><th>Клавиша</th><th>Действие</th></tr>
+    <tr><td><code>Tab</code> / <code>Shift+Tab</code></td><td>Перемещение фокуса между кнопками</td></tr>
+    <tr><td><code>Enter</code></td><td>Активирует кнопку (эквивалент клика)</td></tr>
+    <tr><td><code>Space</code></td><td>Активирует кнопку</td></tr>
+  </table>
+
+  <h2>Loading behavior</h2>
+  <p>При переходе в <code>loading</code>: кнопка блокируется, иконка заменяется спиннером, label остаётся видимым. Ширина кнопки не меняется — спиннер занимает место иконки или добавляется слева от label.</p>
+
+  <h2>Click zone</h2>
+  <p>Минимальная интерактивная зона — 44×44px (WCAG 2.5.8). Для <code>small</code> и <code>medium</code> зона клика расширяется прозрачным padding: визуальный размер кнопки не меняется.</p>
+
+  <h2>Full-width</h2>
+  <p>Модификатор <code>full-width</code> применяется только к одиночной кнопке в контейнере. Для группы кнопок используйте Button Group.</p>
+</div>
+
+<!-- ACCESSIBILITY -->
+<div class="tab-pane" id="tab-a11y">
+  <h2>Accessibility</h2>
+  <div class="a11y-list">
+    <div class="a11y-item">
+      <div class="a11y-cat">Keyboard</div>
+      <div class="a11y-text">Фокусируется через <code>Tab</code>. Активируется через <code>Enter</code> и <code>Space</code>. В состоянии <code>disabled</code> исключается из tab-order через нативный атрибут <code>disabled</code>, не только визуально.</div>
+    </div>
+    <div class="a11y-item">
+      <div class="a11y-cat">Screen reader</div>
+      <div class="a11y-text">Роль <code>role="button"</code> несёт нативный <code>&lt;button&gt;</code>. Для <code>icon-only</code>: обязателен <code>aria-label</code>. В состоянии <code>loading</code>: добавить <code>aria-busy="true"</code>. Состояние <code>disabled</code>: использовать атрибут <code>disabled</code>, а не <code>aria-disabled</code>.</div>
+    </div>
+    <div class="a11y-item">
+      <div class="a11y-cat">Visual</div>
+      <div class="a11y-text">Контрастность текста на фоне кнопки: минимум 4.5:1 (WCAG AA). Focus indicator не зависит только от цвета — кольцо <code>focus/ring</code> видимо на любом фоне. Состояние <code>disabled</code>: контраст ниже 4.5:1 допустим (WCAG 1.4.3).</div>
+    </div>
+    <div class="a11y-item">
+      <div class="a11y-cat">Touch</div>
+      <div class="a11y-text">Минимальный touch-target: 44×44px (WCAG 2.5.8). Для <code>small</code> и <code>medium</code> — расширяется невидимым padding или псевдоэлементом.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOKENS -->
+<div class="tab-pane" id="tab-tokens">
+  <h2>Design Tokens</h2>
+  <p>Component tokens — локальные переменные Button. Ссылаются на семантические токены SEDA UI. Для кастомизации переопределяйте component tokens, не semantic.</p>
+
+  <table class="tbl tokens">
+    <tr><th>Component token</th><th>Роль</th><th>Semantic (Light)</th><th>Semantic (Dark)</th></tr>
+
+    <tr class="token-group-header"><td colspan="4">Primary · Background</td></tr>
+    <tr><td>--btn-primary-bg</td><td>Фон default</td><td>surface/brand/default</td><td>surface/brand/default</td></tr>
+    <tr><td>--btn-primary-bg-hover</td><td>Фон hover</td><td>surface/brand/hover</td><td>surface/brand/hover</td></tr>
+    <tr><td>--btn-primary-bg-pressed</td><td>Фон active</td><td>surface/brand/pressed</td><td>surface/brand/pressed</td></tr>
+
+    <tr class="token-group-header"><td colspan="4">Primary · Text & Icon</td></tr>
+    <tr><td>--btn-primary-label</td><td>Цвет текста</td><td>text/on-brand/primary</td><td>text/on-brand/primary</td></tr>
+    <tr><td>--btn-primary-icon</td><td>Цвет иконки</td><td>text/on-brand/primary</td><td>text/on-brand/primary</td></tr>
+
+    <tr class="token-group-header"><td colspan="4">Secondary · Background & Border</td></tr>
+    <tr><td>--btn-secondary-bg</td><td>Фон default</td><td>surface/default</td><td>surface/default</td></tr>
+    <tr><td>--btn-secondary-border</td><td>Граница default</td><td>border/inverse/default</td><td>border/inverse/default</td></tr>
+    <tr><td>--btn-secondary-bg-hover</td><td>Фон hover</td><td>surface/hover</td><td>surface/hover</td></tr>
+    <tr><td>--btn-secondary-border-hover</td><td>Граница hover</td><td>border/inverse/hover</td><td>border/inverse/hover</td></tr>
+
+    <tr class="token-group-header"><td colspan="4">Secondary · Text</td></tr>
+    <tr><td>--btn-secondary-label</td><td>Цвет текста</td><td>text/primary</td><td>text/primary</td></tr>
+
+    <tr class="token-group-header"><td colspan="4">Destruction</td></tr>
+    <tr><td>--btn-destruction-bg</td><td>Фон default</td><td>status/error/surface</td><td>status/error/surface</td></tr>
+    <tr><td>--btn-destruction-bg-hover</td><td>Фон hover</td><td>status/error/border</td><td>status/error/border</td></tr>
+    <tr><td>--btn-destruction-label</td><td>Цвет текста</td><td>status/error/text</td><td>status/error/text</td></tr>
+
+    <tr class="token-group-header"><td colspan="4">Shared · Focus & Disabled</td></tr>
+    <tr><td>--btn-focus-ring</td><td>Кольцо фокуса</td><td>focus/ring</td><td>focus/ring</td></tr>
+    <tr><td>--btn-disabled-bg</td><td>Фон disabled</td><td>status/disabled/surface</td><td>status/disabled/surface</td></tr>
+    <tr><td>--btn-disabled-label</td><td>Текст disabled</td><td>status/disabled/text</td><td>status/disabled/text</td></tr>
+    <tr><td>--btn-disabled-border</td><td>Граница disabled</td><td>status/disabled/border</td><td>status/disabled/border</td></tr>
+  </table>
+</div>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.spec-nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
