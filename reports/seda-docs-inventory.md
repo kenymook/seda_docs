@@ -23,7 +23,7 @@ Foundation-слой закрывает основные P0/P1-пробелы: ac
 | `typography.md` | ready-foundation | Type roles, scale, responsive, numeric alignment |
 | `tokens.md` | ready-foundation | Layers, naming, lifecycle, quality checks |
 | `color.md` | ready-foundation | Color roles, contrast, status, text-on-color |
-| `spacing-layout.md` | ready-foundation | Spacing scale, density, layout patterns |
+| `spacing-sizing.md` | ready-foundation | Spacing scale, density, layout patterns |
 | `radius-border.md` | ready-foundation | Radius scale, border width, focus border |
 | `elevation.md` | ready-foundation | Elevation levels, z-index, overlay/scrim |
 | `motion.md` | ready-foundation | Duration/easing, patterns, reduced motion |
@@ -31,8 +31,8 @@ Foundation-слой закрывает основные P0/P1-пробелы: ac
 | `iconography.md` | ready-foundation | Icon roles, sizes, accessibility |
 | `interaction-model.md` | needs-review | Сильная модель, стоит связать с all overlay specs |
 | `state-vocabulary.md` | needs-review | Хороший словарь, нужна state precedence matrix |
-| `states.md` | needs-review | Нужна синхронизация с token grammar |
-| `sizes.md` | needs-review | Связан с typography, radius-border; можно добавить token aliases |
+| `state-vocabulary.md` | updated | Словарь и визуальные правила состояний объединены в одном документе. |
+| `spacing-sizing.md` | updated | Component sizing перенесен в layout/density foundation. |
 | `theming.md` | needs-review | Есть Light/Dark values, нужен pipeline/export |
 | `validation-model.md` | needs-expansion | Короткий документ, стоит расширить после content/accessibility |
 | `component-anatomy.md` | needs-expansion | Короткий документ, стоит связать со spec template |

@@ -120,7 +120,7 @@ Accessibility влияет на все компоненты и задает об
    - font weight;
    - use cases;
    - don't use cases.
-5. Связать type roles с текущей системой `sizes.md`.
+5. Связать type roles с системой component sizing в `spacing-sizing.md`.
 6. Добавить правила:
    - длина строки;
    - truncation;
@@ -131,7 +131,7 @@ Accessibility влияет на все компоненты и задает об
 ### Артефакты
 
 - Новый `foundation/typography.md` - выполнено
-- При необходимости обновленный `foundation/sizes.md` - выполнено
+- При необходимости обновленный component sizing в `foundation/spacing-sizing.md` - выполнено
 
 ### Критерий готовности
 
@@ -205,7 +205,7 @@ SEDA похожа на B2B/AI UI-систему, где плотность, та
 
 ### Задачи
 
-1. Расширить `foundation/spacing-layout.md`.
+1. Расширить `foundation/spacing-sizing.md`.
 2. Добавить semantic spacing tokens:
    - `space/component/xs`;
    - `space/component/s`;
@@ -235,7 +235,7 @@ SEDA похожа на B2B/AI UI-систему, где плотность, та
 
 ### Артефакты
 
-- Обновленный `foundation/spacing-layout.md` - выполнено
+- Обновленный `foundation/spacing-sizing.md` - выполнено
 - При необходимости новый `foundation/density.md`
 
 ### Критерий готовности
@@ -510,7 +510,7 @@ Icon-only, prefix/suffix, status и decorative icons описаны единоо
 2. `foundation/typography.md`
 3. `foundation/tokens.md`
 4. `foundation/color.md`
-5. `foundation/spacing-layout.md`
+5. `foundation/spacing-sizing.md`
 6. `specs/component-spec-template.md`
 
 ### P1

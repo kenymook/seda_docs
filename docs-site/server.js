@@ -64,6 +64,12 @@ const server = http.createServer((request, response) => {
     return;
   }
 
+  if (pathname === "/component-lab") {
+    response.writeHead(308, { Location: "/component-lab/" });
+    response.end();
+    return;
+  }
+
   if (pathname === "/docs-site/docs.json") {
     response.writeHead(200, {
       "Content-Type": "application/json; charset=utf-8",
@@ -73,7 +79,39 @@ const server = http.createServer((request, response) => {
     return;
   }
 
-  const requestedPath = pathname === "/" || pathname === "/docs-site/" ? "/docs-site/index.html" : pathname;
+  if (pathname === "/docs-site/save" && request.method === "POST") {
+    readJsonBody(request, response, (body) => {
+      const targetPath = resolveEditableMarkdownPath(body.path);
+
+      if (!targetPath) {
+        response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
+        response.end("Invalid markdown path");
+        return;
+      }
+
+      fs.writeFile(targetPath, String(body.content || ""), "utf8", (error) => {
+        if (error) {
+          response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+          response.end("Could not save file");
+          return;
+        }
+
+        response.writeHead(200, {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store",
+        });
+        response.end(JSON.stringify({ ok: true }));
+      });
+    });
+    return;
+  }
+
+  const requestedPath =
+    pathname === "/" || pathname === "/docs-site/"
+      ? "/docs-site/index.html"
+      : pathname === "/component-lab/"
+        ? "/component-lab/index.html"
+        : pathname;
   const filePath = path.resolve(root, `.${requestedPath}`);
 
   if (!filePath.startsWith(root)) {
@@ -169,4 +207,38 @@ function itemRank(section, filePath) {
   const order = preferredOrder[section] || [];
   const index = order.indexOf(slug);
   return index === -1 ? order.length : index;
+}
+
+function readJsonBody(request, response, callback) {
+  let body = "";
+
+  request.on("data", (chunk) => {
+    body += chunk;
+    if (body.length > 1024 * 1024) {
+      response.writeHead(413, { "Content-Type": "text/plain; charset=utf-8" });
+      response.end("Request body is too large");
+      request.destroy();
+    }
+  });
+
+  request.on("end", () => {
+    try {
+      callback(JSON.parse(body || "{}"));
+    } catch (error) {
+      response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
+      response.end("Invalid JSON");
+    }
+  });
+}
+
+function resolveEditableMarkdownPath(webPath) {
+  if (typeof webPath !== "string" || !webPath.endsWith(".md")) return null;
+
+  const normalized = webPath.replace(/\\/g, "/");
+  if (!normalized.startsWith("../foundation/") && !normalized.startsWith("../specs/")) return null;
+
+  const filePath = path.resolve(root, normalized.replace(/^\.\.\//, ""));
+  if (!filePath.startsWith(root) || path.extname(filePath) !== ".md") return null;
+
+  return filePath;
 }

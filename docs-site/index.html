@@ -1,10 +1,14 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SEDA UI Docs</title>
+    <title>SEDA AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../portal-sidebar.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -12,8 +16,7 @@
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">S</div>
           <div>
-            <div class="brand-title">SEDA UI</div>
-            <div class="brand-caption">Documentation</div>
+            <div class="brand-title">SEDA AI</div>
           </div>
         </div>
 
@@ -23,6 +26,7 @@
         </label>
 
         <nav id="nav" class="nav"></nav>
+        <div id="sidebarResizeHandle" class="sidebar-resize-handle" role="separator" aria-orientation="vertical" aria-label="Изменить ширину сайдбара"></div>
       </aside>
 
       <main class="content">
@@ -33,12 +37,25 @@
             <span></span>
           </button>
           <div id="breadcrumbs" class="breadcrumbs"></div>
+          <div class="doc-actions" aria-label="Редактирование документа">
+            <span id="editStatus" class="edit-status" aria-live="polite"></span>
+            <a class="secondary-button app-switch-link" href="../component-lab/" aria-label="Открыть Component Lab">Component Lab</a>
+            <button id="themeButton" class="theme-button" type="button" aria-label="Переключить тему" title="Переключить тему">
+              <span id="themeIcon" aria-hidden="true"></span>
+            </button>
+            <button id="previewButton" class="secondary-button" type="button" hidden>Предпросмотр</button>
+            <button id="cancelButton" class="secondary-button" type="button" hidden>Отмена</button>
+            <button id="saveButton" class="primary-button" type="button" hidden>Сохранить</button>
+            <button id="editButton" class="primary-button" type="button">Редактировать</button>
+          </div>
         </div>
 
         <article id="document" class="document" aria-live="polite"></article>
       </main>
     </div>
 
+    <script src="../portal-tokens.js"></script>
     <script src="./app.js"></script>
+    <script src="../portal-scrollbars.js"></script>
   </body>
 </html>

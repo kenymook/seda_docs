@@ -22,6 +22,9 @@
 - `tools/check-docs.ps1` расширен проверкой coverage между `foundation/components.md` и `specs/`.
 - `tokens.json` дополнен semantic motion tokens `duration/*` и `easing/*`.
 - Unknown token references в specs нормализованы до `0`.
+- `foundation/introducing.md`, `foundation/component-anatomy.md` и `foundation/validation-model.md` переписаны как полноценные foundation-разделы для подготовки 1.0.
+- `tools/check-docs.ps1` получил severity modes: blocking errors отдельно от Figma URL warnings.
+- Добавлен `reports/seda-designer-1-0-plan.md`; token export перенесен из ближайшего scope в post-1.0 developer/system operations backlog.
 
 ### Deprecated
 

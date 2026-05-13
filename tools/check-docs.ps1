@@ -5,11 +5,17 @@ param(
 $ErrorActionPreference = "Stop"
 
 $rootPath = Resolve-Path -LiteralPath $Root
-$issues = New-Object System.Collections.Generic.List[string]
+$errors = New-Object System.Collections.Generic.List[string]
+$warnings = New-Object System.Collections.Generic.List[string]
 
-function Add-Issue {
+function Add-Error {
   param([string]$Message)
-  $issues.Add($Message) | Out-Null
+  $errors.Add($Message) | Out-Null
+}
+
+function Add-Warning {
+  param([string]$Message)
+  $warnings.Add($Message) | Out-Null
 }
 
 function ConvertTo-Slug {
@@ -27,8 +33,7 @@ $requiredFoundation = @(
   "typography.md",
   "tokens.md",
   "color.md",
-  "spacing-layout.md",
-  "sizes.md",
+  "spacing-sizing.md",
   "radius-border.md",
   "elevation.md",
   "motion.md",
@@ -41,7 +46,7 @@ $requiredFoundation = @(
 foreach ($file in $requiredFoundation) {
   $path = Join-Path $rootPath "foundation\$file"
   if (-not (Test-Path -LiteralPath $path)) {
-    Add-Issue "Missing foundation file: foundation/$file"
+    Add-Error "Missing foundation file: foundation/$file"
   }
 }
 
@@ -84,47 +89,57 @@ if (Test-Path -LiteralPath $specRoot) {
 
     foreach ($slug in $expectedSlugs) {
       if (-not $actualSlugs.Contains($slug)) {
-        Add-Issue "Component listed in overview but missing spec: $slug"
+        Add-Error "Component listed in overview but missing spec: $slug"
       }
     }
 
     foreach ($slug in $actualSlugs) {
       if (-not $expectedSlugs.Contains($slug)) {
-        Add-Issue "Spec exists but component missing in overview: $slug"
+        Add-Error "Spec exists but component missing in overview: $slug"
       }
     }
   }
   else {
-    Add-Issue "Missing component overview: foundation/components.md"
+    Add-Error "Missing component overview: foundation/components.md"
   }
 
   foreach ($file in $specFiles) {
     $content = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
     $relative = Resolve-Path -LiteralPath $file.FullName -Relative
+    $statusLine = ([regex]::Match($content, '(?m)^> \*\*Status\*\*.*$')).Value
+    $status = "unknown"
+    if ($statusLine -match '(draft|needs-review|ready|deprecated)') {
+      $status = $Matches[1]
+    }
 
     $figmaLine = ([regex]::Match($content, '(?m)^> \*\*Figma\*\*.*$')).Value
     if ($figmaLine -and $figmaLine -notmatch 'https://www\.figma\.com/') {
-      Add-Issue "Missing real Figma URL: $relative"
+      if ($status -eq "ready") {
+        Add-Error "Missing real Figma URL on ready spec: $relative"
+      }
+      else {
+        Add-Warning "Missing real Figma URL on $status spec: $relative"
+      }
     }
     elseif ($content -match "TODO: node-id|placeholder") {
-      Add-Issue "Placeholder reference: $relative"
+      Add-Warning "Placeholder reference: $relative"
     }
 
     foreach ($field in @("Status", "Owner", "Last reviewed", "Figma")) {
       if ($content -notmatch "\*\*$field\*\*") {
-        Add-Issue "Missing metadata '$field': $relative"
+        Add-Error "Missing metadata '$field': $relative"
       }
     }
 
     foreach ($section in @("Anatomy", "States", "Accessibility", "Design Tokens")) {
       if ($content -notmatch "## .*?$section") {
-        Add-Issue "Missing section '$section': $relative"
+        Add-Error "Missing section '$section': $relative"
       }
     }
   }
 }
 else {
-  Add-Issue "Missing specs directory"
+  Add-Error "Missing specs directory"
 }
 
 $tokenAuditScript = Join-Path $rootPath "tools\check-token-refs.ps1"
@@ -132,21 +147,38 @@ if (Test-Path -LiteralPath $tokenAuditScript) {
   $tokenAuditOutput = & powershell -ExecutionPolicy Bypass -File $tokenAuditScript -Root $rootPath 2>&1
   $unknownLine = $tokenAuditOutput | Where-Object { $_ -match '^Unknown refs:' } | Select-Object -First 1
   if ($unknownLine -and $unknownLine -notmatch 'Unknown refs:\s+0$') {
-    Add-Issue "Unknown token references found. Run tools/check-token-refs.ps1 for details."
+    Add-Error "Unknown token references found. Run tools/check-token-refs.ps1 for details."
   }
 }
 else {
-  Add-Issue "Missing token reference checker: tools/check-token-refs.ps1"
+  Add-Error "Missing token reference checker: tools/check-token-refs.ps1"
 }
 
-if ($issues.Count -eq 0) {
+if ($errors.Count -eq 0 -and $warnings.Count -eq 0) {
   Write-Host "Docs check passed."
   exit 0
 }
 
-Write-Host "Docs check found $($issues.Count) issue(s):"
-foreach ($issue in $issues) {
-  Write-Host "- $issue"
+Write-Host "Docs check found $($errors.Count) error(s), $($warnings.Count) warning(s)."
+
+if ($errors.Count -gt 0) {
+  Write-Host ""
+  Write-Host "Errors:"
+  foreach ($errorItem in $errors) {
+    Write-Host "- $errorItem"
+  }
 }
 
-exit 1
+if ($warnings.Count -gt 0) {
+  Write-Host ""
+  Write-Host "Warnings:"
+  foreach ($warningItem in $warnings) {
+    Write-Host "- $warningItem"
+  }
+}
+
+if ($errors.Count -gt 0) {
+  exit 1
+}
+
+exit 0

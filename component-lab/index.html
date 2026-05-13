@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SEDA AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../portal-sidebar.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Компоненты">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">S</div>
+          <div>
+            <div class="brand-title">SEDA AI</div>
+          </div>
+        </div>
+
+        <label class="search">
+          <span class="search-label">Поиск</span>
+          <input id="searchInput" type="search" placeholder="button, table, text-field..." autocomplete="off" />
+        </label>
+
+        <nav id="nav" class="nav"></nav>
+        <div id="sidebarResizeHandle" class="sidebar-resize-handle" role="separator" aria-orientation="vertical" aria-label="Изменить ширину сайдбара"></div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <button id="menuButton" class="icon-button menu-button" type="button" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="breadcrumbs">
+            <span>Components</span>
+            <span aria-hidden="true">/</span>
+            <strong id="currentName">Button</strong>
+          </div>
+          <div class="topbar-actions">
+            <a class="topbar-link" href="../docs-site/" aria-label="Открыть документацию">Docs</a>
+            <button id="themeButton" class="icon-button" type="button" aria-label="Переключить тему" title="Переключить тему">
+              <span id="themeIcon" aria-hidden="true"></span>
+            </button>
+          </div>
+        </header>
+
+        <section class="workspace">
+          <section class="main-panel" aria-label="Предпросмотр компонента">
+            <div class="component-header">
+              <div>
+                <h1 id="componentTitle">Button</h1>
+                <p id="componentDescription">Живой предпросмотр компонента с настройкой props.</p>
+              </div>
+              <div id="demoStatus" class="demo-status"></div>
+            </div>
+
+            <div id="previewStage" class="preview-stage"></div>
+            <section id="examples" class="examples"></section>
+          </section>
+
+          <div id="inspectorResizeHandle" class="inspector-resize-handle" role="separator" aria-orientation="vertical" aria-label="Изменить ширину панели props"></div>
+          <aside class="inspector" aria-label="Настройки компонента">
+            <section class="inspector-section">
+              <h2>Props</h2>
+              <div id="propsPanel" class="props-panel"></div>
+            </section>
+
+            <section class="inspector-section">
+              <h2>Component tokens</h2>
+              <div id="tokenTree" class="token-tree"></div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="../portal-tokens.js"></script>
+    <script src="./app.js"></script>
+    <script src="../portal-scrollbars.js"></script>
+  </body>
+</html>

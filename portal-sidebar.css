@@ -1,0 +1,285 @@
+:root {
+  --portal-sidebar-surface: var(--surface, var(--surface-base));
+  --portal-sidebar-surface-soft: var(--surface-soft, var(--surface-subtle));
+  --portal-sidebar-border: var(--border, var(--border-default));
+  --portal-sidebar-border-strong: var(--border-strong, var(--border-hover));
+  --portal-sidebar-text: var(--text, var(--text-primary));
+  --portal-sidebar-text-secondary: var(--seda-text-secondary, var(--text-secondary));
+  --portal-sidebar-text-muted: var(--seda-text-muted, var(--text-muted));
+  --portal-sidebar-text-soft: var(--text-soft, var(--text-muted));
+  --portal-sidebar-hover: var(--seda-container-default, var(--container-neutral-default));
+  --portal-sidebar-active: var(--seda-container-hover, var(--container-neutral-hover));
+  --portal-sidebar-brand: var(--brand, var(--container-brand-default));
+  --portal-sidebar-focus: var(--focus-ring);
+  --portal-scrollbar-thumb: var(--portal-sidebar-text-muted);
+  --portal-scrollbar-thumb-hover: var(--portal-sidebar-text-secondary);
+}
+
+html,
+body,
+* {
+  scrollbar-color: transparent transparent;
+  scrollbar-gutter: auto;
+  scrollbar-width: thin;
+}
+
+html.portal-overlay-scrollbars,
+html.portal-overlay-scrollbars body,
+html.portal-overlay-scrollbars * {
+  scrollbar-width: none;
+}
+
+html.portal-overlay-scrollbars::-webkit-scrollbar,
+html.portal-overlay-scrollbars body::-webkit-scrollbar,
+html.portal-overlay-scrollbars *::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html:hover,
+html:focus-within,
+html.is-scrolling-page,
+body.is-scrolling-page,
+*:hover,
+*:focus-within,
+*.is-scrolling {
+  scrollbar-color: var(--portal-scrollbar-thumb) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  background-clip: content-box;
+}
+
+html:hover::-webkit-scrollbar-thumb,
+html:focus-within::-webkit-scrollbar-thumb,
+html.is-scrolling-page::-webkit-scrollbar-thumb,
+body.is-scrolling-page::-webkit-scrollbar-thumb,
+*:hover::-webkit-scrollbar-thumb,
+*:focus-within::-webkit-scrollbar-thumb,
+*.is-scrolling::-webkit-scrollbar-thumb {
+  background: var(--portal-scrollbar-thumb);
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--portal-scrollbar-thumb-hover);
+  background-clip: content-box;
+}
+
+.portal-scrollbar-thumb {
+  position: fixed;
+  z-index: 100;
+  width: 4px;
+  min-height: 24px;
+  border-radius: 999px;
+  background: var(--portal-scrollbar-thumb);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  transition: opacity 120ms ease;
+}
+
+.portal-scrollbar-thumb.is-visible {
+  opacity: 1;
+}
+
+.portal-scrollbar-thumb.is-hovered {
+  background: var(--portal-scrollbar-thumb-hover);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  width: var(--sidebar-width);
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid var(--portal-sidebar-border-strong);
+  background: var(--portal-sidebar-surface);
+  padding: 12px;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+}
+
+.sidebar:hover,
+.sidebar:focus-within,
+.sidebar.is-scrolling {
+  scrollbar-color: var(--portal-sidebar-text-muted) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  background-clip: content-box;
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb,
+.sidebar:focus-within::-webkit-scrollbar-thumb,
+.sidebar.is-scrolling::-webkit-scrollbar-thumb {
+  background: var(--portal-sidebar-text-muted);
+  background-clip: content-box;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--portal-sidebar-text-secondary);
+  background-clip: content-box;
+}
+
+.sidebar-resize-handle {
+  position: fixed;
+  top: 0;
+  right: auto;
+  left: calc(var(--sidebar-width) - 2px);
+  z-index: 25;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.sidebar-resize-handle::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: transparent;
+  content: "";
+}
+
+.sidebar-resize-handle:hover::after,
+body.resizing-sidebar .sidebar-resize-handle::after {
+  width: 2px;
+  background: var(--portal-sidebar-brand);
+}
+
+body.resizing-sidebar {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 32px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.brand-mark {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--portal-sidebar-text);
+  font-weight: 700;
+}
+
+.brand-title {
+  color: var(--portal-sidebar-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.search {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 16px;
+}
+
+.search-label {
+  color: var(--portal-sidebar-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.search input {
+  width: 100%;
+  height: 32px;
+  border: 1px solid var(--portal-sidebar-border);
+  border-radius: 7px;
+  background: var(--portal-sidebar-surface-soft);
+  color: var(--portal-sidebar-text);
+  font: inherit;
+  outline: none;
+  padding: 0 11px;
+}
+
+.search input:focus {
+  border-color: var(--portal-sidebar-brand);
+  box-shadow: 0 0 0 3px var(--portal-sidebar-focus);
+}
+
+.nav-section {
+  margin: 16px 0;
+}
+
+.nav-section-title {
+  color: var(--portal-sidebar-text-soft);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin: 0;
+  padding: 1px 6px;
+  text-transform: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  border-radius: 8px;
+  color: var(--portal-sidebar-text-secondary);
+  font-size: 14px;
+  gap: 8px;
+  line-height: 20px;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: var(--portal-sidebar-hover);
+  color: var(--portal-sidebar-text);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background: var(--portal-sidebar-active);
+  color: var(--portal-sidebar-text);
+  font-weight: 400;
+}
+
+.nav-empty {
+  color: var(--portal-sidebar-text-muted);
+  font-size: 13px;
+  padding: 10px 4px;
+}
