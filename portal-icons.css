@@ -1,0 +1,25 @@
+.seda-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: var(--seda-icon-size, 1em);
+  height: var(--seda-icon-size, 1em);
+  background: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.seda-icon-add { mask-image: url("./assets/icons/seda/add.svg"); -webkit-mask-image: url("./assets/icons/seda/add.svg"); }
+.seda-icon-arrow-right { mask-image: url("./assets/icons/seda/arrow-right.svg"); -webkit-mask-image: url("./assets/icons/seda/arrow-right.svg"); }
+.seda-icon-arrow-down { mask-image: url("./assets/icons/seda/arrow-down.svg"); -webkit-mask-image: url("./assets/icons/seda/arrow-down.svg"); }
+.seda-icon-arrow-chevron-down { mask-image: url("./assets/icons/seda/arrow-chevron-down.svg"); -webkit-mask-image: url("./assets/icons/seda/arrow-chevron-down.svg"); }
+.seda-icon-close { mask-image: url("./assets/icons/seda/close.svg"); -webkit-mask-image: url("./assets/icons/seda/close.svg"); }
+.seda-icon-search { mask-image: url("./assets/icons/seda/search.svg"); -webkit-mask-image: url("./assets/icons/seda/search.svg"); }
+.seda-icon-calendar { mask-image: url("./assets/icons/seda/calendar.svg"); -webkit-mask-image: url("./assets/icons/seda/calendar.svg"); }
+.seda-icon-clock { mask-image: url("./assets/icons/seda/clock.svg"); -webkit-mask-image: url("./assets/icons/seda/clock.svg"); }
+.seda-icon-info { mask-image: url("./assets/icons/seda/info.svg"); -webkit-mask-image: url("./assets/icons/seda/info.svg"); }
+.seda-icon-sun { mask-image: url("./assets/icons/seda/sun.svg"); -webkit-mask-image: url("./assets/icons/seda/sun.svg"); }
+.seda-icon-moon { mask-image: url("./assets/icons/seda/moon.svg"); -webkit-mask-image: url("./assets/icons/seda/moon.svg"); }

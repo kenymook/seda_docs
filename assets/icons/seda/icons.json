@@ -1,0 +1,20 @@
+{
+  "source": {
+    "fileKey": "Su1jWqKc9TkD1R8f7wHOQU",
+    "pageNodeId": "3:3828",
+    "pageName": "Icons"
+  },
+  "icons": [
+    { "name": "add", "style": "line", "figmaNodeId": "789:207", "figmaName": "Icon/Line/add", "file": "add.svg" },
+    { "name": "arrow-right", "style": "line", "figmaNodeId": "787:63", "figmaName": "Icon/Line/arrowRight", "file": "arrow-right.svg" },
+    { "name": "arrow-down", "style": "line", "figmaNodeId": "787:62", "figmaName": "Icon/Line/arrowDown", "file": "arrow-down.svg" },
+    { "name": "arrow-chevron-down", "style": "line", "figmaNodeId": "6054:6020", "figmaName": "Icon/Line/arrowChevronDown", "file": "arrow-chevron-down.svg" },
+    { "name": "close", "style": "line", "figmaNodeId": "789:227", "figmaName": "Icon/Line/close", "file": "close.svg" },
+    { "name": "search", "style": "line", "figmaNodeId": "788:79", "figmaName": "Icon/Line/search", "file": "search.svg" },
+    { "name": "calendar", "style": "line", "figmaNodeId": "789:166", "figmaName": "Icon/Line/calendar", "file": "calendar.svg" },
+    { "name": "clock", "style": "line", "figmaNodeId": "789:185", "figmaName": "Icon/Line/clock", "file": "clock.svg" },
+    { "name": "info", "style": "line", "figmaNodeId": "789:189", "figmaName": "Icon/Line/circleInformation", "file": "info.svg" },
+    { "name": "sun", "style": "line", "figmaNodeId": "789:162", "figmaName": "Icon/Line/sun", "file": "sun.svg" },
+    { "name": "moon", "style": "line", "figmaNodeId": "977:11180", "figmaName": "Icon/Line/moon", "file": "moon.svg" }
+  ]
+}
