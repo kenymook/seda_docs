@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="../portal-sidebar.css" />
+    <link rel="stylesheet" href="../portal-icons.css?v=20260514-3" />
   </head>
   <body>
     <div class="app-shell">
@@ -16,7 +17,7 @@
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">S</div>
           <div>
-            <div class="brand-title">SEDA AI</div>
+            <div class="brand-title">Design System</div>
           </div>
         </div>
 
@@ -66,7 +67,10 @@
           <div id="inspectorResizeHandle" class="inspector-resize-handle" role="separator" aria-orientation="vertical" aria-label="Изменить ширину панели props"></div>
           <aside class="inspector" aria-label="Настройки компонента">
             <section class="inspector-section">
-              <h2>Props</h2>
+              <div class="inspector-section-header">
+                <h2>Props</h2>
+                <a id="componentDocsLink" class="inspector-link" href="../docs-site/">Открыть в Docs</a>
+              </div>
               <div id="propsPanel" class="props-panel"></div>
             </section>
 

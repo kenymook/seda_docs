@@ -17,11 +17,11 @@
 
 | Path | Role | GitHub |
 | --- | --- | --- |
-| `docs-site/` | Локальный docs/health сайт для SEDA AI | Да |
-| `component-lab/` | Лаборатория компонентов и визуальной проверки | Да |
+| `portal/` | Документационный портал SEDA AI: docs-site, component-lab и shared portal assets | Да |
+| `portal/docs-site/` | Локальный docs/health сайт для SEDA AI | Да |
+| `portal/component-lab/` | Лаборатория компонентов и визуальной проверки | Да |
 | `figma-plugins/` | Figma tooling, если используется как часть проекта | Да |
-| `portal-*.js`, `portal-*.css` | Shared portal scripts/styles для документации | Да, пока используются docs-site |
-| `button-spec-template.html` | Исторический или вспомогательный шаблон | Да, пока нужен для reference |
+| `portal/portal-*.js`, `portal/portal-*.css` | Shared portal scripts/styles для документации и component lab | Да |
 | `seda-docs.jsx` | Документационный артефакт/прототип | Да, пока нужен для reference |
 | `token-usage-guide.md` | Практическое руководство по использованию токенов | Да |
 | `seda_ui_architecture.md` | Архитектурная заметка по системе | Да |
@@ -36,8 +36,8 @@
 | `CLAUDE.md` | Локальные инструкции для ассистента |
 | `handoff.md` | Рабочий handoff с локальными путями, текущим состоянием и задачами |
 | `figma_references.md` | Локальные Figma/reference заметки |
-| `docs-site/claude-tasks.md` | Сгенерированная очередь задач для AI/agent workflow |
-| `docs-site/figma-components.json` | Сгенерированный Figma scan snapshot, его можно пересоздать |
+| `portal/docs-site/claude-tasks.md` | Сгенерированная очередь задач для AI/agent workflow |
+| `portal/docs-site/figma-components.json` | Сгенерированный Figma scan snapshot, его можно пересоздать |
 | `reports/` | Сгенерированные отчеты |
 | `tools/` | Локальные helper scripts/workspaces, если они не оформлены как часть продукта |
 | `tmp/`, `temp/`, `.cache/` | Временные файлы и cache |
@@ -48,9 +48,9 @@
 
 | File | Recommendation |
 | --- | --- |
-| `docs-site/figma-component-aliases.json` | Хранить в GitHub: это curated mapping, влияющий на Health |
-| `docs-site/figma-quality-exceptions.json` | Хранить в GitHub: это curated список принятых исключений |
-| `docs-site/figma-components.json` | Не хранить в GitHub: это generated snapshot из Figma |
+| `portal/docs-site/figma-component-aliases.json` | Хранить в GitHub: это curated mapping, влияющий на Health |
+| `portal/docs-site/figma-quality-exceptions.json` | Хранить в GitHub: это curated список принятых исключений |
+| `portal/docs-site/figma-components.json` | Не хранить в GitHub: это generated snapshot из Figma |
 
 ## Practical Rule
 

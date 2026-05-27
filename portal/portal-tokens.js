@@ -10,7 +10,9 @@
         const response = await fetch(path, { cache: "no-store" });
         if (!response.ok) continue;
         tokens = await response.json();
+        window.SEDA_TOKENS = tokens;
         applyPortalTokens();
+        window.dispatchEvent(new CustomEvent("seda-tokens-ready"));
         observeTheme();
         return;
       } catch (error) {

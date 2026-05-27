@@ -1,9 +1,16 @@
-let tokens = null;
+﻿let tokens = null;
 let components = {};
 let flatComponents = [];
+let docsByComponent = new Map();
 let selectedComponent = "button";
 let propsState = {};
 let openPropSelect = null;
+let activePropSelectIndex = {};
+let activeDemoSelectIndex = 0;
+let activeComboboxIndex = 0;
+
+const SIZE_MATRIX_ID = "size-matrix";
+const SIZE_MATRIX_SIZES = ["s", "m", "l", "xl"];
 
 const nav = document.querySelector("#nav");
 const searchInput = document.querySelector("#searchInput");
@@ -17,11 +24,13 @@ const propsPanel = document.querySelector("#propsPanel");
 const tokenTree = document.querySelector("#tokenTree");
 const themeButton = document.querySelector("#themeButton");
 const themeIcon = document.querySelector("#themeIcon");
+const componentDocsLink = document.querySelector("#componentDocsLink");
 const menuButton = document.querySelector("#menuButton");
 const sidebar = document.querySelector(".sidebar");
 const sidebarResizeHandle = document.querySelector("#sidebarResizeHandle");
 const inspector = document.querySelector(".inspector");
 const inspectorResizeHandle = document.querySelector("#inspectorResizeHandle");
+const workspace = document.querySelector(".workspace");
 
 const demoComponents = new Set([
   "button",
@@ -92,7 +101,7 @@ const controls = {
   select: [
     { id: "size", type: "select", label: "Size", options: ["s", "m", "l", "xl"] },
     { id: "label", type: "text", label: "Label", value: "Статус" },
-    { id: "value", type: "select", label: "Value", options: ["", "Draft", "In review", "Ready"] },
+    { id: "value", type: "select", label: "Value", options: ["Draft", "In review", "Ready"], value: "Draft" },
     { id: "helper", type: "text", label: "Helper", value: "Выберите значение" },
     { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "focus", "error", "warning", "success", "disabled", "loading"] },
     { id: "open", type: "boolean", label: "Open menu", value: true },
@@ -142,26 +151,26 @@ const controls = {
   ],
   checkbox: [
     { id: "size", type: "select", label: "Size", options: ["s", "m", "l", "xl"] },
-    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "checked", "indeterminate", "error", "disabled"] },
+    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "focus", "checked", "indeterminate", "error", "disabled"] },
     { id: "label", type: "text", label: "Label", value: "Enable memory" },
     { id: "helper", type: "text", label: "Helper", value: "Applies to future generations" },
   ],
   radio: [
     { id: "size", type: "select", label: "Size", options: ["s", "m", "l", "xl"] },
-    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "selected", "error", "disabled"] },
+    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "focus", "selected", "error", "disabled"] },
     { id: "label", type: "text", label: "Label", value: "Precise mode" },
     { id: "helper", type: "text", label: "Helper", value: "Best for review workflows" },
   ],
   toggle: [
     { id: "size", type: "select", label: "Size", options: ["s", "m", "l", "xl"] },
-    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "disabled"] },
+    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "focus", "disabled"] },
     { id: "checked", type: "boolean", label: "On", value: true },
     { id: "label", type: "text", label: "Label", value: "Enable sync" },
     { id: "helper", type: "text", label: "Helper", value: "Keeps workspace data current" },
   ],
   "segmented-control": [
     { id: "size", type: "select", label: "Size", options: ["s", "m", "l", "xl"] },
-    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "disabled"] },
+    { id: "state", type: "select", label: "State", options: ["default", "hover", "active", "focus", "disabled"] },
     { id: "selected", type: "select", label: "Selected", options: ["List", "Board", "Chart"] },
   ],
   avatar: [
@@ -318,13 +327,17 @@ applyTheme(localStorage.getItem("seda-portal-theme") || localStorage.getItem("co
 init();
 
 async function init() {
-  const response = await fetch("../tokens.json", { cache: "no-store" });
-  tokens = await response.json();
+  const [tokensResponse, docsIndex] = await Promise.all([
+    fetch("../tokens.json", { cache: "no-store" }),
+    loadDocsIndex(),
+  ]);
+  tokens = await tokensResponse.json();
   components = tokens.$collections.components.$modes["Mode 1"];
   flatComponents = Object.keys(components).sort();
+  docsByComponent = buildDocsMap(docsIndex);
 
   selectedComponent = location.hash.replace("#", "") || "button";
-  if (!components[selectedComponent]) selectedComponent = flatComponents[0];
+  if (selectedComponent !== SIZE_MATRIX_ID && !components[selectedComponent]) selectedComponent = flatComponents[0];
 
   renderNav();
   selectComponent(selectedComponent);
@@ -333,8 +346,20 @@ async function init() {
 function renderNav(filter = "") {
   const query = filter.trim().toLowerCase();
   const groups = groupComponents(flatComponents.filter((name) => name.includes(query)));
+  const matrixVisible = !query || "size matrix размер размеры sizing".includes(query);
+  const matrixSection = matrixVisible
+    ? `
+      <section class="nav-section">
+        <h2 class="nav-section-title">System review</h2>
+        <a class="nav-link ${selectedComponent === SIZE_MATRIX_ID ? "active" : ""}" href="#${SIZE_MATRIX_ID}" data-component="${SIZE_MATRIX_ID}">
+          Size Matrix
+          <span class="nav-count">${sizeMatrixComponents().length}</span>
+        </a>
+      </section>
+    `
+    : "";
 
-  nav.innerHTML = Object.entries(groups)
+  nav.innerHTML = matrixSection + Object.entries(groups)
     .map(([title, items]) => `
       <section class="nav-section">
         <h2 class="nav-section-title">${escapeHtml(title)}</h2>
@@ -371,6 +396,7 @@ function groupComponents(names) {
 }
 
 function hasLiveDemo(name) {
+  if (name === SIZE_MATRIX_ID) return true;
   return Boolean(demos[name]) || components[name];
 }
 
@@ -411,18 +437,66 @@ function genericControls(name) {
 function selectComponent(name) {
   selectedComponent = name;
   location.hash = name;
-  propsState = defaultProps(name);
-  currentName.textContent = titleCase(name);
-  componentTitle.textContent = titleCase(name);
-  document.title = `${titleCase(name)} - SEDA AI`;
-  componentDescription.textContent = hasLiveDemo(name)
-    ? "Живой предпросмотр компонента с настройкой props."
-    : "Для этого компонента пока доступен token preview. Интерактивный пример можно добавить следующим проходом.";
-  demoStatus.textContent = hasLiveDemo(name) ? "Interactive" : "Token preview";
+  const isMatrix = name === SIZE_MATRIX_ID;
+  propsState = isMatrix ? {} : defaultProps(name);
+  workspace?.classList.toggle("is-matrix", isMatrix);
+  currentName.textContent = isMatrix ? "Size Matrix" : titleCase(name);
+  componentTitle.textContent = isMatrix ? "Size Matrix" : titleCase(name);
+  document.title = `${isMatrix ? "Size Matrix" : titleCase(name)} - SEDA AI`;
+  componentDescription.textContent = isMatrix
+    ? "Сравнение компонентов по одной размерной шкале: s, m, l, xl."
+    : hasLiveDemo(name)
+      ? "Живой предпросмотр компонента с настройкой props."
+      : "Для этого компонента пока доступен token preview. Интерактивный пример можно добавить следующим проходом.";
+  demoStatus.textContent = isMatrix ? "System review" : hasLiveDemo(name) ? "Interactive" : "Token preview";
   renderNav(searchInput.value);
   renderProps();
   renderPreview();
   renderTokenTree();
+  updateDocsLink(name);
+}
+
+async function loadDocsIndex() {
+  try {
+    const response = await fetch("../docs-site/docs.json", { cache: "no-store" });
+    if (!response.ok) return [];
+    return await response.json();
+  } catch {
+    return [];
+  }
+}
+
+function buildDocsMap(index) {
+  const map = new Map();
+  (index || []).forEach((section) => {
+    (section.items || []).forEach(([, path]) => {
+      const normalizedPath = String(path || "").replace(/\\/g, "/");
+      if (!normalizedPath.startsWith("../specs/")) return;
+      const componentName = normalizedPath.split("/").pop()?.replace(/\.md$/, "");
+      if (!componentName || map.has(componentName)) return;
+      map.set(componentName, `../docs-site/#${pathToDocsId(normalizedPath)}`);
+    });
+  });
+  return map;
+}
+
+function pathToDocsId(path) {
+  return path.replace(/^\.\.\//, "").replace(/\.md$/, "").replace(/[\\/]/g, "-");
+}
+
+function updateDocsLink(name) {
+  if (!componentDocsLink) return;
+  if (name === SIZE_MATRIX_ID) {
+    componentDocsLink.hidden = true;
+    return;
+  }
+
+  const href = docsByComponent.get(name) || "../docs-site/";
+  const title = `Открыть документацию ${titleCase(name)}`;
+  componentDocsLink.href = href;
+  componentDocsLink.hidden = !docsByComponent.has(name);
+  componentDocsLink.setAttribute("aria-label", title);
+  componentDocsLink.setAttribute("title", title);
 }
 
 function defaultProps(name) {
@@ -430,13 +504,23 @@ function defaultProps(name) {
     if (control.type === "boolean") return [control.id, Boolean(control.value)];
     return [control.id, control.value ?? control.options?.[0] ?? ""];
   }));
-  if (["text-field", "text-area", "select", "date-picker", "time-picker"].includes(name)) {
+  if (["text-field", "text-area", "date-picker", "time-picker"].includes(name)) {
     next.value = "";
   }
   return next;
 }
 
 function renderProps() {
+  if (selectedComponent === SIZE_MATRIX_ID) {
+    propsPanel.innerHTML = `
+      <div class="matrix-help">
+        <strong>Size Matrix</strong>
+        <span>Страница нужна для визуальной проверки высот, радиусов, отступов и типографики между компонентами.</span>
+      </div>
+    `;
+    return;
+  }
+
   const componentControls = getControls(selectedComponent);
   if (!componentControls.length) {
     propsPanel.innerHTML = `<div class="token-row"><span class="token-name">Props controls are not defined yet.</span></div>`;
@@ -447,21 +531,44 @@ function renderProps() {
     if (control.type === "select") {
       const css = fieldVars(components.select, "default", "m", "select");
       const isOpen = openPropSelect === control.id;
+      const selectedIndex = Math.max(0, control.options.indexOf(propsState[control.id]));
+      const activeIndex = isOpen ? clampNumber(activePropSelectIndex[control.id] ?? selectedIndex, 0, control.options.length - 1) : selectedIndex;
+      const listboxId = `prop-listbox-${control.id}`;
+      const activeOptionId = `${listboxId}-option-${activeIndex}`;
+      const selectedLabel = optionLabel(propsState[control.id], control);
       return `
         <div class="control prop-field prop-select-control" style="${css}">
           <span class="field-label">${escapeHtml(control.label)}</span>
-          <button class="seda-select prop-select-trigger ${isOpen ? "is-open" : ""}" type="button" data-prop-select="${control.id}" aria-haspopup="listbox" aria-expanded="${isOpen}">
-            <span>${escapeHtml(propsState[control.id])}</span>
-            <span class="prop-select-chevron" aria-hidden="true">⌄</span>
+          <button
+            class="seda-select prop-select-trigger ${isOpen ? "is-open" : ""}"
+            type="button"
+            data-prop-select="${control.id}"
+            ${tooltipAttr(propControlTooltip(control))}
+            aria-haspopup="listbox"
+            aria-expanded="${isOpen}"
+            aria-controls="${listboxId}"
+            ${isOpen ? `aria-activedescendant="${activeOptionId}"` : ""}
+          >
+            <span>${escapeHtml(selectedLabel)}</span>
+            <span class="prop-select-chevron seda-icon seda-icon-arrow-chevron-down" aria-hidden="true"></span>
           </button>
           ${
             isOpen
-              ? `<div class="prop-select-menu" role="listbox" aria-label="${escapeHtml(control.label)}">
+              ? `<div class="prop-select-menu" id="${listboxId}" role="listbox" aria-label="${escapeHtml(control.label)}">
                   ${control.options
                     .map(
                       (option) => `
-                        <button class="prop-select-option ${propsState[control.id] === option ? "is-selected" : ""}" type="button" role="option" aria-selected="${propsState[control.id] === option}" data-prop-select-option="${control.id}" data-value="${escapeHtml(option)}">
-                          ${escapeHtml(option)}
+                        <button
+                          class="prop-select-option ${propsState[control.id] === option ? "is-selected" : ""} ${control.options[activeIndex] === option ? "is-active" : ""}"
+                          id="${listboxId}-option-${control.options.indexOf(option)}"
+                          type="button"
+                          role="option"
+                          aria-selected="${propsState[control.id] === option}"
+                          data-prop-select-option="${control.id}"
+                          data-value="${escapeHtml(option)}"
+                        >
+                          <span>${escapeHtml(optionLabel(option, control))}</span>
+                          ${propsState[control.id] === option ? `<span class="select-check" aria-hidden="true"></span>` : ""}
                         </button>
                       `,
                     )
@@ -478,7 +585,7 @@ function renderProps() {
       return `
         <div class="control-row prop-toggle-row" style="${css}">
           <span class="field-label">${escapeHtml(control.label)}</span>
-          <label class="prop-toggle">
+          <label class="prop-toggle" ${tooltipAttr(propControlTooltip(control))}>
             <input type="checkbox" data-prop="${control.id}" ${propsState[control.id] ? "checked" : ""} />
             <span class="seda-toggle-demo ${propsState[control.id] ? "is-on" : ""}" aria-hidden="true"><span></span></span>
           </label>
@@ -488,7 +595,7 @@ function renderProps() {
 
     const css = fieldVars(components["text-field"], "default", "m", "input");
     return `
-      <label class="control prop-field" style="${css}">
+      <label class="control prop-field" style="${css}" ${tooltipAttr(propControlTooltip(control))}>
         <span class="field-label">${escapeHtml(control.label)}</span>
         <input class="seda-field prop-input" data-prop="${control.id}" value="${escapeHtml(propsState[control.id])}" />
       </label>
@@ -497,9 +604,100 @@ function renderProps() {
 }
 
 function renderPreview() {
+  if (selectedComponent === SIZE_MATRIX_ID) {
+    previewStage.innerHTML = renderSizeMatrix();
+    examples.innerHTML = "";
+    return;
+  }
+
   const render = demos[selectedComponent] || (() => renderGenericDemo(selectedComponent));
   previewStage.innerHTML = render();
   examples.innerHTML = renderExamples();
+}
+
+function sizeMatrixComponents() {
+  return flatComponents.filter((name) => {
+    const sizeControl = getControls(name).find((control) => control.id === "size");
+    return hasLiveDemo(name) && SIZE_MATRIX_SIZES.every((size) => sizeControl?.options?.includes(size));
+  });
+}
+
+function renderSizeMatrix() {
+  const names = sizeMatrixComponents();
+  return `
+    <div class="size-matrix" aria-label="Size Matrix">
+      <div class="size-matrix-note">
+        <strong>Контроль размерной шкалы</strong>
+        <span>Каждая строка показывает один размер для всех компонентов, которые поддерживают s / m / l / xl.</span>
+      </div>
+      ${SIZE_MATRIX_SIZES.map((size) => `
+        <section class="size-matrix-row" aria-label="Размер ${size}">
+          <div class="size-matrix-row-header">
+            <h2>${size.toUpperCase()}</h2>
+            <span>${names.length} components</span>
+          </div>
+          <div class="size-matrix-grid">
+            ${names.map((name) => renderSizeMatrixCell(name, size)).join("")}
+          </div>
+        </section>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderSizeMatrixCell(name, size) {
+  const previousComponent = selectedComponent;
+  const previousProps = propsState;
+  let demo = "";
+
+  try {
+    selectedComponent = name;
+    propsState = {
+      ...defaultProps(name),
+      size,
+      state: "default",
+      open: false,
+      label: matrixLabel(name),
+    };
+    if (name === "select") propsState.value = propsState.value || selectOptions()[0];
+    if (name === "date-picker") propsState.value = "14.05.2026";
+    if (name === "time-picker") propsState.value = "14:30";
+
+    const render = demos[name] || (() => renderGenericDemo(name));
+    demo = render();
+  } catch (error) {
+    demo = `<div class="preview-card matrix-error">Не удалось отрисовать пример</div>`;
+  } finally {
+    selectedComponent = previousComponent;
+    propsState = previousProps;
+  }
+
+  return `
+    <article class="size-matrix-cell">
+      <a class="size-matrix-cell-title" href="#${name}">${escapeHtml(titleCase(name))}</a>
+      <div class="size-matrix-cell-demo">${demo}</div>
+    </article>
+  `;
+}
+
+function matrixLabel(name) {
+  const labels = {
+    button: "Создать",
+    "icon-button": "Поиск",
+    "text-field": "Название",
+    "text-area": "Комментарий",
+    select: "Статус",
+    tabs: "Overview",
+    checkbox: "Option",
+    radio: "Option",
+    toggle: "Sync",
+    search: "Dataset",
+    "segmented-control": "List",
+    "date-picker": "Дата",
+    "time-picker": "Время",
+    "button-group": "Mode",
+  };
+  return labels[name] || titleCase(name);
 }
 
 function updateDemoState(nextState, options = {}) {
@@ -532,8 +730,10 @@ const demos = {
     const css = styleVars({
       "--button-surface": tokenValue(branch.surface?.[surfaceState]) || tokenValue(branch.surface?.default) || "var(--container-brand-default)",
       "--button-surface-hover": tokenValue(branch.surface?.hover) || "var(--container-brand-hover)",
+      "--button-surface-active": tokenValue(branch.surface?.active) || tokenValue(branch.surface?.pressed) || tokenValue(branch.surface?.hover) || "var(--container-brand-pressed)",
       "--button-foreground": tokenValue(branch.foreground?.[foregroundState]) || tokenValue(branch.foreground?.default) || "var(--text-on-brand-primary)",
       "--button-border": tokenValue(branch.border?.[borderState]) || tokenValue(branch.border?.default) || tokenValue(branch.surface?.default) || "transparent",
+      "--button-focus-ring": tokenValue(branch.focus?.ring) || "var(--focus-ring)",
       "--button-width": propsState.fullWidth ? "100%" : "auto",
       "--button-height": box.height,
       "--button-padding-x": box.paddingX,
@@ -541,15 +741,21 @@ const demos = {
       "--button-gap": box.gap,
       "--button-radius": box.radius,
       "--button-border-width": box.borderWidth,
+      "--button-icon-size": box.iconSize,
       "--button-font-size": type.size,
       "--button-line-height": type.lineHeight,
       "--button-font-weight": type.weight,
       "--button-letter-spacing": type.letterSpacing,
     });
-    const leading = propsState.leadingIcon ? `<span aria-hidden="true">+</span>` : "";
-    const trailing = propsState.trailingIcon ? `<span aria-hidden="true">→</span>` : "";
+    const leading = propsState.leadingIcon ? `<span class="seda-icon seda-icon-add" aria-hidden="true"></span>` : "";
+    const trailing = propsState.trailingIcon ? `<span class="seda-icon seda-icon-arrow-right" aria-hidden="true"></span>` : "";
     const label = propsState.state === "loading" ? "Загрузка..." : escapeHtml(propsState.label);
     const hasCustomProps = propsState.leadingIcon || propsState.trailingIcon || propsState.fullWidth;
+    const tooltip = propsState.state === "disabled"
+      ? "Кнопка недоступна. Причина должна быть объяснена рядом или через tooltip."
+      : propsState.state === "loading"
+        ? "Кнопка выполняет действие и блокирует повторный запуск."
+        : "Нажмите, чтобы пройти состояния: default, hover, active, focus.";
     return `
       <div class="preview-card">
         <div class="source-row">
@@ -557,7 +763,9 @@ const demos = {
           ${hasCustomProps ? `<span class="source-badge is-custom">Not in Figma</span>` : ""}
         </div>
         <div class="button-row">
-          <button class="seda-button ${sizeClass}" data-demo-cycle="state:default,hover,active,focus" style="${css}" ${disabled ? "disabled" : ""}>${leading}<span>${label}</span>${trailing}</button>
+          <span class="tooltip-anchor ${propsState.fullWidth ? "is-full" : ""}" ${tooltipAttr(tooltip)}>
+            <button class="seda-button ${sizeClass} ${propsState.state === "focus" ? "is-focus" : ""}" data-demo-cycle="state:default,hover,active,focus" style="${css}" ${disabled ? "disabled" : ""}>${leading}<span>${label}</span>${trailing}</button>
+          </span>
         </div>
       </div>
     `;
@@ -575,18 +783,32 @@ const demos = {
     const disabled = state === "disabled" || state === "loading";
     const required = propsState.required ? ` <span aria-hidden="true">*</span>` : "";
     const valueLabel = propsState.value || "Select...";
+    const options = selectOptions();
+    const selectedIndex = Math.max(0, options.indexOf(propsState.value));
+    const activeIndex = propsState.open ? clampNumber(activeDemoSelectIndex ?? selectedIndex, 0, options.length - 1) : selectedIndex;
+    const listboxId = "select-demo-listbox";
+    const activeOptionId = `${listboxId}-option-${activeIndex}`;
     return `
       <div class="preview-card field-demo" style="${css}">
         <label class="field-label">${escapeHtml(propsState.label)}${required}</label>
-        <div class="field-shell size-${propsState.size}">
-          ${propsState.prefixIcon ? `<span class="field-affix" aria-hidden="true">⌕</span>` : ""}
-          <button class="seda-select select-trigger ${propsState.open ? "is-open" : ""}" type="button" data-demo-toggle="open" aria-haspopup="listbox" aria-expanded="${propsState.open}" ${disabled ? "disabled" : ""}>
+        <div class="field-shell size-${propsState.size} ${fieldStateClass(state)}">
+          ${propsState.prefixIcon ? `<span class="field-affix"><span class="seda-icon seda-icon-search" aria-hidden="true"></span></span>` : ""}
+          <button
+            class="seda-select select-trigger ${propsState.open ? "is-open" : ""}"
+            type="button"
+            data-demo-select-trigger
+            aria-haspopup="listbox"
+            aria-expanded="${propsState.open}"
+            aria-controls="${listboxId}"
+            ${propsState.open ? `aria-activedescendant="${activeOptionId}"` : ""}
+            ${disabled ? "disabled" : ""}
+          >
             <span>${escapeHtml(valueLabel)}</span>
-            <span class="select-chevron" aria-hidden="true">⌄</span>
+            <span class="select-chevron seda-icon seda-icon-arrow-chevron-down" aria-hidden="true"></span>
           </button>
         </div>
         <div class="field-helper">${escapeHtml(helperText(state, propsState.helper))}</div>
-        ${propsState.open ? renderSelectMenu() : ""}
+        ${propsState.open ? renderSelectMenu(options, activeIndex, listboxId) : ""}
       </div>
     `;
   },
@@ -617,9 +839,9 @@ const demos = {
     });
     const leading = propsState.leadingIcon ? `<span aria-hidden="true">#</span>` : "";
     const control = propsState.control === "arrow"
-      ? `<button class="chip-control" type="button" data-demo-set="control:none" aria-label="Open ${escapeHtml(propsState.label)}" ${propsState.disabled ? "disabled" : ""}>⌄</button>`
+      ? `<button class="chip-control" type="button" data-demo-set="control:none" aria-label="Open ${escapeHtml(propsState.label)}" ${tooltipAttr("Открыть действия для chip.")} ${propsState.disabled ? "disabled" : ""}><span class="seda-icon seda-icon-arrow-chevron-down" aria-hidden="true"></span></button>`
       : propsState.control === "remove"
-        ? `<button class="chip-control" type="button" data-demo-set="control:none" aria-label="Remove ${escapeHtml(propsState.label)}" ${propsState.disabled ? "disabled" : ""}>×</button>`
+        ? `<button class="chip-control" type="button" data-demo-set="control:none" aria-label="Remove ${escapeHtml(propsState.label)}" ${tooltipAttr("Удалить chip.")} ${propsState.disabled ? "disabled" : ""}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>`
         : "";
     return `<div class="preview-card"><div class="chip-row"><span class="seda-chip ${propsState.disabled ? "is-disabled" : ""}" style="${css}">${leading}<span>${escapeHtml(propsState.label)}</span>${control}</span></div></div>`;
   },
@@ -677,9 +899,10 @@ const demos = {
     const body = propsState.loading
       ? `<tr><td colspan="3">Загрузка данных...</td></tr>`
       : rows.length
-        ? rows.map((row, index) => `<tr class="${tableRowClass(index)}" data-demo-action="select-row" data-row-index="${index}" tabindex="0">${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")
+        ? rows.map((row, index) => `<tr class="${tableRowClass(index)}" data-demo-action="select-row" data-row-index="${index}" tabindex="0" ${tooltipAttr("Нажмите, чтобы выбрать строку.")}>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")
         : `<tr><td colspan="3">Нет данных</td></tr>`;
-    return `<div class="preview-card"><table class="seda-table ${densityClass}" style="${tableVars(components.table, propsState.density)}"><thead><tr><th>Name ${propsState.sortable ? "↕" : ""}</th><th>Status ${propsState.sortable ? "↕" : ""}</th><th>Score ${propsState.sortable ? "↕" : ""}</th></tr></thead><tbody>${body}</tbody></table></div>`;
+    const sortHint = propsState.sortable ? tooltipAttr("Сортировать столбец.") : "";
+    return `<div class="preview-card"><table class="seda-table ${densityClass}" style="${tableVars(components.table, propsState.density)}"><thead><tr><th ${sortHint}>Name ${propsState.sortable ? "↕" : ""}</th><th ${sortHint}>Status ${propsState.sortable ? "↕" : ""}</th><th ${sortHint}>Score ${propsState.sortable ? "↕" : ""}</th></tr></thead><tbody>${body}</tbody></table></div>`;
   },
   modal() {
     const danger = propsState.tone === "danger";
@@ -689,7 +912,7 @@ const demos = {
     const secondaryButtonCss = buttonStyleFor(components.button?.neutral?.outline, "m");
     return `
       <div class="modal-demo" style="${css}">
-        ${propsState.closeButton ? `<button class="modal-close" type="button" data-demo-set="closeButton:false" aria-label="Закрыть">×</button>` : ""}
+        ${propsState.closeButton ? `<button class="modal-close" type="button" data-demo-set="closeButton:false" aria-label="Закрыть" ${tooltipAttr("Закрыть окно.")}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>` : ""}
         <h3>${escapeHtml(propsState.title)}</h3>
         <p>${escapeHtml(propsState.description)}</p>
         ${propsState.footer ? `<div class="button-row"><button class="seda-button" style="${primaryButtonCss}">Подтвердить</button><button class="seda-button" style="${secondaryButtonCss}">Отмена</button></div>` : ""}
@@ -700,11 +923,14 @@ const demos = {
     const branch = components["icon-button"]?.[propsState.variant] || components["icon-button"]?.primary || {};
     const disabled = propsState.state === "disabled" || propsState.state === "loading";
     const css = iconButtonStyleFor(branch, propsState.size, propsState.state);
-    const icon = propsState.state === "loading" ? "◌" : "○";
+    const icon = propsState.state === "loading" ? `<span aria-hidden="true">...</span>` : `<span class="seda-icon seda-icon-search" aria-hidden="true"></span>`;
+    const stateClass = ["hover", "active", "focus", "selected"].includes(propsState.state) ? `is-${propsState.state}` : "";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-figma">Figma</span></div>
-        <button class="seda-icon-button" data-demo-cycle="state:default,hover,active,selected,focus" style="${css}" aria-label="${escapeHtml(propsState.label)}" ${disabled ? "disabled" : ""}>${icon}</button>
+        <span class="tooltip-anchor" ${tooltipAttr(propsState.label || "Действие")}>
+          <button class="seda-icon-button ${stateClass}" data-demo-cycle="state:default,hover,active,selected,focus" style="${css}" aria-label="${escapeHtml(propsState.label)}" ${disabled ? "disabled" : ""}>${icon}</button>
+        </span>
       </div>
     `;
   },
@@ -712,11 +938,15 @@ const demos = {
     const state = propsState.state;
     const checked = state === "checked" || state === "indeterminate";
     const css = choiceVars(components.checkbox, state, "checkbox", propsState.size);
+    const stateClass = [
+      ["hover", "active", "focus"].includes(state) ? `is-${state}` : "",
+      state === "disabled" ? "is-disabled" : "",
+    ].filter(Boolean).join(" ");
     const mark = state === "indeterminate" ? "−" : checked ? "✓" : "";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-figma">Figma</span></div>
-        <label class="seda-choice is-checkbox" style="${css}" tabindex="0" data-demo-cycle="state:default,checked,indeterminate">
+        <label class="seda-choice is-checkbox ${stateClass}" style="${css}" tabindex="0" data-demo-cycle="state:default,checked,indeterminate">
           <span class="choice-box">${mark}</span>
           <span><strong>${escapeHtml(propsState.label)}</strong><small>${escapeHtml(helperText(state, propsState.helper))}</small></span>
         </label>
@@ -727,10 +957,14 @@ const demos = {
     const state = propsState.state;
     const selected = state === "selected";
     const css = choiceVars(components.radio, state, "radio", propsState.size);
+    const stateClass = [
+      ["hover", "active", "focus"].includes(state) ? `is-${state}` : "",
+      state === "disabled" ? "is-disabled" : "",
+    ].filter(Boolean).join(" ");
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-figma">Figma</span></div>
-        <label class="seda-choice is-radio" style="${css}" tabindex="0" data-demo-set="state:selected">
+        <label class="seda-choice is-radio ${stateClass}" style="${css}" tabindex="0" data-demo-set="state:selected">
           <span class="choice-box is-radio">${selected ? "<i></i>" : ""}</span>
           <span><strong>${escapeHtml(propsState.label)}</strong><small>${escapeHtml(helperText(state, propsState.helper))}</small></span>
         </label>
@@ -740,11 +974,14 @@ const demos = {
   toggle() {
     const state = propsState.state;
     const css = toggleVars(components.toggle, state, propsState.checked, propsState.size);
+    const stateClass = ["hover", "active", "focus"].includes(state) ? `is-${state}` : "";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-figma">Figma</span></div>
         <label class="seda-toggle-field" style="${css}">
-          <button class="seda-toggle-demo ${propsState.checked ? "is-on" : ""}" data-demo-toggle="checked" ${state === "disabled" ? "disabled" : ""} aria-pressed="${propsState.checked}"><span></span></button>
+          <span class="tooltip-anchor" ${tooltipAttr(propsState.checked ? "Выключить настройку." : "Включить настройку.")}>
+            <button class="seda-toggle-demo ${propsState.checked ? "is-on" : ""} ${stateClass}" data-demo-toggle="checked" ${state === "disabled" ? "disabled" : ""} aria-pressed="${propsState.checked}"><span></span></button>
+          </span>
           <span><strong>${escapeHtml(propsState.label)}</strong><small>${escapeHtml(helperText(state, propsState.helper))}</small></span>
         </label>
       </div>
@@ -757,7 +994,11 @@ const demos = {
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-figma">Figma</span></div>
         <div class="seda-segmented" style="${css}">
-          ${items.map((item) => `<button data-demo-prop="selected" data-demo-value="${escapeHtml(item)}" aria-pressed="${item === propsState.selected}" ${propsState.state === "disabled" ? "disabled" : ""}>${escapeHtml(item)}</button>`).join("")}
+          ${items.map((item) => {
+            const isSelected = item === propsState.selected;
+            const stateClass = isSelected && ["hover", "active", "focus"].includes(propsState.state) ? `is-${propsState.state}` : "";
+            return `<button class="${stateClass}" data-demo-prop="selected" data-demo-value="${escapeHtml(item)}" aria-pressed="${isSelected}" ${tooltipAttr(`Переключить вид на ${item}.`)} ${propsState.state === "disabled" ? "disabled" : ""}>${escapeHtml(item)}</button>`;
+          }).join("")}
         </div>
       </div>
     `;
@@ -767,9 +1008,9 @@ const demos = {
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-figma">Figma</span></div>
-        <div class="seda-avatar" style="${css}">
+        <div class="seda-avatar" style="${css}" ${tooltipAttr(propsState.status !== "none" ? `Пользователь: ${propsState.label}. Статус: ${propsState.status}.` : `Пользователь: ${propsState.label}.`)}>
           ${escapeHtml(String(propsState.label || "A").slice(0, 2))}
-          ${propsState.status !== "none" ? `<span class="avatar-status"></span>` : ""}
+          ${propsState.status !== "none" ? `<span class="avatar-status" aria-hidden="true"></span>` : ""}
         </div>
       </div>
     `;
@@ -817,7 +1058,7 @@ const demos = {
             <p>${escapeHtml(propsState.description)}</p>
           </div>
           ${propsState.action ? `<button type="button" data-demo-set="action:false">Review</button>` : ""}
-          ${propsState.closeButton ? `<button class="inline-close" type="button" data-demo-set="closeButton:false" aria-label="Close">×</button>` : ""}
+          ${propsState.closeButton ? `<button class="inline-close" type="button" data-demo-set="closeButton:false" aria-label="Close" ${tooltipAttr("Закрыть сообщение.")}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>` : ""}
         </div>
       </div>
     `;
@@ -834,7 +1075,7 @@ const demos = {
             <p>${escapeHtml(propsState.description)}</p>
           </div>
           ${propsState.action ? `<button type="button" data-demo-set="action:false">Open</button>` : ""}
-          ${propsState.closeButton ? `<button class="inline-close" type="button" data-demo-set="closeButton:false" aria-label="Close">×</button>` : ""}
+          ${propsState.closeButton ? `<button class="inline-close" type="button" data-demo-set="closeButton:false" aria-label="Close" ${tooltipAttr("Закрыть уведомление.")}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>` : ""}
         </div>
       </div>
     `;
@@ -844,9 +1085,12 @@ const demos = {
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
-        <span class="seda-tooltip-demo ${propsState.arrow ? "has-arrow" : ""}" style="${css}" role="tooltip">
-          ${escapeHtml(propsState.label)}
-        </span>
+        <div class="tooltip-scenario">
+          <button class="seda-button" style="${buttonStyleFor(components.button?.neutral?.outline, "m")}" ${tooltipAttr("Tooltip появляется при наведении или фокусе.")}>Навести</button>
+          <span class="seda-tooltip-demo ${propsState.arrow ? "has-arrow" : ""}" style="${css}" role="tooltip">
+            ${escapeHtml(propsState.label)}
+          </span>
+        </div>
       </div>
     `;
   },
@@ -856,7 +1100,7 @@ const demos = {
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
         <div class="seda-popover-demo" style="${css}">
-          ${propsState.closeButton ? `<button class="inline-close" type="button" data-demo-set="closeButton:false" aria-label="Close">×</button>` : ""}
+          ${propsState.closeButton ? `<button class="inline-close" type="button" data-demo-set="closeButton:false" aria-label="Close" ${tooltipAttr("Закрыть popover.")}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>` : ""}
           <h3>${escapeHtml(propsState.label)}</h3>
           <p>${escapeHtml(propsState.description)}</p>
           <button class="seda-button" style="${buttonStyleFor(components.button?.neutral?.outline, "m")}">Apply</button>
@@ -921,9 +1165,9 @@ const demos = {
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
         <nav class="seda-breadcrumbs" style="${css}" aria-label="Breadcrumbs">
-          <a href="#">${propsState.icon ? "⌂ " : ""}Projects</a>
+          <a href="#" ${tooltipAttr("Перейти к проектам.")}>${propsState.icon ? "⌂ " : ""}Projects</a>
           <span aria-hidden="true">/</span>
-          <a href="#">SEDA AI</a>
+          <a href="#" ${tooltipAttr("Перейти к SEDA AI.")}>SEDA AI</a>
           <span aria-hidden="true">/</span>
           <strong>${escapeHtml(propsState.label)}</strong>
         </nav>
@@ -933,10 +1177,12 @@ const demos = {
   pagination() {
     const css = paginationVars(components.pagination, propsState.state);
     const pages = ["1", "2", "3", "4"];
+    const stateClass = ["hover", "active", "selected", "disabled"].includes(propsState.state) ? `is-${propsState.state}` : "";
+    const disabled = propsState.state === "disabled";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
-        <nav class="seda-pagination" style="${css}" aria-label="Pagination">
+        <nav class="seda-pagination ${stateClass}" style="${css}" aria-label="Pagination">
           ${propsState.showEdges ? `<button type="button" data-demo-action="prev-page" aria-label="Previous">‹</button>` : ""}
           ${pages.map((page) => `<button type="button" data-demo-prop="selected" data-demo-value="${page}" ${page === propsState.selected ? `aria-current="page"` : ""}>${page}</button>`).join("")}
           ${propsState.showEdges ? `<button type="button" data-demo-action="next-page" aria-label="Next">›</button>` : ""}
@@ -963,10 +1209,11 @@ const demos = {
   link() {
     const css = linkVars(components.link, propsState.variant, propsState.state);
     const disabled = propsState.state === "disabled";
+    const stateClass = ["hover", "pressed", "active", "visitedHover", "visitedPressed"].includes(propsState.state) ? `is-${propsState.state}` : "";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
-        <a class="seda-link-demo ${disabled ? "is-disabled" : ""}" style="${css}" href="#" ${disabled ? `aria-disabled="true"` : ""}>
+        <a class="seda-link-demo ${stateClass} ${disabled ? "is-disabled" : ""}" style="${css}" href="#" ${disabled ? `aria-disabled="true"` : ""}>
           ${escapeHtml(propsState.label)}${propsState.icon ? ` <span aria-hidden="true">↗</span>` : ""}
         </a>
       </div>
@@ -991,15 +1238,17 @@ const demos = {
   slider() {
     const value = clampNumber(propsState.value, 0, 100);
     const css = sliderVars(components.slider, propsState.state);
+    const stateClass = ["hover", "active", "disabled"].includes(propsState.state) ? `is-${propsState.state}` : "";
+    const disabled = propsState.state === "disabled";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
         <div class="seda-slider-field" style="${css}">
           <div class="progress-meta"><span>${escapeHtml(propsState.label)}</span><strong>${value}</strong></div>
-          <div class="seda-slider-demo" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${value}">
+          <div class="seda-slider-demo ${stateClass}" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${value}" ${disabled ? `aria-disabled="true"` : ""}>
             <span style="width:${value}%"></span>
             <i style="left:${value}%"></i>
-            <input class="seda-slider-input" type="range" min="0" max="100" value="${value}" data-demo-prop="value" aria-label="${escapeHtml(propsState.label)}" />
+            <input class="seda-slider-input" type="range" min="0" max="100" value="${value}" data-demo-prop="value" aria-label="${escapeHtml(propsState.label)}" ${disabled ? "disabled" : ""} />
           </div>
         </div>
       </div>
@@ -1023,11 +1272,12 @@ const demos = {
   },
   "file-upload"() {
     const css = fileUploadVars(components["file-upload"], propsState.state);
+    const stateClass = ["hover", "drag", "error", "disabled"].includes(propsState.state) ? `is-${propsState.state}` : "";
     return `
       <div class="preview-card">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
-        <div class="seda-file-upload" style="${css}">
-          <span class="upload-icon" aria-hidden="true">↑</span>
+        <div class="seda-file-upload ${stateClass}" style="${css}" ${propsState.state === "disabled" ? `aria-disabled="true"` : ""}>
+          <span class="upload-icon seda-icon seda-icon-arrow-right" aria-hidden="true"></span>
           <strong>${escapeHtml(propsState.label)}</strong>
           <span>${escapeHtml(propsState.description)}</span>
         </div>
@@ -1052,18 +1302,46 @@ const demos = {
   search() {
     const css = fieldVars(components["text-field"], propsState.state, propsState.size, "input");
     const disabled = propsState.state === "disabled" || propsState.state === "loading";
+    const suggestions = searchSuggestions(propsState.value);
+    const isOpen = !disabled && propsState.state === "focus";
+    const listboxId = "search-combobox-listbox";
     return `
       <div class="preview-card field-demo" style="${css}">
         <div class="source-row"><span class="source-badge is-custom">Needs Figma parity check</span></div>
-        <div class="field-shell size-${propsState.size}">
-          <span class="field-affix" aria-hidden="true">⌕</span>
-          <input class="seda-field" data-demo-live-prop="value" type="search" value="${escapeHtml(propsState.value)}" placeholder="Search" ${disabled ? "disabled" : ""} />
-          ${propsState.state === "loading" ? `<span class="field-affix" aria-hidden="true">…</span>` : propsState.clearButton ? `<button class="field-clear" type="button" data-demo-clear="value" aria-label="Clear">×</button>` : ""}
+        <div class="field-shell size-${propsState.size} ${fieldStateClass(propsState.state)}">
+          <span class="field-affix"><span class="seda-icon seda-icon-search" aria-hidden="true"></span></span>
+          <input class="seda-field" data-demo-live-prop="value" data-demo-combobox-input role="combobox" aria-expanded="${isOpen}" aria-controls="${listboxId}" ${isOpen && suggestions.length ? `aria-activedescendant="${listboxId}-option-${clampNumber(activeComboboxIndex, 0, suggestions.length - 1)}"` : ""} aria-autocomplete="list" type="search" value="${escapeHtml(propsState.value)}" placeholder="Search" ${disabled ? "disabled" : ""} />
+          ${propsState.state === "loading" ? `<span class="field-affix" aria-hidden="true">…</span>` : propsState.clearButton ? `<button class="field-clear" type="button" data-demo-clear="value" aria-label="Clear" ${tooltipAttr("Очистить поисковый запрос.")}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>` : ""}
         </div>
+        ${isOpen ? renderSearchComboboxMenu(suggestions, listboxId) : ""}
       </div>
     `;
   },
 };
+
+function searchSuggestions(query) {
+  const options = ["Dataset audit", "Model evaluation", "Prompt library", "Token coverage", "Accessibility review"];
+  const normalized = String(query || "").trim().toLowerCase();
+  if (!normalized) return options.slice(0, 4);
+  return options.filter((option) => option.toLowerCase().includes(normalized)).slice(0, 5);
+}
+
+function renderSearchComboboxMenu(options, listboxId) {
+  if (!options.length) {
+    return `<div class="combobox-menu" id="${listboxId}" role="listbox"><div class="combobox-empty">No results found</div></div>`;
+  }
+
+  const activeIndex = clampNumber(activeComboboxIndex, 0, options.length - 1);
+  return `
+    <div class="combobox-menu" id="${listboxId}" role="listbox">
+      ${options.map((option, index) => `
+        <button class="combobox-option ${index === activeIndex ? "is-active" : ""}" id="${listboxId}-option-${index}" type="button" role="option" data-demo-set="value:${escapeHtml(option)}">
+          <span>${escapeHtml(option)}</span>
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
 
 function renderGenericDemo(name) {
   const branch = components[name] || {};
@@ -1076,9 +1354,9 @@ function renderGenericDemo(name) {
 
   const map = {
     alert: () => `${badge}<div class="seda-alert" style="${css}"><span class="demo-icon">!</span><div><strong>${escapeHtml(label)}</strong><p>Check the message before continuing.</p></div></div>`,
-    avatar: () => `${badge}<div class="demo-row"><div class="seda-avatar" style="${css}">SA</div><div class="seda-avatar is-small" style="${css}">A</div></div>`,
+    avatar: () => `${badge}<div class="demo-row"><div class="seda-avatar" style="${css}" ${tooltipAttr("Пользователь: SEDA AI.")}>SA</div><div class="seda-avatar is-small" style="${css}" ${tooltipAttr("Пользователь: Assistant.")}>A</div></div>`,
     badge: () => `${badge}<span class="seda-badge" style="${css}">${escapeHtml(label)}</span>`,
-    breadcrumbs: () => `${badge}<nav class="seda-breadcrumbs" style="${css}"><a>Projects</a><span>/</span><a>SEDA AI</a><span>/</span><strong>${escapeHtml(label)}</strong></nav>`,
+    breadcrumbs: () => `${badge}<nav class="seda-breadcrumbs" style="${css}"><a ${tooltipAttr("Перейти к проектам.")}>Projects</a><span>/</span><a ${tooltipAttr("Перейти к SEDA AI.")}>SEDA AI</a><span>/</span><strong>${escapeHtml(label)}</strong></nav>`,
     "button-group": () => `${badge}<div class="button-row">${["One", "Two", "Three"].map((item) => `<button class="seda-button" style="${buttonStyleFor(components.button?.neutral?.outline, "m")}">${item}</button>`).join("")}</div>`,
     card: () => `${badge}<article class="seda-card-demo" style="${css}"><h3>${escapeHtml(label)}</h3><p>Reusable surface with content, actions, and metadata.</p></article>`,
     checkbox: () => `${badge}<label class="seda-choice" style="${css}"><span class="choice-box">${propsState.checked ? "✓" : ""}</span>${escapeHtml(label)}</label>`,
@@ -1094,15 +1372,15 @@ function renderGenericDemo(name) {
     "file-upload": () => `${badge}<div class="seda-file-upload" style="${css}"><strong>${escapeHtml(label)}</strong><span>Drop file here or browse</span></div>`,
     form: () => `${badge}<form class="seda-form-demo" style="${css}">${renderGenericField("Name", "SEDA AI", "")}${renderGenericField("Status", "Ready", "")}</form>`,
     grid: () => `${badge}<div class="seda-grid-demo" style="${css}"><span></span><span></span><span></span><span></span></div>`,
-    "icon-button": () => `${badge}<button class="seda-icon-button" style="${css}" aria-label="${escapeHtml(label)}">⌘</button>`,
+    "icon-button": () => `${badge}<span class="tooltip-anchor" ${tooltipAttr(label)}><button class="seda-icon-button" style="${css}" aria-label="${escapeHtml(label)}"><span class="seda-icon seda-icon-search" aria-hidden="true"></span></button></span>`,
     link: () => `${badge}<a class="seda-link-demo" style="${css}" href="#">${escapeHtml(label)}</a>`,
     "notification-center": () => `${badge}<div class="seda-notification-demo" style="${css}"><h3>${escapeHtml(label)}</h3><div>Model run finished</div><div>Dataset sync required</div></div>`,
-    pagination: () => `${badge}<div class="seda-pagination" style="${css}"><button>‹</button><button>1</button><button aria-current="page">2</button><button>3</button><button>›</button></div>`,
+    pagination: () => `${badge}<div class="seda-pagination" style="${css}"><button ${tooltipAttr("Предыдущая страница.")}>‹</button><button>1</button><button aria-current="page">2</button><button>3</button><button ${tooltipAttr("Следующая страница.")}>›</button></div>`,
     popover: () => `${badge}<div class="seda-popover-demo" style="${css}"><h3>${escapeHtml(label)}</h3><p>Contextual content attached to a trigger.</p></div>`,
     "progress-bar": () => `${badge}<div class="seda-progress-demo" style="${css}"><div><span></span></div><strong>64%</strong></div>`,
     radio: () => `${badge}<label class="seda-choice" style="${css}"><span class="choice-box is-radio">${propsState.checked ? "•" : ""}</span>${escapeHtml(label)}</label>`,
     search: () => `${badge}${renderGenericField("Search", propsState.value || "Dataset", css)}`,
-    "segmented-control": () => `${badge}<div class="seda-segmented" style="${css}"><button aria-pressed="true">List</button><button>Board</button><button>Chart</button></div>`,
+    "segmented-control": () => `${badge}<div class="seda-segmented" style="${css}"><button aria-pressed="true" ${tooltipAttr("Показать списком.")}>List</button><button ${tooltipAttr("Показать доской.")}>Board</button><button ${tooltipAttr("Показать графиком.")}>Chart</button></div>`,
     sidebar: () => `${badge}<aside class="seda-sidebar-demo" style="${css}"><strong>SEDA AI</strong><a>Overview</a><a aria-current="page">Components</a><a>Tokens</a></aside>`,
     skeleton: () => `${badge}<div class="seda-skeleton-demo" style="${css}"><span></span><span></span><span></span></div>`,
     slider: () => `${badge}<div class="seda-slider-demo" style="${css}"><span></span></div>`,
@@ -1113,8 +1391,8 @@ function renderGenericDemo(name) {
     timeline: () => `${badge}<div class="seda-timeline" style="${css}"><div><b></b><span>Created</span></div><div><b></b><span>Reviewed</span></div><div><b></b><span>Ready</span></div></div>`,
     "time-picker": () => `${badge}${renderGenericField("Time", propsState.value || "14:30", css)}`,
     toast: () => `${badge}<div class="seda-toast-demo" style="${css}"><strong>${escapeHtml(label)}</strong><p>Changes were saved.</p></div>`,
-    toggle: () => `${badge}<button class="seda-toggle-demo ${propsState.checked ? "is-on" : ""}" style="${css}"><span></span></button>`,
-    tooltip: () => `${badge}<div class="seda-tooltip-demo" style="${css}">${escapeHtml(label)}</div>`,
+    toggle: () => `${badge}<span class="tooltip-anchor" ${tooltipAttr(propsState.checked ? "Выключить настройку." : "Включить настройку.")}><button class="seda-toggle-demo ${propsState.checked ? "is-on" : ""}" style="${css}"><span></span></button></span>`,
+    tooltip: () => `${badge}<div class="tooltip-scenario"><button class="seda-button" style="${buttonStyleFor(components.button?.neutral?.outline, "m")}" ${tooltipAttr("Tooltip появляется при наведении или фокусе.")}>Hover</button><div class="seda-tooltip-demo" style="${css}">${escapeHtml(label)}</div></div>`,
     "top-bar": () => `${badge}<header class="seda-topbar-demo" style="${css}"><strong>SEDA AI</strong><nav><a>Docs</a><a>Lab</a></nav></header>`,
     "verification-code": () => `${badge}<div class="seda-code-demo" style="${css}">${String(propsState.value || "123456").slice(0, 6).padEnd(6, "0").split("").map((char) => `<span>${escapeHtml(char)}</span>`).join("")}</div>`,
   };
@@ -1145,18 +1423,22 @@ function renderField(kind, branch, state, label, placeholder, value) {
   const readOnly = state === "read-only";
   const sizeClass = `size-${propsState.size || "medium"}`;
   const required = propsState.required ? ` <span aria-hidden="true">*</span>` : "";
-  const prefix = propsState.prefixIcon ? `<span class="field-affix" aria-hidden="true">⌕</span>` : "";
-  const suffix = propsState.suffixIcon ? `<span class="field-affix" aria-hidden="true">${state === "loading" ? "…" : "i"}</span>` : "";
-  const clear = propsState.clearButton ? `<button class="field-clear" type="button" data-demo-clear="value" aria-label="Очистить">×</button>` : "";
+  const prefix = propsState.prefixIcon ? `<span class="field-affix"><span class="seda-icon seda-icon-search" aria-hidden="true"></span></span>` : "";
+  const suffix = propsState.suffixIcon ? `<span class="field-affix">${state === "loading" ? "..." : `<span class="seda-icon seda-icon-info" aria-hidden="true"></span>`}</span>` : "";
+  const clear = propsState.clearButton ? `<button class="field-clear" type="button" data-demo-clear="value" aria-label="Очистить" ${tooltipAttr("Очистить значение поля.")}><span class="seda-icon seda-icon-close" aria-hidden="true"></span></button>` : "";
   const helper = helperText(state, propsState.helper);
   const input = kind === "textarea"
-    ? `<textarea class="seda-textarea ${sizeClass}" data-demo-live-prop="value" placeholder="${escapeHtml(placeholder)}" ${disabled ? "disabled" : ""} ${readOnly ? "readonly" : ""} ${propsState.resize ? "" : `style="resize:none"`}>${escapeHtml(value)}</textarea>`
-    : `<div class="field-shell ${sizeClass}">${prefix}<input class="seda-field" data-demo-live-prop="value" placeholder="${escapeHtml(placeholder)}" value="${escapeHtml(value)}" ${disabled ? "disabled" : ""} ${readOnly ? "readonly" : ""} />${suffix}${clear}</div>`;
+    ? `<textarea class="seda-textarea ${sizeClass} ${fieldStateClass(state)}" data-demo-live-prop="value" placeholder="${escapeHtml(placeholder)}" ${disabled ? "disabled" : ""} ${readOnly ? "readonly" : ""} ${propsState.resize ? "" : `style="resize:none"`}>${escapeHtml(value)}</textarea>`
+    : `<div class="field-shell ${sizeClass} ${fieldStateClass(state)}">${prefix}<input class="seda-field" data-demo-live-prop="value" placeholder="${escapeHtml(placeholder)}" value="${escapeHtml(value)}" ${disabled ? "disabled" : ""} ${readOnly ? "readonly" : ""} />${suffix}${clear}</div>`;
   const counter = kind === "textarea" && propsState.counter ? `<div class="field-counter">${String(value || "").length}/500</div>` : "";
   const labelRow = kind === "textarea"
     ? `<div class="field-label-row"><label class="field-label">${escapeHtml(label)}${required}</label>${propsState.clearButton ? `<button class="field-label-action" type="button" data-demo-clear="value">Clear</button>` : ""}</div>`
     : `<label class="field-label">${escapeHtml(label)}${required}</label>`;
   return `<div class="preview-card field-demo" style="${css}">${labelRow}${input}<div class="field-meta"><div class="field-helper">${escapeHtml(helper)}</div>${counter}</div></div>`;
+}
+
+function fieldStateClass(state) {
+  return ["hover", "active", "focus"].includes(state) ? `is-${state}` : "";
 }
 
 function helperText(state, fallback = "") {
@@ -1168,11 +1450,26 @@ function helperText(state, fallback = "") {
   return fallback || "Подсказка под полем";
 }
 
-function renderSelectMenu() {
-  const options = ["Draft", "In review", "Ready"];
+function selectOptions() {
+  return ["Draft", "In review", "Ready"];
+}
+
+function renderSelectMenu(options = selectOptions(), activeIndex = 0, listboxId = "select-demo-listbox") {
   return `
-    <div class="select-menu" role="listbox">
-      ${options.map((option) => `<button class="select-option" type="button" data-demo-set="value:${escapeHtml(option)}" aria-selected="${option === propsState.value}">${escapeHtml(option)}</button>`).join("")}
+    <div class="select-menu" id="${listboxId}" role="listbox" aria-label="${escapeHtml(propsState.label || "Select")}">
+      ${options.map((option, index) => `
+        <button
+          class="select-option ${index === activeIndex ? "is-active" : ""}"
+          id="${listboxId}-option-${index}"
+          type="button"
+          role="option"
+          data-demo-set="value:${escapeHtml(option)}"
+          aria-selected="${option === propsState.value}"
+        >
+          <span>${escapeHtml(option)}</span>
+          ${option === propsState.value ? `<span class="select-check" aria-hidden="true"></span>` : ""}
+        </button>
+      `).join("")}
     </div>
   `;
 }
@@ -1190,9 +1487,9 @@ function renderDateTimePicker(name) {
   return `
     <div class="preview-card field-demo" style="${css}">
       <label class="field-label">${escapeHtml(propsState.label)}${required}</label>
-      <div class="field-shell size-${propsState.size || "m"}">
+      <div class="field-shell size-${propsState.size || "m"} ${fieldStateClass(state)}">
         <input class="seda-field" data-demo-live-prop="value" value="${escapeHtml(propsState.value)}" placeholder="${escapeHtml(propsState.placeholder)}" ${disabled ? "disabled" : ""} />
-        <button class="field-clear" type="button" data-demo-toggle="open" aria-label="${isDate ? "Открыть календарь" : "Открыть выбор времени"}" ${disabled ? "disabled" : ""}>${isDate ? "□" : "◷"}</button>
+        <button class="field-clear" type="button" data-demo-toggle="open" aria-label="${isDate ? "Открыть календарь" : "Открыть выбор времени"}" ${tooltipAttr(isDate ? "Открыть календарь." : "Открыть выбор времени.")} ${disabled ? "disabled" : ""}><span class="seda-icon ${isDate ? "seda-icon-calendar" : "seda-icon-clock"}" aria-hidden="true"></span></button>
       </div>
       <div class="field-helper">${escapeHtml(helperText(state, propsState.helper))}</div>
       ${propsState.open ? pickerPanel : ""}
@@ -1242,8 +1539,10 @@ function buttonStyleFor(branch, size = "m", state = "default") {
   return styleVars({
     "--button-surface": tokenValue(branch?.surface?.[surfaceState]) || tokenValue(branch?.surface?.default) || "var(--container-brand-default)",
     "--button-surface-hover": tokenValue(branch?.surface?.hover) || tokenValue(branch?.surface?.default) || "var(--container-brand-hover)",
+    "--button-surface-active": tokenValue(branch?.surface?.active) || tokenValue(branch?.surface?.pressed) || tokenValue(branch?.surface?.hover) || "var(--container-brand-pressed)",
     "--button-foreground": tokenValue(branch?.foreground?.[foregroundState]) || tokenValue(branch?.foreground?.default) || "var(--text-on-brand-primary)",
     "--button-border": tokenValue(branch?.border?.[borderState]) || tokenValue(branch?.border?.default) || tokenValue(branch?.surface?.default) || "transparent",
+    "--button-focus-ring": tokenValue(branch?.focus?.ring) || "var(--focus-ring)",
     "--button-width": "auto",
     "--button-height": box.height,
     "--button-padding-x": box.paddingX,
@@ -1251,6 +1550,7 @@ function buttonStyleFor(branch, size = "m", state = "default") {
     "--button-gap": box.gap,
     "--button-radius": box.radius,
     "--button-border-width": box.borderWidth,
+    "--button-icon-size": box.iconSize,
     "--button-font-size": type.size,
     "--button-line-height": type.lineHeight,
     "--button-font-weight": type.weight,
@@ -1266,8 +1566,11 @@ function iconButtonStyleFor(branch, size = "m", state = "default") {
   return styleVars({
     "--generic-surface": tokenValue(branch?.surface?.[mappedState]) || tokenValue(branch?.surface?.default) || "transparent",
     "--generic-surface-alt": tokenValue(branch?.surface?.hover) || tokenValue(branch?.surface?.selected) || "var(--container-neutral-hover)",
+    "--generic-surface-active": tokenValue(branch?.surface?.active) || tokenValue(branch?.surface?.pressed) || tokenValue(branch?.surface?.hover) || "var(--container-neutral-pressed)",
+    "--generic-surface-selected": tokenValue(branch?.surface?.selected) || tokenValue(branch?.surface?.active) || "var(--container-neutral-selected)",
     "--generic-foreground": tokenValue(branch?.foreground?.[foregroundState]) || tokenValue(branch?.foreground?.default) || "var(--icon-primary)",
     "--generic-border": tokenValue(branch?.border?.[borderState]) || tokenValue(branch?.border?.default) || "transparent",
+    "--generic-focus-ring": tokenValue(branch?.focus?.ring) || "var(--focus-ring)",
     "--generic-height": box.height,
     "--generic-padding-x": box.paddingX,
     "--generic-padding-y": box.paddingY,
@@ -1286,6 +1589,11 @@ function choiceVars(branch, state, kind, size = "m") {
   return styleVars({
     "--choice-control-surface": tokenValue(control.surface?.[visualState]) || tokenValue(control.surface?.default) || "var(--surface-base)",
     "--choice-control-border": tokenValue(control.border?.[visualState]) || tokenValue(control.border?.default) || "var(--border-default)",
+    "--choice-control-surface-hover": tokenValue(control.surface?.hover) || tokenValue(control.surface?.default) || "var(--container-neutral-hover)",
+    "--choice-control-surface-active": tokenValue(control.surface?.active) || tokenValue(control.surface?.pressed) || tokenValue(control.surface?.hover) || tokenValue(control.surface?.default) || "var(--container-neutral-pressed)",
+    "--choice-control-border-hover": tokenValue(control.border?.hover) || tokenValue(control.border?.default) || "var(--border-hover)",
+    "--choice-control-border-active": tokenValue(control.border?.active) || tokenValue(control.border?.pressed) || tokenValue(control.border?.hover) || tokenValue(control.border?.default) || "var(--border-strong)",
+    "--choice-focus-ring": tokenValue(branch?.focus?.ring) || "var(--focus-ring)",
     "--choice-control-mark": tokenValue(control.icon?.[visualState]) || tokenValue(control.dot?.[visualState]) || tokenValue(control.icon?.[selectedState]) || tokenValue(control.dot?.selected) || "var(--text-on-brand-primary)",
     "--choice-label": tokenValue(branch?.label?.[visualState]) || tokenValue(branch?.label?.default) || "var(--text-primary)",
     "--choice-helper": tokenValue(branch?.helper?.[visualState]) || tokenValue(branch?.helper?.default) || "var(--text-tertiary)",
@@ -1307,6 +1615,8 @@ function toggleVars(branch, state, checked, size = "m") {
   const type = controlTypeVars(size);
   return styleVars({
     "--toggle-track": tokenValue(state === "disabled" ? branch?.track?.disabled : null) || tokenValue(branch?.track?.[mode]?.[visualState]) || tokenValue(branch?.track?.[mode]?.default) || "var(--container-neutral-default)",
+    "--toggle-track-hover": tokenValue(branch?.track?.[mode]?.hover) || tokenValue(branch?.track?.[mode]?.default) || "var(--container-neutral-hover)",
+    "--toggle-track-active": tokenValue(branch?.track?.[mode]?.active) || tokenValue(branch?.track?.[mode]?.pressed) || tokenValue(branch?.track?.[mode]?.hover) || "var(--container-neutral-pressed)",
     "--toggle-thumb": tokenValue(branch?.thumb?.[state]) || tokenValue(branch?.thumb?.default) || "var(--surface-base)",
     "--toggle-label": tokenValue(branch?.label?.[state]) || tokenValue(branch?.label?.default) || "var(--text-primary)",
     "--toggle-helper": tokenValue(branch?.helper?.[state]) || tokenValue(branch?.helper?.default) || "var(--text-tertiary)",
@@ -1318,6 +1628,7 @@ function toggleVars(branch, state, checked, size = "m") {
     "--toggle-font-size": type.size,
     "--toggle-line-height": type.lineHeight,
     "--toggle-font-weight": type.weight,
+    "--toggle-focus-ring": tokenValue(branch?.focus?.ring) || "var(--focus-ring)",
   });
 }
 
@@ -1328,6 +1639,8 @@ function segmentedVars(branch, size, state) {
     "--segmented-surface": tokenValue(branch?.surface?.default) || "var(--container-neutral-default)",
     "--segmented-border": tokenValue(branch?.border?.default) || "var(--border-default)",
     "--segment-surface": tokenValue(branch?.segment?.surface?.[segmentState]) || tokenValue(branch?.segment?.surface?.default) || "transparent",
+    "--segment-surface-hover": tokenValue(branch?.segment?.surface?.hover) || tokenValue(branch?.segment?.surface?.default) || "var(--container-neutral-hover)",
+    "--segment-surface-active": tokenValue(branch?.segment?.surface?.active) || tokenValue(branch?.segment?.surface?.pressed) || tokenValue(branch?.segment?.surface?.hover) || "var(--container-neutral-pressed)",
     "--segment-surface-selected": tokenValue(branch?.segment?.surface?.selected) || "var(--surface-base)",
     "--segment-foreground": tokenValue(branch?.segment?.foreground?.[segmentState]) || tokenValue(branch?.segment?.foreground?.default) || "var(--text-secondary)",
     "--segment-foreground-selected": tokenValue(branch?.segment?.foreground?.selected) || "var(--text-primary)",
@@ -1338,6 +1651,7 @@ function segmentedVars(branch, size, state) {
     "--segmented-border-width": box.borderWidth,
     "--segmented-font-size": controlTypeVars(size).size,
     "--segmented-line-height": controlTypeVars(size).lineHeight,
+    "--segmented-focus-ring": tokenValue(branch?.focus?.ring) || "var(--focus-ring)",
   });
 }
 
@@ -1400,6 +1714,9 @@ function fieldVars(branch, state, size = "medium", kind = "input") {
   return styleVars({
     "--field-surface": tokenValue(branch?.surface?.[surfaceState]) || tokenValue(branch?.surface?.default) || "var(--surface-base)",
     "--field-border": tokenValue(branch?.border?.[borderState]) || tokenValue(branch?.border?.default) || "var(--border-default)",
+    "--field-border-hover": tokenValue(branch?.border?.hover) || tokenValue(branch?.border?.default) || "var(--border-hover)",
+    "--field-border-active": tokenValue(branch?.border?.active) || tokenValue(branch?.border?.pressed) || tokenValue(branch?.border?.hover) || "var(--border-strong)",
+    "--field-focus-ring": tokenValue(branch?.focus?.ring) || "var(--focus-ring)",
     "--field-foreground": tokenValue(branch?.foreground?.[tokenStateFor(branch?.foreground, state)]) || tokenValue(branch?.foreground?.default) || "var(--text-primary)",
     "--field-icon": tokenValue(branch?.icon?.[tokenStateFor(branch?.icon, state)]) || tokenValue(branch?.arrow?.[tokenStateFor(branch?.arrow, state)]) || tokenValue(branch?.icon?.default) || tokenValue(branch?.arrow?.default) || "var(--text-tertiary)",
     "--field-label": tokenValue(branch?.label?.[tokenStateFor(branch?.label, state)]) || tokenValue(branch?.label?.default) || "var(--text-secondary)",
@@ -1785,10 +2102,10 @@ function controlTypeVars(size) {
 function controlBoxVars(kind, size) {
   const maps = {
     button: {
-      s: { height: 24, paddingX: "s", paddingY: "xs", gap: "2xs", radius: "s" },
-      m: { height: 32, paddingX: "m", paddingY: "s", gap: "xs", radius: "m" },
-      l: { height: 40, paddingX: "xl", paddingY: "m", gap: "s", radius: "l" },
-      xl: { height: 48, paddingX: "2xl", paddingY: "l", gap: "m", radius: "xl" },
+      s: { height: 24, paddingX: "s", paddingY: "xs", gap: "2xs", radius: "s", iconSize: 14 },
+      m: { height: 32, paddingX: "m", paddingY: "s", gap: "xs", radius: "m", iconSize: 16 },
+      l: { height: 40, paddingX: "xl", paddingY: "m", gap: "s", radius: "l", iconSize: 18 },
+      xl: { height: 48, paddingX: "2xl", paddingY: "l", gap: "m", radius: "xl", iconSize: 20 },
     },
     "icon-button": {
       s: { height: 24, paddingX: "xs", paddingY: "xs", iconSize: 16, radius: "s", borderWidth: "s" },
@@ -1926,7 +2243,7 @@ function fontWeightValue(weight) {
 
 function renderTokenPreview() {
   return `<div class="preview-card">${flattenLeaves(components[selectedComponent]).slice(0, 10).map((item) => `
-    <div class="token-row">
+    <div class="token-row" ${tooltipAttr(`${item.path}: ${tokenValue(item.node) || item.node.$value || "transparent"}`)}>
       <span class="token-name">${escapeHtml(item.path)}</span>
       <span class="token-swatch" style="--token-color:${escapeHtml(tokenValue(item.node) || "transparent")}"></span>
     </div>
@@ -1942,11 +2259,16 @@ function renderExamples() {
 }
 
 function renderTokenTree() {
+  if (selectedComponent === SIZE_MATRIX_ID) {
+    tokenTree.innerHTML = "";
+    return;
+  }
+
   tokenTree.innerHTML = flattenLeaves(components[selectedComponent]).map((item) => {
     const value = item.node.$value;
     const resolved = tokenValue(item.node);
     return `
-      <div class="token-row" title="${escapeHtml(value)}">
+      <div class="token-row" ${tooltipAttr(`${selectedComponent}/${item.path.replaceAll(".", "/")} → ${resolved || value || "transparent"}`)}>
         <div>
           <div class="token-name">${escapeHtml(`${selectedComponent}/${item.path.replaceAll(".", "/")}`)}</div>
           <div class="token-value">${escapeHtml(value)}</div>
@@ -2008,12 +2330,33 @@ function escapeHtml(value) {
   return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+function tooltipAttr(value, placement = "top") {
+  if (!value) return "";
+  return `data-tooltip="${escapeHtml(value)}" data-tooltip-placement="${escapeHtml(placement)}"`;
+}
+
+function propControlTooltip(control) {
+  if (!control) return "";
+  if (control.type === "select") return `Изменить свойство "${control.label}".`;
+  if (control.type === "boolean") {
+    return `${propsState[control.id] ? "Выключить" : "Включить"} свойство "${control.label}".`;
+  }
+  return `Изменить значение "${control.label}".`;
+}
+
+function optionLabel(value, control) {
+  if (value !== "") return value;
+  if (control?.id === "value") return control?.placeholder || "Select...";
+  return "None";
+}
+
 function applyTheme(theme) {
   const next = theme === "light" ? "light" : "dark";
   document.documentElement.dataset.theme = next;
   localStorage.setItem("seda-portal-theme", next);
   localStorage.setItem("component-lab-theme", next);
-  themeIcon.textContent = next === "dark" ? "☾" : "☀";
+  themeIcon.textContent = "";
+  themeIcon.className = `seda-icon ${next === "dark" ? "seda-icon-moon" : "seda-icon-sun"}`;
 }
 
 function setSidebarWidth(width) {
@@ -2170,6 +2513,73 @@ function handleDemoAction(element) {
   }
 }
 
+function handleDemoSelectKeydown(event) {
+  const options = selectOptions();
+  if (!options.length) return;
+
+  const selectedIndex = Math.max(0, options.indexOf(propsState.value));
+  const currentIndex = clampNumber(activeDemoSelectIndex ?? selectedIndex, 0, options.length - 1);
+
+  if (!["ArrowDown", "ArrowUp", "Home", "End", "Enter", " ", "Escape"].includes(event.key)) return;
+  event.preventDefault();
+
+  if (event.key === "Escape") {
+    updateDemoState({ open: false });
+    requestAnimationFrame(() => previewStage.querySelector("[data-demo-select-trigger]")?.focus());
+    return;
+  }
+
+  if (!propsState.open) {
+    activeDemoSelectIndex = event.key === "ArrowUp" ? options.length - 1 : selectedIndex;
+    updateDemoState({ open: true });
+    requestAnimationFrame(() => previewStage.querySelector("[data-demo-select-trigger]")?.focus());
+    return;
+  }
+
+  if (event.key === "ArrowDown") activeDemoSelectIndex = Math.min(options.length - 1, currentIndex + 1);
+  if (event.key === "ArrowUp") activeDemoSelectIndex = Math.max(0, currentIndex - 1);
+  if (event.key === "Home") activeDemoSelectIndex = 0;
+  if (event.key === "End") activeDemoSelectIndex = options.length - 1;
+
+  if (event.key === "Enter" || event.key === " ") {
+    updateDemoState({ value: options[currentIndex], open: false });
+    activeDemoSelectIndex = currentIndex;
+    requestAnimationFrame(() => previewStage.querySelector("[data-demo-select-trigger]")?.focus());
+    return;
+  }
+
+  renderPreview();
+  requestAnimationFrame(() => previewStage.querySelector("[data-demo-select-trigger]")?.focus());
+}
+
+function handleDemoComboboxKeydown(event) {
+  const options = searchSuggestions(propsState.value);
+  if (!["ArrowDown", "ArrowUp", "Enter", "Escape"].includes(event.key)) return;
+  if (!options.length && event.key !== "Escape") return;
+
+  event.preventDefault();
+
+  if (event.key === "Escape") {
+    updateDemoState({ state: "default" });
+    return;
+  }
+
+  if (event.key === "ArrowDown") activeComboboxIndex = Math.min(options.length - 1, activeComboboxIndex + 1);
+  if (event.key === "ArrowUp") activeComboboxIndex = Math.max(0, activeComboboxIndex - 1);
+
+  if (event.key === "Enter") {
+    updateDemoState({ value: options[clampNumber(activeComboboxIndex, 0, options.length - 1)], state: "default" });
+    return;
+  }
+
+  renderPreview();
+  requestAnimationFrame(() => {
+    const input = previewStage.querySelector("[data-demo-combobox-input]");
+    input?.focus();
+    input?.setSelectionRange?.(input.value.length, input.value.length);
+  });
+}
+
 function handleTabsKeydown(event) {
   if (!event.target.classList.contains("seda-tab")) return;
   if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
@@ -2218,12 +2628,67 @@ propsPanel.addEventListener("change", (event) => {
   updatePropControl(event.target);
 });
 
+propsPanel.addEventListener("keydown", (event) => {
+  const trigger = event.target.closest("[data-prop-select]");
+  if (!trigger) return;
+
+  const id = trigger.dataset.propSelect;
+  const control = getControls(selectedComponent).find((item) => item.id === id);
+  if (!control?.options?.length) return;
+
+  const isOpen = openPropSelect === id;
+  const selectedIndex = Math.max(0, control.options.indexOf(propsState[id]));
+  const currentIndex = clampNumber(activePropSelectIndex[id] ?? selectedIndex, 0, control.options.length - 1);
+
+  if (["ArrowDown", "ArrowUp", "Home", "End", "Enter", " ", "Escape"].includes(event.key)) {
+    event.preventDefault();
+  } else {
+    return;
+  }
+
+  if (event.key === "Escape") {
+    openPropSelect = null;
+    renderProps();
+    requestAnimationFrame(() => document.querySelector(`[data-prop-select="${CSS.escape(id)}"]`)?.focus());
+    return;
+  }
+
+  if (!isOpen) {
+    openPropSelect = id;
+    activePropSelectIndex[id] = event.key === "ArrowUp" ? control.options.length - 1 : selectedIndex;
+    renderProps();
+    requestAnimationFrame(() => document.querySelector(`[data-prop-select="${CSS.escape(id)}"]`)?.focus());
+    return;
+  }
+
+  if (event.key === "ArrowDown") activePropSelectIndex[id] = Math.min(control.options.length - 1, currentIndex + 1);
+  if (event.key === "ArrowUp") activePropSelectIndex[id] = Math.max(0, currentIndex - 1);
+  if (event.key === "Home") activePropSelectIndex[id] = 0;
+  if (event.key === "End") activePropSelectIndex[id] = control.options.length - 1;
+
+  if (event.key === "Enter" || event.key === " ") {
+    propsState[id] = control.options[currentIndex];
+    openPropSelect = null;
+    renderProps();
+    renderPreview();
+    requestAnimationFrame(() => document.querySelector(`[data-prop-select="${CSS.escape(id)}"]`)?.focus());
+    return;
+  }
+
+  renderProps();
+  requestAnimationFrame(() => document.querySelector(`[data-prop-select="${CSS.escape(id)}"]`)?.focus());
+});
+
 propsPanel.addEventListener("click", (event) => {
   const trigger = event.target.closest("[data-prop-select]");
   if (trigger) {
     event.stopPropagation();
     const id = trigger.dataset.propSelect;
     openPropSelect = openPropSelect === id ? null : id;
+    if (openPropSelect) {
+      const control = getControls(selectedComponent).find((item) => item.id === id);
+      activePropSelectIndex[id] = Math.max(0, control?.options?.indexOf(propsState[id]) ?? 0);
+    }
     renderProps();
     return;
   }
@@ -2239,6 +2704,17 @@ propsPanel.addEventListener("click", (event) => {
 });
 
 previewStage.addEventListener("click", (event) => {
+  const selectTrigger = event.target.closest("[data-demo-select-trigger]");
+  if (selectTrigger) {
+    event.preventDefault();
+    if (!propsState.open) {
+      activeDemoSelectIndex = Math.max(0, selectOptions().indexOf(propsState.value));
+    }
+    updateDemoState({ open: !propsState.open });
+    requestAnimationFrame(() => previewStage.querySelector("[data-demo-select-trigger]")?.focus());
+    return;
+  }
+
   const clear = event.target.closest("[data-demo-clear]");
   if (clear) {
     event.preventDefault();
@@ -2250,6 +2726,9 @@ previewStage.addEventListener("click", (event) => {
   if (toggle) {
     event.preventDefault();
     const prop = toggle.dataset.demoToggle;
+    if (selectedComponent === "select" && prop === "open" && !propsState.open) {
+      activeDemoSelectIndex = Math.max(0, selectOptions().indexOf(propsState.value));
+    }
     updateDemoState({ [prop]: !propsState[prop] });
     return;
   }
@@ -2259,6 +2738,10 @@ previewStage.addEventListener("click", (event) => {
     event.preventDefault();
     const next = parseDemoSet(set.dataset.demoSet);
     if (set.closest(".select-menu, .picker-panel")) next.open = false;
+    if (set.closest(".combobox-menu")) next.state = "default";
+    if (set.closest(".select-menu") && "value" in next) {
+      activeDemoSelectIndex = Math.max(0, selectOptions().indexOf(next.value));
+    }
     updateDemoState(next);
     return;
   }
@@ -2299,14 +2782,41 @@ previewStage.addEventListener("input", (event) => {
   propsState[prop] = target.value;
   renderProps();
 
-  if (target.type === "range") {
+  if (target.type === "range" || target.dataset.demoComboboxInput !== undefined) {
+    if (target.dataset.demoComboboxInput !== undefined) activeComboboxIndex = 0;
     renderPreview();
+    if (target.dataset.demoComboboxInput !== undefined) {
+      requestAnimationFrame(() => {
+        const input = previewStage.querySelector("[data-demo-combobox-input]");
+        input?.focus();
+        input?.setSelectionRange?.(input.value.length, input.value.length);
+      });
+    }
   }
+});
+
+previewStage.addEventListener("focusin", (event) => {
+  if (!event.target.matches("[data-demo-combobox-input]")) return;
+  if (propsState.state === "focus") return;
+  activeComboboxIndex = 0;
+  updateDemoState({ state: "focus" });
+  requestAnimationFrame(() => previewStage.querySelector("[data-demo-combobox-input]")?.focus());
 });
 
 previewStage.addEventListener("keydown", (event) => {
   if (event.target.closest(".seda-tabs") && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
     handleTabsKeydown(event);
+    return;
+  }
+
+  if (event.target.matches("[data-demo-combobox-input]")) {
+    handleDemoComboboxKeydown(event);
+    return;
+  }
+
+  const selectTrigger = event.target.closest("[data-demo-select-trigger]");
+  if (selectTrigger) {
+    handleDemoSelectKeydown(event);
     return;
   }
 
@@ -2322,6 +2832,7 @@ previewStage.addEventListener("keydown", (event) => {
 searchInput.addEventListener("input", () => renderNav(searchInput.value));
 themeButton.addEventListener("click", () => {
   applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+  renderProps();
   renderPreview();
   renderTokenTree();
 });
@@ -2335,7 +2846,7 @@ document.addEventListener("scroll", showScrollableScrollbar, { capture: true, pa
 
 window.addEventListener("hashchange", () => {
   const next = location.hash.replace("#", "");
-  if (next && next !== selectedComponent && components[next]) selectComponent(next);
+  if (next && next !== selectedComponent && (next === SIZE_MATRIX_ID || components[next])) selectComponent(next);
 });
 
 document.addEventListener("click", (event) => {
@@ -2349,3 +2860,4 @@ document.addEventListener("keydown", (event) => {
   openPropSelect = null;
   renderProps();
 });
+

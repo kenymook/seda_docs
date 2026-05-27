@@ -3,10 +3,10 @@
 CLAUDE.md
 handoff.md
 figma_references.md
-docs-site/claude-tasks.md
+portal/docs-site/claude-tasks.md
 
 # Generated Figma scan snapshots
-docs-site/figma-components.json
+portal/docs-site/figma-components.json
 
 # Generated reports, caches and helper workspaces
 reports/
