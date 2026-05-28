@@ -4,395 +4,385 @@
 > **Version** · 1.0
 > **Status** · needs-review
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · https://www.figma.com/design/h8wSwPpnlt91IQH7h4Kvj0/SEDA-UI-kit?node-id=2463-16164
+> **Last reviewed** · 2026-05-28
+> **Figma** · https://www.figma.com/design/h8wSwPpnlt91IQH7h4Kvj0/SEDA-AI?node-id=2463-16164
+> **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `spacing-sizing.md`, `state-vocabulary.md`, `tokens.md`
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles / Принципы использования
 
 ### Что это
 
-Button — основной action-компонент для запуска действия: отправки формы, подтверждения операции, сохранения изменений, запуска процесса или перехода к следующему шагу сценария. В отличие от Link, Button не ведёт к ресурсу, а инициирует действие внутри продукта.
+Button — основной компонент действия. Он запускает операцию внутри продукта: отправку формы, сохранение изменений, подтверждение выбора, повтор запроса, удаление объекта или переход к следующему шагу сценария.
+
+В SEDA AI Button является action contract: он должен явно описывать действие, состояние, приоритет, токены, accessibility и handoff. Button не используется для навигации к URL или ресурсу; для этого нужен Link.
 
 ### Когда использовать
 
-**Используйте** — когда пользователь должен выполнить явное действие:
+Используйте Button, когда пользователь должен:
 
 - отправить форму;
-- сохранить или применить изменения;
+- сохранить, применить или отменить изменения;
 - подтвердить операцию;
-- запустить процесс;
-- повторить запрос;
-- перейти к следующему шагу мастера;
-- выполнить действие в карточке, таблице, тулбаре или модальном окне.
+- запустить async-процесс;
+- повторить запрос после ошибки;
+- удалить или отозвать объект;
+- выполнить действие в Card, Table, Toolbar, Modal или Empty State.
 
-**Не используйте:**
+### Не используйте
 
-- Для навигации к URL, странице или якорю — используйте **Link**.
-- Для выбора одного варианта из набора — используйте **Radio** или **Segmented Control**.
-- Для переключения режима с постоянным selected-состоянием — используйте **Button Group** или **Toggle**, если сценарий toggle-like.
-- Для действия только с иконкой — используйте **Icon Button**.
-- Для декоративного выделения текста — используйте типографику, Badge или Tag.
+Не используйте Button, когда:
+
+- элемент ведет на страницу, URL, файл или якорь — используйте [Link](../specs/actions/link.md);
+- нужно выбрать один вариант из группы — используйте [Radio](../specs/inputs/radio.md) или [Segmented Control](../specs/inputs/segmented-control.md);
+- нужен постоянный режим `selected` — используйте [Button Group](../specs/actions/button-group.md), Toggle или Segmented Control;
+- действие состоит только из иконки — используйте [Icon Button](../specs/actions/icon-button.md);
+- нужно показать статус, label или счетчик — используйте [Tag](../specs/data-display/tag.md) или [Badge](../specs/data-display/badge.md).
 
 ### Основные принципы
 
 - **One primary per context** — в одном смысловом контексте должен быть один главный Button.
-- **Hierarchy communicates priority** — `primary`, `secondary`, `outline`, `ghost`, `text` задают убывающий визуальный вес.
-- **Label is an action** — label должен быть глаголом или глагольной фразой по [foundation/content.md](../foundation/content.md): `Сохранить`, `Создать проект`, `Повторить`.
-- **State belongs to the control** — состояния Button следуют [foundation/state-vocabulary.md](../foundation/state-vocabulary.md) и не дублируются родителем без причины.
-- **Danger needs intent** — `destruction` используется только для действий с необратимыми или рискованными последствиями и обычно требует подтверждения.
-- **Tokens before visuals** — визуальные значения берутся из component tokens; raw colors, borders и focus styles не задаются вручную.
+- **Hierarchy communicates priority** — variant задает визуальный вес действия.
+- **Label is an action** — label должен быть глаголом или глагольной фразой: `Сохранить`, `Создать проект`, `Повторить`.
+- **Native first** — Button реализуется как нативный `<button>` с явным `type`.
+- **Danger needs intent** — destructive action должен ясно называть действие и объект.
+- **Loading preserves meaning** — loading state блокирует повторную активацию, но не удаляет accessible name.
+- **Tokens before visuals** — colors, border, focus и spinner берутся из component tokens.
+- **AI assists, system governs** — AI может предложить label и handoff, но не должен придумывать variants, props или tokens.
+
+### Связанные спецификации
+
+- [Icon Button](../specs/actions/icon-button.md) — icon-only действия.
+- [Button Group](../specs/actions/button-group.md) — связанные действия и grouped controls.
+- [Link](../specs/actions/link.md) — навигация к ресурсу.
+- [Form](../specs/overlays-layout/form.md) — submit/cancel actions.
+- [Modal](../specs/feedback/modal.md) — footer actions и destructive confirmation.
 
 ---
 
-## 2. Anatomy
+## 2. Anatomy / Анатомия
 
-```text
-┌─────────────────────────────────────┐
-│ [icon-left]  Label  [icon-right]    │
-└─────────────────────────────────────┘
-```
+| Часть | Обязательность | Назначение |
+|---|---:|---|
+| `root` | Да | Нативный `<button>` и визуальный контейнер. |
+| `label` | Да | Видимый текст действия. |
+| `iconLeft` | Нет | Иконка перед label, усиливает смысл действия. |
+| `iconRight` | Нет | Иконка после label: направление, disclosure, продолжение. |
+| `spinner` | Условно | Индикатор loading state. |
 
-| Слот | Обязательность | Описание |
-| --- | --- | --- |
-| `root` | yes | Native button element and visual container |
-| `label` | yes | Action label; required for regular Button |
-| `iconLeft` | optional | Leading icon that supports the action meaning |
-| `iconRight` | optional | Trailing icon for continuation, disclosure, external process, or direction |
-| `spinner` | conditional | Loading indicator shown during async action |
+### Правила анатомии
 
-### Slot rules
-
-- Regular Button requires visible `label`.
-- Не используйте `iconLeft` и `iconRight` только для декорации button.
-- If the action has no visible label, use **Icon Button** instead.
-- Spinner must not remove the accessible action name.
+- Regular Button всегда имеет видимый `label`.
+- Если label отсутствует, используйте Icon Button.
+- `iconLeft` и `iconRight` не используются как декор без смысловой связи с label.
+- Spinner может заменить иконку, но не должен удалять accessible action name.
+- Root не должен быть `<div>` с click handler.
 
 ---
 
-## 3. Types / Variants
+## 3. Types / Variants / Варианты
 
-| Variant | Purpose | Typical use |
-| --- | --- | --- |
-| `primary` | Highest emphasis action | Main submit, save, create, continue |
-| `secondary` | Supportive action with visible container | Cancel, secondary submit, alternative action |
-| `outline` | Lower-emphasis action with border | Toolbar action, neutral action near primary |
-| `ghost` | Low-emphasis action without default border/fill | Dense toolbar, table row, card action |
-| `text` | Inline or very low-emphasis action | Inline action near text, low-risk utility action |
-| `destruction` | Risky or irreversible action | Delete, revoke access, remove data |
+| Variant | Назначение | Типичный сценарий |
+|---|---|---|
+| `primary` | Действие с максимальным приоритетом в локальном контексте. | Save, create, continue, submit. |
+| `secondary` | Поддерживающее действие с видимым контейнером. | Cancel, alternative submit, neutral action. |
+| `outline` | Нейтральное действие с border и меньшим весом. | Toolbar, modal footer, secondary row action. |
+| `ghost` | Низкий визуальный вес без default fill/border. | Dense toolbar, table row, card action. |
+| `text` | Inline или очень низкий visual emphasis. | Utility action рядом с текстом. |
+| `destruction` | Рискованное или необратимое действие. | Delete, revoke, remove access. |
 
 ### Modifiers
 
-| Modifier | Description | Restrictions |
-| --- | --- | --- |
-| `iconLeft` | Adds an icon before label | Icon must support label meaning |
-| `iconRight` | Adds an icon after label | Use for continuation, disclosure, or direction |
-| `fullWidth` | Button fills parent width | Use for mobile, forms, and narrow containers |
-| `loading` | Async operation is running | Blocks repeated activation and preserves width |
-| `disabled` | Action is not available | Requires visible or contextual explanation if not obvious |
+| Modifier | Назначение | Ограничения |
+|---|---|---|
+| `iconLeft` | Добавляет leading icon. | Иконка поддерживает label. |
+| `iconRight` | Добавляет trailing icon. | Использовать для направления, disclosure или продолжения. |
+| `fullWidth` | Button занимает ширину parent. | Подходит для mobile, forms, narrow panels. |
+| `loading` | Async action выполняется. | Блокирует повторное действие и сохраняет ширину. |
+| `disabled` | Action недоступен. | Причина должна быть понятна из контекста или helper text. |
 
-### Type hierarchy
+### Иерархия действий
 
-| Context | Primary | Secondary / outline | Ghost / text |
-| --- | --- | --- | --- |
-| Save form | `Сохранить` | `Отмена` | — |
-| Delete dialog | `Удалить` as `destruction` | `Отмена` | — |
-| Object card | `Открыть` | `Редактировать` | `Поделиться` |
+| Контекст | Primary | Secondary / outline | Ghost / text |
+|---|---|---|---|
+| Форма | `Сохранить` | `Отмена` | `Сбросить` |
+| Delete dialog | `Удалить проект` as `destruction` | `Отмена` | — |
+| Object Card | `Открыть` | `Редактировать` | `Поделиться` |
 | Toolbar | — | `Экспорт` | `Фильтр`, `Сортировка` |
-| Empty state | `Создать проект` | `Импортировать` | `Подробнее` |
+| Empty State | `Создать проект` | `Импортировать` | `Подробнее` |
 
 ---
 
-## 4. Sizes
+## 4. Sizes / Размеры
 
-Button follows [foundation/spacing-sizing.md](../foundation/spacing-sizing.md), [foundation/radius-border.md](../foundation/radius-border.md), and [foundation/iconography.md](../foundation/iconography.md).
+Button следует foundation rules для spacing, sizing, radius и iconography.
 
-| Size | Height | Font / line | Radius | Horizontal padding | Icon | Context |
-| --- | --- | --- | --- | --- | --- | --- |
-| `small` | 24px | 12px / 16px | 6px | 8px | 14px | Dense toolbar, table row action |
-| `medium` | 32px | 14px / 20px | 8px | 12px | 16px | Default product UI |
-| `large` | 40px | 16px / 24px | 10px | 16px | 18px | Prominent action in forms or panels |
-| `extraLarge` | 48px | 18px / 28px | 12px | 20px | 20px | Touch-first or high-emphasis flow |
+| Size | Height | Font / line | Radius | Padding X | Icon | Контекст |
+|---|---:|---|---:|---:|---:|---|
+| `small` | 24px | 12px / 16px | 6px | 8px | 14px | Dense toolbar, table row action. |
+| `medium` | 32px | 14px / 20px | 8px | 12px | 16px | Default product UI. |
+| `large` | 40px | 16px / 24px | 10px | 16px | 18px | Forms, panels, prominent action. |
+| `extraLarge` | 48px | 18px / 28px | 12px | 20px | 20px | Touch-first или high-emphasis flow. |
 
 ### Правила размеров
 
-- `medium` is the default size for product screens.
-- `small` may have visual height below 44px, but the touch target must be expanded where touch input is expected.
-- Do not change typography scale to create a custom hierarchy; choose a documented variant and size.
-- Size does not change the semantic priority of the action.
+- `medium` — default для продуктовых экранов.
+- `small` может быть визуально ниже 44px, но touch target должен расширяться там, где ожидается touch input.
+- Size не меняет смысловой приоритет действия.
+- Не создавайте hierarchy через произвольный font size; используйте documented variant и size.
 
 ---
 
-## 5. States
+## 5. States / Состояния
 
-### Матрица состояний
-
-| State | Описание | Визуальное изменение |
-| --- | --- | --- |
-| `default` | Base interactive state | Default surface, border, foreground |
-| `hover` | Pointer is over the button | Surface and border use hover tokens where defined |
-| `active` / `pressed` | Pointer or keyboard activation is in progress | Surface and border use pressed tokens where defined |
-| `focus` | Keyboard focus | Focus ring uses `focus/ring` |
-| `loading` | Async action is running | Spinner appears; repeat activation is blocked |
-| `disabled` | Action is unavailable | Disabled surface, border, and foreground tokens |
+| State | Когда возникает | Правило |
+|---|---|---|
+| `default` | Button доступен и не взаимодействует с пользователем. | Используются default surface, border, foreground. |
+| `hover` | Pointer над Button. | Используются hover tokens, если они есть в ветке variant. |
+| `active` / `pressed` | Pointer или keyboard activation. | Используются pressed tokens. |
+| `focus` | Keyboard focus. | Используется `focus/ring`. |
+| `loading` | Async action выполняется. | Spinner видим, повторная активация заблокирована. |
+| `disabled` | Action недоступен. | Нативный disabled или `aria-disabled` по сценарию. |
 
 ### Допустимые сочетания
 
-| Сочетание | Допустимо | Примечания |
-| --- | --- | --- |
-| `hover` + `focus` | yes | Possible during keyboard focus and pointer hover |
-| `active` + `focus` | yes | Possible with Enter or Space activation |
-| `loading` + `focus` | yes | Focus may remain on the control while request runs |
-| `loading` + `disabled` | conditional | Use only if implementation needs both visual and semantic blocking |
-| `hover` + `disabled` | no | Disabled cancels interactive states |
-| `active` + `disabled` | no | Disabled controls cannot be activated |
+| Сочетание | Допустимо | Правило |
+|---|---:|---|
+| `hover` + `focus` | Да | Pointer может быть над focused Button. |
+| `active` + `focus` | Да | `Enter` или `Space` активируют focused Button. |
+| `loading` + `focus` | Да | Фокус может оставаться на Button во время запроса. |
+| `loading` + `disabled` | Условно | Использовать только если implementation явно различает blocking и unavailable. |
+| `hover` + `disabled` | Нет | Disabled отменяет interactive states. |
+| `active` + `disabled` | Нет | Disabled Button не активируется. |
 
 ### State ownership
 
-- Button owns `hover`, `active`, `focus`, `loading`, and `disabled`.
-- Parent components may pass state into Button, but must not redefine its visual rules.
-- Toggle-like `selected` or `pressed` state belongs to Button Group, Toggle, or a documented toggle pattern, not to regular Button.
+- Button владеет `hover`, `active`, `focus`, `loading` и `disabled`.
+- Parent component может передать state, но не переопределяет visual rules.
+- `selected` или persistent `pressed` не относится к regular Button; используйте Button Group, Toggle или Segmented Control.
 
 ---
 
-## 6. Details on Types / Variants
+## 6. Behavior / Поведение
 
-### primary
+### Native behavior
 
-Use for the main action in a local context. The token branch is primary solid. Primary Button should not compete with another primary action in the same form, modal, card, or screen section.
-
-### secondary
-
-Use for supportive actions near a primary action. The token branch is neutral secondary. Secondary has a visible container and can stand alone when the action is neutral but still important.
-
-### outline
-
-Use for neutral actions that need a visible boundary without filled emphasis. The token branch is neutral outline. It is useful in toolbars, modal footers, and action rows where a filled secondary button would be too heavy.
-
-### ghost
-
-Use for low-emphasis actions in dense interfaces. The token branch is neutral ghost. Ghost Button should not be used for the only critical action in a screen.
-
-### text
-
-Use for inline or low-emphasis actions. The token branch is neutral text. Text Button must still behave as a button, not as a link, unless it navigates to a resource.
-
-### destruction
-
-Use for risky or irreversible actions. The token branch is danger solid. Destruction Button should name the destructive action and object clearly: `Удалить проект`, not `Да`.
-
----
-
-## 7. Behavior
+- Используйте нативный `<button>`.
+- Всегда задавайте `type`: `button`, `submit` или `reset`.
+- Default для обычного действия: `type="button"`.
+- Submit action в форме использует `type="submit"`.
+- Не используйте `<a>` для действий, которые не выполняют navigation.
 
 ### Keyboard interaction
 
 | Клавиша | Действие |
-| --- | --- |
-| `Tab` / `Shift+Tab` | Move focus to or from the button |
-| `Enter` | Activate button |
-| `Space` | Activate button |
+|---|---|
+| `Tab` / `Shift+Tab` | Перемещает фокус к Button или от него. |
+| `Enter` | Активирует Button. |
+| `Space` | Активирует Button. |
 
-### Native behavior
-
-- Use native `<button>` for actions.
-- Always set `type`: `button`, `submit`, or `reset`.
-- Default to `type="button"` unless the button submits a form.
-- Do not implement Button as clickable `<div>`.
-- Не используйте `<a>` для actions, которые не выполняют navigation.
-
-### Loading state
+### Loading
 
 - Loading blocks repeated activation.
-- Loading must preserve the accessible name of the action.
-- Spinner may replace an icon, but should not erase the label unless an equivalent accessible label remains.
-- Button width should remain stable between default and loading states.
-- Loading should respect reduced motion preferences.
+- Width должен оставаться стабильным между default и loading states.
+- Spinner может заменять icon, но label остается видимым или доступным.
+- Loading должен учитывать reduced motion preferences.
+- Если async action завершился ошибкой, Button возвращается в доступное состояние или сопровождается error feedback.
 
 ### Responsive behavior
 
-- Button label wraps only when the container cannot support the minimum useful width.
-- In narrow containers, action groups may stack vertically.
-- `fullWidth` is allowed in forms, mobile layouts, and narrow panels.
-- Icon and label spacing must remain token-driven.
+- Label переносится только если контейнер не поддерживает минимальную полезную ширину.
+- Action group может складываться вертикально в narrow containers.
+- `fullWidth` допустим в forms, mobile layouts и narrow panels.
+- Icon-label gap должен оставаться token-driven.
 
 ---
 
-## 8. Accessibility
+## 7. Accessibility
 
-Button follows [foundation/accessibility.md](../foundation/accessibility.md) and should meet WCAG 2.2 AA for interactive controls.
+Button следует [foundation/accessibility.md](../foundation/accessibility.md) и должен соответствовать WCAG 2.2 AA для interactive controls.
 
-### Semantics
-
-| Element / part | Semantics | Rule |
-| --- | --- | --- |
-| Root | `<button type="button">`, `<button type="submit">`, or `<button type="reset">` | Use native semantics |
-| `iconLeft` / `iconRight` | `aria-hidden="true"` | When icon duplicates label meaning |
-| `spinner` | `aria-hidden="true"` or labelled status pattern | Depends on whether the label remains visible |
-| Disabled button | Native `disabled` | Use when action is unavailable and should leave tab order |
-| Loading button | `aria-disabled="true"` and internal activation guard | Use when focus should remain while async action runs |
+| Элемент | Семантика | Правило |
+|---|---|---|
+| Root | `<button type="button">`, `<button type="submit">`, `<button type="reset">` | Использовать native semantics. |
+| `iconLeft` / `iconRight` | `aria-hidden="true"` | Если icon дублирует label. |
+| `spinner` | `aria-hidden="true"` или status pattern | Зависит от того, остается ли label видимым. |
+| Disabled Button | Native `disabled` | Когда action недоступен и должен выйти из tab order. |
+| Loading Button | `aria-disabled="true"` + activation guard | Когда фокус должен остаться на Button. |
 
 ### Accessibility checklist
 
-- [ ] Root is a native `<button>`.
-- [ ] `type` is explicit.
-- [ ] Visible label describes the action.
-- [ ] Loading keeps an accessible action name.
-- [ ] Disabled reason is clear from context or helper text.
-- [ ] Focus ring uses `focus/ring` and is not clipped.
-- [ ] Text contrast is at least 4.5:1 where required.
-- [ ] Icon and interactive border contrast is at least 3:1 where required.
-- [ ] Touch target is at least 44x44px where touch input is expected.
-- [ ] Destructive action is not communicated only through color.
+- [ ] Root является нативным `<button>`.
+- [ ] `type` задан явно.
+- [ ] Видимый label описывает действие.
+- [ ] Loading сохраняет accessible action name.
+- [ ] Disabled reason понятен из контекста или helper text.
+- [ ] Focus ring использует `focus/ring` и не обрезается.
+- [ ] Text contrast соответствует требованиям.
+- [ ] Touch target не меньше 44x44px там, где ожидается touch input.
+- [ ] Destructive action не передается только цветом.
 
 ---
 
-## 9. Design Tokens
+## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`. Use component tokens first; use semantic tokens only as implementation fallback when a component token is missing.
+Перед изменением этого раздела нужно сверять реальные component tokens в `tokens.json`. Для Button доступны ветки primary solid, neutral secondary, neutral outline, neutral ghost, neutral text и danger solid.
 
-### Variant token branches
+### Variant branches
 
-| Variant | Representative token | Notes |
-| --- | --- | --- |
-| `primary` | `button/primary/solid/surface/default` | Brand filled action |
-| `secondary` | `button/neutral/secondary/surface/default` | Neutral filled or subtle container action |
-| `outline` | `button/neutral/outline/border/default` | Neutral bordered action |
-| `ghost` | `button/neutral/ghost/surface/default` | Transparent default action |
-| `text` | `button/neutral/text/foreground/default` | Transparent inline action |
-| `destruction` | `button/danger/solid/surface/default` | Danger filled action |
+| Variant | Token branch | Назначение |
+|---|---|---|
+| `primary` | `button/primary/solid/surface/default` | Brand filled action. |
+| `secondary` | `button/neutral/secondary/surface/default` | Neutral filled/subtle action. |
+| `outline` | `button/neutral/outline/border/default` | Neutral bordered action. |
+| `ghost` | `button/neutral/ghost/surface/default` | Transparent default action. |
+| `text` | `button/neutral/text/foreground/default` | Inline/low-emphasis action. |
+| `destruction` | `button/danger/solid/surface/default` | Danger filled action. |
 
 ### Token roles
 
-| Role | Token path pattern | Applies to |
-| --- | --- | --- |
-| Surface | `button/primary/solid/surface/default` | Button container background |
-| Surface hover | `button/primary/solid/surface/hover` | Hover background |
-| Surface pressed | `button/primary/solid/surface/pressed` | Active background |
-| Surface disabled | `button/primary/solid/surface/disabled` | Disabled background |
-| Surface loading | `button/primary/solid/surface/loading` | Loading background |
-| Border | `button/primary/solid/border/default` | Button border |
-| Border hover | `button/primary/solid/border/hover` | Hover border |
-| Border pressed | `button/primary/solid/border/pressed` | Active border |
-| Border disabled | `button/primary/solid/border/disabled` | Disabled border |
-| Border loading | `button/primary/solid/border/loading` | Loading border |
-| Foreground | `button/primary/solid/foreground/default` | Label and icon |
-| Foreground disabled | `button/primary/solid/foreground/disabled` | Disabled label and icon |
-| Foreground loading | `button/primary/solid/foreground/loading` | Loading label and icon |
-| Spinner foreground | `button/primary/solid/spinner/foreground` | Loading spinner |
-| Focus ring | `button/primary/solid/focus/ring` | Keyboard focus |
+| Role | Example token | Применение |
+|---|---|---|
+| Surface default | `button/primary/solid/surface/default` | Background по умолчанию. |
+| Surface hover | `button/primary/solid/surface/hover` | Background при hover. |
+| Surface pressed | `button/primary/solid/surface/pressed` | Background при active. |
+| Surface disabled | `button/primary/solid/surface/disabled` | Background disabled state. |
+| Surface loading | `button/primary/solid/surface/loading` | Background loading state. |
+| Border default | `button/primary/solid/border/default` | Border по умолчанию. |
+| Border hover | `button/primary/solid/border/hover` | Border при hover. |
+| Border pressed | `button/primary/solid/border/pressed` | Border при active. |
+| Border disabled | `button/primary/solid/border/disabled` | Border disabled state. |
+| Border loading | `button/primary/solid/border/loading` | Border loading state. |
+| Foreground default | `button/primary/solid/foreground/default` | Label и icon. |
+| Foreground disabled | `button/primary/solid/foreground/disabled` | Label и icon disabled state. |
+| Foreground loading | `button/primary/solid/foreground/loading` | Label и icon loading state. |
+| Spinner foreground | `button/primary/solid/spinner/foreground` | Spinner color. |
+| Focus ring | `button/primary/solid/focus/ring` | Keyboard focus. |
 
-Use the same role structure for the relevant variant branch: neutral secondary, neutral outline, neutral ghost, neutral text, or danger solid.
+Используйте такую же структуру ролей для веток neutral secondary, neutral outline, neutral ghost, neutral text и danger solid.
 
 ### Token gaps
 
-- Size, radius, padding, gap, icon size, and typography are currently documented through foundation values rather than Button component tokens.
-- If component-level size tokens are added later, map them explicitly instead of replacing this section with raw px values.
-- Do not invent Button token names in specs, code, Figma, or AI-generated handoff.
+- Size, radius, padding, gap, icon size и typography пока описаны foundation rules, а не Button component tokens.
+- Если component-level size tokens появятся позже, нужно добавить явный mapping вместо raw px.
+- Нельзя придумывать Button token names в specs, code, Figma или AI-generated handoff.
 
 ---
 
-## 10. Code mapping
+## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
-| --- | --- | --- |
-| Variant | `variant` | `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction` |
-| Size | `size` | `small`, `medium`, `large`, `extraLarge` |
-| Label | `children` or `label` | Required visible text for regular Button |
-| Leading icon | `iconLeft` | Decorative unless it adds meaning not in label |
-| Trailing icon | `iconRight` | Use for continuation, disclosure, or direction |
-| Full width | `fullWidth` | Boolean |
-| Loading | `loading` | Boolean; blocks repeat activation |
-| Disabled | `disabled` | Boolean; unavailable state |
-| Type | `type` | `button`, `submit`, `reset`; default `button` |
-| Click handler | `onClick` | Required for non-submit actions |
+| Design concept | Prop / API | Правило |
+|---|---|---|
+| Variant | `variant` | `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`. |
+| Size | `size` | `small`, `medium`, `large`, `extraLarge`. |
+| Label | `children` или `label` | Обязательный видимый текст для regular Button. |
+| Leading icon | `iconLeft` | Decorative, если смысл уже есть в label. |
+| Trailing icon | `iconRight` | Direction, disclosure или continuation. |
+| Full width | `fullWidth` | Boolean. |
+| Loading | `loading` | Boolean; блокирует repeat activation. |
+| Disabled | `disabled` | Boolean; unavailable state. |
+| Type | `type` | `button`, `submit`, `reset`; default `button`. |
+| Click handler | `onClick` | Для non-submit actions. |
 
 ### Contract rules
 
-- `variant` must be one of the documented variants.
-- `size` must be one of the documented sizes.
-- Regular Button requires visible text.
-- Use Icon Button for icon-only actions.
-- Do not pass raw colors, raw spacing, or custom border styles through props.
-- Do not add ad-hoc variants such as `success`, `warning`, or `link` without system review.
+- `variant` должен быть только documented variant.
+- `size` должен быть только documented size.
+- Regular Button требует видимый текст.
+- Icon-only action должен использовать Icon Button.
+- Нельзя передавать raw colors, raw spacing или custom border styles через props.
+- Нельзя добавлять ad-hoc variants вроде `success`, `warning`, `link` без system review.
 
 ---
 
-## 11. Handoff notes
+## 10. Handoff notes
 
-В handoff нужно передать:
+Handoff для Button должен фиксировать:
 
-- variant and size;
+- variant и size;
 - label text;
-- icon name and placement, if used;
+- icon name и placement, если icon используется;
 - state requirements: default, hover, active, focus, loading, disabled;
-- action behavior: submit, click handler, retry, navigation exception, or async process;
+- action behavior: submit, click handler, retry, async process или navigation exception;
 - `type` value;
-- whether the button is `fullWidth`;
-- loading behavior and whether width must be preserved;
-- disabled reason, if not obvious;
-- destructive confirmation requirement, if applicable;
-- token branch used for the visual variant.
+- `fullWidth`, если используется;
+- loading behavior и requirement сохранять width;
+- disabled reason, если причина не очевидна;
+- destructive confirmation requirement;
+- token branch, используемую для visual variant.
 
-### Acceptance criteria
+---
 
-- Button uses a documented variant and size.
-- Button uses real component token paths for color, border, focus, and spinner.
-- Button has a clear action label.
-- Button uses native `<button>` semantics with explicit `type`.
-- Loading blocks repeated activation and preserves accessible name.
-- Disabled state is not used as the only explanation for unavailable action.
-- Destruction Button clearly names the risky action.
-- No raw visual values are introduced in implementation.
+## 11. Acceptance criteria
+
+- [ ] Button использует documented variant и size.
+- [ ] Button использует реальные component token paths для surface, border, foreground, focus и spinner.
+- [ ] Button имеет ясный action label.
+- [ ] Root использует native `<button>` semantics.
+- [ ] `type` задан явно.
+- [ ] Loading blocks repeated activation и сохраняет accessible name.
+- [ ] Disabled state не является единственным объяснением недоступного действия.
+- [ ] Destruction Button ясно называет рискованное действие и объект.
+- [ ] Implementation не вводит raw visual values.
 
 ---
 
 ## 12. AI usage rules
 
-- AI may use only documented variants: `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`.
-- AI may use only documented sizes: `small`, `medium`, `large`, `extraLarge`.
-- AI must check `tokens.json` before writing or changing Button token mappings.
-- AI must not invent Button props, variants, states, token paths, or visual overrides.
-- AI must recommend Link when the requirement is navigation to a resource.
-- AI must recommend Icon Button when the requirement is icon-only action.
-- AI must flag missing action behavior, missing `type`, unclear label, unsupported variant, or raw visual values as `Needs system review`.
-- AI may draft labels, handoff notes, and acceptance criteria, but human review is required.
+AI может:
+
+- предложить action label на русском;
+- выбрать documented variant и size по контексту;
+- подготовить handoff notes и acceptance criteria;
+- проверить, не нужен ли Link, Icon Button, Button Group, Toggle или Segmented Control вместо Button;
+- сверить token mapping с `tokens.json`.
+
+AI не должен:
+
+- использовать variants вне списка `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`;
+- использовать sizes вне списка `small`, `medium`, `large`, `extraLarge`;
+- придумывать props, states, token paths или visual overrides;
+- рекомендовать Button для navigation к ресурсу;
+- рекомендовать regular Button для icon-only action;
+- скрывать missing `type`, unclear label, unsupported variant или raw visual values.
+
+Если требование выходит за contract Button, AI должен пометить его как `Needs system review`.
 
 ---
 
-## 13. Examples
+## 13. Examples / Примеры
 
 ### Корректно
 
 | Scenario | Usage |
-| --- | --- |
-| Save form | `variant=primary`, `type=submit`, label `Сохранить` |
-| Cancel in modal | `variant=outline` or `secondary`, `type=button`, label `Отмена` |
-| Retry request | `variant=secondary`, label `Повторить`, `loading=true` while request runs |
-| Delete project | `variant=destruction`, label `Удалить проект`, confirmation required |
-| Dense toolbar action | `variant=ghost`, size `small`, label `Фильтр` |
+|---|---|
+| Save form | `variant="primary"`, `type="submit"`, label `Сохранить`. |
+| Cancel in modal | `variant="outline"` или `secondary`, `type="button"`, label `Отмена`. |
+| Retry request | `variant="secondary"`, label `Повторить`, `loading=true` while request runs. |
+| Delete project | `variant="destruction"`, label `Удалить проект`, confirmation required. |
+| Dense toolbar action | `variant="ghost"`, `size="small"`, label `Фильтр`. |
 
 ### Требует review
 
-| Scenario | Reason |
-| --- | --- |
-| Two primary buttons in one modal footer | Competing hierarchy |
-| Button label `OK` for destructive action | Action and object are unclear |
-| Custom green success button | Unsupported variant and token branch |
-| Icon-only regular Button | Should be Icon Button |
-| Raw CSS color override | Breaks token contract |
+| Scenario | Причина |
+|---|---|
+| Two primary buttons in one modal footer. | Competing hierarchy. |
+| Button label `OK` для destructive action. | Action и object неясны. |
+| Custom green success button. | Unsupported variant и token branch. |
+| Icon-only regular Button. | Нужно использовать Icon Button. |
+| Raw CSS color override. | Нарушает token contract. |
 
 ---
 
 ## 14. Anti-patterns
 
-- Using Button for navigation when Link is required.
-- Using Link for submit, save, delete, retry, or other actions.
-- Adding several primary buttons in one local context.
-- Hiding the action meaning behind generic labels: `OK`, `Да`, `Готово` without context.
-- Using `destruction` only because the action is visually important.
-- Removing focus ring.
-- Using `disabled` without explaining why the action is unavailable.
-- Replacing loading label with a spinner without accessible name.
-- Creating custom one-off button colors outside component tokens.
+- Использовать Button для navigation, когда нужен Link.
+- Использовать Link для submit, save, delete, retry или другого action.
+- Добавлять несколько primary buttons в один локальный контекст.
+- Прятать смысл действия за generic labels: `OK`, `Да`, `Готово` без контекста.
+- Использовать `destruction` только потому, что действие визуально важное.
+- Убирать focus ring.
+- Использовать `disabled` без объяснения причины.
+- Заменять loading label spinner без accessible name.
+- Создавать custom one-off button colors вне component tokens.
