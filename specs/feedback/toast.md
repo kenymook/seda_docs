@@ -15,7 +15,7 @@
 
 Toast / Snackbar — временное уведомление поверх интерфейса. Оно сообщает результат действия или короткое системное событие и исчезает автоматически либо по действию пользователя.
 
-В SEDA AI Toast описывает non-blocking feedback contract: критичность сообщения, краткий текст, одно возможное действие, dismiss behavior, очередь, accessibility, motion и token mapping. Toast не должен скрывать критичные ошибки, заменять inline validation или блокировать основной workflow.
+В SEDA AI Toast описывает non-blocking feedback contract: критичность сообщения, краткий текст, одно возможное действие, dismiss behavior, очередь, accessibility, motion и token mapping. Toast не должен скрывать критичные ошибки, заменять inline validation или блокировать основной workflow. Как часть AI-ready design system framework, Toast должен иметь настолько явные rules, чтобы AI не использовал временное уведомление для ошибок, требующих исправления.
 
 ### Когда использовать
 
@@ -47,6 +47,7 @@ Toast / Snackbar — временное уведомление поверх ин
 
 - [Alert](alert.md) — видимый feedback в контексте.
 - [Modal](modal.md) — blocking confirmation или критичный сценарий.
+- [Notification Center](../overlays-layout/notification-center.md) — история уведомлений и системных событий.
 - [Spinner](spinner.md) — неопределенная загрузка.
 - [Progress Bar](progress-bar.md) — измеримый прогресс.
 - [Button](../actions/button.md) — action и close controls.
@@ -145,6 +146,16 @@ Figma component set использует variant property `size`.
 - Toast item владеет title, description, action, close и live region behavior.
 - Button или Link внутри Toast владеют собственными focus/hover/active states.
 
+### Feedback boundary
+
+| Сценарий | Используйте | Почему |
+| --- | --- | --- |
+| Действие успешно завершено и не требует решения | Toast | Временный non-blocking feedback. |
+| Ошибка относится к конкретному полю формы | Inline validation | Пользователь должен исправить проблему рядом с полем. |
+| Сообщение должно оставаться в контексте страницы | Alert | Persistent feedback виден без таймера. |
+| Событие должно сохраняться в истории | Notification Center | Toast не является журналом событий. |
+| Нужно подтвердить рискованное действие | Modal | Требуется blocking decision. |
+
 ---
 
 ## 6. Behavior
@@ -180,7 +191,7 @@ Figma component set использует variant property `size`.
 
 ## 7. Accessibility
 
-Toast следует [foundation/accessibility.md](../foundation/accessibility.md).
+Toast следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Элемент | Атрибут | Когда |
 | --- | --- | --- |
@@ -289,6 +300,16 @@ Toast следует [foundation/accessibility.md](../foundation/accessibility.m
 - Action и close доступны с клавиатуры.
 - Accessibility role соответствует критичности.
 - Token mapping соответствует documented component tokens.
+
+### Handoff table
+
+| Design artifact | Code artifact | AI can help with | Human must validate |
+| --- | --- | --- | --- |
+| Toast type | `type` | Предложить severity по тексту события. | Критичность, risk и нужен ли Alert/Modal. |
+| Copy | `title`, `description` | Сократить и сделать actionable. | Точность, тон и смысл сообщения. |
+| Action | `action` | Проверить, что action один. | Handler, permission и side effects. |
+| Queue policy | `id`, `duration`, `position`, stack rules | Найти missing dedupe/limit rules. | Product-level placement и max stack. |
+| Live region | `role`, `aria-live` | Предложить polite/assertive. | Реальную критичность для accessibility. |
 
 ---
 

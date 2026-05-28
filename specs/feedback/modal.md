@@ -15,7 +15,7 @@
 
 Modal / Dialog — блокирующий overlay-компонент для решения, подтверждения или короткой сфокусированной задачи. Пока Modal открыт, пользователь работает только внутри него; фоновый интерфейс недоступен для фокуса и взаимодействия.
 
-В SEDA AI Modal описывает blocking interaction contract: причину открытия, тип диалога, фокус, закрытие, действия, accessibility, token mapping и handoff. Modal не является универсальным контейнером для любого контента и не должен заменять страницу, Drawer, Popover или Alert без причины.
+В SEDA AI Modal описывает blocking interaction contract: причину открытия, тип диалога, фокус, закрытие, действия, accessibility, token mapping и handoff. Modal не является универсальным контейнером для любого контента и не должен заменять страницу, Drawer, Popover или Alert без причины. Как часть AI-ready design system framework, Modal должен быть описан так, чтобы AI не мог сгенерировать небезопасный blocking flow без focus rules, dismiss rules и human review.
 
 ### Когда использовать
 
@@ -49,7 +49,7 @@ Modal / Dialog — блокирующий overlay-компонент для ре
 - [Icon Button](../actions/icon-button.md) — close button.
 - [Alert](alert.md) — неблокирующее системное сообщение.
 - [Popover](popover.md) — contextual non-blocking surface.
-- Drawer — боковая overlay-панель для более длинных задач.
+- [Drawer](../navigation/drawer.md) — боковая overlay-панель для более длинных задач.
 
 ---
 
@@ -142,6 +142,16 @@ Figma component set использует variant property `size`.
 - Form controls владеют validation states внутри content slot.
 - Alert внутри Modal используется только для локального сообщения, не для замены Modal state.
 
+### Decision matrix
+
+| Сценарий | Используйте | Почему |
+| --- | --- | --- |
+| Короткое неблокирующее сообщение | Toast или Alert | Modal не должен блокировать workflow без необходимости. |
+| Подтверждение удаления | Modal `confirmation` | Нужны явное решение, безопасный focus и danger action. |
+| Контекстная настройка рядом с trigger | Popover | Фон не должен блокироваться. |
+| Длинная задача с несколькими секциями | Drawer или отдельная страница | Modal станет перегруженным и ухудшит focus/navigation. |
+| Критичное blocking сообщение | Modal `alert` | Нужен явный acknowledgement и alertdialog semantics. |
+
 ---
 
 ## 6. Behavior
@@ -171,7 +181,7 @@ Figma component set использует variant property `size`.
 
 ### Motion
 
-- Motion следует [foundation/motion.md](../foundation/motion.md).
+- Motion следует [foundation/motion.md](../../foundation/motion.md).
 - Overlay fade и content transition должны быть короткими и не задерживать focus.
 - `prefers-reduced-motion: reduce` отключает выразительный transition, но не меняет порядок focus management.
 
@@ -179,7 +189,7 @@ Figma component set использует variant property `size`.
 
 ## 7. Accessibility
 
-Modal следует [foundation/accessibility.md](../foundation/accessibility.md).
+Modal следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
@@ -284,6 +294,16 @@ Modal следует [foundation/accessibility.md](../foundation/accessibility.m
 - Dangerous action не получает initial focus по умолчанию.
 - Close behavior описан для close button, `Escape` и scrim click.
 - Визуальные значения берутся из documented tokens или отмеченных token gaps.
+
+### Handoff table
+
+| Design artifact | Code artifact | AI can help with | Human must validate |
+| --- | --- | --- | --- |
+| Modal type и size | `type`, `size` | Проверить соответствие Figma variants. | Подходит ли Modal, а не Drawer/Popover/page. |
+| Header title/description | `title`, `description`, ARIA links | Черновик copy и accessible description. | Риск, юридический смысл и ясность текста. |
+| Footer actions | `primaryAction`, `secondaryAction` | Сформировать action labels и criteria. | Destructive behavior, loading и permissions. |
+| Dismiss behavior | `closeOnEscape`, `closeOnScrimClick`, `onClose` | Найти missing close rules. | Безопасность закрытия и unsaved changes. |
+| Focus model | initial focus, trap, return target | Составить checklist. | Реальную реализацию focus management. |
 
 ---
 
