@@ -220,8 +220,8 @@ Avatar использует числовые sizes, чтобы они точно
 | `avatar/surface/ai` | Фон AI Avatar. | `container/ai/default` |
 | `avatar/surface/disabled` | Фон disabled Avatar. | `status/disabled/container` |
 | `avatar/foreground/fallback` | Текст или icon fallback. | `text/secondary` |
-| Avatar foreground on brand surface | Текст на brand surface. | `text/on-brand/primary` |
-| Avatar foreground on AI surface | Текст на AI surface. | `text/on-brand/primary` |
+| `avatar.foreground.onBrand` | Текст на brand surface. | `text/on-brand/primary` |
+| `avatar.foreground.onAi` | Текст на AI surface. | `text/on-brand/primary` |
 | `avatar/foreground/disabled` | Текст disabled Avatar. | `status/disabled/text` |
 | `avatar/border/default` | Border для Avatar Group. | `surface/base` |
 | `avatar/border/selected` | Border selected Avatar. | `border/selected` |
@@ -243,14 +243,28 @@ Token gap: отдельные component tokens для numeric sizes, indicator s
 |---|---|---|
 | Source | `src` | URL изображения. |
 | Name | `name` | Используется для alt, aria-label и initials. |
+| Alt text | `alt` | Явное описание изображения, если рядом нет видимого имени. |
 | Initials | `initials` | Override, если нужно вручную задать fallback. |
 | Size | `size` | `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `72`. |
 | Variant | `variant` | `image`, `initials`, `icon`, `brand`, `ai`. |
+| Shape | `shape` | `circle` по умолчанию; другие формы требуют documented use case. |
 | Status | `status` | `online`, `busy`, `away`, `offline`. |
+| Status label | `statusLabel` | Доступное описание статуса, если status видим. |
 | Selected | `selected` | Для selectable contexts. |
 | Disabled | `disabled` | Отключает interactive behavior. |
+| Loading | `loading` | Состояние загрузки изображения или identity data. |
 | Click | `href` или `onClick` | Только для interactive Avatar. |
 | Group max | `maxVisible` | Для Avatar Group overflow. |
+
+### Contract rules
+
+- `name` обязателен, если рядом нет видимого label или если нужно построить initials.
+- `src` без fallback не допускается.
+- `status` требует `statusLabel`, если статус не описан видимым текстом рядом.
+- `href` и `onClick` не используются одновременно.
+- Interactive Avatar должен рендериться как `<a>` для navigation или `<button>` для action/menu.
+- Avatar Group должен иметь `maxVisible`, overflow label и стабильный порядок участников.
+- Не передавайте персональные фото, если продуктовый контекст или privacy rule этого не разрешает.
 
 ---
 
@@ -260,9 +274,11 @@ Handoff для Avatar должен фиксировать:
 
 - какую сущность представляет Avatar;
 - источник изображения и fallback chain;
+- `alt` или правило decorative image, если рядом есть видимое имя;
 - size и variant;
 - правила initials и deterministic color;
 - status indicator и accessible text;
+- loading behavior для изображения или identity data;
 - interactive behavior, если Avatar кликабелен;
 - Avatar Group ordering, max visible и overflow behavior;
 - privacy constraints для пользовательских фото;
@@ -274,10 +290,13 @@ Handoff для Avatar должен фиксировать:
 
 - [ ] Avatar связан с конкретной сущностью.
 - [ ] Fallback chain описан и не ломает layout.
+- [ ] `alt` или `aria-label` соответствуют видимому имени и не дублируют его без необходимости.
 - [ ] Size взят из documented size table.
+- [ ] Loading/error image state не показывает broken image.
 - [ ] Interactive Avatar доступен с клавиатуры.
 - [ ] Status indicator имеет text alternative.
 - [ ] Avatar Group имеет max visible и overflow behavior.
+- [ ] Avatar Group overflow сообщает количество скрытых участников.
 - [ ] Изображение имеет корректный alt или декоративный `alt=""`.
 - [ ] Token mapping соответствует documented Avatar component tokens из `tokens.json`.
 
@@ -290,6 +309,8 @@ AI может:
 - предложить fallback chain для Avatar;
 - проверить наличие accessible name и status text;
 - подготовить Avatar Group overflow rules;
+- проверить, есть ли privacy или consent constraints для пользовательских изображений;
+- проверить, не дублирует ли `alt` видимое имя без необходимости;
 - найти сценарии, где нужна иконка вместо Avatar.
 
 AI не должен:
@@ -299,6 +320,8 @@ AI не должен:
 - передавать статус только цветом;
 - добавлять новые token paths без `Token gap`;
 - делать Avatar интерактивным без описанного действия.
+- использовать `src` без fallback chain;
+- добавлять status indicator без `statusLabel` или видимого текстового статуса.
 
 Если Avatar связан с privacy, identity verification или AI-agent representation, AI должен пометить сценарий как `Needs system review`.
 

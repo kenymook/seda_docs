@@ -4,222 +4,229 @@
 > **Version** · 1.0
 > **Status** · needs-review
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
+> **Last reviewed** · 2026-05-28
 > **Figma** · [ссылка на фрейм компонента]
+> **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `motion.md`, `tokens.md`
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles / Принципы использования
 
 ### Что это
 
-Chat Bubble — data display-компонент для одного сообщения в чат-интерфейсе. Он отображает содержимое сообщения, автора или направление, время, статус доставки и опциональные действия, но не описывает весь chat thread, input composer или messaging workflow.
+Chat Bubble — компонент отображения одного сообщения внутри conversational UI. Он показывает содержимое сообщения, автора или направление, время, статус доставки и дополнительные действия вроде copy, retry, reaction или feedback.
+
+В SEDA AI Chat Bubble является message contract, а не спецификацией всего чата. Он не описывает thread layout, input composer, moderation workflow или AI safety policy целиком. AI может помогать структурировать сообщение и handoff, но правила авторства, доступности, токенов и AI-label остаются системными.
 
 ### Когда использовать
 
-**Используйте** — когда нужно показать отдельное сообщение внутри conversational UI:
+Используйте Chat Bubble, когда нужно показать:
 
-- чат поддержки;
-- тикетная переписка;
-- AI-assistant response;
-- комментарии в формате диалога;
-- системное сообщение внутри чата;
-- сообщение с вложением, ссылкой или файлом;
-- grouped message sequence от одного автора.
+- одно сообщение пользователя, оператора, AI-ассистента или системного actor;
+- ответ поддержки внутри chat thread;
+- AI-generated response с явной маркировкой;
+- сообщение с вложением, ссылкой, кодом или rich content;
+- отправляемое, доставленное, прочитанное или ошибочное исходящее сообщение;
+- последовательность grouped messages от одного автора.
 
-**Не используйте:**
+### Не используйте
 
-- Для всей ленты сообщений — используйте Chat Thread или page pattern.
-- Для поля ввода сообщения — используйте Text Area, Button и composer pattern.
-- Для notification или transient feedback — используйте Toast или Alert.
-- Для обычного комментария без conversational layout — используйте Comment или Card pattern.
-- Для данных таблицы, логов или audit history — используйте Table или Timeline.
+Не используйте Chat Bubble, когда:
+
+- нужно описать весь chat screen или thread — используйте отдельный page/pattern spec;
+- нужен input composer — используйте Text Area, Button и composer pattern;
+- сообщение является toast/alert feedback — используйте Toast или Alert;
+- нужно показать audit log, историю статусов или события — используйте Timeline или Table;
+- содержимое не является conversational message;
+- AI response нельзя отличить от human message, если это важно для доверия и проверки.
 
 ### Основные принципы
 
-- **One bubble, one message** — Chat Bubble описывает одно сообщение, а не поток целиком.
-- **Author and direction are explicit** — входящее, исходящее, AI или system message не должны определяться только выравниванием.
-- **Status is readable** — delivery/error/sending/read имеют текст или accessible label, не только иконку или цвет.
-- **Grouped messages reduce noise** — аватар, имя и timestamp можно показывать один раз в группе, если порядок остаётся понятным.
-- **AI content needs boundary** — AI-сообщения должны быть обозначены как AI output, когда это важно для доверия и review.
-- **Nested actions own interaction** — retry, copy, reactions и attachment actions используют свои component specs.
+- **One bubble, one message** — один Chat Bubble описывает одно сообщение.
+- **Authorship is explicit** — incoming, outgoing, AI и system messages не должны определяться только выравниванием.
+- **Status is readable** — delivery/error/read state должен иметь текст или accessible label.
+- **AI output is labelled** — AI-generated content обозначается, если пользователь должен понимать источник.
+- **Grouped messages reduce noise** — avatar, author и timestamp можно группировать, но смысл не должен теряться.
+- **Nested actions own interaction** — copy, retry, reaction и attachment actions используют свои component contracts.
+- **Tokens before visuals** — surface, foreground, timestamp и action icons берутся из `chat-bubble` tokens.
+- **AI assists, system governs** — AI не придумывает sender variants, status tokens или raw colors.
+
+### Связанные спецификации
+
+- [Avatar](../specs/data-display/avatar.md) — автор сообщения.
+- [Button](../specs/actions/button.md) — retry, submit, feedback actions.
+- [Icon Button](../specs/actions/icon-button.md) — copy, react, more actions.
+- [Link](../specs/actions/link.md) — ссылки внутри сообщения.
+- [Text Area](../specs/inputs/text-area.md) — composer input.
+- [Toast](../specs/feedback/toast.md) — transient feedback вместо message bubble.
 
 ---
 
-## 2. Anatomy
+## 2. Anatomy / Анатомия
 
-```text
-Incoming:
-[avatar]  ┌────────────────────────┐
-          │ Message text            │
-          └────────────────────────┘
-          Author · 12:34 · delivered
+| Часть | Обязательность | Назначение |
+|---|---:|---|
+| `root` | Да | Контейнер одного сообщения в списке. |
+| `bubble` | Да | Визуальная поверхность сообщения. |
+| `content` | Да | Текст, код, изображение, файл или rich content. |
+| `avatar` | Условно | Автор incoming, AI или multi-author message. |
+| `author` | Условно | Имя автора, если оно не очевидно из thread context. |
+| `timestamp` | Нет | Время отправки, изменения или доставки. |
+| `deliveryStatus` | Условно | `sending`, `sent`, `delivered`, `read`, `error`, `edited`. |
+| `actions` | Нет | Copy, retry, react, download, open, feedback. |
+| `reactions` | Нет | Сводка реакций на сообщение. |
 
-Outgoing:
-          ┌────────────────────────┐
-          │ Message text            │
-          └────────────────────────┘
-          12:34 · read
-```
+### Правила анатомии
 
-| Часть | Обязательность | Описание |
-| --- | --- | --- |
-| `root` | yes | Message container |
-| `bubble` | yes | Visual surface around message content |
-| `content` | yes | Text, media, file, code, or rich content |
-| `avatar` | optional | Sender avatar for incoming or actor-heavy contexts |
-| `author` | conditional | Sender name when context does not already identify the author |
-| `timestamp` | optional | Sent time or edited time |
-| `deliveryStatus` | optional | Sending, sent, delivered, read, or error |
-| `actions` | optional | Copy, retry, react, download, open attachment |
-| `reactions` | optional | Reaction summary |
-
-### Правила anatomy
-
-- `content` is required.
-- `author` is required when multiple non-current-user authors may appear.
-- `timestamp` can be hidden in dense groups only if the thread pattern provides access to it.
-- `deliveryStatus` must have accessible text when shown.
+- `content` обязателен для каждого сообщения.
+- `author` обязателен, если в thread есть несколько авторов кроме current user.
+- `timestamp` можно группировать, но он должен быть доступен по pattern rule.
+- `deliveryStatus` должен иметь readable text или accessible label.
+- `actions` не должны быть доступны только при hover; нужен keyboard path.
+- Bubble tail не является обязательным и не должен быть единственным сигналом направления.
 
 ---
 
-## 3. Types / Variants
+## 3. Types / Variants / Варианты
 
-### Direction / sender variants
+### Sender variants
 
-| Variant | Description | Token mapping |
-| --- | --- | --- |
-| `incoming` | Message from another user or system actor | incoming surface/foreground |
-| `outgoing` | Message from current user | outgoing surface/foreground |
-| `ai` | AI-generated message | AI surface/foreground/border/icon |
-| `system` | Non-user system message | Use neutral pattern unless system tokens are added |
+| Variant | Назначение | Правило |
+|---|---|---|
+| `incoming` | Сообщение от другого пользователя или оператора. | Требует author/avatar, если thread не дает контекст. |
+| `outgoing` | Сообщение текущего пользователя. | Обычно показывает delivery status. |
+| `ai` | AI-generated message или ответ AI-agent. | Требует AI label, если источник важен для trust/review. |
+| `system` | Системное сообщение внутри thread. | Использовать нейтральный pattern; отдельные system tokens пока не выделены. |
 
 ### Content variants
 
-| Content type | Description | Rule |
-| --- | --- | --- |
-| `text` | Plain or formatted text | Default |
-| `image` | Image attachment | Needs alt text or decorative decision |
-| `file` | File attachment | Shows file name, type, size, action |
-| `audio` | Audio message | Requires controls and transcript policy |
-| `code` | Code block or technical output | Preserve formatting and copy action |
-| `rich` | Mixed content | Needs explicit content model |
+| Content type | Назначение | Правило |
+|---|---|---|
+| `text` | Plain или formatted text. | Default. |
+| `image` | Изображение внутри сообщения. | Нужен alt text или decorative decision. |
+| `file` | Вложенный файл. | Нужны имя, тип/размер и action. |
+| `audio` | Голосовое сообщение. | Нужны controls и transcript policy. |
+| `code` | Код или технический output. | Сохранить форматирование и copy action. |
+| `rich` | Смешанный контент. | Нужна явная content model. |
 
-### Grouping variants
+### Group position
 
-| Group position | Description | Rule |
-| --- | --- | --- |
-| `single` | Standalone message | Show full metadata as needed |
-| `first` | First message in grouped sequence | May show author/avatar |
-| `middle` | Middle message in sequence | Reduce repeated metadata |
-| `last` | Last message in sequence | May show timestamp/status |
+| Position | Назначение | Правило |
+|---|---|---|
+| `single` | Отдельное сообщение. | Показывать metadata по необходимости. |
+| `first` | Первое сообщение в группе автора. | Может показывать avatar/author. |
+| `middle` | Среднее сообщение группы. | Уменьшить повтор metadata. |
+| `last` | Последнее сообщение группы. | Может показывать timestamp/status. |
 
 ---
 
-## 4. Sizes
+## 4. Sizes / Размеры
 
-Chat Bubble size describes message density and maximum width, not text scale alone.
+Size описывает плотность и максимальную ширину сообщения, а не только font size.
 
-| Size | Density | Max width guidance | Use |
-| --- | --- | --- | --- |
-| `compact` | Reduced spacing and metadata | Narrow content width | Dense support views, side panels |
-| `medium` | Default spacing | Comfortable reading width | Default chat UI |
-| `large` | More breathing room | Wider content for rich messages | Detail view, AI response, rich content |
+| Size | Плотность | Применение |
+|---|---|---|
+| `compact` | Меньше spacing и metadata. | Support panel, side panel, dense logs. |
+| `medium` | Default spacing. | Основной chat UI. |
+| `large` | Больше воздуха и ширины. | Detail view, rich AI response, code/content blocks. |
 
 ### Правила размеров
 
-- Use `medium` by default.
-- Bubble width should be constrained for readability.
-- Very long text wraps; it should not stretch across the full viewport.
-- Rich content may use a wider layout than short text messages.
-- Не используйте size для передачи delivery status.
+- `medium` используется по умолчанию.
+- Bubble width ограничивается для читаемости.
+- Длинный текст переносится и не растягивает сообщение на всю ширину viewport.
+- Rich content может быть шире обычного текста.
+- Size не должен кодировать delivery status или author type.
 
 ---
 
-## 5. States
+## 5. States / Состояния
 
-Chat Bubble has message-level states and nested action states.
-
-| State | Meaning | Required signal |
-| --- | --- | --- |
-| `sending` | Message is being sent | Text or accessible status |
-| `sent` | Message left the client | Accessible label if icon is shown |
-| `delivered` | Message reached recipient/server | Accessible label if icon is shown |
-| `read` | Message was read | Accessible label; do not rely on color only |
-| `error` | Sending failed | Error text and retry action when possible |
-| `edited` | Message was edited | Edited label or timestamp note |
+| State | Когда возникает | Правило |
+|---|---|---|
+| `default` | Сообщение отображается без дополнительного статуса. | Используются tokens sender variant. |
+| `sending` | Сообщение отправляется. | Нужен текст или accessible status. |
+| `sent` | Сообщение покинуло клиент. | Если есть icon, нужен accessible label. |
+| `delivered` | Сообщение доставлено. | Не полагаться только на цвет/icon. |
+| `read` | Сообщение прочитано. | Нужен readable или accessible status. |
+| `error` | Отправка или загрузка content failed. | Нужны error text и recovery action. |
+| `edited` | Сообщение изменено. | Добавить edited label или timestamp note. |
+| `streaming` | AI или system response генерируется постепенно. | Нужен controlled announcement policy. |
 
 ### State ownership
 
-- Hover/focus/active states belong to nested actions, links, reactions, file buttons, or copy controls.
-- Chat Bubble may reveal actions on hover only if the same actions are keyboard accessible.
-- Delivery status tokens are not currently defined; do not invent status token paths.
+- Hover/focus/active принадлежат вложенным actions, links, reactions, file buttons и copy controls.
+- Chat Bubble может показывать actions при hover, только если они доступны с клавиатуры.
+- Delivery status tokens пока не выделены; нельзя придумывать `chat-bubble/status/...`.
+- Streaming state не должен объявлять каждое изменение текста screen reader без явного live policy.
 
 ---
 
-## 6. Behavior
+## 6. Behavior / Поведение
 
 ### Layout behavior
 
-- Incoming and outgoing messages may align differently, but DOM order remains chronological.
-- Grouped messages reduce repeated avatar/author/timestamp while preserving meaning.
-- Bubble tail is optional; do not rely on tail shape alone to communicate direction.
-- Message width adapts to content but remains constrained for reading.
+- DOM order сообщений остается хронологическим, даже если incoming/outgoing визуально выравниваются по разным сторонам.
+- Grouped messages уменьшают повтор avatar/author/timestamp, но не скрывают автора полностью.
+- Bubble max width зависит от viewport и content type.
+- Empty message не рендерится как пустая bubble.
+- Error bubble должна оставаться рядом с исходным сообщением, чтобы recovery был понятен.
 
 ### Metadata behavior
 
-- Timestamp may be always visible, grouped, or revealed by interaction, depending on thread pattern.
-- Delivery status is usually shown for outgoing messages.
-- Error state should show retry or recovery action near the failed message.
-- Edited messages should include `edited` text if product policy requires transparency.
+- Timestamp может быть всегда видимым, grouped или раскрываемым по interaction rule.
+- Delivery status обычно применяется к outgoing messages.
+- AI message должен сохранять AI label при copy, quote или handoff, если это важно для контекста.
+- Edited messages должны быть обозначены, если продуктовая политика требует прозрачности.
 
 ### Content behavior
 
-- Text supports wrapping and preserves intentional line breaks where relevant.
-- Attachments need file name, type/size where useful, and a clear action.
-- AI responses may include copy, regenerate, cite, or feedback actions, but those belong to nested controls.
-- Unsafe, uncertain, or generated content policies belong to the surrounding AI workflow, not the bubble alone.
+- Text сохраняет intentional line breaks, где это важно.
+- Links внутри сообщения используют Link contract.
+- Attachments имеют имя, тип/размер и понятное действие.
+- Code block сохраняет форматирование и имеет copy action.
+- Unsafe, uncertain или generated content policy описывается на уровне AI workflow, но bubble должна поддерживать явную маркировку.
 
 ### Responsive behavior
 
-- Bubble max width changes by viewport.
-- Avatar and metadata may stack or collapse in narrow layouts.
-- Actions must remain reachable by keyboard and touch.
+- На узких экранах metadata может переноситься под bubble.
+- Avatar может скрываться в grouped messages, но author context должен сохраняться.
+- Actions должны оставаться доступны touch и keyboard пользователям.
 
 ---
 
 ## 7. Accessibility
 
-Chat Bubble follows [foundation/accessibility.md](../foundation/accessibility.md).
-
 | Требование | Правило |
-| --- | --- |
-| Reading order | DOM order follows chronological message order |
-| Sender | Author or direction is programmatically available when needed |
-| Timestamp | Timestamp is available when message time matters |
-| Delivery status | Status has accessible text, not only icon/color |
-| Error | Failed message includes readable error and recovery action |
-| Attachments | File/media actions have accessible names |
-| AI message | AI output is labelled when user needs to distinguish generated content |
+|---|---|
+| Reading order | DOM order следует хронологии сообщений. |
+| Sender | Author или direction доступны программно, когда это нужно. |
+| Timestamp | Время доступно, если оно влияет на понимание conversation. |
+| Delivery status | Status имеет readable text или accessible label. |
+| Error | Failed message включает error text и recovery action. |
+| Attachments | File/media actions имеют accessible names. |
+| AI message | AI output обозначен, если пользователю нужно отличать generated content. |
+| Streaming | Live updates объявляются контролируемо и не создают шум. |
 
 ### Accessibility checklist
 
-- [ ] Message content is readable in chronological order.
-- [ ] Sender/direction is understandable without layout alone.
-- [ ] Delivery status has text or accessible label.
-- [ ] Error status includes recovery path.
-- [ ] Revealed actions are keyboard accessible.
-- [ ] Attachments have names and actions.
-- [ ] AI-generated message is labelled when applicable.
+- [ ] Message content читается в хронологическом порядке.
+- [ ] Sender/direction понятны без опоры только на layout.
+- [ ] Delivery status имеет text или accessible label.
+- [ ] Error state содержит recovery path.
+- [ ] Hover-revealed actions доступны с клавиатуры.
+- [ ] Attachments имеют названия и действия.
+- [ ] AI-generated message обозначено, если это важно.
+- [ ] Streaming state имеет live region policy или явно выключенные announcements.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением этого раздела нужно сверять реальные component tokens в `tokens.json`. Для Chat Bubble доступны component tokens в namespace `chat-bubble`.
 
-| Role | Component token | Semantic |
-| --- | --- | --- |
+| Role | Component token | Semantic token |
+|---|---|---|
 | Outgoing surface default | `chat-bubble/outgoing/surface/default` | `container/brand/default` |
 | Outgoing surface hover | `chat-bubble/outgoing/surface/hover` | `container/brand/hover` |
 | Outgoing foreground default | `chat-bubble/outgoing/foreground/default` | `text/on-brand/primary` |
@@ -238,109 +245,130 @@ Chat Bubble follows [foundation/accessibility.md](../foundation/accessibility.md
 
 ### Token gaps
 
-- Chat Bubble does not currently have component tokens for delivery status, error status, radius, tail, spacing, max width, attachment surface, or reaction surface.
-- Use nested component tokens for actions, attachments, reactions, and retry controls.
-- Do not invent Chat Bubble token names in specs, code, Figma, or AI-generated handoff.
+- Нет component tokens для delivery status, error status, radius, tail, spacing, max width, attachment surface, reaction surface и streaming indicator.
+- Для вложенных действий используйте Button, Icon Button, Link и attachment component tokens.
+- Не добавляйте новые Chat Bubble token names без token architecture review.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
-| --- | --- | --- |
-| Sender variant | `variant` | `incoming`, `outgoing`, `ai`, `system` |
-| Content type | `contentType` | `text`, `image`, `file`, `audio`, `code`, `rich` |
-| Content | `content` | Required |
-| Author | `author` | Required when not obvious |
-| Avatar | `avatar` | Optional |
-| Timestamp | `timestamp` | Optional visible value |
-| Datetime | `dateTime` | Machine-readable timestamp |
-| Delivery status | `deliveryStatus` | `sending`, `sent`, `delivered`, `read`, `error`, `edited` |
-| Group position | `groupPosition` | `single`, `first`, `middle`, `last` |
-| Actions | `actions` | Copy, retry, react, download, open |
-| Reactions | `reactions` | Reaction summary |
+| Design concept | Prop / API | Правило |
+|---|---|---|
+| Sender variant | `variant` | `incoming`, `outgoing`, `ai`, `system`. |
+| Content type | `contentType` | `text`, `image`, `file`, `audio`, `code`, `rich`. |
+| Content | `content` | Обязательный payload сообщения. |
+| Author | `author` | Обязателен, если автор не очевиден. |
+| Avatar | `avatar` | Опционально, через Avatar contract. |
+| Timestamp | `timestamp` | Видимое значение времени. |
+| Datetime | `dateTime` | Machine-readable timestamp. |
+| Delivery status | `deliveryStatus` | `sending`, `sent`, `delivered`, `read`, `error`, `edited`. |
+| Streaming | `streaming` | Boolean для частичной генерации ответа. |
+| Group position | `groupPosition` | `single`, `first`, `middle`, `last`. |
+| Actions | `actions` | Copy, retry, react, download, open. |
+| Reactions | `reactions` | Reaction summary. |
+| AI label | `aiLabel` | Обязателен для `variant="ai"`, если source нужно различать. |
 
 ### Contract rules
 
-- `content` is required.
-- `variant` and `contentType` must use documented values.
-- Delivery status must have accessible text.
-- AI variant must not imply human authorship.
-- Do not pass raw colors for bubble surface or text.
-- Use nested component APIs for actions and attachments.
+- `content` обязателен.
+- `variant` и `contentType` используют только documented values.
+- `deliveryStatus` требует accessible text.
+- `variant="ai"` не должен подразумевать human authorship.
+- `streaming=true` требует live update policy.
+- Raw colors, custom status colors и invented token paths запрещены.
+- Вложения и actions используют вложенные component APIs.
 
 ---
 
 ## 10. Handoff notes
 
-В handoff нужно передать:
+Handoff для Chat Bubble должен фиксировать:
 
-- message sender variant and author rules;
-- content type and content model;
-- grouping rules for consecutive messages;
-- timestamp visibility and formatting;
-- delivery status behavior and accessible labels;
-- error and retry behavior;
-- AI message labelling rules, if applicable;
-- attachment, copy, reaction, and feedback action contracts;
-- responsive max-width and metadata layout rules;
-- token mapping for incoming, outgoing, AI, timestamp, and action icons;
-- token gaps for status, radius, spacing, attachments, and reactions.
-
-### Acceptance criteria
-
-- Chat Bubble represents one message.
-- Message order remains chronological in DOM.
-- Sender/direction is clear without relying only on alignment.
-- Delivery and error statuses have accessible text.
-- AI-generated messages are labelled when needed.
-- Nested actions use Button, Icon Button, Link, or attachment specs.
-- Bubble colors use documented component tokens.
-- Unsupported delivery/status token needs are marked as token gaps.
+- sender variant и author rules;
+- content type и content model;
+- grouped message rules;
+- timestamp visibility и formatting;
+- delivery status behavior и accessible labels;
+- streaming behavior и live region policy;
+- error и retry behavior;
+- AI message labelling rules;
+- attachment, copy, reaction и feedback action contracts;
+- responsive max-width и metadata layout rules;
+- token mapping для incoming, outgoing, AI, timestamp и action icons;
+- token gaps для status, radius, spacing, attachments и reactions.
 
 ---
 
-## 11. AI usage rules
+## 11. Acceptance criteria
 
-- AI may use Chat Bubble only for a single message inside a conversational interface.
-- AI must recommend a chat/thread pattern for full message lists.
-- AI must recommend Text Area and Button patterns for message composition.
-- AI must not invent delivery status tokens, sender variants, content types, or raw colors.
-- AI must check `tokens.json` before changing Chat Bubble token mappings.
-- AI must flag missing sender, missing accessible delivery status, unclear AI authorship, unsupported attachment behavior, or color-only status as `Needs system review`.
-- AI may draft message structure, metadata, handoff notes, and acceptance criteria, but human review is required.
+- [ ] Chat Bubble представляет одно сообщение.
+- [ ] Message order остается хронологическим в DOM.
+- [ ] Sender/direction понятны без опоры только на alignment.
+- [ ] Delivery и error statuses имеют accessible text.
+- [ ] AI-generated messages обозначены, если это нужно для доверия или review.
+- [ ] Streaming state не создает чрезмерных screen reader announcements.
+- [ ] Nested actions используют Button, Icon Button, Link или attachment specs.
+- [ ] Bubble colors используют documented component tokens.
+- [ ] Unsupported delivery/status token needs помечены как token gaps.
 
 ---
 
-## 12. Examples
+## 12. AI usage rules
+
+AI может:
+
+- предложить структуру одного message bubble;
+- подготовить metadata, status labels и handoff notes;
+- проверить, не нужен ли thread pattern вместо Chat Bubble;
+- предложить AI label, copy/feedback actions и streaming policy;
+- сверить token mapping с `tokens.json`;
+- подготовить acceptance criteria.
+
+AI не должен:
+
+- использовать Chat Bubble для описания всего chat screen;
+- придумывать sender variants, content types, delivery status tokens или raw colors;
+- скрывать AI authorship, если оно влияет на доверие и проверку;
+- показывать delivery/error status только цветом или иконкой;
+- делать hover actions недоступными для клавиатуры;
+- пропускать attachment names, retry behavior или accessible status.
+
+Если сообщение содержит AI output, sensitive content, unsafe suggestion, unsupported attachment behavior или unclear authorship, AI должен пометить сценарий как `Needs system review`.
+
+---
+
+## 13. Examples / Примеры
 
 ### Корректно
 
 | Scenario | Usage |
-| --- | --- |
-| Support agent reply | `variant=incoming`, author visible, timestamp available |
-| Current user message | `variant=outgoing`, delivery status `read` with accessible label |
-| AI assistant response | `variant=ai`, AI label, copy/feedback nested actions |
-| Failed send | `deliveryStatus=error`, error text and retry action |
-| Consecutive messages | First shows author/avatar; middle reduces repeated metadata |
+|---|---|
+| Ответ оператора поддержки | `variant="incoming"`, author visible, timestamp available. |
+| Сообщение текущего пользователя | `variant="outgoing"`, `deliveryStatus="read"` с accessible label. |
+| Ответ AI-ассистента | `variant="ai"`, AI label, copy/feedback nested actions. |
+| Ошибка отправки | `deliveryStatus="error"`, error text и retry action. |
+| Последовательные сообщения | `first` показывает author/avatar, `middle` сокращает metadata, `last` показывает status. |
 
 ### Требует review
 
-| Scenario | Reason |
-| --- | --- |
-| Status shown only as blue checkmarks | Color/icon-only status |
-| AI response visually identical to human message | Authorship and trust risk |
-| Full chat screen documented as Chat Bubble | Component boundary is too broad |
-| File attachment without file name or action | Incomplete content contract |
+| Scenario | Причина |
+|---|---|
+| Status показан только синими checkmarks. | Color/icon-only status. |
+| AI response выглядит как human message. | Authorship и trust risk. |
+| Весь chat screen описан как Chat Bubble. | Граница компонента слишком широкая. |
+| File attachment без имени и действия. | Неполный content contract. |
+| Streaming AI response объявляет каждое слово screen reader. | Accessibility noise. |
 
 ---
 
-## 13. Anti-patterns
+## 14. Anti-patterns
 
-- Using Chat Bubble to describe the entire chat interface.
-- Inferring sender only from left/right alignment.
-- Showing delivery status only through icons or color.
-- Hiding retry action for failed outgoing messages.
-- Mixing AI and human messages without clear authorship.
-- Creating custom bubble colors outside component tokens.
-- Making hover-revealed actions inaccessible by keyboard.
+- Использовать Chat Bubble для всего chat interface.
+- Определять отправителя только через left/right alignment.
+- Показывать delivery status только иконкой или цветом.
+- Скрывать retry action для failed outgoing message.
+- Смешивать AI и human messages без явной маркировки.
+- Создавать custom bubble colors вне component tokens.
+- Делать hover-revealed actions недоступными с клавиатуры.
+- Рендерить empty bubble без содержимого.

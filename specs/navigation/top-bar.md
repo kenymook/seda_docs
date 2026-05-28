@@ -2,295 +2,199 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Top Bar](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6659-58)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Top Bar — верхняя навигационная панель приложения или сайта. Она содержит product identity, основные разделы, глобальные действия и точки входа в Search, Notification Center, profile menu или settings. Top Bar задает стабильный верхний слой навигации, но не должен становиться контейнером для всех действий экрана.
+Top Bar / Navbar — верхняя навигационная панель приложения или раздела. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-Top Bar отличается от Sidebar: Top Bar подходит для плоской или короткой навигации и глобальных действий, Sidebar — для сложной иерархии продукта. Top Bar отличается от Toolbar: Toolbar управляет текущим view или выбранным объектом, Top Bar управляет глобальным контекстом приложения.
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
 ### Когда использовать
 
-**Используйте** — когда интерфейсу нужен постоянный верхний navigation layer:
+Используйте Top Bar / Navbar, когда нужны brand area, navigation, actions, search или user controls в устойчивой верхней зоне.
 
-- продукт с 3-7 ключевыми разделами;
-- сайт или docs portal с простой верхней навигацией;
-- приложение, где Sidebar дополняется глобальным header;
-- глобальные действия: search, notifications, help, profile, workspace switcher;
-- mobile layout, где navigation сворачивается в menu trigger.
+### Когда не использовать
 
-**Не используйте:**
+Не используйте Top Bar / Navbar, не используйте как hero header; не перегружайте действиями; secondary navigation переносите в Sidebar или Tabs.
 
-- Для сложной многоуровневой навигации как единственный navigation component — используйте [Sidebar](../navigation/sidebar.md).
-- Для действий, относящихся только к текущей таблице, карточке или editor canvas — используйте Toolbar или [Dropdown / Menu](../overlays-layout/dropdown-menu.md).
-- Для переключения локальных sections внутри страницы — используйте [Tabs](../navigation/tabs.md).
-- Для breadcrumb trail — используйте [Breadcrumbs](../navigation/breadcrumbs.md).
-- Для постоянного feedback или status banner — используйте [Alert](../feedback/alert.md).
+### Ключевые принципы
 
-### Основные принципы
-
-- **Только глобальный контекст** — Top Bar содержит только глобальные nav items и actions.
-- **Identity стабилен** — logo/product title остается предсказуемым anchor для пользователя.
-- **Активный раздел видим** — текущий section должен быть понятен без угадывания.
-- **Responsive collapse описан явно** — порядок скрытия nav, search и actions должен быть зафиксирован.
-- **Skip link идет первым** — keyboard users должны иметь быстрый переход к main content.
-- **AI сохраняет navigation model** — AI не должен добавлять разделы, действия или collapse rules без product/navigation review.
-
-### Связанные спецификации
-
-- [Sidebar](../specs/navigation/sidebar.md)
-- [Tabs](../specs/navigation/tabs.md)
-- [Breadcrumbs](../specs/navigation/breadcrumbs.md)
-- [Dropdown / Menu](../specs/overlays-layout/dropdown-menu.md)
-- [Search](../specs/overlays-layout/search.md)
-- [Notification Center](../specs/overlays-layout/notification-center.md)
-- [Avatar](../specs/data-display/avatar.md)
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```text
-+--------------------------------------------------------------+
-| [Logo] Product   [Nav 1] [Nav 2] [Nav 3]     [Search][Bell][Avatar] |
-+--------------------------------------------------------------+
-  identity       primary navigation               global actions
-```
-
-| Часть | Обязательность | Описание |
+| Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | да | Контейнер Top Bar |
-| `skipLink` | рекомендуется | Первый keyboard target для перехода к main content |
-| `logo` | да | Brand/product mark или product title |
-| `title` | опционально | Current product, workspace или title, если logo недостаточно |
-| `primaryNav` | условно | Глобальные navigation links |
-| `navItem` | условно | Отдельная navigation link или trigger |
-| `activeIndicator` | условно | Визуальный/current page indicator |
-| `searchAction` | опционально | Search button или compact search entry |
-| `globalActions` | опционально | Notifications, help, settings, create, theme |
-| `profileAction` | опционально | Avatar/profile menu trigger |
-| `workspaceSwitcher` | опционально | Current workspace/org switcher |
-| `mobileMenuTrigger` | условно | Открывает collapsed navigation на узких экранах |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
 ### Правила anatomy
 
-- Logo/title и хотя бы один navigation или global action обязательны.
-- Primary navigation items должны быть ограниченными и стабильными.
-- Global actions должны иметь accessible labels.
-- Avatar/profile action должен открывать menu, а не неожиданно переводить пользователя.
-- Mobile menu trigger появляется только когда navigation свернута.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-### Варианты контейнера
+Figma component set: `Top Bar`. Variants: 16.
 
-| Вариант | Описание | Когда использовать |
+| Property | Default | Options |
 | --- | --- | --- |
-| `app-bar` | Постоянный application header | Product UI с global actions |
-| `site-navbar` | Навигация сайта, marketing или docs | Public site или docs portal |
-| `page-header` | Header в потоке страницы | Content pages без sticky global bar |
-| `transparent` | Прозрачный header поверх hero/media | Только если контраст остается доступным |
-| `with-sidebar` | Top Bar в паре с Sidebar | Сложные продукты с global header и side navigation |
+| `type` | `app-bar` | `app-bar`, `page-header`, `transparent` |
+| `state` | `default` | `default`, `scrolled` |
+| `size` | `xl` | `m`, `s`, `l`, `xl` |
 
-### Плотность навигации
+### Boolean / slot properties
 
-| Вариант | Описание | Правило |
+| Property | Default | Options |
 | --- | --- | --- |
-| `nav-only` | Logo плюс nav links | Простой сайт или продукт |
-| `actions-only` | Logo/title плюс global actions | Sidebar владеет навигацией |
-| `nav-and-actions` | Nav плюс search/profile/actions | Дефолтный application layout |
-| `workspace` | Workspace switcher заметен | Multi-tenant product context |
+| Нет boolean properties | - | Видимость slots задается props contract. |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-Размер Top Bar управляет высотой, плотностью, расстоянием между nav items и action target size. Размеры Icon/Button остаются ответственностью дочерних компонентов.
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-| Size | Высота | Когда использовать |
-| --- | --- | --- |
-| `compact` | Плотный header | Data-heavy продукты и desktop-only tools |
-| `medium` | Дефолтный header | Большинство application layouts |
-| `large` | Просторный header | Sites, docs portals, onboarding surfaces |
-
-### Правила размеров
-
-- Используйте `medium` по умолчанию.
-- Используйте `compact` только когда actions и nav labels остаются читаемыми.
-- Используйте `large` для site/docs contexts, где navigation менее плотная.
-- Touch targets в actions остаются минимум 44px там, где ожидается touch.
-- Не масштабируйте font size от viewport; вместо этого сворачивайте content.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### Состояния контейнера
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| State | Значение | Обязательное поведение |
-| --- | --- | --- |
-| `default` | Базовый Top Bar | Surface и border видимы как задумано |
-| `elevated` | Top Bar перекрывает content или страница прокручена | Используется elevated surface или shadow treatment |
-| `transparent` | Top Bar расположен поверх media/hero | Контраст должен быть проверен |
-| `mobile-collapsed` | Navigation скрыта за trigger | Mobile menu trigger видим |
-| `mobile-open` | Collapsed navigation открыта | Focus и close behavior описаны |
-
-### Состояния элемента
-
-| State | Значение | Визуальное изменение |
-| --- | --- | --- |
-| `default` | Неактивный item | Default foreground/surface |
-| `hover` | Pointer hover | Hover foreground/surface |
-| `active` | Нажатый item | Active surface |
-| `selected` | Текущая page/section | Selected foreground/surface и current indicator |
-| `focus` | Keyboard focus | Видимый focus ring |
-| `disabled` | Временно недоступен | Disabled foreground/icon и нет activation |
-
-### Допустимые сочетания
-
-| Сочетание | Допустимо | Правило |
-| --- | --- | --- |
-| `selected` + `hover` | да | Selected meaning остается видимым |
-| `elevated` + `mobile-collapsed` | да | Scrolled mobile header допустим |
-| `transparent` + low contrast | нет | Нужно переключить surface/foreground treatment |
-| `disabled` + `active` | нет | Disabled item не активируется |
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
 ## 6. Behavior
 
-### Навигационное поведение
-
-- Logo обычно ведет на product home или dashboard; исключения нужно документировать.
-- Navigation items ведут к глобальным destinations и используют current-page state.
-- Top Bar не должен сбрасывать локальные filters или page state, если navigation этого не требует.
-- Workspace switcher меняет глобальный context и должен описывать loading/error behavior.
-- Profile/avatar action открывает menu с profile/settings/sign out actions.
-
-### Responsive behavior
-
-- Collapse order должен быть явным: secondary nav, labels, search input, затем nav list.
-- Primary actions, которые остаются видимыми на mobile, должны быть ограничены наиболее важными global actions.
-- Collapsed nav может открывать Sidebar overlay, Drawer или menu; выберите один pattern и задокументируйте его.
-- При открытии mobile menu focus переходит в menu и возвращается на trigger при закрытии.
-- Content не должен перекрываться fixed Top Bar без layout offset.
-
-### Scroll behavior
-
-- Sticky Top Bar может переходить в `elevated` после scroll.
-- Transparent variant должен переключаться на читаемый surface или foreground treatment поверх разного content.
-- Не скрывайте Top Bar при scroll, если продукт явно не задает reveal behavior.
-
-### Keyboard interaction
-
-| Клавиша | Действие |
-| --- | --- |
-| `Tab` / `Shift+Tab` | Перемещение по skip link, logo, nav и actions |
-| `Enter` / `Space` | Активация focused buttons и menu triggers |
-| `Escape` | Закрыть mobile menu или открытый overlay, которым владеет Top Bar |
-| `Arrow keys` | Опционально только для menu-like nav groups; иначе обычный tab order |
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
 ## 7. Accessibility
 
-Top Bar следует [foundation/accessibility.md](../../foundation/accessibility.md), [foundation/content.md](../../foundation/content.md) и navigation semantics.
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| Semantic region | Используйте `<header>` для page/application header |
-| Navigation | Используйте `<nav>` с понятным accessible label |
-| Current item | Используйте current-page semantics для active destination |
-| Skip link | Добавляйте skip link перед navigation, если Top Bar глобальный |
-| Action labels | Icon-only actions требуют accessible labels |
-| Mobile menu | Trigger показывает expanded state и связь с controlled region |
-| Focus management | Collapsed menu возвращает focus на trigger при закрытии |
-| Contrast | Transparent/elevated variants должны проходить contrast requirements |
-| Landmark noise | Не создавайте несколько unlabeled nav landmarks |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
 ### Accessibility checklist
 
-- [ ] Header и navigation landmarks подписаны.
-- [ ] Skip link первый в keyboard order, если применим.
-- [ ] Active nav item доступен программно.
-- [ ] Icon actions имеют accessible names.
-- [ ] Mobile menu можно открыть, пройти клавиатурой и закрыть.
-- [ ] Focus return определен для profile/search/notification overlays.
-- [ ] Transparent variant сохраняет контраст на всех backgrounds.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`. Они записаны как component paths, чтобы не путать их с semantic token references.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Роль | Component path | Semantic |
+| Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| Surface default | top-bar surface default | `surface/base` |
-| Surface elevated | top-bar surface elevated | `surface/raised` |
-| Border default | top-bar border default | `border/default` |
-| Link foreground default | top-bar link foreground default | `text/secondary` |
-| Link foreground hover | top-bar link foreground hover | `text/primary` |
-| Link foreground active | top-bar link foreground active | `text/primary` |
-| Logo foreground | top-bar logo foreground | `text/primary` |
-| Title foreground | top-bar title foreground | `text/primary` |
-| Focus ring | top-bar focus ring | `focus/ring` |
-| Item surface default | top-bar item surface default | `color/transparent` |
-| Item surface hover | top-bar item surface hover | `container/neutral/hover` |
-| Item surface active | top-bar item surface active | `container/neutral/pressed` |
-| Item surface selected | top-bar item surface selected | `container/neutral/selected` |
-| Item foreground default | top-bar item foreground default | `text/secondary` |
-| Item foreground hover | top-bar item foreground hover | `text/primary` |
-| Item foreground selected | top-bar item foreground selected | `text/primary` |
-| Item foreground disabled | top-bar item foreground disabled | `status/disabled/text` |
-| Item icon default | top-bar item icon default | `icon/tertiary` |
-| Item icon hover | top-bar item icon hover | `icon/primary` |
-| Item icon selected | top-bar item icon selected | `icon/primary` |
-| Item icon disabled | top-bar item icon disabled | `status/disabled/icon` |
+| `$collections/components/$modes/Mode 1/top-bar/surface/default` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/top-bar/surface/elevated` | Component token | `surface/raised` |
+| `$collections/components/$modes/Mode 1/top-bar/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/top-bar/link/foreground/default` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/top-bar/link/foreground/hover` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/link/foreground/active` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/logo/foreground` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/focus/ring` | Component token | `focus/ring` |
+| `$collections/components/$modes/Mode 1/top-bar/title/foreground` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/surface/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/top-bar/item/surface/hover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/top-bar/item/surface/active` | Component token | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/top-bar/item/surface/selected` | Component token | `container/neutral/selected` |
+| `$collections/components/$modes/Mode 1/top-bar/item/foreground/default` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/foreground/hover` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/foreground/selected` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/foreground/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/top-bar/item/icon/default` | Component token | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/icon/hover` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/icon/selected` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/top-bar/item/icon/disabled` | Component token | `status/disabled/icon` |
 
 ### Token gaps
 
-- Сейчас у Top Bar нет component tokens для height, horizontal padding, nav gap, action gap, shadow, sticky offset, mobile breakpoint и transparent foreground overrides.
-- Используйте foundation spacing, elevation, motion и child component tokens, пока не появятся Top Bar-specific layout tokens.
-- Не придумывайте `--topbar-*` или новые Top Bar token paths в specs, code, Figma или AI-generated handoff.
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant | `variant` | `app-bar`, `site-navbar`, `page-header`, `transparent`, `with-sidebar` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Sticky behavior | `sticky` | Boolean или scroll behavior config |
-| Elevated state | `elevated` | Управляется scroll или surface context |
-| Logo | `logo` | Mark, text или composed slot |
-| Title | `title` | Optional product/page/workspace title |
-| Nav items | `navItems` | Global destinations |
-| Active item | `activeId` / `currentPath` | Current destination |
-| Actions | `actions` | Search, notifications, help, settings, create |
-| Profile | `profileAction` | Avatar/menu trigger |
-| Workspace | `workspaceSwitcher` | Optional global context switcher |
-| Mobile menu | `mobileMenuOpen` | Collapsed navigation state |
-| On navigate | `onNavigate` | Optional router integration |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
 ### Contract rules
 
-- Nav item требует `id`, `label`, destination и active matching rule.
-- Icon-only action требует accessible label.
-- Global action должен определить target overlay или command.
-- Mobile collapse behavior должен описать, куда уходят скрытые nav items.
-- Transparent variant требует contrast validation rules.
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
 ---
 
@@ -298,70 +202,60 @@ Top Bar следует [foundation/accessibility.md](../../foundation/accessibil
 
 В handoff нужно передать:
 
-- variant, size, sticky/elevated behavior и responsive collapse rules;
-- logo/title behavior и home destination;
-- nav item schema: label, href/route, active rule, disabled state;
-- global actions и их target components: Search, Notification Center, Dropdown / Menu, profile menu;
-- mobile menu pattern и focus return behavior;
-- scroll/elevation behavior и layout offset;
-- accessibility requirements для landmarks, skip link, active item и icon action labels;
-- token mapping для surface, border, nav/link/item states, logo, title, icon и focus;
-- token gaps для height, spacing, shadow, breakpoints и transparent overrides.
+- Figma component и node id: `6659:58`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
 
 ### Acceptance criteria
 
-- Top Bar понятно показывает global navigation или global actions.
-- Active destination видим и доступен программно.
-- Keyboard users могут перейти к main content и пройти все actions.
-- Mobile collapsed navigation доступна, закрывается и возвращает focus.
-- Sticky/elevated behavior не перекрывает content неожиданно.
-- Icon-only actions имеют accessible names.
-- Компонент использует документированные Top Bar component paths и semantic tokens.
-- AI-generated drafts не добавляют неподдержанные nav items, actions, breakpoints или token names.
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
 
 ---
 
 ## 11. AI usage rules
 
-- AI может использовать Top Bar только для global navigation и global actions.
-- AI должен рекомендовать Sidebar для глубокой navigation hierarchy и Toolbar для локальных view/object actions.
-- AI не должен придумывать product sections, routes, action targets, breakpoints, token paths или profile menu contents.
-- AI должен проверять `tokens.json` перед изменением Top Bar token mappings.
-- AI должен помечать missing active state, missing accessible labels, undefined mobile collapse, contrast risk в transparent variant или неясную границу global/local actions как `Needs system review`.
-- AI может подготовить nav item schemas, Handoff notes и acceptance criteria, но финальное решение остается за человеком.
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Сценарий | Использование |
+| Сценарий | Почему |
 | --- | --- |
-| Docs portal | `variant=site-navbar`, logo, docs nav, search action |
-| Product with Sidebar | `variant=with-sidebar`, logo/workspace, search, notifications, profile |
-| Simple SaaS app | `variant=app-bar`, 4-5 nav items и global actions |
-| Mobile layout | nav сворачивается в menu trigger; search/profile остаются доступными |
-| Hero page | `variant=transparent` с contrast validation и fallback surface |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
 
 ### Требует review
 
-| Сценарий | Причина |
+| Сценарий | Риск |
 | --- | --- |
-| Top Bar содержит page-specific table actions | Это Toolbar или local actions |
-| Десять navigation links помещаются только при уменьшении текста | Нужно пересмотреть navigation IA/collapse |
-| Transparent Top Bar поверх непредсказуемого media | Contrast risk |
-| AI добавляет route "Billing" без product requirement | Придуманная navigation |
-| Mobile menu открывается, но focus остается за overlay | Accessibility gap |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Использовать Top Bar как единственную навигацию для глубокой product hierarchy.
-- Складывать все page actions в global actions.
-- Скрывать active state.
-- Использовать icon-only actions без accessible labels.
-- Оставлять transparent variant поверх low-contrast content.
-- Уменьшать текст вместо описанного responsive collapse.
-- Создавать raw colors, spacing или недокументированные token names для header states.
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

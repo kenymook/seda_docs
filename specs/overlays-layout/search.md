@@ -2,288 +2,206 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Search](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6739-599)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Search — interactive pattern for entering a query, showing suggestions or results, and helping the user navigate to a matching object, page, command, or content item. It builds on Text Field `type=search`, but adds result state, keyboard navigation, and optional overlay behavior.
+Search — поиск по данным, командам или объектам. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
+
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
 ### Когда использовать
 
-**Используйте** — when search is a primary way to find or execute something:
+Используйте Search, когда есть query, loading, results и no-results states, а сценарий может быть inline, overlay или command-palette.
 
-- global search across the product;
-- scoped search inside a table, list, or section;
-- command palette;
-- searchable navigation;
-- autocomplete with suggestions;
-- search with recent queries or saved filters;
-- result list with title, subtitle, icon, and action.
+### Когда не использовать
 
-**Не используйте:**
+Не используйте Search, для простого текстового ввода используйте Text Field; для выбора значения используйте Select; не показывайте no-results без recovery.
 
-- For a simple single-field filter without suggestions/results — use **Text Field** with `type=search`.
-- For known hierarchical navigation — use **Sidebar**, **Breadcrumbs**, or Tabs.
-- For selecting from a fixed small set — use Select, Radio, or Segmented Control.
-- For a full results page layout — use a page pattern with Search as one part.
-- For AI generation prompts unless the interaction is actually search/retrieval.
+### Ключевые принципы
 
-### Основные принципы
-
-- **Query has scope** — users must understand what is being searched.
-- **Feedback is stateful** — empty, typing, loading, results, no-results, and error states must be distinct.
-- **Keyboard first** — search results must support predictable keyboard navigation.
-- **Results are not decoration** — each result needs a clear title and action target.
-- **Empty and no-results differ** — empty query can show recent/suggested items; no-results explains the failed query.
-- **AI must preserve contracts** — Search must not become an unstructured prompt box without system review.
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```text
-┌─────────────────────────────────────┐
-│ [search icon] Query            [x]  │ input
-└─────────────────────────────────────┘
-┌─────────────────────────────────────┐
-│ Section title                       │
-│ [icon] Result title                 │
-│        Subtitle / path              │
-│ [footer action]                     │
-└─────────────────────────────────────┘
-```
-
-| Часть | Обязательность | Описание |
+| Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | yes | Search pattern container |
-| `input` | yes | Search input, usually `type=search` |
-| `leadingIcon` | recommended | Search icon |
-| `clearAction` | conditional | Clears query when value exists |
-| `dropdown` | conditional | Suggestions/results container |
-| `sectionTitle` | optional | Recent, suggestions, results, commands |
-| `result` | conditional | Search result or command option |
-| `resultTitle` | conditional | Primary result text |
-| `resultSubtitle` | optional | Path, type, description, or metadata |
-| `footer` | optional | Show all results, advanced search, or help action |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
 ### Правила anatomy
 
-- Input is required.
-- Result title is required for every result item.
-- Clear action appears only when query has value.
-- Dropdown is shown only when Search is open and has content or a meaningful empty/loading state.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-| Variant | Description | Use |
-| --- | --- | --- |
-| `inline` | Search field embedded in page; dropdown appears below | Section/table/list search |
-| `overlay` | Search opens in overlay or modal-like surface | Global search, mobile search |
-| `command-palette` | Search plus executable commands | Keyboard-driven actions |
-| `results-page` | Search field controls a full page of results | Search landing/results page |
+Figma component set: `Search`. Variants: 60.
 
-### Result variants
-
-| Result type | Description | Rule |
+| Property | Default | Options |
 | --- | --- | --- |
-| `navigation` | Opens page or object | Use Link behavior |
-| `command` | Executes action | Use Button/command behavior |
-| `suggestion` | Completes or replaces query | Update query and keep focus |
-| `recent` | Previous query or visited item | Must be clear and removable if product supports it |
-| `empty` | No query yet | Show guidance, recent, or suggestions |
-| `no-results` | Query returned nothing | Explain and offer recovery |
+| `type` | `inline` | `inline`, `overlay`, `command-palette` |
+| `state` | `empty` | `empty`, `typing`, `loading`, `results`, `no-results` |
+| `size` | `s` | `m`, `s`, `l`, `xl` |
+
+### Boolean / slot properties
+
+| Property | Default | Options |
+| --- | --- | --- |
+| Нет boolean properties | - | Видимость slots задается props contract. |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-Search size controls input height, density, result item spacing, and dropdown width.
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-| Size | Input density | Result density | Use |
-| --- | --- | --- | --- |
-| `compact` | Dense input | Compact results | Toolbar, table header, side panel |
-| `medium` | Default input | Default results | Default product UI |
-| `large` | Prominent input | Roomier results | Global search, command palette, overlay |
-
-### Правила размеров
-
-- Use `medium` by default.
-- Use `compact` when Search is secondary to the surrounding table/list.
-- Use `large` when Search is the primary interaction in the region.
-- Dropdown width should align to input or overlay rules.
-- Do not scale result text just to fit too many fields; reduce metadata or use a results page.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### Матрица состояний
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| State | Значение | Обязательное поведение |
-| --- | --- | --- |
-| `empty` | Query is empty | Show recent items, suggestions, or guidance |
-| `typing` | User is editing query | Debounce before request |
-| `loading` | Search request is running | Show Spinner/Skeleton pattern where appropriate |
-| `results` | Results found | Show navigable list |
-| `no-results` | Query returned no results | Show recovery Empty State |
-| `error` | Request failed | Show error text and retry path |
-| `disabled` | Search unavailable | Disable input and explain if not obvious |
-
-### Interaction states
-
-- Input owns hover, focus, active, and disabled states.
-- Result items own hover, active, selected, and focus states.
-- Clear action and footer actions use Button, Icon Button, or Link specs.
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
 ## 6. Behavior
 
-### Open and close
-
-- Inline Search opens on focus or query input.
-- Overlay Search opens from a trigger, shortcut, or navigation action.
-- Command palette may open by shortcut such as `Cmd/Ctrl+K`.
-- Escape clears query first when appropriate, then closes overlay/dropdown.
-- Closing overlay returns focus to the trigger.
-
-### Query behavior
-
-- Debounce API requests by 200-300ms after the last keystroke.
-- Minimum query length should be documented by product context.
-- Preserve query when navigating back to search results if this supports the workflow.
-- Do not send a request for every keypress without debounce unless local search is cheap and documented.
-
-### Result behavior
-
-- Arrow keys move active result.
-- Enter activates selected result.
-- Result click or activation performs navigation, command, or suggestion behavior.
-- No-results state should offer query edits, filter reset, or broader scope when possible.
-
-### Responsive behavior
-
-- Inline Search may become overlay Search on narrow screens.
-- Result metadata may reduce or wrap before result title is truncated.
-- Dropdown must stay within viewport and support scrolling when results exceed available height.
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
 ## 7. Accessibility
 
-Search follows [foundation/accessibility.md](../foundation/accessibility.md) and Text Field search behavior in [text-field.md](../inputs/text-field.md).
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| Input semantics | Use `type="search"` when appropriate |
-| Combobox | Use combobox/listbox pattern when suggestions/results are inline selectable options |
-| Expanded state | Maintain `aria-expanded` |
-| Active option | Use `aria-activedescendant` or roving focus consistently |
-| Results | Result items have accessible names |
-| Loading | Expose loading with `aria-busy` or status text when needed |
-| Empty/no-results | Provide readable text |
-| Shortcut | Shortcut must not be the only way to open Search |
-
-### Keyboard interaction
-
-| Клавиша | Действие |
-| --- | --- |
-| `ArrowDown` / `ArrowUp` | Move active result |
-| `Enter` | Activate selected result or submit query |
-| `Escape` | Clear query or close dropdown/overlay |
-| `Tab` | Move to next focusable element |
-| `Cmd/Ctrl+K` | Open command palette when supported |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
 ### Accessibility checklist
 
-- [ ] Search has an accessible label.
-- [ ] Result list state is programmatically exposed.
-- [ ] Active result is announced during keyboard navigation.
-- [ ] Loading, no-results, and error states are readable.
-- [ ] Clear button has accessible label.
-- [ ] Overlay Search restores focus on close.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Role | Component token | Semantic |
+| Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| Input surface default | component path: search input surface default | `surface/base` |
-| Input surface hover | component path: search input surface hover | `surface/subtle` |
-| Input surface active | component path: search input surface active | `surface/base` |
-| Input surface focus | component path: search input surface focus | `surface/base` |
-| Input surface disabled | component path: search input surface disabled | `status/disabled/container` |
-| Input border default | `search/input/border/default` | `border/default` |
-| Input border hover | `search/input/border/hover` | `border/hover` |
-| Input border active | `search/input/border/active` | `border/strong` |
-| Input border focus | `search/input/border/focus` | `border/focus` |
-| Input border disabled | `search/input/border/disabled` | `status/disabled/border` |
-| Placeholder foreground | `search/input/foreground/placeholder` | `text/muted` |
-| Input foreground | `search/input/foreground/default` | `text/primary` |
-| Input foreground disabled | `search/input/foreground/disabled` | `status/disabled/text` |
-| Input icon default | `search/input/icon/default` | `icon/tertiary` |
-| Input icon active | `search/input/icon/active` | `icon/primary` |
-| Input icon disabled | `search/input/icon/disabled` | `status/disabled/icon` |
-| Dropdown surface | `search/dropdown/surface` | `surface/overlay` |
-| Dropdown border | `search/dropdown/border` | `border/default` |
-| Result title | `search/result/foreground/title` | `text/primary` |
-| Result subtitle | `search/result/foreground/subtitle` | `text/secondary` |
-| Result match | `search/result/foreground/match` | `text/brand` |
-| Result surface default | `search/result/surface/default` | `color/transparent` |
-| Result surface hover | `search/result/surface/hover` | `container/neutral/hover` |
-| Result surface active | `search/result/surface/active` | `container/neutral/pressed` |
-| Result surface selected | `search/result/surface/selected` | `container/neutral/selected` |
-| Result icon default | `search/result/icon/default` | `icon/tertiary` |
-| Result icon selected | `search/result/icon/selected` | `icon/primary` |
-| Highlight surface | `search/highlight/surface` | `status/warning/container` |
-| Section title | `search/section-title/foreground` | `text/tertiary` |
-| Focus ring | `search/focus/ring` | `focus/ring` |
+| `$collections/components/$modes/Mode 1/search/input/surface` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/search/input/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/search/input/border/focus` | Component token | `border/focus` |
+| `$collections/components/$modes/Mode 1/search/input/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/search/input/border/active` | Component token | `border/strong` |
+| `$collections/components/$modes/Mode 1/search/input/border/disabled` | Component token | `status/disabled/border` |
+| `$collections/components/$modes/Mode 1/search/input/foreground/placeholder` | Component token | `text/muted` |
+| `$collections/components/$modes/Mode 1/search/input/foreground/default` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/search/input/foreground/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/search/input/icon/default` | Component token | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/search/input/icon/active` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/search/input/icon/disabled` | Component token | `status/disabled/icon` |
+| `$collections/components/$modes/Mode 1/search/icon/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/search/dropdown/surface` | Component token | `surface/overlay` |
+| `$collections/components/$modes/Mode 1/search/dropdown/border` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/search/result/foreground/title` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/search/result/foreground/subtitle` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/search/result/foreground/match` | Component token | `text/brand` |
+| `$collections/components/$modes/Mode 1/search/result/surface/hover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/search/result/surface/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/search/result/surface/active` | Component token | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/search/result/surface/selected` | Component token | `container/neutral/selected` |
+| `$collections/components/$modes/Mode 1/search/result/icon/default` | Component token | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/search/result/icon/selected` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/search/highlight/surface` | Component token | `status/warning/container` |
+| `$collections/components/$modes/Mode 1/search/section-title/foreground` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/search/focus/ring` | Component token | `focus/ring` |
+| `$collections/components/$modes/Mode 1/search/sectionTitle/foreground` | Component token | `text/tertiary` |
 
 ### Token gaps
 
-- Search does not currently have component tokens for size, height, padding, radius, result gap, dropdown shadow, width, or max height.
-- Use Text Field, Container, Popover, and foundation spacing/elevation rules until Search-specific tokens are introduced.
-- Do not invent Search token names in specs, code, Figma, or AI-generated handoff.
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant | `variant` | `inline`, `overlay`, `command-palette`, `results-page` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Value | `value` | Query string |
-| Placeholder | `placeholder` | Search scope hint |
-| Results | `results` | Result items |
-| Recent items | `recentItems` | Empty-query content |
-| Suggestions | `suggestions` | Query suggestions |
-| Loading | `loading` | Boolean |
-| Error | `error` | Error state/message |
-| Open | `open` | Dropdown/overlay state |
-| Active item | `activeId` | Keyboard navigation |
-| On search | `onSearch` | Debounced query handler |
-| On select | `onSelect` | Result/suggestion activation |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
 ### Contract rules
 
-- Search input requires accessible label.
-- Result item requires title and action target.
-- Result type must define activation behavior.
-- No-results and error states must be represented explicitly.
-- Do not pass raw colors, custom result states, or unsupported variants.
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
 ---
 
@@ -291,71 +209,60 @@ Search follows [foundation/accessibility.md](../foundation/accessibility.md) and
 
 В handoff нужно передать:
 
-- search scope and minimum query length;
-- variant, size, and responsive behavior;
-- result item schema: title, subtitle, icon, type, target/action;
-- recent and suggestion behavior;
-- debounce timing and request cancellation rules;
-- loading, no-results, and error states;
-- keyboard navigation and active-result behavior;
-- overlay focus return behavior, if applicable;
-- token mapping for input, dropdown, result, highlight, and focus;
-- token gaps for size, spacing, shadow, and dimensions.
+- Figma component и node id: `6739:599`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
 
 ### Acceptance criteria
 
-- Search scope is clear.
-- Query input has accessible label.
-- Results are keyboard navigable.
-- Loading, no-results, and error states are distinct.
-- Escape, Enter, Arrow keys, and Tab behavior are defined.
-- Result activation behavior is documented.
-- Search uses documented component tokens for input, dropdown, and results.
-- Simple filtering uses Text Field instead of full Search.
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
 
 ---
 
 ## 11. AI usage rules
 
-- AI may use Search only when query input and result/suggestion behavior are required.
-- AI must recommend Text Field `type=search` for simple filtering.
-- AI must recommend Table filters when search is part of table filtering.
-- AI must not invent result states, token paths, shortcuts, or command behavior.
-- AI must check `tokens.json` before changing Search token mappings.
-- AI must flag missing scope, missing keyboard behavior, missing empty/no-results/error states, inaccessible result navigation, or unsupported command behavior as `Needs system review`.
-- AI may draft result schemas, handoff notes, and acceptance criteria, but human review is required.
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Scenario | Usage |
+| Сценарий | Почему |
 | --- | --- |
-| Global product search | `variant=overlay`, results grouped by type |
-| Table search | Text Field search if no suggestions; Search only if result dropdown is needed |
-| Command palette | `variant=command-palette`, result type `command` with action |
-| Empty query | Recent items or suggested searches |
-| No results | Message explains query and offers reset/broader scope |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
 
 ### Требует review
 
-| Scenario | Reason |
+| Сценарий | Риск |
 | --- | --- |
-| Search with no keyboard result navigation | Accessibility gap |
-| Simple table filter implemented as full Search | Component is too heavy |
-| Command palette without command action contract | Behavior unclear |
-| AI prompt box styled as Search | Wrong interaction model |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Using Search for a single simple filter.
-- Sending API request on every keypress without debounce.
-- Showing no-results as a blank dropdown.
-- Hiding search scope.
-- Relying on mouse-only result selection.
-- Mixing navigation results and command actions without labels.
-- Creating custom result colors outside component tokens.
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

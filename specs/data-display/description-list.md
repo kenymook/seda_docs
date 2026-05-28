@@ -4,195 +4,202 @@
 > **Version** · 1.0
 > **Status** · needs-review
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
+> **Last reviewed** · 2026-05-28
 > **Figma** · [ссылка на фрейм компонента]
+> **Foundation** · `accessibility.md`, `content.md`, `layout.md`, `tokens.md`
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles / Принципы использования
 
 ### Что это
 
-Description List — data display-компонент для отображения пар term-value: свойство объекта и его значение. Семантически это структура `<dl>`, `<dt>`, `<dd>`, а не таблица и не форма.
+Description List — компонент для отображения пар `term` / `definition`: название свойства и его значение. Семантически это структура `<dl>`, `<dt>`, `<dd>`, а не таблица, форма или произвольная сетка.
+
+В SEDA AI Description List является data contract для read-only свойств одного объекта или одной записи. Он должен явно описывать структуру данных, формат значений, empty values, вложенные actions, responsive behavior и token mapping. AI может помочь подготовить schema списка, но не должен использовать Description List вместо Table или Form.
 
 ### Когда использовать
 
-**Используйте** — когда нужно показать набор свойств одного объекта или записи:
+Используйте Description List, когда нужно показать:
 
-- детали профиля;
-- параметры заказа, сделки, задачи или заявки;
-- характеристики продукта;
-- summary блока перед подтверждением;
-- read-only данные формы;
+- детали профиля, заказа, задачи, сделки или заявки;
+- свойства одного продукта или файла;
+- read-only summary перед подтверждением;
 - metadata объекта;
-- технические атрибуты, если их немного и они читаются как пары ключ-значение.
+- технические атрибуты, если их немного и они читаются как пары ключ-значение;
+- значения, которые иногда требуют copy action, Link или Tooltip.
 
-**Не используйте:**
+### Не используйте
 
-- Для табличных данных с несколькими строками объектов — используйте **Table**.
-- Для сравнения нескольких объектов между собой — используйте **Table**.
-- Для редактируемых полей — используйте Form и input-компоненты.
-- Для одного визуально выделенного KPI — используйте **Stat / Metric**.
-- Для произвольного layout-контента — используйте Card, Section или layout pattern.
+Не используйте Description List, когда:
+
+- нужно показать несколько записей с одинаковыми колонками — используйте Table;
+- нужна сортировка, фильтрация, сравнение или bulk actions — используйте Table;
+- значения редактируются — используйте Form и input-компоненты;
+- нужно выделить один KPI — используйте Stat / Metric;
+- контент не является term-value данными;
+- список становится длинным настолько, что теряет scanability.
 
 ### Основные принципы
 
-- **Term defines value** — каждый value должен иметь понятный term.
-- **One object, many properties** — Description List лучше всего работает для свойств одного объекта.
-- **Semantic structure matters** — используйте `<dl>`, `<dt>`, `<dd>` там, где контент является term-value данными.
+- **Term defines value** — каждое значение имеет понятный term.
+- **One object, many properties** — список описывает один объект или одну запись.
+- **Semantic structure matters** — используйте `<dl>`, `<dt>`, `<dd>`, если это возможно.
+- **Empty is explicit** — отсутствующее значение отображается текстом, а не пустым местом.
 - **Density follows context** — компактность не должна ломать читаемость длинных значений.
-- **Do not fake a table** — если нужны сортировка, колонки, строки объектов или фильтры, это Table.
-- **Content is exact** — labels, empty values и placeholders следуют [foundation/content.md](../foundation/content.md).
+- **Do not fake a table** — если нужны строки объектов, колонки и сортировка, это Table.
+- **Formatting is part of contract** — даты, суммы, ID, email и ссылки форматируются по правилам продукта.
+- **AI assists, system governs** — AI может предложить пары, но человек проверяет смысл, формат и доступность.
+
+### Связанные спецификации
+
+- [Table](../specs/data-display/table.md) — много записей и табличное сравнение.
+- [Form](../specs/overlays-layout/form.md) — редактируемые значения.
+- [Stat / Metric](../specs/data-display/stat-metric.md) — один выделенный показатель.
+- [Link](../specs/actions/link.md) — значения, ведущие к ресурсу.
+- [Icon Button](../specs/actions/icon-button.md) — copy action для ID, token или URL.
 
 ---
 
-## 2. Anatomy
+## 2. Anatomy / Анатомия
 
-```text
-Term                  Definition
-Status                Ready
-Owner                 Design system
-Last updated          27 May 2026
-```
+| Часть | Обязательность | Назначение |
+|---|---:|---|
+| `root` | Да | Контейнер Description List, обычно `<dl>`. |
+| `item` | Да | Одна пара term-definition. |
+| `term` / `dt` | Да | Название свойства или label. |
+| `definition` / `dd` | Да | Значение свойства. |
+| `description` | Нет | Пояснение к значению. |
+| `action` | Нет | Copy, Link, Tooltip или другое вложенное действие. |
+| `divider` | Нет | Визуальное разделение строк. |
 
-| Часть | Обязательность | Описание |
-| --- | --- | --- |
-| `root` | yes | Description list container |
-| `item` | yes | One term-definition pair |
-| `term` (`dt`) | yes | Property name or label |
-| `definition` (`dd`) | yes | Property value |
-| `description` | optional | Supporting explanation for a value |
-| `action` | optional | Nested copy/link/action when needed |
-| `divider` | optional | Visual separation between rows |
+### Правила анатомии
 
-### Правила anatomy
-
-- Every item must have one term and at least one definition.
-- Multiple definitions may belong to one term only when the relationship is semantically correct.
-- Nested actions use Button, Icon Button, or Link contracts.
-- Empty values must be explicit: use `Не указано`, `Нет данных`, or product-specific text instead of blank space.
+- У каждого item должен быть один term и минимум одно definition.
+- Несколько definitions у одного term допустимы только при корректной семантической связи.
+- Вложенные actions используют Button, Icon Button или Link contracts.
+- Empty value должен отображаться как `Не указано`, `Нет данных` или product-specific text.
+- Divider не должен становиться частью доступного имени term или definition.
 
 ---
 
-## 3. Types / Variants
+## 3. Types / Variants / Варианты
 
-| Variant | Description | Use |
-| --- | --- | --- |
-| `horizontal` | Term and definition appear in one row | Short values, object details |
-| `vertical` | Term appears above definition | Long values, mobile, narrow panels |
-| `table-like` | Row separators and aligned columns | Dense read-only details without table interactions |
+| Variant | Назначение | Когда использовать |
+|---|---|---|
+| `horizontal` | Term и definition в одной строке. | Короткие значения, детали объекта. |
+| `vertical` | Term над definition. | Длинные значения, mobile, narrow panels. |
+| `tableLike` | Строки с разделителями и выравненными колонками. | Плотные read-only details без table interactions. |
 
 ### Modifiers
 
-| Modifier | Description | Rule |
-| --- | --- | --- |
-| `bordered` | Adds row separators | Use for dense or grouped data |
-| `striped` | Alternating row surface | Use only when many rows reduce scan clarity |
-| `compact` | Reduces spacing | Use in side panels and dense cards |
-| `withDescriptions` | Adds supporting text per item | Use for technical or ambiguous values |
-| `withActions` | Adds copy/link/action controls | Nested controls own their states |
+| Modifier | Назначение | Правило |
+|---|---|---|
+| `bordered` | Добавляет разделители строк. | Использовать для плотных или сгруппированных данных. |
+| `striped` | Чередует row surface. | Только если много строк и нужна scan clarity. |
+| `compact` | Уменьшает spacing. | Side panels, dense cards. |
+| `withDescriptions` | Добавляет поясняющий текст. | Для технических или неоднозначных values. |
+| `withActions` | Добавляет copy/link/action controls. | Состояния принадлежат вложенным компонентам. |
 
 ---
 
-## 4. Sizes
+## 4. Sizes / Размеры
 
-Description List size controls density, spacing, and term column width. It does not change semantic structure.
+Size управляет плотностью, spacing и шириной term column. Семантика списка не меняется.
 
-| Size | Density | Term width | Use |
-| --- | --- | --- | --- |
-| `compact` | Reduced vertical spacing | Narrow or content-fit | Side panels, table expansion, dense cards |
-| `medium` | Default spacing | Stable label column | Default product UI |
-| `large` | More spacing | Wider label column | Detail pages, confirmation summary |
+| Size | Плотность | Term width | Применение |
+|---|---|---|---|
+| `compact` | Меньше vertical spacing. | Узкая или content-fit. | Side panels, table expansion, dense cards. |
+| `medium` | Default spacing. | Стабильная label column. | Основной продуктовый UI. |
+| `large` | Больше spacing. | Более широкая label column. | Detail pages, confirmation summary. |
 
 ### Правила размеров
 
-- Use `medium` by default.
-- Use `compact` only when values remain readable.
-- Use `large` when Description List is the main content of a section.
-- Term width should be stable within one list.
-- On narrow screens, horizontal layout may switch to vertical.
+- `medium` используется по умолчанию.
+- `compact` допустим только если values остаются читаемыми.
+- `large` подходит, когда Description List является основным содержимым секции.
+- Term width должен быть стабильным внутри одного списка.
+- На узких экранах horizontal layout может переходить в vertical.
 
 ---
 
-## 5. States
+## 5. States / Состояния
 
-Description List is static by default. Component-level state describes data availability or row emphasis, not direct interaction.
+Description List статичен по умолчанию. Состояния описывают доступность данных или акцент строки, а не прямую интерактивность компонента.
 
-| State | Meaning | Rule |
-| --- | --- | --- |
-| `default` | Normal term-value display | Standard row surface |
-| `striped` | Alternating row for scan support | Visual aid only |
-| `hover` | Row hover when row has nested action or reveals controls | Use only if row is interactive or action-revealing |
-| `empty` | Value is missing | Show explicit empty text |
-| `disabled` | Value is unavailable due to permissions or state | Explain if not obvious |
+| State | Когда возникает | Правило |
+|---|---|---|
+| `default` | Обычное отображение term-value. | Используются default row и text tokens. |
+| `striped` | Чередование строк помогает сканированию. | Только визуальная поддержка. |
+| `hover` | Row раскрывает action или имеет вложенное действие. | Не использовать для полностью статичных строк. |
+| `empty` | Значение отсутствует. | Показывать explicit empty text. |
+| `disabled` | Значение недоступно из-за прав или состояния объекта. | Объяснить причину, если она не очевидна. |
 
 ### State ownership
 
-- Link, Button, Icon Button, copy action, Tooltip, and Popover states belong to nested components.
-- Description List should not expose selection, checked, loading, or validation states unless a higher-level pattern defines them.
-- Empty values must not be communicated by absence alone.
+- Link, Button, Icon Button, copy action, Tooltip и Popover владеют своими состояниями.
+- Description List не должен иметь selection, checked, loading или validation states без более высокого pattern.
+- Empty values не передаются отсутствием текста.
 
 ---
 
-## 6. Behavior
+## 6. Behavior / Поведение
 
 ### Layout behavior
 
-- Horizontal layout aligns terms and definitions in stable columns.
-- Vertical layout stacks term above definition for long values or narrow containers.
-- Long definitions wrap; they should not overflow the container.
-- Related items may be grouped with headings outside the component.
+- Horizontal layout выравнивает terms и definitions в стабильных колонках.
+- Vertical layout ставит term над definition для длинных значений или узких контейнеров.
+- Длинные definitions переносятся и не выходят за контейнер.
+- Родственные группы можно разделять heading outside component.
 
 ### Content behavior
 
-- Terms are concise nouns or noun phrases: `Owner`, `Status`, `Created`.
-- Definitions preserve meaningful formatting: dates, currency, IDs, email, links.
-- Use copy actions for IDs, tokens, URLs, or values users often reuse.
-- Do not truncate critical values without Tooltip, copy, or expand behavior.
+- Terms пишутся короткими noun phrases: `Owner`, `Status`, `Created`.
+- Definitions сохраняют значимое форматирование: даты, суммы, ID, email, links.
+- Для ID, token, URL и повторно используемых values добавляйте copy action.
+- Критичные значения нельзя обрезать без Tooltip, copy или expand behavior.
 
 ### Responsive behavior
 
-- Horizontal layout switches to vertical when term/value columns become too narrow.
-- Actions move below or after the definition on narrow widths.
-- Stripes and borders should remain aligned after wrapping.
+- Horizontal layout переключается в vertical, когда term/value columns становятся слишком узкими.
+- Actions переходят под definition или после него на narrow widths.
+- Stripes и borders остаются согласованными после переноса строк.
 
 ### Large data behavior
 
-- If the list grows beyond a readable object summary, group items or use Table.
-- If users need sorting, filtering, bulk comparison, or scanning many records, use Table.
+- Если список перестает быть summary одного объекта, сгруппируйте items или используйте Table.
+- Если пользователю нужны sorting, filtering, comparison или scanning many records, используйте Table.
 
 ---
 
 ## 7. Accessibility
 
-Description List follows [foundation/accessibility.md](../foundation/accessibility.md).
-
 | Требование | Правило |
-| --- | --- |
-| Semantics | Use `<dl>`, `<dt>`, and `<dd>` for term-value data |
-| Reading order | DOM order follows visual order |
-| Empty values | Provide readable text for missing values |
-| Actions | Nested actions have accessible names |
-| Table-like layout | Не используйте layout tables для description lists |
-| Truncation | Provide full value through accessible mechanism when needed |
+|---|---|
+| Semantics | Использовать `<dl>`, `<dt>`, `<dd>` для term-value данных. |
+| Reading order | DOM order соответствует visual order. |
+| Empty values | Отсутствующие значения имеют читаемый текст. |
+| Actions | Вложенные actions имеют accessible names. |
+| Table-like layout | Не использовать layout tables для description lists. |
+| Truncation | Полное значение доступно через Tooltip, copy или expand. |
 
 ### Accessibility checklist
 
-- [ ] Terms and definitions are programmatically associated.
-- [ ] Empty values are explicit.
-- [ ] Copy/action controls have clear accessible labels.
-- [ ] Long values are readable, copyable, or expandable.
-- [ ] Visual separators are not announced as content.
-- [ ] The component is not misused as a data table.
+- [ ] Terms и definitions программно связаны.
+- [ ] Empty values отображаются явно.
+- [ ] Copy/action controls имеют понятные accessible labels.
+- [ ] Длинные значения можно прочитать, скопировать или раскрыть.
+- [ ] Visual separators не объявляются как содержимое.
+- [ ] Компонент не используется как data table.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением этого раздела нужно сверять реальные component tokens в `tokens.json`. Для Description List доступны component tokens в namespace `description-list`.
 
-| Role | Component token | Semantic |
-| --- | --- | --- |
+| Role | Component token | Semantic token |
+|---|---|---|
 | Term foreground | `description-list/term/foreground` | `text/tertiary` |
 | Definition foreground | `description-list/definition/foreground` | `text/primary` |
 | Description foreground | `description-list/description/foreground` | `text/secondary` |
@@ -204,104 +211,121 @@ Description List follows [foundation/accessibility.md](../foundation/accessibili
 
 ### Token gaps
 
-- Description List does not currently have component tokens for term width, row gap, column gap, padding, typography, or action spacing.
-- Use foundation spacing, typography, and layout roles until component-level tokens are introduced.
-- Do not invent Description List token names in specs, code, Figma, or AI-generated handoff.
+- Нет component tokens для term width, row gap, column gap, padding, typography и action spacing.
+- До появления component-level tokens используйте foundation spacing, typography и layout roles.
+- Не добавляйте новые Description List token names в specs, code, Figma или AI-generated handoff без token architecture review.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
-| --- | --- | --- |
-| Items | `items` | Array of term-value pairs |
-| Term | `item.term` | Required |
-| Definition | `item.definition` | Required unless `emptyText` is provided |
-| Description | `item.description` | Optional supporting text |
-| Action | `item.action` | Optional nested action |
-| Variant | `variant` | `horizontal`, `vertical`, `table-like` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Bordered | `bordered` | Boolean |
-| Striped | `striped` | Boolean |
-| Empty text | `emptyText` | Text for missing values |
+| Design concept | Prop / API | Правило |
+|---|---|---|
+| Items | `items` | Массив term-value pairs. |
+| Term | `item.term` | Обязателен. |
+| Definition | `item.definition` | Обязателен, если нет `emptyText`. |
+| Description | `item.description` | Опциональный supporting text. |
+| Action | `item.action` | Опциональное вложенное действие. |
+| Variant | `variant` | `horizontal`, `vertical`, `tableLike`. |
+| Size | `size` | `compact`, `medium`, `large`. |
+| Bordered | `bordered` | Boolean. |
+| Striped | `striped` | Boolean. |
+| Empty text | `emptyText` | Текст для missing values. |
+| Term width | `termWidth` | Только layout value; token gap, если нужен system token. |
 
 ### Contract rules
 
-- Each item must have a term.
-- Missing definitions must render explicit empty text.
-- Do not pass raw colors for row, term, or definition.
-- Use nested component APIs for links, buttons, copy actions, or tooltips.
-- Не используйте Description List для multi-record table data.
+- Каждый item должен иметь `term`.
+- Missing definition должна рендерить explicit empty text.
+- Raw colors для row, term или definition запрещены.
+- Links, buttons, copy actions и tooltips передаются через nested component APIs.
+- Description List не используется для multi-record table data.
+- `tableLike` не добавляет сортировку, фильтры или table semantics.
 
 ---
 
 ## 10. Handoff notes
 
-В handoff нужно передать:
+Handoff для Description List должен фиксировать:
 
-- list purpose and object being described;
+- purpose списка и объект, который он описывает;
 - variant, size, bordered/striped behavior;
 - item schema: term, definition, description, action;
 - empty value wording;
-- formatting rules for dates, IDs, currencies, links, and long text;
+- formatting rules для dates, IDs, currencies, links и long text;
 - responsive switch rules;
-- truncation, copy, or expand behavior;
-- nested interaction specs, if actions are present;
-- token mapping for term, definition, description, row, stripe, and border;
-- token gaps for spacing, term width, and typography.
-
-### Acceptance criteria
-
-- Description List represents properties of one object or record.
-- Every value has a term.
-- Missing values are explicit.
-- Semantic `<dl>`, `<dt>`, `<dd>` structure is used when possible.
-- Long values wrap or have documented truncation/copy behavior.
-- Row surfaces, borders, terms, definitions, and descriptions use documented tokens.
-- Component is not used for sortable/filterable multi-record data.
+- truncation, copy или expand behavior;
+- nested interaction specs, если есть actions;
+- token mapping для term, definition, description, row, stripe и border;
+- token gaps для spacing, term width и typography.
 
 ---
 
-## 11. AI usage rules
+## 11. Acceptance criteria
 
-- AI may use Description List only for term-value data about one object or record.
-- AI must recommend Table for multi-record data, comparison, sorting, or filtering.
-- AI must recommend Form controls for editable values.
-- AI must not invent token paths, variants, row states, or raw visual styles.
-- AI must check `tokens.json` before changing Description List token mappings.
-- AI must flag missing term, blank value, table misuse, unclear formatting, or unsupported nested interaction as `Needs system review`.
-- AI may draft item schemas, empty value text, handoff notes, and acceptance criteria, but human review is required.
+- [ ] Description List описывает свойства одного объекта или одной записи.
+- [ ] У каждого value есть term.
+- [ ] Missing values отображаются явно.
+- [ ] Используется semantic `<dl>`, `<dt>`, `<dd>`, если возможно.
+- [ ] Long values wrap или имеют documented truncation/copy behavior.
+- [ ] Row surfaces, borders, terms, definitions и descriptions используют documented tokens.
+- [ ] Компонент не используется для sortable/filterable multi-record data.
+- [ ] `tableLike` variant не подменяет Table.
 
 ---
 
-## 12. Examples
+## 12. AI usage rules
+
+AI может:
+
+- предложить item schema для одного объекта;
+- подготовить empty value text;
+- сформировать formatting rules для ID, dates, currencies и links;
+- подготовить handoff notes и acceptance criteria;
+- проверить, не нужен ли Table, Form или Stat / Metric вместо Description List;
+- сверить token mapping с `tokens.json`.
+
+AI не должен:
+
+- использовать Description List для multi-record data, comparison, sorting или filtering;
+- использовать Description List для editable values;
+- придумывать token paths, variants, row states или raw visual styles;
+- оставлять blank values без empty text;
+- обрезать critical value без способа прочитать или скопировать полный текст;
+- добавлять hover state к статичной строке без interaction.
+
+Если отсутствует term, value пустое без объяснения, данные похожи на таблицу или вложенное действие не описано, AI должен пометить сценарий как `Needs system review`.
+
+---
+
+## 13. Examples / Примеры
 
 ### Корректно
 
 | Scenario | Usage |
-| --- | --- |
-| Profile details | Terms: `Name`, `Email`, `Role`; definitions as values |
-| Order summary | Terms: `Order ID`, `Status`, `Created`; copy action for ID |
-| Product specs | Terms and definitions grouped by category |
-| Confirmation screen | Read-only summary before submit |
+|---|---|
+| Profile details | Terms: `Name`, `Email`, `Role`; definitions как values. |
+| Order summary | Terms: `Order ID`, `Status`, `Created`; copy action для ID. |
+| Product specs | Terms и definitions сгруппированы по category. |
+| Confirmation screen | Read-only summary перед submit. |
 
 ### Требует review
 
-| Scenario | Reason |
-| --- | --- |
-| Comparing 10 users across 8 fields | Table is required |
-| Editable profile settings | Form controls are required |
-| Empty value rendered as blank space | Missing state is unclear |
-| Long token truncated without copy | User cannot recover full value |
+| Scenario | Причина |
+|---|---|
+| Сравнение 10 пользователей по 8 полям. | Нужен Table. |
+| Editable profile settings. | Нужны Form controls. |
+| Empty value как пустое место. | Missing state неясен. |
+| Long token truncated без copy. | Пользователь не может получить полное значение. |
 
 ---
 
-## 13. Anti-patterns
+## 14. Anti-patterns
 
-- Using Description List as a layout grid.
-- Using it for lists of multiple records.
-- Leaving values blank when data is missing.
-- Making terms too long or sentence-like.
-- Hiding important values behind truncation without access to the full value.
-- Adding row hover styles when rows are not interactive.
-- Creating custom row colors outside component tokens.
+- Использовать Description List как layout grid.
+- Использовать его для списка нескольких записей.
+- Оставлять value пустым при отсутствии данных.
+- Делать terms слишком длинными или похожими на предложения.
+- Скрывать важные values за truncation без доступа к полному тексту.
+- Добавлять row hover styles, когда rows не интерактивны.
+- Создавать custom row colors вне component tokens.

@@ -2,309 +2,199 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Stepper](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6658-45)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Stepper — навигационный и статусный компонент для линейного многошагового процесса. Он показывает порядок шагов, текущий шаг, завершенные шаги, будущие шаги и возможные ошибки, чтобы пользователь понимал, где он находится в сценарии и что осталось сделать.
+Stepper — навигация по последовательному многошаговому сценарию. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-Stepper не является обычным Progress Bar: Progress Bar показывает степень выполнения, а Stepper показывает дискретные шаги с названиями и правилами перехода. Stepper также не заменяет Tabs: Tabs переключают независимые разделы, а Stepper ведет пользователя через последовательный flow.
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
 ### Когда использовать
 
-**Используйте** — когда сценарий состоит из предсказуемых шагов:
+Используйте Stepper, когда есть порядок шагов, активный step и правила перехода между шагами.
 
-- onboarding;
-- checkout или order flow;
-- создание сложного объекта;
-- multi-step form;
-- setup wizard;
-- approval flow с последовательными этапами;
-- review process, где важно видеть `current`, `completed`, `upcoming` и `error`.
+### Когда не использовать
 
-**Не используйте:**
+Не используйте Stepper, для continuous progress используйте Progress Bar; для независимых разделов используйте Tabs; не используйте Stepper без transition rules.
 
-- Для одного шага — Stepper не нужен.
-- Для непрерывного процента выполнения — используйте [Progress Bar](../feedback/progress-bar.md).
-- Для переключения независимых разделов — используйте [Tabs](../navigation/tabs.md).
-- Для истории событий объекта — используйте [Timeline](../data-display/timeline.md).
-- Для глубокой навигации по продукту — используйте [Sidebar](../navigation/sidebar.md).
-- Для длинного процесса без понятных этапов — сначала определите UX pattern и модель данных.
+### Ключевые принципы
 
-### Основные принципы
-
-- **Текущий шаг всегда явный** — пользователь должен видеть, где он находится.
-- **Порядок имеет смысл** — последовательность шагов должна отражать реальный процесс.
-- **Completed означает достаточную готовность** — завершенный шаг не должен означать просто "пользователь его открыл".
-- **Error ведет к исправлению** — шаг с ошибкой должен объяснять, что нужно исправить или куда вернуться.
-- **Clickable — это контракт** — если шаг кликабельный, правила перехода должны быть описаны.
-- **AI не придумывает шаги процесса** — AI может предложить структуру, но шаги, блокировки и правила перехода утверждает человек.
-
-### Связанные спецификации
-
-- [Progress Bar](../specs/feedback/progress-bar.md)
-- [Tabs](../specs/navigation/tabs.md)
-- [Timeline](../specs/data-display/timeline.md)
-- [Form](../specs/overlays-layout/form.md)
-- [Button](../specs/actions/button.md)
-- [Alert](../specs/feedback/alert.md)
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```text
-Horizontal:
-[1✓] ---- [2] ---- [3] ---- [4]
-Done      Current  Upcoming Upcoming
-
-Vertical:
-[1✓] Done
- |
-[2] Current
- |  Optional description
-[3] Upcoming
- |
-[4] Upcoming
-```
-
-| Часть | Обязательность | Описание |
+| Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | да | Контейнер Stepper |
-| `step` | да | Один шаг процесса |
-| `indicator` | да | Номер, иконка или статусная метка |
-| `label` | да | Название шага |
-| `description` | опционально | Короткое дополнительное описание |
-| `connector` | условно | Линия между соседними шагами |
-| `currentMarker` | да | Визуальное и программное обозначение текущего шага |
-| `statusIcon` | условно | Check, error icon или другая статусная иконка |
-| `actionTarget` | условно | Link/button behavior для кликабельного шага |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
 ### Правила anatomy
 
-- Stepper должен содержать минимум два шага.
-- У каждого шага должны быть стабильный `id` и `label`.
-- Используйте номера, когда важен порядок, и иконки/checkmarks, когда важнее статус.
-- `description` должна быть короткой; длинные инструкции относятся к содержимому шага.
-- `connector` отражает переход между шагами, а не только состояние следующего шага.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-### Ориентация
+Figma component set: `Stepper`. Variants: 8.
 
-| Вариант | Описание | Когда использовать |
+| Property | Default | Options |
 | --- | --- | --- |
-| `horizontal` | Шаги расположены слева направо | Header формы, checkout, onboarding |
-| `vertical` | Шаги расположены сверху вниз | Side panel, длинные labels, узкие экраны |
+| `layout` | `horizontal` | `horizontal`, `vertical` |
+| `activeStep` | `2` | `2` |
+| `size` | `m` | `m`, `s`, `l`, `xl` |
 
-### Режим взаимодействия
+### Boolean / slot properties
 
-| Режим | Описание | Правило |
+| Property | Default | Options |
 | --- | --- | --- |
-| `read-only` | Stepper только показывает прогресс | Дефолт для строгих линейных flow |
-| `clickable-completed` | Пользователь может вернуться к завершенным шагам | Часто используется в формах и review flow |
-| `clickable-all` | Пользователь может перейти к разрешенным шагам | Нужны явные правила validation/navigation |
-| `nonlinear` | Шаги можно проходить не по порядку | Требует product review; возможно, лучше использовать Tabs |
+| Нет boolean properties | - | Видимость slots задается props contract. |
 
-### Статусы шага
+### Variant rules
 
-| Статус | Значение | Правило |
-| --- | --- | --- |
-| `upcoming` | Шаг еще не достигнут | Более низкий визуальный акцент |
-| `current` | Пользователь находится на этом шаге | В active flow должен быть только один |
-| `completed` | Шаг завершен и достаточно валиден для продолжения | Используйте completed indicator |
-| `error` | На шаге есть блокирующая ошибка | Покажите error state и путь восстановления |
-| `disabled` | Шаг недоступен | Объясните причину, если она не очевидна |
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-Размер Stepper управляет размером indicator, плотностью label, расстоянием connector и общей площадью компонента.
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-| Size | Плотность indicator | Плотность label | Когда использовать |
-| --- | --- | --- | --- |
-| `compact` | Малый indicator | Только короткие labels | Плотные панели, узкие headers |
-| `medium` | Дефолтный indicator | Дефолтные labels | Большинство продуктовых flow |
-| `large` | Увеличенный indicator | Есть место для descriptions | Onboarding, checkout, guided setup |
-
-### Правила размеров
-
-- Используйте `medium` по умолчанию.
-- Используйте `compact` только когда labels короткие и остаются читаемыми.
-- Используйте `large`, когда показаны descriptions или Stepper является главным ориентиром в сценарии.
-- На мобильных горизонтальный Stepper может сворачиваться в summary текущего шага или переходить в vertical layout.
-- Не уменьшайте шрифт ради большого количества шагов; упростите labels или измените layout.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### Матрица состояний шага
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| State | Значение | Обязательное поведение |
-| --- | --- | --- |
-| `upcoming` | Будущий шаг | Не активен; может быть disabled в зависимости от flow |
-| `current` | Активный шаг | Использует current indicator и `aria-current="step"` |
-| `completed` | Завершенный шаг | Показывает completed indicator и completed connector после шага |
-| `error` | Шаг содержит validation или process error | Показывает error indicator и error label treatment |
-| `disabled` | Шаг недоступен | Нет activation, используется disabled treatment |
-| `hover` | Pointer над кликабельным шагом | Hover treatment только для clickable step |
-| `focus` | Keyboard focus | Видимый focus ring для clickable step |
-
-### Состояния connector
-
-| State | Значение |
+| State group | Что проверять |
 | --- | --- |
-| `default` | Между upcoming/current шагами |
-| `completed` | Переход после завершенного шага |
-| `error` | Переход, связанный с error path |
-| `disabled` | Переход к недоступному шагу |
-
-### Допустимые сочетания
-
-| Сочетание | Допустимо | Правило |
-| --- | --- | --- |
-| один `current` step | да | В active flow должен быть ровно один текущий шаг |
-| `completed` перед `current` | да | Стандартный линейный прогресс |
-| `error` перед `current` | да | Пользователь может вернуться и исправить ошибку |
-| `upcoming` перед `completed` | нет | Нарушает линейный смысл, если nonlinear flow не утвержден |
-| `disabled` + clickable | нет | Disabled step не активируется |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
 ## 6. Behavior
 
-### Поведение прогресса
-
-- Состояние Stepper управляется моделью процесса, а не только визуальной позицией.
-- Переход к следующему шагу требует validation или completion rule, заданного в flow.
-- Завершенный шаг может перейти в `error`, если поздняя validation или server response сделала его невалидным.
-- Label текущего шага должен совпадать с видимым содержимым шага.
-- Если количество шагов меняется динамически, handoff должен описывать пересчет текущего прогресса.
-
-### Навигационное поведение
-
-- `read-only` Stepper не делает шаги интерактивными.
-- `clickable-completed` позволяет возвращаться к завершенным шагам.
-- `upcoming` steps не кликабельны, если nonlinear navigation явно не поддержана.
-- Error step должен вести пользователя к месту исправления.
-- Back/Next buttons принадлежат окружающему flow, а не самому Stepper.
-
-### Responsive behavior
-
-- Horizontal Stepper может переноситься только если connector и порядок шагов остаются понятными.
-- На узких экранах предпочтительны vertical Stepper, compact summary или текст "Step N of M" + current label.
-- Descriptions можно скрывать в compact layout, но labels и current state должны оставаться видимыми.
-- Error state нельзя скрывать при переходе в mobile/compact view.
-
-### Keyboard interaction
-
-| Клавиша | Действие |
-| --- | --- |
-| `Tab` / `Shift+Tab` | Перемещение по кликабельным шагам и соседним actions |
-| `Enter` / `Space` | Активировать focused clickable step |
-| `ArrowLeft` / `ArrowRight` | Опциональная roving navigation в horizontal clickable Stepper |
-| `ArrowUp` / `ArrowDown` | Опциональная roving navigation в vertical clickable Stepper |
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
 ## 7. Accessibility
 
-Stepper следует [foundation/accessibility.md](../../foundation/accessibility.md) и navigation semantics.
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| Ordered structure | Используйте ordered list semantics, когда шаги последовательны |
-| Current step | Текущий шаг должен быть доступен программно |
-| Status text | `completed` и `error` должны быть понятны assistive tech |
-| Clickable step | Используйте link/button semantics только если шаг интерактивный |
-| Disabled step | Не показывайте disabled step как активную навигацию |
-| Error recovery | Error step должен указывать на проблему или вести к деталям |
-| Color reliance | Статус нельзя передавать только цветом |
-| Step count | Добавляйте "Step N of M", когда это помогает ориентации |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
 ### Accessibility checklist
 
-- [ ] Ровно один шаг имеет current state.
-- [ ] Порядок шагов доступен программно.
-- [ ] `completed` и `error` не передаются только цветом.
-- [ ] Кликабельные шаги имеют accessible names и focus styles.
-- [ ] `disabled` / `upcoming` steps не фокусируются, если не объясняют доступность.
-- [ ] Error step ведет к recovery path.
-- [ ] Compact/mobile версия сохраняет current step и error state.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Роль | Component token | Semantic |
+| Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| Indicator upcoming | `stepper/indicator/upcoming` | `container/neutral/default` |
-| Indicator current | `stepper/indicator/current` | `container/brand/default` |
-| Indicator completed | `stepper/indicator/completed` | `container/brand/default` |
-| Indicator error | `stepper/indicator/error` | `container/danger/default` |
-| Indicator disabled | `stepper/indicator/disabled` | `status/disabled/container` |
-| Icon default | `stepper/icon/default` | `text/on-brand/primary` |
-| Icon upcoming | `stepper/icon/upcoming` | `icon/tertiary` |
-| Icon current | `stepper/icon/current` | `text/on-brand/primary` |
-| Icon completed | `stepper/icon/completed` | `text/on-brand/primary` |
-| Icon error | `stepper/icon/error` | `text/on-danger/primary` |
-| Icon disabled | `stepper/icon/disabled` | `status/disabled/icon` |
-| Connector default | `stepper/connector/default` | `border/default` |
-| Connector completed | `stepper/connector/completed` | `border/brand/default` |
-| Connector error | `stepper/connector/error` | `border/danger/default` |
-| Connector disabled | `stepper/connector/disabled` | `status/disabled/border` |
-| Label current | `stepper/label/current` | `text/primary` |
-| Label upcoming | `stepper/label/upcoming` | `text/tertiary` |
-| Label completed | `stepper/label/completed` | `text/secondary` |
-| Label error | `stepper/label/error` | `status/danger/text` |
-| Label disabled | `stepper/label/disabled` | `status/disabled/text` |
-| Focus ring | `stepper/focus/ring` | `focus/ring` |
+| `$collections/components/$modes/Mode 1/stepper/indicator/upcoming` | Component token | `container/neutral/default` |
+| `$collections/components/$modes/Mode 1/stepper/indicator/current` | Component token | `container/brand/default` |
+| `$collections/components/$modes/Mode 1/stepper/indicator/completed` | Component token | `container/brand/default` |
+| `$collections/components/$modes/Mode 1/stepper/indicator/error` | Component token | `container/danger/default` |
+| `$collections/components/$modes/Mode 1/stepper/indicator/disabled` | Component token | `status/disabled/container` |
+| `$collections/components/$modes/Mode 1/stepper/icon/default` | Component token | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/stepper/icon/upcoming` | Component token | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/stepper/icon/current` | Component token | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/stepper/icon/completed` | Component token | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/stepper/icon/error` | Component token | `text/on-danger/primary` |
+| `$collections/components/$modes/Mode 1/stepper/icon/disabled` | Component token | `status/disabled/icon` |
+| `$collections/components/$modes/Mode 1/stepper/connector/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/stepper/connector/completed` | Component token | `border/brand/default` |
+| `$collections/components/$modes/Mode 1/stepper/connector/error` | Component token | `border/danger/default` |
+| `$collections/components/$modes/Mode 1/stepper/connector/disabled` | Component token | `status/disabled/border` |
+| `$collections/components/$modes/Mode 1/stepper/label/current` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/stepper/label/upcoming` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/stepper/label/completed` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/stepper/label/error` | Component token | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/stepper/label/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/stepper/focus/ring` | Component token | `focus/ring` |
 
 ### Token gaps
 
-- Сейчас у Stepper нет component tokens для размера indicator, длины connector, толщины connector, расстояния между шагами, расстояния между label и indicator, цвета description и animation.
-- Используйте foundation spacing, sizing, typography и motion rules, пока не появятся Stepper-specific layout tokens.
-- Не придумывайте `--stepper-*` или новые `stepper/*` token paths в specs, code, Figma или AI-generated handoff.
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Orientation | `orientation` | `horizontal`, `vertical` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Interaction mode | `interactionMode` | `read-only`, `clickable-completed`, `clickable-all`, `nonlinear` |
-| Steps | `steps` | Ordered step objects |
-| Step id | `step.id` | Стабильный идентификатор |
-| Step label | `step.label` | Обязательное название шага |
-| Step description | `step.description` | Опциональный короткий текст |
-| Step status | `step.status` | `upcoming`, `current`, `completed`, `error`, `disabled` |
-| Current step | `currentStepId` | Ровно один текущий шаг |
-| Click handler | `onStepSelect` | Только для clickable modes |
-| Validation state | `errors` / `stepErrors` | Связь ошибок с шагами |
-| Connector state | derived | Выводится из статусов соседних шагов |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
 ### Contract rules
 
-- `steps` должен быть упорядоченным массивом.
-- Stepper требует минимум два шага.
-- В активном процессе должен быть ровно один `current` step.
-- Clickable behavior должен описывать, какие статусы доступны для перехода.
-- Error status должен включать recovery behavior или ссылку на проблемное содержимое.
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
 ---
 
@@ -312,70 +202,60 @@ Stepper следует [foundation/accessibility.md](../../foundation/accessibil
 
 В handoff нужно передать:
 
-- название процесса и последовательность шагов;
-- orientation, size и responsive behavior;
-- список шагов: `id`, `label`, `description`, `status`, route/content target;
-- правило определения current step и completion rule;
-- clickable behavior и разрешенные navigation targets;
-- validation и error mapping по шагам;
-- mobile compact behavior, включая fallback "Step N of M";
-- token mapping для indicator, icon, connector, label и focus;
-- token gaps для dimensions, spacing, description text и animation.
+- Figma component и node id: `6658:45`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
 
 ### Acceptance criteria
 
-- Stepper содержит минимум два упорядоченных шага.
-- Ровно один current step видим и доступен программно.
-- `completed`, `current`, `upcoming`, `error` и `disabled` визуально различимы.
-- Error state имеет recovery behavior.
-- Clickable behavior описан, либо Stepper является read-only.
-- Mobile/compact view сохраняет current step и error visibility.
-- Компонент использует документированные `stepper/*` tokens и foundation rules для token gaps.
-- AI-generated drafts не добавляют и не переупорядочивают process steps без review.
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
 
 ---
 
 ## 11. AI usage rules
 
-- AI может предлагать Stepper только для последовательных multi-step flows.
-- AI должен рекомендовать Progress Bar для continuous progress и Tabs для независимых content sections.
-- AI не должен придумывать process steps, validation rules, navigation permissions, token paths или completion criteria.
-- AI должен проверять `tokens.json` перед изменением Stepper token mappings.
-- AI должен помечать отсутствующий current step, неясный порядок шагов, отсутствие error recovery, неподдержанную nonlinear navigation или недоступные clickable steps как `Needs system review`.
-- AI может подготовить step schemas, Handoff notes и acceptance criteria, но финальное решение остается за человеком.
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Сценарий | Использование |
+| Сценарий | Почему |
 | --- | --- |
-| Checkout | `orientation=horizontal`, current step и completed previous steps |
-| Onboarding | `orientation=vertical`, descriptions для каждого setup step |
-| Multi-step form | `interactionMode=clickable-completed`, completed steps можно открыть снова |
-| Server validation failed | Затронутый шаг получает `error` и ведет к recovery |
-| Mobile wizard | Compact "Step 2 of 5" плюс current label |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
 
 ### Требует review
 
-| Сценарий | Причина |
+| Сценарий | Риск |
 | --- | --- |
-| Пользователь может прыгнуть на любой будущий шаг без validation | Не описан navigation contract |
-| Stepper используется для независимых settings sections | Вероятно, лучше Tabs или Sidebar |
-| `completed` означает только "посещен" | Progress semantics вводит в заблуждение |
-| Error state показан только красным цветом | Accessibility gap |
-| AI добавляет шаг "Review" без product requirement | Придуманный process step |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Использовать Stepper для одного шага или нелинейного flow.
-- Показывать больше шагов, чем пользователь может быстро просканировать.
-- Скрывать current step на мобильных.
-- Разрешать переход к будущим шагам без validation rules.
-- Отмечать шаг как completed до валидности обязательных данных.
-- Показывать error state без recovery path.
-- Создавать raw colors, connector styles или недокументированные token names для step states.
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

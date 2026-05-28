@@ -2,325 +2,190 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Form](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6724-387)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Form — составной компонент для сбора, проверки и отправки пользовательских данных. Он задает структуру field groups, layout, validation behavior, submit flow, error summary и handoff contract между дизайном, разработкой и продуктовой логикой.
+Form — структура сбора и проверки пользовательских данных. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-Form не является отдельным input control. Он собирает поля и действия в управляемый сценарий: какие данные нужны, как они валидируются, когда показываются ошибки, что происходит при submit и как пользователь восстанавливается после ошибки.
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
 ### Когда использовать
 
-**Используйте** — когда интерфейс собирает данные через несколько связанных controls:
+Используйте Form, когда есть набор полей, labels, validation и submit/cancel flow.
 
-- создание или редактирование объекта;
-- настройки профиля, продукта или workspace;
-- фильтры с несколькими параметрами;
-- onboarding или multi-step flow;
-- форма внутри Modal, Drawer или page section;
-- submit flow с validation, loading и success/error result.
+### Когда не использовать
 
-**Не используйте:**
+Не используйте Form, для одного значения используйте конкретный input; не прячьте ошибки только в Toast; не смешивайте submit и instant apply без правил.
 
-- Для одиночного поля без submit behavior — используйте [Text Field](../inputs/text-field.md), [Select](../inputs/select.md) или другой input напрямую.
-- Для простого переключателя настройки — используйте [Toggle](../inputs/toggle.md) или [Checkbox](../inputs/checkbox.md).
-- Для подтверждения действия без ввода данных — используйте [Modal](../feedback/modal.md) или Button flow.
-- Для layout без сбора данных — используйте [Container](../overlays-layout/container.md) или [Grid](../overlays-layout/grid.md).
-- Для одноразовой подсказки об ошибке вне формы — используйте [Alert](../feedback/alert.md).
+### Ключевые принципы
 
-### Основные принципы
-
-- **Data before layout** — структура формы начинается с данных, validation rules и submit contract, а не с расположения полей.
-- **Labels are required** — каждое поле должно иметь понятный label и связь с control.
-- **Validation is staged** — ошибки показываются после blur, submit или другого документированного interaction point.
-- **Error summary supports recovery** — summary нужен, когда ошибок несколько или форма длинная.
-- **Submit state is explicit** — submitting, success, failure и retry behavior должны быть описаны.
-- **AI must preserve field contracts** — AI может предложить структуру формы, но не должен придумывать поля, правила валидации или API contract без review.
-
-### Связанные спецификации
-
-- [Text Field](../specs/inputs/text-field.md)
-- [Text Area](../specs/inputs/text-area.md)
-- [Select](../specs/inputs/select.md)
-- [Checkbox](../specs/inputs/checkbox.md)
-- [Radio](../specs/inputs/radio.md)
-- [Button](../specs/actions/button.md)
-- [Alert](../specs/feedback/alert.md)
-- [Modal](../specs/feedback/modal.md)
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```text
-Form title
-Description
-
-[Error summary, if submit validation failed]
-
-Group title
-Label *
-[Input control]
-Helper / error text
-
-Label
-[Input control]
-Helper text
-
-[Cancel] [Submit]
-```
-
-| Часть | Обязательность | Описание |
+| Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | yes | Native form or form-like container with submit behavior |
-| `title` | conditional | Form title when the surrounding surface does not provide one |
-| `description` | optional | Explains purpose, scope or consequences |
-| `errorSummary` | conditional | Summary of multiple validation errors or form-level error |
-| `fieldGroup` | yes | Logical group of related fields |
-| `groupTitle` | conditional | Label for a field group |
-| `field` | yes | Input component with label, helper/error text and validation state |
-| `requiredMarker` | conditional | Visual marker for required field convention |
-| `helperText` | optional | Field-level guidance or format hint |
-| `actions` | yes | Submit and secondary actions |
-| `submitButton` | yes | Primary action that starts validation and submit |
-| `secondaryAction` | optional | Cancel, back, reset, save draft or close |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
 ### Правила anatomy
 
-- Form must contain at least one field and one submit path.
-- Field groups should represent data meaning, not only visual columns.
-- Required marker must have a documented convention.
-- Error summary appears before the first field group or at the top of the visible form region.
-- Submit action must be visually and semantically primary within the form.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-### Layout variants
+Figma component set: `Form`. Variants: 12.
 
-| Variant | Description | Use |
+| Property | Default | Options |
 | --- | --- | --- |
-| `vertical` | Labels above controls | Default for most forms |
-| `horizontal` | Labels beside controls | Dense settings pages with short labels |
-| `inline` | Controls and action in one row | Search/filter bars and compact one-step forms |
-| `sectioned` | Form split into groups with titles | Complex settings or profile forms |
-| `wizard` | Multi-step form | Long flows with clear step progression |
+| `layout` | `inline` | `vertical`, `inline` |
+| `state` | `default` | `default`, `error` |
+| `size` | `s` | `m`, `s`, `l`, `xl` |
 
-### Usage variants
+### Boolean / slot properties
 
-| Variant | Description | Rule |
+| Property | Default | Options |
 | --- | --- | --- |
-| `page` | Form on a page or content section | Can include long content and section navigation |
-| `modal` | Form inside Modal | Keep scope short; avoid long multi-section forms |
-| `drawer` | Form inside Drawer | Useful for side-editing without leaving context |
-| `filter` | Form that updates list/table query | Submit/apply/reset behavior must be explicit |
+| Нет boolean properties | - | Видимость slots задается props contract. |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-Form size controls density, spacing between fields, action placement and max width. Individual input heights remain owned by each input component.
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-| Size | Density | Typical width | Use |
-| --- | --- | --- | --- |
-| `compact` | Tight field spacing | Narrow panel | Filters, drawers, dense settings |
-| `medium` | Default spacing | Readable form column | Most product forms |
-| `large` | Roomier sections | Wide page or wizard | Complex forms with explanations |
-
-### Правила размеров
-
-- Use `medium` by default.
-- Use `compact` only when labels, helper text and errors still remain readable.
-- Use `large` for forms with long helper text, grouped sections or onboarding.
-- Form width should follow Container rules; do not stretch short fields across very wide pages.
-- Button size follows [Button](../actions/button.md), not Form size directly.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### Aggregate states
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| State | Значение | Обязательное поведение |
-| --- | --- | --- |
-| `default` | Initial form | Fields are editable and no validation result is shown |
-| `dirty` | User changed at least one field | Enable save/submit logic according to product rules |
-| `validating` | Validation is running | Keep fields readable; show progress only if delay is noticeable |
-| `invalid` | Form has validation errors | Show field errors and error summary when needed |
-| `submitting` | Submit request is running | Submit Button shows loading and duplicate submit is blocked |
-| `submitted` | Submit succeeded | Show success, redirect or close according to flow |
-| `submit-error` | Submit failed after request | Show form-level error and recovery path |
-| `disabled` | Whole form is unavailable | Controls and actions follow disabled/read-only rules |
-
-### Field states
-
-Field interaction states are owned by the corresponding input specs. Form coordinates field state timing:
-
-- `error` appears after blur, submit or a documented validation trigger.
-- `warning` can appear while the field remains submittable.
-- `success` is optional and should not create visual noise.
-- `disabled` and `read-only` fields must still communicate why editing is unavailable when it is not obvious.
-
-### Допустимые сочетания
-
-| Сочетание | Допустимо | Правило |
-| --- | --- | --- |
-| `dirty` + `invalid` | yes | User changed data and validation found errors |
-| `validating` + `submitting` | yes | Submit may trigger server validation |
-| `submit-error` + field errors | yes | Show both only when errors are distinct |
-| `submitted` + `dirty` | no | New edits after success move form back to dirty/default flow |
-| `disabled` + `submitting` | no | Submitting is an active async state, not static disabled |
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
 ## 6. Behavior
 
-### Validation behavior
-
-- Empty required field is not shown as error before user interaction or submit.
-- `filled` does not mean `valid`.
-- Validation messages must explain how to fix the issue.
-- Client and server validation errors use the same field/error summary structure.
-- Cross-field validation must name all affected fields in handoff.
-- Form-level errors must not replace field-level errors when the failing field is known.
-
-### Submit flow
-
-1. User activates Submit.
-2. Form validates visible and required hidden-dependent fields.
-3. If errors exist, show field errors and error summary; focus moves to summary or first invalid field according to product rule.
-4. If valid, submit request starts and duplicate submit is blocked.
-5. On success, show success state, redirect, close surface or update data.
-6. On failure, show form-level error, preserve user-entered values and provide retry.
-
-### Reset, cancel and draft
-
-- Cancel returns to the previous surface or closes the parent overlay; destructive data loss needs confirmation when dirty.
-- Reset clears user edits only when product explicitly supports reset.
-- Save draft must define which fields are persisted and whether validation is partial.
-- Auto-save forms must define status messaging and conflict handling.
-
-### Responsive behavior
-
-- Vertical layout is preferred on narrow screens.
-- Horizontal forms collapse to vertical before labels or controls become cramped.
-- Inline forms wrap as a group; submit action remains reachable.
-- Error summary remains near the top of the active form region.
-- Long forms may use sticky actions only if they do not cover fields or errors.
-
-### Keyboard interaction
-
-| Клавиша | Действие |
-| --- | --- |
-| `Tab` / `Shift+Tab` | Move through fields and actions in logical order |
-| `Enter` | Submit when focus is in single-line input and no component-specific override exists |
-| `Space` | Activate checkbox, radio, button-like controls |
-| `Escape` | Close parent overlay only when the parent component owns Escape behavior |
-| `Ctrl/Cmd+Enter` | Optional submit shortcut for text-heavy forms, if documented |
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
 ## 7. Accessibility
 
-Form follows [foundation/accessibility.md](../../foundation/accessibility.md), [foundation/content.md](../../foundation/content.md) and validation rules.
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| Native semantics | Use `<form>` when the surface submits data |
-| Label association | Every control has a programmatic label |
-| Required fields | Use visible convention and accessible required state |
-| Error state | Invalid fields expose error state programmatically |
-| Descriptions | Helper/error text is connected to the control |
-| Error summary | Summary is announced and links or moves users to invalid fields |
-| Submit loading | Loading state prevents duplicate submit and remains announced |
-| Focus management | Failed submit moves focus to recovery path |
-| Keyboard order | Order follows visual and data logic |
-| Color reliance | Required, error and warning states are not communicated by color only |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
 ### Accessibility checklist
 
-- [ ] Each field has label and accessible description/error association.
-- [ ] Required convention is visible and explained.
-- [ ] Error messages are specific and actionable.
-- [ ] Error summary is present for long forms or multiple errors.
-- [ ] Submit Button has correct `type="submit"`.
-- [ ] Secondary buttons do not accidentally submit the form.
-- [ ] Loading submit blocks duplicate requests.
-- [ ] User input is preserved after submit error.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`. Prefer canonical paths in new documentation, code and Figma handoff.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Role | Component token | Semantic |
+| Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| Label foreground default | component path: form label foreground default | `text/secondary` |
-| Required marker foreground | component path: form label foreground required | `status/danger/text` |
-| Disabled label foreground | component path: form label foreground disabled | `status/disabled/text` |
-| Group title foreground | component path: form groupTitle foreground | `text/primary` |
-| Description foreground | component path: form description foreground | `text/tertiary` |
-| Helper default | component path: form helper default | `text/tertiary` |
-| Helper error | component path: form helper error | `status/danger/text` |
-| Helper warning | component path: form helper warning | `status/warning/text` |
-| Helper success | component path: form helper success | `status/success/text` |
-| Divider | component path: form divider | `border/subtle` |
-| Error summary border | component path: form errorSummary border | `status/danger/border` |
-| Error summary foreground | component path: form errorSummary foreground | `status/danger/text` |
-| Error summary surface | component path: form errorSummary surface | `status/danger/container` |
-
-### Legacy aliases
-
-- The old group-title path exists as a compatibility alias; use the canonical groupTitle mapping for new work.
-- The old label foreground base value should map to the default label foreground state.
-- The old required-marker path should map to the required label foreground state.
-- The old error-summary paths should map to canonical errorSummary paths.
+| `$collections/components/$modes/Mode 1/form/label/foreground` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/form/group-title/foreground` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/form/groupTitle/foreground` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/form/description/foreground` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/form/helper/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/form/helper/error` | Component token | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/form/helper/warning` | Component token | `status/warning/text` |
+| `$collections/components/$modes/Mode 1/form/helper/success` | Component token | `status/success/text` |
+| `$collections/components/$modes/Mode 1/form/divider` | Component token | `border/subtle` |
+| `$collections/components/$modes/Mode 1/form/errorSummary/border` | Component token | `status/danger/border` |
+| `$collections/components/$modes/Mode 1/form/errorSummary/foreground` | Component token | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/form/errorSummary/surface` | Component token | `status/danger/container` |
 
 ### Token gaps
 
-- Form does not currently have component tokens for field gap, group gap, section padding, max width, action gap, sticky action surface or validation motion.
-- Use foundation spacing, Container, Grid, Button and child input tokens until Form-specific layout tokens are introduced.
-- Do not invent `--form-*` or new Form token paths in specs, code, Figma or AI-generated handoff.
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Layout variant | `layout` | `vertical`, `horizontal`, `inline`, `sectioned`, `wizard` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Fields | `fields` | Field schema or composed children |
-| Field groups | `groups` | Logical grouping and group title |
-| Values | `values` | Current form data |
-| Initial values | `initialValues` | Used for dirty state |
-| Validation schema | `validationSchema` | Required, format, range, cross-field rules |
-| Errors | `errors` | Field-level and form-level errors |
-| Touched state | `touched` | Controls validation timing |
-| Dirty state | `dirty` | Enables/disables submit or save |
-| Submitting | `submitting` | Async submit state |
-| Submit action | `onSubmit` | Valid form submit handler |
-| Cancel action | `onCancel` | Optional secondary action |
-| Reset action | `onReset` | Optional destructive/explicit reset |
-| Error summary | `showErrorSummary` | Required for long forms or multiple errors |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
 ### Contract rules
 
-- Field schema requires stable field id, label, control type, value binding and validation rules.
-- Required fields must be represented in both UI and validation schema.
-- Submit Button uses `type="submit"`; secondary actions use `type="button"` unless documented otherwise.
-- Form-level error and field-level errors must be separate data paths.
-- Custom fields, hidden dependencies and cross-field validation require handoff notes.
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
 ---
 
@@ -328,76 +193,60 @@ Form follows [foundation/accessibility.md](../../foundation/accessibility.md), [
 
 В handoff нужно передать:
 
-- form purpose and data model;
-- layout variant, size and responsive behavior;
-- field list: id, label, control type, required/optional, default value and placeholder;
-- validation rules per field and cross-field dependencies;
-- validation trigger: blur, change, submit, server response;
-- error message copy and error summary behavior;
-- submit, cancel, reset, save draft and auto-save behavior;
-- loading, disabled, read-only, submit-error and success states;
-- focus management after failed submit and after success;
-- API contract or target action for submit;
-- token mapping for labels, helper text, error summary, group titles and dividers;
-- token gaps for layout spacing and action placement.
+- Figma component и node id: `6724:387`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
 
 ### Acceptance criteria
 
-- Every field has label, value binding and validation contract.
-- Required fields are visible and accessible.
-- Validation timing is documented.
-- Error summary appears for multiple errors or long forms.
-- Submit blocks duplicate requests while preserving user input.
-- Form can recover from server error.
-- Responsive behavior is defined for horizontal and inline layouts.
-- Component uses documented Form tokens and child component tokens.
-- AI-generated drafts do not introduce fields, tokens or validation rules without review.
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
 
 ---
 
 ## 11. AI usage rules
 
-- AI may propose form structure only from documented product requirements, data model or existing fields.
-- AI must not invent required fields, validation rules, API payloads, token names or submit behavior.
-- AI must check `tokens.json` before changing Form token mappings.
-- AI must recommend child input components instead of drawing custom input rectangles.
-- AI must flag missing labels, missing validation timing, missing error states, missing submit behavior, unclear data model, or inaccessible error summary as `Needs system review`.
-- AI may draft field schemas, Handoff notes, validation copy and acceptance criteria, but human review is required.
-- AI must preserve the distinction between design draft, approved component contract and implementation behavior.
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Scenario | Usage |
+| Сценарий | Почему |
 | --- | --- |
-| Profile edit | `layout=sectioned`, fields grouped by personal data and preferences |
-| Login form | `layout=vertical`, short fields, submit and recovery link |
-| Table filter panel | `layout=inline` or `compact`, explicit Apply/Reset behavior |
-| Modal create flow | `layout=vertical`, small number of fields, clear submit/cancel |
-| Long settings page | `layout=sectioned`, error summary and group titles |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
 
 ### Требует review
 
-| Scenario | Reason |
+| Сценарий | Риск |
 | --- | --- |
-| Form has fields but no submit behavior | Data flow is undefined |
-| Required markers exist without validation schema | UI and behavior can diverge |
-| Error summary lists errors that are not linked to fields | Accessibility and recovery gap |
-| Horizontal layout on narrow mobile screen | Responsive behavior missing |
-| AI adds "Company size" field without product requirement | Invented data requirement |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Using Form as a generic visual wrapper.
-- Creating handmade input rectangles instead of child input components.
-- Showing all validation errors before the user interacts.
-- Clearing user input after submit error.
-- Disabling Submit without explaining why when the issue is not visible.
-- Using placeholder text as the only label.
-- Mixing form-level errors and field-level errors into one generic message.
-- Adding raw spacing, color or error styles outside documented tokens.
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

@@ -2,227 +2,247 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-28
+> **Figma** · [Empty State](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6650-37)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Empty State — системный feedback-компонент для ситуации, когда в контейнере, разделе или экране нет данных, результатов, доступа или доступного действия. Он объясняет причину состояния и, если возможно, предлагает следующий шаг.
+Empty State — feedback-компонент для ситуации, когда в контейнере, разделе или экране ожидается содержимое, но его нельзя показать: данных нет, поиск ничего не нашел, доступ ограничен, загрузка завершилась ошибкой или пользователь еще не начал сценарий.
+
+В SEDA AI Empty State фиксирует recovery contract: причину состояния, доступный следующий шаг, правила контента, token mapping, accessibility и handoff. Компонент не заполняет пустоту декоративным блоком, а помогает пользователю понять, что произошло и что можно сделать дальше.
 
 ### Когда использовать
 
-**Используйте** — когда пользователь ожидает увидеть данные или содержимое, но система не может их показать:
+- В списке, таблице или разделе нет объектов.
+- Поиск или фильтры не вернули результатов.
+- Пользователь не имеет доступа к содержимому.
+- Данные не загрузились, и вместо отдельного Alert нужен контекстный recovery state.
+- Пользователь впервые открывает сценарий и должен начать настройку.
+- Контентная область должна сохранить структуру экрана, но показать отсутствие содержимого.
 
-- раздел без созданных объектов;
-- таблица или список без данных;
-- поиск или фильтр без результатов;
-- недоступный раздел из-за прав;
-- ошибка загрузки данных, если вместо отдельного Alert нужен контекстный recovery state;
-- первый запуск сценария, где пользователю нужно начать настройку.
+### Когда не использовать
 
-**Не используйте:**
+- Во время загрузки данных — используйте [Skeleton](skeleton.md) или [Spinner](spinner.md).
+- Для общей ошибки поверх заполненного интерфейса — используйте [Alert](alert.md) или Toast.
+- Как декоративный блок без причины, условия показа и следующего шага.
+- Для текста `Нет данных` без объяснения, если пользователь может что-то сделать.
+- Внутри формы, если достаточно helper text, validation message или disabled state.
+- Для маркетинговой иллюстрации, которая не связана с состоянием продукта.
 
-- Для временной загрузки — используйте **Skeleton** или **Spinner**.
-- Для общей ошибки поверх уже заполненного интерфейса — используйте **Alert** или **Toast**.
-- Для декоративного блока без причины и действия.
-- Для сообщения `Нет данных` без объяснения, если пользователь может что-то сделать.
-- Для пустого места внутри формы, если достаточно helper text или validation message.
+### Ключевые принципы
 
-### Основные принципы
+- **Причина важнее украшения** — title должен прямо объяснять отсутствие содержимого.
+- **Recovery before decoration** — действие нужно только тогда, когда у пользователя есть реальный путь восстановления.
+- **Сохраняйте контекст** — Empty State в таблице не должен скрывать заголовки, фильтры и выбранный scope без причины.
+- **Не имитируйте данные** — нельзя заменять пустой результат фальшивыми карточками или демо-строками.
+- **Loading не является Empty State** — сначала показывается loading state, затем контент, ошибка или Empty State.
+- **AI assists, system governs** — AI может подготовить текст и handoff, но использует только системные варианты, токены и правила.
 
-- **Explain the reason** — title должен назвать состояние: `Проектов пока нет`, `Ничего не найдено`, `Нет доступа`.
-- **Offer recovery** — action нужен, если пользователь может исправить ситуацию или продолжить работу.
-- **Do not fake data** — не заполняйте пустой экран декоративными карточками, если данных нет.
-- **Content is part of UX** — тексты следуют [foundation/content.md](../foundation/content.md), а состояния — [foundation/state-vocabulary.md](../foundation/state-vocabulary.md).
-- **Nested actions own interaction states** — hover, focus, loading и disabled принадлежат вложенным Button или Link, а не Empty State целиком.
+### Связанные спецификации
+
+- [Button](../actions/button.md) — primary и secondary action.
+- [Link](../actions/link.md) — справочные и навигационные действия.
+- [Table](../data-display/table.md) — empty state внутри таблиц.
+- [Alert](alert.md) — системные ошибки и предупреждения.
+- [Skeleton](skeleton.md) и [Spinner](spinner.md) — loading states.
 
 ---
 
 ## 2. Anatomy
 
 ```text
-     [illustration/icon]
+[media]
 
-     Title
-     Description text
+Title
+Description
 
-     [Primary action]  [Secondary action/link]
+[Primary action] [Secondary action]
 ```
 
-| Слот | Обязательность | Описание |
+| Слот | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | yes | Layout container for the empty state |
-| `media` | optional | Decorative illustration or meaningful icon |
-| `title` | yes | Short reason for the empty state |
-| `description` | recommended | Context, consequence, or next step |
-| `primaryAction` | conditional | Main recovery or first-use action |
-| `secondaryAction` | optional | Secondary recovery, learn-more, or reset action |
+| `root` | да | Контейнер Empty State внутри заданной области. |
+| `media` | опционально | Иконка или иллюстрация, поддерживающая смысл состояния. |
+| `title` | да | Короткая причина отсутствия содержимого. |
+| `description` | рекомендуется | Контекст, последствие или следующий шаг. |
+| `primaryAction` | условно | Основное действие восстановления или старта сценария. |
+| `secondaryAction` | опционально | Сброс фильтров, справка, запрос доступа или альтернативный путь. |
 
-### Slot rules
+### Правила слотов
 
-- `title` is always required.
-- `description` may be omitted only when the title and action fully explain the state.
-- Use one primary action unless the state is read-only or the user has no available next step.
-- Use secondary action for `Сбросить фильтры`, `Подробнее`, `Связаться с владельцем`, or similar support actions.
+- `title` обязателен всегда.
+- `description` можно убрать только в компактном контейнере, если title и action уже объясняют состояние.
+- `media` не должен быть единственным носителем смысла.
+- Основное действие должно быть одно. Два primary action требуют пересмотра сценария.
+- Secondary action не должен конкурировать с primary action по визуальному весу.
 
 ---
 
 ## 3. Types / Variants
 
-| Variant | Purpose | Primary action |
+Figma component set использует variant property `type`.
+
+| `type` | Когда использовать | Типовой следующий шаг |
 | --- | --- | --- |
-| `no-data` | No objects exist yet | Create first object |
-| `no-results` | Search or filters returned no results | Reset filters or edit query |
-| `no-access` | User cannot see the content | Request access or contact owner |
-| `error` | Data could not be loaded | Retry |
-| `first-time` | User has not started the workflow | Start setup |
+| `no-data` | Объекты еще не созданы или раздел пуст. | Создать первый объект, импортировать данные. |
+| `no-results` | Поиск или фильтры не нашли совпадений. | Изменить запрос, сбросить фильтры. |
+| `no-access` | Пользователь не может видеть содержимое из-за прав. | Запросить доступ, связаться с владельцем. |
+| `error` | Данные не удалось получить после завершения запроса. | Повторить запрос, открыть детали ошибки. |
+| `first-time` | Пользователь впервые открывает сценарий. | Начать настройку, пройти onboarding step. |
 
-### Content examples
+### Примеры контента
 
-Follow [foundation/content.md](../foundation/content.md).
-
-| Variant | Title | Description | Action |
+| `type` | Title | Description | Action |
 | --- | --- | --- | --- |
-| `no-data` | `Проектов пока нет` | `Создайте первый проект, чтобы начать работу` | `Создать проект` |
-| `no-results` | `Ничего не найдено` | `Измените запрос или сбросьте фильтры` | `Сбросить фильтры` |
-| `no-access` | `Нет доступа` | `Запросите доступ у владельца проекта` | `Запросить доступ` |
-| `error` | `Не удалось загрузить данные` | `Проверьте соединение и попробуйте снова` | `Повторить` |
-| `first-time` | `Настройте рабочее пространство` | `Добавьте команду и подключите первые источники данных` | `Начать настройку` |
+| `no-data` | `Проектов пока нет` | `Создайте первый проект, чтобы начать работу.` | `Создать проект` |
+| `no-results` | `Ничего не найдено` | `Измените запрос или сбросьте фильтры.` | `Сбросить фильтры` |
+| `no-access` | `Нет доступа` | `Запросите доступ у владельца пространства.` | `Запросить доступ` |
+| `error` | `Не удалось загрузить данные` | `Проверьте соединение и попробуйте снова.` | `Повторить` |
+| `first-time` | `Настройте рабочее пространство` | `Добавьте команду и подключите первый источник данных.` | `Начать настройку` |
 
 ---
 
 ## 4. Sizes
 
-Empty State size describes layout density, not a new visual style.
+Figma component set использует variant property `size`.
 
-| Size | Use for | Layout guidance |
+| `size` | Назначение | Правила компоновки |
 | --- | --- | --- |
-| `compact` | Table rows, side panels, small cards | No large illustration; title + short description/action |
-| `section` | Empty content area inside a page | Optional icon or small illustration; centered or start-aligned by context |
-| `page` | Full-page onboarding or blocking empty state | Larger spacing, clear title, description, and primary action |
+| `s` | Компактные области: таблица, drawer, sidebar, небольшая карточка. | Минимальный media или без media, короткий title, одно действие. |
+| `m` | Стандартный empty state внутри секции. | Title, description, опциональный media, 1-2 действия. |
+| `l` | Крупная контентная область страницы. | Более заметный media, расширенное описание, явное primary action. |
+| `xl` | Full-page или first-time сценарий. | Основной контент экрана, крупная иерархия, onboarding/recovery action. |
 
 ### Правила размеров
 
-- Use `compact` inside dense product surfaces.
-- Use `section` as the default.
-- Use `page` only when the empty state is the primary content of the screen.
-- Do not increase typography scale to create emphasis; use layout, spacing, and action hierarchy.
+- Размер отвечает за плотность и масштаб композиции, а не за новый смысл состояния.
+- Не увеличивайте typography scale вручную, если нужного размера нет в Figma.
+- В плотных интерфейсах используйте `s` или `m`, чтобы Empty State не ломал scanning flow.
+- `xl` допустим только когда пустое состояние является главным содержимым страницы.
 
 ---
 
 ## 5. States
 
-Empty State variants represent data states. Interactive states belong to nested components.
+Empty State описывает результат состояния данных. Интерактивные состояния принадлежат вложенным Button, Link или Icon Button.
 
-| State / variant | Значение | Обязательное поведение |
+| Состояние | Где возникает | Поведение |
 | --- | --- | --- |
-| `empty` / `no-data` | Dataset exists but has no objects | Explain first step and provide create action when allowed |
-| `no-results` | Filters or search returned nothing | Preserve query/filter context and offer reset/edit action |
-| `no-access` | User lacks permission | Explain access limitation and recovery path |
-| `error` | Data request failed | Explain failure and provide retry if possible |
-| `first-time` | Workflow has not started | Guide setup without pretending data exists |
+| `empty` | Запрос успешен, объектов нет. | Показать `type=no-data` и действие создания, если оно доступно. |
+| `no-results` | Поиск или фильтры вернули пустой набор. | Сохранить query/filter context и предложить сброс или изменение запроса. |
+| `restricted` | Доступ ограничен. | Показать `type=no-access`, не раскрывать закрытые данные. |
+| `failed` | Запрос завершился ошибкой. | Показать `type=error`, сохранить контекст и дать retry, если возможно. |
+| `not-started` | Сценарий еще не настроен. | Показать `type=first-time` и первый безопасный шаг. |
 
-### State ownership
+### Владение состояниями
 
-- `loading` is not an Empty State. Use Skeleton or Spinner before deciding content is empty.
-- `hover`, `focus`, `active`, `disabled`, and `loading` belong to nested Button, Link, or Icon Button.
-- If the primary action is unavailable, keep the Empty State readable and explain why the action is not available.
+- `loading` не является состоянием Empty State.
+- `hover`, `focus`, `active`, `disabled` и `loading` принадлежат вложенным действиям.
+- Если действие недоступно, Empty State должен объяснить причину, а не показывать disabled primary action без контекста.
 
 ---
 
-## 6. Behavior
+## 6. Поведение
 
-### Placement
+### Размещение
 
-- In a table/list, Empty State replaces rows, not the table header or filters.
-- In a section, Empty State occupies the content area and respects the section's alignment.
-- In a full page, Empty State becomes the main landmark content.
+- В Table Empty State заменяет строки, но не скрывает header, toolbar и фильтры.
+- В Card или Section Empty State занимает body area и наследует alignment контейнера.
+- На странице Empty State может быть main landmark content, если другого основного контента нет.
 
-### Actions
+### Действия
 
-- Primary action starts the most likely recovery path.
-- Secondary action may reset filters, open documentation, contact owner, or show details.
-- Do not show an action if the user cannot perform it; explain the limitation instead.
+- Primary action запускает наиболее ожидаемый путь восстановления.
+- Secondary action используется для сброса фильтров, справки, запроса доступа или альтернативного пути.
+- Не показывайте действие, если пользователь не может его выполнить.
+- Retry в `type=error` должен повторять тот же запрос, а не перезагружать все приложение без необходимости.
 
-### Error recovery
+### Search и filters
 
-- `error` variant should preserve user context and avoid clearing filters, query, or selected navigation.
-- Retry action should trigger the same data request, not reload the full application unless required.
+- `type=no-results` сохраняет введенный запрос и активные фильтры.
+- Сброс фильтров должен быть явным действием, а не автоматическим side effect.
+- Если доступны рекомендации по поиску, они должны быть частью description или secondary content, а не новым вариантом компонента.
 
 ### Responsive behavior
 
-- Text wraps before actions wrap.
-- Actions stack vertically only in narrow containers.
-- Illustration may be hidden in compact layouts.
+- Текст переносится раньше, чем действия переходят в вертикальный стек.
+- На узких контейнерах действия можно расположить вертикально.
+- `media` можно скрыть в `size=s`, если он мешает чтению или сканированию.
 
 ---
 
 ## 7. Accessibility
 
-Empty State follows [foundation/accessibility.md](../foundation/accessibility.md).
+Empty State следует [foundation/accessibility.md](../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| Heading | Use a real heading when Empty State is the main content of a region |
-| Region semantics | If replacing a content region, keep the region label meaningful |
-| Illustration | Mark decorative media as `aria-hidden="true"` |
-| Meaningful icon | Provide accessible text only if the icon adds meaning not present in text |
-| Actions | Nested actions follow Button or Link accessibility rules |
-| Error variant | If content changed after a failed request, announce the state in an appropriate live region |
+| Heading | Если Empty State является главным содержимым региона, используйте настоящий heading. |
+| Region semantics | Контейнер должен сохранять понятное имя региона: таблица, список, раздел, страница. |
+| Decorative media | Декоративный `media` получает `aria-hidden="true"`. |
+| Meaningful media | Значимая иконка не дублирует title; смысл должен быть доступен текстом. |
+| Actions | Вложенные Button и Link следуют своим accessibility specs. |
+| Error announcement | Динамический `type=error` объявляется через уместный live region. |
 
 ### Accessibility checklist
 
-- [ ] Title is visible and programmatically exposed.
-- [ ] Action labels are specific: `Создать проект`, not `Создать`.
-- [ ] Empty state is not communicated only through illustration or color.
-- [ ] Keyboard users can reach all available actions.
-- [ ] Error and no-access states provide enough context without relying on visuals.
+- [ ] Title видим и доступен программно.
+- [ ] Description объясняет состояние без опоры на цвет или иллюстрацию.
+- [ ] Action labels конкретны: `Создать проект`, а не `Создать`.
+- [ ] Keyboard users могут добраться до всех доступных действий.
+- [ ] `no-access` не раскрывает приватные данные.
+- [ ] `error` не зацикливает пользователя на бесконечном retry без объяснения.
 
 ---
 
 ## 8. Design Tokens
 
-| Element | Component token | Role | Semantic |
+Перед использованием токенов сверяйте реальные component tokens в `tokens.json`.
+
+| Элемент | Component token | Роль | Semantic token |
 | --- | --- | --- | --- |
-| Root gap | Token gap | Vertical spacing between slots | `space/2xl` to `space/5xl` by size |
-| Media color | `empty-state/illustration/foreground` | Illustration or icon color | `icon/muted` |
-| Title | `empty-state/title/foreground` | Title color | `text/primary` |
-| Description | `empty-state/description/foreground` | Supporting text color | `text/secondary` |
-| Action foreground | `empty-state/action/foreground` | Link-like secondary action color | `text/brand` |
-| Action gap | Token gap | Space between primary and secondary actions | `space/m` to `space/2xl` by size |
+| Illustration foreground | `empty-state/illustration/foreground` | Основной цвет иконки или иллюстрации. | `icon/muted` |
+| Illustration accent | `empty-state/illustration/accent` | Акцентный цвет иллюстрации. | `icon/brand` |
+| Title foreground | `empty-state/title/foreground` | Цвет заголовка. | `text/primary` |
+| Description foreground | `empty-state/description/foreground` | Цвет описания. | `text/secondary` |
+| Action foreground | `empty-state/action/foreground` | Цвет текстового secondary action или link-like action. | `text/brand` |
 
 ### Token gaps
 
-- Component foreground tokens exist for illustration, title, description, and action text.
-- Layout gap tokens are not defined yet; use the mapped spacing scale in implementation and mark the mapping as `Token gap` until component gap tokens are added.
-- Do not hardcode illustration color, text color, spacing, or action gap.
+- Нет component tokens для `root` gap, action gap, media size и responsive spacing.
+- Нет отдельных component tokens для `type=error`, `type=no-access` и `type=first-time`; используйте существующие foreground tokens и системные компоненты действия.
+- До появления component spacing tokens используйте semantic spacing scale из Foundation и фиксируйте mapping в handoff.
+- Не создавайте локальные значения цвета, размера или spacing без system review.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правила |
 | --- | --- | --- |
-| Variant | `variant` | `no-data`, `no-results`, `no-access`, `error`, `first-time` |
-| Size | `size` | `compact`, `section`, `page` |
-| Title | `title` | Required string or heading slot |
-| Description | `description` | Optional string or rich text slot |
-| Media | `media` | Optional icon/illustration slot |
-| Primary action | `primaryAction` | Button config or action slot |
-| Secondary action | `secondaryAction` | Link or secondary Button config |
+| Type | `type` | Только `no-data`, `no-results`, `no-access`, `error`, `first-time`. |
+| Size | `size` | Только `s`, `m`, `l`, `xl`. |
+| Title | `title` | Обязательный string или heading slot. |
+| Description | `description` | Опциональный string или rich text slot. |
+| Media | `media` | Опциональный icon/illustration slot. |
+| Primary action | `primaryAction` | Button contract или action slot. |
+| Secondary action | `secondaryAction` | Link или secondary Button contract. |
+| Trigger condition | `triggerCondition` | Условие данных, при котором показывается Empty State. |
+| Retry behavior | `onRetry` | Для `type=error`, если повторный запрос возможен. |
 
 ### Contract rules
 
-- `title` is required.
-- `variant` must be documented; unsupported variants require system review.
-- `primaryAction` must use Button or Link contract rather than custom clickable text.
-- `error` variant should expose retry behavior through action props or slot.
+- `title` обязателен для всех типов.
+- `type` и `size` должны соответствовать Figma variants.
+- `primaryAction` и `secondaryAction` используют системные Button или Link.
+- `type=no-results` должен получать контекст поиска или фильтров из родительского сценария.
+- `type=no-access` не должен принимать приватные данные для отображения.
 
 ---
 
@@ -230,62 +250,70 @@ Empty State follows [foundation/accessibility.md](../foundation/accessibility.md
 
 В handoff нужно передать:
 
-- variant and size;
-- title, description, and action labels;
-- whether media is decorative or meaningful;
-- required action behavior;
-- data condition that triggers the Empty State;
-- whether filters/search state should be preserved;
+- `type` и `size`;
+- title, description и action labels;
+- условие данных, которое включает Empty State;
+- является ли `media` декоративным или значимым;
+- поведение primary и secondary actions;
+- правила сохранения search/filter context;
+- retry behavior для `type=error`;
 - responsive layout rules;
-- Token gaps, if component tokens are missing.
+- token gaps и временные semantic mappings.
 
 ### Acceptance criteria
 
-- Empty State explains why content is absent.
-- Empty State provides a next step when recovery is possible.
-- `no-results` preserves search/filter context.
-- `error` provides retry behavior when data can be requested again.
-- Nested actions follow Button or Link specs.
-- No raw visual values are used for text, media, spacing, or actions.
+- Empty State объясняет, почему содержимое отсутствует.
+- Empty State предлагает следующий шаг, если восстановление возможно.
+- `type=no-results` сохраняет query и активные фильтры.
+- `type=error` дает retry, если запрос можно повторить.
+- `type=no-access` не раскрывает приватные данные.
+- Вложенные действия соответствуют Button или Link specs.
+- Используются только задокументированные tokens или явно отмеченные token gaps.
 
 ---
 
 ## 11. AI usage rules
 
-- AI may choose only documented variants: `no-data`, `no-results`, `no-access`, `error`, `first-time`.
-- AI must not use Empty State for loading; it must recommend Skeleton or Spinner.
-- AI must include title, reason, and next step for generated Empty State content.
-- AI must flag missing trigger condition, missing action behavior, or missing token mapping as a risk.
-- AI must not invent new props, variants, illustrations, or token names without `Needs system review`.
-- AI may draft copy, Handoff notes, and acceptance criteria, but human review is required.
+- AI может использовать только `type`: `no-data`, `no-results`, `no-access`, `error`, `first-time`.
+- AI может использовать только `size`: `s`, `m`, `l`, `xl`.
+- AI не должен использовать Empty State для loading; нужно предложить Skeleton или Spinner.
+- AI должен указывать trigger condition, title, description и следующий шаг.
+- AI должен сохранять search/filter context для `type=no-results`.
+- AI не должен придумывать новые props, variants, illustrations или token names.
+- AI должен помечать отсутствующие token mappings, непонятное retry behavior или неописанные права доступа как `Needs system review`.
+- AI может подготовить draft copy, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Scenario | Usage |
+| Сценарий | Решение |
 | --- | --- |
-| New project list | `variant=no-data`, title `Проектов пока нет`, primary action `Создать проект` |
-| Empty search result | `variant=no-results`, preserve query, secondary action `Сбросить фильтры` |
-| Permission restriction | `variant=no-access`, explain owner or access request path |
+| Новый список проектов пуст. | `type=no-data`, `size=m`, title `Проектов пока нет`, primary action `Создать проект`. |
+| Поиск в таблице не дал результатов. | `type=no-results`, сохранить query, secondary action `Сбросить фильтры`. |
+| Пользователь открыл закрытый раздел. | `type=no-access`, объяснить ограничение, дать `Запросить доступ`, если процесс существует. |
+| Ошибка загрузки списка. | `type=error`, сохранить текущую навигацию, дать `Повторить`. |
+| Первый запуск настройки. | `type=first-time`, `size=l` или `xl`, action `Начать настройку`. |
 
 ### Требует review
 
-| Scenario | Reason |
+| Сценарий | Почему |
 | --- | --- |
-| Marketing-style illustration dominates a dense table | May reduce scan efficiency and does not help recovery |
-| Empty State with two primary actions | Action hierarchy is unclear |
-| Error state without retry or explanation | User cannot recover |
+| Empty State с двумя primary actions. | Нарушена иерархия действий. |
+| Иллюстрация занимает больше внимания, чем причина и действие. | Компонент перестает помогать восстановлению. |
+| `type=no-results` автоматически сбрасывает фильтры. | Пользователь теряет контекст без явного действия. |
+| `type=error` без retry и объяснения. | Пользователь не понимает, что делать дальше. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Showing only `Нет данных`.
-- Using Empty State while data is still loading.
-- Hiding filters in `no-results`.
-- Using a decorative illustration as the only explanation.
-- Creating a custom clickable text instead of Button or Link.
-- Adding a new variant such as `celebration` without system review.
+- Показывать только `Нет данных`.
+- Использовать Empty State во время загрузки.
+- Скрывать filters, search query или table header в `type=no-results`.
+- Делать иллюстрацию единственным объяснением состояния.
+- Создавать кастомный clickable text вместо Button или Link.
+- Добавлять новый `type`, например `success` или `celebration`, без system review.
+- Использовать локальные цвета и spacing вместо component tokens или явных token gaps.

@@ -2,277 +2,298 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
 > **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
-> **Foundation** · `accessibility.md`, `motion.md`, `tokens.md`
+> **Figma** · [Spinner](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6647-38)
 
 ---
 
-## 1. Key Principles / Принципы использования
+## 1. Key Principles
 
 ### Что это
 
-Spinner — индикатор неопределенной загрузки. Он сообщает, что операция выполняется, но не показывает точный прогресс или оставшееся время.
+Spinner — индикатор неопределенной загрузки. Он сообщает, что операция выполняется, но не показывает точный прогресс, оставшееся время или будущую структуру контента.
 
-В SEDA AI Spinner используется как короткий feedback pattern для async-сценариев. Если команда знает процент выполнения, этапы или примерную длительность, нужно использовать `Progress Bar`, `Stepper` или текстовый статус вместо бесконечного вращения.
+В SEDA AI Spinner описывает short async feedback contract: где появляется индикатор, какой элемент владеет loading state, какой доступный текст нужен, чем Spinner заменяется после завершения операции и какие token mappings используются. Spinner не является универсальной заглушкой для любого ожидания.
 
 ### Когда использовать
 
-Используйте Spinner, когда:
+- Операция короткая, а длительность заранее неизвестна.
+- Нужно показать loading внутри Button, compact block или inline-сценария.
+- Контент появится быстрее, чем имеет смысл строить Skeleton.
+- Пользователь уже запустил действие и должен видеть, что система работает.
+- Загрузка относится к конкретной области, а не ко всей странице.
 
-- операция короткая и ее длительность заранее неизвестна;
-- нужно показать загрузку внутри кнопки, компактного блока или inline-сценария;
-- контент появится быстрее, чем имеет смысл строить Skeleton;
-- действие уже запущено и пользователь должен увидеть, что система работает.
+### Когда не использовать
 
-### Не используйте
+- Известен процент выполнения — используйте [Progress Bar](progress-bar.md).
+- Загружается известная структура страницы или списка — используйте [Skeleton](skeleton.md).
+- Загрузка завершилась без данных — используйте [Empty State](empty-state.md).
+- Операция длится долго и требует объяснения — добавьте текстовый статус, этапы, retry или Progress Bar.
+- Нужно заменить loading state родительского Button — Button должен владеть состоянием, Spinner только отображается внутри него.
+- Нет reduced-motion fallback.
 
-Не используйте Spinner, когда:
-
-- известен процент выполнения — используйте [Progress Bar](../specs/feedback/progress-bar.md);
-- загружается структурированный контент страницы — используйте [Skeleton](../specs/feedback/skeleton.md);
-- операция длится долго и требует объяснения — добавьте текстовый статус или этапы;
-- нужно заменить disabled/loading state родительского `Button`;
-- анимация может быть отключена, но альтернативное состояние не описано.
-
-### Основные принципы
+### Ключевые принципы
 
 - **Short wait only** — Spinner подходит для короткого ожидания, а не для неопределенного зависания.
 - **Context close to action** — размещайте Spinner рядом с действием или областью, которая загружается.
-- **Parent owns blocking** — если Spinner внутри Button, именно Button управляет `loading`, `disabled` и focus behavior.
-- **Motion has fallback** — при `prefers-reduced-motion` нужно показать статичный индикатор или текстовый статус.
-- **AI drafts, system governs** — AI может предложить placement и states, но не должен заменять правила loading feedback.
+- **Parent owns blocking** — Button, section или page region управляет loading, disabled, busy и focus behavior.
+- **Motion has fallback** — при `prefers-reduced-motion` нужен статичный или текстовый fallback.
+- **Result replaces loading** — после завершения Spinner заменяется результатом, error state или Empty State.
+- **AI assists, system governs** — AI может предложить placement и handoff, но не придумывает variants, sizes и tokens.
 
 ### Связанные спецификации
 
-- [Progress Bar](../specs/feedback/progress-bar.md) — для определенного прогресса.
-- [Skeleton](../specs/feedback/skeleton.md) — для первичной загрузки контентной структуры.
-- [Button](../specs/actions/button.md) — для loading state внутри действия.
-- [Empty State](../specs/feedback/empty-state.md) — для состояния после завершения загрузки без данных.
+- [Progress Bar](progress-bar.md) — измеримый прогресс.
+- [Skeleton](skeleton.md) — загрузка известной структуры.
+- [Empty State](empty-state.md) — результат без данных.
+- [Button](../actions/button.md) — loading state действия.
+- [Alert](alert.md) — ошибка загрузки или retry feedback.
 
 ---
 
-## 2. Anatomy / Анатомия
+## 2. Anatomy
+
+```text
+[track]
+   [animated fill]
+
+Optional label: Loading...
+```
 
 | Часть | Обязательность | Назначение |
-|---|---:|---|
-| `track` | Да | Базовая круговая дорожка или фон индикатора. |
-| `fill` | Да | Активная часть индикатора, которая анимируется. |
-| `label` | Условно | Видимый или screen-reader текст загрузки. |
-| `container` | Условно | Область размещения для overlay или centered placement. |
+| --- | --- | --- |
+| `track` | да | Базовая круговая дорожка или фон индикатора. |
+| `fill` | да | Активная часть индикатора, которая анимируется. |
+| `label` | условно | Видимый или screen-reader текст загрузки. |
+| `container` | условно | Область размещения для inline, button или overlay сценария. |
 
-### Правила анатомии
+### Правила anatomy
 
 - Spinner не содержит интерактивных элементов и не получает focus.
-- Видимый label нужен, если ожидание длится заметно или контекст неочевиден.
-- Для icon-only spinner нужен accessible label на контейнере.
-- Overlay-вариант не должен скрывать причину загрузки, если операция может занять больше нескольких секунд.
+- Видимый label нужен, если ожидание заметное или контекст неочевиден.
+- Icon-only Spinner требует accessible label на контейнере или родительском регионе.
+- Overlay Spinner не должен скрывать причину загрузки, если операция может занять больше нескольких секунд.
+- Spinner внутри Button не заменяет accessible name кнопки.
 
 ---
 
-## 3. Types / Variants / Варианты
+## 3. Types / Variants
 
-| Вариант | Когда использовать | Правило |
-|---|---|---|
-| `circular` | Основной spinner для короткой неопределенной загрузки. | Default. |
-| `inline` | Внутри строки, небольшого блока или рядом с текстом. | Не должен ломать line-height. |
-| `button` | Внутри Button в `loading` state. | Button управляет disabled и label. |
-| `overlay` | Поверх области, которая временно недоступна. | Нужен явный blocking state у контейнера. |
+Figma component set использует variant property `variant`.
 
-### Тональные варианты
+| `variant` | Назначение | Token mapping |
+| --- | --- | --- |
+| `default` | Основной loading feedback на обычной поверхности. | `spinner/fill/default`, `spinner/track/default` |
+| `neutral` | Вторичный или менее заметный loading feedback. | `spinner/fill/neutral`, `spinner/track/default` |
+| `inverse` | Loading feedback на inverse или темной поверхности. | `spinner/fill/inverse`, `spinner/track/inverse` |
+| `disabled` | Loading/disabled контекст, где активное действие недоступно. | `spinner/fill/disabled`, `spinner/track/default` |
 
-| Tone | Когда использовать | Token mapping |
-|---|---|---|
-| `brand` | Основной loading feedback на обычной поверхности. | `spinner/fill/default` |
-| `neutral` | Вторичный или менее заметный loading feedback. | `spinner/fill/neutral` |
-| `inverse` | На inverse или темной поверхности. | `spinner/fill/inverse` |
-| `disabled` | В disabled/loading контексте. | `spinner/fill/disabled` |
+### Usage variants
 
----
+Это usage patterns, а не Figma variants.
 
-## 4. Sizes / Размеры
-
-| Size | Диаметр | Stroke | Контекст |
-|---|---:|---:|---|
-| `small` | 16px | 2px | Button, inline, плотные панели. |
-| `medium` | 24px | 2.5px | Блоки и формы, default. |
-| `large` | 40px | 3px | Пустая область или page-level loading. |
-
-Размер Spinner должен быть стабильным: появление и скрытие индикатора не должно менять высоту строки, кнопки или контейнера.
+| Pattern | Когда использовать | Правило |
+| --- | --- | --- |
+| `inline` | В строке, compact block или рядом с текстом. | Не должен ломать line-height. |
+| `button` | Внутри Button loading state. | Button владеет disabled, label и submit lock. |
+| `overlay` | Поверх обновляемой области. | Блокирует только конкретный region и задает `aria-busy`. |
+| `page-local` | В небольшом пустом участке страницы. | Проверить, не нужен ли Skeleton или текстовый статус. |
 
 ---
 
-## 5. States / Состояния
+## 4. Sizes
 
-| Состояние | Когда возникает | Правило |
-|---|---|---|
-| `loading` | Операция выполняется. | Spinner видим и получает accessible status через контейнер. |
-| `inline` | Загрузка относится к короткому фрагменту UI. | Не блокирует соседние элементы без причины. |
-| `button-loading` | Загрузка запущена действием Button. | Button сохраняет понятный label или доступное имя. |
-| `overlay-loading` | Блок временно недоступен. | Контейнер управляет `aria-busy` и pointer behavior. |
-| `reduced-motion` | Пользователь отключил motion. | Анимация заменяется статичным индикатором или текстом. |
+Figma component set использует variant property `size`.
 
-### Недопустимые состояния
+| `size` | Назначение | Правила |
+| --- | --- | --- |
+| `s` | Button, inline, dense row, compact panel. | Не меняет высоту строки или кнопки. |
+| `m` | Default для блоков и форм. | Используется в большинстве локальных loading states. |
+| `l` | Заметная загрузка внутри section. | Добавляйте label, если контекст неочевиден. |
+| `xl` | Page-local или крупная область. | Проверить, не нужен ли Skeleton, Progress Bar или текстовый статус. |
 
-| Сценарий | Почему нельзя |
-|---|---|
-| Spinner получает keyboard focus. | Это не интерактивный элемент. |
-| Spinner используется как единственный label кнопки без accessible name. | Screen reader не узнает действие. |
-| Spinner бесконечно заменяет ошибку загрузки. | Пользователь не получает результата и пути восстановления. |
+### Правила размеров
+
+- Размер Spinner должен быть стабильным: появление и скрытие не меняют высоту строки, кнопки или контейнера.
+- Не используйте custom diameter и stroke без system review.
+- В Button используйте размер, совместимый с size кнопки.
+- `xl` не должен становиться заменой полноценного loading pattern для всей страницы.
 
 ---
 
-## 6. Behavior / Поведение
+## 5. States
+
+| State | Когда возникает | Поведение |
+| --- | --- | --- |
+| `loading` | Операция выполняется. | Spinner видим; родительский region или control владеет состоянием. |
+| `button-loading` | Операция запущена Button. | Button блокирует повторный submit и сохраняет accessible name. |
+| `overlay-loading` | Обновляется конкретная область. | Region использует `aria-busy`; pointer behavior задает родитель. |
+| `reduced-motion` | Пользователь предпочитает меньше motion. | Вращение отключается или заменяется статичным/текстовым fallback. |
+| `resolved` | Операция завершена. | Spinner заменяется результатом, Empty State или error state. |
+
+### Unsupported states
+
+Spinner не получает `hover`, `focus`, `active`, `selected`, `checked` или самостоятельный `disabled` behavior. Эти состояния принадлежат родительскому Button, region или control.
+
+---
+
+## 6. Behavior
 
 ### Появление и скрытие
 
 - Spinner появляется только после запуска реальной операции.
-- Если операция завершается мгновенно, Spinner можно не показывать, чтобы избежать flicker.
-- Если ожидание становится долгим, добавьте текстовый статус, retry или Progress Bar.
-- После завершения операции Spinner удаляется или заменяется результатом, ошибкой или empty state.
+- Для мгновенных операций Spinner можно не показывать, чтобы избежать flicker.
+- Если ожидание становится долгим, добавьте текстовый статус, retry, этапы или Progress Bar.
+- После завершения операции Spinner удаляется или заменяется результатом, error state или Empty State.
 
 ### Motion
 
 - Анимация должна быть равномерной и не отвлекать от основного интерфейса.
-- Скорость и easing берутся из motion foundation, если они определены для loading.
+- Motion duration и easing берутся из foundation motion rules, если они определены для loading.
 - При `prefers-reduced-motion: reduce` бесконечное вращение отключается.
 - Reduced-motion fallback должен оставаться понятным: статичный индикатор плюс текст, если контекст неочевиден.
 
 ### Blocking behavior
 
-- Inline Spinner не блокирует соседний UI.
+- Inline Spinner не блокирует соседний UI без причины.
 - Button Spinner блокирует повторный submit через состояние родительской кнопки.
-- Overlay Spinner может блокировать область, но не должен блокировать весь экран без явной причины.
-- Если загрузка завершилась ошибкой, Spinner заменяется error state или Toast, а не остается на экране.
+- Overlay Spinner может блокировать конкретный region, но не весь экран без явной причины.
+- Если загрузка завершилась ошибкой, Spinner заменяется error feedback, а не остается бесконечно.
 
 ---
 
 ## 7. Accessibility
 
+Spinner следует [foundation/accessibility.md](../foundation/accessibility.md).
+
 | Элемент | Атрибут | Когда |
-|---|---|---|
-| Контейнер загрузки | `role="status"` | Когда Spinner сообщает о динамическом статусе. |
-| Загружаемая область | `aria-busy="true"` | Когда конкретный регион обновляется. |
-| Spinner без видимого текста | `aria-label` | Когда нет отдельного label. |
-| Динамический статус | `aria-live="polite"` | Когда появление статуса должно быть объявлено. |
+| --- | --- | --- |
+| Loading container | `role="status"` | Когда Spinner сообщает о динамическом статусе. |
+| Loading region | `aria-busy="true"` | Когда обновляется конкретный region. |
+| Icon-only Spinner | `aria-label` | Если нет отдельного visible label. |
+| Dynamic status | `aria-live="polite"` | Когда появление статуса должно быть объявлено. |
+| Decorative spinner | `aria-hidden="true"` | Когда status уже описан родителем. |
 
 ### Accessibility checklist
 
 - [ ] Spinner не получает focus.
-- [ ] У loading state есть понятное accessible name.
-- [ ] Родительская область использует `aria-busy`, если загружается конкретный регион.
+- [ ] Loading state имеет понятное accessible name.
+- [ ] Родительская область использует `aria-busy`, если загружается конкретный region.
 - [ ] Button в loading state сохраняет понятный label.
-- [ ] При reduced motion есть статичный или текстовый fallback.
+- [ ] Reduced motion имеет статичный или текстовый fallback.
 - [ ] Долгая загрузка не остается без объяснения, retry или error handling.
 
 ---
 
 ## 8. Design Tokens
 
-Перед изменением этого раздела нужно сверять реальные component tokens в `tokens.json`. Для Spinner доступны component tokens в namespace `spinner`.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Component token | Роль | Semantic token |
-|---|---|---|
-| `spinner/track/default` | Цвет дорожки на обычной поверхности. | `container/neutral/default` |
-| `spinner/track/inverse` | Цвет дорожки на inverse surface. | `container/inverse/default` |
-| `spinner/fill/default` | Активная часть brand spinner. | `icon/brand` |
-| `spinner/fill/neutral` | Активная часть neutral spinner. | `icon/secondary` |
-| `spinner/fill/inverse` | Активная часть на inverse surface. | `icon/inverse` |
-| `spinner/fill/disabled` | Активная часть в disabled/loading контексте. | `status/disabled/icon` |
+| Элемент | Component token | Роль | Semantic token |
+| --- | --- | --- | --- |
+| Track default | `spinner/track/default` | Дорожка на обычной поверхности. | `container/neutral/default` |
+| Track inverse | `spinner/track/inverse` | Дорожка на inverse surface. | `container/inverse/default` |
+| Fill default | `spinner/fill/default` | Активная часть default variant. | `icon/brand` |
+| Fill neutral | `spinner/fill/neutral` | Активная часть neutral variant. | `icon/secondary` |
+| Fill inverse | `spinner/fill/inverse` | Активная часть на inverse surface. | `icon/inverse` |
+| Fill disabled | `spinner/fill/disabled` | Активная часть в disabled/loading context. | `status/disabled/icon` |
 
-Token gap: отдельные component tokens для diameter, stroke и motion duration пока не выделены. До появления таких tokens размеры и motion должны ссылаться на foundation rules, а не на произвольные значения в реализации.
+### Token gaps
+
+- Нет component tokens для diameter, stroke width, animation duration и easing.
+- Нет отдельного track token для `variant=neutral` и `variant=disabled`; используется `spinner/track/default`.
+- Не создавайте локальные colors, stroke widths или motion values без system review.
+- Размеры должны маппиться на Figma `size=s/m/l/xl` и foundation sizing rules.
 
 ---
 
 ## 9. Code mapping
 
-| Concept | Prop / API | Правило |
-|---|---|---|
-| Размер | `size` | `small`, `medium`, `large`. |
-| Tone | `tone` | `brand`, `neutral`, `inverse`, `disabled`. |
-| Accessible label | `ariaLabel` или `label` | Обязателен, если нет видимого текста. |
-| Overlay | `overlay` | Используется только с blocking region. |
-| Reduced motion | CSS/media behavior | Не должен требовать отдельного prop. |
+| Design concept | Suggested prop / API | Правила |
+| --- | --- | --- |
+| Size | `size` | `s`, `m`, `l`, `xl`. |
+| Variant | `variant` | `default`, `neutral`, `inverse`, `disabled`. |
+| Accessible label | `ariaLabel` / `label` | Обязателен, если нет visible status text. |
+| Usage pattern | `placement` | `inline`, `button`, `overlay`, `page-local`. |
+| Overlay | `overlay` | Используется только для loading region. |
+| Reduced motion | CSS/media behavior | Не требует отдельного prop, но должен быть реализован. |
 
-### Контракт с родителем
+### Contract rules
 
-- Spinner не управляет async-состоянием самостоятельно.
-- Родительский компонент передает состояние загрузки и решает, блокировать ли действие.
-- В Button loading state Spinner не должен заменять accessible name действия.
-- В overlay state контейнер отвечает за `aria-busy`, pointer behavior и восстановление focus.
+- Spinner не управляет async state самостоятельно.
+- Родительский компонент передает loading state и решает, блокировать ли действие.
+- В Button loading state Spinner не заменяет accessible name действия.
+- В overlay state container отвечает за `aria-busy`, pointer behavior и focus preservation.
+- Не добавляйте arbitrary color, stroke или speed props.
 
 ---
 
 ## 10. Handoff notes
 
-Handoff для Spinner должен фиксировать:
+В handoff нужно передать:
 
-- где отображается Spinner: inline, button, overlay или page-level;
+- где отображается Spinner: inline, button, overlay или page-local;
 - какой элемент владеет loading state;
+- `size` и `variant`;
 - нужен ли visible label или достаточно accessible label;
 - что происходит при success, error и empty result;
-- есть ли reduced-motion fallback;
-- какой tone и size используются;
-- блокируется ли область, и как это отражено в accessibility.
+- reduced-motion fallback;
+- блокируется ли область, и как это отражено в accessibility;
+- token mapping для track и fill;
+- token gaps для diameter, stroke и motion.
+
+### Acceptance criteria
+
+- Spinner используется только для неопределенной загрузки.
+- Для измеримого прогресса используется Progress Bar.
+- Для известной структуры используется Skeleton.
+- Button loading state сохраняет accessible name.
+- Overlay loading блокирует только описанную область.
+- Reduced-motion fallback описан и реализуем.
+- Используются только documented `size`, `variant` и реальные component tokens из namespace Spinner.
+- После ошибки Spinner заменяется error feedback.
 
 ---
 
-## 11. Acceptance criteria
+## 11. AI usage rules
 
-- [ ] Spinner используется только для неопределенной загрузки.
-- [ ] Для определенного прогресса используется Progress Bar.
-- [ ] В Button loading state родительский Button сохраняет accessible name.
-- [ ] Overlay loading не блокирует весь экран без причины.
-- [ ] Reduced-motion fallback описан и реализуем.
-- [ ] Используются только documented `size` и `tone`.
-- [ ] Token mapping соответствует documented Spinner component tokens из `tokens.json`.
-- [ ] После ошибки Spinner заменяется error feedback.
-
----
-
-## 12. AI usage rules
-
-AI может:
-
-- предложить placement Spinner относительно загружаемой области;
-- подготовить loading state matrix для parent component;
-- проверить, не нужен ли вместо Spinner Skeleton или Progress Bar;
-- написать handoff notes и acceptance criteria.
-
-AI не должен:
-
-- использовать Spinner как универсальный ответ на любую неопределенность;
-- добавлять новые sizes, tones или token paths без явной пометки `Token gap`;
-- скрывать долгую загрузку без текста, retry или error state;
-- заменять human review accessibility-поведения для Button, overlay и reduced motion.
-
-Если контекст загрузки неясен, AI должен пометить сценарий как `Needs system review`.
+- AI может использовать Spinner только для indeterminate loading.
+- AI должен рекомендовать Progress Bar, если progress измерим.
+- AI должен рекомендовать Skeleton, если структура будущего контента известна.
+- AI должен рекомендовать Empty State, если загрузка завершилась без данных.
+- AI может использовать только `variant`: `default`, `neutral`, `inverse`, `disabled`.
+- AI может использовать только `size`: `s`, `m`, `l`, `xl`.
+- AI не должен придумывать sizes, variants, token paths, custom colors, stroke widths или animation speed.
+- AI должен помечать unclear loading owner, missing accessible label, long loading without text/retry и missing reduced-motion fallback как `Needs system review`.
+- AI может подготовить placement, state matrix, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 13. Примеры
+## 12. Примеры
 
 ### Корректно
 
-| Сценарий | Почему корректно |
-|---|---|
-| Spinner внутри Button после submit. | Действие уже запущено, Button владеет loading state. |
-| Inline Spinner рядом с названием виджета. | Загрузка относится к конкретной области. |
-| Overlay Spinner на карточке с `aria-busy`. | Блокируется только обновляемая область. |
+| Сценарий | Решение |
+| --- | --- |
+| Submit внутри Button. | `placement=button`, `size=s`, Button сохраняет label и блокирует повторный submit. |
+| Inline loading рядом с названием виджета. | `placement=inline`, `size=s`, visible text `Обновляем`. |
+| Загрузка карточки поверх текущего content. | `placement=overlay`, `size=m`, container задает `aria-busy`. |
+| Loading на темной поверхности. | `variant=inverse`, track и fill маппятся на inverse tokens. |
 
-### Требует проверки
+### Требует review
 
-| Сценарий | Что проверить |
-|---|---|
+| Сценарий | Почему |
+| --- | --- |
 | Spinner на весь экран. | Нужен ли Skeleton, Progress Bar или текстовый статус. |
-| Spinner показывается больше нескольких секунд. | Есть ли retry, этапы или сообщение о задержке. |
-| Spinner без label. | Понятен ли loading state screen reader пользователю. |
+| Spinner показывается больше нескольких секунд. | Нужен статус, retry, этапы или error handling. |
+| Spinner без label. | Проверить, понятен ли loading state screen reader пользователю. |
+| Button содержит только Spinner. | Action теряет accessible name. |
 
 ---
 
-## 14. Anti-patterns
+## 13. Anti-patterns
 
 - Использовать Spinner для загрузки целой страницы, где нужен Skeleton.
 - Показывать Spinner бесконечно после ошибки.

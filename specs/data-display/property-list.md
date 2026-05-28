@@ -14,9 +14,9 @@
 
 ### Что это
 
-Property List — компактный key-value pattern для отображения свойств одной сущности: профиля, аккаунта, объекта, настройки, заказа или технического идентификатора. Он группирует строки вида label + value и может включать section title, icon, helper text и локальные действия.
+Property List — прикладной pattern для компактного отображения свойств одной сущности: профиля, аккаунта, объекта, заказа, настройки или технического идентификатора. Он строится на парах `label` + `value` и может включать section title, helper text, Tag, Link, copy action, reveal action или section-level edit action.
 
-В SEDA AI Property List используется как практичный data display pattern для product interfaces. Он близок к Description List, но допускает более прикладные строки: copy action, reveal action, status Tag, inline link или editable section.
+В SEDA AI Property List не является заменой Description List. Базовая семантика остается term-value, но Property List описывает более продуктовый сценарий: строки со status values, local actions, masked values, copy/reveal behavior и плотный layout для detail panels. Пока отдельного namespace `property-list` в `tokens.json` нет, поэтому визуальные правила должны опираться на semantic tokens и явно отмеченный token gap.
 
 ### Когда использовать
 
@@ -24,35 +24,40 @@ Property List — компактный key-value pattern для отображе
 
 - нужно показать свойства одной сущности;
 - данные читаются как label + value;
-- значения нужно быстро сканировать в detail panel, profile view или admin sidebar;
+- список находится в detail panel, profile view, admin sidebar или settings summary;
 - у отдельных строк есть локальные действия: copy, reveal, edit, open;
-- требуется компактная альтернатива Table для одной записи.
+- значения могут быть links, Tags, IDs, masked values или short metadata;
+- нужна прикладная альтернатива Table для одной записи.
 
 ### Не используйте
 
 Не используйте Property List, когда:
 
-- нужно сравнить несколько записей — используйте [Table](../specs/data-display/table.md);
-- нужен простой семантический список терминов без действий — используйте [Description List](../specs/data-display/description-list.md);
-- нужно показать статус отдельно от свойства — используйте [Tag](../specs/data-display/tag.md) или [Badge](../specs/data-display/badge.md);
-- строки превращаются в форму редактирования;
-- значения требуют сложной визуализации.
+- нужно сравнить несколько записей — используйте Table;
+- нужен простой семантический term-value список без действий — используйте Description List;
+- строки стали редактируемыми полями — используйте Form;
+- статус нужно показать отдельно от свойства — используйте Tag или Badge;
+- значения требуют сложной визуализации;
+- список содержит персональные, платежные или permission data без privacy rule.
 
 ### Основные принципы
 
 - **One entity per list** — один Property List описывает одну сущность или одну логическую группу свойств.
+- **Description List is the base** — если actions и product behavior не нужны, используйте Description List.
 - **Labels stay quiet** — label помогает сканировать, value несет основной смысл.
 - **Actions are local** — copy, reveal, edit и open относятся к строке или секции.
-- **Rows keep rhythm** — высота, gap и label column стабильны внутри секции.
-- **Tokens before decoration** — если нет component tokens, используйте documented semantic tokens и отметьте token gap.
-- **AI drafts, human validates** — AI может предложить структуру строк, но человек проверяет смысл, privacy и действия.
+- **Sensitive values need rules** — masked values нельзя раскрывать без явного действия пользователя.
+- **No invented tokens** — пока нет `property-list` tokens, это token gap.
+- **AI assists, system governs** — AI может предложить rows, но человек проверяет privacy, semantics и actions.
 
 ### Связанные спецификации
 
-- [Description List](../specs/data-display/description-list.md) — семантический key-value список.
-- [Table](../specs/data-display/table.md) — сравнение нескольких записей.
+- [Description List](../specs/data-display/description-list.md) — базовая term-value семантика.
+- [Table](../specs/data-display/table.md) — несколько записей, сравнение, сортировка.
 - [Tag](../specs/data-display/tag.md) — status value внутри строки.
-- [Button](../specs/actions/button.md) — действия секции и строки.
+- [Badge](../specs/data-display/badge.md) — count/dot signal.
+- [Button](../specs/actions/button.md) — section action.
+- [Icon Button](../specs/actions/icon-button.md) — copy/reveal/open row actions.
 
 ---
 
@@ -60,23 +65,24 @@ Property List — компактный key-value pattern для отображе
 
 | Часть | Обязательность | Назначение |
 |---|---:|---|
-| `section-title` | Да | Название группы свойств. |
-| `section-action` | Нет | Действие над секцией: edit, copy, manage. |
+| `sectionTitle` | Условно | Название группы свойств. |
+| `sectionAction` | Нет | Действие над секцией: edit, manage, copy all. |
 | `row` | Да | Одна пара label + value. |
-| `icon` | Нет | Leading icon для сканирования повторяющихся полей. |
+| `icon` | Нет | Leading icon для повторяющихся типов строк. |
 | `label` | Да | Название свойства. |
-| `value` | Да | Текст, ссылка, число, дата, Tag или inline component. |
-| `supporting-text` | Нет | Вторичная строка для адресов, описаний, helper details. |
-| `row-action` | Нет | Copy, reveal, open, edit для конкретной строки. |
-| `divider` | Нет | Разделение секций. |
+| `value` | Да | Текст, число, дата, Link, Tag или inline component. |
+| `supportingText` | Нет | Дополнительная строка к value. |
+| `rowAction` | Нет | Copy, reveal, open, edit для конкретной строки. |
+| `divider` | Нет | Разделение секций, если нужно. |
 
 ### Правила анатомии
 
 - `label` должен быть коротким и стабильным.
-- `value` может быть сильнее визуально, чем label.
-- `row-action` не должен скрывать само значение.
-- `supporting-text` используется только для уточнения value.
-- Иконка не заменяет label.
+- `value` может быть визуально сильнее label.
+- `rowAction` не должен скрывать само значение.
+- `supportingText` уточняет value, но не заменяет label.
+- Icon не заменяет label.
+- Если строка содержит редактируемый input, это уже Form или edit mode, а не read-only Property List.
 
 ---
 
@@ -84,11 +90,11 @@ Property List — компактный key-value pattern для отображе
 
 | Variant | Когда использовать | Правило |
 |---|---|---|
-| `plain` | Строки на странице или в панели без отдельной рамки. | Default. |
-| `divided` | Секции нужно явно разделить. | Использовать divider между группами. |
-| `card-row` | Одна строка выглядит как компактный объект. | Не превращать каждую строку в Card. |
-| `editable-section` | Секция редактируется целиком. | Section action управляет edit flow. |
-| `actionable-row` | У строки есть copy/reveal/open/edit. | Нужен keyboard и focus behavior. |
+| `plain` | Строки без отдельной рамки. | Default для panels и pages. |
+| `divided` | Нужно разделить группы или плотные строки. | Использовать Divider осознанно. |
+| `cardRow` | Строка выглядит как компактный объект. | Не превращать каждую строку в Card. |
+| `editableSection` | Секция редактируется целиком. | Section action открывает edit flow. |
+| `actionableRow` | У строки есть copy/reveal/open/edit. | Нужен keyboard и focus behavior. |
 
 ---
 
@@ -117,7 +123,7 @@ Property List — компактный key-value pattern для отображе
 
 ## 5. States / Состояния
 
-| Состояние | Где применяется | Правило |
+| State | Где применяется | Правило |
 |---|---|---|
 | `default` | Section и row. | Статичное отображение. |
 | `hover` | Actionable row или action. | Показывает локальное действие. |
@@ -134,9 +140,10 @@ Property List — компактный key-value pattern для отображе
 ### Actions
 
 - `copy` копирует value и показывает feedback через Toast или inline confirmation.
-- `reveal` временно показывает sensitive value и должен иметь privacy rule.
+- `reveal` временно показывает sensitive value и требует privacy rule.
 - `edit` открывает section-level или row-level edit flow.
 - `open` ведет к detail page или external resource.
+- Action label должен включать действие и название свойства: `Скопировать ID`, `Показать ключ`.
 
 ### Keyboard interaction
 
@@ -148,9 +155,10 @@ Property List — компактный key-value pattern для отображе
 
 ### Composition
 
-- Используйте `Tag` для status values: Active, Pending, Disabled, Primary.
-- Используйте `Badge` только для count/dot на вложенном control.
-- Не смешивайте editable fields и read-only rows в одной секции без явного mode switch.
+- Используйте Tag для status values: Active, Pending, Disabled, Primary.
+- Используйте Badge только для count/dot signal на вложенном control.
+- Не смешивайте read-only rows и editable fields без явного mode switch.
+- Если actions есть почти в каждой строке, проверьте, не нужен ли dedicated detail/edit screen.
 
 ---
 
@@ -158,26 +166,27 @@ Property List — компактный key-value pattern для отображе
 
 | Сценарий | Рекомендация | Правило |
 |---|---|---|
-| Static Property List | `dl`, `dt`, `dd`. | Предпочтительно для web. |
+| Static Property List | `<dl>`, `<dt>`, `<dd>`. | Предпочтительно для web. |
 | Section title | Heading или grouped label. | Помогает навигации screen reader. |
 | Row action | Нативный button/link. | Accessible name включает действие и label. |
 | Sensitive value | Masked text + reveal button. | Не раскрывать без действия пользователя. |
-| Icon | `aria-hidden="true"` если декоративная. | Если несет смысл, нужен text alternative. |
+| Icon | `aria-hidden="true"`, если декоративная. | Если несет смысл, нужен text alternative. |
 
 ### Accessibility checklist
 
 - [ ] Labels и values имеют корректную семантическую связь.
 - [ ] Row actions доступны с клавиатуры.
 - [ ] Copy/reveal/open actions имеют понятные accessible names.
-- [ ] Status values содержат текст, не только цвет.
+- [ ] Status values содержат текст, а не только цвет.
 - [ ] Truncated value можно раскрыть, скопировать или открыть.
 - [ ] Sensitive values имеют privacy behavior.
+- [ ] Empty state объясняет, почему свойств нет.
 
 ---
 
 ## 8. Design Tokens
 
-В `tokens.json` пока нет отдельного namespace `property-list`. Используйте semantic tokens и отмечайте это как token gap, пока component tokens не появятся.
+В `tokens.json` пока нет отдельного namespace `property-list`. Используйте semantic tokens и отмечайте это как token gap, пока component tokens не появятся. Не придумывайте token paths для Property List в specs, code, Figma или AI-generated handoff.
 
 | Роль | Semantic token |
 |---|---|
@@ -192,7 +201,11 @@ Property List — компактный key-value pattern для отображе
 | Actionable row hover | `surface/subtle` |
 | Focus ring | `focus/ring` |
 
-Token gap: нужны component tokens для `property-list/section/title`, `property-list/row/label`, `property-list/row/value`, `property-list/row/action`, `property-list/divider`, density spacing и card-row styling.
+### Token gaps
+
+- Нужны component tokens для section title, row label, row value, row action, divider, density spacing и card-row styling.
+- До появления tokens используйте foundation spacing/layout rules.
+- Если Figma использует Description List bindings, это допустимо только как alias до появления отдельного token namespace.
 
 ---
 
@@ -202,11 +215,23 @@ Token gap: нужны component tokens для `property-list/section/title`, `pr
 |---|---|---|
 | Sections | `sections` | Массив групп свойств. |
 | Rows | `sections[].items` | Label, value, optional icon/action. |
+| Label | `item.label` | Обязателен. |
+| Value | `item.value` | Обязателен, если нет `emptyText`. |
 | Density | `density` | `compact`, `regular`, `comfortable`. |
-| Variant | `variant` | `plain`, `divided`, `card-row`, `editable-section`, `actionable-row`. |
-| Action | `action` | `copy`, `reveal`, `edit`, `open` или custom handler. |
-| Sensitive | `masked` | Управляет reveal behavior. |
-| Truncation | `truncate` | `start`, `middle`, `end`, `none`. |
+| Variant | `variant` | `plain`, `divided`, `cardRow`, `editableSection`, `actionableRow`. |
+| Action | `item.action` | `copy`, `reveal`, `edit`, `open` или documented custom handler. |
+| Sensitive | `item.masked` | Управляет reveal behavior. |
+| Truncation | `item.truncate` | `start`, `middle`, `end`, `none`. |
+| Empty text | `emptyText` | Текст для отсутствующего value. |
+
+### Contract rules
+
+- `item.label` обязателен.
+- Missing value должен рендерить explicit empty text.
+- `item.masked` требует reveal action или объяснение, почему reveal недоступен.
+- `variant="actionableRow"` требует keyboard path.
+- Raw colors и invented component tokens запрещены.
+- Property List не используется для нескольких записей.
 
 ---
 
@@ -217,10 +242,11 @@ Handoff для Property List должен фиксировать:
 - entity, которую описывает список;
 - sections и rows;
 - density и label column width;
-- какие values являются links, tags, IDs или sensitive values;
+- какие values являются links, Tags, IDs или sensitive values;
 - truncation и full-value access;
 - row actions и feedback после действия;
 - empty/loading behavior;
+- privacy rules для masked values;
 - token gap до появления component tokens.
 
 ---
@@ -230,10 +256,12 @@ Handoff для Property List должен фиксировать:
 - [ ] Property List описывает одну сущность или одну логическую группу.
 - [ ] Labels короткие и стабильные.
 - [ ] Values имеют корректный формат, truncation и full-value access.
+- [ ] Missing values отображаются явно.
 - [ ] Row actions локальны и доступны с клавиатуры.
 - [ ] Sensitive values не раскрываются без действия пользователя.
 - [ ] Loading state сохраняет row geometry.
 - [ ] Token gap явно отмечен, component token names не выдуманы.
+- [ ] Если действий нет, проверено, не достаточно ли Description List.
 
 ---
 
@@ -242,23 +270,26 @@ Handoff для Property List должен фиксировать:
 AI может:
 
 - предложить sections и rows по данным сущности;
-- найти свойства, которым нужны copy/reveal/open actions;
+- определить, где нужны copy/reveal/open actions;
+- подготовить empty text, truncation и privacy notes;
 - подготовить handoff notes и acceptance criteria;
-- отметить token gaps для будущей token architecture.
+- отметить token gaps для будущей token architecture;
+- предложить Description List, Table или Form вместо Property List, если сценарий ближе к ним.
 
 AI не должен:
 
-- превращать Property List в Table для нескольких записей;
+- использовать Property List для сравнения нескольких записей;
 - выдумывать component tokens, которых нет в `tokens.json`;
 - раскрывать sensitive values без privacy rule;
 - использовать цвет как единственный status signal;
-- смешивать read-only и edit mode без явного сценария.
+- смешивать read-only и edit mode без явного сценария;
+- делать всю строку кликабельной при наличии отдельных row actions.
 
 Если список содержит персональные данные, секреты, payment data или permissions, AI должен пометить сценарий как `Needs system review`.
 
 ---
 
-## 13. Примеры
+## 13. Examples / Примеры
 
 ### Корректно
 
@@ -268,13 +299,14 @@ AI не должен:
 | Admin side panel с copy action для UID. | Локальное действие относится к строке. |
 | Payment method row с masked value и reveal. | Sensitive behavior описан явно. |
 
-### Требует проверки
+### Требует review
 
 | Сценарий | Что проверить |
 |---|---|
 | Список содержит несколько пользователей. | Возможно, нужна Table. |
 | Все строки стали editable fields. | Возможно, нужна Form. |
-| Длинные значения скрыты без доступа к полному тексту. | Нужен Tooltip, copy или detail view. |
+| Длинные values скрыты без доступа к полному тексту. | Нужен Tooltip, copy или detail view. |
+| Почти каждая строка имеет сложное действие. | Возможно, нужен отдельный detail/edit screen. |
 
 ---
 
@@ -285,3 +317,4 @@ AI не должен:
 - Прятать sensitive value без понятного reveal/copy behavior.
 - Делать всю строку кликабельной, если есть отдельные row actions.
 - Передавать status только цветом или иконкой.
+- Использовать Property List как layout grid.

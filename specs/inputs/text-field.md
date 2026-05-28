@@ -1,293 +1,270 @@
 # Text Field
 
-> **Category** · Inputs & Forms
+> **Category** · Inputs
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [TextField/Input](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=914-9795)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
-### What it is
+### Что это
 
-Text Field — однострочное поле ввода текстовых данных. В отличие от Text Area, ограничен одной строкой и используется для коротких структурированных значений: имён, email, паролей, поисковых запросов, чисел.
+Text Field — однострочный текстовый ввод. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-### When to use
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
-**Use** — для ввода коротких текстовых значений с известной структурой: имя, email, номер телефона, URL, пароль, поисковый запрос.
+### Когда использовать
 
-**Do not use:**
-- Для длинных свободных текстов — используйте **Text Area**
-- Для выбора из набора — используйте **Select** или **Segmented Control**
-- Для даты/времени — используйте **Date Picker** / **Time Picker**
-- Для OTP-кода — используйте **Verification Code**
+Используйте Text Field, когда пользователь вводит короткое значение: имя, email, поиск, пароль или номер, и нужны label, hint, error, prefix/suffix или clear control.
 
-### Core principles
+### Когда не использовать
 
-- **Label всегда видим** — не заменяйте label на placeholder
-- **Один слот — одно значение** — не пытайтесь вместить составной ввод в одно поле
-- **Валидация после взаимодействия** — показывайте `error` только после blur или попытки отправить форму; текст ошибки следует `foundation/content.md`
+Не используйте Text Field, для многострочного текста используйте Text Area; для выбора из списка используйте Select; не используйте placeholder вместо label.
+
+### Ключевые принципы
+
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```
-Label                              [required]
-┌──────────┬──────────────────────┬──────────┐
-│ prefix-  │ Input / Placeholder  │ suffix-  │
-│ icon/text│                      │ icon/text│
-└──────────┴──────────────────────┴──────────┘
-Helper text                    Character count
-```
+| Часть | Обязательность | Назначение |
+| --- | --- | --- |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
-| Slot | Обязательность | Описание |
-|---|---|---|
-| `label` | required | Текстовая метка поля. Всегда видима |
-| `input` | required | Нативный `<input>` — зона ввода |
-| `placeholder` | optional | Подсказка до ввода. Не дублирует label и следует `foundation/content.md` |
-| `helper-text` | optional | Подсказка под полем: формат, ограничения, последствие |
-| `prefix-icon` | optional | Иконка слева. Следует `foundation/iconography.md`; визуальный контекст типа данных |
-| `suffix-icon` | optional | Иконка справа. Следует `foundation/iconography.md`; очистка, показ пароля, статус |
-| `prefix-text` | optional | Текст слева: «+7», «https://», валюта |
-| `suffix-text` | optional | Текст справа: единицы измерения «кг», «px» |
-| `character-count` | optional | Счётчик символов. Требует `maxLength` |
+### Правила anatomy
 
-> `prefix-icon` и `prefix-text` взаимоисключают друг друга. Аналогично `suffix-icon` и `suffix-text`.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-| Тип | Назначение |
-|---|---|
-| `default` | Стандартное текстовое поле |
-| `password` | Скрытый ввод с кнопкой показа/скрытия |
-| `search` | Иконка поиска слева, кнопка очистки справа |
-| `number` | Числовой ввод с кастомными кнопками инкремента |
+Figma component set: `TextField/Input`. Variants: 40.
+
+| Property | Default | Options |
+| --- | --- | --- |
+| `size` | `s` | `l`, `m`, `s`, `xl` |
+| `state` | `default` | `default`, `disabled`, `error`, `hover`, `focus` |
+| `filled` | `false` | `false`, `true` |
+
+### Boolean / slot properties
+
+| Property | Default | Options |
+| --- | --- | --- |
+| `label (917:31)` | `true` | - |
+| `hintText (917:62)` | `true` | - |
+| `errorInfo (917:97)` | `true` | - |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-| Size | Height | Font / Line | Radius | Padding H | Контекст |
-|---|---|---|---|---|---|
-| `small` | 24px | 12px / 16px | 6px | 8px | Компактные таблицы, фильтры |
-| `medium` | 32px | 14px / 20px | 8px | 12px | Формы — **дефолт** |
-| `large` | 40px | 16px / 24px | 10px | 16px | Крупные формы, поиск в хедере |
-| `extraLarge` | 48px | 18px / 28px | 12px | 20px | Hero-формы, мобильные |
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-> Label и helper-text остаются `14px / 20px` во всех размерах — они не масштабируются вместе с size.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### State matrix
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| Состояние | Описание | Визуальное изменение |
-|---|---|---|
-| `default` | Исходный вид | Базовые border, bg |
-| `hover` | Курсор над полем | `border` → `border/hover` |
-| `focus` | Поле активно | `border` → `border/brand/default`, `focus/ring` |
-| `filled` | Есть введённое значение | Значение цветом `text/primary` |
-| `error` | Ошибка валидации | `border` → `status/danger/border`, helper красный |
-| `warning` | Предупреждение | `border` → `status/warning/border` |
-| `success` | Успешная валидация | `border` → `status/success/border` |
-| `read-only` | Только чтение | Фон `surface/base`, cursor `default` |
-| `disabled` | Недоступен | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
-
-### Valid state combinations
-
-| Комбинация | Допустимо | Примечание |
-|---|---|---|
-| `focus` + `error` | ✓ | Редактирование поля с ошибкой |
-| `filled` + `error` | ✓ | Не прошло валидацию |
-| `filled` + `success` | ✓ | Успешно заполнено |
-| `read-only` + `filled` | ✓ | Отображение сохранённого значения |
-| `error` + `success` | ✗ | Взаимоисключающие состояния |
-| `disabled` + любое интерактивное | ✗ | `disabled` отменяет всё |
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
-## 6. Details on Types / Variants
+## 6. Behavior
 
-### default
-`<input type="text">`. Поддерживает все слоты. Используйте `autocomplete` для браузерного автозаполнения.
-
-### password
-`<input type="password">`. Suffix-слот зарезервирован за кнопкой показа/скрытия. Иконка меняется между `eye` и `eye-off`.
-
-### search
-`<input type="search">`. Prefix — статичная иконка поиска. Suffix — кнопка очистки (×), появляется только при `value.length > 0`. После очистки фокус возвращается на поле.
-
-### number
-`<input type="number">`. Нативные стрелки скрыты. Кастомные `+` / `−` в suffix-зоне. Клавиши `↑` / `↓` изменяют значение. Не используйте для телефонов и карт — используйте `default` с `inputmode="numeric"`.
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
-## 7. Behavior
+## 7. Accessibility
 
-### Keyboard interaction
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
-| Клавиша | Действие |
-|---|---|
-| `Tab` / `Shift+Tab` | Перемещение фокуса |
-| Символьные клавиши | Ввод текста |
-| `↑` / `↓` | Инкремент/декремент (только `number`) |
-| `Escape` | Очистка (только `search`) |
-| `Enter` | Отправка формы |
+| Требование | Правило |
+| --- | --- |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
-### Validation timing
-`error` появляется после `blur` или попытки отправки. Не показывайте на пустом поле. Сообщение должно объяснять, что исправить.
+### Accessibility checklist
 
-### Character count
-Формат `[текущее] / [максимальное]`. При ≥ 80% — `status/warning/text`. При превышении — `status/danger/text`.
-
-### Read-only vs Disabled
-- `read-only` — значение видимо и копируется, поле в tab-order
-- `disabled` — поле полностью исключено из взаимодействия
-
----
-
-## 8. Accessibility
-
-Компонент следует `foundation/accessibility.md` и соответствует WCAG 2.2 AA.
-
-### Semantics
-
-| Элемент / часть | Семантика | Когда |
-|---|---|---|
-| `label` | `<label for="...">` | Всегда |
-| `input` | Нативный `<input>` | Всегда |
-| `prefix-icon` | `aria-hidden="true"` | Если декоративная |
-| `suffix-icon` | `<button type="button">` | Если интерактивная: очистка, показать пароль, инкремент |
-| `helper-text` | Текстовый элемент с `id` | Когда есть подсказка |
-| `character-count` | Текстовый элемент с `id` | Когда есть счётчик |
-
-### Keyboard
-
-| Клавиша | Действие |
-|---|---|
-| `Tab` / `Shift+Tab` | Перемещение фокуса между input и интерактивными suffix-кнопками |
-| Символьные клавиши | Ввод текста |
-| `Enter` | Отправка формы, если поле внутри формы |
-| `Escape` | Очистка значения только для `search`, затем фокус остаётся в поле |
-| `ArrowUp` / `ArrowDown` | Инкремент/декремент только для `number` |
-
-`read-only` поле остаётся в tab-order, если значение полезно для чтения или копирования. `disabled` поле исключается из tab-order.
-
-### Screen reader
-
-| Атрибут | Значение | Когда |
-|---|---|---|
-| `<label for="...">` | Текст label | Всегда |
-| `aria-describedby` | ID helper-text / error text / character count | При наличии дополнительного описания |
-| `aria-required="true"` | — | Обязательное поле |
-| `aria-invalid="true"` | — | Состояние `error` |
-| `readonly` | — | Состояние `read-only` |
-| `disabled` | — | Состояние `disabled` |
-| `aria-label="Показать пароль"` | — | Suffix-кнопка в `password` |
-| `aria-label="Скрыть пароль"` | — | Suffix-кнопка в `password`, когда пароль показан |
-| `aria-label="Очистить"` | — | Suffix-кнопка в `search` |
-| `aria-label="Увеличить значение"` | — | Кнопка инкремента в `number` |
-| `aria-label="Уменьшить значение"` | — | Кнопка декремента в `number` |
-
-### Validation & status
-
-| Состояние | Требование |
-|---|---|
-| `error` | `aria-invalid="true"` и error text, связанный через `aria-describedby` |
-| `warning` | Текстовое объяснение, не только цвет border |
-| `success` | Не заменяет label/helper text |
-| `filled` | Не означает валидность |
-| `read-only` | Значение доступно для чтения и копирования |
-| `disabled` | Нативный `disabled`, без hover/focus/active |
-
-### Visual
-- Контрастность значения, label и helper text: минимум 4.5:1.
-- Контрастность иконок и интерактивной границы: минимум 3:1.
-- Focus ring использует `focus/ring`, видим на любом фоне и не обрезается контейнером.
-- Состояния валидации сопровождаются иконкой или текстом, не только цветом.
-- Placeholder не заменяет label и может иметь меньший визуальный приоритет.
-- Prefix/suffix icons следуют `foundation/iconography.md`: декоративные скрываются через `aria-hidden`, интерактивные получают `aria-label`.
-
-### Touch
-
-- Минимальная интерактивная зона input и suffix-кнопок — 44×44px.
-- Для `small` и `medium` визуальная высота может быть меньше, но hit area расширяется невидимым padding.
-
-### Motion
-
-- Очистка, появление suffix-кнопок и validation feedback не должны вызывать layout shift.
-
-### Acceptance checklist
-
-- [ ] Label видим и программно связан с input.
-- [ ] Placeholder не дублирует и не заменяет label.
-- [ ] Helper, error и character count связаны через `aria-describedby`.
-- [ ] Error использует `aria-invalid="true"` и понятный текст исправления.
-- [ ] Suffix-кнопки имеют `type="button"` и `aria-label`.
-- [ ] `read-only` и `disabled` реализованы разными состояниями.
-- [ ] Focus ring использует `focus/ring`.
-- [ ] Текст имеет контраст минимум 4.5:1.
-- [ ] Иконки и границы имеют контраст минимум 3:1.
-- [ ] Touch target не меньше 44×44px.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
-## 9. Design Tokens
+## 8. Design Tokens
 
-### Background
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--input-bg` | Фон default | `surface/base` | `surface/base` |
-| `--input-bg-hover` | Фон hover | `surface/subtle` | `surface/subtle` |
-| `--input-bg-disabled` | Фон disabled | `status/disabled/surface` | `status/disabled/surface` |
+| Token | Роль | Semantic mapping |
+| --- | --- | --- |
+| `$collections/components/$modes/Mode 1/text-field/border/warning` | Component token | `status/warning/border` |
+| `$collections/components/$modes/Mode 1/text-field/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/text-field/border/success` | Component token | `status/success/border` |
+| `$collections/components/$modes/Mode 1/text-field/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/text-field/border/focus` | Component token | `border/focus` |
+| `$collections/components/$modes/Mode 1/text-field/border/error` | Component token | `status/danger/border` |
+| `$collections/components/$modes/Mode 1/text-field/border/active` | Component token | `border/strong` |
+| `$collections/components/$modes/Mode 1/text-field/border/read-only` | Component token | `border/subtle` |
+| `$collections/components/$modes/Mode 1/text-field/border/loading` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/text-field/surface/disabled` | Component token | `status/disabled/container` |
+| `$collections/components/$modes/Mode 1/text-field/surface/hover` | Component token | `surface/subtle` |
+| `$collections/components/$modes/Mode 1/text-field/surface/default` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/text-field/surface/error` | Component token | `status/danger/container` |
+| `$collections/components/$modes/Mode 1/text-field/surface/warning` | Component token | `status/warning/container` |
+| `$collections/components/$modes/Mode 1/text-field/surface/success` | Component token | `status/success/container` |
+| `$collections/components/$modes/Mode 1/text-field/surface/active` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/text-field/surface/focus` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/text-field/surface/read-only` | Component token | `surface/subtle` |
+| `$collections/components/$modes/Mode 1/text-field/surface/loading` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/text-field/focus/ring` | Component token | `focus/ring` |
+| `$collections/components/$modes/Mode 1/text-field/helper/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/text-field/helper/error` | Component token | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/text-field/helper/success` | Component token | `status/success/text` |
+| `$collections/components/$modes/Mode 1/text-field/helper/warning` | Component token | `status/warning/text` |
+| `$collections/components/$modes/Mode 1/text-field/affix/surface` | Component token | `container/subtle/default` |
+| `$collections/components/$modes/Mode 1/text-field/affix/foreground` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/text-field/label/default` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/text-field/label/disabled` | Component token | `status/disabled/text` |
 
-### Border
+### Token gaps
 
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--input-border` | Граница default | `border/default` | `border/default` |
-| `--input-border-hover` | Граница hover | `border/hover` | `border/hover` |
-| `--input-border-focus` | Граница focus | `border/brand/default` | `border/brand/default` |
-| `--input-border-error` | Граница error | `status/danger/border` | `status/danger/border` |
-| `--input-border-warning` | Граница warning | `status/warning/border` | `status/warning/border` |
-| `--input-border-success` | Граница success | `status/success/border` | `status/success/border` |
-| `--input-border-disabled` | Граница disabled | `status/disabled/border` | `status/disabled/border` |
-
-### Text & Labels
-
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--input-text` | Значение | `text/primary` | `text/primary` |
-| `--input-placeholder` | Placeholder | `text/muted` | `text/muted` |
-| `--input-label` | Label | `text/secondary` | `text/secondary` |
-| `--input-helper` | Helper default | `text/tertiary` | `text/tertiary` |
-| `--input-helper-error` | Helper error | `status/danger/text` | `status/danger/text` |
-| `--input-helper-warning` | Helper warning | `status/warning/text` | `status/warning/text` |
-| `--input-helper-success` | Helper success | `status/success/text` | `status/success/text` |
-| `--input-text-disabled` | Текст disabled | `status/disabled/text` | `status/disabled/text` |
-
-### Shared
-
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--input-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
-| `--input-icon` | Иконка prefix/suffix | `text/tertiary` | `text/tertiary` |
-| `--input-affix-bg` | Фон зоны affix-текста | `container/neutral/default` | `container/neutral/default` |
-
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
-## Related specifications / Связанные спецификации
+## 9. Code mapping
 
-- [Text Area](../specs/inputs/text-area.md) — многострочный ввод.
-- [Form](../specs/overlays-layout/form.md) — layout, validation и группировка полей.
-- [Search](../specs/overlays-layout/search.md) — поисковый input pattern.
+| Design concept | Suggested prop / API | Правило |
+| --- | --- | --- |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
+### Contract rules
+
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
+
+---
+
+## 10. Handoff notes
+
+В handoff нужно передать:
+
+- Figma component и node id: `914:9795`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
+
+### Acceptance criteria
+
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
+
+---
+
+## 11. AI usage rules
+
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
+
+---
+
+## 12. Примеры
+
+### Корректно
+
+| Сценарий | Почему |
+| --- | --- |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
+
+### Требует review
+
+| Сценарий | Риск |
+| --- | --- |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
+
+---
+
+## 13. Anti-patterns
+
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

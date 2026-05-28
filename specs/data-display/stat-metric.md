@@ -2,324 +2,358 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-28
+> **Figma** · [Stat Metric](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6671-56)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles / Принципы использования
 
 ### Что это
 
-Stat / Metric — data display-компонент для выделения одного числового показателя с подписью, единицей измерения, контекстом и опциональным трендом. Он помогает быстро считать KPI, но не заменяет таблицу, график или детальный отчёт.
+Stat / Metric — компонент для выделения одного числового показателя с label, value, unit, периодом, источником данных и optional trend. Он помогает быстро считать KPI, но не заменяет Table, Chart, Progress Bar или подробный отчет.
+
+В SEDA AI Stat / Metric является metric contract: он должен явно описывать бизнес-смысл показателя, формат значения, единицу измерения, период, baseline, trend logic, token mapping и accessibility. AI может помогать формулировать метрики и handoff notes, но не должен угадывать положительный или отрицательный смысл тренда без контекста.
 
 ### Когда использовать
 
-**Используйте** — когда нужно показать одну ключевую метрику:
+Используйте Stat / Metric, когда:
 
-- KPI в дашборде;
-- итоговое число в карточке объекта;
-- текущий статус измеримого показателя;
-- сравнение с предыдущим периодом;
-- показатель эффективности процесса;
-- краткая метрика рядом с таблицей или графиком.
+- нужно показать один ключевой числовой показатель;
+- KPI должен быть виден до просмотра таблицы или графика;
+- значение сравнивается с предыдущим периодом, планом, forecast или benchmark;
+- карточка, dashboard section или detail view требует краткой метрики;
+- нужно показать current value и короткое пояснение;
+- рядом с таблицей или графиком нужен summary indicator.
 
-**Не используйте:**
+### Не используйте
 
-- Для обычного числа внутри текста — используйте типографику.
-- Для измеримого выполнения операции — используйте **Progress Bar**.
-- Для нескольких точек во времени или тренда как ряда — используйте Chart.
-- Для плотного сравнения многих значений — используйте **Table**.
-- Для более 6 метрик в одной строке без группировки.
-- Для статуса без числового значения — используйте Badge, Tag или Alert по контексту.
+Не используйте Stat / Metric, когда:
+
+- нужно показать обычное число внутри текста — используйте typography;
+- нужно показать выполнение операции — используйте Progress Bar;
+- нужно показать тренд по нескольким точкам во времени — используйте Chart;
+- нужно сравнить много значений, сортировать или фильтровать — используйте Table;
+- нужно показать статус без числа — используйте Tag, Badge или Alert;
+- метрика не имеет label, unit, периода или понятного источника данных;
+- в одной строке появляется больше 6 метрик без группировки.
 
 ### Основные принципы
 
-- **Value needs meaning** — число должно иметь label, unit или описание, чтобы пользователь понимал, что измеряется.
-- **Trend is contextual** — `+12%` без периода сравнения недостаточен; используйте `+12% к прошлому месяцу`.
-- **Direction is not always good/bad** — рост расходов может быть negative, а снижение ошибок может быть positive.
-- **Compact by design** — Stat / Metric выделяет показатель, но не объясняет весь отчёт.
-- **Formatting is part of UX** — числа, проценты, валюты и даты форматируются последовательно по [foundation/content.md](../foundation/content.md).
-- **State is not color-only** — значение тренда должно быть доступно через текст, знак, icon label или description по [foundation/state-vocabulary.md](../foundation/state-vocabulary.md).
+- **Value needs meaning** — число должно иметь label, unit и контекст.
+- **Trend needs baseline** — `+12%` без периода или baseline неполон.
+- **Direction is not tone** — рост не всегда positive, снижение не всегда negative.
+- **Formatting is UX** — числа, проценты, валюты и даты форматируются последовательно.
+- **Missing is not zero** — отсутствие данных нельзя показывать как `0`.
+- **Compact by design** — Stat / Metric выделяет показатель, но не объясняет весь отчет.
+- **AI assists, system governs** — AI может предложить структуру метрики, но использует только documented props, states и tokens.
+
+### Связанные спецификации
+
+- [Table](table.md) — сравнение нескольких записей или метрик.
+- [Tag](tag.md) — статус без числового значения.
+- [Badge](badge.md) — count/status signal на host-элементе.
+- [Card](card.md) — контейнер для группы метрик.
+- [Skeleton](../feedback/skeleton.md) — loading state для данных.
 
 ---
 
-## 2. Anatomy
+## 2. Anatomy / Анатомия
 
-```text
-Label
-$1,240,000      USD
-↑ +12% vs last month
-Monthly recurring revenue
-```
+| Slot | Обязательность | Описание |
+|---|---:|---|
+| `root` | Да | Контейнер метрики. |
+| `label` | Да | Короткое название показателя. |
+| `value` | Да | Основное числовое значение или formatted value. |
+| `unit` | Условно | Валюта, процент, штуки, секунды, пользователи или другая единица. |
+| `trend` | Нет | Изменение относительно baseline. |
+| `trendIcon` | Нет | Визуальная подсказка направления или состояния тренда. |
+| `description` | Нет | Период, источник, caveat, target или пояснение. |
 
-| Часть | Обязательность | Описание |
-| --- | --- | --- |
-| `root` | yes | Metric container |
-| `label` | yes | Short name of the metric |
-| `value` | yes | Main numeric value |
-| `unit` | conditional | Currency, percent, seconds, items, users, etc. |
-| `trend` | optional | Change compared with a baseline |
-| `trendIcon` | optional | Direction/status icon that supports trend meaning |
-| `description` | optional | Context, period, source, or caveat |
+### Правила анатомии
 
-### Правила anatomy
-
-- `label` and `value` are required.
-- `unit` is required when the value cannot be understood without it.
-- `trend` must include comparison context when shown.
-- `description` should clarify period, data source, caveat, or target when needed.
+- `label` и `value` обязательны, кроме состояния `unavailable`.
+- `unit` обязателен, если без него value непонятен.
+- `trend` должен включать baseline: период, target, forecast, cohort или benchmark.
+- `trendIcon` не заменяет текстовое описание тренда.
+- `description` используется для периода, источника, caveat или target, а не для длинного отчета.
+- Если значение загружается, используйте loading state или Skeleton, а не пустое число.
 
 ---
 
-## 3. Types / Variants
+## 3. Types / Variants / Варианты
 
 ### Display variants
 
-| Variant | Description | Use |
-| --- | --- | --- |
-| `default` | Label, value, optional unit/description | General metric |
-| `with-trend` | Adds trend value and direction | KPI compared to previous period |
-| `compact` | Smaller, denser metric | Cards, table side panels, dense dashboards |
-| `featured` | Larger value and more spacing | Primary KPI in a dashboard section |
+| Variant | Когда использовать | Состав |
+|---|---|---|
+| `default` | Базовая метрика. | Label, value, optional unit/description. |
+| `withTrend` | KPI сравнивается с baseline. | Label, value, unit, trend, trend context. |
+| `compact` | Плотная сетка или side panel. | Короткий label, value, optional trend. |
+| `featured` | Главный KPI секции. | Более сильный value и больше воздуха. |
 
-### Trend tones
+### Figma variants
 
-| Trend tone | Meaning | Required context |
-| --- | --- | --- |
-| `neutral` | No significant change or context-neutral value | Baseline or period |
-| `positive` | Good or desired movement | What improved and compared with what |
-| `warning` | Needs attention but not critical | Why the movement matters |
-| `negative` | Bad or undesired movement | What worsened and compared with what |
+| Variant group | Values | Примечание |
+|---|---|---|
+| `trend` | `up`, `down`, `neutral`, `none` | Direction не равен tone. |
+| `state` | `default`, `loading`, `error` | Data state, а не hover state. |
+| `size` | `s`, `m`, `l`, `xl` | Управляет визуальным акцентом и плотностью. |
 
-### Trend direction
+### Trend tone
 
-| Direction | Meaning | Rule |
-| --- | --- | --- |
-| `up` | Value increased | Can be positive or negative depending on metric |
-| `down` | Value decreased | Can be positive or negative depending on metric |
-| `flat` | No meaningful change | Use neutral tone unless context says otherwise |
+| Tone | Значение | Required context |
+|---|---|---|
+| `neutral` | Нет оценки good/bad или изменение незначимо. | Baseline или period. |
+| `positive` | Движение желательное для продукта. | Что улучшилось и относительно чего. |
+| `warning` | Нужно внимание, но сценарий не критичен. | Почему изменение важно. |
+| `negative` | Движение нежелательное или unhealthy. | Что ухудшилось и относительно чего. |
 
 ---
 
-## 4. Sizes
+## 4. Sizes / Размеры
 
-Stat / Metric size controls visual emphasis and density. It does not change the data contract.
-
-| Size | Value emphasis | Content density | Use |
-| --- | --- | --- | --- |
-| `compact` | Smaller value | Label + value, optional short trend | Dense dashboard grid, table-adjacent summary |
-| `medium` | Default value | Label, value, unit, trend, description | Default product UI |
-| `large` | Strong value emphasis | Full metric with trend and description | Primary KPI or section summary |
+| Size | Когда использовать | Правило |
+|---|---|---|
+| `s` | Dense dashboards, table side panels, compact cards. | Минимальная плотность. |
+| `m` | Базовые продуктовые интерфейсы. | Default для большинства случаев. |
+| `l` | Primary KPI в секции. | Используйте для 1-3 метрик рядом. |
+| `xl` | Hero metric или executive summary. | Только когда метрика является главным содержанием секции. |
 
 ### Правила размеров
 
-- Use `medium` by default.
-- Use `compact` when many metrics appear together.
-- Use `large` for one to three primary metrics per section.
-- Не используйте size для передачи positive/negative status; используйте документированный trend tone и text.
+- Size управляет акцентом, а не смыслом positive/negative.
+- В одной группе метрик используйте одинаковый size и formatting.
+- `xl` не должен использоваться для второстепенных значений.
+- Value и unit должны оставаться визуально связанными на всех размерах.
+- Typography, spacing, padding и layout пока задаются foundation rules и Figma variants, а не отдельными component tokens.
 
 ---
 
-## 5. States
+## 5. States / Состояния
 
-Stat / Metric is usually static. Semantic state applies to trend or metric status, not hover/focus interaction.
+| State | Описание | Правило |
+|---|---|---|
+| `default` | Значение доступно и актуально. | Показывайте label, value и optional context. |
+| `loading` | Значение загружается. | Используйте Skeleton или loading placeholder той же геометрии. |
+| `error` | Значение не удалось получить. | Покажите error text или unavailable reason. |
+| `unavailable` | Значение нельзя посчитать или нет данных. | Не показывайте `0`, если это не реальный ноль. |
+| `stale` | Значение устарело. | Нужен timestamp или caveat. |
 
-| State | Meaning | Required signal |
-| --- | --- | --- |
-| `neutral` | No positive/negative interpretation | Text or neutral trend |
-| `positive` | Desired movement or healthy metric | Trend text, sign, icon, or description |
-| `warning` | Needs attention | Warning text or caveat |
-| `negative` | Undesired movement or unhealthy metric | Explanation, sign, icon, or description |
-| `unavailable` | Value is missing or cannot be calculated | Placeholder and reason |
+### Trend states
 
-### State rules
-
-- Do not map `up` directly to `positive` without metric context.
-- Do not map `down` directly to `negative` without metric context.
-- Missing data should not show `0` unless the real value is zero.
-- If value is loading, use Skeleton or a loading pattern outside the metric value.
+| Direction | Tone может быть | Пример |
+|---|---|---|
+| `up` | `positive`, `warning`, `negative`, `neutral` | Рост выручки positive, рост расходов warning/negative. |
+| `down` | `positive`, `warning`, `negative`, `neutral` | Снижение ошибок positive, снижение выручки negative. |
+| `neutral` | `neutral`, `positive`, `warning` | Изменение незначимо или соответствует target. |
+| `none` | `neutral` | Тренд скрыт или baseline отсутствует. |
 
 ---
 
-## 6. Behavior
+## 6. Behavior / Поведение
 
 ### Data formatting
 
-- Use locale-aware formatting for numbers, currency, percentages, and compact notation.
-- Keep units consistent across a group of metrics.
-- Use enough precision for decision-making, but avoid false precision.
-- For large values, use compact notation only when exact precision is not required.
+- Используйте locale-aware formatting для чисел, валют, процентов и compact notation.
+- Unit должен быть одинаковым внутри группы метрик.
+- Точность должна помогать решению, а не создавать ложную точность.
+- Compact notation (`1.2M`, `42K`) допустима только когда точное значение не критично.
+- Валюта, проценты и длительность должны следовать правилам [foundation/content.md](../../foundation/content.md).
 
 ### Trend behavior
 
-- Trend must state comparison baseline: previous period, target, forecast, cohort, or benchmark.
-- Trend tone must be based on product meaning, not just mathematical direction.
-- If direction is unknown, omit direction icon and explain the caveat.
+- Trend всегда должен иметь baseline: прошлый период, target, forecast, cohort или benchmark.
+- Trend tone определяется бизнес-смыслом метрики, а не направлением стрелки.
+- Если направление неизвестно, используйте `trend="none"` или объясните caveat.
+- Если trend является forecast или AI-estimate, это должно быть явно указано в description.
 
 ### Group behavior
 
-- Related metrics should share label style, value formatting, unit placement, and period wording.
-- More than 6 metrics should be grouped, paginated, or moved into a table/dashboard layout.
-- Avoid mixing incompatible time ranges in one metric group unless explicitly labelled.
+- Связанные метрики должны иметь общий период, если не указано иначе.
+- Смешивание разных time ranges в одной группе требует явных labels.
+- Более 6 метрик нужно группировать, переносить в Table или разбивать по секциям.
+- В группе метрик label, value formatting, unit placement и trend wording должны быть согласованы.
 
 ### Responsive behavior
 
-- Value and unit stay visually connected.
-- Trend and description may wrap below the value.
-- Compact metrics may hide description only if the surrounding context still explains the value.
+- Value и unit не должны визуально разрываться.
+- Trend и description могут переноситься ниже value.
+- Compact metrics могут скрывать description только если контекст остается понятен.
+- Длинные labels должны переноситься или сокращаться по documented rule.
 
 ---
 
 ## 7. Accessibility
 
-Stat / Metric follows [foundation/accessibility.md](../foundation/accessibility.md).
+Stat / Metric должен следовать [foundation/accessibility.md](../../foundation/accessibility.md). Число, unit, trend и интерпретация должны быть доступны как текст, а не только цвет или иконка.
 
-| Требование | Правило |
-| --- | --- |
-| Text value | Value, unit, and trend must be available as text |
-| Trend icon | Decorative if trend text already communicates meaning |
-| Status meaning | Positive/negative/warning meaning is not color-only |
-| Numeric formatting | Use readable grouping and units |
-| Updates | Use polite live region only when metric updates are important in real time |
-| Missing value | Announce unavailable state clearly |
+| Сценарий | Требование | Пример |
+|---|---|---|
+| Value | Значение читается как текст. | `1 240 000 рублей`. |
+| Trend | Direction и tone имеют текстовое описание. | `Рост на 12% к прошлому месяцу, положительная динамика`. |
+| Icon | Иконка декоративна, если текст уже есть. | `aria-hidden="true"`. |
+| Missing value | Причина недоступности объявлена. | `Данных пока нет`. |
+| Real-time update | Live region только для важного обновления. | `aria-live="polite"` по product rule. |
 
 ### Accessibility checklist
 
-- [ ] Metric has a visible label.
-- [ ] Value and unit are readable as text.
-- [ ] Trend direction has text, not only icon/color.
-- [ ] Positive/negative meaning matches product context.
-- [ ] Missing data is not represented as zero.
-- [ ] Real-time updates do not create noisy announcements.
+- [ ] Metric имеет visible label.
+- [ ] Value и unit доступны как текст.
+- [ ] Trend имеет baseline и текстовое описание.
+- [ ] Positive/negative/warning meaning не передан только цветом.
+- [ ] Missing data не показан как `0`.
+- [ ] Loading state не объявляет ложное значение.
+- [ ] Real-time updates не создают шумных announcements.
+- [ ] AI-generated или forecast value явно помечен.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением этого раздела нужно сверять реальные component tokens в `tokens.json`. Для Stat / Metric доступны component tokens в namespace `stat-metric`.
 
-| Role | Component token | Semantic |
-| --- | --- | --- |
-| Label foreground | `stat-metric/label/foreground` | `text/tertiary` |
-| Value foreground | `stat-metric/value/foreground` | `text/primary` |
-| Unit foreground | `stat-metric/unit/foreground` | `text/secondary` |
-| Trend neutral | `stat-metric/trend/neutral` | `text/tertiary` |
-| Trend positive | `stat-metric/trend/positive` | `status/success/text` |
-| Trend warning | `stat-metric/trend/warning` | `status/warning/text` |
-| Trend negative | `stat-metric/trend/negative` | `status/danger/text` |
-| Trend icon positive | `stat-metric/trend/icon/positive` | `status/success/icon` |
-| Trend icon warning | `stat-metric/trend/icon/warning` | `status/warning/icon` |
-| Trend icon negative | `stat-metric/trend/icon/negative` | `status/danger/icon` |
-| Description foreground | `stat-metric/description/foreground` | `text/tertiary` |
+| Component token | Роль | Semantic mapping |
+|---|---|---|
+| `stat-metric/label/foreground` | Label color. | `text/tertiary` |
+| `stat-metric/value/foreground` | Value color. | `text/primary` |
+| `stat-metric/unit/foreground` | Unit color. | `text/secondary` |
+| `stat-metric/trend/neutral` | Neutral trend text. | `text/tertiary` |
+| `stat-metric/trend/positive` | Positive trend text. | `status/success/text` |
+| `stat-metric/trend/warning` | Warning trend text. | `status/warning/text` |
+| `stat-metric/trend/negative` | Negative trend text. | `status/danger/text` |
+| `stat-metric/trend/icon/positive` | Positive trend icon. | `status/success/icon` |
+| `stat-metric/trend/icon/warning` | Warning trend icon. | `status/warning/icon` |
+| `stat-metric/trend/icon/negative` | Negative trend icon. | `status/danger/icon` |
+| `stat-metric/description/foreground` | Description color. | `text/tertiary` |
 
 ### Token gaps
 
-- Stat / Metric does not currently have component tokens for layout gap, value typography, unit typography, radius, padding, or background.
-- Use foundation spacing, typography, radius, and surface patterns until component-level tokens are introduced.
-- Do not invent Stat / Metric token names in specs, code, Figma, or AI-generated handoff.
+- Stat / Metric пока не имеет component tokens для typography, gap, padding, radius, background, loading surface и error text.
+- Для loading используйте Skeleton tokens и foundation layout rules.
+- Для error state используйте documented status tokens через компонент или pattern, а не новые token paths для Stat / Metric.
+- Не придумывайте новые Stat / Metric token paths без обновления `tokens.json` и Figma bindings.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
-| --- | --- | --- |
-| Label | `label` | Required |
-| Value | `value` | Required raw value or formatted string |
-| Formatted value | `formattedValue` | Optional override when formatter is external |
-| Unit | `unit` | Currency, percent, seconds, count, etc. |
-| Description | `description` | Optional context |
-| Variant | `variant` | `default`, `with-trend`, `compact`, `featured` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Trend value | `trend.value` | Difference, percent, or text |
-| Trend direction | `trend.direction` | `up`, `down`, `flat` |
-| Trend tone | `trend.tone` | `neutral`, `positive`, `warning`, `negative` |
-| Trend label | `trend.label` | Comparison context |
-| Unavailable | `unavailableReason` | Reason when value is missing |
+| Spec concept | Code prop / attribute | Notes |
+|---|---|---|
+| Label | `label` | Обязателен. |
+| Value | `value` | Raw value или formatted string. |
+| Formatted value | `formattedValue` | Optional override, если formatting внешний. |
+| Unit | `unit` | Currency, percent, seconds, count, users и т.п. |
+| Description | `description` | Период, источник, caveat или target. |
+| Variant | `variant` | Values: `default`, `withTrend`, `compact`, `featured`. |
+| Size | `size` | Values: `s`, `m`, `l`, `xl`. |
+| Data state | `state` | Values: `default`, `loading`, `error`, `unavailable`, `stale`. |
+| Trend direction | `trend.direction` | Values: `up`, `down`, `neutral`, `none`. |
+| Trend tone | `trend.tone` | Values: `neutral`, `positive`, `warning`, `negative`. |
+| Trend value | `trend.value` | Difference, percent, points or text. |
+| Trend baseline | `trend.baseline` | Обязателен, если trend показан. |
+| Unavailable reason | `unavailableReason` | Обязателен для unavailable/error state. |
 
 ### Contract rules
 
-- `label` and `value` are required unless `unavailableReason` is provided.
-- `trend.tone` must be documented and product-specific.
-- Do not expose arbitrary color props.
-- Do not infer positive/negative from direction without metric semantics.
-- Не используйте Stat / Metric для progress operations.
+- `label` обязателен.
+- `value` обязателен, кроме `state="loading"`, `state="error"` или `state="unavailable"`.
+- `unit` обязателен, если без него value неоднозначен.
+- `trend.baseline` обязателен при наличии trend.
+- `trend.tone` не выводится автоматически из `trend.direction`.
+- Arbitrary color props запрещены.
+- Stat / Metric не используется для progress operations или time-series chart.
 
 ---
 
 ## 10. Handoff notes
 
-В handoff нужно передать:
+Handoff для Stat / Metric должен фиксировать:
 
-- metric name and business definition;
-- raw value and formatted display value;
-- unit and locale formatting rules;
-- period, benchmark, or comparison baseline;
-- trend direction and trend tone logic;
-- unavailable/loading behavior;
-- grouping rules when displayed with other metrics;
-- accessibility text for value, unit, and trend;
-- token mapping for label, value, unit, trend, and description;
-- token gaps for typography, spacing, and layout.
-
-### Acceptance criteria
-
-- Metric has label and value.
-- Unit is visible when needed to understand the value.
-- Trend includes comparison context.
-- Positive/negative/warning meaning is not communicated by color alone.
-- Missing data is not shown as zero.
-- Formatting is consistent across related metrics.
-- Component uses documented tokens for text and trend colors.
-- Stat / Metric is not used as Progress Bar or Chart.
+- business definition метрики;
+- raw value и formatted display value;
+- unit и locale formatting rules;
+- period, target, benchmark или comparison baseline;
+- trend direction и trend tone logic;
+- источник данных и freshness/timestamp;
+- unavailable, loading и error behavior;
+- grouping rules для набора метрик;
+- accessibility text для value, unit и trend;
+- token paths для label, value, unit, trend, icon и description;
+- token gaps для typography, spacing и layout.
 
 ---
 
-## 11. AI usage rules
+## 11. Acceptance criteria
 
-- AI may use Stat / Metric only for a single numeric indicator with label and context.
-- AI must recommend Progress Bar for measurable operation progress.
-- AI must recommend Chart when trend over multiple points is required.
-- AI must recommend Table when many metrics need comparison, sorting, or filtering.
-- AI must not infer positive/negative meaning from up/down direction without metric context.
-- AI must not invent token paths, trend tones, units, or arbitrary colors.
-- AI must check `tokens.json` before changing Stat / Metric token mappings.
-- AI must flag missing unit, missing comparison baseline, missing label, color-only trend, or ambiguous positive/negative meaning as `Needs system review`.
-- AI may draft metric labels, formatting notes, handoff notes, and acceptance criteria, but human review is required.
+- [ ] Metric имеет label и value или documented unavailable/loading/error state.
+- [ ] Unit видим, если без него value непонятен.
+- [ ] Formatting согласован с locale и соседними метриками.
+- [ ] Trend включает baseline.
+- [ ] Positive/negative/warning meaning не выводится только из direction.
+- [ ] Missing data не показан как `0`.
+- [ ] Loading state сохраняет геометрию value.
+- [ ] Error/unavailable state объясняет причину.
+- [ ] Используются реальные `stat-metric` tokens из `tokens.json`.
+- [ ] Handoff описывает source, period, baseline и freshness.
 
 ---
 
-## 12. Examples
+## 12. AI usage rules
+
+AI может:
+
+- предложить label, unit, formatting и description для метрики;
+- проверить, нужен ли Stat / Metric, Table, Chart, Progress Bar, Tag или Badge;
+- подготовить trend wording с baseline;
+- найти missing unit, missing label, missing baseline и ambiguous trend tone;
+- подготовить handoff notes и acceptance criteria;
+- предложить unavailable/loading/error copy.
+
+AI не должен:
+
+- использовать Stat / Metric для time-series analysis вместо Chart;
+- использовать Stat / Metric для progress operation вместо Progress Bar;
+- считать `up` автоматически positive, а `down` automatically negative;
+- показывать missing data как `0`;
+- придумывать token paths, trend tones, units или arbitrary colors;
+- скрывать AI-generated, forecast или estimated nature of value.
+
+Если метрика влияет на деньги, доступ, права, безопасность или executive reporting, AI должен пометить сценарий как `Needs system review`.
+
+---
+
+## 13. Examples / Примеры
 
 ### Корректно
 
-| Scenario | Usage |
-| --- | --- |
-| Revenue KPI | Label `Выручка`, value `$1.2M`, trend `+12% к прошлому месяцу`, positive |
-| Error rate decrease | Label `Ошибки`, value `1.8%`, trend `-0.6 п.п. к прошлой неделе`, positive |
-| Cost increase | Label `Расходы`, value `$42K`, trend `+8% к плану`, warning or negative by context |
-| Missing metric | Show unavailable state with reason, not `0` |
+| Сценарий | Решение |
+|---|---|
+| Revenue KPI. | Label `Выручка`, value `$1.2M`, trend `+12% к прошлому месяцу`, tone `positive`. |
+| Error rate decrease. | Label `Ошибки`, value `1.8%`, trend `-0.6 п.п. к прошлой неделе`, tone `positive`. |
+| Cost increase. | Label `Расходы`, value `$42K`, trend `+8% к плану`, tone `warning` или `negative` по business rule. |
+| Missing metric. | State `unavailable` с причиной, а не `0`. |
 
 ### Требует review
 
-| Scenario | Reason |
-| --- | --- |
-| `+12%` without comparison period | Baseline is missing |
-| Green upward trend for cost without context | Direction may be negative |
-| 20 metrics in one row | Needs grouping or table |
-| Metric used for upload progress | Progress Bar is required |
+| Сценарий | Что проверить |
+|---|---|
+| `+12%` без comparison period. | Baseline отсутствует. |
+| Зеленый рост расходов. | Direction может быть negative. |
+| 20 метрик в одной строке. | Нужна группировка, Table или dashboard layout. |
+| Метрика используется для загрузки файла. | Нужен Progress Bar. |
 
 ---
 
-## 13. Anti-patterns
+## 14. Anti-patterns
 
-- Showing a number without label or unit.
-- Using color as the only trend meaning.
-- Treating every upward trend as positive.
-- Showing missing data as zero.
-- Using Stat / Metric for time-series analysis.
-- Creating custom trend colors outside component tokens.
-- Mixing different periods in one metric group without labels.
+- Показывать число без label или unit.
+- Использовать цвет как единственный смысл тренда.
+- Считать любой рост положительным.
+- Показывать missing data как `0`.
+- Использовать Stat / Metric для анализа временного ряда.
+- Использовать Stat / Metric как Progress Bar.
+- Создавать custom trend colors вне component tokens.
+- Смешивать разные периоды в одной группе без labels.

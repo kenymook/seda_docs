@@ -1,161 +1,268 @@
 # Date Picker
 
-> **Category** · Inputs & Forms
+> **Category** · Inputs
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [DatePicker](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4101-4117)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
-### What it is
+### Что это
 
-Date Picker — контрол выбора даты из календарного виджета. Сочетает текстовое поле ввода и всплывающий календарь.
+Date Picker — контрол выбора даты, диапазона, месяца или года. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-### When to use
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
-**Use** — для выбора даты события, срока, периода; в формах бронирования, фильтрах, профилях.
+### Когда использовать
 
-**Do not use:**
-- Для выбора только месяца/года — используйте соответствующий тип
-- Когда дата вводится регулярно и известна точно — рассмотрите Text Field с маской
+Используйте Date Picker, когда дата вводится пользователем и нужна календарная проверка, ограничения min/max или disabled dates.
+
+### Когда не использовать
+
+Не используйте Date Picker, для свободного текста используйте Text Field; для времени используйте Time Picker; для сложных расписаний нужен отдельный calendar pattern.
+
+### Ключевые принципы
+
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```
-Label
-┌────────────────────┬────┐
-│ DD.MM.YYYY         │ 📅 │
-└────────────────────┴────┘
-Helper text
+| Часть | Обязательность | Назначение |
+| --- | --- | --- |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
-Calendar (открыт):
-┌─────────────────────────┐
-│  ← Апрель 2025    →     │
-├───┬───┬───┬───┬───┬───┬─┤
-│ Пн│ Вт│ Ср│ Чт│ Пт│ Сб│Вс│
-├───┼───┼───┼───┼───┼───┼─┤
-│   │ 1 │ 2 │ 3 │ 4 │ 5 │6 │
-│...│   │   │   │   │   │  │
-└───┴───┴───┴───┴───┴───┴──┘
-│         Footer actions   │
-└──────────────────────────┘
-```
+### Правила anatomy
 
-| Slot | Обязательность | Описание |
-|---|---|---|
-| `label` | required | Метка поля |
-| `input` | required | Текстовый инпут с маской даты |
-| `calendar-icon` | required | Кнопка открытия календаря |
-| `placeholder` | optional | Формат даты как подсказка |
-| `helper-text` | optional | Подсказка под полем |
-| `footer-actions` | optional | Кнопки «Сегодня», «Очистить» в нижней части |
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-| Тип | Назначение |
-|---|---|
-| `single` | Выбор одной даты |
-| `range` | Выбор периода (дата начала + дата конца) |
-| `month` | Выбор месяца и года |
-| `year` | Выбор только года |
+Figma component set: `DatePicker`. Variants: 112.
+
+| Property | Default | Options |
+| --- | --- | --- |
+| `Type` | `single` | `single`, `range`, `month`, `year` |
+| `Size` | `s` | `s`, `m`, `l`, `xl` |
+| `State` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
+
+### Boolean / slot properties
+
+| Property | Default | Options |
+| --- | --- | --- |
+| Нет boolean properties | - | Видимость slots задается props contract. |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-| Size | Input height | Font / Line | Контекст |
-|---|---|---|---|
-| `small` | 24px | 12px / 16px | Компактные фильтры |
-| `medium` | 32px | 14px / 20px | Формы — дефолт |
-| `large` | 40px | 16px / 24px | Акцентные поля |
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-> Date Picker не поддерживает `extraLarge`.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-| Состояние | Описание | Визуальное изменение |
-|---|---|---|
-| `default` | Пустое поле | Базовые border, bg |
-| `hover` | Курсор над полем | `border/hover` |
-| `focus` | Активно | `border/brand/default`, `focus/ring` |
-| `open` | Календарь открыт | Иконка активна, календарь visible |
-| `filled` | Дата выбрана | Дата в поле |
-| `error` | Невалидная дата | `status/danger/border` |
-| `disabled` | Недоступен | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
+Состояния берутся из Figma variants, props contract и родительского сценария.
+
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
-## 6. Details on Types / Variants
+## 6. Behavior
 
-### single
-Клик на день выбирает дату и закрывает календарь. Ввод с клавиатуры поддерживается через маску.
-
-### range
-Два клика — начало и конец периода. Между ними — подсветка диапазона. Во время выбора второй даты — hover показывает предполагаемый диапазон.
-
-### month / year
-Упрощённый picker без отображения дней. Для фильтров по периоду.
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
-## 7. Behavior
+## 7. Accessibility
 
-### Keyboard interaction (calendar)
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
-| Клавиша | Действие |
-|---|---|
-| `Tab` | Фокус на инпут / кнопку календаря |
-| `Enter` / `Space` | Открыть / выбрать дату |
-| `Escape` | Закрыть календарь |
-| `↑` / `↓` | Неделя назад / вперёд |
-| `←` / `→` | День назад / вперёд |
-| `Page Up/Down` | Предыдущий / следующий месяц |
+| Требование | Правило |
+| --- | --- |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
----
+### Accessibility checklist
 
-## 8. Accessibility
-
-| Атрибут | Значение | Когда |
-|---|---|---|
-| `role="dialog"` | — | Контейнер календаря |
-| `aria-label="Выбор даты"` | — | На диалоге |
-| `role="grid"` | — | Таблица дней |
-| `role="gridcell"` | — | Каждый день |
-| `aria-selected` | `true` | Выбранный день |
-| `aria-disabled` | `true` | Недоступный день |
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
-## 9. Design Tokens
+## 8. Design Tokens
 
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--datepicker-border` | Граница инпута | `border/default` | `border/default` |
-| `--datepicker-border-focus` | Граница focus | `border/brand/default` | `border/brand/default` |
-| `--datepicker-calendar-bg` | Фон календаря | `surface/base` | `surface/base` |
-| `--datepicker-day-hover` | Hover дня | `surface/subtle` | `surface/subtle` |
-| `--datepicker-day-selected` | Выбранный день | `container/brand/default` | `container/brand/default` |
-| `--datepicker-day-selected-text` | Текст выбранного | `text/on-brand/primary` | `text/on-brand/primary` |
-| `--datepicker-range-bg` | Фон диапазона | `container/brand/default` | `container/brand/default` |
-| `--datepicker-day-today` | Обводка сегодня | `border/brand/default` | `border/brand/default` |
-| `--datepicker-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
+| Token | Роль | Semantic mapping |
+| --- | --- | --- |
+| `$collections/components/$modes/Mode 1/date-picker/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/date-picker/border/focus` | Component token | `border/focus` |
+| `$collections/components/$modes/Mode 1/date-picker/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/date-picker/border/active` | Component token | `border/strong` |
+| `$collections/components/$modes/Mode 1/date-picker/border/disabled` | Component token | `status/disabled/border` |
+| `$collections/components/$modes/Mode 1/date-picker/border/read-only` | Component token | `border/subtle` |
+| `$collections/components/$modes/Mode 1/date-picker/border/loading` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/date-picker/border/error` | Component token | `status/danger/border` |
+| `$collections/components/$modes/Mode 1/date-picker/border/warning` | Component token | `status/warning/border` |
+| `$collections/components/$modes/Mode 1/date-picker/border/success` | Component token | `status/success/border` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/surface` | Component token | `surface/overlay` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/border` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/shadow` | Component token | `shadow/overlay` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/header/foreground` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/weekday/foreground` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/nav/surface/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/nav/surface/hover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/nav/surface/active` | Component token | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/nav/icon/default` | Component token | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/nav/icon/hover` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/date-picker/calendar/nav/icon/disabled` | Component token | `status/disabled/icon` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/hover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/selected` | Component token | `container/brand/default` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/today` | Component token | `border/brand/default` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/active` | Component token | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/disabled` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/date-picker/day/surface/outside` | Component token | `color/transparent` |
+
+### Token gaps
+
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
-## Related specifications / Связанные спецификации
+## 9. Code mapping
 
-- [Text Field](../specs/inputs/text-field.md) — ручной ввод даты.
-- [Popover](../specs/feedback/popover.md) — раскрываемая календарная панель.
-- [Form](../specs/overlays-layout/form.md) — validation и layout.
+| Design concept | Suggested prop / API | Правило |
+| --- | --- | --- |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
+### Contract rules
+
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
+
+---
+
+## 10. Handoff notes
+
+В handoff нужно передать:
+
+- Figma component и node id: `4101:4117`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
+
+### Acceptance criteria
+
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
+
+---
+
+## 11. AI usage rules
+
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
+
+---
+
+## 12. Примеры
+
+### Корректно
+
+| Сценарий | Почему |
+| --- | --- |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
+
+### Требует review
+
+| Сценарий | Риск |
+| --- | --- |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
+
+---
+
+## 13. Anti-patterns
+
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

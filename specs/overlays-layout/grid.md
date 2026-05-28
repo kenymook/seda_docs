@@ -2,255 +2,188 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Grid](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6673-83)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Grid — layout-компонент для распределения контента по колонкам, строкам и responsive tracks. Он задаёт структуру страницы или секции, но не является data grid, table или interactive spreadsheet.
+Grid — layout-сетка для размещения контента по колонкам и gap. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
+
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
 ### Когда использовать
 
-**Используйте** — когда нужно управлять композицией интерфейса:
+Используйте Grid, когда нужно управлять columns, gap и responsive composition воспроизводимо в handoff.
 
-- страницы с несколькими колонками;
-- dashboard layout;
-- card grids;
-- формы с выравниванием полей;
-- responsive секции;
-- layout внутри Container;
-- placeholder или guide mode для проверки выравнивания.
+### Когда не использовать
 
-**Не используйте:**
+Не используйте Grid, не используйте как таблицу данных; не задавайте one-off columns/gaps без layout rule.
 
-- Для табличных данных — используйте **Table**.
-- Для full-width layout wrapper — используйте **Container**.
-- Для одной карточки или framed item — используйте **Card**.
-- Для каждого маленького компонента внутри карточки.
-- Для изменения DOM order ради визуального расположения.
-- Для ARIA grid roles, если это только visual layout.
+### Ключевые принципы
 
-### Основные принципы
-
-- **Layout, not data grid** — Grid управляет композицией, а не табличным поведением.
-- **Columns follow content** — количество колонок выбирается по типу контента и breakpoint.
-- **Gap before margins** — расстояние между grid items задаётся через `gap`, а не внешние margins.
-- **Container owns gutters** — внешние gutters обычно принадлежат Container, Grid управляет внутренними tracks.
-- **Responsive order stays readable** — визуальный порядок не должен ломать DOM reading order.
-- **AI must preserve layout rules** — AI не должен придумывать breakpoints, gaps или column spans без handoff.
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```text
-| column | gap | column | gap | column |
-| item span 2 columns | item span 1 |
-```
-
-| Часть | Обязательность | Описание |
+| Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | yes | Grid container |
-| `item` | yes | Child content placed on the grid |
-| `column` | yes | Track used for horizontal placement |
-| `row` | optional | Track used for vertical placement |
-| `gap` | yes | Space between tracks |
-| `guide` | optional | Visual alignment guide |
-| `placeholder` | optional | Empty layout slot or design-time placeholder |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
 ### Правила anatomy
 
-- Grid children should be meaningful layout items.
-- Grid should not add semantic roles unless the content itself requires them.
-- Guides and placeholders are visual aids, not user content.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-| Variant | Description | Use |
+Figma component set: `Grid`. Variants: 36.
+
+| Property | Default | Options |
 | --- | --- | --- |
-| `columns` | Explicit column count, often 12-column | Page and dashboard layout |
-| `auto-fit` | Responsive columns based on item minimum width | Card grids |
-| `auto-fill` | Fills available space with tracks, including empty slots | Design-time or repeated layouts |
-| `subgrid` | Local alignment with parent grid, when supported | Forms, nested alignment |
-| `guide` | Visual grid guides | Design review and layout debugging |
+| `columns` | `4` | `4`, `8`, `12` |
+| `gap` | `sm` | `sm`, `md`, `lg` |
+| `size` | `m` | `m`, `s`, `l`, `xl` |
 
-### Breakpoints
+### Boolean / slot properties
 
-| Breakpoint | Width | Recommended columns |
-| --- | ---: | ---: |
-| `xs` | 320px | 4 |
-| `sm` | 640px | 4 |
-| `md` | 768px | 8 |
-| `lg` | 1024px | 12 |
-| `xl` | 1280px | 12 |
-| `2xl` | 1440px | 12 |
+| Property | Default | Options |
+| --- | --- | --- |
+| Нет boolean properties | - | Видимость slots задается props contract. |
 
-### Item spans
+### Variant rules
 
-| Span rule | Description |
-| --- | --- |
-| `span` | Item width in columns |
-| `start` / `end` | Explicit placement when needed |
-| `auto` | Browser places item in next available track |
-| `full` | Item spans all columns |
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-Grid size describes column system, gap, and density. It does not describe viewport size alone.
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-| Size / density | Gap guidance | Use |
-| --- | --- | --- |
-| `compact` | Small internal gap | Dense panels, narrow forms |
-| `medium` | Default internal gap | Default product layouts |
-| `spacious` | Larger internal gap | Marketing-like content sections, overview dashboards |
-
-### Column presets
-
-| Preset | Columns | Use |
-| --- | ---: | --- |
-| `single` | 1 | Mobile, linear content |
-| `four` | 4 | Small viewport layout |
-| `eight` | 8 | Tablet or medium content |
-| `twelve` | 12 | Desktop application layout |
-| `auto` | dynamic | Repeating cards with min item width |
-
-### Правила размеров
-
-- Use `medium` density by default.
-- Use `compact` only when scan efficiency matters and content remains readable.
-- Use `spacious` when items need visual separation and the section is not dense.
-- Do not create arbitrary gap values; use foundation spacing roles.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-Grid is a layout primitive and has no interactive component states.
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| State-like condition | Meaning | Rule |
-| --- | --- | --- |
-| `responsive` | Columns/gaps change by breakpoint | Layout behavior, not state |
-| `guide` | Alignment guides visible | Design/debug variant |
-| `placeholder` | Empty slot shown | Visual placeholder, not data state |
-| `rowHover` / `rowSelected` | Data-grid-like row behavior | Use only in patterns that document row interaction |
-
-### State ownership
-
-- Nested cards, rows, forms, controls, and table items own their interactive states.
-- If row selection, keyboard navigation, or cell focus is required, use Table/Data Grid pattern instead.
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
 ## 6. Behavior
 
-### Layout behavior
-
-- Grid places child items into columns and rows using documented tracks.
-- Use `gap` for spacing between items.
-- Container usually owns page gutters; Grid owns spacing between child items.
-- Items should align to the same tracks within a section.
-
-### Responsive behavior
-
-- Column count changes by breakpoint.
-- Items may span fewer columns on smaller viewports.
-- Do not change DOM order to create visual order unless accessibility impact is reviewed.
-- Auto-fit grids should define minimum item width.
-
-### Guide and placeholder behavior
-
-- Grid guides are for design review or layout debugging.
-- Placeholders should not be exposed as real content.
-- Focus ring token is used only when a grid item or placeholder is intentionally focusable in a specific pattern.
-
-### Data behavior
-
-- Grid does not provide sorting, filtering, row selection, cell navigation, or table semantics.
-- If those are required, use Table or a dedicated data grid pattern.
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
 ## 7. Accessibility
 
-Grid follows [foundation/accessibility.md](../foundation/accessibility.md).
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| ARIA roles | Не используйте `role="grid"` для визуального layout |
-| DOM order | Preserve logical reading order |
-| Focus order | Keyboard focus follows meaningful order |
-| Placeholder | Hide visual placeholders from assistive technologies unless meaningful |
-| Guide lines | Hide decorative guides |
-| Responsive changes | Do not hide or reorder essential content unexpectedly |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
 ### Accessibility checklist
 
-- [ ] Visual layout does not break reading order.
-- [ ] Keyboard focus order remains predictable.
-- [ ] Decorative guides are not announced.
-- [ ] Placeholder content is not mistaken for real content.
-- [ ] ARIA grid roles are not used for layout-only grids.
-- [ ] Wide layouts remain usable on narrow screens.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Role | Component token | Semantic |
+| Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| Surface default | `grid/surface/default` | `color/transparent` |
-| Row hover surface | `grid/surface/rowHover` | `container/neutral/hover` |
-| Row selected surface | `grid/surface/rowSelected` | `container/neutral/selected` |
-| Line default | `grid/line/default` | `border/subtle` |
-| Line strong | `grid/line/strong` | `border/default` |
-| Guide default | `grid/guide/default` | `border/subtle` |
-| Guide active | `grid/guide/active` | `border/focus` |
-| Placeholder surface | `grid/placeholder/surface` | `surface/subtle` |
-| Placeholder border | `grid/placeholder/border` | `border/default` |
-| Focus ring | `grid/focus/ring` | `focus/ring` |
+| `$collections/components/$modes/Mode 1/grid/surface/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/grid/surface/rowHover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/grid/surface/rowSelected` | Component token | `container/neutral/selected` |
+| `$collections/components/$modes/Mode 1/grid/line/default` | Component token | `border/subtle` |
+| `$collections/components/$modes/Mode 1/grid/line/strong` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/grid/guide/default` | Component token | `border/subtle` |
+| `$collections/components/$modes/Mode 1/grid/guide/active` | Component token | `border/focus` |
+| `$collections/components/$modes/Mode 1/grid/placeholder/surface` | Component token | `surface/subtle` |
+| `$collections/components/$modes/Mode 1/grid/placeholder/border` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/grid/focus/ring` | Component token | `focus/ring` |
 
 ### Token gaps
 
-- Grid does not currently have component tokens for column count, max track width, min item width, row height, gap, gutter, breakpoint, or span.
-- Use foundation spacing and layout rules until component-level layout tokens are introduced.
-- Do not invent Grid token names in specs, code, Figma, or AI-generated handoff.
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant | `variant` | `columns`, `auto-fit`, `auto-fill`, `subgrid`, `guide` |
-| Columns | `columns` | Number or responsive map |
-| Gap | `gap` | Foundation spacing role |
-| Row gap | `rowGap` | Optional |
-| Column gap | `columnGap` | Optional |
-| Min item width | `minItemWidth` | Required for auto-fit/auto-fill |
-| Item span | `span` | Per item or responsive map |
-| Item start/end | `start`, `end` | Explicit placement when needed |
-| Guide visible | `showGuides` | Design/debug only |
-| Placeholder | `placeholder` | Visual empty slot |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
 ### Contract rules
 
-- Grid props define layout only.
-- `columns`, `gap`, and spans must follow documented system rules.
-- Не используйте Grid API для поведения data table.
-- Do not pass raw line, guide, or placeholder colors.
-- Do not create new breakpoints in component usage.
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
 ---
 
@@ -258,69 +191,60 @@ Grid follows [foundation/accessibility.md](../foundation/accessibility.md).
 
 В handoff нужно передать:
 
-- grid purpose: page layout, card grid, form alignment, dashboard, guide mode;
-- column count per breakpoint;
-- gap and density;
-- item spans per breakpoint;
-- auto-fit/auto-fill minimum item width;
-- responsive order rules;
-- relation to Container gutters;
-- guide/placeholder behavior, if used;
-- token mapping for surface, lines, guides, placeholder, and focus;
-- token gaps for columns, gap, breakpoint, min item width, and spans.
+- Figma component и node id: `6673:83`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
 
 ### Acceptance criteria
 
-- Grid is used for layout, not tabular data.
-- Column count and gap are documented per breakpoint.
-- DOM and focus order remain meaningful.
-- Container owns external gutters unless handoff says otherwise.
-- Grid items align to shared tracks.
-- Visual guide/placeholder tokens use documented component tokens.
-- No raw layout colors or arbitrary breakpoints are introduced.
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
 
 ---
 
 ## 11. AI usage rules
 
-- AI may use Grid only for layout composition.
-- AI must recommend Table when data needs rows, columns, sorting, filtering, or cell navigation.
-- AI must recommend Container when the task is max-width and page gutters.
-- AI must not invent breakpoints, gap values, spans, token paths, or data-grid behavior.
-- AI must check `tokens.json` before changing Grid token mappings.
-- AI must flag unclear column rules, DOM order risk, table misuse, raw layout values, or missing responsive behavior as `Needs system review`.
-- AI may draft layout handoff notes and acceptance criteria, but human review is required.
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Scenario | Usage |
+| Сценарий | Почему |
 | --- | --- |
-| Dashboard cards | `variant=columns`, 12 columns on desktop, cards span 3 or 4 |
-| Responsive card grid | `variant=auto-fit`, min item width documented |
-| Form alignment | `subgrid` or local grid with documented label/input spans |
-| Design review | `variant=guide`, guide lines hidden from assistive tech |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
 
 ### Требует review
 
-| Scenario | Reason |
+| Сценарий | Риск |
 | --- | --- |
-| Sortable rows built with Grid | Table/Data Grid is required |
-| Visual order differs from DOM order | Accessibility risk |
-| Arbitrary 17px gap | Not mapped to spacing system |
-| Page gutters implemented inside every child Grid | Container responsibility is unclear |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Using Grid for tabular data behavior.
-- Adding Grid around every small component.
-- Using margins between grid items instead of gap.
-- Inventing breakpoints per screen.
-- Reordering content visually while DOM order stays different.
-- Exposing decorative guide lines to assistive technologies.
-- Creating custom guide or line colors outside component tokens.
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

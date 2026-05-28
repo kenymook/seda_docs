@@ -2,225 +2,266 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Tabs](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6196-25)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
-### What it is
+### Что это
 
-Tabs — горизонтальный или вертикальный переключатель между секциями контента. В отличие от Segmented Control, Tabs управляют полноценными view: смена таба приводит к смене отображаемого контента.
+Tabs — переключение независимых разделов внутри одного контекста. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-### When to use
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
-**Use** — для переключения между разделами с полноценным контентом: вкладки профиля (Основное / Безопасность / Уведомления), разделы объекта (Описание / Отзывы / Условия).
+### Когда использовать
 
-**Do not use:**
-- Для переключения режима отображения одних данных — используйте **Segmented Control**
-- Если вкладок больше 6–7 и они не помещаются — используйте **Select** или навигационное меню
-- Для wizard-потоков — используйте **Stepper**
+Используйте Tabs, когда разделы равноправны, доступны без смены страницы и выбранная вкладка управляет content panel.
 
-### Core principles
+### Когда не использовать
 
-- **Один активный таб** — всегда ровно один таб выбран
-- **Контент загружается при смене** — не показывайте все панели одновременно, скрытые через `display: none`
-- **Не используйте Tabs для навигации между страницами** — для этого есть Sidebar / Top Bar
+Не используйте Tabs, для последовательного flow используйте Stepper; для фильтрации используйте Segmented Control; не используйте Tabs для скрытия обязательного content.
+
+### Ключевые принципы
+
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```
-Horizontal:
-┌─────────┬──────────┬─────────┬─────────┐
-│  Tab 1  │● Tab 2  │  Tab 3  │  Tab 4  │
-└─────────┴──────────┴─────────┴─────────┘▔▔▔▔▔▔▔▔▔
-                    [tab panel content]
+| Часть | Обязательность | Назначение |
+| --- | --- | --- |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
-Vertical:
-│ Tab 1      │
-│● Tab 2    │  [tab panel content]
-│ Tab 3      │
-```
+### Правила anatomy
 
-| Slot | Обязательность | Описание |
-|---|---|---|
-| `tab` | required (2+) | Отдельный таб |
-| `tab-label` | required | Текст таба |
-| `tab-icon` | optional | Иконка слева или сверху от label |
-| `tab-badge` | optional | Badge с числом на табе |
-| `tab-panel` | required | Контентная панель, связанная с табом |
-| `tab-list` | auto | Контейнер всех табов |
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-| Тип | Описание |
-|---|---|
-| `line` | Подчёркивание под активным табом. Лаконичный, нейтральный |
-| `pill` | Активный таб с заливкой в форме капсулы. Более выраженный акцент |
-| `card` | Активный таб как карточка (с рамкой или тенью). Ощущение «вкладки браузера» |
+Figma component set: `Tabs`. Variants: 8.
 
-### Ориентации
+| Property | Default | Options |
+| --- | --- | --- |
+| `Variant` | `Line` | `Line`, `Pill` |
+| `size` | `m` | `m`, `s`, `l`, `xl` |
 
-| Ориентация | Описание |
-|---|---|
-| `horizontal` | Табы в строку. Стандарт |
-| `vertical` | Табы в колонку. Для боковых панелей |
+### Boolean / slot properties
 
-### Modifiers
+| Property | Default | Options |
+| --- | --- | --- |
+| Нет boolean properties | - | Видимость slots задается props contract. |
 
-| Модификатор | Описание |
-|---|---|
-| `icon-left` | Иконка слева от label |
-| `icon-top` | Иконка над label. Только для `horizontal` |
-| `badge` | Числовой Badge на табе |
-| `scrollable` | Горизонтальный скролл при переполнении `horizontal` |
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-| Size | Height (таб) | Font / Line | Контекст |
-|---|---|---|---|
-| `small` | 24px | 12px / 16px | Компактные панели |
-| `medium` | 32px | 14px / 20px | Карточки, боковые панели — дефолт |
-| `large` | 40px | 16px / 24px | Основные разделы страницы |
-| `extraLarge` | 48px | 18px / 28px | Hero-зоны, крупные блоки |
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
+
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### State types
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-- **interaction:** `hover`, `focus`
-- **selection:** `active` (выбранный таб)
-- **availability:** `disabled`
-
-### State matrix (на отдельный таб)
-
-| Состояние | Описание | Визуальное изменение |
-|---|---|---|
-| `default` | Невыбранный таб | Базовый цвет `text/tertiary` |
-| `hover` | Курсор над табом | Цвет `text/secondary`, лёгкий фон |
-| `active` | Выбранный таб | Цвет `text/primary`, индикатор типа |
-| `focus` | Фокус клавиатуры | Кольцо `focus/ring` |
-| `disabled` | Таб недоступен | `status/disabled/text`, cursor `not-allowed` |
-
-### Valid state combinations
-
-| Комбинация | Допустимо | Примечание |
-|---|---|---|
-| `active` + `hover` | ✓ | Наведение на выбранный таб |
-| `active` + `focus` | ✓ | Фокус на выбранном |
-| `disabled` + `active` | ✗ | Нельзя быть выбранным и недоступным |
-| `disabled` + `hover` | ✗ | `disabled` блокирует взаимодействие |
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
-## 6. Details on Types / Variants
+## 6. Behavior
 
-### line
-Самый нейтральный тип. Индикатор активного таба — линия снизу (horizontal) или слева (vertical). Цвет линии — `border/brand/default`. Не имеет фоновой заливки на активном табе.
-
-### pill
-Активный таб обёрнут в заливку (капсула). Фон `container/neutral/default` или `container/brand/default` в зависимости от конфигурации темы. Неактивные табы прозрачны.
-
-### card
-Активный таб визуально «поднят» — рамка снизу у панели или тень. Создаёт ощущение вкладок браузера. Сложнее в поддержке тёмной темы — требует проверки контраста рамки.
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
-## 7. Behavior
+## 7. Accessibility
 
-### Keyboard interaction
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
-| Клавиша | Действие |
-|---|---|
-| `Tab` | Фокус на tab list |
-| `→` / `↓` | Следующий таб (в зависимости от ориентации) |
-| `←` / `↑` | Предыдущий таб |
-| `Home` | Первый таб |
-| `End` | Последний таб |
-| `Enter` / `Space` | Активация таба |
+| Требование | Правило |
+| --- | --- |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
-> По умолчанию навигация стрелками **автоматически активирует** таб (automatic activation). Если загрузка контента тяжёлая — используйте manual activation: `Enter`/`Space` активируют, стрелки только перемещают фокус.
+### Accessibility checklist
 
-### Scrollable overflow
-При переполнении `scrollable` — добавляются стрелки прокрутки или нативный скролл. Активный таб всегда прокручивается в видимость при активации.
-
-### Focus management
-После смены таба фокус остаётся на tab list. Переход в panel — через Tab.
-
----
-
-## 8. Accessibility
-
-### Screen reader
-
-| Атрибут | Значение | Когда |
-|---|---|---|
-| `role="tablist"` | — | Контейнер табов |
-| `role="tab"` | — | Каждый таб |
-| `role="tabpanel"` | — | Каждая панель контента |
-| `aria-selected="true"` | — | Активный таб |
-| `aria-selected="false"` | — | Неактивный таб |
-| `aria-controls` | ID panel | Таб → связанная панель |
-| `aria-labelledby` | ID tab | Панель → связанный таб |
-| `aria-disabled="true"` | — | Недоступный таб |
-| `tabindex="0"` | — | Активный таб (в tab-order) |
-| `tabindex="-1"` | — | Неактивные табы (out of tab-order) |
-
-### Visual
-- Активный таб не передаётся только цветом — индикатор (линия, заливка) обязателен
-- Контрастность: минимум 4.5:1 для текста табов
-- Focus ring видим на любом фоне
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
-## 9. Design Tokens
+## 8. Design Tokens
 
-### Tab text
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--tabs-text-default` | Цвет неактивного таба | `text/tertiary` | `text/tertiary` |
-| `--tabs-text-hover` | Цвет hover | `text/secondary` | `text/secondary` |
-| `--tabs-text-active` | Цвет активного таба | `text/primary` | `text/primary` |
-| `--tabs-text-disabled` | Цвет disabled | `status/disabled/text` | `status/disabled/text` |
+| Token | Роль | Semantic mapping |
+| --- | --- | --- |
+| `$collections/components/$modes/Mode 1/tabs/foreground/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/tabs/foreground/hover` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/tabs/foreground/active` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/tabs/foreground/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/tabs/indicator/default` | Component token | `border/brand/default` |
+| `$collections/components/$modes/Mode 1/tabs/indicator/selected` | Component token | `border/brand/default` |
+| `$collections/components/$modes/Mode 1/tabs/indicator/hover` | Component token | `border/brand/hover` |
+| `$collections/components/$modes/Mode 1/tabs/indicator/disabled` | Component token | `border/disabled` |
+| `$collections/components/$modes/Mode 1/tabs/pill/surface/active` | Component token | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/tabs/pill/surface/hover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/tabs/pill/surface/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/tabs/pill/surface/selected` | Component token | `container/neutral/selected` |
+| `$collections/components/$modes/Mode 1/tabs/pill/surface/disabled` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/tabs/pill/border/default` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/tabs/pill/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/tabs/pill/border/active` | Component token | `border/strong` |
+| `$collections/components/$modes/Mode 1/tabs/pill/border/selected` | Component token | `border/selected` |
+| `$collections/components/$modes/Mode 1/tabs/pill/border/disabled` | Component token | `color/transparent` |
+| `$collections/components/$modes/Mode 1/tabs/pill/foreground/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/foreground/hover` | Component token | `text/secondary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/foreground/active` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/foreground/selected` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/foreground/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/tabs/pill/icon/default` | Component token | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/icon/hover` | Component token | `icon/secondary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/icon/active` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/icon/selected` | Component token | `icon/primary` |
+| `$collections/components/$modes/Mode 1/tabs/pill/icon/disabled` | Component token | `status/disabled/icon` |
 
-### Indicators (line type)
+### Token gaps
 
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--tabs-indicator` | Линия активного таба | `border/brand/default` | `border/brand/default` |
-| `--tabs-track` | Базовая линия под всеми табами | `border/default` | `border/default` |
-
-### Pill / Card backgrounds
-
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--tabs-pill-bg` | Фон активного `pill` таба | `container/neutral/default` | `container/neutral/default` |
-| `--tabs-pill-bg-hover` | Фон hover неактивного | `surface/subtle` | `surface/subtle` |
-
-### Shared
-
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--tabs-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
-
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
-## Related specifications / Связанные спецификации
+## 9. Code mapping
 
-- [Sidebar](../specs/navigation/sidebar.md) — навигация по разделам продукта.
-- [Stepper](../specs/navigation/stepper.md) — пошаговый процесс.
-- [Segmented Control](../specs/inputs/segmented-control.md) — выбор режима внутри текущего view.
+| Design concept | Suggested prop / API | Правило |
+| --- | --- | --- |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
+### Contract rules
+
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
+
+---
+
+## 10. Handoff notes
+
+В handoff нужно передать:
+
+- Figma component и node id: `6196:25`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
+
+### Acceptance criteria
+
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
+
+---
+
+## 11. AI usage rules
+
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
+
+---
+
+## 12. Примеры
+
+### Корректно
+
+| Сценарий | Почему |
+| --- | --- |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
+
+### Требует review
+
+| Сценарий | Риск |
+| --- | --- |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
+
+---
+
+## 13. Anti-patterns
+
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

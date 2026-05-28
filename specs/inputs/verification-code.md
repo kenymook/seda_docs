@@ -1,293 +1,198 @@
 # Verification Code
 
-> **Category** · Inputs & Forms
+> **Category** · Inputs
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [Verification Code](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6662-247)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
 ### Что это
 
-Verification Code — специализированный input-компонент для ввода одноразового кода подтверждения: SMS OTP, email-кода, PIN или кода подтверждения операции. Компонент визуально разделяет код на ячейки, управляет фокусом, поддерживает paste/autofill и помогает пользователю быстро исправить ошибку.
+Verification Code — контрол ввода одноразового кода подтверждения. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-Verification Code не является password field и не должен использоваться для длинных секретов. В отличие от Text Field, он оптимизирован для короткого кода фиксированной длины, где важны auto-advance, paste distribution, resend flow и validation feedback.
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
 ### Когда использовать
 
-**Используйте** — когда пользователь вводит короткий код фиксированной длины:
+Используйте Verification Code, когда пользователь вводит 4, 6 или 8 символов кода и нужны auto-advance, paste, error и resend flow.
 
-- двухфакторная аутентификация;
-- подтверждение email или телефона;
-- подтверждение транзакции;
-- восстановление доступа;
-- PIN-код в коротком flow;
-- одноразовый код, который можно вставить из SMS/email.
+### Когда не использовать
 
-**Не используйте:**
+Не используйте Verification Code, для обычного пароля используйте Text Field; не маскируйте код без требования безопасности; не скрывайте retry rules.
 
-- Для паролей — используйте [Text Field](../inputs/text-field.md) с `type="password"`.
-- Для длинных кодов больше 8 символов — используйте [Text Field](../inputs/text-field.md).
-- Для свободного ввода без фиксированной длины — используйте Text Field.
-- Для выбора метода подтверждения — используйте Radio, Select или Segmented Control.
-- Для статуса отправки кода — используйте Alert, Toast или inline status text.
+### Ключевые принципы
 
-### Основные принципы
-
-- **Код имеет фиксированную длину** — количество ячеек должно соответствовать реальному коду.
-- **Paste работает целиком** — пользователь может вставить полный код, и символы распределяются по ячейкам.
-- **Focus помогает, но не мешает** — auto-advance ускоряет ввод, но пользователь может перемещаться клавиатурой.
-- **Error не стирает без причины** — неверный код показывает ошибку, а очистка выполняется только если это описано в flow.
-- **Resend flow отделен от input** — повторная отправка кода, таймер и смена метода не являются частью ячеек.
-- **AI не придумывает security behavior** — AI может описать UX, но правила retry, expiry и masking утверждает человек.
-
-### Связанные спецификации
-
-- [Text Field](../specs/inputs/text-field.md)
-- [Button](../specs/actions/button.md)
-- [Alert](../specs/feedback/alert.md)
-- [Toast](../specs/feedback/toast.md)
-- [Form](../specs/overlays-layout/form.md)
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```text
-Label
-[1] [2] [3] [ ] [ ] [ ]
-Helper text / Error
-[Resend code]
-```
-
-| Часть | Обязательность | Описание |
+| Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | да | Контейнер Verification Code |
-| `label` | рекомендуется | Видимый label control |
-| `cells` | да | Набор ячеек кода: 4, 6 или 8 |
-| `cell` | да | Одна позиция символа |
-| `helperText` | опционально | Подсказка, срок действия, формат кода |
-| `errorText` | условно | Ошибка неверного или истекшего кода |
-| `resendAction` | опционально | Повторная отправка кода, обычно Button или Link |
-| `timer` | опционально | Countdown до повторной отправки или истечения кода |
-| `methodHint` | опционально | Текст о канале доставки: SMS, email, authenticator |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
 ### Правила anatomy
 
-- Количество `cells` должно совпадать с `length`.
-- `label` не заменяется placeholder или helper text.
-- `resendAction` не должен находиться внутри ячейки.
-- `timer` и `errorText` должны быть текстовыми, не только цветом.
-- Для 4, 6 и 8 ячеек используйте устойчивый layout без сдвига при вводе.
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-### Типы кода
+Figma component set: `Verification Code`. Variants: 60.
 
-| Тип | Описание | Правило |
+| Property | Default | Options |
 | --- | --- | --- |
-| `numeric` | Только цифры 0-9 | Дефолт для SMS OTP |
-| `alphanumeric` | Буквы и цифры | Используйте только если код реально содержит буквы |
-| `pin` | Короткий numeric code | Может требовать masking по security rules |
+| `digits` | `4` | `4`, `6`, `8` |
+| `state` | `default` | `default`, `focus`, `filled`, `error`, `disabled` |
+| `size` | `s` | `m`, `s`, `l`, `xl` |
 
-### Длина
+### Boolean / slot properties
 
-| Length | Когда использовать |
-| --- | --- |
-| `4` | Короткий PIN или легкий confirmation flow |
-| `6` | Дефолт для OTP и 2FA |
-| `8` | Более длинный security code |
-
-### Input mode
-
-| Mode | Описание | Правило |
+| Property | Default | Options |
 | --- | --- | --- |
-| `single-input` | Один скрытый/визуально распределенный input | Лучше для paste, autofill и screen readers |
-| `multi-input` | Отдельный input на каждую cell | Требует аккуратного focus management |
+| Нет boolean properties | - | Видимость slots задается props contract. |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-Размер Verification Code управляет размером ячейки, spacing и плотностью layout.
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
-| Size | Плотность ячейки | Когда использовать |
-| --- | --- | --- |
-| `compact` | Малые ячейки и небольшой gap | Узкие panels и dense auth flows |
-| `medium` | Дефолтный размер | Большинство auth/verification screens |
-| `large` | Крупные ячейки | Mobile-first screens, onboarding, high-attention flows |
-
-### Правила размеров
-
-- Используйте `medium` по умолчанию.
-- Используйте `large` на мобильных, если компонент является главным действием экрана.
-- Используйте `compact` только если код остается легко читаемым и touch targets достаточны.
-- Gap между ячейками должен помогать чтению, но не разрывать код на несвязанные поля.
-- Не уменьшайте font size ради 8 ячеек; лучше уменьшите gap или перейдите к Text Field для длинного кода.
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### Матрица состояний
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| State | Значение | Обязательное поведение |
-| --- | --- | --- |
-| `default` | Пустой код | Ячейки готовы к вводу |
-| `focus` | Активная ячейка или input | Видимый focus treatment |
-| `filled` | Код частично или полностью введен | Символы видимы или masked по rules |
-| `complete` | Заполнены все позиции | Можно запускать auto-submit, если это описано |
-| `validating` | Код проверяется | Заблокируйте duplicate submit, сохраните код |
-| `error` | Код неверный, истек или не принят | Покажите error text и recovery |
-| `disabled` | Ввод недоступен | Нет ввода, disabled treatment |
-| `expired` | Код истек | Покажите resend path |
-
-### Допустимые сочетания
-
-| Сочетание | Допустимо | Правило |
-| --- | --- | --- |
-| `filled` + `focus` | да | Пользователь редактирует введенный код |
-| `complete` + `validating` | да | Проверка после полного ввода |
-| `error` + `filled` | да | Неверный код может оставаться видимым для исправления |
-| `expired` + `disabled` | да | Ввод может быть заблокирован до resend |
-| `disabled` + `focus` | нет | Disabled control не фокусируется |
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
 ## 6. Behavior
 
-### Ввод
-
-- При вводе допустимого символа focus переходит к следующей позиции.
-- `Backspace` удаляет текущий символ; если ячейка пустая, возвращает focus к предыдущей позиции.
-- Arrow keys перемещают focus между позициями.
-- При paste полный код распределяется по ячейкам с учетом `length` и `type`.
-- Недопустимые символы игнорируются или показывают validation feedback, если это описано.
-- Для `numeric` используйте `inputmode="numeric"`.
-
-### Submit и validation
-
-- Auto-submit допустим только после полного ввода и если это явно описано в flow.
-- Manual submit через Button допустим, если пользователю нужно проверить код самостоятельно.
-- В `validating` повторный submit блокируется.
-- При `error` сохраняйте код, если пользователю полезно исправить отдельный символ.
-- При `expired` показывайте resend action и понятный текст.
-
-### Resend и timeout
-
-- Resend action должен иметь cooldown, если это требуется security/product rules.
-- Таймер должен быть текстовым и доступным для screen readers.
-- После resend решите, очищается ли текущий код; это должно быть описано в handoff.
-- Ошибки отправки нового кода показываются отдельно от ошибки введенного кода.
-
-### Keyboard interaction
-
-| Клавиша | Действие |
-| --- | --- |
-| `0-9`, `A-Z` | Ввод допустимого символа и переход вперед |
-| `Backspace` | Удаление символа или переход назад |
-| `ArrowLeft` / `ArrowRight` | Перемещение между позициями |
-| `Home` / `End` | Перейти к первой или последней позиции, если поддержано |
-| `Ctrl/Cmd+V` | Вставка кода и распределение по ячейкам |
-| `Enter` | Submit, если код complete и flow это поддерживает |
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
 ## 7. Accessibility
 
-Verification Code следует [foundation/accessibility.md](../../foundation/accessibility.md), [foundation/content.md](../../foundation/content.md) и input semantics.
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
 | --- | --- |
-| Label | Control имеет видимый label или programmatic label |
-| Autofill | Используйте `autocomplete="one-time-code"` для OTP |
-| Input mode | Используйте `inputmode="numeric"` для numeric code |
-| Cell naming | Если inputs раздельные, каждая cell имеет имя "цифра N из M" |
-| Error | Error text связан с control через description |
-| Live region | Resend/timer/status не должны шуметь; announce только важные изменения |
-| Paste | Paste full code поддерживается |
-| Color reliance | Error/focus/disabled не передаются только цветом |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
 ### Accessibility checklist
 
-- [ ] Label понятен и связан с control.
-- [ ] `autocomplete="one-time-code"` включен для OTP.
-- [ ] Numeric keyboard открывается на mobile для numeric code.
-- [ ] Paste full code работает.
-- [ ] Error text доступен screen reader.
-- [ ] Resend action доступен keyboard.
-- [ ] Timer и expiry не зависят только от цвета.
-- [ ] Focus order не ловит пользователя в ячейках.
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
-| Роль | Component token | Semantic |
+| Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| Cell surface default | `verification-code/cell/surface/default` | `surface/base` |
-| Cell surface hover | `verification-code/cell/surface/hover` | `surface/subtle` |
-| Cell surface active | `verification-code/cell/surface/active` | `surface/base` |
-| Cell surface focus | `verification-code/cell/surface/focus` | `surface/base` |
-| Cell surface error | `verification-code/cell/surface/error` | `status/danger/container` |
-| Cell surface disabled | `verification-code/cell/surface/disabled` | `status/disabled/container` |
-| Cell border default | `verification-code/cell/border/default` | `border/default` |
-| Cell border hover | `verification-code/cell/border/hover` | `border/hover` |
-| Cell border active | `verification-code/cell/border/active` | `border/strong` |
-| Cell border focus | `verification-code/cell/border/focus` | `border/focus` |
-| Cell border error | `verification-code/cell/border/error` | `status/danger/border` |
-| Cell border disabled | `verification-code/cell/border/disabled` | `status/disabled/border` |
-| Cell foreground default | `verification-code/cell/foreground/default` | `text/primary` |
-| Cell foreground placeholder | `verification-code/cell/foreground/placeholder` | `text/muted` |
-| Cell foreground disabled | `verification-code/cell/foreground/disabled` | `status/disabled/text` |
-| Focus ring | `verification-code/focus/ring` | `focus/ring` |
-| Disabled surface | `verification-code/disabled/surface` | `status/disabled/container` |
-| Helper default | `verification-code/helper/default` | `text/tertiary` |
-| Helper error | `verification-code/helper/error` | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/surface/default` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/surface/hover` | Component token | `surface/subtle` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/surface/active` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/surface/focus` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/surface/error` | Component token | `status/danger/container` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/surface/disabled` | Component token | `status/disabled/container` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/border/focus` | Component token | `border/focus` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/border/error` | Component token | `status/danger/border` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/border/active` | Component token | `border/strong` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/border/disabled` | Component token | `status/disabled/border` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/foreground/default` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/foreground/placeholder` | Component token | `text/muted` |
+| `$collections/components/$modes/Mode 1/verification-code/cell/foreground/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/verification-code/focus/ring` | Component token | `focus/ring` |
+| `$collections/components/$modes/Mode 1/verification-code/disabled/surface` | Component token | `status/disabled/container` |
+| `$collections/components/$modes/Mode 1/verification-code/helper/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/verification-code/helper/error` | Component token | `status/danger/text` |
 
 ### Token gaps
 
-- Сейчас у Verification Code нет component tokens для cell size, cell gap, radius, digit typography, timer text, resend action и shake animation.
-- Используйте foundation sizing, spacing, typography, radius, motion и Button/Text Field rules, пока не появятся component-specific tokens.
-- Не придумывайте `--otp-*` или новые `verification-code/*` token paths в specs, code, Figma или AI-generated handoff.
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
+| Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Value | `value` | Текущий код как строка |
-| Length | `length` | `4`, `6`, `8` или documented custom value |
-| Type | `type` | `numeric`, `alphanumeric`, `pin` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Input mode | `inputMode` | `single-input`, `multi-input` |
-| Disabled | `disabled` | Блокирует ввод |
-| Error | `error` | Error message или error state |
-| Validating | `validating` | Async validation state |
-| Expired | `expired` | Код истек |
-| Auto submit | `autoSubmit` | Только если flow это поддерживает |
-| Masked | `masked` | Для PIN/security contexts |
-| On change | `onChange` | Возвращает normalized value |
-| On complete | `onComplete` | Вызывается при заполнении всех позиций |
-| On submit | `onSubmit` | Проверка кода |
-| On resend | `onResend` | Повторная отправка |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
 
 ### Contract rules
 
-- `length` должен совпадать с количеством ячеек и backend contract.
-- `type` определяет допустимые символы и mobile keyboard.
-- `onComplete` не всегда означает successful verification.
-- `autoSubmit` требует защиты от duplicate submit.
-- `resendAction`, timer и expiry behavior должны быть описаны отдельно от cells.
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
 ---
 
@@ -295,71 +200,60 @@ Verification Code следует [foundation/accessibility.md](../../foundation/
 
 В handoff нужно передать:
 
-- длину кода и допустимые символы;
-- source кода: SMS, email, authenticator, transaction approval;
-- поведение paste/autofill;
-- auto-submit или manual submit;
-- retry, cooldown, resend и expiry rules;
-- error states: неверный код, истекший код, слишком много попыток, ошибка отправки;
-- masking rules, если это PIN/security context;
-- focus behavior для input, paste, backspace и arrows;
-- token mapping для cell surface, border, foreground, helper и focus;
-- token gaps для размеров, gap, timer, resend action и motion.
+- Figma component и node id: `6662:247`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
 
 ### Acceptance criteria
 
-- Количество ячеек совпадает с длиной кода.
-- Paste full code распределяет символы корректно.
-- Numeric OTP использует `autocomplete="one-time-code"` и `inputmode="numeric"`.
-- `error`, `expired`, `validating` и `disabled` states различимы.
-- Error text связан с control и не передается только цветом.
-- Resend action и cooldown доступны keyboard и screen reader.
-- Компонент использует документированные `verification-code/*` tokens и foundation rules для token gaps.
-- AI-generated drafts не добавляют security behavior, token paths или validation rules без review.
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
 
 ---
 
 ## 11. AI usage rules
 
-- AI может использовать Verification Code только для коротких одноразовых кодов фиксированной длины.
-- AI должен рекомендовать Text Field для длинных кодов, паролей и свободного ввода.
-- AI не должен придумывать code length, retry rules, expiry time, masking, token paths или backend validation behavior.
-- AI должен проверять `tokens.json` перед изменением Verification Code token mappings.
-- AI должен помечать missing paste behavior, missing expiry/resend rules, unclear validation flow, inaccessible cells или unsupported security behavior как `Needs system review`.
-- AI может подготовить Handoff notes, validation copy и acceptance criteria, но финальное решение остается за человеком.
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
 
 ---
 
-## 12. Examples
+## 12. Примеры
 
 ### Корректно
 
-| Сценарий | Использование |
+| Сценарий | Почему |
 | --- | --- |
-| SMS OTP | `type=numeric`, `length=6`, `autocomplete="one-time-code"` |
-| Email code | `type=alphanumeric`, `length=6`, paste supported |
-| Transaction approval | `type=numeric`, `length=6`, manual submit |
-| PIN setup | `type=pin`, `masked=true`, security rules documented |
-| Expired code | `expired=true`, resend action и clear recovery text |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
 
 ### Требует review
 
-| Сценарий | Причина |
+| Сценарий | Риск |
 | --- | --- |
-| 12-символьный recovery code в отдельных cells | Лучше Text Field |
-| Auto-submit без duplicate guard | Риск повторных запросов |
-| Error очищает код сразу | Пользователь не может исправить один символ |
-| Resend без cooldown в security flow | Требуется product/security rule |
-| AI задает expiry 30 секунд без требования | Придуманное security behavior |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
 
 ---
 
 ## 13. Anti-patterns
 
-- Использовать Verification Code для пароля.
-- Делать каждую cell отдельным тупиковым focus trap.
-- Не поддерживать paste full code.
-- Показывать ошибку только красной рамкой.
-- Автоматически стирать код без понятной причины.
-- Прятать resend action или timer от keyboard users.
-- Создавать raw colors, ad hoc cell spacing или недокументированные token names.
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.

@@ -2,323 +2,359 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-28
+> **Figma** · [Timeline](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6672-242)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles / Принципы использования
 
 ### Что это
 
-Timeline — data display-компонент для последовательного отображения событий, изменений или этапов во времени. Он помогает прочитать историю объекта, ход процесса или цепочку действий в хронологическом порядке.
+Timeline — компонент для последовательного отображения событий, изменений, этапов или действий во времени. Он помогает прочитать историю объекта, audit log, lifecycle процесса или инцидент как упорядоченную цепочку.
+
+В SEDA AI Timeline является chronology contract: он должен явно описывать порядок событий, direction, item state, timestamp, marker, connector, token mapping и accessibility. AI может помогать структурировать события и handoff notes, но не должен превращать Timeline в Stepper, Chart или декоративную инфографику без данных.
 
 ### Когда использовать
 
-**Используйте** — когда порядок событий важен для понимания:
+Используйте Timeline, когда:
 
-- история изменений объекта;
-- audit log;
-- lifecycle заявки, заказа, сделки или задачи;
-- цепочка событий в инциденте;
-- действия пользователя или системы;
-- процесс с прошлыми, текущими и будущими этапами;
-- комментарии или сообщения, если требуется явная временная ось.
+- порядок событий важен для понимания;
+- нужно показать историю изменений объекта;
+- нужен audit log или activity history;
+- нужно показать lifecycle заявки, заказа, сделки, задачи или инцидента;
+- события имеют timestamp, actor, source или status;
+- процесс содержит прошедшие, текущие и будущие этапы, но не является активной пошаговой навигацией;
+- комментарии или сообщения требуют явной временной оси.
 
-**Не используйте:**
+### Не используйте
 
-- Для активной пошаговой навигации — используйте **Stepper**.
-- Для измеримого выполнения операции — используйте **Progress Bar**.
-- Для неизвестной загрузки — используйте **Spinner** или **Skeleton** по контексту.
-- Для сравнения нескольких временных рядов — используйте Chart.
-- Для простой таблицы событий, где важнее сортировка, фильтры и плотность — используйте **Table**.
+Не используйте Timeline, когда:
+
+- нужна активная пошаговая навигация — используйте Stepper;
+- нужно показать измеримый прогресс операции — используйте Progress Bar;
+- нужно показать загрузку без известного порядка — используйте Spinner или Skeleton;
+- нужно сравнить несколько временных рядов — используйте Chart;
+- важнее сортировка, фильтры и плотность данных — используйте Table;
+- список не имеет временного или процессного порядка;
+- каждый item превращается в отдельную сложную карточку с множеством действий.
 
 ### Основные принципы
 
 - **Chronology first** — порядок событий должен быть однозначным.
-- **State needs text** — `current`, `completed`, `error` и `disabled` не передаются только цветом.
-- **Connector is structural** — линия помогает читать последовательность, но не должна быть единственным носителем смысла.
-- **Content stays scannable** — title, description и timestamp следуют [foundation/content.md](../foundation/content.md).
-- **Accessibility preserves order** — чтение через assistive technologies должно соответствовать визуальному порядку по [foundation/accessibility.md](../foundation/accessibility.md).
+- **Direction is explicit** — newest-first или oldest-first фиксируется в handoff.
+- **State needs text** — `current`, `completed`, `error` и `upcoming` не передаются только цветом.
+- **Connector is structural** — линия помогает читать последовательность, но не несет смысл без текста.
+- **Timestamp is part of meaning** — дата, время, timezone и relative time должны быть согласованы.
+- **Content stays scannable** — item не должен становиться тяжелее table row без причины.
+- **AI assists, system governs** — AI может предложить структуру событий, но использует только documented variants, states, props и tokens.
+
+### Связанные спецификации
+
+- [Table](table.md) — плотный audit log с сортировкой и фильтрами.
+- [Tag](tag.md) — status внутри timeline item.
+- [Badge](badge.md) — count/status signal на host-элементе.
+- [Skeleton](../feedback/skeleton.md) — loading state для timeline items.
+- [Spinner](../feedback/spinner.md) — короткое ожидание загрузки.
 
 ---
 
-## 2. Anatomy
+## 2. Anatomy / Анатомия
 
-```text
-●  Title
-│  Description · Timestamp
-│
-●  Title
-│  Description · Timestamp
-│
-●  Title (current)
-```
+| Slot | Обязательность | Описание |
+|---|---:|---|
+| `root` | Да | Контейнер Timeline. |
+| `item` | Да | Одно событие или этап последовательности. |
+| `point` | Да | Маркер состояния или типа события. |
+| `connector` | Условно | Линия между items; скрывается у одиночного item и последнего item. |
+| `title` | Да | Название события или этапа. |
+| `description` | Нет | Контекст события, причина, результат или actor. |
+| `timestamp` | Условно | Дата, время, relative time или duration. |
+| `content` | Нет | Дополнительные metadata, actions или вложенные детали. |
+| `statusText` | Условно | Текст для `current`, `completed`, `error`, `upcoming` или `disabled`. |
 
-| Часть | Обязательность | Описание |
-| --- | --- | --- |
-| `root` | yes | Timeline container |
-| `item` | yes | One event or step in the sequence |
-| `point` | yes | Marker for the item state or type |
-| `connector` | conditional | Line between items |
-| `title` | yes | Event name or step name |
-| `description` | optional | Supporting context |
-| `timestamp` | optional | Date, time, relative time, or duration |
-| `content` | optional | Extra content such as metadata, actions, or nested details |
-| `statusText` | conditional | Text label for current, completed, error, or disabled state |
+### Правила анатомии
 
-### Правила anatomy
-
-- Each item needs a title.
-- Timestamp is recommended for event history and audit logs.
-- Connector is hidden for a single-item Timeline.
-- Additional content should not make each item harder to scan than a table row.
+- Каждый item должен иметь `title`.
+- `timestamp` рекомендуется для истории, audit log и activity feed.
+- `connector` декоративен для screen reader и не должен объявляться как content.
+- `statusText` обязателен, если state влияет на понимание процесса.
+- `content` не должен превращать каждый item в перегруженную карточку.
+- Nested actions внутри item должны ссылаться на собственные component specs.
 
 ---
 
-## 3. Types / Variants
+## 3. Types / Variants / Варианты
 
 ### Orientation
 
-| Orientation | Description | Use |
-| --- | --- | --- |
-| `vertical` | Events read top-to-bottom | Default and most product contexts |
-| `horizontal` | Events read left-to-right | Short sequences with few items and enough width |
+| Orientation | Когда использовать | Правило |
+|---|---|---|
+| `vertical` | Большинство продуктовых сценариев, audit log, activity history. | Читается сверху вниз. |
+| `horizontal` | Короткие последовательности с 3-5 items и достаточной шириной. | На narrow viewport может перейти в vertical. |
 
 ### Marker variants
 
-| Marker | Description | Use |
-| --- | --- | --- |
-| `dot` | Simple point marker | Default event marker |
-| `icon` | Icon communicates event type | Status, system event, user action |
-| `number` | Sequential number | Ordered process or checklist |
-| `avatar` | Actor avatar | Activity feed with user authors |
+| Marker | Когда использовать | Ограничение |
+|---|---|---|
+| `dot` | Базовый marker события. | Default. |
+| `icon` | Тип события важен для сканирования. | Icon не заменяет title/status text. |
+| `number` | Нужна явная последовательность шагов. | Не превращать в Stepper без navigation behavior. |
+| `avatar` | Важен actor события. | Нужен текстовый actor рядом или в description. |
 
 ### Item states
 
-| State | Description | Required content |
-| --- | --- | --- |
-| `default` | Normal event or upcoming item | Title |
-| `completed` | Finished event or step | Status text or clear copy |
-| `current` | Active/current step | Text label such as `Текущий этап` |
-| `error` | Failed or problematic event | Error explanation |
-| `disabled` | Unavailable or inactive future item | Reason when not obvious |
+| State | Значение | Required content |
+|---|---|---|
+| `default` | Нейтральное событие или обычный item. | Title. |
+| `upcoming` | Будущий этап в Figma variant. | Title и, если нужно, expected date. |
+| `completed` | Этап завершен. | Status text, если completion влияет на смысл. |
+| `current` | Текущий активный этап. | Текст `Текущий этап` или `aria-current`. |
+| `error` | Событие завершилось ошибкой или требует внимания. | Error explanation. |
+| `disabled` | Недоступный или inactive item. | Причина, если неочевидно. |
 
 ---
 
-## 4. Sizes
+## 4. Sizes / Размеры
 
-Timeline size describes density and marker scale. It does not change chronology or state semantics.
-
-| Size | Marker | Connector | Content density | Use |
-| --- | --- | --- | --- | --- |
-| `compact` | Small dot/icon | Thin connector | Title and timestamp only or short description | Tables, side panels, dense logs |
-| `medium` | Default dot/icon | Default connector | Title, description, timestamp | Default product UI |
-| `large` | Larger marker/icon/avatar | Default or emphasized connector | Rich content, metadata, actions | Detail pages and incident timelines |
+| Size | Когда использовать | Правило |
+|---|---|---|
+| `s` | Dense logs, side panels, compact cards. | Минимальная плотность. |
+| `m` | Базовый product UI. | Default для большинства случаев. |
+| `l` | Detail pages и incident timelines. | Позволяет больше description/content. |
+| `xl` | Timeline является главным содержанием секции. | Использовать редко, для rich content. |
 
 ### Правила размеров
 
-- Use `medium` by default.
-- Use `compact` when the Timeline is embedded in a dense surface.
-- Use `large` only when Timeline is the primary content of the page or section.
-- Do not create custom marker sizes without a documented component token or foundation mapping.
+- Size управляет плотностью, marker scale и spacing, а не смыслом состояния.
+- В одной Timeline используйте один size.
+- `xl` не должен использоваться для плотных audit logs.
+- Marker size, connector width, item gap, typography и content gap пока задаются foundation rules и Figma variants, а не отдельными component tokens.
 
 ---
 
-## 5. States
+## 5. States / Состояния
 
-| State | Meaning | Visual and content rule |
-| --- | --- | --- |
-| `default` | Event is neutral or upcoming | Default point and connector |
-| `completed` | Event or step is done | Completed point and connector; label if state matters |
-| `current` | Active event or current step | Current point; visible current text |
-| `error` | Event failed or needs attention | Error point plus error text |
-| `disabled` | Item is unavailable or inactive | Disabled point/text; explain if needed |
+| State | Visual role | Content rule |
+|---|---|---|
+| `default` | Neutral point и connector. | Обычное событие. |
+| `upcoming` | Future/inactive point. | Будущий этап должен быть понятен из текста. |
+| `completed` | Completed point и connector. | Completion state не должен быть только цветом. |
+| `current` | Current point. | Нужен visible text или `aria-current`. |
+| `error` | Error point. | Нужен error title/description. |
+| `disabled` | Disabled point/text. | Нужна причина, если item видим, но недоступен. |
 
 ### State rules
 
-- `error` requires text, not only danger color.
-- `current` must be identifiable without relying only on color.
-- `completed` should not be used for events that simply occurred if completion state is irrelevant.
-- If users can move between steps, use Stepper or a workflow component instead.
+- `error` требует текстового объяснения.
+- `current` должен быть заметен без опоры только на цвет.
+- `completed` не нужен для каждого события, которое просто произошло; используйте его только для process stages.
+- `upcoming` используется для будущих этапов, а не для неизвестных данных.
+- Если пользователь может переходить между этапами, нужен Stepper или отдельный workflow pattern.
 
 ---
 
-## 6. Behavior
+## 6. Behavior / Поведение
 
 ### Ordering
 
-- Timeline must preserve chronological or process order.
-- Default order should be newest-first or oldest-first based on product context, and handoff must state which order is used.
-- Do not mix chronological directions in one Timeline.
+- Timeline должен сохранять хронологический или процессный порядок.
+- Handoff должен указывать order: `newestFirst` или `oldestFirst`.
+- Нельзя смешивать направления порядка в одной Timeline.
+- Если события grouped by date, порядок внутри группы тоже должен быть указан.
 
 ### Layout behavior
 
-- Vertical Timeline places connector along the item sequence.
-- Horizontal Timeline is limited to short sequences; long horizontal timelines should scroll only if the product context requires it.
-- Long timelines should support pagination, lazy loading, grouping by date, or virtualization outside the component.
-- Timestamp alignment should stay consistent within one Timeline.
+- Vertical Timeline размещает connector вдоль последовательности items.
+- Horizontal Timeline подходит только для коротких последовательностей.
+- Long Timeline должен иметь pagination, lazy loading, grouping или virtualization вне базового компонента.
+- Timestamp alignment должен быть стабильным внутри одной Timeline.
+- Connector и point должны оставаться выровненными после переноса title/description.
 
 ### Interaction behavior
 
-- Timeline itself is non-interactive by default.
-- Item content may contain Links or Buttons, but their behavior belongs to those nested components.
-- Expand/collapse, filtering, and sorting are pattern-level behaviors and must be documented in handoff when used.
+- Timeline по умолчанию non-interactive.
+- Item может содержать Links, Buttons, Tags или metadata, но их behavior принадлежит вложенным компонентам.
+- Expand/collapse, filtering и sorting являются pattern-level behavior и должны быть описаны отдельно.
+- Если Timeline item кликабелен целиком, handoff должен описывать target, focus ring и nested interaction strategy.
 
 ### Responsive behavior
 
-- Horizontal Timeline may switch to vertical on narrow viewports.
-- Rich item content should stack below title and timestamp on small screens.
-- Connector and point must remain aligned after wrapping.
+- Horizontal Timeline может переходить в vertical на narrow viewports.
+- Rich content складывается под title/timestamp на small screens.
+- Long titles переносятся или сокращаются по documented truncation rule.
+- DOM order должен соответствовать визуальному порядку после responsive switch.
 
 ---
 
 ## 7. Accessibility
 
-Timeline follows [foundation/accessibility.md](../foundation/accessibility.md).
+Timeline должен следовать [foundation/accessibility.md](../../foundation/accessibility.md). Порядок чтения, state и timestamp должны быть доступны как текст.
 
-| Требование | Правило |
-| --- | --- |
-| Reading order | DOM order matches visual order |
-| Structure | Use list semantics when Timeline is a list of events |
-| Decorative connector | Hide connector lines from assistive technologies |
-| Marker | Hide decorative markers or provide status text when marker has meaning |
-| Current item | Expose current state through text or `aria-current` when appropriate |
-| Error item | Provide error text, not only color or icon |
-| Timestamp | Use machine-readable date/time where practical |
+| Сценарий | Требование | Пример |
+|---|---|---|
+| Reading order | DOM order соответствует визуальному order. | `oldestFirst` или `newestFirst` не меняется случайно. |
+| Structure | Используйте list semantics для списка событий. | `<ol>` для ordered process, `<ul>` для activity history. |
+| Connector | Decorative connector скрыт от assistive tech. | `aria-hidden="true"`. |
+| Marker | Decorative marker скрыт или имеет text equivalent. | Error marker сопровождается error text. |
+| Current item | Current state доступен текстом. | `aria-current="step"` или visible `Текущий этап`. |
+| Timestamp | Дата/время понятны и машиночитаемы, где возможно. | `<time dateTime="2026-05-28T10:00:00+03:00">`. |
 
 ### Accessibility checklist
 
-- [ ] Timeline items are readable in correct order.
-- [ ] Connector lines are not announced as content.
-- [ ] Current/completed/error states have text equivalents.
-- [ ] Nested interactive elements follow their own specs.
-- [ ] Timestamps are understandable and consistently formatted.
-- [ ] Horizontal layout does not create inaccessible reading order.
+- [ ] Items читаются в правильном порядке.
+- [ ] Connector lines не объявляются как content.
+- [ ] Current/completed/error/upcoming states имеют text equivalent.
+- [ ] Nested interactive elements следуют своим specs.
+- [ ] Timestamp format согласован и понятен.
+- [ ] Horizontal layout не ломает reading order.
+- [ ] Error item содержит объяснение, а не только цвет или icon.
+- [ ] Actor/avatar имеет текстовое представление, если actor важен.
 
 ---
 
 ## 8. Design Tokens
 
-Пути ниже сверены с `tokens.json`.
+Перед изменением этого раздела нужно сверять реальные component tokens в `tokens.json`. Для Timeline доступны component tokens в namespace `timeline`.
 
-| Role | Component token | Semantic |
-| --- | --- | --- |
-| Connector default | `timeline/connector/default` | `border/default` |
-| Connector completed | `timeline/connector/completed` | `border/brand/default` |
-| Connector disabled | `timeline/connector/disabled` | `status/disabled/border` |
-| Point default | `timeline/point/default` | `container/neutral/default` |
-| Point current | `timeline/point/current` | `container/brand/default` |
-| Point completed | `timeline/point/completed` | `container/brand/default` |
-| Point error | `timeline/point/error` | `container/danger/default` |
-| Point disabled | `timeline/point/disabled` | `status/disabled/container` |
-| Title foreground | `timeline/title/foreground` | `text/primary` |
-| Title disabled | `timeline/title/disabled` | `status/disabled/text` |
-| Description foreground | `timeline/description/foreground` | `text/secondary` |
-| Description disabled | `timeline/description/disabled` | `status/disabled/text` |
-| Timestamp foreground | `timeline/timestamp/foreground` | `text/tertiary` |
+| Component token | Роль | Semantic mapping |
+|---|---|---|
+| `timeline/connector/default` | Default connector. | `border/default` |
+| `timeline/connector/completed` | Completed connector. | `border/brand/default` |
+| `timeline/connector/disabled` | Disabled connector. | `status/disabled/border` |
+| `timeline/point/default` | Default point. | `container/neutral/default` |
+| `timeline/point/current` | Current point. | `container/brand/default` |
+| `timeline/point/completed` | Completed point. | `container/brand/default` |
+| `timeline/point/error` | Error point. | `container/danger/default` |
+| `timeline/point/disabled` | Disabled point. | `status/disabled/container` |
+| `timeline/title/foreground` | Title color. | `text/primary` |
+| `timeline/title/disabled` | Disabled title color. | `status/disabled/text` |
+| `timeline/description/foreground` | Description color. | `text/secondary` |
+| `timeline/description/disabled` | Disabled description color. | `status/disabled/text` |
+| `timeline/timestamp/foreground` | Timestamp color. | `text/tertiary` |
 
 ### Token gaps
 
-- Timeline does not currently have component tokens for marker size, connector width, item gap, content gap, radius, or typography.
-- Use foundation spacing, radius, typography, and iconography roles until component-level Timeline tokens are introduced.
-- Do not invent Timeline token names in specs, code, Figma, or AI-generated handoff.
+- Timeline пока не имеет component tokens для marker size, connector width, item gap, content gap, radius, typography, avatar size и horizontal spacing.
+- `upcoming` в Figma должен использовать documented default/disabled visual mapping до появления отдельного component token.
+- Не придумывайте новые Timeline token paths без обновления `tokens.json` и Figma bindings.
 
 ---
 
 ## 9. Code mapping
 
-| Design concept | Suggested prop / API | Примечания |
-| --- | --- | --- |
-| Items | `items` | Array of timeline events |
-| Orientation | `orientation` | `vertical`, `horizontal` |
-| Size | `size` | `compact`, `medium`, `large` |
-| Marker | `marker` | `dot`, `icon`, `number`, `avatar` |
-| Item state | `state` | `default`, `completed`, `current`, `error`, `disabled` |
-| Title | `title` | Required per item |
-| Description | `description` | Optional |
-| Timestamp | `timestamp` | Optional visible value |
-| Datetime | `dateTime` | Machine-readable value when available |
-| Content | `content` | Optional slot |
+| Spec concept | Code prop / attribute | Notes |
+|---|---|---|
+| Items | `items` | Массив timeline events. |
+| Orientation | `orientation` | Values: `vertical`, `horizontal`. |
+| Size | `size` | Values: `s`, `m`, `l`, `xl`. |
+| Marker | `marker` | Values: `dot`, `icon`, `number`, `avatar`. |
+| Item state | `items[].state` | Values: `default`, `upcoming`, `completed`, `current`, `error`, `disabled`. |
+| Title | `items[].title` | Обязателен. |
+| Description | `items[].description` | Optional context. |
+| Timestamp | `items[].timestamp` | Visible date/time/relative time. |
+| Datetime | `items[].dateTime` | Machine-readable value. |
+| Actor | `items[].actor` | Для activity feed. |
+| Content | `items[].content` | Optional slot. |
+| Order | `order` | Values: `newestFirst`, `oldestFirst`. |
 
 ### Contract rules
 
-- Each item must have a title.
-- Item state must use documented values only.
-- Timeline orientation must be documented for responsive behavior.
-- Do not pass raw marker colors or connector colors through props.
-- Не используйте Timeline как Stepper, если navigation behavior не описан явно в другом месте.
+- Каждый item должен иметь `title`.
+- `items[].state` должен использовать documented values.
+- `orientation` и responsive switch должны быть описаны в handoff.
+- Raw marker colors и connector colors через props запрещены.
+- Timeline не используется как Stepper, если navigation behavior не описан отдельным pattern.
+- `error` state требует error explanation.
 
 ---
 
 ## 10. Handoff notes
 
-В handoff нужно передать:
+Handoff для Timeline должен фиксировать:
 
-- chronological direction: newest-first or oldest-first;
-- orientation and responsive switch rules;
-- item structure and required fields;
-- marker type and state per item;
-- timestamp format and timezone rules;
-- grouping, pagination, lazy loading, or virtualization rules for long timelines;
-- nested interactions inside item content;
-- token mapping for connector, point, title, description, and timestamp;
-- token gaps for marker size, connector width, and spacing.
-
-### Acceptance criteria
-
-- Timeline displays events in a clear chronological or process order.
-- Each item has a title.
-- Current, completed, error, and disabled states are not communicated by color alone.
-- DOM order matches visual reading order.
-- Connector and point colors use documented component tokens.
-- Long timelines have a documented loading or pagination strategy.
-- Timeline is not used for active step navigation without a Stepper pattern.
+- chronological direction: `newestFirst` или `oldestFirst`;
+- orientation и responsive switch rules;
+- item structure и required fields;
+- marker type и state для каждого item;
+- timestamp format, timezone и relative time rules;
+- actor/source, если событие создано пользователем или системой;
+- grouping, pagination, lazy loading или virtualization rules для long timelines;
+- nested interactions внутри item content;
+- token mapping для connector, point, title, description и timestamp;
+- token gaps для marker size, connector width и spacing.
 
 ---
 
-## 11. AI usage rules
+## 11. Acceptance criteria
 
-- AI may use Timeline only for chronological events, audit history, activity feeds, or process history.
-- AI must recommend Stepper for active step navigation.
-- AI must recommend Progress Bar for measurable operation progress.
-- AI must not invent Timeline states, marker variants, token paths, or raw colors.
-- AI must check `tokens.json` before changing Timeline token mappings.
-- AI must flag missing item title, unclear chronological order, status-by-color-only, inaccessible horizontal order, or unsupported interaction as `Needs system review`.
-- AI may draft item structure, handoff notes, and acceptance criteria, but human review is required.
+- [ ] Timeline отображает события в понятном chronological или process order.
+- [ ] Handoff фиксирует `newestFirst` или `oldestFirst`.
+- [ ] Каждый item имеет title.
+- [ ] Timestamp есть для audit/history сценариев.
+- [ ] Current, completed, error и upcoming states не передаются только цветом.
+- [ ] Error item содержит explanation.
+- [ ] DOM order соответствует visual reading order.
+- [ ] Connector и point используют реальные Timeline component tokens.
+- [ ] Long Timeline имеет documented loading/pagination/grouping strategy.
+- [ ] Timeline не используется для active step navigation без Stepper pattern.
 
 ---
 
-## 12. Examples
+## 12. AI usage rules
+
+AI может:
+
+- предложить структуру timeline items по истории событий;
+- проверить, нужен ли Timeline, Table, Stepper, Progress Bar или Chart;
+- подготовить chronological order, grouping и timestamp rules;
+- сформировать handoff notes и acceptance criteria;
+- найти missing title, missing timestamp, unclear order, inaccessible state и token gaps.
+
+AI не должен:
+
+- использовать Timeline для unordered list;
+- использовать Timeline как clickable wizard navigation вместо Stepper;
+- использовать Timeline как Progress Bar или Chart;
+- придумывать states, marker variants, token paths или raw colors;
+- передавать current/error/completed state только цветом;
+- менять chronological direction без явного product rule.
+
+Если Timeline описывает audit, incident, legal, access, payment или security events, AI должен пометить сценарий как `Needs system review`.
+
+---
+
+## 13. Examples / Примеры
 
 ### Корректно
 
-| Scenario | Usage |
-| --- | --- |
-| Audit log | Vertical Timeline, timestamp on each item, newest-first |
-| Order lifecycle | `completed`, `current`, and `default` states with text labels |
-| Incident history | Error event includes explanation and timestamp |
-| Activity feed | Avatar marker with actor, action title, and time |
+| Сценарий | Решение |
+|---|---|
+| Audit log объекта. | Vertical Timeline, timestamp на каждом item, `newestFirst`. |
+| Lifecycle заказа. | `completed`, `current`, `upcoming` states с текстовыми labels. |
+| Incident history. | Error item содержит explanation и timestamp. |
+| Activity feed. | Avatar marker с actor, action title и time. |
 
 ### Требует review
 
-| Scenario | Reason |
-| --- | --- |
-| Timeline used as clickable wizard navigation | Stepper is likely required |
-| Error item shown only as red point | Status is color-only |
-| Horizontal Timeline with 20 items on mobile | Reading and interaction risk |
-| Events sorted inconsistently | Chronology becomes unclear |
+| Сценарий | Что проверить |
+|---|---|
+| Timeline используется как wizard navigation. | Вероятно нужен Stepper. |
+| Error item показан только красной точкой. | Status передан только цветом. |
+| Horizontal Timeline содержит 20 items на mobile. | Риск reading order и overflow. |
+| Events отсортированы непоследовательно. | Chronology становится неясной. |
 
 ---
 
-## 13. Anti-patterns
+## 14. Anti-patterns
 
-- Using Timeline for simple unordered lists.
-- Using Timeline instead of Table when sorting/filtering is primary.
-- Showing current/error/completed states only through color.
-- Mixing newest-first and oldest-first in one view.
-- Adding interactive step navigation without Stepper behavior.
-- Creating custom marker colors outside component tokens.
-- Rendering decorative connector lines as screen reader content.
+- Использовать Timeline для простого unordered list.
+- Использовать Timeline вместо Table, когда важны sorting/filtering.
+- Показывать current/error/completed states только цветом.
+- Смешивать newest-first и oldest-first в одном view.
+- Добавлять active step navigation без Stepper behavior.
+- Создавать custom marker colors вне component tokens.
+- Рендерить decorative connector lines как screen reader content.
+- Делать каждый item тяжелой Card без причины.

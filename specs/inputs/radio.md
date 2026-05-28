@@ -1,138 +1,263 @@
 # Radio
 
-> **Category** · Inputs & Forms
+> **Category** · Inputs
 > **Version** · 1.0
-> **Status** · needs-review
+> **Status** · draft
 > **Owner** · TBD
-> **Last reviewed** · 2026-05-09
-> **Figma** · [ссылка на фрейм компонента]
+> **Last reviewed** · 2026-05-29
+> **Figma** · [radio](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1082-14510)
 
 ---
 
-## 1. Key Principles of Use
+## 1. Key Principles
 
-### What it is
+### Что это
 
-Radio — элемент выбора одного значения из группы взаимоисключающих вариантов. Всегда используется в составе Radio Group — одиночный Radio без группы не имеет смысла.
+Radio — контрол выбора одного значения из взаимоисключающей группы. В SEDA AI этот компонент описывается как часть AI-ready design system framework: спецификация фиксирует назначение, variants, states, props, token mapping, accessibility, handoff и правила использования AI.
 
-### When to use
+AI может помогать с черновиками сценариев, текстов, acceptance criteria и handoff, но не заменяет дизайнера и разработчика. Финальное решение по поведению, доступности, токенам и соответствию продуктовой задаче остается за человеком.
 
-**Use** — когда нужно выбрать ровно один вариант из 2–7 взаимоисключающих; когда все варианты должны быть видны одновременно; для настроек и параметров.
+### Когда использовать
 
-**Do not use:**
-- Для множественного выбора — используйте **Checkbox**
-- Для мгновенного переключения настройки — используйте **Toggle**
-- Более 7 вариантов — используйте **Select**
+Используйте Radio, когда все варианты должны быть видимы и пользователь выбирает ровно один вариант.
 
-### Core principles
+### Когда не использовать
 
-- **Всегда в группе** — Radio без группы теряет семантику
-- **Один выбран всегда** — в группе всегда должен быть выбранный вариант (или явное «не выбрано»)
-- **Видимые варианты** — все опции видны без дополнительных действий
+Не используйте Radio, для независимых параметров используйте Checkbox; для длинного списка используйте Select; не используйте одиночный Radio без группы.
+
+### Ключевые принципы
+
+- **System before generation** — сначала используйте documented variants, states и props, затем формируйте UI.
+- **Tokens before visuals** — визуальные решения должны ссылаться на реальные tokens или явные token gaps.
+- **Components before custom UI** — не создавайте локальный паттерн, если системный компонент покрывает сценарий.
+- **State ownership is explicit** — компонент, родитель и вложенные controls должны владеть только своими состояниями.
+- **Documentation is source of truth** — Figma, code и handoff должны совпадать со spec.
+- **AI assists, system governs** — AI ускоряет аудит и черновики, но не придумывает новые правила.
 
 ---
 
 ## 2. Anatomy
 
-```
-(●)  Label text
-     Helper text
-```
+| Часть | Обязательность | Назначение |
+| --- | --- | --- |
+| `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `content` | условно | Основной текст, значение, список, область данных или slot. |
+| `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
+| `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
+| `helper` | опционально | Подсказка, ограничение или дополнительный контекст. |
+| `error` | условно | Ошибка или validation message, если сценарий поддерживает error state. |
 
-| Slot | Обязательность | Описание |
-|---|---|---|
-| `control` | required | Круглый контрол с точкой |
-| `label` | required | Текст варианта |
-| `helper-text` | optional | Подсказка под label |
+### Правила anatomy
+
+- Обязательные части должны быть видимыми или программно доступными.
+- Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
+- Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
+- Не добавляйте произвольные decorative slots без system review.
 
 ---
 
 ## 3. Types / Variants
 
-Radio имеет один тип. Варианты определяются состоянием (`selected` / `default`).
+Figma component set: `radio`. Variants: 16.
+
+| Property | Default | Options |
+| --- | --- | --- |
+| `size` | `s` | `l`, `m`, `s`, `xl` |
+| `state` | `default` | `default`, `hover` |
+| `turnOn` | `false` | `false`, `true` |
+
+### Boolean / slot properties
+
+| Property | Default | Options |
+| --- | --- | --- |
+| Нет boolean properties | - | Видимость slots задается props contract. |
+
+### Variant rules
+
+- Используйте только options, перечисленные в Figma metadata.
+- Если продуктовый сценарий требует нового variant, пометьте его как `Needs system review`.
+- Не смешивайте design-only labels и code API: code mapping должен явно указать соответствие.
 
 ---
 
 ## 4. Sizes
 
-| Size | Control size | Font / Line | Контекст |
-|---|---|---|---|
-| `small` | 14px | 12px / 16px | Компактные списки |
-| `medium` | 16px | 14px / 20px | Формы — дефолт |
-| `large` | 18px | 16px / 24px | Акцентные настройки |
-| `extraLarge` | 20px | 18px / 28px | Мобильные |
+Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
+
+| Правило | Требование |
+| --- | --- |
+| Consistency | Размер должен совпадать с соседними компонентами и layout density. |
+| Accessibility | Touch target и focus target должны оставаться доступными. |
+| Responsive | На узких экранах размер не должен ломать перенос текста и controls. |
+| Handoff | Любое отличие от Figma size options фиксируется как token/layout gap. |
 
 ---
 
 ## 5. States
 
-### State matrix
+Состояния берутся из Figma variants, props contract и родительского сценария.
 
-| Состояние | Описание | Визуальное изменение |
-|---|---|---|
-| `default` | Не выбран | Пустой контрол, граница |
-| `hover` | Курсор над элементом | Фон `container/neutral/hover` |
-| `focus` | Фокус клавиатуры | Кольцо `focus/ring` |
-| `selected` | Выбран | Заливка `container/brand/default`, точка |
-| `error` | Ошибка в группе | Граница `status/danger/border` |
-| `disabled` | Недоступен | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
-
----
-
-## 6. Details on Types / Variants
-
-Все Radio в группе разделяют один `name` атрибут. При выборе одного — остальные снимаются автоматически браузером (нативное поведение `<input type="radio">`).
+| State group | Что проверять |
+| --- | --- |
+| Default | Базовый вид и поведение без пользовательского взаимодействия. |
+| Hover / focus / active | Доступность с мыши, клавиатуры и touch, если состояние поддержано. |
+| Filled / selected / checked / open | Значение, выбранность или раскрытие должны быть программно доступны. |
+| Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
+| Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
+| Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
 
 ---
 
-## 7. Behavior
+## 6. Behavior
 
-### Keyboard interaction
-
-| Клавиша | Действие |
-|---|---|
-| `Tab` | Фокус на группу (на выбранный элемент) |
-| `↑` / `←` | Предыдущий вариант в группе |
-| `↓` / `→` | Следующий вариант в группе |
-| `Space` | Выбор сфокусированного варианта |
-
-> В Radio Group Tab перемещает фокус на всю группу, стрелки — внутри группы. Из группы выходят через Tab.
+- Поведение должно быть связано с конкретным user intent и не зависеть только от визуального состояния.
+- Keyboard behavior должен быть описан для всех интерактивных сценариев.
+- Изменение значения, открытия, выбора, ошибки или submit должно иметь owner: компонент, parent или form flow.
+- Данные пользователя не должны теряться при dismiss, navigation, reset или async update без явного правила.
+- Responsive behavior должен описывать перенос, collapse, scrolling или mobile adaptation.
 
 ---
 
-## 8. Accessibility
+## 7. Accessibility
 
-### Screen reader
+Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
-| Атрибут | Значение | Когда |
-|---|---|---|
-| `role="radiogroup"` | — | На контейнере группы |
-| `role="radio"` | — | Нативный `<input type="radio">` |
-| `aria-checked` | `true` / `false` | Состояние |
-| `aria-labelledby` | ID заголовка группы | Для группы |
+| Требование | Правило |
+| --- | --- |
+| Accessible name | Интерактивный компонент имеет видимый label или программное имя. |
+| Description | Helper, error и contextual text связываются с control программно, если они важны. |
+| Keyboard | Все действия доступны с клавиатуры в ожидаемом порядке. |
+| Focus | Focus indicator видим и не теряется при state changes. |
+| Error | Error state передается текстом, а не только цветом. |
+| Disabled | Причина недоступности понятна из контекста или helper text. |
 
----
+### Accessibility checklist
 
-## 9. Design Tokens
-
-| Component token | Роль | Semantic (Light) | Semantic (Dark) |
-|---|---|---|---|
-| `--radio-bg` | Фон unselected | `surface/base` | `surface/base` |
-| `--radio-bg-selected` | Фон selected | `container/brand/default` | `container/brand/default` |
-| `--radio-border` | Граница | `border/inverse` | `border/inverse` |
-| `--radio-dot` | Точка selected | `text/on-brand/primary` | `text/on-brand/primary` |
-| `--radio-border-error` | Граница error | `status/danger/border` | `status/danger/border` |
-| `--radio-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
-| `--radio-disabled-bg` | Фон disabled | `status/disabled/surface` | `status/disabled/surface` |
-| `--radio-label` | Цвет label | `text/primary` | `text/primary` |
-| `--radio-helper` | Цвет helper | `text/tertiary` | `text/tertiary` |
-
+- [ ] Есть accessible name.
+- [ ] Keyboard path описан и не содержит ловушек.
+- [ ] Focus state видим.
+- [ ] Error/disabled states объяснены текстом.
+- [ ] Важная информация не спрятана только в Tooltip.
+- [ ] Mobile и touch behavior не ломают доступность.
 
 ---
 
-## Related specifications / Связанные спецификации
+## 8. Design Tokens
 
-- [Checkbox](../specs/inputs/checkbox.md) — множественный выбор.
-- [Segmented Control](../specs/inputs/segmented-control.md) — компактный выбор режима.
-- [Form](../specs/overlays-layout/form.md) — группировка и validation.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`.
 
+| Token | Роль | Semantic mapping |
+| --- | --- | --- |
+| `$collections/components/$modes/Mode 1/radio/surface/default` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/radio/surface/selected` | Component token | `container/brand/default` |
+| `$collections/components/$modes/Mode 1/radio/dot/default` | Component token | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/radio/label/default` | Component token | `text/primary` |
+| `$collections/components/$modes/Mode 1/radio/label/disabled` | Component token | `status/disabled/text` |
+| `$collections/components/$modes/Mode 1/radio/helper/default` | Component token | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/radio/helper/error` | Component token | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/radio/focus/ring` | Component token | `focus/ring` |
+| `$collections/components/$modes/Mode 1/radio/disabled/surface` | Component token | `status/disabled/container` |
+| `$collections/components/$modes/Mode 1/radio/control/surface/default` | Component token | `surface/base` |
+| `$collections/components/$modes/Mode 1/radio/control/surface/hover` | Component token | `container/neutral/hover` |
+| `$collections/components/$modes/Mode 1/radio/control/surface/active` | Component token | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/radio/control/surface/selected` | Component token | `container/brand/default` |
+| `$collections/components/$modes/Mode 1/radio/control/surface/error` | Component token | `status/danger/container` |
+| `$collections/components/$modes/Mode 1/radio/control/surface/disabled` | Component token | `status/disabled/container` |
+| `$collections/components/$modes/Mode 1/radio/control/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/radio/control/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/radio/control/border/selected` | Component token | `border/brand/default` |
+| `$collections/components/$modes/Mode 1/radio/control/border/error` | Component token | `status/danger/border` |
+| `$collections/components/$modes/Mode 1/radio/control/border/disabled` | Component token | `status/disabled/border` |
+| `$collections/components/$modes/Mode 1/radio/control/dot/selected` | Component token | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/radio/control/dot/disabled` | Component token | `status/disabled/icon` |
+| `$collections/components/$modes/Mode 1/radio/control/dot/default` | Component token | `surface/base` |
+
+### Token gaps
+
+- Если нужного component token нет в таблице, используйте semantic token только с явной пометкой `Token gap`.
+- Не создавайте локальные color, spacing, radius, shadow или motion values без system review.
+- Component tokens являются source of truth для Figma, code и handoff.
+
+---
+
+## 9. Code mapping
+
+| Design concept | Suggested prop / API | Правило |
+| --- | --- | --- |
+| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Size | `size` | Использует documented size options. |
+| State | `state` или derived state | Не должен конфликтовать с controlled props. |
+| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
+| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
+| Error | `error` / `errorText` | Error state сопровождается текстом. |
+| Disabled | `disabled` | Не скрывает причину ограничения. |
+
+### Contract rules
+
+- Props должны соответствовать documented variants и states.
+- Unsupported requirements помечаются как `Needs system review`.
+- Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
+
+---
+
+## 10. Handoff notes
+
+В handoff нужно передать:
+
+- Figma component и node id: `1082:14510`;
+- используемые variants и boolean properties;
+- state matrix и owner каждого состояния;
+- content, labels, helper/error texts и empty/loading behavior;
+- token mapping и token gaps;
+- keyboard, focus и screen reader behavior;
+- responsive/mobile adaptation;
+- acceptance criteria для реализации и QA.
+
+### Acceptance criteria
+
+- Компонент использует только documented Figma variants и реальные tokens.
+- Все states имеют понятный owner и не конфликтуют с parent flow.
+- Accessibility requirements покрыты для keyboard, focus, labels и errors.
+- Handoff содержит props contract и token gaps.
+- AI-generated output не добавляет неподтвержденные variants, props или token names.
+
+---
+
+## 11. AI usage rules
+
+- AI может использовать только documented variants, states, props и реальные component tokens.
+- AI должен сверять `tokens.json` до написания или изменения Design Tokens.
+- AI должен проверять, не нужен ли вместо текущего компонента другой системный паттерн.
+- AI не должен придумывать token names, visual values, props или Figma variants.
+- AI должен помечать missing token, missing state, unclear owner, accessibility gap и unsupported behavior как `Needs system review`.
+- AI может подготовить draft copy, code mapping, handoff notes и acceptance criteria, но финальное решение остается за человеком.
+
+---
+
+## 12. Примеры
+
+### Корректно
+
+| Сценарий | Почему |
+| --- | --- |
+| Сценарий использует documented variant. | Сохраняется связь Figma, spec, code и handoff. |
+| Компонент передает ошибку текстом. | Error state доступен не только визуально. |
+| Responsive adaptation описана явно. | Разработчик понимает collapse, перенос или mobile behavior. |
+
+### Требует review
+
+| Сценарий | Риск |
+| --- | --- |
+| Нужен variant, которого нет в Figma. | Требуется system review и обновление component set. |
+| Используются raw colors или custom spacing. | Нарушается token contract. |
+| AI добавляет новый prop без spec. | Нет согласования design/code/handoff. |
+
+---
+
+## 13. Anti-patterns
+
+- Использовать компонент как generic container без его системного назначения.
+- Считать documented state только визуальным слоем.
+- Прятать обязательный label, error или instruction в Tooltip.
+- Добавлять неподтвержденные variants, props или token paths.
+- Передавать handoff без keyboard и accessibility behavior.
