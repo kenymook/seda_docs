@@ -19,7 +19,7 @@ Tabs — горизонтальный или вертикальный перек
 
 **Use** — для переключения между разделами с полноценным контентом: вкладки профиля (Основное / Безопасность / Уведомления), разделы объекта (Описание / Отзывы / Условия).
 
-**Don't use:**
+**Do not use:**
 - Для переключения режима отображения одних данных — используйте **Segmented Control**
 - Если вкладок больше 6–7 и они не помещаются — используйте **Select** или навигационное меню
 - Для wizard-потоков — используйте **Stepper**
@@ -130,7 +130,7 @@ Vertical:
 Самый нейтральный тип. Индикатор активного таба — линия снизу (horizontal) или слева (vertical). Цвет линии — `border/brand/default`. Не имеет фоновой заливки на активном табе.
 
 ### pill
-Активный таб обёрнут в заливку (капсула). Фон `container/default` или `container/brand/default` в зависимости от конфигурации темы. Неактивные табы прозрачны.
+Активный таб обёрнут в заливку (капсула). Фон `container/neutral/default` или `container/brand/default` в зависимости от конфигурации темы. Неактивные табы прозрачны.
 
 ### card
 Активный таб визуально «поднят» — рамка снизу у панели или тень. Создаёт ощущение вкладок браузера. Сложнее в поддержке тёмной темы — требует проверки контраста рамки.
@@ -206,11 +206,21 @@ Vertical:
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--tabs-pill-bg` | Фон активного `pill` таба | `container/default` | `container/default` |
-| `--tabs-pill-bg-hover` | Фон hover неактивного | `surface/hover` | `surface/hover` |
+| `--tabs-pill-bg` | Фон активного `pill` таба | `container/neutral/default` | `container/neutral/default` |
+| `--tabs-pill-bg-hover` | Фон hover неактивного | `surface/subtle` | `surface/subtle` |
 
 ### Shared
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
 | `--tabs-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Sidebar](../specs/navigation/sidebar.md) — навигация по разделам продукта.
+- [Stepper](../specs/navigation/stepper.md) — пошаговый процесс.
+- [Segmented Control](../specs/inputs/segmented-control.md) — выбор режима внутри текущего view.
+

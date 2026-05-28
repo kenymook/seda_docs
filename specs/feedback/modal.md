@@ -19,7 +19,7 @@ Modal — диалоговое окно, блокирующее взаимоде
 
 **Use** — для подтверждения необратимых действий; для форм, которые не умещаются инлайн; для фокусированных задач без смены страницы.
 
-**Don't use:**
+**Do not use:**
 - Для некритичных уведомлений — используйте **Toast** или **Alert**
 - Для длинного контента с прокруткой — рассмотрите отдельную страницу
 - Вложенные модалы — никогда
@@ -194,10 +194,20 @@ Modal — диалоговое окно, блокирующее взаимоде
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--modal-bg` | Фон диалога | `surface/default` | `surface/default` |
+| `--modal-bg` | Фон диалога | `surface/base` | `surface/base` |
 | `--modal-border` | Граница диалога | `border/default` | `border/default` |
-| `--modal-overlay` | Фон overlay | `shadow/darker` | `shadow/darker` |
-| `--modal-shadow` | Тень диалога | `shadow/darker` | `shadow/darker` |
+| `--modal-overlay` | Фон overlay | `shadow/overlay` | `shadow/overlay` |
+| `--modal-shadow` | Тень диалога | `shadow/overlay` | `shadow/overlay` |
 | `--modal-header-border` | Граница под header | `border/default` | `border/default` |
 | `--modal-footer-border` | Граница над footer | `border/default` | `border/default` |
 | `--modal-title` | Заголовок | `text/primary` | `text/primary` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Popover](../specs/feedback/popover.md) — неблокирующие contextual surfaces.
+- [Drawer](../specs/navigation/drawer.md) — боковая overlay-панель.
+- [Button](../specs/actions/button.md) — trigger и actions Modal.
+

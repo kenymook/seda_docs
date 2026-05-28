@@ -46,8 +46,8 @@ Markdown-документация должна описывать значени
 - `color/neutral/0`
 - `color/blue/50`
 - `font/body`
-- `space/16`
-- `border/radius/md`
+- `space/m`
+- border/radius/m
 
 Использовать:
 - Только внутри семантических токенов, токенов компонентов или foundation-документов.
@@ -63,11 +63,11 @@ Markdown-документация должна описывать значени
 
 Примеры:
 
-- `surface/default`
+- `surface/base`
 - `container/brand/default`
 - `border/hover`
 - `text/primary`
-- `status/error/text`
+- `status/danger/text`
 - `focus/ring`
 
 Использовать:
@@ -141,10 +141,10 @@ category / role / variant / state
 
 Примеры:
 
-- `surface/default`
-- `surface/brand/hover`
+- `surface/base`
+- `container/brand/hover`
 - `text/on-brand/primary`
-- `status/error/border`
+- `status/danger/border`
 - `link/visited-pressed`
 
 ### Токены Компонентов
@@ -182,7 +182,7 @@ CSS custom properties используют kebab-case:
 
 Не использовать для:
 - заливок кнопок и контролов, если есть `container`;
-- статусных сообщений, если есть `status/*`.
+- статусных сообщений, если есть status/*.
 
 ### `container`
 
@@ -219,7 +219,7 @@ CSS custom properties используют kebab-case:
 
 Не использовать для:
 - границ или фона;
-- статусного текста, если есть токен `status/*/text`.
+- статусного текста, если есть токен status/*/text.
 
 ### `link`
 
@@ -261,7 +261,7 @@ CSS custom properties используют kebab-case:
 - компонентов, которые перекрывают или визуально поднимаются над контентом.
 
 Примечание о текущем состоянии:
-- `shadow/base` и `shadow/darker` сейчас описаны в `theming.md`.
+- `shadow/ambient` и `shadow/overlay` сейчас описаны в `theming.md`.
 - Решение о глубине принимает `elevation.md`; shadow-токены остаются значениями реализации.
 
 ### `tag`
@@ -330,9 +330,9 @@ primitive token -> component token
 
 Известные расхождения документации и токенов, которые нужно убрать при работе над token pipeline:
 
-- Некоторые specs ссылаются на `status/error/container/default`, `status/error/container/hover`, `status/error/container/pressed`, хотя текущие semantic tokens используют `status/error/container` без суффиксов состояния.
-- Некоторые specs ссылаются на `border-radius-lg`; новые specs должны использовать `border/radius/*` из `radius-border.md`.
-- `shadow/base` и `shadow/darker` используются как semantic tokens; уровни глубины описаны в `elevation.md`.
+- Некоторые specs ссылаются на `status/danger/container`, `status/danger/container`, `status/danger/container`, хотя текущие semantic tokens используют `status/danger/container` без суффиксов состояния.
+- Некоторые specs ссылаются на `border-radius-lg`; новые specs должны использовать border/radius/* из `radius-border.md`.
+- `shadow/ambient` и `shadow/overlay` используются как semantic tokens; уровни глубины описаны в `elevation.md`.
 - `transparent` встречается в таблицах component tokens как semantic value; оставляем это как задокументированное исключение, пока token linting не поддерживает явные null/transparent значения.
 - `tokens.json` содержит более богатые данные по шрифтам, чем старые markdown-документы. Теперь `typography.md` является foundation-источником для типографических ролей.
 

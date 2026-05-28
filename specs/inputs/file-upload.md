@@ -19,7 +19,7 @@ File Upload — контрол загрузки файлов. Поддержив
 
 **Use** — для загрузки документов, изображений, медиафайлов; в профилях (аватар), формах подачи заявок, редакторах контента.
 
-**Don't use:**
+**Do not use:**
 - Когда нужно только сделать фото — используйте нативный `capture` инпут
 - Для загрузки больших файлов без прогресс-индикатора
 
@@ -65,7 +65,16 @@ File Upload — контрол загрузки файлов. Поддержив
 
 ## 4. Sizes
 
-Slider и File Upload не следуют стандартной size-системе. Размер задаётся через CSS/пропы конкретного проекта.
+File Upload follows the standard component size model.
+
+| Size | Use case | Expected composition |
+|---|---|---|
+| `s` | Dense forms, table/filter panels, compact inline upload | Compact button/inline layout, minimal helper text |
+| `m` | Default form usage | Standard inline/button layout and default dropzone density |
+| `l` | Prominent form sections | Larger dropzone with clearer icon, title, helper, and action spacing |
+| `xl` | Dedicated upload pages or empty states | Spacious dropzone for primary upload flows |
+
+Size must be exposed as a Figma component property and must affect spacing, min-height, icon sizing, and typography through existing system primitives and text styles. Do not create arbitrary one-off dimensions per variant.
 
 ---
 
@@ -133,4 +142,14 @@ Slider и File Upload не следуют стандартной size-систе
 | `--upload-text` | Цвет текста | `text/secondary` | `text/secondary` |
 | `--upload-progress` | Прогресс-бар | `container/brand/default` | `container/brand/default` |
 | `--upload-success` | Успех | `status/success/surface` | `status/success/surface` |
-| `--upload-error` | Ошибка | `status/error/surface` | `status/error/surface` |
+| `--upload-error` | Ошибка | `status/danger/surface` | `status/danger/surface` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Button](../specs/actions/button.md) — выбор файла и actions.
+- [Progress Bar](../specs/feedback/progress-bar.md) — прогресс загрузки.
+- [Alert](../specs/feedback/alert.md) — ошибки загрузки и validation.
+

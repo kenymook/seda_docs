@@ -19,7 +19,7 @@ Date Picker — контрол выбора даты из календарног
 
 **Use** — для выбора даты события, срока, периода; в формах бронирования, фильтрах, профилях.
 
-**Don't use:**
+**Do not use:**
 - Для выбора только месяца/года — используйте соответствующий тип
 - Когда дата вводится регулярно и известна точно — рассмотрите Text Field с маской
 
@@ -90,7 +90,7 @@ Calendar (открыт):
 | `focus` | Активно | `border/brand/default`, `focus/ring` |
 | `open` | Календарь открыт | Иконка активна, календарь visible |
 | `filled` | Дата выбрана | Дата в поле |
-| `error` | Невалидная дата | `status/error/border` |
+| `error` | Невалидная дата | `status/danger/border` |
 | `disabled` | Недоступен | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
 
 ---
@@ -142,10 +142,20 @@ Calendar (открыт):
 |---|---|---|---|
 | `--datepicker-border` | Граница инпута | `border/default` | `border/default` |
 | `--datepicker-border-focus` | Граница focus | `border/brand/default` | `border/brand/default` |
-| `--datepicker-calendar-bg` | Фон календаря | `surface/default` | `surface/default` |
-| `--datepicker-day-hover` | Hover дня | `surface/hover` | `surface/hover` |
+| `--datepicker-calendar-bg` | Фон календаря | `surface/base` | `surface/base` |
+| `--datepicker-day-hover` | Hover дня | `surface/subtle` | `surface/subtle` |
 | `--datepicker-day-selected` | Выбранный день | `container/brand/default` | `container/brand/default` |
 | `--datepicker-day-selected-text` | Текст выбранного | `text/on-brand/primary` | `text/on-brand/primary` |
 | `--datepicker-range-bg` | Фон диапазона | `container/brand/default` | `container/brand/default` |
 | `--datepicker-day-today` | Обводка сегодня | `border/brand/default` | `border/brand/default` |
 | `--datepicker-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Text Field](../specs/inputs/text-field.md) — ручной ввод даты.
+- [Popover](../specs/feedback/popover.md) — раскрываемая календарная панель.
+- [Form](../specs/overlays-layout/form.md) — validation и layout.
+

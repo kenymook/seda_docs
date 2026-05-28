@@ -19,7 +19,7 @@ Select — выпадающий список для выбора одного и
 
 **Use** — когда вариантов больше 5–7 и они не умещаются как Radio/Checkbox; когда нужен выпадающий список как часть формы; для множественного выбора с тегами.
 
-**Don't use:**
+**Do not use:**
 - Менее 5 вариантов и достаточно места — используйте **Radio** (single) или **Checkbox** (multi)
 - Для навигационных действий — используйте **Dropdown / Menu**
 - Для переключения режимов — используйте **Segmented Control**
@@ -95,7 +95,7 @@ Dropdown (открыт):
 | `focus` | Фокус на триггере | `border/brand/default`, `focus/ring` |
 | `open` | Список раскрыт | Стрелка вверх, dropdown visible |
 | `filled` | Выбрано значение | Значение отображается в триггере |
-| `error` | Ошибка валидации | `status/error/border` |
+| `error` | Ошибка валидации | `status/danger/border` |
 | `disabled` | Недоступен | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
 
 ---
@@ -145,15 +145,25 @@ Dropdown (открыт):
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--select-bg` | Фон триггера | `surface/default` | `surface/default` |
+| `--select-bg` | Фон триггера | `surface/base` | `surface/base` |
 | `--select-border` | Граница default | `border/default` | `border/default` |
 | `--select-border-focus` | Граница focus | `border/brand/default` | `border/brand/default` |
-| `--select-border-error` | Граница error | `status/error/border` | `status/error/border` |
+| `--select-border-error` | Граница error | `status/danger/border` | `status/danger/border` |
 | `--select-text` | Текст значения | `text/primary` | `text/primary` |
 | `--select-placeholder` | Placeholder | `text/muted` | `text/muted` |
 | `--select-arrow` | Цвет стрелки | `text/tertiary` | `text/tertiary` |
-| `--select-dropdown-bg` | Фон выпадающего | `surface/default` | `surface/default` |
-| `--select-option-hover` | Фон опции hover | `surface/hover` | `surface/hover` |
+| `--select-dropdown-bg` | Фон выпадающего | `surface/base` | `surface/base` |
+| `--select-option-hover` | Фон опции hover | `surface/subtle` | `surface/subtle` |
 | `--select-option-selected` | Фон выбранной опции | `container/brand/default` | `container/brand/default` |
 | `--select-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
 | `--select-disabled-bg` | Фон disabled | `status/disabled/surface` | `status/disabled/surface` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Dropdown Menu](../specs/overlays-layout/dropdown-menu.md) — меню команд.
+- [Text Field](../specs/inputs/text-field.md) — ручной ввод значения.
+- [Form](../specs/overlays-layout/form.md) — validation и layout полей.
+

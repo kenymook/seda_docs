@@ -19,7 +19,7 @@ Pagination — навигация по страницам в таблицах и
 
 **Use** — для таблиц и списков с большим количеством записей (> 20–50), когда нужно разбить данные на страницы.
 
-**Don't use:**
+**Do not use:**
 - До 20 записей — показывайте все сразу
 - Для контента с бесконечной лентой — используйте тип `infinite-scroll`
 - Вместо фильтрации — Pagination не заменяет поиск
@@ -85,8 +85,8 @@ Pagination — навигация по страницам в таблицах и
 | Состояние | Описание | Визуальное изменение |
 |---|---|---|
 | `default` | Страница доступна | Базовые bg, border, text |
-| `hover` | Курсор над кнопкой | `surface/hover` |
-| `active` | Нажатие | `surface/pressed` |
+| `hover` | Курсор над кнопкой | `surface/subtle` |
+| `active` | Нажатие | `surface/sunken` |
 | `selected` | Текущая страница | Заливка `container/brand/default` |
 | `focus` | Фокус клавиатуры | `focus/ring` |
 | `disabled` | Prev на первой / Next на последней | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
@@ -124,11 +124,21 @@ Pagination — навигация по страницам в таблицах и
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--pagination-bg` | Фон кнопки default | `surface/default` | `surface/default` |
-| `--pagination-bg-hover` | Фон hover | `surface/hover` | `surface/hover` |
+| `--pagination-bg` | Фон кнопки default | `surface/base` | `surface/base` |
+| `--pagination-bg-hover` | Фон hover | `surface/subtle` | `surface/subtle` |
 | `--pagination-bg-selected` | Фон текущей страницы | `container/brand/default` | `container/brand/default` |
 | `--pagination-text` | Цвет текста | `text/secondary` | `text/secondary` |
 | `--pagination-text-selected` | Текст текущей | `text/on-brand/primary` | `text/on-brand/primary` |
 | `--pagination-border` | Граница | `border/default` | `border/default` |
 | `--pagination-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
 | `--pagination-disabled-text` | Текст disabled | `status/disabled/text` | `status/disabled/text` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Table](../specs/data-display/table.md) — основной потребитель Pagination.
+- [Button](../specs/actions/button.md) — навигационные действия.
+- [Icon Button](../specs/actions/icon-button.md) — компактные controls.
+

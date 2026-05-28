@@ -19,7 +19,7 @@ Drawer — панель, выезжающая с края экрана. Испо
 
 **Use** — для фильтров таблицы, деталей записи, настроек, форм создания/редактирования без перехода на новую страницу.
 
-**Don't use:**
+**Do not use:**
 - Для критически важных действий, требующих фокуса — используйте **Modal**
 - Для коротких одношаговых подтверждений — используйте **Modal** типа `confirmation`
 - Для основной навигации — используйте **Sidebar**
@@ -135,10 +135,20 @@ Left / Right:              Bottom:
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--drawer-bg` | Фон панели | `surface/default` | `surface/default` |
+| `--drawer-bg` | Фон панели | `surface/base` | `surface/base` |
 | `--drawer-border` | Граница панели | `border/default` | `border/default` |
-| `--drawer-overlay` | Фон overlay за Drawer | `shadow/darker` | `shadow/darker` |
+| `--drawer-overlay` | Фон overlay за Drawer | `shadow/overlay` | `shadow/overlay` |
 | `--drawer-header-border` | Граница под header | `border/default` | `border/default` |
 | `--drawer-footer-border` | Граница над footer | `border/default` | `border/default` |
 | `--drawer-handle` | Цвет хэндла (bottom) | `border/hover` | `border/hover` |
-| `--drawer-shadow` | Тень панели | `shadow/darker` | `shadow/darker` |
+| `--drawer-shadow` | Тень панели | `shadow/overlay` | `shadow/overlay` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Modal](../specs/feedback/modal.md) — блокирующие overlay-сценарии.
+- [Sidebar](../specs/navigation/sidebar.md) — постоянная боковая навигация.
+- [Button](../specs/actions/button.md) — trigger и действия Drawer.
+

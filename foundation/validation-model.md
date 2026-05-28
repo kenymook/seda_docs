@@ -221,7 +221,7 @@ Validation должна соответствовать `foundation/accessibility
 
 ## 11. Content rules
 
-Validation messages следуют `foundation/content.md`.
+Validation messages следуют `foundation/content.md.
 
 **Use**
 
@@ -230,7 +230,7 @@ Validation messages следуют `foundation/content.md`.
 - “Файл должен быть меньше 10 MB.”
 - “Выберите хотя бы один канал уведомлений.”
 
-**Don't use**
+**Do not use**
 
 - “Invalid.”
 - “Wrong value.”
@@ -276,9 +276,9 @@ Validation states используют semantic status tokens:
 
 | Role | Token examples |
 |---|---|
-| Error text | `status/error/text` |
-| Error border | `status/error/border` |
-| Error surface | `status/error/surface` |
+| Error text | status/danger/text` |
+| Error border | `status/danger/border` |
+| Error surface | `status/danger/surface` |
 | Warning text | `status/warning/text` |
 | Success text | `status/success/text` |
 | Disabled | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |

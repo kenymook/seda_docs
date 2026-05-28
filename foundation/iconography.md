@@ -39,13 +39,13 @@ Iconography описывает роли, размеры, стиль и accessibi
 
 | Токен | Размер | Использование |
 |---|---:|---|
-| `icon/12` | 12px | Микроиндикаторы, плотные metadata, маленькие badges |
-| `icon/14` | 14px | `small` Button/Icon Button, compact table actions |
-| `icon/16` | 16px | Default controls, inputs, меню, toolbar |
-| `icon/18` | 18px | `large` controls, Alert small/medium variants |
-| `icon/20` | 20px | `extraLarge` controls, mobile actions, Alert large |
-| `icon/24` | 24px | Empty state icon, крупные navigation items |
-| `icon/32` | 32px | Illustration-like icon, onboarding block |
+| icon/12 | 12px | Микроиндикаторы, плотные metadata, маленькие badges |
+| icon/14 | 14px | `small` Button/Icon Button, compact table actions |
+| icon/16 | 16px | Default controls, inputs, меню, toolbar |
+| icon/18 | 18px | `large` controls, Alert small/medium variants |
+| icon/20 | 20px | `extraLarge` controls, mobile actions, Alert large |
+| icon/24 | 24px | Empty state icon, крупные navigation items |
+| icon/32 | 32px | Illustration-like icon, onboarding block |
 
 Рекомендуемые CSS custom properties:
 
@@ -59,7 +59,7 @@ Iconography описывает роли, размеры, стиль и accessibi
 --icon-size-32: 32px;
 ```
 
-Пока эти токены не экспортируются из `tokens.json`, specs могут ссылаться на documented roles `icon/*`.
+Пока эти токены не экспортируются из `tokens.json`, specs могут ссылаться на documented roles icon/*.
 
 ---
 
@@ -67,16 +67,16 @@ Iconography описывает роли, размеры, стиль и accessibi
 
 | Размер компонента | Icon size | Примеры |
 |---|---:|---|
-| `small` | `icon/14` | Small Button, compact Icon Button, table row actions |
-| `medium` | `icon/16` | Default Button, Text Field prefix/suffix, menu item |
-| `large` | `icon/18` | Large Button, Alert, prominent controls |
-| `extraLarge` | `icon/20` | Mobile/touch controls, large CTA |
+| `small` | icon/14 | Small Button, compact Icon Button, table row actions |
+| `medium` | icon/16 | Default Button, Text Field prefix/suffix, menu item |
+| `large` | icon/18 | Large Button, Alert, prominent controls |
+| `extraLarge` | icon/20 | Mobile/touch controls, large CTA |
 
 Правила:
 
 - Не увеличивайте иконку отдельно от размера компонента без причины.
 - Icon-only control остаётся квадратным, но touch target минимум `44x44px`.
-- Внутри поля `prefix-icon` и `suffix-icon` обычно используют `icon/16`.
+- Внутри поля `prefix-icon` и `suffix-icon` обычно используют icon/16.
 - Status icon рядом с текстом должен быть выровнен по первой строке текста.
 
 ---
@@ -109,7 +109,7 @@ SEDA использует outline-иконки как базовый стиль.
 | Default action icon | `text/secondary` или `text/primary` |
 | Icon on brand surface | `text/on-brand/primary` |
 | Icon on inverse surface | `text/on-inverse/primary` |
-| Error icon | `status/error/text` или `status/error/surface` |
+| Error icon | `status/danger/text` или `status/danger/surface` |
 | Warning icon | `status/warning/text` или `status/warning/surface` |
 | Success icon | `status/success/text` или `status/success/surface` |
 | Disabled icon | `status/disabled/text` |
@@ -204,7 +204,7 @@ SEDA использует outline-иконки как базовый стиль.
 
 | Делать | Избегать |
 |---|---|
-| Использовать системные `icon/*` размеры | Задавать случайные 15px или 22px |
+| Использовать системные icon/* размеры | Задавать случайные 15px или 22px |
 | Скрывать decorative icons от screen reader | Озвучивать каждую иконку рядом с текстом |
 | Давать Icon Button `aria-label` и Tooltip | Полагаться только на узнаваемость иконки |
 | Использовать status icon вместе с текстом | Передавать ошибку только красной иконкой |
@@ -215,7 +215,7 @@ SEDA использует outline-иконки как базовый стиль.
 
 ## Чеклист
 
-- [ ] Размер иконки выбран из `icon/*`.
+- [ ] Размер иконки выбран из icon/*.
 - [ ] Цвет иконки взят из semantic token.
 - [ ] Decorative icon имеет `aria-hidden="true"`.
 - [ ] Icon-only control имеет `aria-label` и Tooltip.

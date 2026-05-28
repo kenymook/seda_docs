@@ -19,6 +19,7 @@ const types = {
 
 const sectionTitles = {
   foundation: "Foundation",
+  "ai-readiness": "AI Readiness",
   actions: "Actions",
   inputs: "Inputs",
   "data-display": "Data Display",
@@ -38,6 +39,7 @@ const figmaBaseline = {
 
 const sectionOrder = [
   "foundation",
+  "ai-readiness",
   "actions",
   "inputs",
   "data-display",
@@ -63,6 +65,18 @@ const preferredOrder = {
     "accessibility",
     "components",
     "component-anatomy",
+  ],
+  "ai-readiness": [
+    "README",
+    "manifesto",
+    "maturity-model",
+    "audit-checklist",
+    "ai-documentation-standard",
+    "ai-handoff-rules",
+    "validation-prompts",
+    "prompt-library",
+    "audit-report-template",
+    "pilot-offer",
   ],
 };
 
@@ -216,6 +230,10 @@ function buildDocsIndex() {
       section: "foundation",
       path: toWebPath(filePath),
     })),
+    ...readMarkdownFiles(path.join(root, "ai-readiness")).map((filePath) => ({
+      section: "ai-readiness",
+      path: toWebPath(filePath),
+    })),
     ...readMarkdownFiles(path.join(root, "specs")).map((filePath) => {
       const relative = path.relative(path.join(root, "specs"), filePath).split(path.sep);
       const section = relative.length > 1 ? relative[0] : "templates";
@@ -253,6 +271,12 @@ function buildDocsHealthReport() {
       filePath,
       path: toWebPath(filePath),
     })),
+    ...readMarkdownFiles(path.join(root, "ai-readiness")).map((filePath) => ({
+      kind: "ai-readiness",
+      section: "ai-readiness",
+      filePath,
+      path: toWebPath(filePath),
+    })),
     ...readMarkdownFiles(path.join(root, "specs")).map((filePath) => {
       const relative = path.relative(path.join(root, "specs"), filePath).split(path.sep);
       return {
@@ -279,7 +303,7 @@ function buildDocsHealthReport() {
       acc.notes += item.issues.filter((issue) => issue.severity === "note").length;
       return acc;
     },
-    { component: 0, foundation: 0, template: 0, errors: 0, warnings: 0, notes: 0 },
+    { component: 0, foundation: 0, "ai-readiness": 0, template: 0, errors: 0, warnings: 0, notes: 0 },
   );
 
   const totalChecks = items.reduce((sum, item) => sum + item.checks.total, 0);
@@ -293,6 +317,7 @@ function buildDocsHealthReport() {
       documents: items.length,
       components: totals.component,
       foundation: totals.foundation,
+      aiReadiness: totals["ai-readiness"],
       templates: totals.template,
       errors: totals.errors,
       warnings: totals.warnings,
@@ -367,7 +392,7 @@ function lintMarkdownDoc(doc, tokenRegistry) {
     else issues.push(issue("note", "Consider adding principles, rules, usage, governance, or examples"));
   }
 
-  if (!/\[[^\]]+\]\((?:\.\.\/foundation\/|\.\.\/specs\/|https?:\/\/)/.test(markdown)) {
+  if (!/\[[^\]]+\]\((?:\.\.\/foundation\/|\.\.\/specs\/|\.\.\/ai-readiness\/|https?:\/\/)/.test(markdown)) {
     issues.push(issue("note", "No cross-links found"));
   }
 
@@ -1156,7 +1181,10 @@ function titleFromSlug(slug) {
     .replace(/\.md$/, "")
     .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
+    .join(" ")
+    .replace(/\bAi\b/g, "AI")
+    .replace(/\bUx\b/g, "UX")
+    .replace(/\bFigma\b/g, "Figma");
 }
 
 function sectionRank(section) {
@@ -1224,7 +1252,13 @@ function resolveEditableMarkdownPath(webPath) {
   if (typeof webPath !== "string" || !webPath.endsWith(".md")) return null;
 
   const normalized = webPath.replace(/\\/g, "/");
-  if (!normalized.startsWith("../foundation/") && !normalized.startsWith("../specs/")) return null;
+  if (
+    !normalized.startsWith("../foundation/") &&
+    !normalized.startsWith("../specs/") &&
+    !normalized.startsWith("../ai-readiness/")
+  ) {
+    return null;
+  }
 
   const filePath = path.resolve(root, normalized.replace(/^\.\.\//, ""));
   if (!filePath.startsWith(root) || path.extname(filePath) !== ".md") return null;

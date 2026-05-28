@@ -115,8 +115,8 @@ powershell -ExecutionPolicy Bypass -File tools\check-token-refs.ps1
 | Уровень | Назначение | Где описан |
 |---|---|---|
 | Tokens | Значения и роли: цвет, spacing, type, motion, elevation. | `tokens.md`, `token-pipeline.md`, `theming.md` |
-| Foundations | Общие правила визуала, поведения, доступности и контента. | `foundation/*.md` |
-| Components | Конкретные UI building blocks. | `specs/**/*.md` |
+| Foundations | Общие правила визуала, поведения, доступности и контента. | foundation/*.md |
+| Components | Конкретные UI building blocks. | specs/**/*.md |
 | Governance | Статусы, владельцы, релизы, deprecation и проверки. | `governance.md`, `CHANGELOG.md`, `tools/` |
 
 ---

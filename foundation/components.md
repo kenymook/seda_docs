@@ -19,16 +19,16 @@
 | `secondary` | Второстепенное действие рядом с Primary |
 | `ghost` | Третичное действие, минимальный визуальный вес |
 | `text` | Действие без фона и рамки, встраивается в текстовый контент |
-| `destruction` | Необратимые действия: удаление, отзыв доступа |
+| `destruction | Необратимые действия: удаление, отзыв доступа |
 
-**Размеры**: `small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge` (48px)
+**Размеры**: small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge (48px)
 
-**Состояния**: `default` · `hover` · `active` · `focus` · `loading` · `disabled`
+**Состояния**: default` · `hover` · `active` · `focus` · `loading` · `disabled
 
 **Модификаторы**
-- `icon-only` — кнопка без текста, только иконка
+- icon-only` — кнопка без текста, только иконка
 - `icon-left` / `icon-right` — иконка слева или справа от текста
-- `full-width` — кнопка растягивается на всю ширину контейнера
+- `full-width — кнопка растягивается на всю ширину контейнера
 
 ---
 
@@ -36,9 +36,9 @@
 
 Группа связанных кнопок, объединённых в единый контрол. Используется для переключения режимов или выбора одного из взаимоисключающих действий.
 
-**Типы**: `horizontal` · `vertical`
+**Типы**: horizontal` · `vertical
 
-**Размеры**: `small` · `medium` · `large` · `extraLarge`
+**Размеры**: small` · `medium` · `large` · `extraLarge
 
 **Состояния**: наследуются от Button
 
@@ -48,11 +48,11 @@
 
 Кнопка без текстовой метки. Используется в тулбарах, карточках, строках таблиц, где пространство ограничено.
 
-**Типы**: `primary` · `secondary` · `ghost` · `destruction`
+**Типы**: primary` · `secondary` · `ghost` · `destruction
 
-**Размеры**: `small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge` (48px)
+**Размеры**: small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge (48px)
 
-**Состояния**: `default` · `hover` · `active` · `focus` · `loading` · `disabled`
+**Состояния**: default` · `hover` · `active` · `focus` · `loading` · `disabled
 
 ---
 
@@ -60,11 +60,11 @@
 
 Текстовая навигация внутри контента. Отличается от Button тем, что ведёт к ресурсу, а не инициирует действие.
 
-**Типы**: `default` · `subtle` · `danger`
+**Типы**: default` · `subtle` · `danger
 
-**Модификаторы**: `icon-left` · `icon-right` · `external` (иконка внешней ссылки)
+**Модификаторы**: icon-left` · `icon-right` · `external (иконка внешней ссылки)
 
-**Состояния**: `default` · `hover` · `active` · `focus` · `visited` · `disabled`
+**Состояния**: default` · `hover` · `active` · `focus` · `visited` · `disabled
 
 ---
 
@@ -77,16 +77,16 @@
 **Типы**
 | Тип | Назначение |
 |-----|------------|
-| `default` | Стандартное поле ввода |
+| default` | Стандартное поле ввода |
 | `password` | Скрытый ввод с кнопкой показа |
 | `search` | Поле с иконкой поиска и кнопкой очистки |
-| `number` | Числовой ввод со стрелками инкремента |
+| `number | Числовой ввод со стрелками инкремента |
 
-**Размеры**: `small` · `medium` · `large` · `extraLarge`
+**Размеры**: small` · `medium` · `large` · `extraLarge
 
-**Состояния**: `default` · `hover` · `focus` · `filled` · `error` · `warning` · `success` · `read-only` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `filled` · `error` · `warning` · `success` · `read-only` · `disabled
 
-**Слоты**: `label` · `placeholder` · `helper-text` · `prefix-icon` · `suffix-icon` · `prefix-text` · `suffix-text` · `character-count`
+**Слоты**: label` · `placeholder` · `helper-text` · `prefix-icon` · `suffix-icon` · `prefix-text` · `suffix-text` · `character-count
 
 ---
 
@@ -94,13 +94,13 @@
 
 Многострочное поле ввода. Используется для комментариев, описаний, длинных текстов.
 
-**Типы**: `manual-resize` · `auto-resize` · `fixed`
+**Типы**: manual-resize` · `auto-resize` · `fixed
 
-**Размеры**: `small` · `medium` · `large` · `extraLarge`
+**Размеры**: small` · `medium` · `large` · `extraLarge
 
-**Состояния**: `default` · `hover` · `focus` · `filled` · `error` · `warning` · `success` · `read-only` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `filled` · `error` · `warning` · `success` · `read-only` · `disabled
 
-**Слоты**: `label` · `placeholder` · `helper-text` · `character-count`
+**Слоты**: label` · `placeholder` · `helper-text` · `character-count
 
 ---
 
@@ -108,13 +108,13 @@
 
 Элемент выбора одного или нескольких значений из набора. Может существовать самостоятельно или в составе группы.
 
-**Типы**: `default` · `indeterminate` (частичный выбор, для родительского чекбокса группы)
+**Типы**: default` · `indeterminate (частичный выбор, для родительского чекбокса группы)
 
-**Размеры**: `small` (14px) · `medium` (16px) · `large` (18px) · `extraLarge` (20px)
+**Размеры**: small` (14px) · `medium` (16px) · `large` (18px) · `extraLarge (20px)
 
-**Состояния**: `default` · `hover` · `focus` · `checked` · `indeterminate` · `error` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `checked` · `indeterminate` · `error` · `disabled
 
-**Слоты**: `label` · `helper-text`
+**Слоты**: label` · `helper-text
 
 ---
 
@@ -122,11 +122,11 @@
 
 Элемент выбора одного значения из группы взаимоисключающих вариантов.
 
-**Размеры**: `small` (14px) · `medium` (16px) · `large` (18px) · `extraLarge` (20px)
+**Размеры**: small` (14px) · `medium` (16px) · `large` (18px) · `extraLarge (20px)
 
-**Состояния**: `default` · `hover` · `focus` · `selected` · `error` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `selected` · `error` · `disabled
 
-**Слоты**: `label` · `helper-text`
+**Слоты**: label` · `helper-text
 
 ---
 
@@ -134,11 +134,11 @@
 
 Переключатель бинарного состояния. Используется для мгновенного включения/выключения настройки без подтверждения.
 
-**Размеры**: `small` (16×28px) · `medium` (20×36px) · `large` (24×44px)
+**Размеры**: small` (16×28px) · `medium` (20×36px) · `large (24×44px)
 
-**Состояния**: `off-default` · `off-hover` · `on-default` · `on-hover` · `disabled`
+**Состояния**: off-default` · `off-hover` · `on-default` · `on-hover` · `disabled
 
-**Слоты**: `label` · `helper-text`
+**Слоты**: label` · `helper-text
 
 ---
 
@@ -146,13 +146,13 @@
 
 Выпадающий список для выбора одного значения из предустановленного набора. Отличается от Dropdown тем, что служит формовым контролом с value.
 
-**Типы**: `single` · `multi` (множественный выбор с тегами)
+**Типы**: single` · `multi (множественный выбор с тегами)
 
-**Размеры**: `small` · `medium` · `large` · `extraLarge`
+**Размеры**: small` · `medium` · `large` · `extraLarge
 
-**Состояния**: `default` · `hover` · `focus` · `open` · `filled` · `error` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `open` · `filled` · `error` · `disabled
 
-**Слоты**: `label` · `placeholder` · `helper-text` · `prefix-icon` · `option-icon` · `option-description`
+**Слоты**: label` · `placeholder` · `helper-text` · `prefix-icon` · `option-icon` · `option-description
 
 ---
 
@@ -160,11 +160,11 @@
 
 Горизонтальная группа взаимоисключающих сегментов. Используется для переключения режимов или фильтров внутри одного контекста.
 
-**Типы**: `text-only` · `icon-only` · `icon+text`
+**Типы**: text-only` · `icon-only` · `icon+text
 
-**Размеры**: `small` · `medium` · `large` · `extraLarge`
+**Размеры**: small` · `medium` · `large` · `extraLarge
 
-**Состояния сегмента**: `active` · `non-active` · `hover` · `disabled`
+**Состояния сегмента**: active` · `non-active` · `hover` · `disabled
 
 **Количество сегментов**: 2–6
 
@@ -174,11 +174,11 @@
 
 Ползунок для выбора числового значения в диапазоне.
 
-**Типы**: `single` · `range` (два ползунка для диапазона)
+**Типы**: single` · `range (два ползунка для диапазона)
 
-**Модификаторы**: `with-input` · `with-labels` · `with-steps`
+**Модификаторы**: with-input` · `with-labels` · `with-steps
 
-**Состояния**: `default` · `hover` · `active` · `focus` · `disabled`
+**Состояния**: default` · `hover` · `active` · `focus` · `disabled
 
 ---
 
@@ -186,11 +186,11 @@
 
 Зона загрузки файлов. Поддерживает клик и drag-and-drop.
 
-**Типы**: `dropzone` · `button` (только кнопка без зоны) · `inline`
+**Типы**: dropzone` · `button` (только кнопка без зоны) · `inline
 
-**Состояния**: `default` · `hover` · `drag-over` · `uploading` · `success` · `error` · `disabled`
+**Состояния**: default` · `hover` · `drag-over` · `uploading` · `success` · `error` · `disabled
 
-**Слоты**: `label` · `description` · `accepted-formats` · `size-limit` · `file-list`
+**Слоты**: label` · `description` · `accepted-formats` · `size-limit` · `file-list
 
 ---
 
@@ -198,11 +198,11 @@
 
 Поле ввода кода подтверждения (OTP). Автоматически переключает фокус между ячейками.
 
-**Типы**: `numeric` · `alphanumeric`
+**Типы**: numeric` · `alphanumeric
 
 **Количество ячеек**: 4 · 6 · 8
 
-**Состояния**: `default` · `focus` · `filled` · `error` · `disabled`
+**Состояния**: default` · `focus` · `filled` · `error` · `disabled
 
 ---
 
@@ -210,13 +210,13 @@
 
 Выбор даты из календарного виджета.
 
-**Типы**: `single` · `range` · `month` · `year`
+**Типы**: single` · `range` · `month` · `year
 
-**Размеры**: `small` · `medium` · `large`
+**Размеры**: small` · `medium` · `large
 
-**Состояния**: `default` · `hover` · `focus` · `open` · `filled` · `error` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `open` · `filled` · `error` · `disabled
 
-**Слоты**: `label` · `placeholder` · `helper-text` · `footer-actions`
+**Слоты**: label` · `placeholder` · `helper-text` · `footer-actions
 
 ---
 
@@ -224,11 +224,11 @@
 
 Выбор времени через инпут или скролл.
 
-**Типы**: `input` · `scroll` · `combined` (дата + время)
+**Типы**: input` · `scroll` · `combined (дата + время)
 
-**Форматы**: `12h` · `24h`
+**Форматы**: 12h` · `24h
 
-**Состояния**: `default` · `hover` · `focus` · `open` · `filled` · `error` · `disabled`
+**Состояния**: default` · `hover` · `focus` · `open` · `filled` · `error` · `disabled
 
 ---
 
@@ -236,9 +236,9 @@
 
 Выбор цвета: палитра, спектр, HEX/RGB-ввод.
 
-**Типы**: `swatch-only` · `full` (палитра + спектр + инпут) · `compact`
+**Типы**: swatch-only` · `full` (палитра + спектр + инпут) · `compact
 
-**Состояния**: `default` · `open` · `disabled`
+**Состояния**: default` · `open` · `disabled
 
 ---
 
@@ -251,16 +251,16 @@
 **Типы**
 | Тип | Назначение |
 |-----|------------|
-| `ghost` | Интерактивные ссылки с фоном при ховере |
-| `text` | Текстовые ссылки без фона, встраиваются в контент |
+| ghost` | Интерактивные ссылки с фоном при ховере |
+| `text | Текстовые ссылки без фона, встраиваются в контент |
 
-**Разделители**: `slash` ( / ) · `triangle` ( › )
+**Разделители**: slash` ( / ) · `triangle ( › )
 
-**Размеры**: `small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge` (48px)
+**Размеры**: small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge (48px)
 
-**Состояния элемента**: `default` · `hover` · `active` (текущая страница) · `pressed` · `focus` · `disabled`
+**Состояния элемента**: default` · `hover` · `active` (текущая страница) · `pressed` · `focus` · `disabled
 
-**Модификаторы**: `options` (кнопка раскрытия свёрнутых уровней) · `collapsed` (многоточие при длинном пути)
+**Модификаторы**: options` (кнопка раскрытия свёрнутых уровней) · `collapsed (многоточие при длинном пути)
 
 ---
 
@@ -268,15 +268,15 @@
 
 Горизонтальный или вертикальный переключатель между секциями контента. В отличие от Segmented Control, Tabs управляют полноценными view.
 
-**Типы**: `line` (подчёркивание) · `pill` (капсульный активный таб) · `card` (бокс-стиль)
+**Типы**: line` (подчёркивание) · `pill` (капсульный активный таб) · `card (бокс-стиль)
 
-**Ориентация**: `horizontal` · `vertical`
+**Ориентация**: horizontal` · `vertical
 
-**Размеры**: `small` · `medium` · `large` · `extraLarge`
+**Размеры**: small` · `medium` · `large` · `extraLarge
 
-**Состояния таба**: `default` · `hover` · `active` · `focus` · `disabled`
+**Состояния таба**: default` · `hover` · `active` · `focus` · `disabled
 
-**Модификаторы**: `icon-left` · `icon-top` · `badge` · `scrollable` (горизонтальный скролл при переполнении)
+**Модификаторы**: icon-left` · `icon-top` · `badge` · `scrollable (горизонтальный скролл при переполнении)
 
 ---
 
@@ -284,13 +284,13 @@
 
 Навигация по страницам в таблицах и списках.
 
-**Типы**: `numbered` · `prev-next-only` · `load-more` · `infinite-scroll`
+**Типы**: numbered` · `prev-next-only` · `load-more` · `infinite-scroll
 
-**Размеры**: `small` · `medium` · `large`
+**Размеры**: small` · `medium` · `large
 
-**Состояния кнопки страницы**: `default` · `hover` · `active` · `focus` · `disabled`
+**Состояния кнопки страницы**: default` · `hover` · `active` · `focus` · `disabled
 
-**Слоты**: `page-size-select` · `total-count` · `jump-to-page`
+**Слоты**: page-size-select` · `total-count` · `jump-to-page
 
 ---
 
@@ -298,15 +298,15 @@
 
 Боковая панель навигации. Содержит иерархический список разделов приложения.
 
-**Типы**: `fixed` · `collapsible` · `overlay` (поверх контента на мобильных)
+**Типы**: fixed` · `collapsible` · `overlay (поверх контента на мобильных)
 
-**Варианты элемента**: `item` · `group` · `sub-item` · `divider` · `section-title`
+**Варианты элемента**: item` · `group` · `sub-item` · `divider` · `section-title
 
-**Состояния элемента**: `default` · `hover` · `active` · `focus` · `disabled` · `expanded` / `collapsed`
+**Состояния элемента**: default` · `hover` · `active` · `focus` · `disabled` · `expanded` / `collapsed
 
-**Размеры**: `compact` (32px item) · `default` (40px item) · `comfortable` (48px item)
+**Размеры**: compact` (32px item) · `default` (40px item) · `comfortable (48px item)
 
-**Слоты**: `logo-area` · `navigation-items` · `footer-items` · `collapse-trigger`
+**Слоты**: logo-area` · `navigation-items` · `footer-items` · `collapse-trigger
 
 ---
 
@@ -314,11 +314,11 @@
 
 Верхняя панель приложения с логотипом, навигацией и глобальными действиями.
 
-**Типы**: `app-bar` (фиксированная) · `page-header` (в потоке страницы) · `transparent`
+**Типы**: app-bar` (фиксированная) · `page-header` (в потоке страницы) · `transparent
 
-**Слоты**: `logo` · `primary-nav` · `search` · `actions` · `avatar` · `breadcrumbs`
+**Слоты**: logo` · `primary-nav` · `search` · `actions` · `avatar` · `breadcrumbs
 
-**Состояния**: `default` · `scrolled` (тень при прокрутке) · `mobile-collapsed`
+**Состояния**: default` · `scrolled` (тень при прокрутке) · `mobile-collapsed
 
 ---
 
@@ -326,11 +326,11 @@
 
 Индикатор прогресса многошагового процесса: регистрация, оформление заказа, онбординг.
 
-**Типы**: `horizontal` · `vertical`
+**Типы**: horizontal` · `vertical
 
-**Варианты шага**: `upcoming` · `current` · `completed` · `error`
+**Варианты шага**: upcoming` · `current` · `completed` · `error
 
-**Модификаторы**: `with-description` · `clickable` (можно перейти на шаг)
+**Модификаторы**: with-description` · `clickable (можно перейти на шаг)
 
 ---
 
@@ -338,13 +338,13 @@
 
 Панель, выезжающая с края экрана. Используется для дополнительного контента, настроек, фильтров.
 
-**Позиция**: `left` · `right` · `bottom`
+**Позиция**: left` · `right` · `bottom
 
-**Размеры**: `small` · `medium` · `large` · `full`
+**Размеры**: small` · `medium` · `large` · `full
 
-**Состояния**: `closed` · `open`
+**Состояния**: closed` · `open
 
-**Слоты**: `header` · `body` · `footer`
+**Слоты**: header` · `body` · `footer
 
 ---
 
@@ -357,16 +357,16 @@
 **Типы**
 | Тип | Описание |
 |-----|----------|
-| `image` | Фото пользователя |
+| image` | Фото пользователя |
 | `initials` | Инициалы на цветном фоне |
 | `icon` | Иконка на фоне |
-| `photo` | Крупное фото в круглом контейнере |
+| `photo | Крупное фото в круглом контейнере |
 
-**Размеры**: `16px` · `20px` · `24px` · `32px` · `40px` · `48px` · `56px` · `64px` · `72px`
+**Размеры**: 16px` · `20px` · `24px` · `32px` · `40px` · `48px` · `56px` · `64px` · `72px
 
-**Индикаторы**: `online` · `icon` · `verified-tick`
+**Индикаторы**: online` · `icon` · `verified-tick
 
-**Составные варианты**: `Avatar Group` · `Avatar Block` (аватар + имя + подпись) · `Avatar Add Button` · `Avatar More Button`
+**Составные варианты**: Avatar Group` · `Avatar Block` (аватар + имя + подпись) · `Avatar Add Button` · `Avatar More Button
 
 ---
 
@@ -374,11 +374,11 @@
 
 Маленький счётчик или индикатор статуса, наложенный поверх иконки или элемента.
 
-**Типы**: `notification` (число) · `dot` (без числа, просто точка)
+**Типы**: notification` (число) · `dot (без числа, просто точка)
 
-**Размеры**: `small` (16px) · `medium` (20px)
+**Размеры**: small` (16px) · `medium (20px)
 
-**Состояния**: `default` · `hover`
+**Состояния**: default` · `hover
 
 ---
 
@@ -389,13 +389,13 @@
 **Типы**
 | Тип | Описание |
 |-----|----------|
-| `read-only` | Только для отображения, не кликается |
+| read-only` | Только для отображения, не кликается |
 | `selectable` | Можно выбирать как фильтр |
-| `interactive` | Кликабельна, может закрываться |
+| `interactive | Кликабельна, может закрываться |
 
-**Цвета** (read-only): `gray` · `blue` · `mint` · `pistachio` · `purple` · `orange` · `yellow` · `red`
+**Цвета** (read-only): gray` · `blue` · `mint` · `pistachio` · `purple` · `orange` · `yellow` · `red
 
-**Состояния**: `enabled` · `hover` · `selected` · `focus` · `disabled` · `skeleton`
+**Состояния**: enabled` · `hover` · `selected` · `focus` · `disabled` · `skeleton
 
 ---
 
@@ -403,11 +403,11 @@
 
 Компактный контрол для отображения значений множественного выбора или фильтров с кнопкой удаления.
 
-**Типы**: `default` (без фона) · `filled` (с фоном)
+**Типы**: default` (без фона) · `filled (с фоном)
 
-**Состояния**: `default` · `hover` · `active`
+**Состояния**: default` · `hover` · `active
 
-**Под-компоненты**: `chipItem` (текст + иконка) · `chipControl` (стрелка / крестик удаления)
+**Под-компоненты**: chipItem` (текст + иконка) · `chipControl (стрелка / крестик удаления)
 
 ---
 
@@ -415,15 +415,15 @@
 
 Структурированное отображение данных в строках и столбцах.
 
-**Типы ячейки**: `text` · `tag` · `avatar` · `badge` · `actions` · `checkbox` · `custom`
+**Типы ячейки**: text` · `tag` · `avatar` · `badge` · `actions` · `checkbox` · `custom
 
-**Типы шапки**: `label` · `sortable` · `filter`
+**Типы шапки**: label` · `sortable` · `filter
 
-**Состояния строки**: `default` · `hover` · `selected` · `expanded`
+**Состояния строки**: default` · `hover` · `selected` · `expanded
 
-**Модификаторы таблицы**: `fixed-header` · `striped` · `bordered` · `compact` · `resizable-columns` · `row-selection` · `expandable-rows`
+**Модификаторы таблицы**: fixed-header` · `striped` · `bordered` · `compact` · `resizable-columns` · `row-selection` · `expandable-rows
 
-**Слоты**: `toolbar` · `header` · `body` · `footer` · `pagination` · `empty-state`
+**Слоты**: toolbar` · `header` · `body` · `footer` · `pagination` · `empty-state
 
 ---
 
@@ -431,11 +431,11 @@
 
 Контейнер для группировки связанного контента и действий.
 
-**Типы**: `default` · `clickable` · `selected` · `outlined` · `elevated`
+**Типы**: default` · `clickable` · `selected` · `outlined` · `elevated
 
-**Состояния**: `default` · `hover` · `active` · `focus` · `selected` · `disabled`
+**Состояния**: default` · `hover` · `active` · `focus` · `selected` · `disabled
 
-**Слоты**: `media` · `header` · `body` · `footer` · `actions` · `badge`
+**Слоты**: media` · `header` · `body` · `footer` · `actions` · `badge
 
 ---
 
@@ -443,9 +443,9 @@
 
 Отображение пар ключ–значение: детали объекта, свойства записи, характеристики.
 
-**Типы**: `horizontal` (ключ и значение в одной строке) · `vertical` (ключ над значением) · `table` (в виде таблицы)
+**Типы**: horizontal` (ключ и значение в одной строке) · `vertical` (ключ над значением) · `table (в виде таблицы)
 
-**Модификаторы**: `bordered` · `striped` · `compact`
+**Модификаторы**: bordered` · `striped` · `compact
 
 ---
 
@@ -453,11 +453,11 @@
 
 Горизонтальный или вертикальный разделитель для визуального отделения секций.
 
-**Типы**: `horizontal` · `vertical`
+**Типы**: horizontal` · `vertical
 
-**Варианты**: `solid` · `dashed` · `dotted`
+**Варианты**: solid` · `dashed` · `dotted
 
-**Модификаторы**: `with-text` · `with-icon` (текст или иконка по центру разделителя)
+**Модификаторы**: with-text` · `with-icon (текст или иконка по центру разделителя)
 
 ---
 
@@ -465,11 +465,11 @@
 
 Сворачиваемые секции контента. Экономит пространство при большом количестве информации.
 
-**Типы**: `single` (открыт один элемент) · `multiple` (можно открыть несколько)
+**Типы**: single` (открыт один элемент) · `multiple (можно открыть несколько)
 
-**Варианты**: `default` · `bordered` · `elevated`
+**Варианты**: default` · `bordered` · `elevated
 
-**Состояния элемента**: `collapsed` · `expanded` · `hover` · `focus` · `disabled`
+**Состояния элемента**: collapsed` · `expanded` · `hover` · `focus` · `disabled
 
 ---
 
@@ -477,11 +477,11 @@
 
 Хронологическое отображение событий или шагов процесса.
 
-**Ориентация**: `vertical` · `horizontal`
+**Ориентация**: vertical` · `horizontal
 
-**Варианты точки**: `dot` · `icon` · `number` · `avatar`
+**Варианты точки**: dot` · `icon` · `number` · `avatar
 
-**Состояния события**: `upcoming` · `current` · `completed` · `error`
+**Состояния события**: upcoming` · `current` · `completed` · `error
 
 ---
 
@@ -489,9 +489,9 @@
 
 Крупное отображение числовой метрики с подписью и опциональным трендом.
 
-**Варианты тренда**: `up` · `down` · `neutral`
+**Варианты тренда**: up` · `down` · `neutral
 
-**Слоты**: `label` · `value` · `unit` · `trend` · `description`
+**Слоты**: label` · `value` · `unit` · `trend` · `description
 
 ---
 
@@ -499,13 +499,13 @@
 
 Пузырь сообщения в интерфейсах чата.
 
-**Типы**: `outgoing` (от текущего пользователя) · `incoming` (от собеседника)
+**Типы**: outgoing` (от текущего пользователя) · `incoming (от собеседника)
 
-**Варианты**: `text` · `image` · `file` · `audio`
+**Варианты**: text` · `image` · `file` · `audio
 
-**Состояния**: `sent` · `delivered` · `read` · `error`
+**Состояния**: sent` · `delivered` · `read` · `error
 
-**Слоты**: `avatar` · `content` · `timestamp` · `status` · `reactions`
+**Слоты**: avatar` · `content` · `timestamp` · `status` · `reactions
 
 ---
 
@@ -515,11 +515,11 @@
 
 Встроенное сообщение для информирования пользователя в контексте страницы или формы. Не исчезает автоматически.
 
-**Типы**: `info` · `success` · `warning` · `error`
+**Типы**: info` · `success` · `warning` · `error
 
-**Размеры**: `small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge` (48px+)
+**Размеры**: small` (24px) · `medium` (32px) · `large` (40px) · `extraLarge (48px+)
 
-**Модификаторы**: `dismissible` (крестик закрытия) · `with-action` (кнопка-ссылка внутри) · `with-icon`
+**Модификаторы**: dismissible` (крестик закрытия) · `with-action` (кнопка-ссылка внутри) · `with-icon
 
 ---
 
@@ -527,13 +527,13 @@
 
 Временное уведомление, накладывающееся поверх интерфейса. Исчезает автоматически или по действию пользователя.
 
-**Типы**: `info` · `success` · `warning` · `error`
+**Типы**: info` · `success` · `warning` · `error
 
-**Позиция**: `top-left` · `top-center` · `top-right` · `bottom-left` · `bottom-center` · `bottom-right`
+**Позиция**: top-left` · `top-center` · `top-right` · `bottom-left` · `bottom-center` · `bottom-right
 
-**Модификаторы**: `dismissible` · `with-action` · `with-icon` · `persistent` (не исчезает автоматически)
+**Модификаторы**: dismissible` · `with-action` · `with-icon` · `persistent (не исчезает автоматически)
 
-**Состояния**: `entering` · `visible` · `exiting`
+**Состояния**: entering` · `visible` · `exiting
 
 ---
 
@@ -544,17 +544,17 @@
 **Типы**
 | Тип | Описание |
 |-----|----------|
-| `default` | Стандартный диалог с заголовком, телом и футером |
+| default` | Стандартный диалог с заголовком, телом и футером |
 | `confirmation` | Запрос подтверждения действия (2 кнопки) |
 | `alert` | Информационное сообщение (1 кнопка) |
 | `form` | Форма внутри модала |
-| `fullscreen` | Полноэкранный оверлей |
+| `fullscreen | Полноэкранный оверлей |
 
-**Размеры**: `small` (400px) · `medium` (560px) · `large` (720px) · `fullscreen`
+**Размеры**: small` (400px) · `medium` (560px) · `large` (720px) · `fullscreen
 
-**Состояния**: `closed` · `opening` · `open` · `closing`
+**Состояния**: closed` · `opening` · `open` · `closing
 
-**Слоты**: `header` · `body` · `footer`
+**Слоты**: header` · `body` · `footer
 
 ---
 
@@ -562,13 +562,13 @@
 
 Подсказка при наведении или фокусе на элементе. Кратко объясняет назначение элемента.
 
-**Позиция**: `top` · `bottom` · `left` · `right` · `top-start` · `top-end` · `bottom-start` · `bottom-end`
+**Позиция**: top` · `bottom` · `left` · `right` · `top-start` · `top-end` · `bottom-start` · `bottom-end
 
-**Варианты**: `default` (тёмный фон) · `light` (светлый фон с рамкой)
+**Варианты**: default` (тёмный фон) · `light (светлый фон с рамкой)
 
-**Триггер**: `hover` · `focus` · `click`
+**Триггер**: hover` · `focus` · `click
 
-**Слоты**: `content` (текст или кастомный HTML)
+**Слоты**: content (текст или кастомный HTML)
 
 ---
 
@@ -576,13 +576,13 @@
 
 Расширенная подсказка с интерактивным содержимым: меню, списки, форма, действия.
 
-**Типы**: `default` · `icon` · `emoji` · `checkbox` · `avatar` · `custom`
+**Типы**: default` · `icon` · `emoji` · `checkbox` · `avatar` · `custom
 
-**Позиция**: `top` · `bottom` · `left` · `right` + варианты start/end
+**Позиция**: top` · `bottom` · `left` · `right + варианты start/end
 
-**Триггер**: `click` · `hover`
+**Триггер**: click` · `hover
 
-**Состояния**: `closed` · `open`
+**Состояния**: closed` · `open
 
 ---
 
@@ -590,11 +590,11 @@
 
 Индикатор неопределённой загрузки. Используется, когда конец операции неизвестен.
 
-**Типы**: `circular` · `linear`
+**Типы**: circular` · `linear
 
-**Размеры**: `small` (16px) · `medium` (24px) · `large` (40px)
+**Размеры**: small` (16px) · `medium` (24px) · `large (40px)
 
-**Варианты**: `standalone` · `overlay` (поверх контента) · `button` (внутри кнопки)
+**Варианты**: standalone` · `overlay` (поверх контента) · `button (внутри кнопки)
 
 ---
 
@@ -602,11 +602,11 @@
 
 Индикатор определённого прогресса. Используется, когда известна доля выполненного.
 
-**Типы**: `linear` · `circular`
+**Типы**: linear` · `circular
 
-**Варианты**: `default` · `segmented` · `with-label`
+**Варианты**: default` · `segmented` · `with-label
 
-**Состояния**: `default` · `success` · `error`
+**Состояния**: default` · `success` · `error
 
 ---
 
@@ -614,11 +614,11 @@
 
 Заглушки-плейсхолдеры, повторяющие форму будущего контента во время загрузки.
 
-**Типы примитивов**: `text` · `circle` · `rectangle` · `rounded`
+**Типы примитивов**: text` · `circle` · `rectangle` · `rounded
 
-**Анимация**: `pulse` · `wave` · `none`
+**Анимация**: pulse` · `wave` · `none
 
-**Составные паттерны**: `card-skeleton` · `list-skeleton` · `table-skeleton` · `form-skeleton`
+**Составные паттерны**: card-skeleton` · `list-skeleton` · `table-skeleton` · `form-skeleton
 
 ---
 
@@ -626,9 +626,9 @@
 
 Экран или блок, отображаемый при отсутствии данных. Направляет пользователя к первому действию.
 
-**Типы**: `no-data` · `no-results` · `no-access` · `error` · `first-time`
+**Типы**: no-data` · `no-results` · `no-access` · `error` · `first-time
 
-**Слоты**: `illustration` · `title` · `description` · `action` (кнопка или ссылка)
+**Слоты**: illustration` · `title` · `description` · `action (кнопка или ссылка)
 
 ---
 
@@ -641,16 +641,16 @@
 **Типы**
 | Тип | Описание |
 |-----|----------|
-| `menu` | Список действий (кнопки) |
+| menu` | Список действий (кнопки) |
 | `select-menu` | Список для выбора значения |
 | `context-menu` | Появляется по правому клику |
-| `command-palette` | Поиск + список команд |
+| `command-palette | Поиск + список команд |
 
-**Варианты элемента**: `default` · `with-icon` · `with-description` · `with-badge` · `destructive` · `disabled` · `separator` · `group-title` · `checkbox-item` · `radio-item`
+**Варианты элемента**: default` · `with-icon` · `with-description` · `with-badge` · `destructive` · `disabled` · `separator` · `group-title` · `checkbox-item` · `radio-item
 
-**Состояния элемента**: `default` · `hover` · `active` · `focus` · `disabled`
+**Состояния элемента**: default` · `hover` · `active` · `focus` · `disabled
 
-**Позиция**: `bottom-start` · `bottom-end` · `top-start` · `top-end`
+**Позиция**: bottom-start` · `bottom-end` · `top-start` · `top-end
 
 ---
 
@@ -658,11 +658,11 @@
 
 Поиск с автодополнением и отображением результатов.
 
-**Типы**: `inline` (встроен в страницу) · `overlay` (полноэкранный) · `command-palette`
+**Типы**: inline` (встроен в страницу) · `overlay` (полноэкранный) · `command-palette
 
-**Состояния**: `empty` · `typing` · `loading` · `results` · `no-results`
+**Состояния**: empty` · `typing` · `loading` · `results` · `no-results
 
-**Слоты**: `input` · `results-list` · `recent-items` · `suggested-items` · `footer`
+**Слоты**: input` · `results-list` · `recent-items` · `suggested-items` · `footer
 
 ---
 
@@ -670,7 +670,7 @@
 
 Обёртка, ограничивающая максимальную ширину контента и центрирующая его на странице.
 
-**Максимальные ширины**: `sm` (640px) · `md` (768px) · `lg` (1024px) · `xl` (1280px) · `2xl` (1440px) · `full` (100%)
+**Максимальные ширины**: sm` (640px) · `md` (768px) · `lg` (1024px) · `xl` (1280px) · `2xl` (1440px) · `full (100%)
 
 **Отступы**: адаптивные горизонтальные padding по брейкпоинтам
 
@@ -680,11 +680,11 @@
 
 Сетка для компоновки интерфейса.
 
-**Типы**: `12-column` · `auto` (CSS Grid auto-fill)
+**Типы**: 12-column` · `auto (CSS Grid auto-fill)
 
-**Брейкпоинты**: `xs` (320px) · `sm` (640px) · `md` (768px) · `lg` (1024px) · `xl` (1280px) · `2xl` (1440px)
+**Брейкпоинты**: xs` (320px) · `sm` (640px) · `md` (768px) · `lg` (1024px) · `xl` (1280px) · `2xl (1440px)
 
-**Параметры**: `columns` · `gap` · `gutter` · `margin`
+**Параметры**: columns` · `gap` · `gutter` · `margin
 
 ---
 
@@ -692,9 +692,9 @@
 
 Составной компонент для группировки полей ввода с лейблами, подсказками и обработкой валидации.
 
-**Типы**: `vertical` (лейбл над полем) · `horizontal` (лейбл рядом с полем) · `inline`
+**Типы**: vertical` (лейбл над полем) · `horizontal` (лейбл рядом с полем) · `inline
 
-**Слоты**: `field-groups` · `submit-actions` · `error-summary`
+**Слоты**: field-groups` · `submit-actions` · `error-summary
 
 ---
 
@@ -702,11 +702,11 @@
 
 Панель истории уведомлений. Открывается как оверлей или боковая панель.
 
-**Типы элемента**: `info` · `success` · `warning` · `error`
+**Типы элемента**: info` · `success` · `warning` · `error
 
-**Состояния элемента**: `unread` · `read` · `dismissed`
+**Состояния элемента**: unread` · `read` · `dismissed
 
-**Слоты**: `header` · `filter-tabs` · `notification-list` · `empty-state`
+**Слоты**: header` · `filter-tabs` · `notification-list` · `empty-state`
 
 ---
 

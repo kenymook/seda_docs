@@ -19,7 +19,7 @@ Breadcrumbs — цепочка навигации, показывающая по
 
 **Use** — в приложениях с глубокой иерархией (3+ уровня): файловые менеджеры, CMS, e-commerce категории, настройки с вложенными разделами.
 
-**Don't use:**
+**Do not use:**
 - На главной странице или в корне — нет смысла без родительских уровней
 - Если структура плоская (1–2 уровня) — пользователь и так понимает контекст
 - Вместо основной навигации — Breadcrumbs дополняют, не заменяют
@@ -119,7 +119,7 @@ Home  ›  ...  ›  Laptops
 ## 6. Details on Types / Variants
 
 ### ghost
-Каждый элемент-ссылка имеет фоновую заливку при hover — `surface/hover`. Скругление через `border-radius`. Подходит для хедеров с выраженным фоном.
+Каждый элемент-ссылка имеет фоновую заливку при hover — `surface/subtle`. Скругление через `border-radius`. Подходит для хедеров с выраженным фоном.
 
 ### text
 Ссылки без фона. Подчёркивание при hover как сигнал интерактивности. Встраивается в текстовый контент, не выбивается из потока.
@@ -169,9 +169,9 @@ Home  ›  ...  ›  Laptops
 
 | Component token | Figma token | Роль | Semantic |
 |---|---|---|---|
-| `--breadcrumb-link-color` | `breadcrumbs/foreground/default` | Ссылка-предок default | `text/tertiary` |
-| `--breadcrumb-link-color-hover` | `breadcrumbs/foreground/hover` | Ссылка hover | `text/primary` |
-| `--breadcrumb-link-color-disabled` | `breadcrumbs/foreground/disabled` | Ссылка disabled | `status/disabled/text` |
+| `--breadcrumb-link-color` | `breadcrumbs/item/foreground/default` | Ссылка-предок default | `text/tertiary` |
+| `--breadcrumb-link-color-hover` | `breadcrumbs/item/foreground/hover` | Ссылка hover | `text/primary` |
+| `--breadcrumb-link-color-disabled` | `breadcrumbs/item/foreground/disabled` | Ссылка disabled | `status/disabled/text` |
 | `--breadcrumb-current-color` | — | Текущая страница (not clickable) | `text/primary` |
 | `--breadcrumb-link-color-pressed` | — | Ссылка pressed | `link/pressed` |
 
@@ -179,10 +179,10 @@ Home  ›  ...  ›  Laptops
 
 | Component token | Figma token | Роль | Semantic |
 |---|---|---|---|
-| `--breadcrumb-ghost-bg` | `breadcrumbs/surface/default` | Фон default | `transparent` |
-| `--breadcrumb-ghost-bg-hover` | `breadcrumbs/surface/hover` | Фон hover | `container/hover` |
-| `--breadcrumb-ghost-bg-pressed` | `breadcrumbs/surface/pressed` | Фон pressed | `container/pressed` |
-| `--breadcrumb-ghost-bg-disabled` | `breadcrumbs/surface/disabled` | Фон disabled | `transparent` |
+| `--breadcrumb-ghost-bg` | `breadcrumbs/item/surface/default` | Фон default | `transparent` |
+| `--breadcrumb-ghost-bg-hover` | `breadcrumbs/item/surface/hover` | Фон hover | `container/neutral/hover` |
+| `--breadcrumb-ghost-bg-pressed` | `breadcrumbs/item/surface/active` | Фон pressed | `container/neutral/pressed` |
+| `--breadcrumb-ghost-bg-disabled` | `breadcrumbs/item/surface/disabled` | Фон disabled | `transparent` |
 
 ### Separator & Shared
 
@@ -190,3 +190,13 @@ Home  ›  ...  ›  Laptops
 |---|---|---|---|
 | `--breadcrumb-separator-color` | — | Цвет разделителя | `text/tertiary` |
 | `--breadcrumb-focus-ring` | `breadcrumbs/focus/ring` | Кольцо фокуса | `focus/ring` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Link](../specs/actions/link.md) — навигационные ссылки.
+- [Top Bar](../specs/navigation/top-bar.md) — глобальная навигация.
+- [Sidebar](../specs/navigation/sidebar.md) — навигационная структура продукта.
+

@@ -19,7 +19,7 @@ Link — текстовый элемент навигации, ведущий к
 
 **Use** — для навигации между страницами, переходов к внешним ресурсам, якорных ссылок внутри документа, текстовых ссылок в параграфах и описаниях.
 
-**Don't use:**
+**Do not use:**
 - Для запуска действий (отправка формы, удаление, сохранение) — используйте **Button**
 - Если URL нет или переход не предполагается — используйте **Button** с типом `text`
 
@@ -104,7 +104,7 @@ Link не имеет фиксированной высоты — он насле
 Ссылка с меньшим визуальным акцентом. Используется в текстовых блоках, где синий цвет перегружал бы контент. Цвет `text/secondary`, подчёркивание сигнализирует о кликабельности.
 
 ### danger
-Предупреждающая ссылка. Цвет `status/error/text`. Используется для ссылок с деструктивным контекстом (например, «Узнать о последствиях удаления»).
+Предупреждающая ссылка. Цвет `status/danger/text`. Используется для ссылок с деструктивным контекстом (например, «Узнать о последствиях удаления»).
 
 ---
 
@@ -161,7 +161,7 @@ Link не имеет фиксированной высоты — он насле
 |---|---|---|---|
 | `--link-subtle-color` | Цвет subtle default | `text/secondary` | `text/secondary` |
 | `--link-subtle-color-hover` | Цвет subtle hover | `text/primary` | `text/primary` |
-| `--link-danger-color` | Цвет danger | `status/error/text` | `status/error/text` |
+| `--link-danger-color` | Цвет danger | `status/danger/text` | `status/danger/text` |
 
 ### Shared
 
@@ -169,3 +169,13 @@ Link не имеет фиксированной высоты — он насле
 |---|---|---|---|
 | `--link-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
 | `--link-disabled-color` | Цвет disabled | `status/disabled/text` | `status/disabled/text` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Button](../specs/actions/button.md) — действие вместо навигации.
+- [Breadcrumbs](../specs/navigation/breadcrumbs.md) — навигационный путь.
+- [Top Bar](../specs/navigation/top-bar.md) — навигационные ссылки верхнего уровня.
+

@@ -215,7 +215,7 @@ function renderHealthDashboard(report) {
         <div>
           <p class="health-kicker">Documentation quality</p>
           <h1>Docs Health</h1>
-          <p>Coverage, spec linting, metadata quality, and token/reference checks across Foundation and component specs.</p>
+          <p>Coverage, spec linting, metadata quality, and token/reference checks across Foundation, AI Readiness, and component specs.</p>
         </div>
         <div class="health-score" aria-label="Documentation health score">
           <strong>${escapeHtml(report.score)}</strong>

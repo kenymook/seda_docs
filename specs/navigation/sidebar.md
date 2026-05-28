@@ -19,7 +19,7 @@ Sidebar — боковая панель навигации с иерархиче
 
 **Use** — для приложений с несколькими основными разделами, вложенной навигацией, постоянным доступом к разделам.
 
-**Don't use:**
+**Do not use:**
 - Для простых сайтов с 3–4 страницами — используйте Top Bar
 - Для мобильных устройств в открытом состоянии — используйте тип `overlay`
 
@@ -109,8 +109,8 @@ Sidebar — боковая панель навигации с иерархиче
 | Состояние | Описание | Визуальное изменение |
 |---|---|---|
 | `default` | Обычный элемент | Цвет `text/secondary` |
-| `hover` | Курсор над элементом | Фон `surface/hover`, цвет `text/primary` |
-| `active` | Текущий раздел | Фон `container/default`, цвет `text/primary`, accent-bar слева |
+| `hover` | Курсор над элементом | Фон `surface/subtle`, цвет `text/primary` |
+| `active` | Текущий раздел | Фон `container/neutral/default`, цвет `text/primary`, accent-bar слева |
 | `focus` | Фокус клавиатуры | `focus/ring` |
 | `expanded` | Группа раскрыта | Стрелка вниз, показаны sub-items |
 | `collapsed` | Группа свёрнута | Стрелка вправо, sub-items скрыты |
@@ -154,15 +154,25 @@ Sidebar — боковая панель навигации с иерархиче
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--sidebar-bg` | Фон панели | `surface/default` | `surface/default` |
+| `--sidebar-bg` | Фон панели | `surface/base` | `surface/base` |
 | `--sidebar-item-text` | Текст элемента | `text/secondary` | `text/secondary` |
 | `--sidebar-item-text-hover` | Текст hover | `text/primary` | `text/primary` |
 | `--sidebar-item-text-active` | Текст активного | `text/primary` | `text/primary` |
-| `--sidebar-item-bg-hover` | Фон hover | `surface/hover` | `surface/hover` |
-| `--sidebar-item-bg-active` | Фон активного | `container/default` | `container/default` |
+| `--sidebar-item-bg-hover` | Фон hover | `surface/subtle` | `surface/subtle` |
+| `--sidebar-item-bg-active` | Фон активного | `container/neutral/default` | `container/neutral/default` |
 | `--sidebar-item-accent` | Accent-bar активного | `border/brand/default` | `border/brand/default` |
 | `--sidebar-icon` | Цвет иконки | `text/tertiary` | `text/tertiary` |
 | `--sidebar-icon-active` | Иконка активного | `text/primary` | `text/primary` |
 | `--sidebar-section-title` | Заголовок секции | `text/tertiary` | `text/tertiary` |
 | `--sidebar-divider` | Разделитель | `border/default` | `border/default` |
 | `--sidebar-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Drawer](../specs/navigation/drawer.md) — временная навигационная панель.
+- [Top Bar](../specs/navigation/top-bar.md) — верхняя навигация.
+- [Tabs](../specs/navigation/tabs.md) — локальное переключение разделов.
+

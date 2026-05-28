@@ -256,17 +256,17 @@ Feedback или notification закрыт пользователем или си
 
 | State | Визуальное поведение | Token direction |
 |---|---|---|
-| `default` | Базовая поверхность, текст и граница. | `surface/*`, `container/*`, `text/*`, `border/*` |
-| `hover` | Легкое усиление background/border/text. | `*/hover` |
-| `active` / `pressed` | Более сильная pressed-поверхность. | `*/pressed` |
+| `default` | Базовая поверхность, текст и граница. | surface/*, container/*, text/*, border/* |
+| `hover` | Легкое усиление background/border/text. | */hover |
+| `active` / `pressed` | Более сильная pressed-поверхность. | */pressed |
 | `focus` | Видимое focus ring поверх текущего state. | `focus/ring` |
 | `selected` | Устойчивый выбранный стиль. | brand/selected component tokens |
-| `checked` | Отмеченный control. | `container/brand/default`, `text/on-brand/*` |
+| `checked` | Отмеченный control. | `container/brand/default`, text/on-brand/* |
 | `open` | Trigger показывает раскрытое состояние; overlay видим. | component tokens + elevation |
-| `error` | Error text/border/surface. | `status/error/*` |
-| `warning` | Warning text/border/surface. | `status/warning/*` |
-| `success` | Success text/border/surface. | `status/success/*` |
-| `disabled` | Muted text/background/border. | `status/disabled/*` |
+| `error` | Error text/border/surface. | status/danger/* |
+| `warning` | Warning text/border/surface. | status/warning/* |
+| `success` | Success text/border/surface. | status/success/* |
+| `disabled` | Muted text/background/border. | status/disabled/* |
 
 Focus ring не должен исчезать из-за `hover`, `selected` или `error`.
 

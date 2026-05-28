@@ -19,7 +19,7 @@ Segmented Control — горизонтальная группа взаимоис
 
 **Use** — для переключения режима отображения (список / сетка / карта); для фильтрации с взаимоисключающими вариантами; для выбора масштаба (день / неделя / месяц).
 
-**Don't use:**
+**Do not use:**
 - Для переключения между view с разным контентом — используйте **Tabs**
 - Более 6 сегментов — используйте **Select** или **Radio Group**
 - Для выполнения действий — используйте **Button Group**
@@ -76,9 +76,9 @@ Segmented Control — горизонтальная группа взаимоис
 
 | Состояние | Описание | Визуальное изменение |
 |---|---|---|
-| `active` | Выбранный сегмент | Заливка `container/default` (или brand), текст `text/primary` |
+| `active` | Выбранный сегмент | Заливка `container/neutral/default` (или brand), текст `text/primary` |
 | `non-active` | Невыбранный | Прозрачный фон, текст `text/tertiary` |
-| `hover` | Курсор над невыбранным | Лёгкий фон `surface/hover` |
+| `hover` | Курсор над невыбранным | Лёгкий фон `surface/subtle` |
 | `disabled` | Сегмент недоступен | `status/disabled/text`, `status/disabled/container`, `status/disabled/border` |
 
 ---
@@ -126,11 +126,21 @@ Segmented Control — горизонтальная группа взаимоис
 
 | Component token | Роль | Semantic (Light) | Semantic (Dark) |
 |---|---|---|---|
-| `--segmented-bg` | Фон группы | `container/default` | `container/default` |
-| `--segmented-segment-active` | Фон активного | `surface/default` | `surface/default` |
-| `--segmented-segment-hover` | Фон hover | `surface/hover` | `surface/hover` |
+| `--segmented-bg` | Фон группы | `container/neutral/default` | `container/neutral/default` |
+| `--segmented-segment-active` | Фон активного | `surface/base` | `surface/base` |
+| `--segmented-segment-hover` | Фон hover | `surface/subtle` | `surface/subtle` |
 | `--segmented-text-active` | Текст активного | `text/primary` | `text/primary` |
 | `--segmented-text-inactive` | Текст неактивного | `text/tertiary` | `text/tertiary` |
 | `--segmented-border` | Внешняя граница | `border/default` | `border/default` |
 | `--segmented-focus-ring` | Кольцо фокуса | `focus/ring` | `focus/ring` |
 | `--segmented-disabled-text` | Текст disabled | `status/disabled/text` | `status/disabled/text` |
+
+
+---
+
+## Related specifications / Связанные спецификации
+
+- [Radio](../specs/inputs/radio.md) — семантически явный single choice.
+- [Tabs](../specs/navigation/tabs.md) — переключение между views.
+- [Button Group](../specs/actions/button-group.md) — группа связанных действий.
+
