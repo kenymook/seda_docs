@@ -475,14 +475,13 @@ function renderHealthIssueCard(item) {
 
 function renderHealthRow(item) {
   const docId = pathToId(item.path);
-  const issueCount = item.issues.length;
-  const severity = item.issues.some((issue) => issue.severity === "error")
+  const actionableIssues = item.issues.filter((issue) => issue.severity === "error" || issue.severity === "warning");
+  const issueCount = actionableIssues.length;
+  const severity = actionableIssues.some((issue) => issue.severity === "error")
     ? "error"
-    : item.issues.some((issue) => issue.severity === "warning")
+    : actionableIssues.some((issue) => issue.severity === "warning")
       ? "warning"
-      : issueCount
-        ? "note"
-        : "ok";
+      : "ok";
 
   return `
     <tr>

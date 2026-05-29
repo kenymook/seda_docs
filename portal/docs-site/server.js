@@ -382,7 +382,34 @@ function lintMarkdownDoc(doc, tokenRegistry) {
       else issues.push(issue("warning", `Missing section: ${label}`));
     }
   } else if (doc.kind === "foundation") {
-    const recommendedSections = ["principles", "rules", "usage", "governance", "examples"];
+    const recommendedSections = [
+      "principles",
+      "rules",
+      "usage",
+      "governance",
+      "examples",
+      "принципы",
+      "правила",
+      "использование",
+      "применение",
+      "управление",
+      "пример",
+      "примеры",
+      "чеклист",
+      "цель",
+      "цели",
+      "требования",
+      "действия",
+      "ввод",
+      "навигация",
+      "обратная связь",
+      "токены",
+      "source of truth",
+      "outputs",
+      "validation",
+      "lifecycle",
+      "область действия",
+    ];
     totalChecks += 1;
     if (headings.length >= 2) passedChecks += 1;
     else issues.push(issue("note", "Foundation doc has fewer than two sections"));
@@ -392,7 +419,10 @@ function lintMarkdownDoc(doc, tokenRegistry) {
     else issues.push(issue("note", "Consider adding principles, rules, usage, governance, or examples"));
   }
 
-  if (!/\[[^\]]+\]\((?:\.\.\/foundation\/|\.\.\/specs\/|\.\.\/ai-readiness\/|https?:\/\/)/.test(markdown)) {
+  const hasMarkdownCrossLink = /\[[^\]]+\]\((?:\.\.\/|\.\/)?(?:foundation\/|specs\/|ai-readiness\/|https?:\/\/)[^)]+\)/.test(markdown);
+  const hasInlineDocReference = /`(?:\.\.\/|\.\/)?(?:foundation\/|specs\/|ai-readiness\/)?[\w-]+\.md`/.test(markdown);
+
+  if (!hasMarkdownCrossLink && !hasInlineDocReference) {
     issues.push(issue("note", "No cross-links found"));
   }
 
