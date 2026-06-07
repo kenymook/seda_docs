@@ -1,4 +1,12 @@
 {
+  "avatar": [
+    "Avatar block",
+    "Avatar group",
+    "Avatar photo",
+    "_Avatar image",
+    "_Avatar add button",
+    "_Avatar more button"
+  ],
   "tag": [
     "Tag / Read-only",
     "Tag / Selectable",
@@ -11,14 +19,22 @@
     "ButtonGroupHorizontal",
     "ButtonGroupVertical"
   ],
+  "button-social": [
+    "Button Social Group"
+  ],
   "card": [
-    "Cards"
+    "Cards",
+    "Sender"
+  ],
+  "date-picker": [
+    "Calendar"
   ],
   "property-list": [
     "Description List"
   ],
   "dropdown-menu": [
-    "DropdownMenu"
+    "DropdownMenu",
+    "Dropdown"
   ],
   "segmented-control": [
     "Segmented Control - Single selection",
@@ -36,5 +52,8 @@
     "TextField/Email",
     "TextField/Password",
     "TextField/CardNumber"
+  ],
+  "sidebar": [
+    "Menu"
   ]
 }

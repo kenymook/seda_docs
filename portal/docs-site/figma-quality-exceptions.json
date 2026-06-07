@@ -60,6 +60,12 @@
       "variable": "RAW:brand-colors",
       "property": "fills",
       "reason": "Inherits raw logo artwork fills from Button Social instances. Same brand-artwork exception applies."
+    },
+    {
+      "component": "logo/facebook",
+      "variable": "RAW:brand-colors",
+      "property": "fills",
+      "reason": "Standalone Facebook provider logo vector uses brand-mandated blue fill (#0866FF). This is logo artwork, not production UI chrome; do not bind to system tokens."
     }
   ],
   "_gridNote": "Grid component (node 6673:83) is a layout template showing column guides. Column fills/strokes were bound to container/neutral/default and border/subtle respectively. This is correct — the guide color IS production chrome that should respect the theme.",

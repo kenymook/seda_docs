@@ -681,6 +681,11 @@ function buildFigmaCoverage(items, inventory, aliases = {}, exceptions = []) {
     if (component) {
       matchedSpecs += 1;
       matchedComponentNames.add(component.name);
+      for (const aliasTarget of aliasTargets) {
+        const aliasName = normalizeComponentMatchName(aliasTarget);
+        const aliasComponents = components.filter((candidate) => candidate.matchName === aliasName);
+        aliasComponents.forEach((candidate) => matchedComponentNames.add(candidate.name));
+      }
       item.figmaStatus = "matched";
       item.figmaComponent = component.name;
       item.figmaMatch = directComponent ? "direct" : "alias";
@@ -1039,6 +1044,8 @@ function componentQualityStatus(component, exceptions = []) {
 
 function isUsefulMissingSpec(item) {
   const name = String(item.name || "");
+  const page = String(item.page || "");
+  if (/^(Helpers|Utilities|Typography)/i.test(page)) return false;
   if (/^[_.]/.test(name)) return false;
   if (/^(Icon|Emoji|logo)\//i.test(name)) return false;
   if (/\/(Item|Cell|Header|Separator|Control|Option|Day|NavButton)$/i.test(name)) return false;
