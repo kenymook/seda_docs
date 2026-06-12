@@ -35,7 +35,7 @@ Scope: 52 production component specs. This is the first AI-ready registry baseli
 | Table | `specs/data-display/table.md` | ready | `7318:412` | Table | - | - |
 | Tag | `specs/data-display/tag.md` | ready | `1172:1185`, `1178:16954`, `1180:17533` | Tag / Read-only, Tag / Selectable, Tag / Interactive | Tag / Read-only, Tag / Selectable, Tag / Interactive | `packages/seda-ui` export ready; multi-set mapping review |
 | Timeline | `specs/data-display/timeline.md` | ready | `6672:242` | Timeline | - | - |
-| Alert | `specs/feedback/alert.md` | ready | `8:3867` | Alert | - | - |
+| Alert | `specs/feedback/alert.md` | ready | `8:3867` | Alert | - | `packages/seda-ui` export ready |
 | Empty State | `specs/feedback/empty-state.md` | ready | `6650:37` | Empty State | - | - |
 | Modal / Dialog | `specs/feedback/modal.md` | ready | `6653:395` | Modal | - | - |
 | Popover | `specs/feedback/popover.md` | ready | `1617:8952` | Popover | - | - |

@@ -1,4 +1,4 @@
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag) {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag, .seda-alert) {
   box-sizing: border-box;
   font-family: var(--seda-font-family, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
@@ -15,7 +15,7 @@
   width: 1px;
 }
 
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control, .seda-tag, .seda-tag__dismiss):focus-visible {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control, .seda-tag, .seda-tag__dismiss, .seda-alert__action, .seda-alert__dismiss):focus-visible {
   outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
   outline-offset: 2px;
 }
@@ -525,4 +525,156 @@
 
 .seda-tag__dismiss:disabled {
   cursor: not-allowed;
+}
+
+.seda-alert {
+  --seda-alert-padding: 12px;
+  --seda-alert-radius: 10px;
+  --seda-alert-gap: 10px;
+  --seda-alert-title-size: 14px;
+  --seda-alert-title-line: 20px;
+  --seda-alert-description-size: 13px;
+  --seda-alert-description-line: 18px;
+  align-items: flex-start;
+  background: var(--seda-alert-surface, var(--alert-surface-info, var(--status-info-surface, #dbeafe)));
+  border: 1px solid var(--seda-alert-border, var(--alert-border-info, var(--status-info-border, #93c5fd)));
+  border-radius: var(--seda-alert-radius);
+  color: var(--seda-alert-description, var(--alert-description-foreground-info, var(--text-secondary, #374151)));
+  display: grid;
+  gap: var(--seda-alert-gap);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: var(--seda-alert-padding);
+}
+
+.seda-alert[data-size="s"] {
+  --seda-alert-padding: 8px;
+  --seda-alert-radius: 8px;
+  --seda-alert-gap: 8px;
+  --seda-alert-title-size: 13px;
+  --seda-alert-title-line: 18px;
+  --seda-alert-description-size: 12px;
+  --seda-alert-description-line: 16px;
+}
+
+.seda-alert[data-size="l"] {
+  --seda-alert-padding: 16px;
+  --seda-alert-radius: 12px;
+  --seda-alert-title-size: 16px;
+  --seda-alert-title-line: 24px;
+  --seda-alert-description-size: 14px;
+  --seda-alert-description-line: 20px;
+}
+
+.seda-alert[data-size="xl"] {
+  --seda-alert-padding: 20px;
+  --seda-alert-radius: 14px;
+  --seda-alert-title-size: 18px;
+  --seda-alert-title-line: 28px;
+  --seda-alert-description-size: 15px;
+  --seda-alert-description-line: 22px;
+}
+
+.seda-alert[data-variant="success"] {
+  --seda-alert-surface: var(--alert-surface-success, var(--status-success-surface, #dcfce7));
+  --seda-alert-border: var(--alert-border-success, var(--status-success-border, #86efac));
+  --seda-alert-title: var(--alert-title-foreground-success, var(--status-success-text, #166534));
+  --seda-alert-icon: var(--alert-icon-success, var(--status-success-icon, #16a34a));
+  --seda-alert-description: var(--alert-description-foreground-success, var(--text-secondary, #374151));
+}
+
+.seda-alert[data-variant="warning"] {
+  --seda-alert-surface: var(--alert-surface-warning, var(--status-warning-surface, #fef3c7));
+  --seda-alert-border: var(--alert-border-warning, var(--status-warning-border, #f59e0b));
+  --seda-alert-title: var(--alert-title-foreground-warning, var(--status-warning-text, #92400e));
+  --seda-alert-icon: var(--alert-icon-warning, var(--status-warning-icon, #d97706));
+  --seda-alert-description: var(--alert-description-foreground-warning, var(--text-secondary, #374151));
+}
+
+.seda-alert[data-variant="error"] {
+  --seda-alert-surface: var(--alert-surface-danger, var(--status-danger-surface, #fee2e2));
+  --seda-alert-border: var(--alert-border-danger, var(--status-danger-border, #ef4444));
+  --seda-alert-title: var(--alert-title-foreground-danger, var(--status-danger-text, #991b1b));
+  --seda-alert-icon: var(--alert-icon-danger, var(--status-danger-icon, #dc2626));
+  --seda-alert-description: var(--alert-description-foreground-danger, var(--text-secondary, #374151));
+}
+
+.seda-alert[data-variant="ai"] {
+  --seda-alert-surface: var(--alert-surface-ai, var(--status-ai-surface, #f3e8ff));
+  --seda-alert-border: var(--alert-border-ai, var(--status-ai-border, #c084fc));
+  --seda-alert-title: var(--alert-title-foreground-ai, var(--status-ai-text, #6b21a8));
+  --seda-alert-icon: var(--alert-icon-ai, var(--status-ai-icon, #7e22ce));
+  --seda-alert-description: var(--alert-description-foreground-default, var(--text-secondary, #374151));
+}
+
+.seda-alert__icon {
+  align-items: center;
+  color: var(--seda-alert-icon, var(--alert-icon-info, var(--status-info-icon, #2563eb)));
+  display: inline-flex;
+  font-size: var(--seda-alert-title-size);
+  font-weight: 700;
+  height: var(--seda-alert-title-line);
+  justify-content: center;
+  min-width: var(--seda-alert-title-line);
+}
+
+.seda-alert__content {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.seda-alert__title {
+  color: var(--seda-alert-title, var(--alert-title-foreground-info, var(--status-info-text, #1d4ed8)));
+  font-size: var(--seda-alert-title-size);
+  font-weight: 650;
+  line-height: var(--seda-alert-title-line);
+}
+
+.seda-alert__description,
+.seda-alert__body {
+  color: var(--seda-alert-description);
+  font-size: var(--seda-alert-description-size);
+  line-height: var(--seda-alert-description-line);
+}
+
+.seda-alert__actions {
+  margin-top: 4px;
+}
+
+.seda-alert__action,
+.seda-alert__dismiss {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--alert-action-foreground-default, var(--text-primary, #111827));
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.seda-alert__action {
+  font-size: var(--seda-alert-description-size);
+  font-weight: 650;
+  line-height: var(--seda-alert-description-line);
+}
+
+.seda-alert__action:hover {
+  color: var(--alert-action-foreground-hover, var(--text-brand, #2563eb));
+}
+
+.seda-alert__dismiss {
+  align-items: center;
+  color: var(--alert-close-icon-default, var(--icon-tertiary, #6b7280));
+  display: inline-flex;
+  font-size: 18px;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+  margin: -2px -2px 0 0;
+  width: 24px;
+}
+
+.seda-alert__dismiss:hover {
+  background: var(--alert-close-surface-hover, var(--container-neutral-hover, rgb(0 0 0 / 0.06)));
+  color: var(--alert-close-icon-hover, var(--icon-primary, #111827));
 }

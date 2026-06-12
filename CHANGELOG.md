@@ -47,6 +47,7 @@
 - Canonical Link node обновлен на normalized component set `1276:11371`; legacy Link set `4071:74` оставлен как migration/alias review item.
 - Notification Center error state captured in scan: `Retry loading` является Button instance во всех 8 error variants, а не plain text label.
 - `packages/seda-ui` расширен Wave 2 exports: добавлены `Badge` и `Tag` с typed props, accessibility contract, token-driven CSS и проверкой TypeScript.
+- В `packages/seda-ui` добавлен `Alert` как Wave 2 feedback primitive с typed props, role/live-region defaults, action/dismiss support и token-driven CSS.
 
 ### Deprecated
 
