@@ -1,4 +1,4 @@
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag, .seda-alert, .seda-toast) {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag, .seda-alert, .seda-toast, .seda-file-upload) {
   box-sizing: border-box;
   font-family: var(--seda-font-family, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
@@ -818,4 +818,172 @@
 
 .seda-toast__dismiss:hover {
   color: var(--toast-close-icon-hover, currentColor);
+}
+
+.seda-file-upload {
+  --seda-file-upload-padding: 14px;
+  --seda-file-upload-radius: 10px;
+  --seda-file-upload-gap: 10px;
+  --seda-file-upload-title-size: 14px;
+  --seda-file-upload-title-line: 20px;
+  --seda-file-upload-message-size: 12px;
+  --seda-file-upload-message-line: 16px;
+  align-items: center;
+  background: var(--file-upload-surface-default, var(--surface-base, #ffffff));
+  border: 1px dashed var(--file-upload-border-default, var(--border-default, #d1d5db));
+  border-radius: var(--seda-file-upload-radius);
+  color: var(--file-upload-foreground-default, var(--text-secondary, #374151));
+  cursor: pointer;
+  display: inline-grid;
+  gap: var(--seda-file-upload-gap);
+  grid-template-columns: auto minmax(0, 1fr);
+  max-width: 100%;
+  min-height: 72px;
+  padding: var(--seda-file-upload-padding);
+}
+
+.seda-file-upload[data-size="s"] {
+  --seda-file-upload-padding: 10px;
+  --seda-file-upload-gap: 8px;
+  --seda-file-upload-title-size: 13px;
+  --seda-file-upload-title-line: 18px;
+}
+
+.seda-file-upload[data-size="l"] {
+  --seda-file-upload-padding: 18px;
+  --seda-file-upload-title-size: 16px;
+  --seda-file-upload-title-line: 24px;
+}
+
+.seda-file-upload[data-size="xl"] {
+  --seda-file-upload-padding: 22px;
+  --seda-file-upload-title-size: 18px;
+  --seda-file-upload-title-line: 28px;
+}
+
+.seda-file-upload[data-variant="button"],
+.seda-file-upload[data-variant="inline"] {
+  border-style: solid;
+  min-height: auto;
+}
+
+.seda-file-upload[data-variant="button"] {
+  display: inline-flex;
+}
+
+.seda-file-upload[data-variant="inline"] {
+  background: transparent;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.seda-file-upload:hover {
+  background: var(--file-upload-surface-hover, var(--container-neutral-hover, #f9fafb));
+  border-color: var(--file-upload-border-hover, var(--border-hover, #9ca3af));
+}
+
+.seda-file-upload[data-state="drag-over"] {
+  background: var(--file-upload-surface-drag, var(--status-info-surface, #dbeafe));
+  border-color: var(--file-upload-border-drag, var(--status-info-border, #60a5fa));
+  color: var(--file-upload-foreground-drag, var(--text-primary, #111827));
+}
+
+.seda-file-upload[data-state="error"] {
+  background: var(--file-upload-surface-error, var(--status-danger-surface, #fee2e2));
+  border-color: var(--file-upload-border-error, var(--status-danger-border, #ef4444));
+}
+
+.seda-file-upload[data-state="success"] {
+  background: var(--file-upload-status-success, var(--status-success-surface, #dcfce7));
+}
+
+.seda-file-upload[data-disabled="true"],
+.seda-file-upload[data-state="disabled"] {
+  background: var(--file-upload-surface-disabled, var(--status-disabled-container, #f3f4f6));
+  border-color: var(--file-upload-border-disabled, var(--status-disabled-border, #d1d5db));
+  color: var(--file-upload-foreground-disabled, var(--status-disabled-text, #9ca3af));
+  cursor: not-allowed;
+}
+
+.seda-file-upload__input {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.seda-file-upload:has(.seda-file-upload__input:focus-visible) {
+  outline: 2px solid var(--file-upload-focus-ring, var(--focus-ring, #2563eb));
+  outline-offset: 2px;
+}
+
+.seda-file-upload__icon {
+  align-items: center;
+  color: var(--file-upload-icon-default, var(--icon-tertiary, #6b7280));
+  display: inline-flex;
+  font-size: var(--seda-file-upload-title-size);
+  font-weight: 700;
+  height: var(--seda-file-upload-title-line);
+  justify-content: center;
+  min-width: var(--seda-file-upload-title-line);
+}
+
+.seda-file-upload[data-state="error"] .seda-file-upload__icon {
+  color: var(--file-upload-icon-error, var(--status-danger-icon, #dc2626));
+}
+
+.seda-file-upload[data-state="drag-over"] .seda-file-upload__icon {
+  color: var(--file-upload-icon-drag, var(--status-info-icon, #2563eb));
+}
+
+.seda-file-upload[data-disabled="true"] .seda-file-upload__icon {
+  color: var(--file-upload-icon-disabled, var(--status-disabled-icon, #9ca3af));
+}
+
+.seda-file-upload__content {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.seda-file-upload__label {
+  color: var(--file-upload-foreground-title, var(--text-primary, #111827));
+  font-size: var(--seda-file-upload-title-size);
+  font-weight: 650;
+  line-height: var(--seda-file-upload-title-line);
+}
+
+.seda-file-upload__action {
+  color: var(--text-brand, #2563eb);
+  font-size: var(--seda-file-upload-message-size);
+  font-weight: 650;
+  line-height: var(--seda-file-upload-message-line);
+}
+
+.seda-file-upload__message {
+  color: var(--file-upload-foreground-default, var(--text-secondary, #374151));
+  font-size: var(--seda-file-upload-message-size);
+  line-height: var(--seda-file-upload-message-line);
+}
+
+.seda-file-upload__message[data-tone="error"] {
+  color: var(--file-upload-foreground-error, var(--status-danger-text, #991b1b));
+}
+
+.seda-file-upload__progress {
+  background: var(--file-upload-progress-track, var(--container-neutral-default, #e5e7eb));
+  border-radius: 999px;
+  display: block;
+  height: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.seda-file-upload__progress-fill {
+  background: var(--file-upload-progress-fill, var(--container-brand-default, #2563eb));
+  display: block;
+  height: 100%;
 }

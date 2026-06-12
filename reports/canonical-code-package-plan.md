@@ -58,6 +58,7 @@ Wave 1 exports should exist before real Code Connect mappings are committed. Wav
 | `Tag` | `packages/seda-ui/src/components/Tag/Tag.tsx` | `1172:1185`, `1178:16954`, `1180:17533` | 2 | Read-only, selectable, and interactive status/classification label. |
 | `Alert` | `packages/seda-ui/src/components/Alert/Alert.tsx` | `8:3867` | 2 | Contextual feedback message with action and dismiss support. |
 | `Toast` | `packages/seda-ui/src/components/Toast/Toast.tsx` | `6652:62` | 2 | Temporary non-blocking feedback notification. |
+| `FileUpload` | `packages/seda-ui/src/components/FileUpload/FileUpload.tsx` | `6661:46` | 2 | File selection and dropzone primitive. |
 
 ## Implementation Rules
 
@@ -74,7 +75,7 @@ Wave 1 exports should exist before real Code Connect mappings are committed. Wav
 Real `.figma.ts` mappings can start when these are true:
 
 - [x] `packages/seda-ui` exists and publishes/imports as `@seda-ai/ui`.
-- [x] Wave 1 components have stable exports from `packages/seda-ui/src/index.ts`; Badge, Tag, Alert, and Toast Wave 2 exports are also available.
+- [x] Wave 1 components have stable exports from `packages/seda-ui/src/index.ts`; Badge, Tag, Alert, Toast, and FileUpload Wave 2 exports are also available.
 - [x] Wave 1 public props are reviewed against specs and `reports/component-registry.md`.
 - [x] The final Notification Center retry Button scan has been saved into `portal/docs-site/figma-components.json`.
 - [x] At least one local type/build check exists for the package. `.local/node/bin/node packages/seda-ui/node_modules/typescript/bin/tsc --noEmit -p packages/seda-ui/tsconfig.json` passes in this workspace.

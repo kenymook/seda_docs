@@ -49,6 +49,7 @@
 - `packages/seda-ui` расширен Wave 2 exports: добавлены `Badge` и `Tag` с typed props, accessibility contract, token-driven CSS и проверкой TypeScript.
 - В `packages/seda-ui` добавлен `Alert` как Wave 2 feedback primitive с typed props, role/live-region defaults, action/dismiss support и token-driven CSS.
 - В `packages/seda-ui` добавлен `Toast` как Wave 2 feedback primitive с typed props, aria-live/role defaults, action/dismiss support, duration metadata и token-driven CSS.
+- В `packages/seda-ui` добавлен `FileUpload` как Wave 2 input primitive с dropzone/button/inline variants, drag-and-drop handlers, progress state, typed props и token-driven CSS.
 
 ### Deprecated
 

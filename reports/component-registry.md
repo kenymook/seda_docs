@@ -47,7 +47,7 @@ Scope: 52 production component specs. This is the first AI-ready registry baseli
 | Checkbox | `specs/inputs/checkbox.md` | ready | `1090:16624` | checkbox | - | - |
 | Color Picker | `specs/inputs/color-picker.md` | ready | `6386:423` | ColorPicker | ColorPicker | alias verify |
 | Date Picker | `specs/inputs/date-picker.md` | ready | `4101:4117` | DatePicker | Calendar | alias verify |
-| File Upload | `specs/inputs/file-upload.md` | ready | `6661:46` | File Upload | - | - |
+| File Upload | `specs/inputs/file-upload.md` | ready | `6661:46` | File Upload | - | `packages/seda-ui` export ready |
 | Radio | `specs/inputs/radio.md` | ready | `1082:14510` | radio | - | - |
 | Segmented Control | `specs/inputs/segmented-control.md` | ready | `805:10516` | Segmented Control - Single selection | Segmented Control - Single selection, Segment | alias verify |
 | Select | `specs/inputs/select.md` | ready | `4080:170` | Select | - | - |

@@ -18,7 +18,7 @@ This matrix tracks whether SEDA AI can be treated as an AI-ready design system, 
 | Governance | All production specs have owner `Kenymook`, real Figma links, and markdown status `ready`; the owner approval pass is complete. | Strong |
 | Public API consistency | Main P1 API normalization batch is reflected in the saved Figma inventory; remaining API work is strategic visual/semantic modeling. | Strong |
 | Visual QA | Initial P2 fixes and Button System scan are reflected in the saved inventory. IconButton live visual-token validation now matches Button across all 144 combinations and the saved scan captures the aligned 144-variant set. | Strong |
-| Code mapping | Specs include code mapping sections; registry, Code Connect plan, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag/Alert/Toast exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
+| Code mapping | Specs include code mapping sections; registry, Code Connect plan, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag/Alert/Toast/FileUpload exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
 
 Overall maturity: **Level 3 candidate / AI-ready Design System pending Code Connect mappings**.
 
@@ -33,7 +33,7 @@ Target maturity: **Level 3 / AI-ready Design System**.
 | Public API normalization | Strategic residuals | Most public API inconsistencies have been normalized; remaining decisions affect visual semantics and code mapping. |
 | Known visual QA gaps | 0 tracked items after live fix | IconButton visual-token alignment is captured in the saved scan with score `100` and no raw/direct semantic issues. |
 | Scan quality polish | 9 saved-scan items | Remaining saved-scan penalties are Avatar effect/text token gaps, standalone emoji artwork without bindings, and provider-logo brand artwork exceptions. |
-| Code Connect missing | System-wide | Priority plan, mapping review, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag/Alert/Toast Wave 2 exports exist; Figma-side mapping is blocked by account access. |
+| Code Connect missing | System-wide | Priority plan, mapping review, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag/Alert/Toast/FileUpload Wave 2 exports exist; Figma-side mapping is blocked by account access. |
 
 ## Latest Scan Results
 
@@ -84,7 +84,7 @@ The `2026-06-12T16:52:43.458Z` scan captured the Button System rename, IconButto
 | Task | Scope | Done when |
 |---|---|---|
 | Create component registry | All public components | Done: `reports/component-registry.md` maps 52 production specs to Figma nodes, inventory matches, aliases, and next gaps. |
-| Add Code Connect mappings | Priority components first | Planned in `reports/code-connect-plan.md`; canonical package, Wave 1 review, and Wave 2 Badge/Tag/Alert/Toast source exports are ready, but real mappings are blocked by Figma Code Connect access. |
+| Add Code Connect mappings | Priority components first | Planned in `reports/code-connect-plan.md`; canonical package, Wave 1 review, and Wave 2 Badge/Tag/Alert/Toast/FileUpload source exports are ready, but real mappings are blocked by Figma Code Connect access. |
 | Add validation prompts to workflow | Design review and handoff | Done: `reports/validation-workflow.md` defines pass/fail validation stages for scope, component usage, tokens, visual QA, accessibility, handoff, AI output, and release. |
 | Create release checklist | Repo + Figma | Done: `reports/release-checklist.md` defines scan, health, visual QA, docs, token, accessibility, handoff, Code Connect, and changelog gates. |
 
@@ -128,7 +128,7 @@ Legend:
 | Checkbox | ready | checkbox | OK | Ready. |
 | Color Picker | ready | ColorPicker | OK | API normalized to `variant/size/state`; real Figma link added. |
 | Date Picker | ready | DatePicker | OK | API normalized to `selection/size/state`. |
-| File Upload | ready | File Upload | OK | Scan confirms API `variant/state/size`, `s` helper readability, disabled contextual reason, and quality score `100`. |
+| File Upload | ready | File Upload | OK | Scan confirms API `variant/state/size`, `s` helper readability, disabled contextual reason, quality score `100`, and `packages/seda-ui` export is ready. |
 | Radio | ready | radio | OK | Ready. |
 | Segmented Control | ready | Segmented Control | OK | Ready. |
 | Select | ready | Select | OK | API normalized to `selection/size/state`. |
@@ -156,6 +156,6 @@ Legend:
 
 Continue with **Wave 2 package growth while Code Connect access is blocked**. `packages/seda-ui` TypeScript validation passes through the local Node command; Figma-side Code Connect remains blocked by required Developer seat / Organization or Enterprise access.
 
-1. Add the next Wave 2 source export, recommended `FileUpload`.
+1. Add the next Wave 2 source export, recommended `ChatBubble`.
 2. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
 3. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.
