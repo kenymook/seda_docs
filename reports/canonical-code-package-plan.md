@@ -2,7 +2,7 @@
 
 Last updated: 2026-06-12  
 Owner: Kenymook  
-Related: `reports/code-connect-plan.md`, `reports/component-registry.md`
+Related: `reports/code-connect-plan.md`, `reports/component-registry.md`, `reports/package-export-coverage.md`
 Wave 1 mapping review: `reports/code-connect-wave1-mapping-review.md`
 
 This document records the canonical production code source decision for SEDA AI. It exists because the current repo contains documentation/demo surfaces, but not a production UI package that Code Connect should point to.
@@ -93,4 +93,4 @@ Real `.figma.ts` mappings can start when these are true:
 
 ## Next Step
 
-Enable Figma Code Connect access, then create Wave 1 mappings for Button, IconButton, Link, TextField, Select, Checkbox, Radio, and Toggle.
+Continue package export coverage using `reports/package-export-coverage.md`. The next recommended breadth batch is ChatBubble, TopBar, NotificationCenter, Search, and DropdownMenu. Enable Figma Code Connect access in parallel, then create Wave 1 mappings for Button, IconButton, Link, TextField, Select, Checkbox, Radio, and Toggle.

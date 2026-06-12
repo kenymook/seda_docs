@@ -3,6 +3,7 @@
 Last updated: 2026-06-12  
 Figma file: `SEDA AI v0.2.0` / `Su1jWqKc9TkD1R8f7wHOQU`  
 Registry source: `reports/component-registry.md`  
+Package coverage: `reports/package-export-coverage.md`  
 Wave 1 mapping review: `reports/code-connect-wave1-mapping-review.md`
 
 This plan defines the first Code Connect mapping waves for SEDA AI. The canonical production package decision is recorded in `reports/canonical-code-package-plan.md`: `packages/seda-ui` is the source of truth. Wave 1 components are scaffolded; Wave 2 has started with Badge, Tag, Alert, Toast, and FileUpload exports. Local TypeScript validation passes with `.local/node/bin/node packages/seda-ui/node_modules/typescript/bin/tsc --noEmit -p packages/seda-ui/tsconfig.json`. Figma-side Code Connect mapping is currently blocked by account permissions: the MCP tool reports that a Developer seat in an Organization or Enterprise plan is required.
@@ -18,6 +19,10 @@ Button and Icon Button are treated as separate components inside one Button Syst
 | Use registry for planning? | Yes. `reports/component-registry.md` is the mapping baseline. |
 | Canonical source path | `packages/seda-ui/src/components/*.tsx`, with exports from `packages/seda-ui/src/index.ts` and package import `@seda-ai/ui`. |
 | Next required input | Enable Code Connect access in Figma, then create/review Wave 1 mappings against `reports/code-connect-wave1-mapping-review.md`. |
+
+## Package Coverage Note
+
+`packages/seda-ui` currently covers 13 of 52 production component specs. The remaining 39 components are tracked in `reports/package-export-coverage.md`. Until Code Connect access is available, continue broadening the package with the next recommended batch: ChatBubble, TopBar, NotificationCenter, Search, and DropdownMenu.
 
 ## Priority Waves
 

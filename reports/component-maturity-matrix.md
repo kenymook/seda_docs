@@ -18,7 +18,7 @@ This matrix tracks whether SEDA AI can be treated as an AI-ready design system, 
 | Governance | All production specs have owner `Kenymook`, real Figma links, and markdown status `ready`; the owner approval pass is complete. | Strong |
 | Public API consistency | Main P1 API normalization batch is reflected in the saved Figma inventory; remaining API work is strategic visual/semantic modeling. | Strong |
 | Visual QA | Initial P2 fixes and Button System scan are reflected in the saved inventory. IconButton live visual-token validation now matches Button across all 144 combinations and the saved scan captures the aligned 144-variant set. | Strong |
-| Code mapping | Specs include code mapping sections; registry, Code Connect plan, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag/Alert/Toast/FileUpload exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
+| Code mapping | Specs include code mapping sections; registry, Code Connect plan, package export coverage report, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag/Alert/Toast/FileUpload exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
 
 Overall maturity: **Level 3 candidate / AI-ready Design System pending Code Connect mappings**.
 
@@ -33,7 +33,8 @@ Target maturity: **Level 3 / AI-ready Design System**.
 | Public API normalization | Strategic residuals | Most public API inconsistencies have been normalized; remaining decisions affect visual semantics and code mapping. |
 | Known visual QA gaps | 0 tracked items after live fix | IconButton visual-token alignment is captured in the saved scan with score `100` and no raw/direct semantic issues. |
 | Scan quality polish | 9 saved-scan items | Remaining saved-scan penalties are Avatar effect/text token gaps, standalone emoji artwork without bindings, and provider-logo brand artwork exceptions. |
-| Code Connect missing | System-wide | Priority plan, mapping review, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag/Alert/Toast/FileUpload Wave 2 exports exist; Figma-side mapping is blocked by account access. |
+| Code Connect missing | System-wide | Priority plan, mapping review, package export coverage report, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag/Alert/Toast/FileUpload Wave 2 exports exist; Figma-side mapping is blocked by account access. |
+| Package export coverage | 39 remaining exports | `packages/seda-ui` currently covers 13 of 52 production specs. The remaining components are tracked in `reports/package-export-coverage.md`; next batch should broaden into app shell and AI surfaces. |
 
 ## Latest Scan Results
 
@@ -157,5 +158,6 @@ Legend:
 Continue with **Wave 2 package growth while Code Connect access is blocked**. `packages/seda-ui` TypeScript validation passes through the local Node command; Figma-side Code Connect remains blocked by required Developer seat / Organization or Enterprise access.
 
 1. Add the next Wave 2 source export, recommended `ChatBubble`.
-2. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
-3. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.
+2. Continue the breadth batch from `reports/package-export-coverage.md`: TopBar, NotificationCenter, Search, and DropdownMenu.
+3. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
+4. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.
