@@ -9,7 +9,14 @@ portal/docs-site/claude-tasks.md
 portal/docs-site/figma-components.json
 
 # Generated reports, caches and helper workspaces
-reports/
+reports/*
+!reports/component-maturity-matrix.md
+!reports/component-registry.md
+!reports/release-checklist.md
+!reports/code-connect-plan.md
+!reports/validation-workflow.md
+!reports/canonical-code-package-plan.md
+!reports/code-connect-wave1-mapping-review.md
 tools/
 tmp/
 temp/

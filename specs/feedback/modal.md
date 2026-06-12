@@ -2,8 +2,8 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Modal](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6653-395)
 
@@ -86,16 +86,16 @@ Modal / Dialog — блокирующий overlay-компонент для ре
 
 ## 3. Types / Variants
 
-Figma component set использует variant property `type`.
+Figma component set использует variant property `variant`.
 
-| `type` | Назначение | Типовая структура |
+| `variant` | Назначение | Типовая структура |
 | --- | --- | --- |
 | `default` | Стандартная сфокусированная задача или короткий контент. | Header, content, optional footer. |
 | `confirmation` | Подтверждение действия, особенно destructive или irreversible. | Title, risk description, cancel, confirm. |
 | `alert` | Блокирующее сообщение, требующее явного acknowledgement. | Title, message, one primary action. |
 | `fullscreen` | Сложная задача, которой нужно больше пространства, но она остается modal flow. | Header, large content area, footer или toolbar. |
 
-### Type rules
+### Variant rules
 
 - `confirmation` должен явно описывать последствие действия.
 - `alert` используется только когда сообщение блокирует продолжение сценария.
@@ -113,7 +113,7 @@ Figma component set использует variant property `size`.
 | `s` | Короткие confirmations и alerts. | Минимальный content, 1-2 действия. |
 | `m` | Стандартный Modal. | Default для коротких форм и решений. |
 | `l` | Более сложный content или форма. | Используйте только если сценарий все еще короткий. |
-| `xl` | Fullscreen или почти fullscreen modal flow. | Для `type=fullscreen` и сложных задач с явным завершением. |
+| `xl` | Fullscreen или почти fullscreen modal flow. | Для `variant=fullscreen` и сложных задач с явным завершением. |
 
 ### Правила размеров
 
@@ -236,7 +236,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 ### Token gaps
 
 - Нет component tokens для width, padding, gap, radius, elevation/shadow, header separator и footer separator.
-- Нет отдельных component tokens для `type=confirmation`, `type=alert` и `type=fullscreen`.
+- Нет отдельных component tokens для `variant=confirmation`, `variant=alert` и `variant=fullscreen`.
 - Destructive action styling должен приходить из Button tokens, а не из Modal tokens.
 - Не используйте legacy CSS custom properties как source of truth в spec.
 
@@ -247,7 +247,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 | Design concept | Suggested prop / API | Правила |
 | --- | --- | --- |
 | Open state | `open` | Controlled или uncontrolled, но поведение закрытия должно быть явным. |
-| Type | `type` | `default`, `confirmation`, `alert`, `fullscreen`. |
+| Variant | `variant` | `default`, `confirmation`, `alert`, `fullscreen`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Title | `title` | Visible heading или accessible name. |
 | Description | `description` | Optional text; required for risky confirmation. |
@@ -259,7 +259,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 
 ### Contract rules
 
-- `type` и `size` должны соответствовать Figma variants.
+- `variant` и `size` должны соответствовать Figma variants.
 - Modal не должен принимать arbitrary width/color props без system review.
 - Close behavior должен учитывать destructive flow и unsaved changes.
 - Footer actions используют Button spec, включая loading, disabled и danger.
@@ -272,7 +272,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 В handoff нужно передать:
 
 - trigger, который открывает Modal;
-- `type`, `size` и content slot;
+- `variant`, `size` и content slot;
 - title, description, body content и footer action labels;
 - можно ли закрыть через close button, `Escape` и scrim click;
 - initial focus target;
@@ -289,7 +289,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 - Modal блокирует фон только при оправданном сценарии.
 - Открыт только один Modal.
 - Focus trap и focus return работают.
-- `type` и `size` совпадают с Figma variants.
+- `variant` и `size` совпадают с Figma variants.
 - Destructive confirmation явно описывает последствие.
 - Dangerous action не получает initial focus по умолчанию.
 - Close behavior описан для close button, `Escape` и scrim click.
@@ -299,7 +299,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 
 | Design artifact | Code artifact | AI can help with | Human must validate |
 | --- | --- | --- | --- |
-| Modal type и size | `type`, `size` | Проверить соответствие Figma variants. | Подходит ли Modal, а не Drawer/Popover/page. |
+| Modal variant и size | `variant`, `size` | Проверить соответствие Figma variants. | Подходит ли Modal, а не Drawer/Popover/page. |
 | Header title/description | `title`, `description`, ARIA links | Черновик copy и accessible description. | Риск, юридический смысл и ясность текста. |
 | Footer actions | `primaryAction`, `secondaryAction` | Сформировать action labels и criteria. | Destructive behavior, loading и permissions. |
 | Dismiss behavior | `closeOnEscape`, `closeOnScrimClick`, `onClose` | Найти missing close rules. | Безопасность закрытия и unsaved changes. |
@@ -309,7 +309,7 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 
 ## 11. AI usage rules
 
-- AI может использовать только `type`: `default`, `confirmation`, `alert`, `fullscreen`.
+- AI может использовать только `variant`: `default`, `confirmation`, `alert`, `fullscreen`.
 - AI может использовать только `size`: `s`, `m`, `l`, `xl`.
 - AI не должен предлагать nested Modal.
 - AI должен проверять, нужен ли Modal, Alert, Popover, Drawer или отдельная страница.
@@ -326,10 +326,10 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 
 | Сценарий | Решение |
 | --- | --- |
-| Удаление проекта. | `type=confirmation`, `size=s`, safe initial focus, Button danger `Удалить проект`. |
-| Короткая форма создания. | `type=default`, `size=m`, focus на первое поле, footer `Отмена` / `Создать`. |
-| Критичное сообщение, требующее OK. | `type=alert`, `size=s`, `role=alertdialog`, одна primary action. |
-| Сложный modal flow без ухода со страницы. | `type=fullscreen`, `size=xl`, явный close и сохранение состояния. |
+| Удаление проекта. | `variant=confirmation`, `size=s`, safe initial focus, Button danger `Удалить проект`. |
+| Короткая форма создания. | `variant=default`, `size=m`, focus на первое поле, footer `Отмена` / `Создать`. |
+| Критичное сообщение, требующее OK. | `variant=alert`, `size=s`, `role=alertdialog`, одна primary action. |
+| Сложный modal flow без ухода со страницы. | `variant=fullscreen`, `size=xl`, явный close и сохранение состояния. |
 
 ### Требует review
 

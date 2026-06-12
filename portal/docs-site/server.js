@@ -29,13 +29,17 @@ const sectionTitles = {
 };
 
 const figmaBaseline = {
-  matchedSpecs: 51,
-  readySpecs: 51,
+  matchedSpecs: 52,
+  readySpecs: 52,
   qualityIssues: 0,
   missingInFigma: 0,
   needsNaming: 0,
   actionableSemanticTotal: 0,
 };
+
+const systemSpecPaths = new Set([
+  path.normalize("actions/button-system.md"),
+]);
 
 const sectionOrder = [
   "foundation",
@@ -279,8 +283,9 @@ function buildDocsHealthReport() {
     })),
     ...readMarkdownFiles(path.join(root, "specs")).map((filePath) => {
       const relative = path.relative(path.join(root, "specs"), filePath).split(path.sep);
+      const relativePath = path.normalize(path.relative(path.join(root, "specs"), filePath));
       return {
-        kind: relative.length > 1 ? "component" : "template",
+        kind: systemSpecPaths.has(relativePath) ? "system" : relative.length > 1 ? "component" : "template",
         section: relative.length > 1 ? relative[0] : "templates",
         filePath,
         path: toWebPath(filePath),
@@ -303,7 +308,7 @@ function buildDocsHealthReport() {
       acc.notes += item.issues.filter((issue) => issue.severity === "note").length;
       return acc;
     },
-    { component: 0, foundation: 0, "ai-readiness": 0, template: 0, errors: 0, warnings: 0, notes: 0 },
+    { component: 0, foundation: 0, "ai-readiness": 0, template: 0, system: 0, errors: 0, warnings: 0, notes: 0 },
   );
 
   const totalChecks = items.reduce((sum, item) => sum + item.checks.total, 0);
@@ -319,6 +324,7 @@ function buildDocsHealthReport() {
       foundation: totals.foundation,
       aiReadiness: totals["ai-readiness"],
       templates: totals.template,
+      system: totals.system,
       errors: totals.errors,
       warnings: totals.warnings,
       notes: totals.notes,

@@ -1,4 +1,10 @@
 {
+  "button": [
+    "Button / Button"
+  ],
+  "icon-button": [
+    "Button / IconButton"
+  ],
   "avatar": [
     "Avatar block",
     "Avatar group",
@@ -18,9 +24,6 @@
   "button-group": [
     "ButtonGroupHorizontal",
     "ButtonGroupVertical"
-  ],
-  "button-social": [
-    "Button Social Group"
   ],
   "card": [
     "Cards",

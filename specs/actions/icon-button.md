@@ -2,10 +2,10 @@
 
 > **Category** · Actions
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
-> **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Status** · ready
+> **Owner** · Kenymook
+> **Last reviewed** · 2026-06-12
+> **Figma** · [Button / IconButton](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2654-2866)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `spacing-sizing.md`, `state-vocabulary.md`, `tokens.md`
 
 ---
@@ -17,6 +17,8 @@
 Icon Button — кнопка действия без видимого текстового label, где единственный видимый контент — иконка. Компонент используется в плотных интерфейсах: toolbar, table row actions, карточки, header actions, close controls и overflow actions.
 
 В SEDA AI Icon Button является action-компонентом с повышенным accessibility-риском: без текста пользователь может не понять действие, поэтому обязательны `aria-label`, Tooltip и строгая связь иконки с действием.
+
+Icon Button является частью [Button System](button-system.md): он остается отдельным component set от Button, но обязан повторять публичные Button variants, size scale и state vocabulary.
 
 ### Когда использовать
 
@@ -44,11 +46,13 @@ Icon Button — кнопка действия без видимого текст
 - **Tooltip mirrors the action** — Tooltip должен объяснять то же действие, что и accessible name.
 - **Icon follows action** — иконка выбирается по смыслу действия, а не по визуальной симпатии.
 - **Same hierarchy as Button** — visual priority следует тем же правилам, что Button.
+- **Shared Button System API** — public variants совпадают с Button: `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`.
 - **Touch target is protected** — визуальный размер может быть small, но hit area должен быть доступным.
 - **AI assists, system governs** — AI может предложить label и icon, но должен проверять доступность и не придумывать variants.
 
 ### Связанные спецификации
 
+- [Button System](button-system.md) — shared action model для Button и Icon Button.
 - [Button](../specs/actions/button.md) — действия с видимым текстовым label.
 - [Button Group](../specs/actions/button-group.md) — группировка связанных icon actions.
 - [Tooltip](../specs/feedback/tooltip.md) — обязательное пояснение для icon-only action.
@@ -81,9 +85,13 @@ Icon Button — кнопка действия без видимого текст
 | Variant | Назначение | Типичный сценарий |
 |---|---|---|
 | `primary` | Самое заметное icon-only действие в локальном контексте. | Add, create, main toolbar action. |
-| `neutral` | Вторичное действие с контейнером и border. | Edit, open, copy в строке или карточке. |
+| `secondary` | Вторичное действие с контейнером и border. | Edit, open, copy в строке или карточке. |
+| `outline` | Нейтральное действие с border и меньшим весом. | Toolbar, modal footer, secondary row action. |
 | `ghost` | Минимальный визуальный вес. | Toolbar utilities, close, more, secondary row actions. |
-| `danger` | Рискованное действие. | Delete, remove, revoke. |
+| `text` | Самый низкий visual emphasis для плотных utility actions. | Inline toolbar utility, compact metadata action. |
+| `destruction` | Рискованное действие. | Delete, remove, revoke. |
+
+Icon Button intentionally mirrors Button variant naming through [Button System](button-system.md): `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`. This keeps action hierarchy consistent across labeled and icon-only actions.
 
 ### Modifiers
 
@@ -217,7 +225,7 @@ Icon Button — кнопка действия без видимого текст
 | `icon-button/primary/border/disabled` | Border primary disabled. | `status/disabled/border` |
 | `icon-button/primary/border/loading` | Border primary loading. | `container/brand/default` |
 
-### Neutral, ghost и danger
+### Secondary, outline, ghost, text и destruction
 
 | Component token | Роль | Semantic token |
 |---|---|---|
@@ -254,7 +262,7 @@ Token gap: size, radius, padding, hit area и icon size пока описаны 
 
 | Design concept | Prop / API | Правило |
 |---|---|---|
-| Variant | `variant` | `primary`, `neutral`, `ghost`, `danger`. |
+| Variant | `variant` | `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`. |
 | Size | `size` | `small`, `medium`, `large`, `extraLarge`. |
 | Icon | `icon` | Имя иконки из icon system. |
 | Accessible name | `ariaLabel` или `aria-label` | Обязателен всегда. |
@@ -271,6 +279,7 @@ Token gap: size, radius, padding, hit area и icon size пока описаны 
 - `tooltip` обязателен, если действие не видно текстом рядом.
 - `variant` должен быть documented variant.
 - `size` должен быть documented size.
+- Public `variant`, `size` и state vocabulary должны оставаться совместимыми с Button по [Button System](button-system.md).
 - Icon-only navigation требует отдельного system review.
 - Не передавайте raw color, spacing или custom icon size через props.
 
@@ -338,7 +347,7 @@ AI не должен:
 |---|---|
 | Close dialog | `variant="ghost"`, icon `x`, `aria-label="Закрыть"`, tooltip `Закрыть`. |
 | Copy ID in table row | `variant="ghost"`, icon `copy`, `aria-label="Скопировать ID"`. |
-| Delete item | `variant="danger"`, icon `trash`, `aria-label="Удалить файл"`, confirmation required. |
+| Delete item | `variant="destruction"`, icon `trash`, `aria-label="Удалить файл"`, confirmation required. |
 | More actions | `variant="ghost"`, icon `more-horizontal`, opens Dropdown Menu. |
 
 ### Требует review

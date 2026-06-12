@@ -2,8 +2,8 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [TimePicker](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4103-4312)
 
@@ -62,9 +62,9 @@ Figma component set: `TimePicker`. Variants: 84.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `Type` | `input` | `input`, `scroll`, `combined` |
-| `Size` | `s` | `s`, `m`, `l`, `xl` |
-| `State` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
+| `variant` | `input` | `input`, `scroll`, `combined` |
+| `size` | `s` | `s`, `m`, `l`, `xl` |
+| `state` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
 
 ### Boolean / slot properties
 
@@ -82,7 +82,7 @@ Figma component set: `TimePicker`. Variants: 84.
 
 ## 4. Sizes
 
-Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
+Если в Figma есть `size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
 | Правило | Требование |
 | --- | --- |
@@ -189,8 +189,8 @@ Figma component set: `TimePicker`. Variants: 84.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
-| Size | `size` | Использует documented size options. |
+| Variant | `variant` | `input`, `scroll` или `combined`; маппится на Figma `variant`. |
+| Size | `size` | Использует `s`, `m`, `l`, `xl`. |
 | State | `state` или derived state | Не должен конфликтовать с controlled props. |
 | Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
 | Label | `label` / `ariaLabel` | Не заменяется placeholder. |

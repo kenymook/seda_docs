@@ -2,8 +2,8 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Tag / Read-only](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1172-1185), [Tag / Selectable](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1178-16954), [Tag / Interactive](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1180-17533)
 

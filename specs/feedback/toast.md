@@ -2,8 +2,8 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Toast](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6652-62)
 
@@ -84,11 +84,11 @@ Toast / Snackbar — временное уведомление поверх ин
 
 ## 3. Types / Variants
 
-Figma component set использует variant properties `type`, `dismissible` и `size`.
+Figma component set использует variant properties `intent`, `dismissible` и `size`.
 
-### Type
+### Intent
 
-| `type` | Когда использовать | Accessibility role |
+| `intent` | Когда использовать | Accessibility role |
 | --- | --- | --- |
 | `neutral` | Нейтральное событие: скопировано, сохранено локально, действие принято. | `status` |
 | `info` | Информационное сообщение без риска. | `status` |
@@ -105,7 +105,7 @@ Figma component set использует variant properties `type`, `dismissible
 
 ### Token naming note
 
-Figma использует `type=error`, а tokens используют `danger` для соответствующих surface/icon colors. В реализации `type=error` маппится на `toast/surface/danger` и `toast/icon/danger`.
+Figma использует `intent=error`, а tokens используют `danger` для соответствующих surface/icon colors. В реализации `intent=error` маппится на `toast/surface/danger` и `toast/icon/danger`.
 
 ---
 
@@ -224,7 +224,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 | Surface info | `toast/surface/info` | Фон info Toast. | `container/info/default` |
 | Surface success | `toast/surface/success` | Фон success Toast. | `container/success/default` |
 | Surface warning | `toast/surface/warning` | Фон warning Toast. | `container/warning/default` |
-| Surface error | `toast/surface/danger` | Фон `type=error`. | `container/danger/default` |
+| Surface error | `toast/surface/danger` | Фон `intent=error`. | `container/danger/default` |
 | Foreground default | `toast/foreground/default` | Основной текст на neutral surface. | `text/on-inverse/primary` |
 | Foreground secondary | `toast/foreground/secondary` | Вторичный текст на neutral surface. | `text/on-inverse/secondary` |
 | Foreground on status | `toast/foreground/onStatus` | Текст на status surface. | `text/on-brand/primary` |
@@ -232,7 +232,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 | Icon info | `toast/icon/info` | Иконка info Toast. | `text/on-info/primary` |
 | Icon success | `toast/icon/success` | Иконка success Toast. | `text/on-success/primary` |
 | Icon warning | `toast/icon/warning` | Иконка warning Toast. | `text/on-warning/primary` |
-| Icon error | `toast/icon/danger` | Иконка `type=error`. | `text/on-danger/primary` |
+| Icon error | `toast/icon/danger` | Иконка `intent=error`. | `text/on-danger/primary` |
 | Action foreground | `toast/action/foreground` | Базовый цвет action text. | `text/on-inverse/primary` |
 | Action foreground default | `toast/action/foreground/default` | Action default state. | `text/on-inverse/primary` |
 | Action foreground hover | `toast/action/foreground/hover` | Action hover state. | `text/on-inverse/secondary` |
@@ -243,8 +243,8 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 ### Token gaps
 
 - Нет component tokens для width, stack gap, radius, shadow, timer и motion duration.
-- Нет token path `toast/surface/error`; используйте `toast/surface/danger` для `type=error`.
-- Нет token path `toast/icon/error`; используйте `toast/icon/danger` для `type=error`.
+- Нет token path `toast/surface/error`; используйте `toast/surface/danger` для `intent=error`.
+- Нет token path `toast/icon/error`; используйте `toast/icon/danger` для `intent=error`.
 - Не создавайте новые token names для queue, position, shadow или timer без system review.
 
 ---
@@ -253,7 +253,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 
 | Design concept | Suggested prop / API | Правила |
 | --- | --- | --- |
-| Type | `type` | `neutral`, `info`, `success`, `warning`, `error`. |
+| Intent | `intent` | `neutral`, `info`, `success`, `warning`, `error`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Dismissible | `dismissible` | Boolean, соответствует Figma `true/false`. |
 | Title | `title` | Обязательный короткий текст. |
@@ -266,8 +266,8 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 
 ### Contract rules
 
-- `type`, `size` и `dismissible` должны соответствовать Figma variants.
-- `type=error` маппится на danger tokens.
+- `intent`, `size` и `dismissible` должны соответствовать Figma variants.
+- `intent=error` маппится на danger tokens.
 - В одном Toast допускается только один action.
 - Critical messages не должны auto-dismiss без review.
 - Position не меняется от сценария к сценарию без product-level rule.
@@ -278,7 +278,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 
 В handoff нужно передать:
 
-- `type`, `size`, `dismissible` и критичность сообщения;
+- `intent`, `size`, `dismissible` и критичность сообщения;
 - title, description и action label;
 - duration и persistent behavior;
 - position и max stack count;
@@ -287,7 +287,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 - accessibility role и aria-live;
 - reduced-motion behavior;
 - что происходит после action, close и timeout;
-- token mapping, включая `type=error` → danger tokens.
+- token mapping, включая `intent=error` -> danger tokens.
 
 ### Acceptance criteria
 
@@ -305,7 +305,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 
 | Design artifact | Code artifact | AI can help with | Human must validate |
 | --- | --- | --- | --- |
-| Toast type | `type` | Предложить severity по тексту события. | Критичность, risk и нужен ли Alert/Modal. |
+| Toast intent | `intent` | Предложить severity по тексту события. | Критичность, risk и нужен ли Alert/Modal. |
 | Copy | `title`, `description` | Сократить и сделать actionable. | Точность, тон и смысл сообщения. |
 | Action | `action` | Проверить, что action один. | Handler, permission и side effects. |
 | Queue policy | `id`, `duration`, `position`, stack rules | Найти missing dedupe/limit rules. | Product-level placement и max stack. |
@@ -315,7 +315,7 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 
 ## 11. AI usage rules
 
-- AI может использовать только `type`: `neutral`, `info`, `success`, `warning`, `error`.
+- AI может использовать только `intent`: `neutral`, `info`, `success`, `warning`, `error`.
 - AI может использовать только `size`: `s`, `m`, `l`, `xl`.
 - AI должен проверять, не нужен ли Alert, Modal, inline validation, Spinner или Progress Bar вместо Toast.
 - AI не должен скрывать критичные ошибки во временном Toast.
@@ -332,10 +332,10 @@ Toast следует [foundation/accessibility.md](../../foundation/accessibilit
 
 | Сценарий | Решение |
 | --- | --- |
-| Изменения сохранены. | `type=success`, `size=s`, title `Изменения сохранены`. |
-| Ссылка скопирована. | `type=neutral`, title `Ссылка скопирована`. |
-| Фоновая операция не удалась. | `type=error`, action `Повторить`, role зависит от критичности. |
-| Запрос выполнен частично. | `type=warning`, description с коротким объяснением, action `Подробнее`. |
+| Изменения сохранены. | `intent=success`, `size=s`, title `Изменения сохранены`. |
+| Ссылка скопирована. | `intent=neutral`, title `Ссылка скопирована`. |
+| Фоновая операция не удалась. | `intent=error`, action `Повторить`, role зависит от критичности. |
+| Запрос выполнен частично. | `intent=warning`, description с коротким объяснением, action `Подробнее`. |
 
 ### Требует review
 

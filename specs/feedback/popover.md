@@ -2,8 +2,8 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Popover](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1617-8952)
 
@@ -89,9 +89,9 @@ Popover — контекстная поверхностная панель, ко
 
 ## 3. Types / Variants
 
-Figma component set использует variant property `type`.
+Figma component set использует variant property `variant`.
 
-| `type` | Назначение | Ограничения |
+| `variant` | Назначение | Ограничения |
 | --- | --- | --- |
 | `default` | Универсальная карточка с title, description и коротким контентом. | Не использовать для длинной формы или blocking decision. |
 | `avatar` | Карточка человека, участника или профиля. | Не заменяет полноценную страницу профиля. |
@@ -232,7 +232,7 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 ### Token gaps
 
 - Нет component tokens для width, padding, radius, elevation/shadow, arrow, placement offset и viewport margin.
-- Нет отдельных component tokens для `type=avatar`, `type=checkbox`, `type=emoji`, `type=icon` и `type=custom`.
+- Нет отдельных component tokens для `variant=avatar`, `variant=checkbox`, `variant=emoji`, `variant=icon` и `variant=custom`.
 - Styling пунктов меню внутри Popover должен ссылаться на соответствующие nested component specs, а не на новые Popover tokens.
 - Не создавайте новые token names для arrow, shadow или spacing без system review.
 
@@ -245,7 +245,7 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 | Open state | `open` | Controlled state для раскрытия. |
 | Initial open | `defaultOpen` | Только uncontrolled mode. |
 | Open change | `onOpenChange` | Вызывается при trigger, `Escape`, outside click и action close. |
-| Type | `type` | `default`, `avatar`, `checkbox`, `emoji`, `icon`, `custom`. |
+| Variant | `variant` | `default`, `avatar`, `checkbox`, `emoji`, `icon`, `custom`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Placement | `placement` | `top`, `bottom`, `left`, `right` с alignment/fallback. |
 | Trigger mode | `triggerMode` | `click`, `focus`, `hover`; interactive content требует `click` или `focus`. |
@@ -255,7 +255,7 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 
 ### Contract rules
 
-- `type` и `size` должны соответствовать Figma variants.
+- `variant` и `size` должны соответствовать Figma variants.
 - Interactive Popover не должен открываться только по hover.
 - `menu3`-`menu8` не должны ломать DOM order и keyboard order.
 - Popover не должен принимать arbitrary color, shadow или width props без system review.
@@ -269,7 +269,7 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 
 - trigger element и trigger mode;
 - controlled или uncontrolled open state;
-- `type`, `size`, placement, alignment и collision behavior;
+- `variant`, `size`, placement, alignment и collision behavior;
 - какие `menu3`-`menu8` включены, если используется системный список;
 - title, description, content и footer actions;
 - нужен ли close button;
@@ -283,7 +283,7 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 ### Acceptance criteria
 
 - Popover открывается только от понятного trigger.
-- `type` и `size` совпадают с Figma variants.
+- `variant` и `size` совпадают с Figma variants.
 - Interactive Popover не использует hover-only trigger.
 - `Escape`, outside click и close button работают по описанным правилам.
 - Focus при открытии и закрытии предсказуем.
@@ -295,7 +295,7 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 
 ## 11. AI usage rules
 
-- AI может использовать только `type`: `default`, `avatar`, `checkbox`, `emoji`, `icon`, `custom`.
+- AI может использовать только `variant`: `default`, `avatar`, `checkbox`, `emoji`, `icon`, `custom`.
 - AI может использовать только `size`: `s`, `m`, `l`, `xl`.
 - AI должен проверять, не нужен ли Tooltip, Dropdown Menu, Modal, Drawer или отдельная страница.
 - AI не должен предлагать nested Popover.
@@ -312,11 +312,11 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 
 | Сценарий | Решение |
 | --- | --- |
-| Карточка участника рядом с avatar trigger. | `type=avatar`, `size=m`, actions `Написать`, `Открыть профиль`. |
-| Быстрые настройки фильтра. | `type=checkbox`, `size=m`, click trigger, Apply/Cancel. |
-| Выбор реакции. | `type=emoji`, keyboard navigation, selected state в content. |
-| Контекстная панель с иконками действий. | `type=icon`, accessible labels для каждой icon action. |
-| Специальный короткий preview. | `type=custom`, explicit handoff и accessibility review. |
+| Карточка участника рядом с avatar trigger. | `variant=avatar`, `size=m`, actions `Написать`, `Открыть профиль`. |
+| Быстрые настройки фильтра. | `variant=checkbox`, `size=m`, click trigger, Apply/Cancel. |
+| Выбор реакции. | `variant=emoji`, keyboard navigation, selected state в content. |
+| Контекстная панель с иконками действий. | `variant=icon`, accessible labels для каждой icon action. |
+| Специальный короткий preview. | `variant=custom`, explicit handoff и accessibility review. |
 
 ### Требует review
 

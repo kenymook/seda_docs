@@ -2,8 +2,8 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Empty State](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6650-37)
 
@@ -86,9 +86,9 @@ Description
 
 ## 3. Types / Variants
 
-Figma component set использует variant property `type`.
+Figma component set использует variant property `reason`.
 
-| `type` | Когда использовать | Типовой следующий шаг |
+| `reason` | Когда использовать | Типовой следующий шаг |
 | --- | --- | --- |
 | `no-data` | Объекты еще не созданы или раздел пуст. | Создать первый объект, импортировать данные. |
 | `no-results` | Поиск или фильтры не нашли совпадений. | Изменить запрос, сбросить фильтры. |
@@ -98,7 +98,7 @@ Figma component set использует variant property `type`.
 
 ### Примеры контента
 
-| `type` | Title | Description | Action |
+| `reason` | Title | Description | Action |
 | --- | --- | --- | --- |
 | `no-data` | `Проектов пока нет` | `Создайте первый проект, чтобы начать работу.` | `Создать проект` |
 | `no-results` | `Ничего не найдено` | `Измените запрос или сбросьте фильтры.` | `Сбросить фильтры` |
@@ -134,11 +134,11 @@ Empty State описывает результат состояния данны�
 
 | Состояние | Где возникает | Поведение |
 | --- | --- | --- |
-| `empty` | Запрос успешен, объектов нет. | Показать `type=no-data` и действие создания, если оно доступно. |
+| `empty` | Запрос успешен, объектов нет. | Показать `reason=no-data` и действие создания, если оно доступно. |
 | `no-results` | Поиск или фильтры вернули пустой набор. | Сохранить query/filter context и предложить сброс или изменение запроса. |
-| `restricted` | Доступ ограничен. | Показать `type=no-access`, не раскрывать закрытые данные. |
-| `failed` | Запрос завершился ошибкой. | Показать `type=error`, сохранить контекст и дать retry, если возможно. |
-| `not-started` | Сценарий еще не настроен. | Показать `type=first-time` и первый безопасный шаг. |
+| `restricted` | Доступ ограничен. | Показать `reason=no-access`, не раскрывать закрытые данные. |
+| `failed` | Запрос завершился ошибкой. | Показать `reason=error`, сохранить контекст и дать retry, если возможно. |
+| `not-started` | Сценарий еще не настроен. | Показать `reason=first-time` и первый безопасный шаг. |
 
 ### Владение состояниями
 
@@ -161,11 +161,11 @@ Empty State описывает результат состояния данны�
 - Primary action запускает наиболее ожидаемый путь восстановления.
 - Secondary action используется для сброса фильтров, справки, запроса доступа или альтернативного пути.
 - Не показывайте действие, если пользователь не может его выполнить.
-- Retry в `type=error` должен повторять тот же запрос, а не перезагружать все приложение без необходимости.
+- Retry в `reason=error` должен повторять тот же запрос, а не перезагружать все приложение без необходимости.
 
 ### Search и filters
 
-- `type=no-results` сохраняет введенный запрос и активные фильтры.
+- `reason=no-results` сохраняет введенный запрос и активные фильтры.
 - Сброс фильтров должен быть явным действием, а не автоматическим side effect.
 - Если доступны рекомендации по поиску, они должны быть частью description или secondary content, а не новым вариантом компонента.
 
@@ -188,7 +188,7 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 | Decorative media | Декоративный `media` получает `aria-hidden="true"`. |
 | Meaningful media | Значимая иконка не дублирует title; смысл должен быть доступен текстом. |
 | Actions | Вложенные Button и Link следуют своим accessibility specs. |
-| Error announcement | Динамический `type=error` объявляется через уместный live region. |
+| Error announcement | Динамический `reason=error` объявляется через уместный live region. |
 
 ### Accessibility checklist
 
@@ -216,7 +216,7 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 ### Token gaps
 
 - Нет component tokens для `root` gap, action gap, media size и responsive spacing.
-- Нет отдельных component tokens для `type=error`, `type=no-access` и `type=first-time`; используйте существующие foreground tokens и системные компоненты действия.
+- Нет отдельных component tokens для `reason=error`, `reason=no-access` и `reason=first-time`; используйте существующие foreground tokens и системные компоненты действия.
 - До появления component spacing tokens используйте semantic spacing scale из Foundation и фиксируйте mapping в handoff.
 - Не создавайте локальные значения цвета, размера или spacing без system review.
 
@@ -226,7 +226,7 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 
 | Design concept | Suggested prop / API | Правила |
 | --- | --- | --- |
-| Type | `type` | Только `no-data`, `no-results`, `no-access`, `error`, `first-time`. |
+| Reason | `reason` | Только `no-data`, `no-results`, `no-access`, `error`, `first-time`. |
 | Size | `size` | Только `s`, `m`, `l`, `xl`. |
 | Title | `title` | Обязательный string или heading slot. |
 | Description | `description` | Опциональный string или rich text slot. |
@@ -234,15 +234,15 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 | Primary action | `primaryAction` | Button contract или action slot. |
 | Secondary action | `secondaryAction` | Link или secondary Button contract. |
 | Trigger condition | `triggerCondition` | Условие данных, при котором показывается Empty State. |
-| Retry behavior | `onRetry` | Для `type=error`, если повторный запрос возможен. |
+| Retry behavior | `onRetry` | Для `reason=error`, если повторный запрос возможен. |
 
 ### Contract rules
 
 - `title` обязателен для всех типов.
-- `type` и `size` должны соответствовать Figma variants.
+- `reason` и `size` должны соответствовать Figma variants.
 - `primaryAction` и `secondaryAction` используют системные Button или Link.
-- `type=no-results` должен получать контекст поиска или фильтров из родительского сценария.
-- `type=no-access` не должен принимать приватные данные для отображения.
+- `reason=no-results` должен получать контекст поиска или фильтров из родительского сценария.
+- `reason=no-access` не должен принимать приватные данные для отображения.
 
 ---
 
@@ -250,13 +250,13 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 
 В handoff нужно передать:
 
-- `type` и `size`;
+- `reason` и `size`;
 - title, description и action labels;
 - условие данных, которое включает Empty State;
 - является ли `media` декоративным или значимым;
 - поведение primary и secondary actions;
 - правила сохранения search/filter context;
-- retry behavior для `type=error`;
+- retry behavior для `reason=error`;
 - responsive layout rules;
 - token gaps и временные semantic mappings.
 
@@ -264,9 +264,9 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 
 - Empty State объясняет, почему содержимое отсутствует.
 - Empty State предлагает следующий шаг, если восстановление возможно.
-- `type=no-results` сохраняет query и активные фильтры.
-- `type=error` дает retry, если запрос можно повторить.
-- `type=no-access` не раскрывает приватные данные.
+- `reason=no-results` сохраняет query и активные фильтры.
+- `reason=error` дает retry, если запрос можно повторить.
+- `reason=no-access` не раскрывает приватные данные.
 - Вложенные действия соответствуют Button или Link specs.
 - Используются только задокументированные tokens или явно отмеченные token gaps.
 
@@ -274,11 +274,11 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 
 ## 11. AI usage rules
 
-- AI может использовать только `type`: `no-data`, `no-results`, `no-access`, `error`, `first-time`.
+- AI может использовать только `reason`: `no-data`, `no-results`, `no-access`, `error`, `first-time`.
 - AI может использовать только `size`: `s`, `m`, `l`, `xl`.
 - AI не должен использовать Empty State для loading; нужно предложить Skeleton или Spinner.
 - AI должен указывать trigger condition, title, description и следующий шаг.
-- AI должен сохранять search/filter context для `type=no-results`.
+- AI должен сохранять search/filter context для `reason=no-results`.
 - AI не должен придумывать новые props, variants, illustrations или token names.
 - AI должен помечать отсутствующие token mappings, непонятное retry behavior или неописанные права доступа как `Needs system review`.
 - AI может подготовить draft copy, handoff notes и acceptance criteria, но финальное решение остается за человеком.
@@ -291,11 +291,11 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 
 | Сценарий | Решение |
 | --- | --- |
-| Новый список проектов пуст. | `type=no-data`, `size=m`, title `Проектов пока нет`, primary action `Создать проект`. |
-| Поиск в таблице не дал результатов. | `type=no-results`, сохранить query, secondary action `Сбросить фильтры`. |
-| Пользователь открыл закрытый раздел. | `type=no-access`, объяснить ограничение, дать `Запросить доступ`, если процесс существует. |
-| Ошибка загрузки списка. | `type=error`, сохранить текущую навигацию, дать `Повторить`. |
-| Первый запуск настройки. | `type=first-time`, `size=l` или `xl`, action `Начать настройку`. |
+| Новый список проектов пуст. | `reason=no-data`, `size=m`, title `Проектов пока нет`, primary action `Создать проект`. |
+| Поиск в таблице не дал результатов. | `reason=no-results`, сохранить query, secondary action `Сбросить фильтры`. |
+| Пользователь открыл закрытый раздел. | `reason=no-access`, объяснить ограничение, дать `Запросить доступ`, если процесс существует. |
+| Ошибка загрузки списка. | `reason=error`, сохранить текущую навигацию, дать `Повторить`. |
+| Первый запуск настройки. | `reason=first-time`, `size=l` или `xl`, action `Начать настройку`. |
 
 ### Требует review
 
@@ -303,8 +303,8 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 | --- | --- |
 | Empty State с двумя primary actions. | Нарушена иерархия действий. |
 | Иллюстрация занимает больше внимания, чем причина и действие. | Компонент перестает помогать восстановлению. |
-| `type=no-results` автоматически сбрасывает фильтры. | Пользователь теряет контекст без явного действия. |
-| `type=error` без retry и объяснения. | Пользователь не понимает, что делать дальше. |
+| `reason=no-results` автоматически сбрасывает фильтры. | Пользователь теряет контекст без явного действия. |
+| `reason=error` без retry и объяснения. | Пользователь не понимает, что делать дальше. |
 
 ---
 
@@ -312,8 +312,8 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 
 - Показывать только `Нет данных`.
 - Использовать Empty State во время загрузки.
-- Скрывать filters, search query или table header в `type=no-results`.
+- Скрывать filters, search query или table header в `reason=no-results`.
 - Делать иллюстрацию единственным объяснением состояния.
 - Создавать кастомный clickable text вместо Button или Link.
-- Добавлять новый `type`, например `success` или `celebration`, без system review.
+- Добавлять новый `reason`, например `success` или `celebration`, без system review.
 - Использовать локальные цвета и spacing вместо component tokens или явных token gaps.

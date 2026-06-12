@@ -2,8 +2,8 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [DropdownMenu](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7036-567)
 
@@ -63,7 +63,7 @@ Dropdown Menu — раскрывающееся меню команд, дейст
 
 | Component | Назначение |
 | --- | --- |
-| `DropdownMenu` | Container меню с type/size variants. |
+| `DropdownMenu` | Container меню с variant/size variants. |
 | `dropdown-menu-item` | Item action. |
 | `dropdown-menu-group-header` | Заголовок группы. |
 | `dropdown-menu-separator` | Разделитель. |
@@ -76,12 +76,12 @@ Figma component set: `DropdownMenu`. Variants: 20.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `type` | `menu` | `menu`, `with-icons`, `with-shortcuts`, `grouped`, `danger` |
+| `variant` | `menu` | `menu`, `with-icons`, `with-shortcuts`, `grouped`, `danger` |
 | `size` | `s` | `s`, `m`, `l`, `xl` |
 
-### Type rules
+### Variant rules
 
-| Type | Когда использовать | Правило |
+| Variant | Когда использовать | Правило |
 | --- | --- | --- |
 | `menu` | Базовый список команд. | Item label обязателен. |
 | `with-icons` | Команды легче сканировать по icon. | Icon поддерживает label, но не заменяет его. |
@@ -223,7 +223,7 @@ Token gaps:
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` | `menu`, `with-icons`, `with-shortcuts`, `grouped`, `danger`. |
+| Variant | `variant` | `menu`, `with-icons`, `with-shortcuts`, `grouped`, `danger`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Open | `open`, `onOpenChange` | Controlled/uncontrolled modes не смешиваются. |
 | Trigger | `trigger`, `triggerAriaLabel` | Trigger имеет accessible name. |
@@ -249,7 +249,7 @@ Contract rules:
 Handoff для Dropdown Menu должен включать:
 
 - Figma component и node id: `7036:567`;
-- `type`, `size`, trigger type и placement;
+- `variant`, `size`, trigger type и placement;
 - список items: id, label, icon, shortcut, disabled, danger, selected, group;
 - open/close behavior и focus return;
 - keyboard navigation;
@@ -261,7 +261,7 @@ Handoff для Dropdown Menu должен включать:
 
 ### Acceptance criteria
 
-- Dropdown Menu использует only documented `type` и `size`.
+- Dropdown Menu использует only documented `variant` и `size`.
 - Trigger имеет accessible name и `aria-expanded`.
 - Каждый item имеет stable id и text label.
 - Keyboard navigation работает для всех enabled items.

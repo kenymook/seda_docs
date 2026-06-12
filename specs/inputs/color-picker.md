@@ -2,10 +2,10 @@
 
 > **Category** · Inputs & Forms
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
-> **Figma** · `ColorPicker` (`6386:423`)
+> **Figma** · [ColorPicker](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6386-423)
 > **Foundation** · [Accessibility](../../foundation/accessibility.md), [Color](../../foundation/color.md), [Content](../../foundation/content.md), [Tokens](../../foundation/tokens.md)
 
 ---
@@ -79,7 +79,7 @@ Color Picker не заменяет design tokens. Если команда выб
 
 ## 3. Types / Variants
 
-Figma component `ColorPicker` поддерживает property `Type` со значениями `swatch-only`, `compact`, `full`.
+Figma component `ColorPicker` поддерживает property `variant` со значениями `swatch-only`, `compact`, `full`.
 
 | Variant | Когда использовать | Ограничения |
 |---|---|---|
@@ -95,16 +95,16 @@ Figma component `ColorPicker` поддерживает property `Type` со зн
 | `color-picker-spectrum` | Область выбора saturation/brightness. |
 | `color-picker-hue-slider` | Управление hue. |
 | `color-picker-alpha-slider` | Управление прозрачностью. |
-| `color-picker-swatch` | Preview значения; `Size`: `s`, `m`, `l`, `xl`; `State`: `empty`, `filled`, `disabled`. |
-| `color-picker-swatch-item` | Элемент preset palette; `State`: `default`, `hover`, `selected`, `disabled`. |
-| `color-picker-value-input` | Поле значения; `Format`: `HEX`, `R`, `G`, `B`, `A`; `State`: `default`, `focus`, `error`, `disabled`, `filled`. |
+| `color-picker-swatch` | Preview значения; `size`: `s`, `m`, `l`, `xl`; `state`: `empty`, `filled`, `disabled`. |
+| `color-picker-swatch-item` | Элемент preset palette; `state`: `default`, `hover`, `selected`, `disabled`. |
+| `color-picker-value-input` | Поле значения; `format`: `hex`, `r`, `g`, `b`, `a`; `state`: `default`, `focus`, `error`, `disabled`, `filled`. |
 | `color-picker-thumb` | Thumb для spectrum и sliders. |
 
 ---
 
 ## 4. Sizes
 
-Figma property `Size`: `s`, `m`, `l`, `xl`. Размер влияет на высоту trigger, размер swatch и плотность panel controls.
+Figma property `size`: `s`, `m`, `l`, `xl`. Размер влияет на высоту trigger, размер swatch и плотность panel controls.
 
 | Size | Контекст | Правило |
 |---|---|---|
@@ -117,7 +117,7 @@ Figma property `Size`: `s`, `m`, `l`, `xl`. Размер влияет на вы�
 
 ## 5. States
 
-Figma property `State`: `default`, `hover`, `focus`, `filled`, `open`, `error`, `warning`, `disabled`, `read-only`.
+Figma property `state`: `default`, `hover`, `focus`, `filled`, `open`, `error`, `warning`, `disabled`, `read-only`.
 
 | State | Когда возникает | Правило |
 |---|---|---|
@@ -278,7 +278,7 @@ Token gaps:
 | Начальное значение | `defaultValue` | Только для uncontrolled mode. |
 | Draft change | `onChange` | Вызывается при изменении внутри panel или input. |
 | Commit | `onCommit` | Вызывается при Apply, blur или другом согласованном commit event. |
-| Variant | `type` | `swatch-only`, `compact`, `full`. |
+| Variant | `variant` | `swatch-only`, `compact`, `full`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Format | `format` | Поддержанные значения задаются явно: `hex`, `rgb`, `hsl`. |
 | Alpha | `allowAlpha` | Включает прозрачность только при поддержке data model. |
@@ -301,7 +301,7 @@ Token gaps:
 
 Handoff для Color Picker должен фиксировать:
 
-- `type`, `size`, `state` и выбранный commit model;
+- `variant`, `size`, `state` и выбранный commit model;
 - поддержанные форматы значения и output format;
 - включена ли alpha и как она сериализуется;
 - список presets, их labels и правила сортировки;

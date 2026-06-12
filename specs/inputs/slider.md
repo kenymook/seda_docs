@@ -2,8 +2,8 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Slider](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4113-3829)
 
@@ -62,9 +62,9 @@ Figma component set: `Slider`. Variants: 40.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `Type` | `single` | `single`, `range` |
-| `Size` | `small` | `small`, `medium`, `large`, `extraLarge` |
-| `State` | `default` | `default`, `hover`, `active`, `focus`, `disabled` |
+| `mode` | `single` | `single`, `range` |
+| `size` | `s` | `s`, `m`, `l`, `xl` |
+| `state` | `default` | `default`, `hover`, `active`, `focus`, `disabled` |
 
 ### Boolean / slot properties
 
@@ -82,7 +82,7 @@ Figma component set: `Slider`. Variants: 40.
 
 ## 4. Sizes
 
-Если в Figma есть `size` или `Size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
+Если в Figma есть `size`, используйте только documented options. Размер отвечает за плотность, высоту, spacing и масштаб touch target, но не меняет назначение компонента.
 
 | Правило | Требование |
 | --- | --- |
@@ -181,8 +181,8 @@ Figma component set: `Slider`. Variants: 40.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
-| Size | `size` | Использует documented size options. |
+| Mode | `mode` | `single` или `range`; маппится на Figma `mode`. |
+| Size | `size` | Использует `s`, `m`, `l`, `xl`. |
 | State | `state` или derived state | Не должен конфликтовать с controlled props. |
 | Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
 | Label | `label` / `ariaLabel` | Не заменяется placeholder. |

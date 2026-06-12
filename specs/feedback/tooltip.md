@@ -2,8 +2,8 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Tooltip](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6649-54)
 
@@ -80,18 +80,18 @@ Tooltip — короткая неинтерактивная подсказка, 
 
 ## 3. Types / Variants
 
-Figma component set использует variant properties `type`, `placement`, `arrow` и `size`.
+Figma component set использует variant properties `variant`, `placement`, `arrow` и `size`.
 
-### Type
+### Variant
 
-| `type` | Когда использовать | Token mapping |
+| `variant` | Когда использовать | Token mapping |
 | --- | --- | --- |
 | `default` | Default tooltip на светлой или нейтральной поверхности. | `tooltip/dark/surface`, `tooltip/dark/foreground`, `tooltip/arrow/dark` |
 | `light` | Tooltip на темной, насыщенной или inverse поверхности. | `tooltip/light/surface`, `tooltip/light/foreground`, `tooltip/light/border`, `tooltip/arrow/light` |
 
 ### Token naming note
 
-Figma использует `type=default`, а tokens используют группу dark для темной поверхности. В реализации `type=default` маппится на реальные dark tokens Tooltip. `tooltip/default/foreground` остается fallback foreground для default tooltip, но поверхность берется из `tooltip/dark/surface`.
+Figma использует `variant=default`, а tokens используют группу dark для темной поверхности. В реализации `variant=default` маппится на реальные dark tokens Tooltip. `tooltip/default/foreground` остается fallback foreground для default tooltip, но поверхность берется из `tooltip/dark/surface`.
 
 ### Placement
 
@@ -206,13 +206,13 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 | Light border | `tooltip/light/border` | Граница light Tooltip. | `border/default` |
 | Dark surface | `tooltip/dark/surface` | Фон default/dark Tooltip. | `surface/inverse` |
 | Dark foreground | `tooltip/dark/foreground` | Текст default/dark Tooltip. | `text/on-inverse/primary` |
-| Arrow dark | `tooltip/arrow/dark` | Arrow для `type=default`. | `surface/inverse` |
-| Arrow light | `tooltip/arrow/light` | Arrow для `type=light`. | `surface/overlay` |
+| Arrow dark | `tooltip/arrow/dark` | Arrow для `variant=default`. | `surface/inverse` |
+| Arrow light | `tooltip/arrow/light` | Arrow для `variant=light`. | `surface/overlay` |
 
 ### Token gaps
 
 - Нет component tokens для shadow, radius, padding, max width, arrow size, placement offset и motion.
-- Нет отдельного default surface token; `type=default` маппится на dark surface.
+- Нет отдельного default surface token; `variant=default` маппится на dark surface.
 - Не создавайте новые token names для placement, delay или arrow geometry без system review.
 
 ---
@@ -222,7 +222,7 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 | Design concept | Suggested prop / API | Правила |
 | --- | --- | --- |
 | Content | `content` | Обязательный короткий текст. |
-| Type | `type` | `default`, `light`. |
+| Variant | `variant` | `default`, `light`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Placement | `placement` | `top`, `bottom`, `left`, `right`. |
 | Arrow | `arrow` / `withArrow` | Boolean, соответствует Figma `true/false`. |
@@ -232,7 +232,7 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 
 ### Contract rules
 
-- `type`, `size`, `placement` и `arrow` должны соответствовать Figma variants.
+- `variant`, `size`, `placement` и `arrow` должны соответствовать Figma variants.
 - Tooltip не принимает interactive children.
 - Tooltip не должен быть click-trigger; для click behavior используйте Popover.
 - Trigger должен иметь accessible name независимо от Tooltip.
@@ -246,13 +246,13 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 
 - trigger element и его accessible name;
 - content text;
-- `type`, `size`, `placement` и `arrow`;
+- `variant`, `size`, `placement` и `arrow`;
 - hover/focus behavior;
 - delay и close behavior;
 - mobile fallback;
 - есть ли риск, что Tooltip содержит critical information;
 - почему Popover не нужен, если есть сомнение;
-- token mapping, включая `type=default` → dark tokens;
+- token mapping, включая `variant=default` -> dark tokens;
 - token gaps для radius, padding, max width, arrow geometry и motion.
 
 ### Acceptance criteria
@@ -270,7 +270,7 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 
 ## 11. AI usage rules
 
-- AI может использовать только `type`: `default`, `light`.
+- AI может использовать только `variant`: `default`, `light`.
 - AI может использовать только `size`: `s`, `m`, `l`, `xl`.
 - AI может использовать только `placement`: `top`, `bottom`, `left`, `right`.
 - AI не должен добавлять Button, Link, form controls или close button внутрь Tooltip.
@@ -291,7 +291,7 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 | Icon Button с иконкой удаления. | Tooltip `Удалить`, trigger все равно имеет `aria-label="Удалить"`. |
 | Усеченное имя файла. | Tooltip показывает полное имя при hover/focus. |
 | Короткое пояснение статуса в таблице. | Tooltip содержит вспомогательный текст, не критичный для действия. |
-| Темная панель с подсказкой. | `type=light`, чтобы сохранить контраст. |
+| Темная панель с подсказкой. | `variant=light`, чтобы сохранить контраст. |
 
 ### Требует review
 

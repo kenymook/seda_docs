@@ -2,10 +2,10 @@
 
 > **Category** · Actions
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Figma** · [Link](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1276-11371)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `state-vocabulary.md`, `tokens.md`, `typography.md`
 
 ---
@@ -103,6 +103,7 @@ Link — навигационный текстовый компонент для
 
 - `danger` есть в Figma component set, но в `tokens.json` нет отдельной component-ветки `link.danger`. Пока это token gap: используйте semantic fallback только после system review.
 - `inverse` есть в component tokens и component-lab; если Figma variant отсутствует в конкретной библиотеке, нужно синхронизировать Figma component set.
+- Decision: canonical Figma component set exposes typography/state API as `textStyle/state/strong/visited/size`. Semantic `variant` remains a code/handoff-level token intent for now; do not add a Figma `variant` axis until visual variant QA proves that default/subtle/inverse/danger need separate reusable Figma variants.
 
 ---
 
@@ -124,13 +125,24 @@ Link наследует типографику из контекста или и
 - Icon size должен соответствовать text size.
 - Touch target должен быть не меньше 44x44px там, где ссылка используется как отдельный tap target.
 
+### Text style
+
+Figma component set использует variant property `textStyle`.
+
+| `textStyle` | Когда использовать |
+| --- | --- |
+| `body-extra-small` | Очень плотные metadata links. |
+| `body-small` | Compact rows и secondary UI. |
+| `body` | Inline content и стандартный текст. |
+| `body-large` | Более заметные standalone links. |
+
 ---
 
 ## 5. States / Состояния
 
 | State | Когда возникает | Правило |
 |---|---|---|
-| `default` / `base` | Ссылка доступна и не посещена. | Используются default foreground tokens. |
+| `default` | Ссылка доступна и не посещена. | Используются default foreground tokens. |
 | `hover` | Pointer над ссылкой. | Можно добавлять underline и hover foreground. |
 | `pressed` / `active` | Пользователь нажимает ссылку. | Используются pressed foreground tokens. |
 | `focus` | Keyboard focus. | Focus ring должен быть видим. |
@@ -263,8 +275,9 @@ Link наследует типографику из контекста или и
 | Design concept | Prop / API | Правило |
 |---|---|---|
 | Destination | `href` | Обязателен для Link. |
-| Variant | `variant` | `default`, `subtle`, `inverse`; `danger` требует token gap review. |
+| Variant | `variant` | Code/handoff intent: `default`, `subtle`, `inverse`; `danger` требует token gap review. Not a canonical Figma axis yet. |
 | Size | `size` | `s`, `m`, `l`, `xl`, если Link не наследует typography из контекста. |
+| Text style | `textStyle` | `body-extra-small`, `body-small`, `body`, `body-large`. |
 | Label | `children` или `label` | Видимый текст ссылки. |
 | External | `external` | Добавляет icon/announcement и может задавать `target="_blank"`. |
 | Target | `target` | `_self`, `_blank`; для `_blank` нужен `rel`. |
@@ -276,6 +289,8 @@ Link наследует типографику из контекста или и
 ### Contract rules
 
 - Link без `href` не допускается.
+- Figma `textStyle`, `state`, `strong`, `visited` и `size` должны использовать documented values.
+- Do not map legacy Link set `4071:74` as canonical unless a migration review explicitly reintroduces semantic visual variants.
 - Navigation через Button допускается только как documented product exception.
 - `target="_blank"` без `rel="noopener noreferrer"` не допускается.
 - Icon-only Link не допускается без отдельного accessibility review.
@@ -290,7 +305,8 @@ Handoff для Link должен фиксировать:
 
 - destination: internal route, external URL, anchor или file;
 - visible label;
-- variant и size;
+- variant intent, Figma `textStyle`, and size;
+- textStyle, если Link не наследует surrounding typography;
 - external/download behavior;
 - `target` и `rel`;
 - icon name и placement, если используется;

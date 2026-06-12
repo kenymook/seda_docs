@@ -2,10 +2,10 @@
 
 > **Category** · Actions
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
-> **Last reviewed** · 2026-05-28
-> **Figma** · https://www.figma.com/design/h8wSwPpnlt91IQH7h4Kvj0/SEDA-AI?node-id=2463-16164
+> **Status** · ready
+> **Owner** · Kenymook
+> **Last reviewed** · 2026-06-12
+> **Figma** · [Button / Button](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4017-1035)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `spacing-sizing.md`, `state-vocabulary.md`, `tokens.md`
 
 ---
@@ -17,6 +17,8 @@
 Button — основной компонент действия. Он запускает операцию внутри продукта: отправку формы, сохранение изменений, подтверждение выбора, повтор запроса, удаление объекта или переход к следующему шагу сценария.
 
 В SEDA AI Button является action contract: он должен явно описывать действие, состояние, приоритет, токены, accessibility и handoff. Button не используется для навигации к URL или ресурсу; для этого нужен Link.
+
+Button является частью [Button System](button-system.md): он остается отдельным компонентом от Icon Button, но делит с ним общий action hierarchy, variant naming, size scale и state vocabulary.
 
 ### Когда использовать
 
@@ -49,10 +51,12 @@ Button — основной компонент действия. Он запус
 - **Danger needs intent** — destructive action должен ясно называть действие и объект.
 - **Loading preserves meaning** — loading state блокирует повторную активацию, но не удаляет accessible name.
 - **Tokens before visuals** — colors, border, focus и spinner берутся из component tokens.
+- **Shared Button System API** — Button и Icon Button используют один публичный набор `variant`: `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`.
 - **AI assists, system governs** — AI может предложить label и handoff, но не должен придумывать variants, props или tokens.
 
 ### Связанные спецификации
 
+- [Button System](button-system.md) — shared action model для Button и Icon Button.
 - [Icon Button](../specs/actions/icon-button.md) — icon-only действия.
 - [Button Group](../specs/actions/button-group.md) — связанные действия и grouped controls.
 - [Link](../specs/actions/link.md) — навигация к ресурсу.
@@ -289,6 +293,7 @@ Button следует [foundation/accessibility.md](../foundation/accessibility.
 
 - `variant` должен быть только documented variant.
 - `size` должен быть только documented size.
+- Public `variant`, `size` и state vocabulary должны оставаться совместимыми с Icon Button по [Button System](button-system.md).
 - Regular Button требует видимый текст.
 - Icon-only action должен использовать Icon Button.
 - Нельзя передавать raw colors, raw spacing или custom border styles через props.

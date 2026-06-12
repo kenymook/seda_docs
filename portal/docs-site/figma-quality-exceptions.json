@@ -50,18 +50,6 @@
       "reason": "logo/google instance (40× across all variants) has a raw white fill acting as the brand logo pill background. Cannot bind to a component token without breaking Google logo rendering. Intentional brand-artwork exception."
     },
     {
-      "component": "Button Social",
-      "variable": "RAW:brand-colors",
-      "property": "fills",
-      "reason": "Provider logo artwork nodes (Google, Facebook, Apple) carry brand-mandated fill colors. Button shell uses system tokens; only logo artwork nodes are raw. Intentional brand-artwork exception."
-    },
-    {
-      "component": "Button Social Group",
-      "variable": "RAW:brand-colors",
-      "property": "fills",
-      "reason": "Inherits raw logo artwork fills from Button Social instances. Same brand-artwork exception applies."
-    },
-    {
       "component": "logo/facebook",
       "variable": "RAW:brand-colors",
       "property": "fills",
@@ -70,5 +58,5 @@
   ],
   "_gridNote": "Grid component (node 6673:83) is a layout template showing column guides. Column fills/strokes were bound to container/neutral/default and border/subtle respectively. This is correct — the guide color IS production chrome that should respect the theme.",
   "_cardNumberNote": "TextField/CardNumber contains 40 instances of logo/google (one per variant). Each instance has a raw white fill (r=1,g=1,b=1) that acts as the white pill/badge background for the Google brand logo artwork. This fill cannot be replaced with a component token without breaking the brand logo rendering. Accepted as intentional brand-artwork exception.",
-  "_buttonSocialNote": "Button Social and Button Social Group contain provider logo artwork (Google, Facebook, Apple). White and brand-color fills on logo artwork nodes are intentional brand exceptions. Button shell/background/border must use system tokens; only provider logo nodes are excepted."
+  "_providerLogoNote": "Provider logo artwork (Google, Facebook, Apple) may carry brand-mandated fills when used as artwork inside Button or Button Group. Button shell/background/border must use system tokens; only provider logo nodes are excepted."
 }

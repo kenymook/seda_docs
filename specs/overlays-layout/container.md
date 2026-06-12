@@ -2,8 +2,8 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Container](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1353-6860)
 
@@ -62,7 +62,7 @@ Figma component set: `Container`. Variants: 48.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `type` | `outlined` | `clear`, `filled`, `outlined`, `raised` |
+| `variant` | `outlined` | `clear`, `filled`, `outlined`, `raised` |
 | `state` | `container` | `action`, `container`, `selected` |
 | `size` | `m` | `m`, `s`, `l`, `xl` |
 
@@ -189,7 +189,7 @@ Figma component set: `Container`. Variants: 48.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Variant | `variant` | Маппится на Figma variant property. |
 | Size | `size` | Использует documented size options. |
 | State | `state` или derived state | Не должен конфликтовать с controlled props. |
 | Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |

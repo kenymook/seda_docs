@@ -2,9 +2,9 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
-> **Last reviewed** · 2026-05-29
+> **Status** · ready
+> **Owner** · Kenymook
+> **Last reviewed** · 2026-06-10
 > **Figma** · [File Upload](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6661-46)
 
 ---
@@ -62,7 +62,7 @@ Figma component set: `File Upload`. Variants: 44.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `type` | `dropzone` | `dropzone`, `button`, `inline` |
+| `variant` | `dropzone` | `dropzone`, `button`, `inline` |
 | `state` | `default` | `default`, `hover`, `drag-over`, `uploading`, `success`, `error`, `disabled` |
 | `size` | `s` | `m`, `s`, `l`, `xl` |
 
@@ -185,7 +185,7 @@ Figma component set: `File Upload`. Variants: 44.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
+| Variant | `variant` | `dropzone`, `button` или `inline`; маппится на Figma `variant`. |
 | Size | `size` | Использует documented size options. |
 | State | `state` или derived state | Не должен конфликтовать с controlled props. |
 | Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |

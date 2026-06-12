@@ -2,10 +2,10 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Figma** · [Avatar](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=61-4220), [Avatar group](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=473-8735)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `tokens.md`
 
 ---
@@ -111,19 +111,16 @@ Avatar — визуальное представление пользовате�
 
 ## 4. Sizes / Размеры
 
-Avatar использует числовые sizes, чтобы они точно совпадали с Figma и code implementation.
+Avatar использует named size scale, чтобы public API оставался системным и не протекал numeric implementation detail. Pixel diameter фиксируется в contract table.
 
 | Size | Диаметр | Типичный контекст |
 |---|---:|---|
-| `16` | 16px | Compact metadata, dense table. |
-| `20` | 20px | Inline user mention. |
-| `24` | 24px | Table cell, compact list. |
-| `32` | 32px | Default list item. |
-| `40` | 40px | Card, comment, chat. |
-| `48` | 48px | Profile summary. |
-| `56` | 56px | Large card. |
-| `64` | 64px | Profile header. |
-| `72` | 72px | Hero/profile detail. |
+| `xxs` | 16px | Compact metadata, dense table. |
+| `xs` | 20px | Inline user mention. |
+| `s` | 24px | Table cell, compact list. |
+| `m` | 32px | Default list item. |
+| `l` | 40px | Card, comment, chat. |
+| `xl` | 48px | Profile summary. |
 
 ### Правила размеров
 
@@ -233,7 +230,7 @@ Avatar использует числовые sizes, чтобы они точно
 | `avatar/status/away` | Away status icon. | `status/warning/icon` |
 | `avatar/status/offline` | Offline status icon. | `icon/muted` |
 
-Token gap: отдельные component tokens для numeric sizes, indicator size, group overlap, skeleton surface и shape radius пока не выделены. До появления таких tokens используйте documented size table и foundation rules.
+Token gap: отдельные component tokens для size dimensions, indicator size, group overlap, skeleton surface и shape radius пока не выделены. До появления таких tokens используйте documented size table и foundation rules.
 
 ---
 
@@ -245,7 +242,7 @@ Token gap: отдельные component tokens для numeric sizes, indicator s
 | Name | `name` | Используется для alt, aria-label и initials. |
 | Alt text | `alt` | Явное описание изображения, если рядом нет видимого имени. |
 | Initials | `initials` | Override, если нужно вручную задать fallback. |
-| Size | `size` | `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `72`. |
+| Size | `size` | `xxs`, `xs`, `s`, `m`, `l`, `xl`. |
 | Variant | `variant` | `image`, `initials`, `icon`, `brand`, `ai`. |
 | Shape | `shape` | `circle` по умолчанию; другие формы требуют documented use case. |
 | Status | `status` | `online`, `busy`, `away`, `offline`. |

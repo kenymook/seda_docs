@@ -1,0 +1,315 @@
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle) {
+  box-sizing: border-box;
+  font-family: var(--seda-font-family, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}
+
+.seda-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control):focus-visible {
+  outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
+  outline-offset: 2px;
+}
+
+.seda-button {
+  --seda-button-height: 32px;
+  --seda-button-padding-x: 12px;
+  --seda-button-radius: 8px;
+  --seda-button-font-size: 14px;
+  --seda-button-line-height: 20px;
+  align-items: center;
+  border: 1px solid var(--seda-button-border, var(--button-secondary-border-default, transparent));
+  border-radius: var(--seda-button-radius);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--seda-button-font-size);
+  font-weight: 600;
+  gap: 8px;
+  height: var(--seda-button-height);
+  justify-content: center;
+  line-height: var(--seda-button-line-height);
+  min-width: max-content;
+  padding: 0 var(--seda-button-padding-x);
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  user-select: none;
+}
+
+.seda-button[data-size="s"], .seda-icon-button[data-size="s"] {
+  --seda-button-height: 24px;
+  --seda-button-padding-x: 8px;
+  --seda-button-radius: 6px;
+  --seda-button-font-size: 12px;
+  --seda-button-line-height: 16px;
+}
+
+.seda-button[data-size="l"], .seda-icon-button[data-size="l"] {
+  --seda-button-height: 40px;
+  --seda-button-padding-x: 16px;
+  --seda-button-radius: 10px;
+  --seda-button-font-size: 16px;
+  --seda-button-line-height: 24px;
+}
+
+.seda-button[data-size="xl"], .seda-icon-button[data-size="xl"] {
+  --seda-button-height: 48px;
+  --seda-button-padding-x: 20px;
+  --seda-button-radius: 12px;
+  --seda-button-font-size: 18px;
+  --seda-button-line-height: 28px;
+}
+
+.seda-button[data-variant="primary"] {
+  background: var(--button-primary-surface-default, var(--container-brand-default, #2563eb));
+  border-color: var(--button-primary-border-default, transparent);
+  color: var(--button-primary-foreground-default, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-button[data-variant="secondary"],
+.seda-button[data-variant="outline"] {
+  background: var(--button-secondary-surface-default, var(--surface-base, #ffffff));
+  border-color: var(--button-secondary-border-default, var(--border-default, #d1d5db));
+  color: var(--button-secondary-foreground-default, var(--text-primary, #111827));
+}
+
+.seda-button[data-variant="ghost"],
+.seda-button[data-variant="text"] {
+  background: transparent;
+  border-color: transparent;
+  color: var(--button-ghost-foreground-default, var(--text-primary, #111827));
+}
+
+.seda-button[data-variant="destruction"] {
+  background: var(--button-destruction-surface-default, var(--status-danger-container, #fee2e2));
+  border-color: var(--button-destruction-border-default, var(--status-danger-border, #ef4444));
+  color: var(--button-destruction-foreground-default, var(--status-danger-text, #991b1b));
+}
+
+.seda-button[data-full-width="true"] {
+  width: 100%;
+}
+
+.seda-button:disabled,
+.seda-button[aria-disabled="true"],
+.seda-icon-button:disabled,
+.seda-icon-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
+.seda-button__spinner,
+.seda-icon-button__spinner {
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  height: 1em;
+  width: 1em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .seda-button__spinner,
+  .seda-icon-button__spinner {
+    animation: seda-spin 700ms linear infinite;
+  }
+}
+
+@keyframes seda-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.seda-icon-button {
+  align-items: center;
+  background: var(--icon-button-neutral-surface-default, var(--surface-base, #ffffff));
+  border: 1px solid var(--icon-button-neutral-border-default, var(--border-default, #d1d5db));
+  border-radius: var(--seda-button-radius, 8px);
+  color: var(--icon-button-neutral-foreground-default, var(--text-primary, #111827));
+  cursor: pointer;
+  display: inline-flex;
+  height: var(--seda-button-height, 32px);
+  justify-content: center;
+  padding: 0;
+  width: var(--seda-button-height, 32px);
+}
+
+.seda-icon-button[data-variant="primary"] {
+  background: var(--icon-button-primary-surface-default, var(--container-brand-default, #2563eb));
+  border-color: var(--icon-button-primary-border-default, transparent);
+  color: var(--icon-button-primary-foreground-default, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-icon-button[data-variant="secondary"],
+.seda-icon-button[data-variant="outline"] {
+  background: var(--icon-button-secondary-surface-default, var(--surface-base, #ffffff));
+  border-color: var(--icon-button-secondary-border-default, var(--border-default, #d1d5db));
+  color: var(--icon-button-secondary-foreground-default, var(--text-primary, #111827));
+}
+
+.seda-icon-button[data-variant="ghost"],
+.seda-icon-button[data-variant="text"] {
+  background: transparent;
+  border-color: transparent;
+}
+
+.seda-icon-button[data-variant="destruction"] {
+  background: var(--icon-button-destruction-surface-default, var(--status-danger-container, #fee2e2));
+  border-color: var(--icon-button-destruction-border-default, var(--status-danger-border, #ef4444));
+  color: var(--icon-button-destruction-foreground-default, var(--status-danger-text, #991b1b));
+}
+
+.seda-link {
+  align-items: center;
+  color: var(--link-foreground-default, var(--text-link, #2563eb));
+  display: inline-flex;
+  gap: 4px;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.seda-link[aria-disabled="true"] {
+  color: var(--link-foreground-disabled, var(--status-disabled-text, #9ca3af));
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.seda-field {
+  display: grid;
+  gap: 6px;
+}
+
+.seda-field__label,
+.seda-choice__label,
+.seda-toggle__label {
+  color: var(--text-primary, #111827);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.seda-field__control {
+  align-items: center;
+  background: var(--seda-field-surface, var(--surface-base, #ffffff));
+  border: 1px solid var(--seda-field-border, var(--border-default, #d1d5db));
+  border-radius: 8px;
+  color: var(--text-primary, #111827);
+  display: inline-flex;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 10px;
+}
+
+.seda-field__control[data-size="s"] {
+  min-height: 28px;
+}
+
+.seda-field__control[data-size="l"] {
+  min-height: 40px;
+}
+
+.seda-field__control[data-size="xl"] {
+  min-height: 48px;
+}
+
+.seda-field__input,
+.seda-field__select {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  flex: 1;
+  font: inherit;
+  min-width: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.seda-field[data-state="error"] .seda-field__control {
+  --seda-field-border: var(--status-danger-border, #ef4444);
+  --seda-field-surface: var(--status-danger-container, #fff7f7);
+}
+
+.seda-field[data-disabled="true"] {
+  opacity: 0.6;
+}
+
+.seda-field__message {
+  color: var(--text-tertiary, #6b7280);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.seda-field__message[data-tone="error"] {
+  color: var(--status-danger-text, #991b1b);
+}
+
+.seda-choice,
+.seda-toggle {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.seda-radio-group {
+  border: 0;
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.seda-radio-group__items {
+  display: grid;
+  gap: 8px;
+}
+
+.seda-choice__control {
+  accent-color: var(--container-brand-default, #2563eb);
+  height: 16px;
+  margin: 2px 0 0;
+  width: 16px;
+}
+
+.seda-choice__content,
+.seda-toggle__content {
+  display: grid;
+  gap: 2px;
+}
+
+.seda-toggle__control {
+  appearance: none;
+  background: var(--toggle-track-off-default, var(--container-neutral-default, #d1d5db));
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 20px;
+  margin: 2px 0 0;
+  position: relative;
+  width: 36px;
+}
+
+.seda-toggle__control::after {
+  background: var(--toggle-thumb-default, var(--surface-base, #ffffff));
+  border-radius: 999px;
+  content: "";
+  height: 16px;
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  transition: transform 120ms ease;
+  width: 16px;
+}
+
+.seda-toggle__control:checked {
+  background: var(--toggle-track-on-default, var(--container-brand-default, #2563eb));
+}
+
+.seda-toggle__control:checked::after {
+  transform: translateX(16px);
+}

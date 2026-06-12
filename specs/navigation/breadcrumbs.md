@@ -2,8 +2,8 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Breadcrumbs](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6220-927)
 
@@ -69,15 +69,15 @@ Figma component set: `Breadcrumbs`. Node id: `6220:927`.
 
 | Property | Default | Options | Назначение |
 | --- | --- | --- | --- |
-| `Type` | `Ghost` | `Ghost`, `Text` | Визуальный тип item. |
-| `Separator` | `Slash` | `Slash`, `Triangle` | Вид разделителя между уровнями. |
-| `Size` | `S` | `S`, `M`, `L`, `XL` | Плотность и масштаб items. |
+| `variant` | `ghost` | `ghost`, `text` | Визуальный тип item. |
+| `separator` | `slash` | `slash`, `triangle` | Вид разделителя между уровнями. |
+| `size` | `s` | `s`, `m`, `l`, `xl` | Плотность и масштаб items. |
 
 ### Variant rules
 
-- `Ghost` подходит для кликабельных parent items с мягким hover surface.
-- `Text` подходит для более спокойной цепочки в плотном layout.
-- `Slash` и `Triangle` не должны смешиваться в одной цепочке.
+- `ghost` подходит для кликабельных parent items с мягким hover surface.
+- `text` подходит для более спокойной цепочки в плотном layout.
+- `slash` и `triangle` не должны смешиваться в одной цепочке.
 - Новый separator или collapse pattern требует `Needs system review`.
 
 ---
@@ -86,10 +86,10 @@ Figma component set: `Breadcrumbs`. Node id: `6220:927`.
 
 | Size | Когда использовать | Handoff rule |
 | --- | --- | --- |
-| `S` | Плотные product pages и таблицы. | Проверьте читаемость и focus target. |
-| `M` | Стандартный размер для большинства экранов. | Используйте как default. |
-| `L` | Крупные page headers или touch-oriented layout. | Проверьте перенос и высоту строки. |
-| `XL` | Редкие случаи с повышенной читаемостью. | Нужна проверка, что breadcrumbs не конкурируют с title. |
+| `s` | Плотные product pages и таблицы. | Проверьте читаемость и focus target. |
+| `m` | Стандартный размер для большинства экранов. | Используйте как default. |
+| `l` | Крупные page headers или touch-oriented layout. | Проверьте перенос и высоту строки. |
+| `xl` | Редкие случаи с повышенной читаемостью. | Нужна проверка, что breadcrumbs не конкурируют с title. |
 
 Размер не меняет структуру пути и не должен использоваться вместо collapse.
 
@@ -184,9 +184,9 @@ Figma component set: `Breadcrumbs`. Node id: `6220:927`.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` | Маппится на Figma `Type`: `ghost` или `text`. |
+| Variant | `variant` | Маппится на Figma `variant`: `ghost` или `text`. |
 | Separator | `separator` | Только `slash` или `triangle`. |
-| Size | `size` | Только `s`, `m`, `l`, `xl`; code может нормализовать регистр. |
+| Size | `size` | Только `s`, `m`, `l`, `xl`. |
 | Items | `items` | Массив с `label`, `href`, optional `disabled`. |
 | Current | last item / `current` | Последний item помечается как current. |
 | Collapse | `maxItems` / `collapseMode` | Описывает, какие уровни скрываются. |
@@ -204,7 +204,7 @@ Figma component set: `Breadcrumbs`. Node id: `6220:927`.
 | Что передать | Почему важно |
 | --- | --- |
 | Figma component и node id: `6220:927` | Позволяет сверить design/code mapping. |
-| `Type`, `Separator`, `Size` | Определяет вид цепочки. |
+| `variant`, `separator`, `size` | Определяет вид цепочки. |
 | Полный список items и URL mapping | Нужен для корректной навигации. |
 | Current item | Нужен для accessibility и route state. |
 | Collapse rule | Предотвращает слишком длинную цепочку. |

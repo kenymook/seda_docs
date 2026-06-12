@@ -2,10 +2,10 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
-> **Figma** · [Table](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2617-2104)
+> **Figma** · [Table](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7318-412)
 
 ---
 
@@ -353,7 +353,7 @@ Table должен следовать [foundation/accessibility.md](../../founda
 | Columns | `columns` | Описывает key, header, type, width, align, sort и render. |
 | Rows | `data` | Массив записей со стабильным `rowKey`. |
 | Row key | `rowKey` | Обязателен для selection, expansion и updates. |
-| Density | `size` | Values: `compact`, `medium`, `comfortable`. |
+| Density | `density` | Values: `compact`, `medium`, `comfortable`. |
 | Sorting | `sort`, `onSortChange` | Controlled state для client/server sorting. |
 | Filtering | `filters`, `onFiltersChange` | Обычно живет в toolbar. |
 | Selection | `selectedRowKeys`, `onSelectionChange` | Controlled state для выбора rows. |

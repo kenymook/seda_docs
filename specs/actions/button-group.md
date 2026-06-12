@@ -2,10 +2,10 @@
 
 > **Category** · Actions
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Figma** · [ButtonGroupHorizontal](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=867-11362), [ButtonGroupVertical](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2729-1986)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `spacing-sizing.md`, `state-vocabulary.md`, `tokens.md`
 
 ---

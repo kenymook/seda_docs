@@ -2,10 +2,10 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
-> **Last reviewed** · 2026-05-29
-> **Figma** · [Top Bar](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6659-58)
+> **Status** · ready
+> **Owner** · Kenymook
+> **Last reviewed** · 2026-06-10
+> **Figma** · [Top Bar](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7061-410)
 
 ---
 
@@ -45,7 +45,7 @@ AI может ускорять черновики структуры навиг�
 
 | Часть | Обязательность | Назначение |
 | --- | --- | --- |
-| `root` | да | Контейнер верхней панели и точка применения `type`, `state`, `size`. |
+| `root` | да | Контейнер верхней панели и точка применения `variant`, `state`, `size`. |
 | `brand` | условно | Логотип или имя продукта/раздела. |
 | `title` | условно | Название текущего раздела или страницы. |
 | `nav` | условно | Основные ссылки или пункты верхней навигации. |
@@ -65,20 +65,21 @@ AI может ускорять черновики структуры навиг�
 
 ## 3. Types / Variants
 
-Figma component set: `Top Bar`. Node id: `6659:58`.
+Figma component set: `Top Bar`. Node id: `7061:410`.
 
 | Property | Default | Options | Назначение |
 | --- | --- | --- | --- |
-| `type` | `app-bar` | `app-bar`, `page-header`, `transparent` | Роль панели в layout. |
+| `variant` | `app-bar` | `app-bar`, `application`, `page-header`, `transparent` | Роль панели в layout. |
 | `state` | `default` | `default`, `scrolled` | Визуальное состояние поверхности. |
 | `size` | `xl` | `s`, `m`, `l`, `xl` | Высота, плотность и масштаб элементов. |
 
-### Type rules
+### Variant rules
 
-| Type | Когда использовать | Ограничения |
+| Variant | Когда использовать | Ограничения |
 | --- | --- | --- |
-| `app-bar` | Глобальная верхняя панель приложения. | Не перегружайте page-specific actions. |
-| `page-header` | Верхняя зона конкретной страницы или раздела. | Не должна конкурировать с global nav. |
+| `app-bar` | Компактная глобальная панель с brand и системными actions. | Не содержит primary nav; не перегружайте page-specific actions. |
+| `application` | App shell с продуктовой навигацией и account actions. | Содержит primary nav; не дублируйте Sidebar без IA-review. |
+| `page-header` | Верхняя зона конкретной страницы или раздела, обычно с Breadcrumbs и page controls. | Не должна конкурировать с global nav. |
 | `transparent` | Экран, где Top Bar должен лечь поверх контента до scroll. | Требует проверки contrast и `scrolled` state. |
 
 ---
@@ -185,7 +186,7 @@ Figma component set: `Top Bar`. Node id: `6659:58`.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` | Только `app-bar`, `page-header`, `transparent`. |
+| Variant | `variant` | Только `app-bar`, `application`, `page-header`, `transparent`. |
 | State | `state` или derived `scrolled` | `scrolled` вычисляется из scroll state. |
 | Size | `size` | Только `s`, `m`, `l`, `xl`. |
 | Navigation | `items` | Массив с `href`, `label`, optional `icon`, `selected`, `disabled`. |
@@ -195,7 +196,7 @@ Figma component set: `Top Bar`. Node id: `6659:58`.
 
 ### Contract rules
 
-- Code API должен явно маппить Figma `type`, `state`, `size`.
+- Code API должен явно маппить Figma `variant`, `state`, `size`.
 - Unsupported layout zones помечаются как `Needs system review`.
 - Top Bar не должен принимать arbitrary color props вместо tokens.
 
@@ -205,8 +206,8 @@ Figma component set: `Top Bar`. Node id: `6659:58`.
 
 | Что передать | Почему важно |
 | --- | --- |
-| Figma component и node id: `6659:58` | Позволяет сверить design/code mapping. |
-| `type`, `state`, `size` | Определяет роль и вид панели. |
+| Figma component и node id: `7061:410` | Позволяет сверить design/code mapping. |
+| `variant`, `state`, `size` | Определяет роль и вид панели. |
 | IA: brand, title, nav, search, actions, user menu | Убирает спор о приоритетах. |
 | Active route и disabled rules | Нужны для навигации и accessibility. |
 | Sticky/fixed/static behavior | Влияет на layout и scroll. |
@@ -229,7 +230,7 @@ Figma component set: `Top Bar`. Node id: `6659:58`.
 - AI может предложить структуру навигации, labels, action priority и handoff notes.
 - AI должен сверять `tokens.json` перед изменением раздела Design Tokens.
 - AI не должен использовать Top Bar как hero, Toolbar, Sidebar или Drawer.
-- AI не должен придумывать новые `type`, `state`, `size`, colors или arbitrary props.
+- AI не должен придумывать новые `variant`, `state`, `size`, colors или arbitrary props.
 - AI обязан помечать unclear IA, missing active route, mobile overflow gap и contrast risk как `Needs system review`.
 - AI может подготовить acceptance criteria, но человек утверждает финальную IA.
 

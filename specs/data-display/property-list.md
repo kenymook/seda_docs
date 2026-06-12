@@ -2,8 +2,8 @@
 
 > **Category** · Data Display
 > **Version** · 0.1
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [PropertyList](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7148-18099)
 > **Foundation** · `accessibility.md`, `content.md`, `layout.md`, `tokens.md`
@@ -92,9 +92,7 @@ Property List — прикладной pattern для компактного о�
 |---|---|---|
 | `plain` | Строки без отдельной рамки. | Default для panels и pages. |
 | `divided` | Нужно разделить группы или плотные строки. | Использовать Divider осознанно. |
-| `cardRow` | Строка выглядит как компактный объект. | Не превращать каждую строку в Card. |
-| `editableSection` | Секция редактируется целиком. | Section action открывает edit flow. |
-| `actionableRow` | У строки есть copy/reveal/open/edit. | Нужен keyboard и focus behavior. |
+| `card-row` | Строка выглядит как компактный объект. | Не превращать каждую строку в Card. |
 
 ---
 
@@ -103,8 +101,6 @@ Property List — прикладной pattern для компактного о�
 | Density | Row height | Контекст |
 |---|---:|---|
 | `compact` | 26px | Dense admin panels и sidebars. |
-| `regular` | 32px | Default detail pages. |
-| `comfortable` | 40px | Touch-heavy layouts или multiline values. |
 
 ### Layout rules
 
@@ -117,7 +113,7 @@ Property List — прикладной pattern для компактного о�
 | Section gap | 12-16px. |
 | Card row height | 40-48px. |
 
-Длинные значения обрезаются только в value area. Для ID используйте middle truncation, для email/address/prose — end truncation или перенос в `comfortable` density.
+Длинные значения обрезаются только в value area. Для ID используйте middle truncation, для email/address/prose — end truncation или explicit multiline rule в handoff.
 
 ---
 
@@ -217,8 +213,8 @@ Property List — прикладной pattern для компактного о�
 | Rows | `sections[].items` | Label, value, optional icon/action. |
 | Label | `item.label` | Обязателен. |
 | Value | `item.value` | Обязателен, если нет `emptyText`. |
-| Density | `density` | `compact`, `regular`, `comfortable`. |
-| Variant | `variant` | `plain`, `divided`, `cardRow`, `editableSection`, `actionableRow`. |
+| Density | `density` | `compact`. |
+| Variant | `variant` | `plain`, `divided`, `card-row`. |
 | Action | `item.action` | `copy`, `reveal`, `edit`, `open` или documented custom handler. |
 | Sensitive | `item.masked` | Управляет reveal behavior. |
 | Truncation | `item.truncate` | `start`, `middle`, `end`, `none`. |
@@ -229,7 +225,7 @@ Property List — прикладной pattern для компактного о�
 - `item.label` обязателен.
 - Missing value должен рендерить explicit empty text.
 - `item.masked` требует reveal action или объяснение, почему reveal недоступен.
-- `variant="actionableRow"` требует keyboard path.
+- Row actions требуют keyboard path и не создают отдельный Figma variant.
 - Raw colors и invented component tokens запрещены.
 - Property List не используется для нескольких записей.
 

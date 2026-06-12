@@ -2,9 +2,9 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
-> **Last reviewed** · 2026-05-29
+> **Status** · ready
+> **Owner** · Kenymook
+> **Last reviewed** · 2026-06-10
 > **Figma** · [Notification Center](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6977-2860)
 
 ---
@@ -41,6 +41,9 @@ AI может помогать с черновиками сценариев, т�
 | Часть | Обязательность | Назначение |
 | --- | --- | --- |
 | `root` | да | Корневой контейнер компонента и точка применения layout/ARIA contract. |
+| `header` | да | Заголовок, unread count, mark-all-read и settings actions. |
+| `tabs` | да | Фильтрация `All`, `Mentions`, `Unread`. |
+| `notification-row` | условно | Строка события с actor/source, timestamp, message и unread indicator. |
 | `content` | условно | Основной текст, значение, список, область данных или slot. |
 | `control` | условно | Интерактивная часть, если компонент принимает пользовательский ввод. |
 | `label` | условно | Видимое имя компонента; не заменяется placeholder или Tooltip. |
@@ -50,6 +53,10 @@ AI может помогать с черновиками сценариев, т�
 ### Правила anatomy
 
 - Обязательные части должны быть видимыми или программно доступными.
+- `has-unread` должен показывать реалистичный `unreadCount`, а не placeholder `0`.
+- `error` должен иметь понятный recovery action: в Figma это Button instance `Retry loading`, а не plain text label.
+- `loading` должен иметь readable status text рядом со Spinner.
+- `notification-row` не должен выходить шире `body` container.
 - Вложенные Button, Icon Button, Link, input controls и feedback components следуют собственным specs.
 - Если часть компонента скрывается через boolean property, layout и keyboard order не должны ломаться.
 - Не добавляйте произвольные decorative slots без system review.
@@ -105,6 +112,16 @@ Figma component set: `Notification Center`. Variants: 40.
 | Error | Ошибка должна иметь текстовое объяснение и путь восстановления. |
 | Disabled | Disabled state не должен быть единственным способом объяснить ограничение. |
 | Loading / empty | Используйте Spinner, Skeleton, Progress Bar или Empty State, если это отдельный feedback pattern. |
+
+### Notification Center state rules
+
+| State | Видимый contract | Owner |
+| --- | --- | --- |
+| `empty` | Empty State с объяснением `No new notifications`. | Notification Center |
+| `has-unread` | Header badge показывает unread count; unread rows имеют видимый indicator. | Notification Center |
+| `all-read` | История событий остается доступной, но unread badge скрыт. | Notification Center |
+| `loading` | Spinner + readable status `Loading notifications`. | Async data owner + Notification Center |
+| `error` | Error text `Unable to load notifications` + Button instance `Retry loading`. | Async data owner + retry action |
 
 ---
 
@@ -178,17 +195,22 @@ Figma component set: `Notification Center`. Variants: 40.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant/type | `type` / `variant` | Маппится на Figma variant property, если он есть. |
-| Size | `size` | Использует documented size options. |
-| State | `state` или derived state | Не должен конфликтовать с controlled props. |
-| Value | `value` / `checked` / `selected` / `open` | Controlled или uncontrolled contract описывается явно. |
-| Label | `label` / `ariaLabel` | Не заменяется placeholder. |
-| Error | `error` / `errorText` | Error state сопровождается текстом. |
-| Disabled | `disabled` | Не скрывает причину ограничения. |
+| Placement | `placement` | `panel` или `overlay`, соответствует Figma variant. |
+| Size | `size` | `s`, `m`, `l`, `xl`, соответствует Figma variant. |
+| State | `state` | `empty`, `has-unread`, `all-read`, `loading`, `error`. |
+| Items | `items` | Список notification rows с actor/source, message, timestamp, unread flag. |
+| Unread count | `unreadCount` | Показывается в header badge при `state="has-unread"`. |
+| Active filter | `activeFilter` | `all`, `mentions`, `unread`; не заменяет top-level `state`. |
+| Mark all read | `onMarkAllRead` | Header action; disabled/hidden owner должен быть описан. |
+| Settings | `onSettings` | Header action для preferences. |
+| Retry | `onRetry` | Обязателен для `state="error"`, если ошибка recoverable; в Figma представлен Button instance `Retry loading`. |
 
 ### Contract rules
 
 - Props должны соответствовать documented variants и states.
+- `unreadCount` не может быть `0`, если `state="has-unread"`.
+- `state="error"` требует `errorText` и recovery Button или явную причину, почему retry невозможен.
+- `state="loading"` требует readable loading status, а не только spinner.
 - Unsupported requirements помечаются как `Needs system review`.
 - Нельзя добавлять arbitrary visual props, если их нет в token/design contract.
 
@@ -211,6 +233,10 @@ Figma component set: `Notification Center`. Variants: 40.
 
 - Компонент использует только documented Figma variants и реальные tokens.
 - Все states имеют понятный owner и не конфликтуют с parent flow.
+- `has-unread` показывает ненулевой unread count и видимые unread indicators.
+- `loading` имеет readable status text.
+- `error` имеет текст ошибки и recovery Button.
+- Notification rows не выходят за ширину body container.
 - Accessibility requirements покрыты для keyboard, focus, labels и errors.
 - Handoff содержит props contract и token gaps.
 - AI-generated output не добавляет неподтвержденные variants, props или token names.

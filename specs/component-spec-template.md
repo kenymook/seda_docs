@@ -3,7 +3,7 @@
 > **Category** · [Actions / Inputs & Forms / Navigation / Data Display / Feedback / Overlays & Layout]
 > **Version** · 1.0
 > **Status** · draft / needs-review / ready / deprecated
-> **Owner** · TBD
+> **Owner** · Kenymook
 > **Last reviewed** · YYYY-MM-DD
 > **Figma** · TBD
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `motion.md`, `radius-border.md`, `elevation.md`, `tokens.md`

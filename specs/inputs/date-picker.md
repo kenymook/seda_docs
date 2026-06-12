@@ -2,8 +2,8 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [DatePicker](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4101-4117)
 
@@ -74,13 +74,13 @@ Figma component set: `DatePicker`. Variants: 112.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `Type` | `single` | `single`, `range`, `month`, `year` |
-| `Size` | `s` | `s`, `m`, `l`, `xl` |
-| `State` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
+| `selection` | `single` | `single`, `range`, `month`, `year` |
+| `size` | `s` | `s`, `m`, `l`, `xl` |
+| `state` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
 
-### Type rules
+### Selection rules
 
-| Type | Value model | Правило |
+| Selection | Value model | Правило |
 | --- | --- | --- |
 | `single` | Один date value. | Подходит для даты рождения, дедлайна, даты начала. |
 | `range` | `startDate` и `endDate`. | Нужны правила open-ended range, min/max и порядок выбора. |
@@ -230,7 +230,7 @@ Token gaps:
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` | `single`, `range`, `month`, `year`. |
+| Selection | `selection` | `single`, `range`, `month`, `year`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Value | `value` / `defaultValue` | Date, range object, month или year. |
 | Open | `open`, `onOpenChange` | Controlled и uncontrolled modes не смешиваются. |
@@ -255,7 +255,7 @@ Contract rules:
 Handoff для Date Picker должен включать:
 
 - Figma component и node id: `4101:4117`;
-- `Type`, `Size`, `State`;
+- `selection`, `size`, `state`;
 - display format, storage format, locale, timezone;
 - min/max, disabled dates, unavailable periods;
 - range behavior: start/end, open-ended, invalid order;
@@ -266,7 +266,7 @@ Handoff для Date Picker должен включать:
 
 ### Acceptance criteria
 
-- Date Picker использует только documented `Type`, `Size`, `State`.
+- Date Picker использует только documented `selection`, `size`, `state`.
 - Typed input и calendar selection проходят одинаковые validation rules.
 - Selected, today, disabled и range states доступны не только цветом.
 - `error` всегда имеет error text.

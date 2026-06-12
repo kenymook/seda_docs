@@ -2,8 +2,8 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Pagination](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6213-202)
 
@@ -70,17 +70,17 @@ Figma component set: `Pagination`. Node id: `6213:202`.
 
 | Property | Default | Options | Назначение |
 | --- | --- | --- | --- |
-| `Type` | `Numbered` | `Numbered`, `Prev-Next`, `First-Disabled`, `Last-Disabled` | Модель отображения controls. |
-| `Size` | `s` | `s`, `m`, `l`, `xl` | Плотность и размер controls. |
+| `variant` | `numbered` | `numbered`, `prev-next`, `first-disabled`, `last-disabled` | Модель отображения controls. |
+| `size` | `s` | `s`, `m`, `l`, `xl` | Плотность и размер controls. |
 
-### Type rules
+### Variant rules
 
-| Type | Когда использовать | Ограничения |
+| Variant | Когда использовать | Ограничения |
 | --- | --- | --- |
-| `Numbered` | Нужно переходить к конкретной странице. | Требует total pages или window strategy. |
-| `Prev-Next` | Достаточно последовательной навигации. | Нужно явно описать, известна ли последняя страница. |
-| `First-Disabled` | Текущая страница у начала диапазона. | Disabled state должен быть вычислен, не задан вручную. |
-| `Last-Disabled` | Текущая страница у конца диапазона. | Disabled state должен быть вычислен, не задан вручную. |
+| `numbered` | Нужно переходить к конкретной странице. | Требует total pages или window strategy. |
+| `prev-next` | Достаточно последовательной навигации. | Нужно явно описать, известна ли последняя страница. |
+| `first-disabled` | Текущая страница у начала диапазона. | Disabled state должен быть вычислен, не задан вручную. |
+| `last-disabled` | Текущая страница у конца диапазона. | Disabled state должен быть вычислен, не задан вручную. |
 
 ---
 
@@ -188,7 +188,7 @@ Figma component set: `Pagination`. Node id: `6213:202`.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` | Маппится на Figma `Type`. |
+| Variant | `variant` | Маппится на Figma `variant`. |
 | Size | `size` | Только `s`, `m`, `l`, `xl`. |
 | Current page | `page` | Controlled state текущей страницы. |
 | Page size | `pageSize` | Влияет на total pages и summary. |
@@ -210,7 +210,7 @@ Figma component set: `Pagination`. Node id: `6213:202`.
 | Что передать | Почему важно |
 | --- | --- |
 | Figma component и node id: `6213:202` | Позволяет сверить design/code mapping. |
-| `Type`, `Size`, current page | Определяет вид и состояние. |
+| `variant`, `size`, current page | Определяет вид и состояние. |
 | `page`, `pageSize`, `totalItems`/`totalPages` | Нужны для data contract. |
 | Server/client ownership | Определяет источник истины. |
 | Boundary disabled rules | Нужны для first/prev/next/last. |
@@ -246,7 +246,7 @@ Figma component set: `Pagination`. Node id: `6213:202`.
 
 | Сценарий | Почему |
 | --- | --- |
-| Numbered Pagination для таблицы с известным `totalItems`. | Пользователь может перейти к конкретной странице. |
+| `numbered` Pagination для таблицы с известным `totalItems`. | Пользователь может перейти к конкретной странице. |
 | Prev/Next для результатов, где нужен только последовательный просмотр. | UI проще и соответствует data contract. |
 | First/prev disabled на первой странице. | Boundary state вычислен из page. |
 

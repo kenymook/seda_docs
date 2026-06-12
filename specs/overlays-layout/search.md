@@ -2,8 +2,8 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Search](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6739-599)
 
@@ -75,13 +75,13 @@ Figma component set: `Search`. Variants: 60.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `type` | `inline` | `inline`, `overlay`, `command-palette` |
+| `variant` | `inline` | `inline`, `overlay`, `command-palette` |
 | `state` | `empty` | `empty`, `typing`, `loading`, `results`, `no-results` |
 | `size` | `s` | `s`, `m`, `l`, `xl` |
 
-### Type rules
+### Variant rules
 
-| Type | Когда использовать | Правило |
+| Variant | Когда использовать | Правило |
 | --- | --- | --- |
 | `inline` | Поиск внутри страницы или панели. | Results могут быть ниже input или обновлять контент страницы. |
 | `overlay` | Поиск с раскрывающимся results panel. | Нужен open/close, focus return и outside click. |
@@ -227,7 +227,7 @@ Token gaps:
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` | `inline`, `overlay`, `command-palette`. |
+| Variant | `variant` | `inline`, `overlay`, `command-palette`. |
 | Size | `size` | `s`, `m`, `l`, `xl`. |
 | Query | `query`, `defaultQuery`, `onQueryChange` | Controlled/uncontrolled modes не смешиваются. |
 | State | `state` | Derived from query, loading и results. |
@@ -253,7 +253,7 @@ Contract rules:
 Handoff для Search должен включать:
 
 - Figma component и node id: `6739:599`;
-- `type`, `state`, `size`;
+- `variant`, `state`, `size`;
 - query rules: min length, debounce, local/remote source;
 - result schema: id, title, subtitle, icon, section, action;
 - loading/no-results/error behavior;
@@ -265,7 +265,7 @@ Handoff для Search должен включать:
 
 ### Acceptance criteria
 
-- Search использует только documented `type`, `state`, `size`.
+- Search использует только documented `variant`, `state`, `size`.
 - Query lifecycle описывает empty, typing, loading, results и no-results.
 - Results имеют stable ids и accessible labels.
 - No-results содержит recovery path.

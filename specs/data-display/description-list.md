@@ -2,10 +2,10 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Figma** · [Description List](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6670-174)
 > **Foundation** · `accessibility.md`, `content.md`, `layout.md`, `tokens.md`
 
 ---

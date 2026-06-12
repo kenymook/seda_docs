@@ -2,8 +2,8 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Tabs](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6196-25)
 
@@ -51,8 +51,8 @@ AI может помогать с проверкой структуры вкла
 | `tab` | да | Интерактивный элемент выбора раздела. |
 | `label` | да | Видимое название вкладки. |
 | `icon` | опционально | Дополнительный визуальный маркер; не заменяет label без accessible name. |
-| `indicator` | для `Line` | Линия выбранной вкладки. |
-| `pillSurface` | для `Pill` | Контейнер выбранной или интерактивной вкладки. |
+| `indicator` | для `line` | Линия выбранной вкладки. |
+| `pillSurface` | для `pill` | Контейнер выбранной или интерактивной вкладки. |
 | `tabpanel` | да | Контент выбранной вкладки. |
 
 ### Правила anatomy
@@ -70,15 +70,15 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 
 | Property | Default | Options | Назначение |
 | --- | --- | --- | --- |
-| `Variant` | `Line` | `Line`, `Pill` | Визуальный тип вкладок. |
+| `variant` | `line` | `line`, `pill` | Визуальный тип вкладок. |
 | `size` | `m` | `s`, `m`, `l`, `xl` | Плотность, высота и масштаб label/icon. |
 
 ### Variant rules
 
 | Variant | Когда использовать | Ограничения |
 | --- | --- | --- |
-| `Line` | Стандартная навигация по разделам, страницы настроек, карточки объекта. | Не используйте как segmented control для фильтров. |
-| `Pill` | Компактные разделы внутри панели, toolbar или локального блока. | Не перегружайте большим количеством вкладок. |
+| `line` | Стандартная навигация по разделам, страницы настроек, карточки объекта. | Не используйте как segmented control для фильтров. |
+| `pill` | Компактные разделы внутри панели, toolbar или локального блока. | Не перегружайте большим количеством вкладок. |
 
 ### Size rules
 
@@ -200,7 +200,7 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Variant | `variant` | Маппится на Figma `Variant`: `line` или `pill`. |
+| Variant | `variant` | Маппится на Figma `variant`: `line` или `pill`. |
 | Size | `size` | Только `s`, `m`, `l`, `xl`. |
 | Items | `items` | Массив с `value`, `label`, optional `icon`, optional `disabled`. |
 | Selected tab | `value` / `selectedValue` | Controlled state выбранной вкладки. |
@@ -211,7 +211,7 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 
 ### Contract rules
 
-- `variant` в code должен явно маппиться на Figma `Line`/`Pill`.
+- `variant` в code должен явно маппиться на Figma `line`/`pill`.
 - Loading, empty и error относятся к `tabpanel`, а не к визуальному состоянию tab.
 - Unsupported variants, icon-only mode или vertical orientation помечаются как `Needs system review`, если их нет в component contract.
 
@@ -222,7 +222,7 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 | Что передать | Почему важно |
 | --- | --- |
 | Figma component и node id: `6196:25` | Позволяет сверить design/code mapping. |
-| `Variant`, `size`, selected tab | Определяет внешний вид и состояние. |
+| `variant`, `size`, selected tab | Определяет внешний вид и состояние. |
 | Список вкладок с `value`, label, optional icon | Нужен для стабильного API. |
 | Связь tab и tabpanel | Нужна для accessibility и QA. |
 | Activation mode | Определяет keyboard и async behavior. |
@@ -233,7 +233,7 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 
 - В tablist выбран ровно один tab.
 - Каждая вкладка связана с `tabpanel`.
-- `Line` и `Pill` используют documented component tokens.
+- `line` и `pill` используют documented component tokens.
 - Keyboard navigation работает для arrows, Home/End и Enter/Space.
 - Loading/empty/error states отображаются внутри panel.
 - AI-generated output не содержит новых variants, props или token names без review.
@@ -257,8 +257,8 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 
 | Сценарий | Почему |
 | --- | --- |
-| Tabs `Line` для разделов карточки клиента: Overview, Activity, Billing. | Разделы равноправны и относятся к одному объекту. |
-| Tabs `Pill` внутри панели фильтрации отчёта по типу данных. | Компактный локальный контекст без линейного flow. |
+| Tabs `line` для разделов карточки клиента: Overview, Activity, Billing. | Разделы равноправны и относятся к одному объекту. |
+| Tabs `pill` внутри панели фильтрации отчёта по типу данных. | Компактный локальный контекст без линейного flow. |
 | Tab panel с Empty State при отсутствии данных. | Empty относится к контенту вкладки, а не к navigation item. |
 
 ### Требует review

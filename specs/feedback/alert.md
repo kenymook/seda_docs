@@ -2,8 +2,8 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Alert](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=8-3867)
 
@@ -41,7 +41,7 @@ Alert — встроенное сообщение в контексте стра
 
 ### Основные принципы
 
-- **Tone matches meaning** — `danger`/`error` только для ошибок или риска, `warning` для потенциальной проблемы.
+- **Tone matches meaning** — `error` только для ошибок или риска, `warning` для потенциальной проблемы.
 - **Message is actionable** — пользователь должен понимать, что произошло и что делать дальше.
 - **Persistent by default** — Alert не исчезает автоматически как Toast.
 - **One context, one message** — дублирующиеся Alerts нужно объединять.
@@ -84,14 +84,13 @@ Alert — встроенное сообщение в контексте стра
 
 ## 3. Types / Variants / Варианты
 
-| Type | Когда использовать | Accessibility intent |
+| Variant | Когда использовать | Accessibility intent |
 |---|---|---|
 | `info` | Нейтральная контекстная информация. | Обычно `role="status"` или static content. |
 | `success` | Операция завершилась успешно и сообщение должно остаться видимым. | `role="status"` для dynamic updates. |
 | `warning` | Есть потенциальная проблема или риск. | `role="alert"` только если требуется немедленное объявление. |
-| `danger` / `error` | Ошибка, риск потери данных, невозможность продолжить. | `role="alert"` для dynamic critical message. |
+| `error` | Ошибка, риск потери данных, невозможность продолжить. | `role="alert"` для dynamic critical message. |
 | `ai` | AI-generated/AI-assisted/needs-review status. | Text должен объяснять, что проверяет человек. |
-| `neutral` | Служебная информация без status tone. | Static content или `role="status"` по контексту. |
 
 ### Modifiers
 
@@ -99,7 +98,7 @@ Alert — встроенное сообщение в контексте стра
 |---|---|---|
 | `dismissible` | Добавляет close button. | Нужен `dismissLabel` и focus behavior. |
 | `withAction` | Добавляет action link/button. | Action должен быть связан с сообщением. |
-| `withIcon` | Показывает tone icon. | Рекомендуется для warning/danger/ai. |
+| `withIcon` | Показывает tone icon. | Рекомендуется для warning/error/ai. |
 | `compact` | Плотный Alert для forms/tables. | Не снижать читаемость и hit area close button. |
 
 ---
@@ -116,7 +115,7 @@ Alert — встроенное сообщение в контексте стра
 ### Правила размеров
 
 - Size задает плотность и визуальный вес, а не severity.
-- Severity задается `type`, текстом и accessibility role.
+- Severity задается `variant`, текстом и accessibility role.
 - В формах и таблицах используйте `s` или `m`.
 - Padding, radius, gap, icon size и typography пока задаются foundation rules и Figma variants, а не отдельными size tokens.
 
@@ -156,7 +155,7 @@ Alert — встроенное сообщение в контексте стра
 - Close button скрывает Alert только в текущем контексте.
 - После закрытия фокус возвращается к логичному месту: trigger, следующий control или контейнер.
 - Dismissible state должен быть сохранен, если продукт ожидает persistence между обновлениями.
-- Critical danger Alert не должен быть dismissible без альтернативного способа увидеть проблему.
+- Critical error Alert не должен быть dismissible без альтернативного способа увидеть проблему.
 
 ### Action behavior
 
@@ -195,7 +194,7 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 - [ ] Dismiss button имеет accessible name.
 - [ ] Focus ring видим на close/action controls.
 - [ ] Action label говорит, что произойдет.
-- [ ] Warning/danger Alert содержит следующий шаг или причину.
+- [ ] Warning/error Alert содержит следующий шаг или причину.
 - [ ] AI Alert явно говорит, что нужно проверить человеку.
 
 ---
@@ -220,14 +219,11 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 | `alert/border/warning` | Warning border. | `status/warning/border` |
 | `alert/title/foreground/warning` | Warning title. | `status/warning/text` |
 | `alert/icon/warning` | Warning icon. | `status/warning/icon` |
-| `alert/surface/danger` | Danger surface. | `status/danger/surface` |
-| `alert/border/danger` | Danger border. | `status/danger/border` |
-| `alert/title/foreground/danger` | Danger title. | `status/danger/text` |
-| `alert/icon/danger` | Danger icon. | `status/danger/icon` |
-| `alert/surface/neutral` | Neutral surface. | `surface/subtle` |
-| `alert/border/neutral` | Neutral border. | `border/default` |
+| `alert/surface/danger` | Error surface. | `status/danger/surface` |
+| `alert/border/danger` | Error border. | `status/danger/border` |
+| `alert/title/foreground/danger` | Error title. | `status/danger/text` |
+| `alert/icon/danger` | Error icon. | `status/danger/icon` |
 | `alert/title/foreground/default` | Default title. | `text/primary` |
-| `alert/icon/neutral` | Neutral icon. | `icon/secondary` |
 
 ### Content and controls
 
@@ -238,7 +234,7 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 | `alert/description/foreground/info` | Info description text. | `text/secondary` |
 | `alert/description/foreground/success` | Success description text. | `text/secondary` |
 | `alert/description/foreground/warning` | Warning description text. | `text/secondary` |
-| `alert/description/foreground/danger` | Danger description text. | `text/secondary` |
+| `alert/description/foreground/danger` | Error description text. | `text/secondary` |
 | `alert/action/foreground/default` | Action text. | `text/primary` |
 | `alert/action/foreground/hover` | Action hover text. | `text/brand` |
 | `alert/close/icon/default` | Close icon. | `icon/tertiary` |
@@ -249,7 +245,7 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 
 ### Token gaps
 
-- Figma содержит `Type=ai`, но в `tokens.json` пока нет отдельной AI-ветки для Alert. До появления component tokens AI Alert должен использовать documented fallback и быть помечен как token gap.
+- Figma содержит `variant=ai`, но в `tokens.json` пока нет отдельной AI-ветки для Alert. До появления component tokens AI Alert должен использовать documented fallback и быть помечен как token gap.
 - Size, padding, radius, gap, icon size, close button geometry и motion tokens пока описаны foundation rules и Figma variants, а не отдельными Alert component tokens.
 - Не придумывайте новые Alert token paths без обновления `tokens.json` и Figma bindings.
 
@@ -259,7 +255,7 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 
 | Spec concept | Code prop / attribute | Notes |
 |---|---|---|
-| Type | `type` | Values: `info`, `success`, `warning`, `danger`, `ai`, `neutral`. |
+| Variant | `variant` | Values: `info`, `success`, `warning`, `error`, `ai`. |
 | Size | `size` | Values: `s`, `m`, `l`, `xl`. |
 | Title | `title` | Обязательный visible text. |
 | Description | `description` | Optional context. |
@@ -272,7 +268,7 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 ### Contract rules
 
 - `title` обязателен.
-- `type="ai"` требует clear human review message.
+- `variant="ai"` требует clear human review message.
 - `dismissible=true` требует `dismissLabel`.
 - `role="alert"` не используется для каждого статичного warning на странице.
 - `action` должен иметь один понятный next step.
@@ -285,14 +281,14 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 Handoff для Alert должен фиксировать:
 
 - context: page, form, table, section или field group;
-- type/tone и urgency;
+- variant/tone и urgency;
 - title, description и action copy;
 - role/live region behavior;
 - dismissible behavior и focus recovery;
 - condition, при котором Alert появляется и исчезает;
 - token mapping для surface, border, title, description, icon, action, close и focus;
-- AI-related review rules, если `type="ai"`;
-- token gap для AI tone, если используется Figma `Type=ai`.
+- AI-related review rules, если `variant="ai"`;
+- token gap для AI tone, если используется Figma `variant=ai`.
 
 ---
 
@@ -300,14 +296,14 @@ Handoff для Alert должен фиксировать:
 
 - [ ] Alert расположен рядом с контекстом сообщения.
 - [ ] Title понятен без description, цвета и иконки.
-- [ ] Type соответствует смыслу сообщения.
-- [ ] Warning/danger Alert содержит причину или следующий шаг.
+- [ ] Variant соответствует смыслу сообщения.
+- [ ] Warning/error Alert содержит причину или следующий шаг.
 - [ ] Role/live region выбран по urgency.
 - [ ] Dismissible Alert имеет accessible close label и focus recovery.
 - [ ] Action label описывает конкретное действие.
 - [ ] AI Alert явно говорит, что AI сделал и что проверяет человек.
 - [ ] Используются реальные Alert component tokens из `tokens.json`.
-- [ ] `Type=ai` помечен как token gap до появления Alert AI tokens.
+- [ ] `variant=ai` помечен как token gap до появления Alert AI tokens.
 
 ---
 
@@ -317,7 +313,7 @@ AI может:
 
 - предложить title, description и action copy для Alert;
 - проверить, нужен ли Alert, Toast, Modal, Empty State или field validation;
-- выбрать preliminary type по смыслу сообщения;
+- выбрать preliminary variant по смыслу сообщения;
 - подготовить handoff notes и acceptance criteria;
 - найти missing action, missing role, color-only warning и token gaps.
 
@@ -326,7 +322,7 @@ AI не должен:
 - использовать Alert как временный Toast;
 - использовать Alert для блокирующего confirmation вместо Modal;
 - придумывать Alert token paths для AI tone;
-- делать warning/danger сообщение без причины или next step;
+- делать warning/error сообщение без причины или next step;
 - использовать `role="alert"` для всех сообщений подряд;
 - обещать, что AI сам исправит проблему без human review.
 
@@ -350,7 +346,7 @@ AI не должен:
 | Сценарий | Что проверить |
 |---|---|
 | Alert появляется после каждого мелкого действия. | Возможно, нужен Toast. |
-| Critical danger Alert можно закрыть без альтернативы. | Риск потери важной информации. |
+| Critical error Alert можно закрыть без альтернативы. | Риск потери важной информации. |
 | AI Alert говорит `Все исправлено автоматически`. | Нужна human validation. |
 | На странице пять warning Alerts подряд. | Нужно объединить сообщения или изменить IA. |
 

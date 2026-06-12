@@ -2,10 +2,10 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Figma** · [divider](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1432-6693)
 > **Foundation** · `accessibility.md`, `layout.md`, `spacing-sizing.md`, `tokens.md`
 
 ---
@@ -79,24 +79,24 @@ Divider — визуальный разделитель между связан�
 
 ## 3. Types / Variants / Варианты
 
-| Variant | Назначение | Правило |
+| Style | Назначение | Правило |
 |---|---|---|
-| `horizontal` | Разделяет блоки по вертикали. | Default для списков, меню, Card. |
-| `vertical` | Разделяет inline controls по горизонтали. | Parent должен задавать высоту. |
+| `single` | Стандартная линия. | Default для списков, меню, Card. |
+| `double` | Более заметное разделение. | Используйте только когда нужен усиленный визуальный boundary. |
+| `thin` | Самое мягкое разделение. | Подходит для плотных layouts. |
 
-### Emphasis
+### Orientation
 
-| Emphasis | Назначение | Token |
+| Property | Назначение | Правило |
 |---|---|---|
-| `default` | Слабое разделение. | `divider/line/default` |
-| `strong` | Более заметное разделение. | `divider/line/strong` |
-| `inverse` | Разделение на inverse/dark surface. | `divider/line/inverse` |
+| `vertical=false` | Horizontal Divider. | Разделяет блоки по вертикали. |
+| `vertical=true` | Vertical Divider. | Разделяет inline controls по горизонтали; parent должен задавать высоту. |
 
 ### Modifiers
 
 | Modifier | Назначение | Ограничения |
 |---|---|---|
-| `withLabel` | Добавляет короткий label. | Label должен называть группу. |
+| `text=true` | Добавляет короткий label. | Label должен называть группу. |
 | `withIcon` | Добавляет icon. | Требует review, часто избыточен. |
 | `inset` | Линия начинается после leading content. | Для list rows или menu items. |
 
@@ -104,12 +104,19 @@ Divider — визуальный разделитель между связан�
 
 ## 4. Sizes / Размеры
 
-Divider не имеет размерной шкалы. Толщина линии по умолчанию — 1px, а длину задает parent layout.
+Figma component set использует variant property `size`.
+
+| `size` | Назначение |
+| --- | --- |
+| `s` | Compact layouts. |
+| `m` | Default. |
+| `l` | Более просторные секции. |
+| `xl` | Крупные content areas. |
 
 ### Правила размеров
 
 - Не масштабируйте Divider произвольно.
-- Для более заметного разделения используйте `strong`, а не raw border width.
+- Для более заметного разделения используйте `style=double`, а не raw border width.
 - Vertical Divider должен иметь явно заданную высоту через parent layout.
 - Spacing до и после Divider задается layout rules, а не самим Divider.
 
@@ -180,9 +187,11 @@ Divider статичен. Interactive states не применяются.
 
 | Design concept | Prop / API | Правило |
 |---|---|---|
-| Orientation | `orientation` | `horizontal`, `vertical`. |
-| Emphasis | `emphasis` | `default`, `strong`, `inverse`. |
-| Label | `label` | Короткий текст, если нужен `withLabel`. |
+| Style | `style` | `single`, `double`, `thin`. |
+| Vertical | `vertical` | Boolean, соответствует Figma `true/false`. |
+| Size | `size` | `s`, `m`, `l`, `xl`. |
+| Text | `text` | Boolean, показывает label slot. |
+| Label | `label` | Короткий текст, если нужен `text=true`. |
 | Icon | `icon` | Только documented icon и только после review. |
 | Inset | `inset` | Boolean или side-specific value по layout rule. |
 | Decorative | `decorative` | Default `true`; задает `aria-hidden`. |
@@ -191,8 +200,8 @@ Divider статичен. Interactive states не применяются.
 ### Contract rules
 
 - `decorative` и `semantic` не должны конфликтовать.
-- `withLabel` не используется вместо heading.
-- `vertical` требует parent height.
+- `text=true` не используется вместо heading.
+- `vertical=true` требует parent height.
 - Divider не принимает `onClick`.
 - Raw border colors, border widths и ad-hoc dash styles запрещены.
 
@@ -203,11 +212,10 @@ Divider статичен. Interactive states не применяются.
 Handoff для Divider должен фиксировать:
 
 - зачем нужен разделитель;
-- orientation;
-- emphasis;
+- style, vertical и size;
 - decorative или semantic behavior;
 - spacing/inset от parent layout;
-- label или icon, если используется;
+- text label или icon, если используется;
 - token mapping и token gaps.
 
 ---
@@ -219,7 +227,7 @@ Handoff для Divider должен фиксировать:
 - [ ] Divider не используется как page-section wrapper.
 - [ ] Decorative Divider скрыт от screen reader.
 - [ ] Semantic Divider имеет корректный role/orientation.
-- [ ] Label не заменяет heading.
+- [ ] `text=true` не заменяет heading.
 - [ ] Используются реальные `divider` component tokens.
 - [ ] Не используются устаревшие aliases `--divider-*`.
 
@@ -231,7 +239,7 @@ AI может:
 
 - предложить Divider для меню, списка, Card или toolbar;
 - проверить, достаточно ли spacing вместо Divider;
-- выбрать orientation и emphasis;
+- выбрать style, vertical и size;
 - подготовить handoff notes;
 - сверить token mapping с `tokens.json`.
 
@@ -241,7 +249,7 @@ AI не должен:
 - использовать Divider вместо spacing, heading, Card или Container;
 - придумывать token paths, line styles или widths;
 - делать Divider интерактивным;
-- использовать label Divider вместо semantic heading.
+- использовать text Divider вместо semantic heading.
 
 Если Divider нужен для всей page section или появляется несколько Divider подряд, AI должен пометить сценарий как `Needs system review`.
 
@@ -253,10 +261,10 @@ AI не должен:
 
 | Scenario | Usage |
 |---|---|
-| Разделение групп в menu | `orientation="horizontal"`, `emphasis="default"`, decorative. |
-| Toolbar groups | `orientation="vertical"`, parent задает высоту. |
-| Разделение metadata внутри Card | `orientation="horizontal"`, spacing controlled by Card layout. |
-| Dark surface | `emphasis="inverse"`. |
+| Разделение групп в menu | `vertical=false`, `style="single"`, decorative. |
+| Toolbar groups | `vertical=true`, parent задает высоту. |
+| Разделение metadata внутри Card | `vertical=false`, spacing controlled by Card layout. |
+| Более слабое разделение | `style="thin"`. |
 
 ### Требует review
 
@@ -276,5 +284,5 @@ AI не должен:
 - Добавлять несколько Divider подряд.
 - Делать Divider кликабельным.
 - Использовать raw colors, widths или dash styles.
-- Использовать label Divider вместо heading.
+- Использовать text Divider вместо heading.
 - Разделять несвязанные page sections вместо корректного layout.

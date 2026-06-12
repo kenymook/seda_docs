@@ -2,8 +2,8 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · draft
-> **Owner** · TBD
+> **Status** · ready
+> **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [Select](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4080-170)
 
@@ -56,13 +56,13 @@ Select — контрол выбора одного или нескольких 
 | `dropdown` | да | Список options, связанный с trigger. |
 | `option` | да | Элемент выбора с label, value и state. |
 | `helperText` | опционально | Подсказка или ограничение выбора. |
-| `errorText` | условно | Текст ошибки для `State=error`. |
+| `errorText` | условно | Текст ошибки для `state=error`. |
 
 Подкомпоненты в Figma:
 
 | Component | Назначение |
 | --- | --- |
-| `Select` | Trigger/control с `Type`, `Size`, `State`. |
+| `Select` | Trigger/control с `selection`, `size`, `state`. |
 | `select-dropdown` | Контейнер списка options. |
 | `select-option` | Элемент списка; должен иметь `selected`, `hover`, `disabled` и text contract. |
 
@@ -74,13 +74,13 @@ Figma component set: `Select`. Variants: 56.
 
 | Property | Default | Options |
 | --- | --- | --- |
-| `Type` | `single` | `single`, `multi` |
-| `Size` | `small` | `small`, `medium`, `large`, `extraLarge` |
-| `State` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
+| `selection` | `single` | `single`, `multi` |
+| `size` | `s` | `s`, `m`, `l`, `xl` |
+| `state` | `default` | `default`, `hover`, `focus`, `open`, `filled`, `error`, `disabled` |
 
-### Type rules
+### Selection rules
 
-| Type | Когда использовать | Правило |
+| Selection | Когда использовать | Правило |
 | --- | --- | --- |
 | `single` | Пользователь выбирает одно значение. | `value` хранит один option id. |
 | `multi` | Пользователь выбирает несколько значений. | `value` хранит массив option ids; trigger показывает summary. |
@@ -101,10 +101,10 @@ Figma component set: `Select`. Variants: 56.
 
 | Size | Контекст | Правило |
 | --- | --- | --- |
-| `small` | Плотные формы, фильтры, таблицы. | Используйте только при коротких labels. |
-| `medium` | Базовые формы и настройки. | Рекомендуемый default. |
-| `large` | Простые формы и onboarding. | Хорош для touch/mouse mixed сценариев. |
-| `extraLarge` | Touch-first интерфейсы. | Trigger и options должны сохранять touch target. |
+| `s` | Плотные формы, фильтры, таблицы. | Используйте только при коротких labels. |
+| `m` | Базовые формы и настройки. | Рекомендуемый default. |
+| `l` | Простые формы и onboarding. | Хорош для touch/mouse mixed сценариев. |
+| `xl` | Touch-first интерфейсы. | Trigger и options должны сохранять touch target. |
 
 Dropdown должен соответствовать ширине trigger или иметь явно описанное правило ширины. На мобильных узких экранах long labels переносятся или truncation описывается в handoff.
 
@@ -171,7 +171,7 @@ Multi select:
 | Expanded state | Trigger передает `aria-expanded`. |
 | Relationship | Trigger связан с dropdown через `aria-controls` или framework equivalent. |
 | Options | Каждый option имеет текстовый label и selected/disabled state программно. |
-| Error | `State=error` использует `aria-invalid` и error text. |
+| Error | `state=error` использует `aria-invalid` и error text. |
 | Keyboard | Dropdown полностью управляется клавиатурой. |
 | Focus | Фокус не теряется при open/close и выборе option. |
 | Multi select | Количество выбранных значений понятно screen reader пользователю. |
@@ -230,8 +230,8 @@ Token gaps:
 
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
-| Type | `type` / `multiple` | `single` или `multi`. |
-| Size | `size` | `small`, `medium`, `large`, `extraLarge`. |
+| Selection | `selection` / `multiple` | `single` или `multi`. |
+| Size | `size` | `s`, `m`, `l`, `xl`. |
 | Value | `value` / `defaultValue` | Single: один id; multi: массив ids. |
 | Options | `options` | Массив `{ value, label, disabled?, description? }`. |
 | Open | `open`, `defaultOpen`, `onOpenChange` | Controlled и uncontrolled modes не смешиваются. |
@@ -256,7 +256,7 @@ Contract rules:
 Handoff для Select должен включать:
 
 - Figma component и node id: `4080:170`;
-- `Type`, `Size`, `State`;
+- `selection`, `size`, `state`;
 - single или multi value model;
 - schema options: `value`, `label`, `disabled`, `description`, grouping;
 - selected summary в trigger;
@@ -268,7 +268,7 @@ Handoff для Select должен включать:
 
 ### Acceptance criteria
 
-- Select использует только documented `Type`, `Size`, `State`.
+- Select использует только documented `selection`, `size`, `state`.
 - Trigger имеет accessible name и программный `open` state.
 - Option labels и values разделены в data contract.
 - Selected state видим и доступен программно.

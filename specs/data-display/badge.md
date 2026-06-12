@@ -2,10 +2,10 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · needs-review
-> **Owner** · TBD
-> **Last reviewed** · 2026-05-28
-> **Figma** · [ссылка на фрейм компонента]
+> **Status** · ready
+> **Owner** · Kenymook
+> **Last reviewed** · 2026-06-11
+> **Figma** · [badge](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1183-18587)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `state-vocabulary.md`, `tokens.md`
 
 ---
@@ -92,6 +92,8 @@ Badge — компактный визуальный индикатор коли�
 
 ### Tone
 
+Figma component set exposes `tone` as a variant axis. Live Figma now has `256` variants: `variant=count|dot|label|icon`, `state=default|hover`, `size=s|m|l|xl`, and `tone=neutral|brand|info|success|warning|danger|ai|disabled`.
+
 | Tone | Назначение | Пример |
 |---|---|---|
 | `neutral` | Нейтральная информация. | Количество элементов. |
@@ -109,9 +111,10 @@ Badge — компактный визуальный индикатор коли�
 
 | Size | Высота | Типичный контекст |
 |---|---:|---|
-| `small` | 16px | Toolbar, icon button, compact table. |
-| `medium` | 20px | Default для navigation, tabs, Avatar. |
-| `large` | 24px | Prominent card или panel context. |
+| `s` | 16px | Toolbar, icon button, compact table. |
+| `m` | 20px | Default для navigation, tabs, Avatar. |
+| `l` | 24px | Prominent card или panel context. |
+| `xl` | 28px | Prominent panel context или touch-heavy layout. |
 
 ### Правила размеров
 
@@ -233,7 +236,7 @@ Badge чаще всего декоративен визуально, но его
 | Max count | `max` | Default `99`, если продукт не задает другое. |
 | Label | `label` | Короткий текст для `label` variant. |
 | Icon | `icon` | Только documented icon. |
-| Size | `size` | `small`, `medium`, `large`. |
+| Size | `size` | `s`, `m`, `l`, `xl`. |
 | Hidden | `hidden` | Скрывает Badge при отсутствии сигнала. |
 | Accessible label | `accessibleLabel` | Описание count/status для host. |
 
