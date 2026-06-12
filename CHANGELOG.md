@@ -46,6 +46,7 @@
 - Badge в Figma расширен до 256 variants с новым semantic axis `tone=neutral|brand|info|success|warning|danger|ai|disabled`; `specs/data-display/badge.md` и readiness reports обновлены под это решение.
 - Canonical Link node обновлен на normalized component set `1276:11371`; legacy Link set `4071:74` оставлен как migration/alias review item.
 - Notification Center error state captured in scan: `Retry loading` является Button instance во всех 8 error variants, а не plain text label.
+- `packages/seda-ui` расширен Wave 2 exports: добавлены `Badge` и `Tag` с typed props, accessibility contract, token-driven CSS и проверкой TypeScript.
 
 ### Deprecated
 

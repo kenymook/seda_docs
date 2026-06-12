@@ -18,7 +18,7 @@ This matrix tracks whether SEDA AI can be treated as an AI-ready design system, 
 | Governance | All production specs have owner `Kenymook`, real Figma links, and markdown status `ready`; the owner approval pass is complete. | Strong |
 | Public API consistency | Main P1 API normalization batch is reflected in the saved Figma inventory; remaining API work is strategic visual/semantic modeling. | Strong |
 | Visual QA | Initial P2 fixes and Button System scan are reflected in the saved inventory. IconButton live visual-token validation now matches Button across all 144 combinations and the saved scan captures the aligned 144-variant set. | Strong |
-| Code mapping | Specs include code mapping sections; registry, Code Connect plan, Wave 1 mapping review, and verified `packages/seda-ui` scaffold exist. Real Code Connect mappings are blocked by Figma access. | Medium |
+| Code mapping | Specs include code mapping sections; registry, Code Connect plan, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
 
 Overall maturity: **Level 3 candidate / AI-ready Design System pending Code Connect mappings**.
 
@@ -33,7 +33,7 @@ Target maturity: **Level 3 / AI-ready Design System**.
 | Public API normalization | Strategic residuals | Most public API inconsistencies have been normalized; remaining decisions affect visual semantics and code mapping. |
 | Known visual QA gaps | 0 tracked items after live fix | IconButton visual-token alignment is captured in the saved scan with score `100` and no raw/direct semantic issues. |
 | Scan quality polish | 9 saved-scan items | Remaining saved-scan penalties are Avatar effect/text token gaps, standalone emoji artwork without bindings, and provider-logo brand artwork exceptions. |
-| Code Connect missing | System-wide | Priority plan, mapping review, and verified `packages/seda-ui` Wave 1 scaffold exist; Figma-side mapping is blocked by account access. |
+| Code Connect missing | System-wide | Priority plan, mapping review, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag Wave 2 exports exist; Figma-side mapping is blocked by account access. |
 
 ## Latest Scan Results
 
@@ -84,7 +84,7 @@ The `2026-06-12T16:52:43.458Z` scan captured the Button System rename, IconButto
 | Task | Scope | Done when |
 |---|---|---|
 | Create component registry | All public components | Done: `reports/component-registry.md` maps 52 production specs to Figma nodes, inventory matches, aliases, and next gaps. |
-| Add Code Connect mappings | Priority components first | Planned in `reports/code-connect-plan.md`; canonical package and Wave 1 review are ready, but real mappings are blocked by Figma Code Connect access. |
+| Add Code Connect mappings | Priority components first | Planned in `reports/code-connect-plan.md`; canonical package, Wave 1 review, and Wave 2 Badge/Tag source exports are ready, but real mappings are blocked by Figma Code Connect access. |
 | Add validation prompts to workflow | Design review and handoff | Done: `reports/validation-workflow.md` defines pass/fail validation stages for scope, component usage, tokens, visual QA, accessibility, handoff, AI output, and release. |
 | Create release checklist | Repo + Figma | Done: `reports/release-checklist.md` defines scan, health, visual QA, docs, token, accessibility, handoff, Code Connect, and changelog gates. |
 
@@ -105,7 +105,7 @@ Legend:
 | Link | ready | Link | OK | Decision captured: semantic variants stay code/handoff token intent; canonical Figma API remains `textStyle/state/strong/visited/size`. |
 | Accordion | ready | Accordion | OK | Real Figma link added. |
 | Avatar | ready | Avatar | OK | Figma API normalized to `size=xxs/xs/s/m/l/xl`. |
-| Badge | ready | badge | OK | Scan confirms `variant/state/size/tone`; tone belongs in Figma because it changes semantic meaning and token bindings. |
+| Badge | ready | badge | OK | Scan confirms `variant/state/size/tone`; `packages/seda-ui` export is ready. |
 | Card | ready | Cards | OK | Real Figma link added. |
 | Chat Bubble | ready | Chat Bubble | OK | Scan confirms `sender/contentType/deliveryStatus/size`, `sender=ai/system`, readable delivery labels, and quality score `100`; `code/rich` and streaming states remain roadmap/code-level gaps. |
 | Chip | ready | Chip | OK | Ready. |
@@ -114,7 +114,7 @@ Legend:
 | Property List | ready | PropertyList | OK | Figma API normalized to `variant/density`. |
 | Stat / Metric | ready | Stat Metric | OK | Ready. |
 | Table | ready | Table | OK | API normalized to `density`. |
-| Tag | ready | Tag / Read-only, Tag / Selectable, Tag / Interactive | OK | Scan confirms Selectable/Interactive binding polish and score `100`. |
+| Tag | ready | Tag / Read-only, Tag / Selectable, Tag / Interactive | OK | Scan confirms Selectable/Interactive binding polish and score `100`; `packages/seda-ui` export is ready. |
 | Timeline | ready | Timeline | OK | Ready. |
 | Alert | ready | Alert | OK | Figma API normalized to `variant/size`. |
 | Empty State | ready | Empty State | OK | Figma API normalized to `reason/size`. |
@@ -154,8 +154,8 @@ Legend:
 
 ## Next Recommended Step
 
-Continue with **Code Connect access and mappings**. `packages/seda-ui` TypeScript validation passes through the local Node command; Figma-side Code Connect remains blocked by required Developer seat / Organization or Enterprise access.
+Continue with **Wave 2 package growth while Code Connect access is blocked**. `packages/seda-ui` TypeScript validation passes through the local Node command; Figma-side Code Connect remains blocked by required Developer seat / Organization or Enterprise access.
 
-1. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
-2. Create Wave 1 Code Connect mappings and run retrieval tests.
-3. Keep portal health at `score=100` after any new scan or portal logic change.
+1. Add the next Wave 2 source export, recommended `Alert` or `Toast`.
+2. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
+3. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.

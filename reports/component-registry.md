@@ -24,7 +24,7 @@ Scope: 52 production component specs. This is the first AI-ready registry baseli
 | Link | `specs/actions/link.md` | ready | `1276:11371` | Link | `4071:74` legacy Link set | semantic variant stays code/handoff intent |
 | Accordion | `specs/data-display/accordion.md` | ready | `6668:44` | Accordion | - | - |
 | Avatar | `specs/data-display/avatar.md` | ready | `61:4220`, `473:8735` | Avatar, Avatar group | Avatar block, Avatar group, Avatar photo, `_Avatar image`, `_Avatar add button`, `_Avatar more button` | alias verify |
-| Badge | `specs/data-display/badge.md` | ready | `1183:18587` | badge | - | - |
+| Badge | `specs/data-display/badge.md` | ready | `1183:18587` | badge | - | `packages/seda-ui` export ready |
 | Card | `specs/data-display/card.md` | ready | `77:4322` | Cards | Cards, Sender | alias verify |
 | Chat Bubble | `specs/data-display/chat-bubble.md` | ready | `7063:1570` | Chat Bubble | - | roadmap content decision |
 | Chip | `specs/data-display/chip.md` | ready | `978:11403` | Chip | - | - |
@@ -33,7 +33,7 @@ Scope: 52 production component specs. This is the first AI-ready registry baseli
 | Property List | `specs/data-display/property-list.md` | ready | `7148:18099` | PropertyList | Description List | alias verify |
 | Stat / Metric | `specs/data-display/stat-metric.md` | ready | `6671:56` | Stat Metric | - | - |
 | Table | `specs/data-display/table.md` | ready | `7318:412` | Table | - | - |
-| Tag | `specs/data-display/tag.md` | ready | `1172:1185`, `1178:16954`, `1180:17533` | Tag / Read-only, Tag / Selectable, Tag / Interactive | Tag / Read-only, Tag / Selectable, Tag / Interactive | registry split decision |
+| Tag | `specs/data-display/tag.md` | ready | `1172:1185`, `1178:16954`, `1180:17533` | Tag / Read-only, Tag / Selectable, Tag / Interactive | Tag / Read-only, Tag / Selectable, Tag / Interactive | `packages/seda-ui` export ready; multi-set mapping review |
 | Timeline | `specs/data-display/timeline.md` | ready | `6672:242` | Timeline | - | - |
 | Alert | `specs/feedback/alert.md` | ready | `8:3867` | Alert | - | - |
 | Empty State | `specs/feedback/empty-state.md` | ready | `6650:37` | Empty State | - | - |

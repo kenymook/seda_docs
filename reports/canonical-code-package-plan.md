@@ -40,20 +40,22 @@ packages/seda-ui/
       ...
 ```
 
-## Wave 1 Exports
+## Package Exports
 
-These exports should exist before real Code Connect mappings are committed.
+Wave 1 exports should exist before real Code Connect mappings are committed. Wave 2 exports can be added while Code Connect access is blocked, using the same source-of-truth rules.
 
-| Export | Source path | Figma node | Notes |
-|---|---|---|---|
-| `Button` | `packages/seda-ui/src/components/Button/Button.tsx` | `4017:1035` / `Button / Button` | Core action primitive. |
-| `IconButton` | `packages/seda-ui/src/components/IconButton/IconButton.tsx` | `2654:2866` / `Button / IconButton` | Compact action primitive in the shared Button System. |
-| `Link` | `packages/seda-ui/src/components/Link/Link.tsx` | `1276:11371` | Canonical normalized Link set. |
-| `TextField` | `packages/seda-ui/src/components/TextField/TextField.tsx` | `914:9795` | Input foundation for forms and search. |
-| `Select` | `packages/seda-ui/src/components/Select/Select.tsx` | `4080:170` | Common form/control primitive. |
-| `Checkbox` | `packages/seda-ui/src/components/Checkbox/Checkbox.tsx` | `1090:16624` | Common selection control. |
-| `Radio` | `packages/seda-ui/src/components/Radio/Radio.tsx` | `1082:14510` | Common selection control. |
-| `Toggle` | `packages/seda-ui/src/components/Toggle/Toggle.tsx` | `912:8761` | Common setting/control primitive. |
+| Export | Source path | Figma node | Wave | Notes |
+|---|---|---|---|---|
+| `Button` | `packages/seda-ui/src/components/Button/Button.tsx` | `4017:1035` / `Button / Button` | 1 | Core action primitive. |
+| `IconButton` | `packages/seda-ui/src/components/IconButton/IconButton.tsx` | `2654:2866` / `Button / IconButton` | 1 | Compact action primitive in the shared Button System. |
+| `Link` | `packages/seda-ui/src/components/Link/Link.tsx` | `1276:11371` | 1 | Canonical normalized Link set. |
+| `TextField` | `packages/seda-ui/src/components/TextField/TextField.tsx` | `914:9795` | 1 | Input foundation for forms and search. |
+| `Select` | `packages/seda-ui/src/components/Select/Select.tsx` | `4080:170` | 1 | Common form/control primitive. |
+| `Checkbox` | `packages/seda-ui/src/components/Checkbox/Checkbox.tsx` | `1090:16624` | 1 | Common selection control. |
+| `Radio` | `packages/seda-ui/src/components/Radio/Radio.tsx` | `1082:14510` | 1 | Common selection control. |
+| `Toggle` | `packages/seda-ui/src/components/Toggle/Toggle.tsx` | `912:8761` | 1 | Common setting/control primitive. |
+| `Badge` | `packages/seda-ui/src/components/Badge/Badge.tsx` | `1183:18587` | 2 | Non-interactive count/status signal. |
+| `Tag` | `packages/seda-ui/src/components/Tag/Tag.tsx` | `1172:1185`, `1178:16954`, `1180:17533` | 2 | Read-only, selectable, and interactive status/classification label. |
 
 ## Implementation Rules
 
@@ -70,7 +72,7 @@ These exports should exist before real Code Connect mappings are committed.
 Real `.figma.ts` mappings can start when these are true:
 
 - [x] `packages/seda-ui` exists and publishes/imports as `@seda-ai/ui`.
-- [x] Wave 1 components have stable exports from `packages/seda-ui/src/index.ts`.
+- [x] Wave 1 components have stable exports from `packages/seda-ui/src/index.ts`; Badge and Tag Wave 2 exports are also available.
 - [x] Wave 1 public props are reviewed against specs and `reports/component-registry.md`.
 - [x] The final Notification Center retry Button scan has been saved into `portal/docs-site/figma-components.json`.
 - [x] At least one local type/build check exists for the package. `.local/node/bin/node packages/seda-ui/node_modules/typescript/bin/tsc --noEmit -p packages/seda-ui/tsconfig.json` passes in this workspace.

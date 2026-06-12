@@ -1,4 +1,4 @@
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle) {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag) {
   box-sizing: border-box;
   font-family: var(--seda-font-family, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
@@ -15,7 +15,7 @@
   width: 1px;
 }
 
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control):focus-visible {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control, .seda-tag, .seda-tag__dismiss):focus-visible {
   outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
   outline-offset: 2px;
 }
@@ -312,4 +312,217 @@
 
 .seda-toggle__control:checked::after {
   transform: translateX(16px);
+}
+
+.seda-badge {
+  --seda-badge-height: 20px;
+  --seda-badge-dot-size: 8px;
+  --seda-badge-padding-x: 6px;
+  --seda-badge-font-size: 12px;
+  --seda-badge-line-height: 16px;
+  align-items: center;
+  background: var(--seda-badge-surface, var(--badge-surface-neutral, var(--container-neutral-default, #e5e7eb)));
+  border: 1px solid var(--seda-badge-border, var(--badge-border-neutral, transparent));
+  border-radius: 999px;
+  color: var(--seda-badge-foreground, var(--badge-foreground-neutral, var(--text-primary, #111827)));
+  display: inline-flex;
+  font-size: var(--seda-badge-font-size);
+  font-weight: 600;
+  height: var(--seda-badge-height);
+  justify-content: center;
+  line-height: var(--seda-badge-line-height);
+  min-width: var(--seda-badge-height);
+  padding: 0 var(--seda-badge-padding-x);
+  white-space: nowrap;
+}
+
+.seda-badge[data-size="s"] {
+  --seda-badge-height: 16px;
+  --seda-badge-dot-size: 6px;
+  --seda-badge-padding-x: 5px;
+  --seda-badge-font-size: 11px;
+  --seda-badge-line-height: 14px;
+}
+
+.seda-badge[data-size="l"] {
+  --seda-badge-height: 24px;
+  --seda-badge-dot-size: 10px;
+  --seda-badge-padding-x: 8px;
+  --seda-badge-font-size: 13px;
+  --seda-badge-line-height: 18px;
+}
+
+.seda-badge[data-size="xl"] {
+  --seda-badge-height: 28px;
+  --seda-badge-dot-size: 12px;
+  --seda-badge-padding-x: 10px;
+  --seda-badge-font-size: 14px;
+  --seda-badge-line-height: 20px;
+}
+
+.seda-badge[data-variant="dot"] {
+  height: var(--seda-badge-dot-size);
+  min-width: var(--seda-badge-dot-size);
+  padding: 0;
+  width: var(--seda-badge-dot-size);
+}
+
+.seda-badge[data-variant="icon"] {
+  padding: 0;
+  width: var(--seda-badge-height);
+}
+
+.seda-badge[data-tone="brand"],
+.seda-tag[data-tone="brand"] {
+  --seda-badge-surface: var(--badge-surface-brand, var(--container-brand-default, #2563eb));
+  --seda-badge-border: var(--badge-border-brand, transparent);
+  --seda-badge-foreground: var(--badge-foreground-brand, var(--text-on-brand-primary, #ffffff));
+  --seda-tag-surface: var(--tag-surface-brand, var(--container-brand-default, #2563eb));
+  --seda-tag-border: var(--tag-border-brand, transparent);
+  --seda-tag-foreground: var(--tag-foreground-brand, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-badge[data-tone="info"],
+.seda-tag[data-tone="info"] {
+  --seda-badge-surface: var(--badge-surface-info, var(--status-info-surface, #dbeafe));
+  --seda-badge-border: var(--badge-border-info, transparent);
+  --seda-badge-foreground: var(--badge-foreground-info, var(--status-info-text, #1d4ed8));
+  --seda-tag-surface: var(--tag-surface-info, var(--status-info-surface, #dbeafe));
+  --seda-tag-border: var(--tag-border-info, transparent);
+  --seda-tag-foreground: var(--tag-foreground-info, var(--status-info-text, #1d4ed8));
+}
+
+.seda-badge[data-tone="success"],
+.seda-tag[data-tone="success"] {
+  --seda-badge-surface: var(--badge-surface-success, var(--status-success-surface, #dcfce7));
+  --seda-badge-border: var(--badge-border-success, transparent);
+  --seda-badge-foreground: var(--badge-foreground-success, var(--status-success-text, #166534));
+  --seda-tag-surface: var(--tag-surface-success, var(--status-success-surface, #dcfce7));
+  --seda-tag-border: var(--tag-border-success, transparent);
+  --seda-tag-foreground: var(--tag-foreground-success, var(--status-success-text, #166534));
+}
+
+.seda-badge[data-tone="warning"],
+.seda-tag[data-tone="warning"] {
+  --seda-badge-surface: var(--badge-surface-warning, var(--status-warning-surface, #fef3c7));
+  --seda-badge-border: var(--badge-border-warning, transparent);
+  --seda-badge-foreground: var(--badge-foreground-warning, var(--status-warning-text, #92400e));
+  --seda-tag-surface: var(--tag-surface-warning, var(--status-warning-surface, #fef3c7));
+  --seda-tag-border: var(--tag-border-warning, transparent);
+  --seda-tag-foreground: var(--tag-foreground-warning, var(--status-warning-text, #92400e));
+}
+
+.seda-badge[data-tone="danger"],
+.seda-tag[data-tone="danger"] {
+  --seda-badge-surface: var(--badge-surface-danger, var(--status-danger-surface, #fee2e2));
+  --seda-badge-border: var(--badge-border-danger, transparent);
+  --seda-badge-foreground: var(--badge-foreground-danger, var(--status-danger-text, #991b1b));
+  --seda-tag-surface: var(--tag-surface-danger, var(--status-danger-surface, #fee2e2));
+  --seda-tag-border: var(--tag-border-danger, transparent);
+  --seda-tag-foreground: var(--tag-foreground-danger, var(--status-danger-text, #991b1b));
+}
+
+.seda-badge[data-tone="ai"],
+.seda-tag[data-tone="ai"] {
+  --seda-badge-surface: var(--badge-surface-ai, var(--status-ai-surface, #f3e8ff));
+  --seda-badge-border: var(--badge-border-ai, transparent);
+  --seda-badge-foreground: var(--badge-foreground-ai, var(--status-ai-text, #6b21a8));
+  --seda-tag-surface: var(--tag-surface-ai, var(--status-ai-surface, #f3e8ff));
+  --seda-tag-border: var(--tag-border-ai, transparent);
+  --seda-tag-foreground: var(--tag-foreground-ai, var(--status-ai-text, #6b21a8));
+}
+
+.seda-badge[data-tone="disabled"] {
+  --seda-badge-surface: var(--badge-surface-disabled, var(--status-disabled-container, #f3f4f6));
+  --seda-badge-border: var(--badge-border-disabled, transparent);
+  --seda-badge-foreground: var(--badge-foreground-disabled, var(--status-disabled-text, #9ca3af));
+}
+
+.seda-tag {
+  --seda-tag-height: 24px;
+  --seda-tag-padding-x: 8px;
+  --seda-tag-font-size: 12px;
+  --seda-tag-line-height: 16px;
+  align-items: center;
+  background: var(--seda-tag-surface, var(--tag-surface-neutral, var(--container-neutral-default, #f3f4f6)));
+  border: 1px solid var(--seda-tag-border, var(--tag-border-neutral, var(--border-default, #d1d5db)));
+  border-radius: 999px;
+  color: var(--seda-tag-foreground, var(--tag-foreground-neutral, var(--text-secondary, #374151)));
+  display: inline-flex;
+  font-size: var(--seda-tag-font-size);
+  font-weight: 500;
+  gap: 6px;
+  min-height: var(--seda-tag-height);
+  line-height: var(--seda-tag-line-height);
+  max-width: 100%;
+  padding: 0 var(--seda-tag-padding-x);
+  white-space: nowrap;
+}
+
+.seda-tag[data-size="s"] {
+  --seda-tag-height: 20px;
+  --seda-tag-padding-x: 6px;
+  --seda-tag-font-size: 11px;
+  --seda-tag-line-height: 14px;
+}
+
+.seda-tag[data-size="l"] {
+  --seda-tag-height: 28px;
+  --seda-tag-padding-x: 10px;
+  --seda-tag-font-size: 13px;
+  --seda-tag-line-height: 18px;
+}
+
+.seda-tag[data-type="selectable"],
+.seda-tag[data-type="interactive"] {
+  cursor: pointer;
+}
+
+.seda-tag[data-selected="true"] {
+  --seda-tag-surface: var(--tag-selectable-surface-selected, var(--container-brand-default, #2563eb));
+  --seda-tag-border: var(--tag-selectable-border-selected, transparent);
+  --seda-tag-foreground: var(--tag-selectable-foreground-selected, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-tag[data-disabled="true"] {
+  --seda-tag-surface: var(--tag-disabled-surface, var(--status-disabled-container, #f3f4f6));
+  --seda-tag-border: var(--tag-disabled-border, transparent);
+  --seda-tag-foreground: var(--tag-disabled-foreground, var(--status-disabled-text, #9ca3af));
+  cursor: not-allowed;
+}
+
+.seda-tag__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seda-tag__badge {
+  align-items: center;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.9em;
+  min-width: 1.4em;
+  justify-content: center;
+  padding: 0 0.35em;
+}
+
+.seda-tag__dismiss {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  height: 1.4em;
+  justify-content: center;
+  margin-right: -0.25em;
+  padding: 0;
+  width: 1.4em;
+}
+
+.seda-tag__dismiss:disabled {
+  cursor: not-allowed;
 }

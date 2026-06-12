@@ -8,3 +8,5 @@ export * from "./components/Select";
 export * from "./components/Checkbox";
 export * from "./components/Radio";
 export * from "./components/Toggle";
+export * from "./components/Badge";
+export * from "./components/Tag";
