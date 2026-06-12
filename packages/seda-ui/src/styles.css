@@ -1,4 +1,4 @@
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag, .seda-alert) {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field, .seda-choice, .seda-toggle, .seda-badge, .seda-tag, .seda-alert, .seda-toast) {
   box-sizing: border-box;
   font-family: var(--seda-font-family, Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
 }
@@ -15,7 +15,7 @@
   width: 1px;
 }
 
-:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control, .seda-tag, .seda-tag__dismiss, .seda-alert__action, .seda-alert__dismiss):focus-visible {
+:where(.seda-button, .seda-icon-button, .seda-link, .seda-field__control, .seda-choice__control, .seda-toggle__control, .seda-tag, .seda-tag__dismiss, .seda-alert__action, .seda-alert__dismiss, .seda-toast__action, .seda-toast__dismiss):focus-visible {
   outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
   outline-offset: 2px;
 }
@@ -677,4 +677,145 @@
 .seda-alert__dismiss:hover {
   background: var(--alert-close-surface-hover, var(--container-neutral-hover, rgb(0 0 0 / 0.06)));
   color: var(--alert-close-icon-hover, var(--icon-primary, #111827));
+}
+
+.seda-toast {
+  --seda-toast-padding: 12px;
+  --seda-toast-radius: 12px;
+  --seda-toast-gap: 10px;
+  --seda-toast-title-size: 14px;
+  --seda-toast-title-line: 20px;
+  --seda-toast-description-size: 13px;
+  --seda-toast-description-line: 18px;
+  align-items: flex-start;
+  background: var(--seda-toast-surface, var(--toast-surface-default, var(--surface-inverse, #111827)));
+  border-radius: var(--seda-toast-radius);
+  box-shadow: var(--seda-toast-shadow, 0 16px 40px rgb(15 23 42 / 0.18));
+  color: var(--seda-toast-foreground, var(--toast-foreground-default, var(--text-on-inverse-primary, #ffffff)));
+  display: grid;
+  gap: var(--seda-toast-gap);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: var(--seda-toast-padding);
+}
+
+.seda-toast[data-size="s"] {
+  --seda-toast-padding: 10px;
+  --seda-toast-radius: 10px;
+  --seda-toast-gap: 8px;
+  --seda-toast-title-size: 13px;
+  --seda-toast-title-line: 18px;
+  --seda-toast-description-size: 12px;
+  --seda-toast-description-line: 16px;
+}
+
+.seda-toast[data-size="l"] {
+  --seda-toast-padding: 14px;
+  --seda-toast-title-size: 15px;
+  --seda-toast-title-line: 22px;
+  --seda-toast-description-size: 14px;
+  --seda-toast-description-line: 20px;
+}
+
+.seda-toast[data-size="xl"] {
+  --seda-toast-padding: 16px;
+  --seda-toast-title-size: 16px;
+  --seda-toast-title-line: 24px;
+  --seda-toast-description-size: 14px;
+  --seda-toast-description-line: 20px;
+}
+
+.seda-toast[data-intent="info"] {
+  --seda-toast-surface: var(--toast-surface-info, var(--container-info-default, #2563eb));
+  --seda-toast-icon: var(--toast-icon-info, var(--text-on-info-primary, #ffffff));
+  --seda-toast-foreground: var(--toast-foreground-onStatus, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-toast[data-intent="success"] {
+  --seda-toast-surface: var(--toast-surface-success, var(--container-success-default, #16a34a));
+  --seda-toast-icon: var(--toast-icon-success, var(--text-on-success-primary, #ffffff));
+  --seda-toast-foreground: var(--toast-foreground-onStatus, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-toast[data-intent="warning"] {
+  --seda-toast-surface: var(--toast-surface-warning, var(--container-warning-default, #f59e0b));
+  --seda-toast-icon: var(--toast-icon-warning, var(--text-on-warning-primary, #111827));
+  --seda-toast-foreground: var(--toast-foreground-onStatus, var(--text-on-brand-primary, #111827));
+}
+
+.seda-toast[data-intent="error"] {
+  --seda-toast-surface: var(--toast-surface-danger, var(--container-danger-default, #dc2626));
+  --seda-toast-icon: var(--toast-icon-danger, var(--text-on-danger-primary, #ffffff));
+  --seda-toast-foreground: var(--toast-foreground-onStatus, var(--text-on-brand-primary, #ffffff));
+}
+
+.seda-toast__icon {
+  align-items: center;
+  color: var(--seda-toast-icon, var(--toast-icon-default, var(--icon-inverse, #ffffff)));
+  display: inline-flex;
+  font-size: var(--seda-toast-title-size);
+  font-weight: 700;
+  height: var(--seda-toast-title-line);
+  justify-content: center;
+  min-width: var(--seda-toast-title-line);
+}
+
+.seda-toast__content {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.seda-toast__title {
+  color: var(--seda-toast-foreground);
+  font-size: var(--seda-toast-title-size);
+  font-weight: 650;
+  line-height: var(--seda-toast-title-line);
+}
+
+.seda-toast__description {
+  color: var(--toast-foreground-secondary, var(--text-on-inverse-secondary, color-mix(in srgb, var(--seda-toast-foreground) 78%, transparent)));
+  font-size: var(--seda-toast-description-size);
+  line-height: var(--seda-toast-description-line);
+}
+
+.seda-toast__actions {
+  margin-top: 4px;
+}
+
+.seda-toast__action,
+.seda-toast__dismiss {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--toast-action-foreground-default, currentColor);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.seda-toast__action {
+  font-size: var(--seda-toast-description-size);
+  font-weight: 700;
+  line-height: var(--seda-toast-description-line);
+}
+
+.seda-toast__action:hover {
+  color: var(--toast-action-foreground-hover, color-mix(in srgb, currentColor 78%, transparent));
+}
+
+.seda-toast__dismiss {
+  align-items: center;
+  color: var(--toast-close-icon-default, currentColor);
+  display: inline-flex;
+  font-size: 18px;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+  margin: -2px -2px 0 0;
+  width: 24px;
+}
+
+.seda-toast__dismiss:hover {
+  color: var(--toast-close-icon-hover, currentColor);
 }

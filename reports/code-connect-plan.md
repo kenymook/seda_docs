@@ -5,7 +5,7 @@ Figma file: `SEDA AI v0.2.0` / `Su1jWqKc9TkD1R8f7wHOQU`
 Registry source: `reports/component-registry.md`  
 Wave 1 mapping review: `reports/code-connect-wave1-mapping-review.md`
 
-This plan defines the first Code Connect mapping waves for SEDA AI. The canonical production package decision is recorded in `reports/canonical-code-package-plan.md`: `packages/seda-ui` is the source of truth. Wave 1 components are scaffolded; Wave 2 has started with Badge, Tag, and Alert exports. Local TypeScript validation passes with `.local/node/bin/node packages/seda-ui/node_modules/typescript/bin/tsc --noEmit -p packages/seda-ui/tsconfig.json`. Figma-side Code Connect mapping is currently blocked by account permissions: the MCP tool reports that a Developer seat in an Organization or Enterprise plan is required.
+This plan defines the first Code Connect mapping waves for SEDA AI. The canonical production package decision is recorded in `reports/canonical-code-package-plan.md`: `packages/seda-ui` is the source of truth. Wave 1 components are scaffolded; Wave 2 has started with Badge, Tag, Alert, and Toast exports. Local TypeScript validation passes with `.local/node/bin/node packages/seda-ui/node_modules/typescript/bin/tsc --noEmit -p packages/seda-ui/tsconfig.json`. Figma-side Code Connect mapping is currently blocked by account permissions: the MCP tool reports that a Developer seat in an Organization or Enterprise plan is required.
 
 Button and Icon Button are treated as separate components inside one Button System. Live Figma sets are named `Button / Button` and `Button / IconButton`. Code Connect should map them to separate exports, `Button` and `IconButton`, while enforcing the shared public variant contract: `primary`, `secondary`, `outline`, `ghost`, `text`, `destruction`.
 
@@ -45,10 +45,11 @@ These are now clean in the saved scan. Their mappings can follow after Wave 1 pr
 | 9 | Badge | `1183:18587` | `Badge` | Code export ready; Code Connect blocked by Figma access. |
 | 10 | Tag | `1172:1185`, `1178:16954`, `1180:17533` | `Tag` | Code export ready; multi-set mapping review pending. |
 | 11 | Alert | `8:3867` | `Alert` | Code export ready; Code Connect blocked by Figma access. |
-| 12 | File Upload | `6661:46` | `FileUpload` | API/readability and text styles captured; `packages/seda-ui` component pending. |
-| 13 | Top Bar / Navbar | `7061:410` | `TopBar` | Saved scan confirms corrected role semantics; `packages/seda-ui` component pending. |
-| 14 | Chat Bubble | `7063:1570` | `ChatBubble` | API/content and text styles captured; `packages/seda-ui` component pending. |
-| 15 | Notification Center | `6977:2860` | `NotificationCenter` | State/content, text styles, and retry Button delta captured in latest scan; `packages/seda-ui` component pending. |
+| 12 | Toast | `6652:62` | `Toast` | Code export ready; Code Connect blocked by Figma access. |
+| 13 | File Upload | `6661:46` | `FileUpload` | API/readability and text styles captured; `packages/seda-ui` component pending. |
+| 14 | Top Bar / Navbar | `7061:410` | `TopBar` | Saved scan confirms corrected role semantics; `packages/seda-ui` component pending. |
+| 15 | Chat Bubble | `7063:1570` | `ChatBubble` | API/content and text styles captured; `packages/seda-ui` component pending. |
+| 16 | Notification Center | `6977:2860` | `NotificationCenter` | State/content, text styles, and retry Button delta captured in latest scan; `packages/seda-ui` component pending. |
 
 ### Wave 3 — Data and feedback
 
@@ -58,7 +59,6 @@ These are important for product workflows but can follow primitives.
 |---|---|---|---|
 | Table | `7318:412` | `Table` | Needs density and row/header subcomponent decisions. |
 | Avatar | `61:4220`, `473:8735` | `Avatar`, `AvatarGroup` | Multi-node family mapping. |
-| Toast | `6652:62` | `Toast` | Feedback primitive. |
 | Modal | `6653:395` | `Modal` or `Dialog` | Overlay behavior and accessibility need code review. |
 | Popover | `1617:8952` | `Popover` | Overlay behavior and trigger contract need code review. |
 

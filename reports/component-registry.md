@@ -42,7 +42,7 @@ Scope: 52 production component specs. This is the first AI-ready registry baseli
 | Progress Bar | `specs/feedback/progress-bar.md` | ready | `6648:110` | Progress Bar | - | - |
 | Skeleton | `specs/feedback/skeleton.md` | ready | `1174:1028` | Skeleton state animation | Skeleton state animation | alias verify |
 | Spinner / Loader | `specs/feedback/spinner.md` | ready | `6647:38` | Spinner | - | - |
-| Toast / Snackbar | `specs/feedback/toast.md` | ready | `6652:62` | Toast | - | - |
+| Toast / Snackbar | `specs/feedback/toast.md` | ready | `6652:62` | Toast | - | `packages/seda-ui` export ready |
 | Tooltip | `specs/feedback/tooltip.md` | ready | `6649:54` | Tooltip | - | - |
 | Checkbox | `specs/inputs/checkbox.md` | ready | `1090:16624` | checkbox | - | - |
 | Color Picker | `specs/inputs/color-picker.md` | ready | `6386:423` | ColorPicker | ColorPicker | alias verify |

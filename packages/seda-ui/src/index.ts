@@ -11,3 +11,4 @@ export * from "./components/Toggle";
 export * from "./components/Badge";
 export * from "./components/Tag";
 export * from "./components/Alert";
+export * from "./components/Toast";

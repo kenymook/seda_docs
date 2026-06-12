@@ -15,7 +15,7 @@ Use this checklist before calling any design-system change complete. It is inten
 | Fresh Component Scan | Updated `portal/docs-site/figma-components.json` | Done: latest scan `2026-06-12T16:52:43.458Z` captures Button System, IconButton visual alignment, Tag rebinding, Button Social removal, and Notification Center retry Button delta |
 | Portal health | `portal/docs-site/health.json` after scan | Done: `score=100`, `matchedSpecs=52`, `readySpecs=52`, `invalidReferences=0`, `missingInFigma=0`, `needsNaming=0`, `actionPlan.total=0` |
 | Visual QA | Screenshot or live inspection for changed components | Notification Center retry Button validated live; IconButton live token validation matches Button |
-| Code mapping | Code Connect or equivalent component mapping | Priority plan, Wave 1 mapping review, canonical package decision, verified Wave 1 scaffold, and Badge/Tag/Alert Wave 2 exports done; Figma Code Connect blocked by Developer seat / Organization or Enterprise access |
+| Code mapping | Code Connect or equivalent component mapping | Priority plan, Wave 1 mapping review, canonical package decision, verified Wave 1 scaffold, and Badge/Tag/Alert/Toast Wave 2 exports done; Figma Code Connect blocked by Developer seat / Organization or Enterprise access |
 | Validation workflow | Pass/fail prompts for review gates | Done: `reports/validation-workflow.md` |
 | Changelog | `CHANGELOG.md` entry for release-impacting changes | Done: Unreleased records specs, Figma, portal, reports, Button System, Button Social removal, and package scaffold changes |
 
@@ -32,7 +32,7 @@ Current scope summary:
 - Docs/specs: production specs are owned by Kenymook and marked `ready`; `Button Social` standalone spec was removed; `Button System` was added as one system spec.
 - Figma: latest scan captures Button System naming, IconButton visual-token alignment, Tag rebinding, Button Social removal, Badge tone expansion, and Notification Center retry Button delta.
 - Portal/reports: health model treats `Button System` as a system spec; aliases map `Button` and `Icon Button` to `Button / Button` and `Button / IconButton`.
-- Code: `packages/seda-ui` Wave 1 scaffold exists for Button, IconButton, Link, TextField, Select, Checkbox, Radio, and Toggle; Wave 2 now includes Badge, Tag, and Alert exports.
+- Code: `packages/seda-ui` Wave 1 scaffold exists for Button, IconButton, Link, TextField, Select, Checkbox, Radio, and Toggle; Wave 2 now includes Badge, Tag, Alert, and Toast exports.
 - Breaking/migration note: provider auth should use Button and Button Group instead of standalone Button Social components. Current user impact is low because this design system is not yet used by downstream consumers.
 - Deferred decisions: real Code Connect mappings and retrieval tests are deferred until Figma Developer seat / Organization or Enterprise access is available.
 
