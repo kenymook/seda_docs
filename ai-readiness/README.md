@@ -58,5 +58,5 @@ SEDA AI is a separate personal project. Do not mix it with any external or work-
 
 [Первый этап пилота формы настроек](pilots/settings-form/README.md) фиксирует исходный API Button, IconButton и TextField, решения по расхождениям и один профиль конфигурации. Reference fixture показывает исходную реализацию.
 
-[Второй этап: исполняемые контракты](pilots/settings-form/phase-2.md) добавляет общую схему, проверку реального TypeScript API, разрешение токенов, модель событий формы и компиляцию профиля. Авторские данные пилота теперь находятся в [packages/seda-contracts](../packages/seda-contracts/README.md). Подключение результата к React UI — следующий этап.
+[Второй этап: исполняемые контракты](pilots/settings-form/phase-2.md) добавляет общую схему, проверку реального TypeScript API, разрешение токенов, модель событий формы и компиляцию профиля. Авторские данные пилота теперь находятся в [packages/seda-contracts](../packages/seda-contracts/README.md). [Третий этап: реальный параметрический пример](pilots/settings-form/phase-3.md) подключает профиль к React-компонентам, исправляет расхождения и проверяет геометрию, цвета, фокус и поведение в браузере. [Запуск примера](../portal/component-lab/pilots/settings-parametric/README.md).
 

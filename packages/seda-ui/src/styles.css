@@ -987,3 +987,305 @@
   display: block;
   height: 100%;
 }
+
+/* Exact control geometry and stable icon slots. Presets are standalone
+   fallbacks; a validated contract supplies the --seda-control-* values. */
+.seda-button,
+.seda-icon-button,
+.seda-field--text {
+  --seda-preset-height: 32px;
+  --seda-preset-radius: 8px;
+  --seda-preset-font-size: 14px;
+  --seda-preset-line-height: 20px;
+  --seda-preset-icon-size: 16px;
+}
+
+:is(.seda-button, .seda-icon-button, .seda-field--text)[data-size="s"] {
+  --seda-preset-height: 24px;
+  --seda-preset-radius: 6px;
+  --seda-preset-font-size: 12px;
+  --seda-preset-line-height: 16px;
+  --seda-preset-icon-size: 14px;
+}
+
+:is(.seda-button, .seda-icon-button, .seda-field--text)[data-size="l"] {
+  --seda-preset-height: 40px;
+  --seda-preset-radius: 10px;
+  --seda-preset-font-size: 16px;
+  --seda-preset-line-height: 24px;
+  --seda-preset-icon-size: 18px;
+}
+
+:is(.seda-button, .seda-icon-button, .seda-field--text)[data-size="xl"] {
+  --seda-preset-height: 48px;
+  --seda-preset-radius: 12px;
+  --seda-preset-font-size: 18px;
+  --seda-preset-line-height: 28px;
+  --seda-preset-icon-size: 20px;
+}
+
+.seda-button,
+.seda-icon-button {
+  box-sizing: border-box;
+  border-width: var(--seda-control-border-width, 1px);
+  border-radius: var(--seda-control-radius, var(--seda-preset-radius));
+  height: var(--seda-control-height, var(--seda-preset-height));
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+  font-weight: var(--seda-label-weight, 600);
+}
+
+.seda-button {
+  padding-inline: var(--seda-control-padding-inline, var(--seda-button-padding-x));
+  gap: var(--seda-control-gap, 8px);
+}
+
+.seda-icon-button {
+  width: var(--seda-control-height, var(--seda-preset-height));
+  flex-shrink: 0;
+}
+
+.seda-button__icon,
+.seda-icon-button__icon {
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: var(--seda-control-icon-size, var(--seda-preset-icon-size));
+  justify-content: center;
+  position: relative;
+  width: var(--seda-control-icon-size, var(--seda-preset-icon-size));
+}
+
+.seda-button__icon-content {
+  align-items: center;
+  display: inline-flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.seda-button__icon-content > svg,
+.seda-icon-button__icon > svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.seda-field--text .seda-field__affix {
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.seda-field--text .seda-field__affix > svg {
+  display: block;
+  height: var(--seda-control-icon-size, var(--seda-preset-icon-size));
+  width: var(--seda-control-icon-size, var(--seda-preset-icon-size));
+}
+
+.seda-button__leading[data-empty="true"] {
+  display: none;
+}
+
+.seda-button[data-seda-loading-slot="true"] > .seda-button__leading,
+.seda-button[data-loading="true"] > .seda-button__leading {
+  display: inline-flex;
+}
+
+.seda-button[data-loading="true"] > .seda-button__leading > .seda-button__icon-content {
+  visibility: hidden;
+}
+
+.seda-button__spinner,
+.seda-icon-button__spinner {
+  box-sizing: border-box;
+  display: block;
+  flex-shrink: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.seda-button__leading > .seda-button__spinner {
+  inset: 0;
+  position: absolute;
+}
+
+.seda-field--text {
+  gap: 0;
+  min-width: 0;
+}
+
+.seda-field--text > .seda-field__label {
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  font-weight: var(--seda-label-weight, 600);
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+  margin-bottom: var(--seda-label-gap, 6px);
+}
+
+.seda-field--text > .seda-field__control {
+  border-width: var(--seda-control-border-width, 1px);
+  border-radius: var(--seda-control-radius, var(--seda-preset-radius));
+  box-sizing: border-box;
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  gap: var(--seda-control-gap, 8px);
+  height: var(--seda-control-height, var(--seda-preset-height));
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+  min-height: var(--seda-control-height, var(--seda-preset-height));
+  min-width: 0;
+  padding-inline: var(--seda-control-padding-inline, 10px);
+}
+
+.seda-field--text .seda-field__input {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+}
+
+.seda-field--text > .seda-field__control:has(> .seda-field__input:focus-visible) {
+  outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
+  outline-offset: 2px;
+}
+
+.seda-field--text > .seda-field__message {
+  font-size: var(--seda-message-font-size, 12px);
+  font-weight: var(--seda-message-weight, 400);
+  letter-spacing: var(--seda-message-letter-spacing, 0px);
+  line-height: var(--seda-message-line-height, 16px);
+  margin-top: var(--seda-message-gap, 6px);
+}
+
+/* Contract color bridge. Each variable is resolved from a named component
+   token role before rendering; there is no semantic/raw color fallback here. */
+.seda-button[data-seda-contract="Button"],
+.seda-icon-button[data-seda-contract="IconButton"] {
+  background: var(--seda-surface-default);
+  border-color: var(--seda-border-default);
+  color: var(--seda-foreground-default);
+  opacity: 1;
+}
+
+:is(.seda-button[data-seda-contract="Button"], .seda-icon-button[data-seda-contract="IconButton"]):not(:disabled):not([aria-disabled="true"]):hover {
+  background: var(--seda-surface-hover);
+  border-color: var(--seda-border-hover);
+}
+
+.seda-icon-button[data-seda-contract="IconButton"]:not(:disabled):not([aria-disabled="true"]):hover {
+  color: var(--seda-foreground-hover);
+}
+
+:is(.seda-button[data-seda-contract="Button"], .seda-icon-button[data-seda-contract="IconButton"]):not(:disabled):not([aria-disabled="true"]):active {
+  background: var(--seda-surface-pressed);
+  border-color: var(--seda-border-pressed);
+}
+
+.seda-icon-button[data-seda-contract="IconButton"]:not(:disabled):not([aria-disabled="true"]):active {
+  color: var(--seda-foreground-pressed);
+}
+
+:is(.seda-button[data-seda-contract="Button"], .seda-icon-button[data-seda-contract="IconButton"]):focus-visible {
+  outline: 2px solid var(--seda-focus-ring);
+  outline-offset: 2px;
+}
+
+.seda-button[data-seda-contract="Button"][data-loading="true"] {
+  background: var(--seda-surface-loading);
+  border-color: var(--seda-border-loading);
+  color: var(--seda-foreground-loading);
+  cursor: progress;
+}
+
+.seda-button[data-seda-contract="Button"] .seda-button__spinner {
+  color: var(--seda-spinner-foreground);
+}
+
+:is(.seda-button[data-seda-contract="Button"], .seda-icon-button[data-seda-contract="IconButton"]):disabled {
+  background: var(--seda-surface-disabled);
+  border-color: var(--seda-border-disabled);
+  color: var(--seda-foreground-disabled);
+  cursor: not-allowed;
+}
+
+[data-seda-contract="TextField"] > .seda-field--text {
+  opacity: 1;
+}
+
+[data-seda-contract="TextField"] .seda-field--text > .seda-field__control {
+  background: var(--seda-surface-default);
+  border-color: var(--seda-border-default);
+  color: var(--seda-foreground-default);
+}
+
+[data-seda-contract="TextField"] .seda-field__input::placeholder {
+  color: var(--seda-foreground-placeholder);
+  opacity: 1;
+}
+
+[data-seda-contract="TextField"] .seda-field--text > .seda-field__label {
+  color: var(--seda-label-default);
+}
+
+[data-seda-contract="TextField"] .seda-field--text > .seda-field__message {
+  color: var(--seda-helper-default);
+}
+
+[data-seda-contract="TextField"] .seda-field__affix {
+  background: var(--seda-affix-surface);
+  color: var(--seda-affix-foreground);
+}
+
+[data-seda-contract="TextField"] .seda-field__affix > svg {
+  color: var(--seda-icon-default);
+}
+
+[data-seda-contract="TextField"] .seda-field--text:where(:not([data-disabled="true"])) > .seda-field__control:hover {
+  background: var(--seda-surface-hover);
+  border-color: var(--seda-border-hover);
+}
+
+[data-seda-contract="TextField"] .seda-field--text:where(:not([data-disabled="true"])) > .seda-field__control:focus-within {
+  background: var(--seda-surface-focus);
+  border-color: var(--seda-border-focus);
+}
+
+[data-seda-contract="TextField"] .seda-field--text:where(:not([data-disabled="true"])) > .seda-field__control:active {
+  background: var(--seda-surface-active);
+  border-color: var(--seda-border-active);
+}
+
+[data-seda-contract="TextField"] .seda-field__control:is(:focus-within, :active) .seda-field__affix > svg {
+  color: var(--seda-icon-active);
+}
+
+[data-seda-contract="TextField"] .seda-field--text[data-state="error"] > .seda-field__control {
+  background: var(--seda-surface-error);
+  border-color: var(--seda-border-error);
+}
+
+[data-seda-contract="TextField"] .seda-field--text[data-state="error"] .seda-field__affix > svg {
+  color: var(--seda-icon-error);
+}
+
+[data-seda-contract="TextField"] .seda-field--text > .seda-field__message[data-tone="error"] {
+  color: var(--seda-helper-error);
+}
+
+[data-seda-contract="TextField"] .seda-field--text[data-disabled="true"] > .seda-field__control {
+  background: var(--seda-surface-disabled);
+  border-color: var(--seda-border-disabled);
+  color: var(--seda-foreground-disabled);
+}
+
+[data-seda-contract="TextField"] .seda-field--text[data-disabled="true"] > .seda-field__label {
+  color: var(--seda-label-disabled);
+}
+
+[data-seda-contract="TextField"] .seda-field--text[data-disabled="true"] .seda-field__input::placeholder {
+  color: var(--seda-foreground-disabled);
+}
+
+[data-seda-contract="TextField"] .seda-field--text[data-disabled="true"] .seda-field__affix > svg {
+  color: var(--seda-icon-disabled);
+}

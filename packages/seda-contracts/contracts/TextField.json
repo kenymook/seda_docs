@@ -255,6 +255,42 @@
       [
         "focus",
         "ring"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "border",
+        "active"
+      ],
+      [
+        "foreground",
+        "placeholder"
+      ],
+      [
+        "affix",
+        "surface"
+      ],
+      [
+        "affix",
+        "foreground"
+      ],
+      [
+        "icon",
+        "default"
+      ],
+      [
+        "icon",
+        "active"
+      ],
+      [
+        "icon",
+        "disabled"
+      ],
+      [
+        "icon",
+        "error"
       ]
     ]
   }

@@ -22,6 +22,7 @@
 | `portal/` | Документационный портал SEDA AI: docs-site, component-lab и shared portal assets | Да |
 | `portal/docs-site/` | Локальный docs/health сайт для SEDA AI | Да |
 | `portal/component-lab/` | Лаборатория компонентов и визуальной проверки | Да |
+| `portal/component-lab/pilots/settings-parametric/` | React-пилот общего профиля, static build и браузерная проверка | Да |
 | `figma-plugins/` | Figma tooling, если используется как часть проекта | Да |
 | `portal/portal-*.js`, `portal/portal-*.css` | Shared portal scripts/styles для документации и component lab | Да |
 | `seda-docs.jsx` | Документационный артефакт/прототип | Да, пока нужен для reference |

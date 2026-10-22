@@ -7,6 +7,7 @@ import { createApiInspector } from './api.mjs';
 import { createTokenResolver } from './tokens.mjs';
 import { createFormState, transitionForm, formEvents } from './form.mjs';
 import { deriveState, evaluateRules, validateRuleDefinition, mergeDescriptionIds } from './rules.mjs';
+import { validateWebProfile } from './web.mjs';
 
 export { createApiInspector, createTokenResolver, createFormState, transitionForm, formEvents, deriveState, mergeDescriptionIds };
 export { TokenResolutionError } from './tokens.mjs';
@@ -79,7 +80,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
   }
 
   function validateWiring(profile) {
-    const result = [];
+    const result = validateWebProfile(profile);
     const required = {
       save: { component: 'Button', props: { type: 'submit' }, bindings: { loading: 'form.saving' } },
       cancel: { component: 'Button', props: { type: 'button', onClick: { $handler: 'form.cancel' } }, bindings: { disabled: 'form.saving' } },

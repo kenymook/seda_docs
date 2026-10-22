@@ -1,5 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createApiInspector } from '../src/api.mjs';
 
@@ -145,15 +148,29 @@ test('unserializable object trees are explicitly not checked', () => {
   assert.match(functionResult[0].message, /function signatures/);
 });
 
-test('implementation defaults are audited without replacing the observed neutral default', () => {
-  assert.equal(inspector.get('IconButton').observedDefaults.variant, 'neutral');
-  const result = inspector.auditDefaults('IconButton');
-  assert.equal(errors(result).length, 1);
-  assert.equal(result[0].code, 'API_DEFAULT_OUTSIDE_TYPE');
-  assert.equal(result[0].path, '/props/variant');
-  assert.match(result[0].message, /neutral/);
+test('fixed implementation defaults are read from source and pass the real type audit', () => {
+  assert.equal(inspector.get('IconButton').observedDefaults.variant, 'secondary');
+  assert.deepEqual(inspector.auditDefaults('IconButton'), []);
   assert.deepEqual(inspector.auditDefaults('Button'), []);
   assert.deepEqual(inspector.auditDefaults('TextField'), []);
+});
+
+test('a regression to the old neutral source default is still detected', () => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'seda-api-regression-'));
+  try {
+    fs.cpSync(path.join(repoRoot, 'packages/seda-ui/src'), path.join(temp, 'packages/seda-ui/src'), { recursive: true });
+    const file = path.join(temp, 'packages/seda-ui/src/components/IconButton/IconButton.tsx');
+    const original = fs.readFileSync(file, 'utf8');
+    assert.match(original, /variant = "secondary"/);
+    fs.writeFileSync(file, original.replace('variant = "secondary"', 'variant = "neutral"'));
+    const changed = createApiInspector({ repoRoot: temp });
+    const result = changed.auditDefaults('IconButton');
+    assert.equal(changed.get('IconButton').observedDefaults.variant, 'neutral');
+    assert.equal(errors(result).length, 1);
+    assert.equal(result[0].code, 'API_DEFAULT_OUTSIDE_TYPE');
+    assert.equal(result[0].path, '/props/variant');
+    assert.match(result[0].message, /neutral/);
+  } finally { fs.rmSync(temp, { recursive: true, force: true }); }
 });
 
 test('metadata is defensive and unknown components fail clearly', () => {

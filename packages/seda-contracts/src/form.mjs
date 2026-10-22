@@ -4,6 +4,23 @@
  * A host executes the returned save/focus effects and reports responses by ID.
  */
 
+/**
+ * @typedef {{id: number, value: string}} ActiveRequest
+ * @typedef {{projectName: string, savedValue: string, touched: boolean,
+ * attemptedSubmit: boolean, hasShownError: boolean, fieldError: string|undefined,
+ * saveError: string|undefined, saving: boolean, requestSequence: number,
+ * activeRequest: ActiveRequest|null, helpExpanded: boolean, dirty: boolean}} FormState
+ * @typedef {{type: 'change', value: string}|{type: 'submit', route: 'click'|'enter'|'programmatic'|'retry'}|
+ * {type: 'saveSucceeded'|'saveFailed', requestId: number}|
+ * {type: 'blur'|'cancel'|'toggleHelp'|'profileChanged'}} FormEvent
+ * @typedef {{type: 'save', requestId: number, value: string}|{type: 'focus', target: 'projectName'}} FormEffect
+ * @typedef {{state: FormState, effects: FormEffect[]}} FormTransition
+ * @typedef {{model: 'settings-form-v1', owner: 'form', field: 'projectName',
+ * validationRule: 'trimmed-non-empty', requiredMessage: string, saveFailureMessage: string,
+ * noValidate: true, submitGuard: 'while-saving', inputDuringSaving: 'editable',
+ * responsePolicy: 'request-id-and-snapshot', cancelDuringSaving: 'blocked'}} FormPolicy
+ */
+
 const fixedPolicy = Object.freeze({
   model: 'settings-form-v1',
   owner: 'form',
@@ -121,6 +138,7 @@ function validateState(state) {
   }
 }
 
+/** @param {string} [initialValue] @returns {FormState} */
 export function createFormState(initialValue = '') {
   string(initialValue, 'initialValue');
   return {
@@ -139,12 +157,14 @@ export function createFormState(initialValue = '') {
   };
 }
 
+/** @param {FormState} state @param {Partial<FormState>} changes @param {FormEffect[]} [effects] @returns {FormTransition} */
 function update(state, changes, effects = []) {
   const next = { ...state, ...changes };
   next.dirty = next.projectName !== next.savedValue;
   return { state: next, effects };
 }
 
+/** @param {FormState} state @param {FormEvent} event @param {FormPolicy} policy @returns {FormTransition} */
 export function transitionForm(state, event, policy) {
   validatePolicy(policy);
   validateState(state);
@@ -231,6 +251,7 @@ export function transitionForm(state, event, policy) {
       // Presentation belongs to the profile; no form reset/remount effect exists.
       return unchanged();
   }
+  throw new TypeError('Unhandled form event.');
 }
 
 /** Describes the implemented model checks; it makes no claim about browser UI. */

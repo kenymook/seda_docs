@@ -8,12 +8,11 @@ const copy = () => structuredClone(engine.bundle);
 const field = { label: 'Название', value: '', onChange: { $handler: 'form.change' } };
 const has = (result, code) => result.issues.some(issue => issue.code === code);
 
-test('C01: valid authored contracts retain explicit browser and planned gaps', () => {
+test('C01/R07: valid contracts retire implemented D16 while keeping browser evidence separate', () => {
   const report = engine.validate();
   assert.equal(report.valid, true, JSON.stringify(report.issues));
   assert.equal(report.issues.length, 0);
-  assert.equal(report.planned.length, 2);
-  assert.ok(report.planned.every(item => item.status === 'decision-needed' && item.exists === false));
+  assert.deepEqual(report.planned, []);
   assert.equal(report.deferredChecks.length, 13);
   assert.ok(report.deferredChecks.every(item => item.status === 'not-checked'));
   assert.equal(report.runtimeConformance, 'not-checked');
@@ -54,17 +53,16 @@ test('C01/C02: source provenance and contract identity are enforced', () => {
   assert.ok(has(engine.validateInstance('Button', { children: 'Save' }, { contract }), 'COMPONENT_ID_MISMATCH'));
 });
 
-test('C02: observed default defect is independent of valid target contracts', () => {
+test('C02/R06: observed defaults now agree with types and target contracts', () => {
   assert.equal(engine.validate().valid, true);
   const audit = engine.audit();
-  assert.equal(audit.valid, false);
-  assert.equal(audit.issues.length, 1);
-  assert.equal(audit.issues[0].component, 'IconButton');
-  assert.equal(audit.issues[0].code, 'API_DEFAULT_OUTSIDE_TYPE');
-  assert.deepEqual(audit.targetDrift.map(item => [item.observed, item.target]), [['neutral', 'secondary']]);
+  assert.equal(audit.valid, true);
+  assert.deepEqual(audit.issues, []);
+  assert.deepEqual(audit.targetDrift, []);
   const instance = engine.validateInstance('IconButton', { 'aria-label': 'Help', icon: { $slot: 'help-icon' } });
-  assert.equal(instance.valid, false);
-  assert.equal(instance.appliedDefaults.variant, 'neutral');
+  assert.equal(instance.valid, true);
+  assert.equal(instance.appliedDefaults.variant, 'secondary');
+  assert.equal(instance.checks.find(check => check.check === 'pilot-variant').status, 'not-checked');
 });
 
 test('C03: missing token paths and missing recipe branches fail before compilation', () => {
