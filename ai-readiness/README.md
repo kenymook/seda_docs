@@ -53,3 +53,8 @@ AI не заменяет дизайнера и разработчика. AI по
 ## Important Boundary
 
 SEDA AI is a separate personal project. Do not mix it with any external or work-related design system context unless explicitly requested.
+
+## Executable Contract Pilot
+
+[Первый этап пилота формы настроек](pilots/settings-form/README.md) фиксирует исходный API Button, IconButton и TextField, решения по расхождениям и один профиль конфигурации. Reference fixture показывает текущую реализацию; исполняемые контракты и новый runtime относятся к следующим этапам.
+
