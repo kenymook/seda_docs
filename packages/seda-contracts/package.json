@@ -7,7 +7,9 @@
     "node": ">=24"
   },
   "exports": {
-    ".": "./src/index.mjs"
+    ".": "./src/index.mjs",
+    "./web": "./src/web.mjs",
+    "./form": "./src/form.mjs"
   },
   "scripts": {
     "validate": "node src/cli.mjs validate",

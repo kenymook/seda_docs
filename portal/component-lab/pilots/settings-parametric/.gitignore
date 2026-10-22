@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.diagnostics/
+.generated/
+test-results/
+playwright-report/

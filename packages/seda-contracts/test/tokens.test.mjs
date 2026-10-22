@@ -137,9 +137,11 @@ test("alias type mismatch and invalid values do not pass resolution", () => {
   raises("TOKEN_TYPE_UNSUPPORTED", () => resolver.resolve(ref("components", "unknown")));
 });
 
-test("a planned token stays absent while its semantic target resolves in each theme", () => {
-  const before = JSON.stringify(source);
-  const resolver = createTokenResolver(source);
+test("an absent planned token stays absent while its semantic target resolves in each theme", () => {
+  const historical = structuredClone(source);
+  delete historical.$collections.components.$modes["Mode 1"]["text-field"].border.disabled;
+  const before = JSON.stringify(historical);
+  const resolver = createTokenResolver(historical);
   for (const theme of ["Light", "Dark"]) {
     const result = resolver.validatePlanned(planned, { theme });
     assert.equal(result.status, "decision-needed");
@@ -149,7 +151,20 @@ test("a planned token stays absent while its semantic target resolves in each th
     assert.equal(result.decision, "D16");
     raises("TOKEN_NOT_FOUND", () => resolver.resolve(planned.ref, { theme }));
   }
-  assert.equal(JSON.stringify(source), before);
+  assert.equal(JSON.stringify(historical), before);
+});
+
+test("D16 disabled border now resolves through the actual semantic alias in both themes", () => {
+  const resolver = createTokenResolver(source);
+  assert.equal(source.$collections.components.$modes["Mode 1"]["text-field"].border.disabled.$value, planned.alias);
+  for (const theme of ["Light", "Dark"]) {
+    const actual = resolver.resolve(planned.ref, { theme });
+    const target = resolver.resolve(planned.target, { theme });
+    assert.equal(actual.value, target.value);
+    assert.equal(actual.chain[0].collection, "components");
+    assert.deepEqual(actual.chain.slice(1), target.chain);
+    assert.equal(actual.chain[1].mode, theme);
+  }
 });
 
 test("a now-existing planned token is flagged for reconsideration", () => {

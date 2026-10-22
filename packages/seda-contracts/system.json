@@ -310,28 +310,5 @@
     "fieldActiveToken": "active",
     "focusIndependent": true
   },
-  "plannedTokenAdditions": [
-    {
-      "ref": {
-        "collection": "components",
-        "path": [
-          "text-field",
-          "border",
-          "disabled"
-        ],
-        "expectedType": "color"
-      },
-      "alias": "{status.disabled.border}",
-      "target": {
-        "collection": "semantic",
-        "path": [
-          "status",
-          "disabled",
-          "border"
-        ],
-        "expectedType": "color"
-      },
-      "decision": "D16"
-    }
-  ]
+  "plannedTokenAdditions": []
 }

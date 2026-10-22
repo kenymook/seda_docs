@@ -14,7 +14,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       size = "m",
       tooltip,
       type = "button",
-      variant = "neutral",
+      variant = "secondary",
       ...props
     },
     ref,
@@ -24,6 +24,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     return (
       <button
         {...props}
+        aria-busy={loading ? true : props["aria-busy"]}
         aria-disabled={loading ? true : props["aria-disabled"]}
         aria-pressed={selected}
         className={cx("seda-icon-button", className)}
@@ -40,10 +41,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           onClick?.(event);
         }}
         ref={ref}
-        title={tooltip}
+        title={tooltip ?? props.title}
         type={type}
       >
-        {loading ? <span aria-hidden="true" className="seda-icon-button__spinner" /> : <span aria-hidden="true">{icon}</span>}
+        <span aria-hidden="true" className="seda-icon-button__icon">
+          {loading ? <span className="seda-icon-button__spinner" /> : icon}
+        </span>
       </button>
     );
   },

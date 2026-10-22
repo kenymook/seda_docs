@@ -25,6 +25,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         {...props}
+        aria-busy={loading ? true : props["aria-busy"]}
         aria-disabled={loading ? true : props["aria-disabled"]}
         className={cx("seda-button", className)}
         data-full-width={fullWidth ? "true" : undefined}
@@ -42,9 +43,20 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         type={type}
       >
-        {loading ? <span aria-hidden="true" className="seda-button__spinner" /> : iconLeft}
+        <span
+          aria-hidden="true"
+          className="seda-button__icon seda-button__leading"
+          data-empty={iconLeft == null ? "true" : undefined}
+        >
+          <span className="seda-button__icon-content">{iconLeft}</span>
+          {loading ? <span className="seda-button__spinner" /> : null}
+        </span>
         <span className="seda-button__label">{children}</span>
-        {!loading ? iconRight : null}
+        {iconRight != null ? (
+          <span aria-hidden="true" className="seda-button__icon seda-button__trailing">
+            <span className="seda-button__icon-content">{iconRight}</span>
+          </span>
+        ) : null}
       </button>
     );
   },
