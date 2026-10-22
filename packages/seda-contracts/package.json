@@ -1,0 +1,24 @@
+{
+  "name": "@seda-ai/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "scripts": {
+    "validate": "node src/cli.mjs validate",
+    "audit": "node src/cli.mjs audit",
+    "compile": "node src/cli.mjs compile",
+    "test": "node --test --test-isolation=none test/*.test.mjs",
+    "context": "node src/cli.mjs context"
+  },
+  "dependencies": {
+    "ajv": "8.17.1",
+    "typescript": "5.8.3",
+    "@types/react": "18.3.24"
+  }
+}

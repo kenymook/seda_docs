@@ -1,0 +1,303 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "kind": {
+      "const": "seda-contract-system"
+    },
+    "source": {
+      "$ref": "urn:seda:common:0.1.0#/definitions/source"
+    },
+    "supportedThemes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "Light",
+          "Dark"
+        ]
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "supportedDensities": {
+      "const": [
+        "regular"
+      ]
+    },
+    "documentationSizes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "small": {
+          "const": "s"
+        },
+        "medium": {
+          "const": "m"
+        },
+        "large": {
+          "const": "l"
+        },
+        "extraLarge": {
+          "const": "xl"
+        }
+      },
+      "required": [
+        "small",
+        "medium",
+        "large",
+        "extraLarge"
+      ]
+    },
+    "themeAdapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Light": {
+          "const": "light"
+        },
+        "Dark": {
+          "const": "dark"
+        }
+      },
+      "required": [
+        "Light",
+        "Dark"
+      ]
+    },
+    "sizes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "s": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "height": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "radius": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "fontSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "lineHeight": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "iconSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "buttonPaddingInline": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            }
+          },
+          "required": [
+            "height",
+            "radius",
+            "fontSize",
+            "lineHeight",
+            "iconSize",
+            "buttonPaddingInline"
+          ]
+        },
+        "m": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "height": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "radius": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "fontSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "lineHeight": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "iconSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "buttonPaddingInline": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            }
+          },
+          "required": [
+            "height",
+            "radius",
+            "fontSize",
+            "lineHeight",
+            "iconSize",
+            "buttonPaddingInline"
+          ]
+        },
+        "l": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "height": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "radius": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "fontSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "lineHeight": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "iconSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "buttonPaddingInline": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            }
+          },
+          "required": [
+            "height",
+            "radius",
+            "fontSize",
+            "lineHeight",
+            "iconSize",
+            "buttonPaddingInline"
+          ]
+        },
+        "xl": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "height": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "radius": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "fontSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "lineHeight": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "iconSize": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            },
+            "buttonPaddingInline": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+            }
+          },
+          "required": [
+            "height",
+            "radius",
+            "fontSize",
+            "lineHeight",
+            "iconSize",
+            "buttonPaddingInline"
+          ]
+        }
+      },
+      "required": [
+        "s",
+        "m",
+        "l",
+        "xl"
+      ]
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "family": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "labelWeight": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "message": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        }
+      },
+      "required": [
+        "family",
+        "labelWeight",
+        "message"
+      ]
+    },
+    "geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "borderWidth": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "buttonContentGap": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "textFieldPaddingInline": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "textFieldAffixGap": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        }
+      },
+      "required": [
+        "borderWidth",
+        "buttonContentGap",
+        "textFieldPaddingInline",
+        "textFieldAffixGap"
+      ]
+    },
+    "boxSizing": {
+      "const": "border-box"
+    },
+    "stateAdapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "actionActiveToken": {
+          "const": "pressed"
+        },
+        "fieldActiveToken": {
+          "const": "active"
+        },
+        "focusIndependent": {
+          "const": true
+        }
+      },
+      "required": [
+        "actionActiveToken",
+        "fieldActiveToken",
+        "focusIndependent"
+      ]
+    },
+    "plannedTokenAdditions": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/planned"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "kind",
+    "source",
+    "supportedThemes",
+    "supportedDensities",
+    "documentationSizes",
+    "themeAdapter",
+    "sizes",
+    "typography",
+    "geometry",
+    "boxSizing",
+    "stateAdapter",
+    "plannedTokenAdditions"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:seda:system:0.1.0"
+}

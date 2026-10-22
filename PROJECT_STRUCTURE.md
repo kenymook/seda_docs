@@ -10,6 +10,8 @@
 | `foundation/` | Правила Foundation: accessibility, color, content, governance, typography, tokens, validation | Да |
 | `specs/` | Component specs и UX/layout specs | Да |
 | `ai-readiness/` | AI-ready design system framework слой: audit, maturity, prompts, Handoff, Validation | Да |
+| `packages/seda-ui/` | Реальная React-библиотека и TypeScript API | Да |
+| `packages/seda-contracts/` | Исполняемые контракты пилота, схемы, валидатор, модель событий и compiler | Да |
 | `assets/` | Иконки и изображения, используемые документацией и demos | Да |
 | `CHANGELOG.md` | История изменений | Да |
 

@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Button",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Button/Button.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Button/Button.tsx",
+    "export": "ButtonProps",
+    "nativeElement": "button"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "button",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "span",
+      "prop": "children",
+      "required": true
+    },
+    {
+      "name": "leading",
+      "element": "ReactNode",
+      "prop": "iconLeft",
+      "required": false
+    },
+    {
+      "name": "trailing",
+      "element": "ReactNode",
+      "prop": "iconRight",
+      "required": false
+    },
+    {
+      "name": "spinner",
+      "element": "span",
+      "required": false
+    }
+  ],
+  "targetDefaults": {},
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle",
+      "loading"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": []
+  },
+  "pilotVariants": [
+    "primary",
+    "secondary"
+  ],
+  "tokenBranches": {
+    "primary": {
+      "collection": "components",
+      "path": [
+        "button",
+        "primary",
+        "solid"
+      ]
+    },
+    "secondary": {
+      "collection": "components",
+      "path": [
+        "button",
+        "neutral",
+        "secondary"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Всегда",
+      "expected": "Непустая видимая подпись.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "children",
+      "decision": "D03"
+    },
+    {
+      "id": "blocked",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Если aria-disabled=true",
+      "expected": "Активация блокируется disabled или loading.",
+      "check": "aria-disabled-activation",
+      "layer": "instance",
+      "decision": "D06"
+    },
+    {
+      "id": "variants",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Для визуального пилота",
+      "expected": "Проверяемая рецептура primary или secondary.",
+      "check": "pilot-variant",
+      "layer": "instance",
+      "decision": "D12"
+    },
+    {
+      "id": "loading-width",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При loading",
+      "expected": "Ширина, подпись и фокус сохраняются.",
+      "check": "stable-loading-width",
+      "layer": "browser",
+      "decision": "D14"
+    },
+    {
+      "id": "geometry",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При выбранном размере",
+      "expected": "Высота, радиус и типографика совпадают с разрешённым пресетом.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D08"
+    },
+    {
+      "id": "focus",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При клавиатурном фокусе",
+      "expected": "Видимый индикатор клавиатурного фокуса сохраняется в поддерживаемых состояниях.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D22"
+    },
+    {
+      "id": "token-binding",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При изменении component token",
+      "expected": "Меняется соответствующая CSS-роль; источник совпадает с разрешённой цепочкой.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D11"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "touch-hit-area",
+      "status": "not-checked",
+      "reason": "Область пилота — web pointer и keyboard."
+    },
+    {
+      "id": "all-visual-variants",
+      "status": "not-checked",
+      "reason": "Покрытие ограничено рецептурами пилота."
+    }
+  ],
+  "evidence": {
+    "source": "ai-readiness/pilots/settings-form/component-baseline.md",
+    "baseline": "ai-readiness/pilots/settings-form/evidence.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "primary": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "pressed"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "surface",
+        "loading"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "pressed"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "border",
+        "loading"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "loading"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "spinner",
+        "foreground"
+      ]
+    ],
+    "secondary": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "pressed"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "surface",
+        "loading"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "pressed"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "border",
+        "loading"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "loading"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "spinner",
+        "foreground"
+      ]
+    ]
+  }
+}

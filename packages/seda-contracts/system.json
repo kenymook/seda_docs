@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-contract-system",
+  "source": {
+    "repository": "kenymook/seda_docs",
+    "baselineCommit": "354e19adc00605c422033a53ed1dd81dc33259ae",
+    "decisionsCommit": "5562631346e4fd40a9383f2e01eef1b35a64603f"
+  },
+  "supportedThemes": [
+    "Light",
+    "Dark"
+  ],
+  "supportedDensities": [
+    "regular"
+  ],
+  "documentationSizes": {
+    "small": "s",
+    "medium": "m",
+    "large": "l",
+    "extraLarge": "xl"
+  },
+  "themeAdapter": {
+    "Light": "light",
+    "Dark": "dark"
+  },
+  "sizes": {
+    "s": {
+      "height": {
+        "value": 24,
+        "unit": "px",
+        "source": "foundation/spacing-sizing.md#размеры-компонентов"
+      },
+      "radius": {
+        "collection": "foundation",
+        "path": [
+          "border",
+          "radius",
+          "s"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "fontSize": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "bodySmall",
+          "base",
+          "size"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "lineHeight": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "bodySmall",
+          "base",
+          "lineHeight"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "iconSize": {
+        "value": 14,
+        "unit": "px",
+        "source": "specs/actions/icon-button.md#4-sizes--размеры"
+      },
+      "buttonPaddingInline": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "m"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      }
+    },
+    "m": {
+      "height": {
+        "value": 32,
+        "unit": "px",
+        "source": "foundation/spacing-sizing.md#размеры-компонентов"
+      },
+      "radius": {
+        "collection": "foundation",
+        "path": [
+          "border",
+          "radius",
+          "m"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "fontSize": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "body",
+          "base",
+          "size"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "lineHeight": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "body",
+          "base",
+          "lineHeight"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "iconSize": {
+        "value": 16,
+        "unit": "px",
+        "source": "specs/actions/icon-button.md#4-sizes--размеры"
+      },
+      "buttonPaddingInline": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "xl"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      }
+    },
+    "l": {
+      "height": {
+        "value": 40,
+        "unit": "px",
+        "source": "foundation/spacing-sizing.md#размеры-компонентов"
+      },
+      "radius": {
+        "collection": "foundation",
+        "path": [
+          "border",
+          "radius",
+          "l"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "fontSize": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "bodyLarge",
+          "base",
+          "size"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "lineHeight": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "bodyLarge",
+          "base",
+          "lineHeight"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "iconSize": {
+        "value": 18,
+        "unit": "px",
+        "source": "specs/actions/icon-button.md#4-sizes--размеры"
+      },
+      "buttonPaddingInline": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "2xl"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      }
+    },
+    "xl": {
+      "height": {
+        "value": 48,
+        "unit": "px",
+        "source": "foundation/spacing-sizing.md#размеры-компонентов"
+      },
+      "radius": {
+        "collection": "foundation",
+        "path": [
+          "border",
+          "radius",
+          "xl"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "fontSize": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "bodyExtraLarge",
+          "base",
+          "size"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "lineHeight": {
+        "collection": "foundation",
+        "path": [
+          "font",
+          "bodyExtraLarge",
+          "base",
+          "lineHeight"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "iconSize": {
+        "value": 20,
+        "unit": "px",
+        "source": "specs/actions/icon-button.md#4-sizes--размеры"
+      },
+      "buttonPaddingInline": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "3xl"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "collection": "foundation",
+      "path": [
+        "font",
+        "family"
+      ],
+      "expectedType": "string"
+    },
+    "labelWeight": {
+      "collection": "foundation",
+      "path": [
+        "font",
+        "body",
+        "strong",
+        "weight"
+      ],
+      "expectedType": "string"
+    },
+    "message": {
+      "collection": "foundation",
+      "path": [
+        "font",
+        "bodySmall",
+        "base"
+      ]
+    }
+  },
+  "geometry": {
+    "borderWidth": {
+      "collection": "foundation",
+      "path": [
+        "border",
+        "width",
+        "m"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "buttonContentGap": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "m"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "textFieldPaddingInline": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "l"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "textFieldAffixGap": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "m"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    }
+  },
+  "boxSizing": "border-box",
+  "stateAdapter": {
+    "actionActiveToken": "pressed",
+    "fieldActiveToken": "active",
+    "focusIndependent": true
+  },
+  "plannedTokenAdditions": [
+    {
+      "ref": {
+        "collection": "components",
+        "path": [
+          "text-field",
+          "border",
+          "disabled"
+        ],
+        "expectedType": "color"
+      },
+      "alias": "{status.disabled.border}",
+      "target": {
+        "collection": "semantic",
+        "path": [
+          "status",
+          "disabled",
+          "border"
+        ],
+        "expectedType": "color"
+      },
+      "decision": "D16"
+    }
+  ]
+}

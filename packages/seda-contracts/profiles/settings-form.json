@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-profile",
+  "id": "settings-form",
+  "scope": "web-pointer-keyboard",
+  "configuration": {
+    "theme": "Light",
+    "density": "regular",
+    "controlSize": "m"
+  },
+  "layout": {
+    "containerMaxWidth": {
+      "value": 640,
+      "unit": "px",
+      "source": "foundation/spacing-sizing.md"
+    },
+    "containerPadding": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "4xl"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "headingToFields": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "2xl"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "labelToControl": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "s"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "controlToMessage": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "s"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "fieldGap": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "2xl"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "fieldsToActions": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "4xl"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "actionsGap": {
+      "collection": "foundation",
+      "path": [
+        "space",
+        "xl"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "containerBoxSizing": "border-box",
+    "containerWidth": "100%"
+  },
+  "recipes": {
+    "save": {
+      "component": "Button",
+      "props": {
+        "variant": "primary",
+        "type": "submit",
+        "children": "Сохранить"
+      },
+      "bindings": {
+        "size": "configuration.controlSize",
+        "loading": "form.saving"
+      }
+    },
+    "cancel": {
+      "component": "Button",
+      "props": {
+        "variant": "secondary",
+        "type": "button",
+        "children": "Отмена",
+        "onClick": {
+          "$handler": "form.cancel"
+        }
+      },
+      "bindings": {
+        "size": "configuration.controlSize",
+        "disabled": "form.saving"
+      }
+    },
+    "help": {
+      "component": "IconButton",
+      "props": {
+        "variant": "ghost",
+        "type": "button",
+        "aria-label": "Справка о названии проекта",
+        "icon": {
+          "$slot": "help-icon"
+        },
+        "onClick": {
+          "$handler": "form.toggleHelp"
+        }
+      },
+      "bindings": {
+        "size": "configuration.controlSize",
+        "aria-expanded": "form.helpExpanded"
+      },
+      "visibleExplanation": "О названии проекта"
+    },
+    "projectName": {
+      "component": "TextField",
+      "props": {
+        "label": "Название проекта",
+        "type": "text",
+        "inputMode": "text",
+        "required": true,
+        "name": "projectName",
+        "onChange": {
+          "$handler": "form.change"
+        },
+        "onBlur": {
+          "$handler": "form.blur"
+        }
+      },
+      "bindings": {
+        "size": "configuration.controlSize",
+        "value": "form.projectName",
+        "errorText": "form.fieldError"
+      }
+    }
+  },
+  "formPolicy": {
+    "model": "settings-form-v1",
+    "owner": "form",
+    "field": "projectName",
+    "validationRule": "trimmed-non-empty",
+    "requiredMessage": "Введите название проекта.",
+    "saveFailureMessage": "Не удалось сохранить изменения. Попробуйте ещё раз.",
+    "noValidate": true,
+    "submitGuard": "while-saving",
+    "inputDuringSaving": "editable",
+    "responsePolicy": "request-id-and-snapshot",
+    "cancelDuringSaving": "blocked"
+  },
+  "copy": {
+    "helpText": "Название помогает отличать этот проект от других. Оно не должно быть пустым."
+  },
+  "capabilities": [
+    {
+      "id": "touch-hit-area-expansion",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    },
+    {
+      "id": "full-tooltip-hover-focus-escape",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    },
+    {
+      "id": "uncontrolled-filled-tracking",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    },
+    {
+      "id": "masked-input",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    },
+    {
+      "id": "clearable-input",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    },
+    {
+      "id": "persistent-selected-icon-button",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    },
+    {
+      "id": "complete-six-variant-visual-parity",
+      "status": "not-checked",
+      "reason": "За пределами проверяемого пилота."
+    }
+  ]
+}
