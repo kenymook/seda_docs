@@ -1,0 +1,13 @@
+import { build } from 'esbuild';
+import path from 'node:path';
+import fs from 'node:fs/promises';
+import { sourceProvenance,bundleProvenance,referenceCommit } from './provenance.mjs';
+const root = import.meta.dirname;
+const repoRoot = path.resolve(process.env.SEDA_REPO_ROOT || path.join(root,'../../../..'));
+const before=await sourceProvenance(repoRoot);
+await build({entryPoints:[path.join(root,'fixture.tsx')], outdir:path.join(root,'dist'), bundle:true, format:'esm', jsx:'automatic', target:'es2020', sourcemap:false, nodePaths:[path.join(root,'node_modules')], alias:{'@seda-ai/ui/styles.css':path.join(repoRoot,'packages/seda-ui/src/styles.css'),'@seda-ai/ui':path.join(repoRoot,'packages/seda-ui/src/index.ts')},define:{__SEDA_REFERENCE_MATCH__:JSON.stringify(before.allReferenceFilesMatch)}});
+const after=await sourceProvenance(repoRoot);
+if(JSON.stringify(before)!==JSON.stringify(after))throw new Error('Source files changed during build. Rebuild before measuring.');
+const metadata={referenceCommit,builtAt:new Date().toISOString(),sourceProvenance:after,bundleArtifacts:await bundleProvenance(root)};
+await fs.writeFile(path.join(root,'dist/build-metadata.json'),JSON.stringify(metadata,null,2)+'\n');
+console.log(`Built current SEDA source. Reference files match: ${after.files.filter(f=>f.matchesReference).length}/${after.checkedFileCount}.`);

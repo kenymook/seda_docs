@@ -1,0 +1,463 @@
+{
+  "artifactKind": "stage-1-planning-profile",
+  "id": "settings-form-web-regular-m",
+  "source": {
+    "repository": "kenymook/seda_docs",
+    "commit": "354e19adc00605c422033a53ed1dd81dc33259ae"
+  },
+  "status": "pilot-decisions-recorded-runtime-not-connected",
+  "authoredPolicy": "decisions.md",
+  "scope": {
+    "platform": "web",
+    "inputModes": [
+      "pointer",
+      "keyboard"
+    ],
+    "components": [
+      "Button",
+      "IconButton",
+      "TextField"
+    ]
+  },
+  "configuration": {
+    "theme": "Light",
+    "density": "regular",
+    "controlSize": "m",
+    "layout": "vertical"
+  },
+  "adapters": {
+    "reactSize": {
+      "s": "s",
+      "m": "m",
+      "l": "l",
+      "xl": "xl"
+    },
+    "documentationSize": {
+      "small": "s",
+      "medium": "m",
+      "large": "l",
+      "extraLarge": "xl"
+    },
+    "portalTheme": {
+      "Light": "light",
+      "Dark": "dark"
+    }
+  },
+  "layout": {
+    "containerMaxWidth": {
+      "value": 640,
+      "unit": "px",
+      "source": "foundation/spacing-sizing.md",
+      "kind": "documented-preset"
+    },
+    "containerPadding": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "4xl"
+      ],
+      "unit": "px"
+    },
+    "headingToFields": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "2xl"
+      ],
+      "unit": "px"
+    },
+    "labelToControl": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "s"
+      ],
+      "unit": "px"
+    },
+    "controlToMessage": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "s"
+      ],
+      "unit": "px"
+    },
+    "fieldGap": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "2xl"
+      ],
+      "unit": "px"
+    },
+    "fieldsToActions": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "4xl"
+      ],
+      "unit": "px"
+    },
+    "actionsGap": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "xl"
+      ],
+      "unit": "px"
+    },
+    "containerBoxSizing": "border-box",
+    "containerWidth": "100%"
+  },
+  "typography": {
+    "family": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "font",
+        "family"
+      ]
+    },
+    "fieldValue": {
+      "tokenBranch": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "font",
+        "body",
+        "base"
+      ]
+    },
+    "fieldLabel": {
+      "tokenBranch": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "font",
+        "body",
+        "strong"
+      ]
+    },
+    "fieldMessage": {
+      "tokenBranch": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "font",
+        "bodySmall",
+        "base"
+      ]
+    },
+    "buttonLabel": {
+      "tokenBranch": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "font",
+        "body",
+        "strong"
+      ]
+    }
+  },
+  "targetGeometry": {
+    "height": {
+      "value": 32,
+      "unit": "px",
+      "kind": "documented-preset",
+      "source": "foundation/spacing-sizing.md"
+    },
+    "radius": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "border",
+        "radius",
+        "m"
+      ],
+      "unit": "px"
+    },
+    "borderWidth": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "border",
+        "width",
+        "m"
+      ],
+      "unit": "px"
+    },
+    "buttonPaddingInline": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "xl"
+      ],
+      "unit": "px"
+    },
+    "buttonContentGap": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "m"
+      ],
+      "unit": "px"
+    },
+    "textFieldPaddingInline": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "l"
+      ],
+      "unit": "px"
+    },
+    "textFieldAffixGap": {
+      "tokenRef": [
+        "$collections",
+        "foundation",
+        "$modes",
+        "Mode 1",
+        "space",
+        "m"
+      ],
+      "unit": "px"
+    },
+    "iconSize": {
+      "value": 16,
+      "unit": "px",
+      "kind": "documented-preset",
+      "source": "specs/actions/icon-button.md#4-sizes"
+    },
+    "controlBoxSizing": "border-box"
+  },
+  "componentRecipes": {
+    "save": {
+      "component": "Button",
+      "props": {
+        "variant": "primary",
+        "type": "submit",
+        "children": "Сохранить"
+      },
+      "tokenBranch": [
+        "$collections",
+        "components",
+        "$modes",
+        "Mode 1",
+        "button",
+        "primary",
+        "solid"
+      ],
+      "loadingOwner": "form.saving",
+      "bindings": {
+        "size": "configuration.controlSize"
+      }
+    },
+    "cancel": {
+      "component": "Button",
+      "props": {
+        "variant": "secondary",
+        "type": "button",
+        "children": "Отмена"
+      },
+      "tokenBranch": [
+        "$collections",
+        "components",
+        "$modes",
+        "Mode 1",
+        "button",
+        "neutral",
+        "secondary"
+      ],
+      "bindings": {
+        "size": "configuration.controlSize"
+      }
+    },
+    "help": {
+      "component": "IconButton",
+      "props": {
+        "variant": "ghost",
+        "type": "button",
+        "aria-label": "Справка о названии проекта"
+      },
+      "tokenBranch": [
+        "$collections",
+        "components",
+        "$modes",
+        "Mode 1",
+        "icon-button",
+        "ghost"
+      ],
+      "icon": {
+        "required": true,
+        "sizeFrom": "targetGeometry.iconSize"
+      },
+      "visibleExplanation": "О названии проекта",
+      "tooltipCapability": "native-title-only-full-tooltip-not-claimed",
+      "bindings": {
+        "size": "configuration.controlSize"
+      }
+    },
+    "projectName": {
+      "component": "TextField",
+      "props": {
+        "label": "Название проекта",
+        "type": "text",
+        "inputMode": "text",
+        "required": true,
+        "name": "projectName"
+      },
+      "tokenBranch": [
+        "$collections",
+        "components",
+        "$modes",
+        "Mode 1",
+        "text-field"
+      ],
+      "control": "controlled-string",
+      "valueOwner": "form.projectName",
+      "errorInput": "errorText-or-undefined",
+      "filled": "derived-from-current-value",
+      "errorBooleanProp": false,
+      "bindings": {
+        "size": "configuration.controlSize"
+      }
+    }
+  },
+  "behavior": {
+    "owner": "form",
+    "nativeBrowserValidation": {
+      "formNoValidate": true,
+      "requiredAttribute": true,
+      "reason": "Form renders the agreed error and owns focus recovery"
+    },
+    "validation": {
+      "ruleId": "project-name-required",
+      "rule": "trim(value).length > 0",
+      "message": "Введите название проекта.",
+      "triggers": [
+        "blur",
+        "submit"
+      ],
+      "revalidateOnInput": "after-an-error-has-been-shown",
+      "normalizeDisplayedValue": false,
+      "invalidSubmit": {
+        "attemptedSubmit": true,
+        "showFieldError": true,
+        "startSave": false,
+        "preserveValue": true,
+        "focusTarget": "projectName"
+      }
+    },
+    "submit": {
+      "guard": "ignore-while-saving-for-every-submit-route",
+      "capture": "submitted-value-snapshot",
+      "inputDuringSaving": "editable",
+      "responsePolicy": "never-overwrite-more-recent-input",
+      "successPolicy": "mark-submitted-snapshot-saved-newer-input-remains-dirty"
+    },
+    "failure": {
+      "scope": "form",
+      "message": "Не удалось сохранить изменения. Попробуйте ещё раз.",
+      "fieldInvalid": false,
+      "retry": "validate-and-submit-current-value"
+    },
+    "cancellation": {
+      "action": "restore-last-saved-snapshot-and-clear-local-errors",
+      "duringSaving": "disabled",
+      "neverAbortUnspecifiedBackendRequest": true
+    },
+    "help": {
+      "action": "toggle-inline-help",
+      "focus": "keep-on-help-button",
+      "expandedAttribute": "native-aria-expanded",
+      "helpText": "Название помогает отличать этот проект от других. Оно не должно быть пустым.",
+      "selectedCapability": "not-used-do-not-emit-aria-pressed"
+    },
+    "profileUpdate": {
+      "preserve": [
+        "value",
+        "touched",
+        "attemptedSubmit",
+        "errors",
+        "saving",
+        "focus"
+      ],
+      "remountComponents": false
+    }
+  },
+  "plannedTokenAdditions": [
+    {
+      "path": [
+        "$collections",
+        "components",
+        "$modes",
+        "Mode 1",
+        "text-field",
+        "border",
+        "disabled"
+      ],
+      "type": "color",
+      "value": "{status.disabled.border}",
+      "targetSemanticPath": [
+        "status",
+        "disabled",
+        "border"
+      ],
+      "status": "absent-in-source-do-not-resolve-as-existing",
+      "decision": "D16"
+    }
+  ],
+  "capabilitiesNotClaimed": [
+    "touch-hit-area-expansion",
+    "full-tooltip-hover-focus-escape",
+    "uncontrolled-filled-tracking",
+    "masked-input",
+    "clearable-input",
+    "persistent-selected-icon-button",
+    "complete-six-variant-visual-parity"
+  ],
+  "evidence": {
+    "sourceFacts": "component-baseline.md",
+    "runtime": "evidence.md",
+    "nextTasks": "implementation-handoff.md"
+  }
+}
