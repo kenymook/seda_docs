@@ -1,0 +1,394 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:seda:common:0.1.0",
+  "definitions": {
+    "tokenRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "collection": {
+          "enum": [
+            "foundation",
+            "semantic",
+            "components"
+          ]
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1
+        },
+        "expectedType": {
+          "enum": [
+            "number",
+            "color",
+            "string"
+          ]
+        },
+        "unit": {
+          "enum": [
+            "px"
+          ]
+        }
+      },
+      "required": [
+        "collection",
+        "path"
+      ]
+    },
+    "documentedDimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "px"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "source"
+      ]
+    },
+    "measurement": {
+      "oneOf": [
+        {
+          "$ref": "urn:seda:common:0.1.0#/definitions/dimensionRef"
+        },
+        {
+          "$ref": "urn:seda:common:0.1.0#/definitions/documentedDimension"
+        }
+      ]
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "expected": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "check": {
+          "enum": [
+            "text-content",
+            "slot-present",
+            "controlled-value",
+            "error-message",
+            "native-disabled",
+            "aria-disabled-activation",
+            "persistent-selection-unused",
+            "pilot-variant",
+            "control-geometry",
+            "focus-visible",
+            "stable-loading-width",
+            "description-merge",
+            "disabled-error-presentation",
+            "component-token-binding",
+            "icon-box",
+            "full-tooltip"
+          ]
+        },
+        "prop": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "layer": {
+          "enum": [
+            "instance",
+            "browser"
+          ]
+        },
+        "decision": {
+          "type": "string",
+          "pattern": "^D(0[1-9]|1[0-9]|2[0-4])$"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "condition",
+        "expected",
+        "check",
+        "layer",
+        "decision"
+      ]
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "status": {
+          "enum": [
+            "supported",
+            "not-checked",
+            "decision-needed"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "reason"
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "theme": {
+          "enum": [
+            "Light",
+            "Dark"
+          ]
+        },
+        "density": {
+          "enum": [
+            "regular"
+          ]
+        },
+        "controlSize": {
+          "enum": [
+            "s",
+            "m",
+            "l",
+            "xl"
+          ]
+        }
+      },
+      "required": [
+        "theme",
+        "density",
+        "controlSize"
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "enum": [
+            "settings-form-v1"
+          ]
+        },
+        "owner": {
+          "enum": [
+            "form"
+          ]
+        },
+        "field": {
+          "enum": [
+            "projectName"
+          ]
+        },
+        "validationRule": {
+          "enum": [
+            "trimmed-non-empty"
+          ]
+        },
+        "requiredMessage": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "saveFailureMessage": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "noValidate": {
+          "const": true
+        },
+        "submitGuard": {
+          "enum": [
+            "while-saving"
+          ]
+        },
+        "inputDuringSaving": {
+          "enum": [
+            "editable"
+          ]
+        },
+        "responsePolicy": {
+          "enum": [
+            "request-id-and-snapshot"
+          ]
+        },
+        "cancelDuringSaving": {
+          "enum": [
+            "blocked"
+          ]
+        }
+      },
+      "required": [
+        "model",
+        "owner",
+        "field",
+        "validationRule",
+        "requiredMessage",
+        "saveFailureMessage",
+        "noValidate",
+        "submitGuard",
+        "inputDuringSaving",
+        "responsePolicy",
+        "cancelDuringSaving"
+      ]
+    },
+    "planned": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ref": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "alias": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "target": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "decision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "ref",
+        "alias",
+        "target",
+        "decision"
+      ]
+    },
+    "slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "element": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "prop": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "element",
+        "required"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "baselineCommit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "decisionsCommit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "required": [
+        "repository",
+        "baselineCommit",
+        "decisionsCommit"
+      ]
+    },
+    "dimensionRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "collection": {
+          "enum": [
+            "foundation",
+            "semantic",
+            "components"
+          ]
+        },
+        "path": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "expectedType": {
+          "const": "number"
+        },
+        "unit": {
+          "const": "px"
+        }
+      },
+      "required": [
+        "collection",
+        "path",
+        "expectedType",
+        "unit"
+      ]
+    }
+  }
+}

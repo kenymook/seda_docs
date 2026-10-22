@@ -5,7 +5,7 @@
     "repository": "kenymook/seda_docs",
     "commit": "354e19adc00605c422033a53ed1dd81dc33259ae"
   },
-  "status": "pilot-decisions-recorded-runtime-not-connected",
+  "status": "historical-stage-1-planning-profile",
   "authoredPolicy": "decisions.md",
   "scope": {
     "platform": "web",
@@ -459,5 +459,6 @@
     "sourceFacts": "component-baseline.md",
     "runtime": "evidence.md",
     "nextTasks": "implementation-handoff.md"
-  }
+  },
+  "supersededBy": "packages/seda-contracts/profiles/settings-form.json"
 }

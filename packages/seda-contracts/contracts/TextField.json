@@ -1,0 +1,261 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "TextField",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/TextField/TextField.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/TextField/TextField.tsx",
+    "export": "TextFieldProps",
+    "nativeElement": "input"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "label",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "span",
+      "prop": "label",
+      "required": true
+    },
+    {
+      "name": "control",
+      "element": "input",
+      "required": true
+    },
+    {
+      "name": "message",
+      "element": "span",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "element": "ReactNode",
+      "prop": "prefix",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "element": "ReactNode",
+      "prop": "suffix",
+      "required": false
+    }
+  ],
+  "targetDefaults": {},
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none",
+      "error"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "text-field"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Всегда",
+      "expected": "Непустой видимый label.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D03"
+    },
+    {
+      "id": "controlled",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "В форме настроек",
+      "expected": "value:string, onChange и отсутствие defaultValue; filled соответствует raw value.",
+      "check": "controlled-value",
+      "layer": "instance",
+      "decision": "D07"
+    },
+    {
+      "id": "error-message",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При state=error или заданном errorText",
+      "expected": "Ошибка содержит непустое сообщение.",
+      "check": "error-message",
+      "layer": "instance",
+      "decision": "D05"
+    },
+    {
+      "id": "disabled",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При preview state=disabled",
+      "expected": "Нативный disabled действительно блокирует input.",
+      "check": "native-disabled",
+      "layer": "instance",
+      "decision": "D06"
+    },
+    {
+      "id": "description",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При внешнем описании и сообщении",
+      "expected": "aria-describedby содержит оба ID без дублей.",
+      "check": "description-merge",
+      "layer": "browser",
+      "decision": "D23"
+    },
+    {
+      "id": "disabled-error",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При disabled и сохранённой ошибке",
+      "expected": "Сообщение ошибки скрыто; ошибка может остаться в состоянии формы.",
+      "check": "disabled-error-presentation",
+      "layer": "browser",
+      "decision": "D22"
+    },
+    {
+      "id": "geometry",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При выбранном размере",
+      "expected": "Высота, радиус и типографика совпадают с разрешённым пресетом.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D08"
+    },
+    {
+      "id": "focus",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При клавиатурном фокусе",
+      "expected": "Видимый индикатор фокуса сохраняется одновременно с ошибкой.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D22"
+    },
+    {
+      "id": "token-binding",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При изменении component token",
+      "expected": "Меняется соответствующая CSS-роль; источник совпадает с разрешённой цепочкой.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D11"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "uncontrolled-filled",
+      "status": "not-checked",
+      "reason": "Native defaultValue существует; пилот использует controlled string."
+    },
+    {
+      "id": "readonly-visual",
+      "status": "not-checked",
+      "reason": "Native readOnly допустим, отдельное визуальное состояние не проверено."
+    },
+    {
+      "id": "touch-hit-area",
+      "status": "not-checked",
+      "reason": "Область пилота — web pointer и keyboard."
+    },
+    {
+      "id": "all-visual-variants",
+      "status": "not-checked",
+      "reason": "Покрытие ограничено рецептурами пилота."
+    }
+  ],
+  "evidence": {
+    "source": "ai-readiness/pilots/settings-form/component-baseline.md",
+    "baseline": "ai-readiness/pilots/settings-form/evidence.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "focus"
+      ],
+      [
+        "surface",
+        "error"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "focus"
+      ],
+      [
+        "border",
+        "error"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "label",
+        "default"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "helper",
+        "default"
+      ],
+      [
+        "helper",
+        "error"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ]
+  }
+}

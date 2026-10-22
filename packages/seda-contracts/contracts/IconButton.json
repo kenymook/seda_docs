@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "IconButton",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/IconButton/IconButton.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/IconButton/IconButton.tsx",
+    "export": "IconButtonProps",
+    "nativeElement": "button"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "button",
+      "required": true
+    },
+    {
+      "name": "icon",
+      "element": "ReactNode",
+      "prop": "icon",
+      "required": true
+    },
+    {
+      "name": "spinner",
+      "element": "span",
+      "required": false
+    }
+  ],
+  "targetDefaults": {
+    "variant": "secondary"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": []
+  },
+  "pilotVariants": [
+    "ghost"
+  ],
+  "tokenBranches": {
+    "ghost": {
+      "collection": "components",
+      "path": [
+        "icon-button",
+        "ghost"
+      ]
+    },
+    "focus": {
+      "collection": "components",
+      "path": [
+        "icon-button",
+        "focus"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "name",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Всегда",
+      "expected": "Непустое доступное имя.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "aria-label",
+      "decision": "D03"
+    },
+    {
+      "id": "icon",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Всегда",
+      "expected": "Задан слот иконки.",
+      "check": "slot-present",
+      "layer": "instance",
+      "prop": "icon",
+      "decision": "D03"
+    },
+    {
+      "id": "blocked",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Если aria-disabled=true",
+      "expected": "Активация блокируется disabled или loading.",
+      "check": "aria-disabled-activation",
+      "layer": "instance",
+      "decision": "D06"
+    },
+    {
+      "id": "selection",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "В сценарии справки",
+      "expected": "selected и aria-pressed отсутствуют; используется aria-expanded.",
+      "check": "persistent-selection-unused",
+      "layer": "instance",
+      "decision": "D04"
+    },
+    {
+      "id": "variants",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "Для визуального пилота",
+      "expected": "Проверяемая рецептура ghost.",
+      "check": "pilot-variant",
+      "layer": "instance",
+      "decision": "D12"
+    },
+    {
+      "id": "icon-box",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При выбранном размере",
+      "expected": "Иконка имеет явный размер пресета.",
+      "check": "icon-box",
+      "layer": "browser",
+      "decision": "D13"
+    },
+    {
+      "id": "geometry",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При выбранном размере",
+      "expected": "Высота, радиус и типографика совпадают с разрешённым пресетом.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D08"
+    },
+    {
+      "id": "focus",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При клавиатурном фокусе",
+      "expected": "Видимый индикатор клавиатурного фокуса сохраняется в поддерживаемых состояниях.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D22"
+    },
+    {
+      "id": "token-binding",
+      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "condition": "При изменении component token",
+      "expected": "Меняется соответствующая CSS-роль; источник совпадает с разрешённой цепочкой.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D11"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "full-tooltip",
+      "status": "not-checked",
+      "reason": "В пилоте принято видимое пояснение. Native title не подтверждает Tooltip с hover/focus/Escape."
+    },
+    {
+      "id": "persistent-selection",
+      "status": "not-checked",
+      "reason": "Public selected существует, но сценарий справки его не использует."
+    },
+    {
+      "id": "touch-hit-area",
+      "status": "not-checked",
+      "reason": "Область пилота — web pointer и keyboard."
+    },
+    {
+      "id": "all-visual-variants",
+      "status": "not-checked",
+      "reason": "Покрытие ограничено рецептурами пилота."
+    }
+  ],
+  "evidence": {
+    "source": "ai-readiness/pilots/settings-form/component-baseline.md",
+    "baseline": "ai-readiness/pilots/settings-form/evidence.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "ghost": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "pressed"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "hover"
+      ],
+      [
+        "foreground",
+        "pressed"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "pressed"
+      ],
+      [
+        "border",
+        "disabled"
+      ]
+    ],
+    "focus": [
+      [
+        "ring"
+      ]
+    ]
+  }
+}

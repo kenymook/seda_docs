@@ -1,0 +1,231 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "kind": {
+      "const": "seda-component-contract"
+    },
+    "id": {
+      "enum": [
+        "Button",
+        "IconButton",
+        "TextField"
+      ]
+    },
+    "api": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "typesFile": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "implementationFile": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "export": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "nativeElement": {
+          "enum": [
+            "button",
+            "input"
+          ]
+        }
+      },
+      "required": [
+        "typesFile",
+        "implementationFile",
+        "export",
+        "nativeElement"
+      ]
+    },
+    "anatomy": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/slot"
+      },
+      "minItems": 1
+    },
+    "targetDefaults": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "states": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "enabled",
+              "disabled"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "activity": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "idle",
+              "loading"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "validation": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "none",
+              "error"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "interaction": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "hovered",
+              "focused",
+              "active"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "empty",
+              "filled"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "availability",
+        "activity",
+        "validation",
+        "interaction",
+        "data"
+      ]
+    },
+    "pilotVariants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "tokenBranches": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/rule"
+      },
+      "minItems": 1
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/capability"
+      },
+      "minItems": 0
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "baseline": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "runtimeStatus": {
+          "const": "not-checked"
+        }
+      },
+      "required": [
+        "source",
+        "baseline",
+        "runtimeStatus"
+      ]
+    },
+    "tokenRequirements": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "api",
+    "anatomy",
+    "targetDefaults",
+    "states",
+    "pilotVariants",
+    "tokenBranches",
+    "rules",
+    "capabilities",
+    "evidence",
+    "tokenRequirements"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:seda:component:0.1.0"
+}

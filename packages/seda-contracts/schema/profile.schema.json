@@ -1,0 +1,277 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "kind": {
+      "const": "seda-profile"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "scope": {
+      "const": "web-pointer-keyboard"
+    },
+    "configuration": {
+      "$ref": "urn:seda:common:0.1.0#/definitions/configuration"
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "containerMaxWidth": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "containerWidth": {
+          "const": "100%"
+        },
+        "containerBoxSizing": {
+          "const": "border-box"
+        },
+        "containerPadding": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "headingToFields": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "labelToControl": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "controlToMessage": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "fieldGap": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "fieldsToActions": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        },
+        "actionsGap": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+        }
+      },
+      "required": [
+        "containerMaxWidth",
+        "containerWidth",
+        "containerBoxSizing",
+        "containerPadding",
+        "headingToFields",
+        "labelToControl",
+        "controlToMessage",
+        "fieldGap",
+        "fieldsToActions",
+        "actionsGap"
+      ]
+    },
+    "recipes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "save": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "component": {
+              "enum": [
+                "Button",
+                "IconButton",
+                "TextField"
+              ]
+            },
+            "props": {
+              "type": "object"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "enum": [
+                  "configuration.controlSize",
+                  "form.projectName",
+                  "form.fieldError",
+                  "form.saving",
+                  "form.helpExpanded"
+                ]
+              }
+            },
+            "visibleExplanation": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "component",
+            "props",
+            "bindings"
+          ]
+        },
+        "cancel": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "component": {
+              "enum": [
+                "Button",
+                "IconButton",
+                "TextField"
+              ]
+            },
+            "props": {
+              "type": "object"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "enum": [
+                  "configuration.controlSize",
+                  "form.projectName",
+                  "form.fieldError",
+                  "form.saving",
+                  "form.helpExpanded"
+                ]
+              }
+            },
+            "visibleExplanation": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "component",
+            "props",
+            "bindings"
+          ]
+        },
+        "help": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "component": {
+              "enum": [
+                "Button",
+                "IconButton",
+                "TextField"
+              ]
+            },
+            "props": {
+              "type": "object"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "enum": [
+                  "configuration.controlSize",
+                  "form.projectName",
+                  "form.fieldError",
+                  "form.saving",
+                  "form.helpExpanded"
+                ]
+              }
+            },
+            "visibleExplanation": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "component",
+            "props",
+            "bindings"
+          ]
+        },
+        "projectName": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "component": {
+              "enum": [
+                "Button",
+                "IconButton",
+                "TextField"
+              ]
+            },
+            "props": {
+              "type": "object"
+            },
+            "bindings": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "enum": [
+                  "configuration.controlSize",
+                  "form.projectName",
+                  "form.fieldError",
+                  "form.saving",
+                  "form.helpExpanded"
+                ]
+              }
+            },
+            "visibleExplanation": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "component",
+            "props",
+            "bindings"
+          ]
+        }
+      },
+      "required": [
+        "save",
+        "cancel",
+        "help",
+        "projectName"
+      ]
+    },
+    "formPolicy": {
+      "$ref": "urn:seda:common:0.1.0#/definitions/policy"
+    },
+    "copy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "helpText": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "helpText"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/capability"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "scope",
+    "configuration",
+    "layout",
+    "recipes",
+    "formPolicy",
+    "copy",
+    "capabilities"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:seda:profile:0.1.0"
+}
