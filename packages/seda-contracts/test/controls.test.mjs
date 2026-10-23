@@ -196,7 +196,7 @@ test("All eight common compiled profiles contain selection and navigation contra
       const compiled = engine.compile(engine.bundle.profile, {
         overrides: { theme, controlSize },
       });
-      assert.deepEqual(Object.keys(compiled.controls), [...names, "Tabs", "DropdownMenu", "Tree"]);
+      assert.deepEqual(Object.keys(compiled.controls), [...names, "Tabs", "DropdownMenu", "Tree", "TextArea"]);
       for (const name of names) {
         assert.equal(compiled.controls[name].component, name);
         assert.ok(

@@ -18,3 +18,5 @@ export * from "./components/Tree";
 
 export { SedaProvider, useSedaConfiguration } from "./foundation/SedaProvider";
 export type { SedaConfiguration, SedaProviderProps } from "./foundation/SedaProvider";
+
+export * from "./components/TextArea";

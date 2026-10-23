@@ -57,3 +57,10 @@
 - Tree: nested roles, single/multiple selection, independent expansion/focus, disabled inheritance, keyboard/range/typeahead/RTL, controlled rejection и focus repair. Canonical Tree tokens включены в public stylesheet/provenance; sizes берутся из общего профиля.
 - Десятый compiler contract и web bindings; React 18/19 installed proof, SSR/Strict hydration, 14 aggregate DOM/compiler snapshots, 32 profile/width samples. Проверка пакета теперь 19 групп, а не 19 независимых пользовательских сценариев.
 - Editor использует реальный Tree, синхронизирует label/selection с inspector/preview/history и сохраняет view вместе с model/panels. Исправлен crash на whitespace label при редактировании; незаполненный текст продолжает блокировать save.
+
+## Unreleased — TextArea и D30
+
+- Общий native TextArea с forwardRef, label/hint/error, controlled/uncontrolled value, rows, autoResize/maxRows, manual resize, clear и UTF-16 counter. Общие theme/size/X/Y, собственная text-area token branch; одиннадцатый compiler/API/schema contract и web binding.
+- Иcправлены RTL порядок счётчика, сохранение ручной высоты, precedence disabled+readOnly и active paint. Clear/focus, rejected controlled edits, native form reset и composition forwarding проверены в installed consumers.
+- Public package теперь18 компонентов +provider/hook,20 runtime exports. Package verifier21 aggregate groups,113 app groups и115 authored contract tests — разные области проверки, не взаимозаменяемые доказательства готовности.
+- Building использует настоящий TextArea для многострочных локальных комментариев; draft через close/reopen и сохранение/reload проверены. Полный chat/composer ещё не реализован.

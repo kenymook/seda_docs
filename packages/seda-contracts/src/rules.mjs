@@ -2,7 +2,7 @@ import { componentNames } from './registry.mjs';
 import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
 const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -26,7 +26,7 @@ export function deriveState(component, props, interaction = {}) {
   const menu = component === 'DropdownMenu' ? deriveMenu(props) : undefined;
   const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
-  const error = ['TextField','Select','Checkbox','Radio'].includes(component) && content(props.errorText) !== 'empty';
+  const error = ['TextField','TextArea','Select','Checkbox','Radio'].includes(component) && content(props.errorText) !== 'empty';
   const focused = interaction.focused ?? false;
   const hovered = interaction.hovered ?? false;
   const active = interaction.active ?? false;
@@ -35,8 +35,8 @@ export function deriveState(component, props, interaction = {}) {
     activity: loading ? 'loading' : 'idle',
     validation: disabled ? 'none' : error ? 'error' : 'none',
     interaction: { hovered, focused, active },
-    data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (['TextField','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','TextArea','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : component==='TextArea'&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
     ...(tabs ? { tabs } : {}),
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
@@ -157,6 +157,16 @@ export function evaluateRules(contract, props) {
         if (props.open !== undefined && (props.defaultOpen !== undefined || !handler(props.onOpenChange))) violate('Controlled menu requires onOpenChange and excludes defaultOpen.');
         if (props.iconOnly && content(props.triggerIcon) === 'empty') violate('Icon-only menu trigger needs triggerIcon.');
         break;
+      case 'textarea-value':
+        if(props.value!==undefined&&(typeof props.value!=='string'||props.defaultValue!==undefined||!handler(props.onChange)&&!props.readOnly&&!props.disabled))violate('Controlled TextArea requires string value and onChange or readOnly/disabled, without defaultValue.');
+        if(props.defaultValue!==undefined&&typeof props.defaultValue!=='string')violate('TextArea defaultValue must be a string.');
+        if(props.clearable&&props.value!==undefined&&!handler(props.onClear))violate('Controlled clearable TextArea requires onClear.');
+        break;
+      case 'textarea-layout': {
+        const rows=props.rows??3;
+        if(!Number.isInteger(rows)||rows<1||props.maxRows!==undefined&&(!props.autoResize||!Number.isInteger(props.maxRows)||props.maxRows<rows))violate('Positive integer rows; maxRows requires autoResize and must be >= rows.');
+        break;
+      }
       case 'controlled-value':
         if (typeof props.value !== 'string' || !props.onChange || own(props, 'defaultValue')) violate('The pilot field requires value:string and onChange, without defaultValue.');
         else if (own(props, 'filled') && props.filled !== (props.value.length > 0)) violate('filled must follow the raw current value length.');

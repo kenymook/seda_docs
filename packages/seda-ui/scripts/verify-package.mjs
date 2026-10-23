@@ -3,6 +3,7 @@ import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
 import { verifyMenu } from "./verify-menu.mjs";
 import { verifySplitView } from "./verify-split-view.mjs";
+import { verifyTextArea } from "./verify-textarea.mjs";
 import { verifyTree } from "./verify-tree.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -147,7 +148,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 19);
+        assert.equal(result.exports.length, 20);
+        assert.ok(result.exports.includes("TextArea"));
         assert.ok(result.exports.includes("Tree"));
         assert.ok(result.exports.includes("SplitView"));
         assert.ok(result.exports.includes("DropdownMenu"));
@@ -161,7 +163,12 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const area=<TextArea label="Message" rows={1} autoResize maxRows={8} clearable value="draft" onChange={()=>{}} onClear={()=>{}}/>;
+// @ts-expect-error label is required
+const namelessArea=<TextArea/>;
+// @ts-expect-error no arbitrary resizing modes
+const invalidArea=<TextArea label="Message" resize="both"/>;
 const tree=<Tree label="Layers" items={[{id:'frame',label:'Frame',children:[{id:'child',label:'Child'}]}]} selectionMode="multiple"/>;
 // @ts-expect-error accessible label required
 const namelessTree=<Tree items={[]}/>;
@@ -348,6 +355,7 @@ configuration.controlSize='s';return null;}`,
       verifySplitView({cwd,browser,version}),
     );
     await check("react-" + version + "-tree", () => verifyTree({cwd,browser,version}));
+    await check("react-"+version+"-textarea",()=>verifyTextArea({cwd,browser,version}));
   }
 } catch (error) {
   results.push({

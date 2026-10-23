@@ -25,6 +25,7 @@ export function buildThemeAssets(packageRoot, output) {
       ),
     ]),
   );
+  const textAreaContract=JSON.parse(fs.readFileSync(path.join(repo,'packages/seda-contracts/contracts/TextArea.json'),'utf8'));
   const stylesBytes = fs.readFileSync(path.join(packageRoot, "src/styles.css"));
   const providerBytes = fs.readFileSync(
     path.join(packageRoot, "src/provider.css"),
@@ -45,6 +46,7 @@ export function buildThemeAssets(packageRoot, output) {
     schemaVersion: "0.1.0",
     sources: {
       "tokens.json": hash(tokensBytes),
+      "packages/seda-contracts/contracts/TextArea.json":hash(fs.readFileSync(path.join(repo,"packages/seda-contracts/contracts/TextArea.json"))),
       "packages/seda-contracts/system.json": hash(systemBytes),
       "packages/seda-ui/src/styles.css": hash(stylesBytes),
       "packages/seda-ui/src/provider.css": hash(providerBytes),
@@ -74,6 +76,7 @@ export function buildThemeAssets(packageRoot, output) {
       ? resolver.resolve(value, { theme })
       : { ...value, cssValue: value.value + "px" };
   for (const theme of system.supportedThemes) {
+    for(const suffix of textAreaContract.tokenRequirements.default)resolver.resolve({collection:textAreaContract.tokenBranches.default.collection,path:[...textAreaContract.tokenBranches.default.path,...suffix],expectedType:"color"},{theme});
     const key = system.themeAdapter[theme],
       variables = new Map(),
       evidence = [];

@@ -99,3 +99,15 @@ Tabs проверяется отдельным installed consumer в соста�
 ```tsx
 <Tree label="Слои" items={[{id:"frame",label:"Frame",children:[{id:"title",label:"Заголовок"}]}]} defaultExpandedIds={["frame"]}/>
 ```
+
+## TextArea — multiline input (experimental)
+
+TextArea использует общие S/M/L/XL и собственные canonical `text-area` tokens. [API и ownership D30](../../packages/seda-contracts/TEXTAREA-CONTRACT.md). Rows/native editing, controlled/uncontrolled value, readOnly/disabled/error, counter и clear; autoResize/maxRows ограничивают рост, после cap прокручивается поле. Enter остаётся native вводом новой строки; submit/IME policy принадлежит composer. Ручная высота не сбрасывается при вводе. Native reset поддержан для uncontrolled value; controlled reset — у формы.
+
+```tsx
+<TextArea label="Сообщение" value={message} onChange={e=>setMessage(e.target.value)}
+  rows={1} autoResize maxRows={8} clearable onClear={()=>setMessage('')}
+  showCount maxLength={4000}/>
+```
+
+Компонент зарегистрирован одиннадцатым executable contract. Installed React18/19 proofs включают SSR/Strict hydration и DOM/profile measurements. Это не приёмка40 Figma variants, реального IME на каждой ОС, screen reader или native desktop shell. Clear label сейчас русский; общей i18n модели внутренних подписей ещё нет.

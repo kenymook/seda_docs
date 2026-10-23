@@ -2,7 +2,7 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / web behavior verified
 > **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [TextArea](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2187-3331)
@@ -269,3 +269,9 @@ Figma component set: `TextArea`. Variants: 40.
 - Прятать обязательный label, error или instruction в Tooltip.
 - Добавлять неподтвержденные variants, props или token paths.
 - Передавать handoff без keyboard и accessibility behavior.
+
+## Runtime implementation — 23 октября 2026
+
+Public `@seda-ai/ui` теперь содержит TextArea; [D30](../../packages/seda-contracts/TEXTAREA-CONTRACT.md) фиксирует API/ownership/layout и границы проверки. Source TypeScript, compiler contract и CSS используют существующую text-area ветку. Runtime additions: native rows; autoResize/maxRows; resize vertical/none; hideLabel; showCount; clearable/onClear. Default rows3, autoResize/hideLabel/showCount/clearable false; resize vertical; size наследуется от SedaProvider, standalone m. Это не подтверждение полного совпадения40 Figma variants. До фактического browser/visual review статус не ready.
+
+Runtime не принимает state/filled: hover/focus/active принадлежат native interaction, disabled/readOnly — native props, error — непустому errorText; filled и counter следуют текущему value. Проверенное web поведение и ограничения описаны в [review](../../docs/library/TEXTAREA-REVIEW.md).

@@ -33,6 +33,7 @@ const requiredChecks = {
   Tabs: [['text-content', 'label'], ['tabs-items'], ['tabs-selection']],
   DropdownMenu: [['text-content', 'triggerLabel'], ['menu-items'], ['menu-open']],
   Tree: [['text-content','label'],['tree-items'],['tree-state']],
+  TextArea: [['text-content','label'],['textarea-value'],['textarea-layout'],['error-message'],['native-disabled']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {

@@ -19,7 +19,8 @@
         "Toggle",
         "Tabs",
         "DropdownMenu",
-        "Tree"
+        "Tree",
+        "TextArea"
       ]
     },
     "api": {
@@ -47,7 +48,8 @@
             "input",
             "select",
             "fieldset",
-            "div"
+            "div",
+            "textarea"
           ]
         }
       },

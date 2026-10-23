@@ -34,8 +34,8 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 17 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 10 компонентов, 8 профилей, API/state/token validation; 111 unit checks с foundation binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Кодовый каталог | 18 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
+| Исполняемые контракты | 11 компонентов, 8 профилей, API/state/token validation; 115 unit checks с foundation binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 55+21+12 browser checks; Recents и Building — отдельные reference entries | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
 | Реальный consumer | 17/17 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
@@ -157,3 +157,9 @@ Building (1:84) опубликован в version15 на том же owner-priva
 Version16: исходная content typography Building и list guides восстановлены с отдельным профилем SEDA controls; structural mutations отклоняются до изменения принятого draft/history, rejected input возвращает видимый текст. Publication112 browser +5 model groups PASS; production375 hashes, фактический Segoe UI и depth guard подтверждены. [Детали и ограничения](REFERENCE-BUILDING-REVIEW.md#version16--опубликованный-результат-доработки). Визуальная приёмка по-прежнему открыта.
 
 Для следующего обязательного [chat screen1:3894](REFERENCE-CHAT-HANDOFF.md) получен отдельный design context восьми sublayers и QA screenshot. Это подготовка, не реализация и не приёмка. Следующий рабочий шаг — общий TextArea/Composer и связанный thread/message/activity flow на установленном пакете; девять экранов и четыре класса приложений остаются полной целью.
+
+## Продвижение: общий TextArea
+
+[TextArea review](TEXTAREA-REVIEW.md):18-й public component,11-й executable contract, installed React18/19 proof21 groups,115 authored contract tests; первый реальный consumer — многострочный комментарий Building. Общие X/Y/theme/size применяются к нему через compiler, input/resize/state ownership проверены. Это подготовка общего multiline primitive; chat/composer и1:3894 не объявляются готовыми.
+
+Предыдущий CI39998965507, job120569761098, commit c0fe956, завершился success: исправленное ожидание focus Recents подтверждено. Его результат относится к version16, не к новым TextArea изменениям.

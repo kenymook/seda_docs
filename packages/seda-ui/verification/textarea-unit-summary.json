@@ -1,0 +1,9 @@
+{
+  "scope": "Authored contracts and APIs; not browser/AT",
+  "command": "node --test --test-isolation=none packages/seda-contracts/test/*.test.mjs",
+  "exitCode": 0,
+  "tests": 115,
+  "passed": 115,
+  "failed": 0,
+  "source": "Node test runner completion observed in this change"
+}

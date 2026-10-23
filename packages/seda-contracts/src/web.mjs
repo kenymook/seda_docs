@@ -116,6 +116,13 @@ export function createTabsWebBindings(control) {
   return { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } };
 }
 
+export function createTextAreaWebBindings(control){
+ const at='/controls/TextArea';if(control?.component!=='TextArea'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled TextArea with required roles.');
+ const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['text-area'],at+'/tokenBranch','--');
+ for(const [key,name]of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',borderWidth:'border-width',textFieldPaddingInline:'field-padding'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='borderWidth'&&key!=='textFieldPaddingInline'}),at+'/geometry/'+key);
+ return{vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'TextArea'}};
+}
+
 export function createTreeWebBindings(control) {
   const at='/controls/Tree';
   if(control?.component!=='Tree'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled Tree and required roles.');
@@ -224,7 +231,7 @@ export function createWebBindings(compiled) {
       evidence: target.evidence,
     };
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
+  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), TextArea:createTextAreaWebBindings(compiled.controls?.TextArea), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

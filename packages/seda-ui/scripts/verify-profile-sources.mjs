@@ -65,6 +65,7 @@ export async function verifyProfileSources(root) {
       bindings.push(['--tabs-indicator-selected', compiled.controls.Tabs.tokenBranch.children.indicator.selected], ['--tabs-pill-surface-selected', compiled.controls.Tabs.tokenBranch.children.pill.surface.selected]);
       bindings.push(['--dropdown-menu-surface-default',compiled.controls.DropdownMenu.tokenBranch.children.surface.default],['--dropdown-menu-item-surface-hover',compiled.controls.DropdownMenu.tokenBranch.children.item.surface.hover],['--status-danger-text',compiled.controls.DropdownMenu.semanticAdapters['--status-danger-text']]);
       bindings.push(['--surface-base',compiled.foundationTokens.surface],['--border-subtle',compiled.foundationTokens.separator],['--focus-ring',compiled.foundationTokens.focus]);
+      for(const path of [['surface','default'],['surface','error'],['surface','disabled'],['surface','read-only'],['border','active'],['focus','ring'],['counter','default'],['label','read-only']])bindings.push(['--text-area-'+path.join('-'),path.reduce((node,key)=>node[key],compiled.controls.TextArea.tokenBranch.children)]);
       bindings.push(['--tree-row-surface-selected',compiled.controls.Tree.tokenBranch.children.row.surface.selected],['--tree-focus-ring',compiled.controls.Tree.tokenBranch.children.focus.ring]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -90,7 +91,7 @@ export async function verifyProfileSources(root) {
     await fs.mkdir(output);
     await fs.mkdir(path.join(temp, "packages/seda-contracts"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/contracts"));
-    for (const name of ["Button", "IconButton"])
+    for (const name of ["Button", "IconButton", "TextArea"])
       await fs.copyFile(
         path.join(repo, "packages/seda-contracts/contracts", name + ".json"),
         path.join(temp, "packages/seda-contracts/contracts", name + ".json"),
