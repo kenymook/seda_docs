@@ -35,7 +35,7 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 ## Границы зрелости
 
-13 component exports и foundation API не означают готовность всей библиотеки. Семь контролов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
+14 component exports и foundation API не означают готовность всей библиотеки. Семь контролов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
 
 Следующие обязательные направления: полная матрица взаимодействий и доступности, навигация/overlays/data-компоненты, документация и политика совместимости. WCAG-сертификация, Firefox/WebKit, screen readers и native desktop shell этими тестами не подтверждаются.
 
@@ -56,3 +56,9 @@ import '@seda-ai/ui/styles.css';
 Вложенные providers наследуют неуказанные настройки. Defaults — light/m; React state сохраняется при смене профиля. `useSedaConfiguration()` возвращает readonly frozen snapshot. CSS и `profiles.json` генерируются из настоящих `tokens.json` и contract system при build в монорепозитории; в consumer исходники и resolver не требуются. Метаданные доступны как `@seda-ai/ui/profiles.json` и не добавляются к JS entry автоматически. Без provider сохраняется каноническая геометрия явно заданных размеров, но для общей темы нужен provider.
 
 Проверка включает 24 сочетания theme/size/width на каждом React runtime, четыре размера без provider, nested scopes, local overrides и loading при смене профиля. Reduced motion/forced colors — smoke checks, без заявления полной accessibility-сертификации. Стили импортируются явно; для source alias всё ещё нужен build CSS, эталонный способ потребления — установленный пакет.
+
+## Вкладки рабочих панелей
+
+`Tabs` поддерживает line/pill, наследуемый размер, controlled/uncontrolled выбор, automatic/manual activation, RTL keyboard и сохранение mounted panels. [Полный API и границы](../../specs/navigation/tabs.md#14-react-implementation--experimental). Импорт: `import { Tabs } from "@seda-ai/ui"`. Требуются `label` списка и items с value/label/content.
+
+Tabs проверяется отдельным installed consumer в составе verify:package; это не означает регистрацию восьмого компонента в общем compiler. Полных editor primitives и четырёх reference applications пока нет.

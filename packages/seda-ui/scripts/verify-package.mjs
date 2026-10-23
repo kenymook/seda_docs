@@ -1,5 +1,6 @@
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
+import { verifyTabs } from "./verify-tabs.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import assert from "node:assert/strict";
@@ -143,7 +144,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 15);
+        assert.equal(result.exports.length, 16);
+        assert.ok(result.exports.includes("Tabs"));
         assert.ok(result.exports.includes("SedaProvider"));
         assert.ok(result.exports.includes("useSedaConfiguration"));
         assert.match(result.html, /<select/);
@@ -153,9 +155,16 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
 // @ts-expect-error unknown Button variant must not become any
 const badVariant=<Button variant="invented">Save</Button>;
+const goodTabs=<Tabs label="Panels" items={[{value:'a',label:'A',content:'Panel'}]} activationMode="manual"/>;
+// @ts-expect-error no invented orientation in the public horizontal Tabs API
+const badTabs=<Tabs label="Panels" items={[]} orientation="vertical"/>;
+// @ts-expect-error tab label is required for an accessible relationship
+const missingTabsLabel=<Tabs items={[]}/>;
+// @ts-expect-error undocumented variant is rejected
+const badTabsVariant=<Tabs label="Panels" items={[]} variant="invented"/>;
 // @ts-expect-error options are required by the public Select interface
 const missingOptions=<Select label="Team"/>;
 // @ts-expect-error checked is boolean
@@ -193,7 +202,7 @@ configuration.controlSize='s';return null;}`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 6 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 9 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -298,6 +307,9 @@ configuration.controlSize='s';return null;}`,
     );
     await check("react-" + version + "-provider-profiles", () =>
       verifyProfiles({ cwd, browser, version }),
+    );
+    await check("react-" + version + "-tabs-navigation", () =>
+      verifyTabs({ cwd, browser, version }),
     );
   }
 } catch (error) {

@@ -190,7 +190,7 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 
 ### Token gaps
 
-- Если нужен отдельный focus token для Tabs, зафиксируйте `Token gap` и используйте общий focus contract из foundation.
+- В актуальном tokens.json присутствует `tabs/focus/ring`; React использует его. Отдельные geometry tokens Tabs отсутствуют: adapter использует общий system size profile (height, font, field padding, gap, radius), без новой таблицы пресетов.
 - Не используйте raw colors для selected indicator, pill surface или disabled state.
 - Component tokens являются source of truth для Figma, code и handoff.
 
@@ -278,3 +278,23 @@ Figma component set: `Tabs`. Node id: `6196:25`.
 - Делать selected state только цветом без indicator или semantic state.
 - Добавлять icon-only tabs без accessible name.
 - Уменьшать labels до нечитаемости вместо responsive overflow/adaptation.
+
+## 14. React implementation — experimental
+
+Публичный `Tabs` поставляется в `@seda-ai/ui`. Design status выше не означает полную готовность кода. Текущий API — горизонтальные `line`/`pill`, размеры из SedaProvider или явного `size`.
+
+```tsx
+<Tabs label="Панели документа" activationMode="manual" items={[
+  { value: 'properties', label: 'Свойства', content: <PropertiesForm /> },
+  { value: 'history', label: 'История', content: <History /> },
+]} />
+```
+
+- `items` содержит `value`, непустой текстовый `label`, optional `icon`/`disabled` и `content`. Поле content добавлено для единого владения связью tab/panel и сохранения mounted state. Icon-only режим не реализован.
+- `value` + `onValueChange` управляют выбором. Без value используется `defaultValue` и внутреннее состояние. Изменение defaultValue после mount не меняет выбор. Callback вызывается при пользовательской активации другой доступной вкладки, не при перестройке items.
+- Если выбранный value отсутствует или disabled, отображается первая доступная вкладка. Для uncontrolled состояния fallback сохраняется; controlled значение остаётся ответственностью host. Пустой/полностью disabled список имеет ноль выбранных и доступных для Tab вкладок.
+- Панели остаются смонтированными и переключаются через hidden. Локальное состояние полей сохраняется. Скрытые поля остаются частью формы: validation/error summary и сохранение принадлежат host. Lazy/unmount, URL routing и close/reorder не реализованы.
+- ArrowLeft/Right, Home/End, wrap и skip disabled; automatic activation — default. В manual режиме Enter/Space активируют сфокусированную вкладку. После выхода и возвращения Tab фокус получает выбранная вкладка. RTL меняет направление стрелок согласно DOM direction.
+- После удаления/отключения сфокусированной вкладки фокус восстанавливается в этом списке. Тема/размер не забирают фокус из panel или внешнего элемента. Длинные названия сохраняют размер: tablist прокручивается горизонтально, focus ring расположен внутри tab.
+- State colors используют существующие `tabs/*`: foreground, indicator, item surface/icon, pill surface/border/foreground/icon, focus/ring и list/surface. Генератор отклоняет отсутствующие использованные component leaves.
+- [Consumer runner](../../packages/seda-ui/scripts/verify-tabs.mjs): установленный tarball React 18/19, SSR/hydration, keyboard/state и Light/Dark × S–XL × line/pill × 900/390. Это behavior proof; регистрация Tabs в общем instance compiler ещё не выполнена. Не заявлены screen reader аудит, Firefox/WebKit, vertical orientation, native desktop runtime и long-list virtualization.

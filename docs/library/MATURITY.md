@@ -32,7 +32,7 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 13 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
+| Кодовый каталог | 14 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
 | Исполняемые контракты | 7 контролов, 8 профилей, API/state/token validation, 93 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда; 55+14+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
@@ -70,3 +70,7 @@
 93 unit tests подтверждают API defaults/provenance, token resolver и существующие rules. Поведение остальных компонентов, полные contract variants, навигация/overlays/editor primitives и четыре целевых класса приложений остаются незавершёнными. Следующий общий кодовый слой — навигация, панели и команды по существующим specs.
 
 Удалённая проверка public provider: [run 39954141798](https://github.com/kenymook/seda_docs/actions/runs/39954141798), commit `13acd516fc11b84757777b44fd0279ad42f22601`: package 11/11, contracts 93/93, TypeScript, build и Lab/workspace/controls 81/81 — success на чистом Ubuntu/Node 24.
+
+## Продвижение: Tabs рабочих панелей
+
+Первый public navigation component — Tabs (line/pill) с keyboard/RTL, controlled state, hidden mounted panels и focus repair. Installed consumer React 18/19 проверяет SSR/hydration и 64 комбинации профиля/варианта/ширины суммарно. Navigation proof добавляет две группы к package verifier: локально 13/13. Это ещё не восьмой instance contract общего compiler и не полноценная workspace navigation. Следующая работа: подключить Tabs к contract layer, затем overlays/menus, resizable panels, Tree и commands. Общий objective остаётся активным.
