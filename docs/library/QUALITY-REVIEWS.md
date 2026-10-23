@@ -43,3 +43,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## Building — локальная проверка документа
 
 [Review](REFERENCE-BUILDING-REVIEW.md) разделяет 5 model и 12 browser groups, 24 вложенных profile samples и незавершённое визуальное соответствие. Сравнение source/actual показывает отличия шрифта, переносов, sidebar/Tree surfaces, контраста и дополнительных команд. Геометрический PASS не закрывает эти расхождения. Проверка выделения между блоками выявила риск обработки Enter/Delete в чужом диапазоне; добавлены guard и отдельный сценарий с границами на Element. Общая цель и визуальная приёмка остаются открытыми.
+
+## Building — различие declared и фактически отрисованного шрифта
+
+[Продолжение review](REFERENCE-BUILDING-REVIEW.md#доработка-типографики-и-границ-изменений): source Segoe UI16/26 и regular headings восстановлены в content surface, Inter controls сохранён. Проверяется не только computed font-family: CDP возвращает actual platform font и число glyphs. На Windows подтверждён Segoe UI; на Linux/Mac используется fallback и нельзя обещать те же переносы. Визуальное соответствие всё ещё требует приёмки. Структурная команда сверх глубины отклоняется до изменения модели/history; rejected typing/paste восстанавливают DOM по принятой модели.
