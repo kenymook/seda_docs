@@ -1,7 +1,7 @@
 {
   "kind": "seda-ui-package-proof",
   "date": "2026-10-23",
-  "passed": 8,
+  "passed": 11,
   "failed": 0,
   "results": [
     {
@@ -9,8 +9,8 @@
       "status": "passed",
       "evidence": {
         "filename": "seda-ai-ui-0.1.0.tgz",
-        "files": 93,
-        "integrity": "sha512-MhCBkOzuqM437blfbDr+2US8u8x9VEhwv68ejKvI2WjBvkjnYVmzTiITyxw7Qh3lGBOr1GZ1CEVcJIKu/tCNAQ=="
+        "files": 97,
+        "integrity": "sha512-fWjNtyln/y4KwPeMN6tCVeTaxy+3NrpEwJM6h8eQU33gcfOmZ5Dn/iz0K1qIZL65qav3iCSOIpWEgQrQfOHohA=="
       }
     },
     {
@@ -18,7 +18,17 @@
       "status": "passed",
       "evidence": {
         "identical": true,
-        "artifacts": 89
+        "artifacts": 93
+      }
+    },
+    {
+      "name": "public-profile-sources-and-missing-state",
+      "status": "passed",
+      "evidence": {
+        "profilesMatchedToCompiler": 8,
+        "colourAndProvenanceBindingsMatched": 64,
+        "sourceHashesMatched": true,
+        "missingStateRejected": true
       }
     },
     {
@@ -34,11 +44,13 @@
           "IconButton",
           "Link",
           "Radio",
+          "SedaProvider",
           "Select",
           "Tag",
           "TextField",
           "Toast",
-          "Toggle"
+          "Toggle",
+          "useSedaConfiguration"
         ],
         "ssrRendered": true,
         "warningCount": 0
@@ -49,14 +61,14 @@
       "status": "passed",
       "evidence": {
         "moduleResolution": "NodeNext",
-        "negativeTypeChecks": 3
+        "negativeTypeChecks": 6
       }
     },
     {
       "name": "react-18.3.1-hydration-css-and-behavior",
       "status": "passed",
       "evidence": {
-        "cssBytes": 42508,
+        "cssBytes": 127315,
         "sourceAlias": false,
         "hydrationErrors": [],
         "loadingDelta": {
@@ -64,6 +76,32 @@
           "height": 0
         },
         "requests": 1
+      }
+    },
+    {
+      "name": "react-18.3.1-provider-profiles",
+      "status": "passed",
+      "evidence": {
+        "version": "18.3.1",
+        "configurationMeasurements": 24,
+        "sourceAlias": false,
+        "ssr": true,
+        "invalidConfigurationRejected": true,
+        "configurationFrozen": true,
+        "hydrationErrors": [],
+        "loadingAcrossProfile": {
+          "width": 0,
+          "height": 0
+        },
+        "shortLoadingAcrossProfile": {
+          "width": 0,
+          "height": 0
+        },
+        "stateRetained": true,
+        "reducedMotion": true,
+        "forcedColorsSmoke": true,
+        "bareSizeConfigurations": 4,
+        "actionStateSnapshots": 120
       }
     },
     {
@@ -79,11 +117,13 @@
           "IconButton",
           "Link",
           "Radio",
+          "SedaProvider",
           "Select",
           "Tag",
           "TextField",
           "Toast",
-          "Toggle"
+          "Toggle",
+          "useSedaConfiguration"
         ],
         "ssrRendered": true,
         "warningCount": 0
@@ -94,14 +134,14 @@
       "status": "passed",
       "evidence": {
         "moduleResolution": "NodeNext",
-        "negativeTypeChecks": 3
+        "negativeTypeChecks": 6
       }
     },
     {
       "name": "react-19.2.7-hydration-css-and-behavior",
       "status": "passed",
       "evidence": {
-        "cssBytes": 42508,
+        "cssBytes": 127315,
         "sourceAlias": false,
         "hydrationErrors": [],
         "loadingDelta": {
@@ -110,28 +150,42 @@
         },
         "requests": 1
       }
+    },
+    {
+      "name": "react-19.2.7-provider-profiles",
+      "status": "passed",
+      "evidence": {
+        "version": "19.2.7",
+        "configurationMeasurements": 24,
+        "sourceAlias": false,
+        "ssr": true,
+        "invalidConfigurationRejected": true,
+        "configurationFrozen": true,
+        "hydrationErrors": [],
+        "loadingAcrossProfile": {
+          "width": 0,
+          "height": 0
+        },
+        "shortLoadingAcrossProfile": {
+          "width": 0,
+          "height": 0
+        },
+        "stateRetained": true,
+        "reducedMotion": true,
+        "forcedColorsSmoke": true,
+        "bareSizeConfigurations": 4,
+        "actionStateSnapshots": 120
+      }
     }
   ],
-  "audit": {
-    "info": 0,
-    "low": 0,
-    "moderate": 0,
-    "high": 0,
-    "critical": 0,
-    "total": 0
-  },
   "ci": {
-    "run": "https://github.com/kenymook/seda_docs/actions/runs/39946528027",
-    "commit": "b680ca9751b1db921c7778ca4dc6238d279d011b",
-    "platform": "ubuntu-latest",
-    "node": 24,
-    "conclusion": "success",
-    "scope": [
-      "clean installs",
-      "package consumer proof",
-      "90 contracts tests",
-      "TypeScript",
-      "81 browser checks"
-    ]
+    "status": "pending",
+    "reason": "await clean remote run for provider changes"
+  },
+  "assets": {
+    "cssBytes": 125946,
+    "cssGzipBytes": 14679,
+    "optionalProfilesBytes": 869057,
+    "profilesLoadedByDefault": false
   }
 }

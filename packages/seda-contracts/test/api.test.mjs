@@ -215,3 +215,25 @@ test('binding domains are closed and native data attributes remain bindable', ()
   assert.equal(inspector.validateBindingTypes('TextField', { inventedProp: 'string' })[0].code, 'BINDING_TYPE_MISMATCH');
   assert.equal(inspector.validateBindingTypes('Missing', {})[0].code, 'API_UNKNOWN_COMPONENT');
 });
+test('contextual size defaults retain explicit standalone provenance', () => {
+  for (const name of ['Button','IconButton','TextField','Select','Checkbox','Radio','Toggle']) {
+    const metadata=inspector.get(name);
+    assert.equal(metadata.observedDefaults.size,'m');
+    assert.deepEqual(metadata.defaultSources.size,{sourcePath:'packages/seda-ui/src/foundation/SedaProvider.tsx',scope:'standalone-fallback',providerOverride:true});
+  }
+});
+test('context fallback drift and unsupported helper rewrites cannot pass source audit', () => {
+  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'seda-context-regression-'));
+  try {
+    fs.cpSync(path.join(repoRoot,'packages/seda-ui/src'),path.join(temp,'packages/seda-ui/src'),{recursive:true});
+    const file=path.join(temp,'packages/seda-ui/src/foundation/SedaProvider.tsx');
+    const original=fs.readFileSync(file,'utf8');
+    assert.match(original,/controlSize: "m"/);
+    fs.writeFileSync(file,original.replace('controlSize: "m"','controlSize: "giant"'));
+    const changed=createApiInspector({repoRoot:temp});
+    assert.equal(changed.get('Button').observedDefaults.size,'giant');
+    assert.ok(changed.auditDefaults('Button').some(i=>i.code==='API_DEFAULT_OUTSIDE_TYPE'));
+    fs.writeFileSync(file,original.replace('size ?? configuration.controlSize','size ?? "m"'));
+    assert.throws(()=>createApiInspector({repoRoot:temp}),/size fallback\/context protocol changed/);
+  } finally { assert.equal(path.dirname(temp),path.resolve(os.tmpdir())); assert.ok(path.basename(temp).startsWith('seda-context-regression-')); fs.rmSync(temp,{recursive:true,force:true}); }
+});

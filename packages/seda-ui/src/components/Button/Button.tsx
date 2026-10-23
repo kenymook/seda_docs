@@ -1,8 +1,5 @@
-import {
-  forwardRef,
-  useRef,
-  useImperativeHandle,
-} from "react";
+import { useSedaSize } from "../../foundation/SedaProvider";
+import { forwardRef, useRef, useImperativeHandle } from "react";
 import { useBrowserLayoutEffect } from "../../utils/useBrowserLayoutEffect";
 import { cx } from "../../utils/classNames";
 import type { ButtonProps } from "./Button.types";
@@ -18,13 +15,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconRight,
       loading = false,
       onClick,
-      size = "m",
+      size: sizeProp,
       type = "button",
       variant = "secondary",
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const isBlocked = disabled || loading;
     const element = useRef<HTMLButtonElement>(null);
     const measured = useRef<{ width: number; height: number } | null>(null);
@@ -32,6 +30,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     useBrowserLayoutEffect(() => {
       const button = element.current;
       if (!button) return;
+      const authored = {
+        width: button.style.width,
+        height: button.style.height,
+        paddingInlineStart: button.style.paddingInlineStart,
+        paddingInlineEnd: button.style.paddingInlineEnd,
+      };
       if (loading) {
         // Hidden label/icons still occupy their intrinsic box, so this is the
         // actual pre-spinner geometry even after fonts or the container resize.
@@ -39,6 +43,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         measured.current = { width, height };
         button.style.width = `${measured.current.width}px`;
         button.style.height = `${measured.current.height}px`;
+        // New profile padding must not impose a border-box minimum wider than
+        // the frozen width of a short label (e.g. S -> XL while pending).
+        const computed = getComputedStyle(button);
+        button.style.paddingInlineStart = computed.paddingInlineStart;
+        button.style.paddingInlineEnd = computed.paddingInlineEnd;
       } else if (!loading) {
         const { width, height } = button.getBoundingClientRect();
         measured.current = { width, height };
@@ -46,14 +55,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return () => {
         // Restore authored dimensions before the next measurement or unmount.
         if (loading) {
-          button.style.width =
-            typeof props.style?.width === "number"
-              ? `${props.style.width}px`
-              : (props.style?.width ?? "");
-          button.style.height =
-            typeof props.style?.height === "number"
-              ? `${props.style.height}px`
-              : (props.style?.height ?? "");
+          button.style.width = authored.width;
+          button.style.height = authored.height;
+          button.style.paddingInlineStart = authored.paddingInlineStart;
+          button.style.paddingInlineEnd = authored.paddingInlineEnd;
         }
       };
     }, [loading]);

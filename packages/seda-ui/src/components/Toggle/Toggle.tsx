@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
 import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
@@ -15,12 +16,13 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
       loading = false,
       onCheckedChange,
       required,
-      size = "m",
+      size: sizeProp,
       statusText,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
     const messageId = `${inputId}-message`;

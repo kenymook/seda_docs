@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
 import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
@@ -15,7 +16,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       label,
       prefix,
       required,
-      size = "m",
+      size: sizeProp,
       state = "default",
       suffix,
       value,
@@ -23,6 +24,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
     const labelId = `${inputId}-label`;

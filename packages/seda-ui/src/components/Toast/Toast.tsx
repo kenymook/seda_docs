@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { ToastIntent, ToastProps } from "./Toast.types";
@@ -34,12 +35,13 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
       onDismiss,
       role,
       showIcon = true,
-      size = "m",
+      size: sizeProp,
       title,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const resolvedIcon = icon ?? defaultIcons[intent];
 
     return (

@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import {
   forwardRef,
   useEffect,
@@ -22,11 +23,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       label,
       onCheckedChange,
       required,
-      size = "m",
+      size: sizeProp,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
     const messageId = `${inputId}-message`;

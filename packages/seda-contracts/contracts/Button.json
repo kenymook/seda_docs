@@ -38,7 +38,9 @@
       "required": false
     }
   ],
-  "targetDefaults": {},
+  "targetDefaults": {
+    "size": "m"
+  },
   "states": {
     "availability": [
       "enabled",

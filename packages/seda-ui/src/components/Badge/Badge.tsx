@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { BadgeProps } from "./Badge.types";
@@ -18,13 +19,14 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
       icon,
       label,
       max = 99,
-      size = "m",
+      size: sizeProp,
       tone = "neutral",
       variant = "count",
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     if (hidden || count === null || count === undefined && variant === "count") return null;
     if (variant === "count" && typeof count === "number" && count <= 0) return null;
 

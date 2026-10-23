@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { TagProps } from "./Tag.types";
@@ -15,13 +16,14 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
       onDismiss,
       onSelectedChange,
       selected = false,
-      size = "m",
+      size: sizeProp,
       tone = "neutral",
       type = "read-only",
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const isSelectable = type === "selectable";
     const isInteractive = type === "interactive";
 

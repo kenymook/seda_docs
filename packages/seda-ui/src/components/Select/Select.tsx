@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
 import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
@@ -18,13 +19,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       placeholder,
       required,
       selection = "single",
-      size = "m",
+      size: sizeProp,
       state = "default",
       value,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const selectId = id ?? generatedId;
     const messageId = `${selectId}-message`;
@@ -51,9 +53,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
     return (
       <label
-        className={cx("seda-field", className)}
+        className={cx("seda-field", "seda-field--select", className)}
         data-disabled={disabled ? "true" : undefined}
         data-state={resolvedState}
+        data-size={size}
       >
         <span className="seda-field__label">
           {label}

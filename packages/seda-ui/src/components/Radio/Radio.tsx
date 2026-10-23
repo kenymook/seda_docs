@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
 import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
@@ -16,12 +17,13 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
       onValueChange,
       options,
       required,
-      size = "m",
+      size: sizeProp,
       value,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedName = useId();
     const groupName = name ?? generatedName;
     const messageId = `${groupName}-message`;
@@ -45,6 +47,7 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
         )}
         aria-invalid={hasError || undefined}
         className={cx("seda-radio-group", className)}
+        data-size={size}
         disabled={disabled}
         ref={ref}
       >

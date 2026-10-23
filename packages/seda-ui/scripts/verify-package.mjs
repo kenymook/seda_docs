@@ -1,3 +1,5 @@
+import { verifyProfileSources } from "./verify-profile-sources.mjs";
+import { verifyProfiles } from "./verify-profiles.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import assert from "node:assert/strict";
@@ -48,6 +50,7 @@ try {
       "dist/index.d.ts",
       "dist/styles.css",
       "dist/manifest.json",
+      "dist/profiles.json",
     ])
       assert.ok(
         packed.files.some((f) => f.path === file),
@@ -79,6 +82,9 @@ try {
     assert.equal(after, before);
     return { identical: true, artifacts: JSON.parse(after).files.length };
   });
+  await check("public-profile-sources-and-missing-state", () =>
+    verifyProfileSources(root),
+  );
   browser = await chromium.launch({
     headless: true,
     ...(process.env.SEDA_BROWSER_EXECUTABLE
@@ -123,7 +129,7 @@ try {
         await fs.writeFile(
           path.join(cwd, "consumer.mjs"),
           `
-import React,{useState} from 'react';import {Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';
+import React,{useState} from 'react';import {SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';
 const h=React.createElement;
 export function Consumer(){const [text,setText]=useState('Atlas');const [selection,setSelection]=useState('a');const [checked,setChecked]=useState(false);const [on,setOn]=useState(true);const [pending,setPending]=useState(false);const [requests,setRequests]=useState(0);
 return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name',label:'Project',value:text,onChange:e=>setText(e.target.value)}),h(Select,{id:'select',label:'Team',value:selection,options:[{value:'a',label:'Core'},{value:'b',label:'Design'}],onValueChange:setSelection}),h(Checkbox,{id:'checkbox',label:'Digest',checked,disabled:!on,onCheckedChange:setChecked}),h(Radio,{name:'visibility',label:'Visibility',value:selection,options:[{value:'a',label:'Private'},{value:'b',label:'Team'}],onValueChange:setSelection}),h(Toggle,{id:'toggle',label:'Notifications',checked:on,onCheckedChange:setOn}),h(Button,{id:'save',loading:pending,onClick:()=>{setPending(true);setRequests(n=>n+1);}},text),h(IconButton,{id:'help','aria-label':'Help',icon:'?'}),h('button',{id:'resolve',onClick:()=>setPending(false)},'Resolve'),h('output',{id:'state'},JSON.stringify({text,selection,checked,on,pending,requests})));}
@@ -137,7 +143,9 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 13);
+        assert.equal(result.exports.length, 15);
+        assert.ok(result.exports.includes("SedaProvider"));
+        assert.ok(result.exports.includes("useSedaConfiguration"));
         assert.match(result.html, /<select/);
         return result;
       },
@@ -145,13 +153,20 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
 // @ts-expect-error unknown Button variant must not become any
 const badVariant=<Button variant="invented">Save</Button>;
 // @ts-expect-error options are required by the public Select interface
 const missingOptions=<Select label="Team"/>;
 // @ts-expect-error checked is boolean
-const wrongChecked=<Checkbox label="Digest" checked="yes"/>;`,
+const wrongChecked=<Checkbox label="Digest" checked="yes"/>;
+// @ts-expect-error unknown public theme is rejected
+const wrongTheme=<SedaProvider theme="sepia"/>;
+// @ts-expect-error unknown public size is rejected
+const wrongSize=<SedaProvider controlSize="huge"/>;
+function ConfigTypeCheck(){const configuration=useSedaConfiguration();
+// @ts-expect-error context snapshots are readonly
+configuration.controlSize='s';return null;}`,
       );
       await fs.writeFile(
         path.join(cwd, "tsconfig.json"),
@@ -178,7 +193,7 @@ const wrongChecked=<Checkbox label="Digest" checked="yes"/>;`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 3 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 6 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -280,6 +295,9 @@ const wrongChecked=<Checkbox label="Digest" checked="yes"/>;`,
           await new Promise((r) => server.close(r));
         }
       },
+    );
+    await check("react-" + version + "-provider-profiles", () =>
+      verifyProfiles({ cwd, browser, version }),
     );
   }
 } catch (error) {

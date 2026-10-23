@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { AlertProps, AlertVariant } from "./Alert.types";
@@ -31,13 +32,14 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
       onDismiss,
       role,
       showIcon = true,
-      size = "m",
+      size: sizeProp,
       title,
       variant = "info",
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const resolvedRole = role ?? defaultRole(variant);
     const resolvedIcon = icon ?? defaultIcons[variant];
 

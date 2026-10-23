@@ -32,12 +32,12 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 13 React exports; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
+| Кодовый каталог | 13 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
 | Исполняемые контракты | 7 контролов, 8 профилей, API/state/token validation, 90 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда; 55+14+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
-| Реальный consumer | 8/8 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Общие темы/плотность вне Lab; остальные компоненты и browser engines |
-| Foundation вне Lab | Базовый styles.css | Обнаружено: общие геометрия/токены для всех контролов пока зависят от Lab bridge; устранить до заявления о зрелости |
+| Реальный consumer | 11/11 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Общие темы/плотность вне Lab; остальные компоненты и browser engines |
+| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 11 consumer proof groups | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
 | Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
 
@@ -61,3 +61,10 @@
 Доказательство текущего этапа: [package results](../../packages/seda-ui/verification/package-results.json), [consumer verifier](../../packages/seda-ui/scripts/verify-package.mjs), [CI](../../.github/workflows/library.yml). Consumer-проверка нашла и закрыла реальный рост loading Button при изменении label вне Lab.
 
 Удалённое подтверждение: [GitHub Actions run 39946528027](https://github.com/kenymook/seda_docs/actions/runs/39946528027), commit `b680ca9751b1db921c7778ca4dc6238d279d011b`: чистые npm ci, package proof, 90 contracts tests, TypeScript и все три browser runners — success. Это подтверждает этап поставки на Windows/Ubuntu, но не заменяет аудит четырёх классов приложений.
+
+
+## Продвижение: общие публичные профили
+
+Добавлен SedaProvider, два режима темы и четыре размера вне Lab CSS. По 24 комбинации theme/size/width и по 4 bare-size сценария проверяются на каждом React runtime, с nested scopes, local overrides, state retention, error/focus и loading при смене профиля. Palette-проверка содержит 240 снимков состояний двух action-компонентов (2 React × 2 темы × 6 вариантов × 5 состояний × 2 компонента). Это вложенные измерения 11 групп, а не 240 новых пользовательских сценариев.
+
+93 unit tests подтверждают API defaults/provenance, token resolver и существующие rules. Поведение остальных компонентов, полные contract variants, навигация/overlays/editor primitives и четыре целевых класса приложений остаются незавершёнными. Следующий общий кодовый слой — навигация, панели и команды по существующим specs.

@@ -182,6 +182,7 @@
 }
 
 .seda-field {
+  align-content: start;
   display: grid;
   gap: 6px;
 }

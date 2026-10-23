@@ -61,3 +61,13 @@
 Этот verifier нашёл отдельный дефект Button: `min-width: max-content` позволял скрытому меняющемуся label увеличивать кнопку во время loading за пределами Lab. Ограничение исправлено в library CSS; оба consumer показывают loading Δ0/0 px. Существующие contracts 90/90 и Lab 55/55 повторно прошли после исправления.
 
 Для SSR библиотечный JS entry больше не импортирует CSS автоматически. Consumers должны явно импортировать `@seda-ai/ui/styles.css`; Lab уже делал это. Migration notes находятся в `packages/seda-ui/CHANGELOG.md`. [Полный критерий зрелости](../../../../docs/library/MATURITY.md) включает четыре класса сложных рабочих приложений и остаётся незавершённым. Public npm release и native desktop build этим этапом не заявляются.
+
+## Дополнение: публичные темы и размеры вне Lab
+
+Добавлен SedaProvider с наследуемыми Light/Dark и S/M/L/XL, frozen configuration snapshot и приоритетом явного size компонента. CSS и metadata генерируются из canonical tokens/system, без отдельной таблицы React-пресетов. [Foundation API](../../../../foundation/react-provider.md).
+
+Проверено 11/11 групп установленного tarball на React 18/19: по 24 комбинации theme/size/width, по 4 bare-size сценария, nested scopes/local size, 240 action-state снимков в сумме, error/focus/disabled, state retention и loading при смене профиля. Общий compiler и публичный generator совпадают по восьми профилям и 64 цветовым привязкам/цепочкам. Отсутствие обязательного state token отклоняется; API audit различает standalone-default и Context. 93 unit tests — PASS.
+
+Исправлен отдельный пограничный loading-дефект: короткая кнопка S росла 21.5→42 px при изменении общего профиля на XL. Теперь snapshot включает padding; обе consumer-версии сохраняют Δ0/0 px и применяют новый padding после ответа. [Package summary](../../../../packages/seda-ui/verification/package-results.json), [provider measurements](../../../../packages/seda-ui/verification/provider-results.json).
+
+Lab сохраняет свой исходный layout и экспериментальные X/Y overrides. Проверка provider выполняется в отдельном consumer с реальным установленным пакетом, а не выдаёт CSS лаборатории за поведение библиотеки. Общая цель четырёх классов сложных приложений не считается завершённой; полный API остальных компонентов и platform/accessibility matrix остаются впереди.

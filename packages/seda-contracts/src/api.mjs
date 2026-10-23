@@ -21,7 +21,7 @@ function literalValue(node) {
   return { $expression: node.getText() };
 }
 
-function implementationMetadata(file, component) {
+function implementationMetadata(file, component, repoRoot) {
   const source = ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   const declaration = source.statements.flatMap(statement => ts.isVariableStatement(statement) ? [...statement.declarationList.declarations] : [])
     .find(node => ts.isIdentifier(node.name) && node.name.text === component);
@@ -33,12 +33,32 @@ function implementationMetadata(file, component) {
   const render = initializer.arguments[0];
   const pattern = render && (ts.isArrowFunction(render) || ts.isFunctionExpression(render)) ? render.parameters[0]?.name : null;
   if (!pattern || !ts.isObjectBindingPattern(pattern)) throw new Error(`API_SOURCE_UNSUPPORTED: ${component} must expose a destructured render parameter to audit defaults`);
-  return {
-    elementType,
-    defaults: Object.fromEntries(pattern.elements.filter(element => element.initializer).map(element => [
-      element.propertyName?.text ?? element.name.text, literalValue(element.initializer),
-    ])),
-  };
+  const defaults = Object.fromEntries(pattern.elements.filter(element => element.initializer).map(element => [element.propertyName?.text ?? element.name.text, literalValue(element.initializer)]));
+  const defaultSources = {};
+  const sizeBinding = pattern.elements.find(element => (element.propertyName?.text ?? element.name.text) === 'size');
+  if (sizeBinding && !sizeBinding.initializer) {
+    const hookImport = source.statements.filter(ts.isImportDeclaration).find(node => node.importClause?.namedBindings && ts.isNamedImports(node.importClause.namedBindings) && node.importClause.namedBindings.elements.some(item => (item.propertyName?.text ?? item.name.text) === 'useSedaSize'));
+    const importedName = hookImport?.importClause.namedBindings.elements.find(item => (item.propertyName?.text ?? item.name.text) === 'useSedaSize')?.name.text;
+    const calls = render.body && ts.isBlock(render.body) ? render.body.statements.flatMap(node => ts.isVariableStatement(node) ? [...node.declarationList.declarations] : []) : [];
+    const binding = calls.find(node => node.name.getText(source) === 'size' && ts.isCallExpression(node.initializer) && node.initializer.expression.getText(source) === importedName && node.initializer.arguments.length === 1 && node.initializer.arguments[0].getText(source) === sizeBinding.name.getText(source));
+    if (!hookImport || !binding || !ts.isStringLiteral(hookImport.moduleSpecifier)) throw new Error(`API_SOURCE_UNSUPPORTED: ${component} size must use the explicit useSedaSize protocol`);
+    const helperFile = path.resolve(path.dirname(file), hookImport.moduleSpecifier.text + '.tsx');
+    const helper = ts.createSourceFile(helperFile, fs.readFileSync(helperFile, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+    const variables = helper.statements.flatMap(node => ts.isVariableStatement(node) ? [...node.declarationList.declarations] : []);
+    const configurationExpression = variables.find(node => node.name.getText(helper) === 'defaultConfiguration')?.initializer;
+    const configuration = configurationExpression && ts.isCallExpression(configurationExpression) && configurationExpression.expression.getText(helper) === 'Object.freeze' ? configurationExpression.arguments[0] : configurationExpression;
+    const context = variables.find(node => node.name.getText(helper) === 'SedaContext')?.initializer;
+    const hook = helper.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === 'useSedaSize');
+    const statements = hook?.body?.statements;
+    const contextRead = statements?.find(ts.isVariableStatement)?.declarationList.declarations[0];
+    const returned = statements?.find(ts.isReturnStatement)?.expression;
+    if (!configuration || !ts.isObjectLiteralExpression(configuration) || !context || !ts.isCallExpression(context) || context.expression.getText(helper) !== 'createContext' || context.arguments[0]?.getText(helper) !== 'defaultConfiguration' || !contextRead || contextRead.name.getText(helper) !== 'configuration' || contextRead.initializer?.getText(helper).replace(/\s/g,'') !== 'useContext(SedaContext)' || returned?.getText(helper).replace(/\s/g,'') !== 'size??configuration.controlSize') throw new Error('API_SOURCE_UNSUPPORTED: size fallback/context protocol changed; audit it explicitly');
+    const sizeDefault = configuration.properties.find(node => ts.isPropertyAssignment(node) && node.name.getText(helper) === 'controlSize');
+    if (!sizeDefault) throw new Error('API_SOURCE_UNSUPPORTED: missing standalone controlSize fallback');
+    defaults.size = literalValue(sizeDefault.initializer);
+    defaultSources.size = { sourcePath: path.relative(repoRoot, helperFile).split(path.sep).join('/'), scope: 'standalone-fallback', providerOverride: true };
+  }
+  return { elementType, defaults, defaultSources };
 }
 
 function enumValues(type) {
@@ -70,7 +90,7 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
   const reactTypes = path.join(packageRoot, 'node_modules/@types/react/index.d.ts');
   if (!fs.existsSync(reactTypes)) throw new Error('API_DEPENDENCY_MISSING: run npm ci in packages/seda-contracts');
   const probeFile = path.join(packageRoot, '__seda_api_probe__.ts');
-  const implementations = Object.fromEntries(COMPONENTS.map(name => [name, implementationMetadata(files[name].implementation, name)]));
+  const implementations = Object.fromEntries(COMPONENTS.map(name => [name, implementationMetadata(files[name].implementation, name, repoRoot)]));
   const imports = COMPONENTS.map(name => `import type { ${name}Props } from ${JSON.stringify(files[name].types)};`).join('\n');
   const publicTypes = COMPONENTS.map(name => `type __${name}PublicProps = ${name}Props & RefAttributes<${implementations[name].elementType}>;`).join('\n');
   const sharedTypes = path.join(repoRoot, 'packages/seda-ui/src/types.ts');
@@ -133,7 +153,7 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
     metadata.set(name, {
       name, sourcePath: path.relative(repoRoot, files[name].types).split(path.sep).join('/'),
       implementationPath: path.relative(repoRoot, files[name].implementation).split(path.sep).join('/'),
-      props, refElement: implementations[name].elementType, observedDefaults: implementations[name].defaults,
+      props, refElement: implementations[name].elementType, observedDefaults: implementations[name].defaults, defaultSources: implementations[name].defaultSources,
     });
   }
 

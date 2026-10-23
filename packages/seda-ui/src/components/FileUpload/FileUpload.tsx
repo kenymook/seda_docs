@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
 import { cx } from "../../utils/classNames";
 import type { FileUploadProps } from "./FileUpload.types";
@@ -32,13 +33,14 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
       onFilesChange,
       progress,
       required,
-      size = "m",
+      size: sizeProp,
       state = "default",
       variant = "dropzone",
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
     const messageId = `${inputId}-message`;

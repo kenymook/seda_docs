@@ -11,3 +11,8 @@ Checkbox и Toggle: checked/defaultChecked несовместимы; controlled 
 Disabled имеет приоритет над validation и focus ring. Непустой errorText определяет error независимо от focus. Внешние aria-describedby объединяются с локальным сообщением без повторов и висячего локального ID. Ошибка disabled-контрола скрыта, helper может оставаться.
 
 Статические проверки не объявляются браузерными PASS. В контракте DOM-проверки остаются not-checked; отдельные отчёты фиксируют реальные результаты. Нативные popup Select и системные средства доступности требуют проверки на целевых ОС; Chromium не доказывает работу нативного desktop shell.
+
+
+## D26 — публичная конфигурация библиотеки
+
+SedaProvider наследует theme/controlSize; явный size компонента имеет приоритет. Standalone fallback m извлекается из настоящего useSedaSize/context protocol, со scope standalone-fallback и providerOverride в API metadata. Неизвестная форма протокола требует явного аудита и не проходит автоматически. Общая геометрия и component-token CSS генерируются из того же system/resolver, восемь результатов сверяются с compiler. Публичные профили не заменяют экспериментальные X/Y лаборатории. Документация: [React provider](../../foundation/react-provider.md).

@@ -265,7 +265,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
   }
 
   function provenance() {
-    const files = new Set(['tokens.json', 'packages/seda-ui/src/types.ts', ...bundle.contracts.flatMap(contract => [contract.api.typesFile, contract.api.implementationFile])]);
+    const files = new Set(['tokens.json', 'packages/seda-ui/src/types.ts', ...bundle.contracts.flatMap(contract => [contract.api.typesFile, contract.api.implementationFile, ...Object.values(api.get(contract.id).defaultSources).map(item => item.sourcePath)])]);
     return { reference: bundle.system.source, files: Object.fromEntries([...files].sort().map(file => [file, crypto.createHash('sha256').update(fs.readFileSync(path.join(repoRoot, file))).digest('hex')])) };
   }
 

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import ts from "typescript";
+import { buildThemeAssets } from "./theme-assets.mjs";
 import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const source = path.join(root, "src");
@@ -117,6 +118,14 @@ try {
   fs.copyFileSync(
     path.join(source, "styles.css"),
     path.join(staging, "styles.css"),
+  );
+  const themeAssets = buildThemeAssets(root, staging);
+  fs.appendFileSync(
+    path.join(staging, "styles.css"),
+    "\n" +
+      fs.readFileSync(path.join(source, "provider.css"), "utf8") +
+      "\n" +
+      themeAssets.css,
   );
   const files = [];
   function walk(directory) {
