@@ -10,8 +10,9 @@
     "build": "node build.mjs",
     "serve": "node server.mjs",
     "typecheck": "tsc --noEmit",
-    "verify": "node verify-lab2.mjs && node verify-workspace.mjs",
-    "verify:workspace": "node verify-workspace.mjs"
+    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs",
+    "verify:workspace": "node verify-workspace.mjs",
+    "verify:controls": "node verify-controls.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",

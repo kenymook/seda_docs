@@ -65,36 +65,36 @@ body.dark [data-workspace] {
   border-color: var(--seda-border-disabled);
 }
 [data-workspace] .workspace-select .seda-field__control {
-  background: var(--lab-select-surface-default);
-  border-color: var(--lab-select-border-default);
-  color: var(--lab-select-foreground-default);
+  background: var(--seda-select-surface-default);
+  border-color: var(--seda-select-border-default);
+  color: var(--seda-select-foreground-default);
 }
 [data-workspace] .workspace-select .seda-field__label {
-  color: var(--lab-select-label-default);
+  color: var(--seda-select-label-default);
 }
 [data-workspace] .workspace-select .seda-field__control:hover {
-  background: var(--lab-select-surface-hover);
-  border-color: var(--lab-select-border-hover);
+  background: var(--seda-select-surface-hover);
+  border-color: var(--seda-select-border-hover);
 }
 [data-workspace]
   .workspace-select
   .seda-field__control:has(select:focus-visible) {
-  background: var(--lab-select-surface-focus);
-  border-color: var(--lab-select-border-focus);
-  outline-color: var(--lab-select-focus-ring);
+  background: var(--seda-select-surface-focus);
+  border-color: var(--seda-select-border-focus);
+  outline-color: var(--seda-select-focus-ring);
 }
 [data-workspace] .workspace-select[data-state="error"] .seda-field__control {
-  background: var(--lab-select-surface-error);
-  border-color: var(--lab-select-border-error);
+  background: var(--seda-select-surface-error);
+  border-color: var(--seda-select-border-error);
 }
 [data-workspace] .workspace-select[data-disabled="true"] .seda-field__control {
-  background: var(--lab-select-surface-disabled);
-  color: var(--lab-select-foreground-disabled);
-  border-color: var(--lab-select-border-disabled);
+  background: var(--seda-select-surface-disabled);
+  color: var(--seda-select-foreground-disabled);
+  border-color: var(--seda-select-border-disabled);
 }
 [data-workspace] option {
-  color: var(--lab-select-foreground-default);
-  background: var(--lab-select-surface-default);
+  color: var(--seda-select-foreground-default);
+  background: var(--seda-select-surface-default);
 }
 [data-workspace] .seda-choice,
 [data-workspace] .seda-toggle {
@@ -114,53 +114,53 @@ body.dark [data-workspace] {
   height: var(--lab-choice-size);
   margin: 0;
   border: var(--seda-control-border-width) solid
-    var(--lab-checkbox-control-border-default);
+    var(--seda-checkbox-control-border-default);
   border-radius: var(--lab-choice-radius);
-  background: var(--lab-checkbox-control-surface-default);
+  background: var(--seda-checkbox-control-surface-default);
   cursor: pointer;
   display: grid;
   place-items: center;
 }
 [data-workspace] .seda-choice__control:checked,
 [data-workspace] .seda-choice__control:indeterminate {
-  background: var(--lab-checkbox-control-surface-checked);
-  border-color: var(--lab-checkbox-control-border-checked);
+  background: var(--seda-checkbox-control-surface-checked);
+  border-color: var(--seda-checkbox-control-border-checked);
 }
 [data-workspace] .seda-choice__control:checked::after {
   content: "";
   display: block;
   width: 55%;
   height: 55%;
-  background: var(--lab-checkbox-control-icon-checked);
+  background: var(--seda-checkbox-control-icon-checked);
   clip-path: polygon(0 50%, 18% 30%, 40% 55%, 85% 0, 100% 18%, 40% 100%);
 }
 [data-workspace] .seda-choice__control:indeterminate::after {
   content: "";
   width: 60%;
   height: 2px;
-  background: var(--lab-checkbox-control-icon-indeterminate);
+  background: var(--seda-checkbox-control-icon-indeterminate);
   clip-path: none;
 }
 [data-workspace] .seda-choice__control:disabled {
-  background: var(--lab-checkbox-control-surface-disabled);
-  border-color: var(--lab-checkbox-control-border-disabled);
+  background: var(--seda-checkbox-control-surface-disabled);
+  border-color: var(--seda-checkbox-control-border-disabled);
   cursor: not-allowed;
 }
 [data-workspace] .workspace-radio .seda-choice__control {
   border-radius: 50%;
-  background: var(--lab-radio-control-surface-default);
-  border-color: var(--lab-radio-control-border-default);
+  background: var(--seda-radio-control-surface-default);
+  border-color: var(--seda-radio-control-border-default);
 }
 [data-workspace] .workspace-radio .seda-choice__control:checked {
-  background: var(--lab-radio-control-surface-selected);
-  border-color: var(--lab-radio-control-border-selected);
+  background: var(--seda-radio-control-surface-selected);
+  border-color: var(--seda-radio-control-border-selected);
 }
 [data-workspace] .workspace-radio .seda-choice__control:checked::after {
   width: 45%;
   height: 45%;
   border-radius: 50%;
   clip-path: none;
-  background: var(--lab-radio-control-dot-selected);
+  background: var(--seda-radio-control-dot-selected);
 }
 [data-workspace] .seda-toggle__control {
   flex-shrink: 0;
@@ -169,27 +169,27 @@ body.dark [data-workspace] {
   height: var(--lab-toggle-height);
   margin: 0;
   border-radius: 999px;
-  background: var(--lab-toggle-track-off-default);
+  background: var(--seda-toggle-track-off-default);
 }
 [data-workspace] .seda-toggle__control::after {
   width: var(--lab-choice-size);
   height: var(--lab-choice-size);
-  background: var(--lab-toggle-thumb-default);
+  background: var(--seda-toggle-thumb-default);
 }
 [data-workspace] .seda-toggle__control:checked {
-  background: var(--lab-toggle-track-on-default);
+  background: var(--seda-toggle-track-on-default);
 }
 [data-workspace] .seda-toggle__control:checked::after {
   transform: translateX(var(--lab-choice-size));
 }
 [data-workspace] .seda-choice__control:focus-visible {
-  outline-color: var(--lab-checkbox-focus-ring);
+  outline-color: var(--seda-checkbox-focus-ring);
 }
 [data-workspace] .seda-toggle__control:focus-visible {
-  outline-color: var(--lab-toggle-focus-ring);
+  outline-color: var(--seda-toggle-focus-ring);
 }
 [data-workspace] .seda-choice[data-disabled="true"] .seda-choice__label {
-  color: var(--lab-checkbox-label-disabled);
+  color: var(--seda-checkbox-label-disabled);
 }
 .product-masthead {
   display: flex;
@@ -490,34 +490,65 @@ body.dark .form-section-heading span {
   padding-inline: var(--seda-control-padding-inline);
 }
 [data-workspace] .workspace-checkbox .seda-choice__label {
-  color: var(--lab-checkbox-label-default);
+  color: var(--seda-checkbox-label-default);
 }
 [data-workspace] .workspace-radio .seda-choice__label {
-  color: var(--lab-radio-label-default);
+  color: var(--seda-radio-label-default);
 }
 [data-workspace] .workspace-toggle .seda-toggle__label {
-  color: var(--lab-toggle-label-default);
+  color: var(--seda-toggle-label-default);
 }
 [data-workspace] .workspace-checkbox[data-disabled="true"] .seda-choice__label {
-  color: var(--lab-checkbox-label-disabled);
+  color: var(--seda-checkbox-label-disabled);
 }
 [data-workspace]
   .workspace-checkbox
   .seda-choice__control:not(:disabled):hover {
-  border-color: var(--lab-checkbox-control-border-hover);
+  border-color: var(--seda-checkbox-control-border-hover);
 }
 [data-workspace] .workspace-radio .seda-choice__control:focus-visible {
-  outline-color: var(--lab-radio-focus-ring);
+  outline-color: var(--seda-radio-focus-ring);
 }
 [data-workspace] .workspace-toggle[data-disabled="true"] .seda-toggle__control {
-  background: var(--lab-toggle-track-disabled);
+  background: var(--seda-toggle-track-disabled);
 }
 [data-workspace] .workspace-toggle[data-disabled="true"] .seda-toggle__label {
-  color: var(--lab-toggle-label-disabled);
+  color: var(--seda-toggle-label-disabled);
 }
 [data-workspace] .workspace-select .seda-field__message {
-  color: var(--lab-select-helper-default);
+  color: var(--seda-select-helper-default);
 }
 [data-workspace] .workspace-select .seda-field__message[data-tone="error"] {
-  color: var(--lab-select-helper-error);
+  color: var(--seda-select-helper-error);
 }
+/* Host chrome must not introduce a second inner focus ring. */
+[data-workspace] :is(.seda-field__input,.seda-field__select):focus-visible { outline: none; box-shadow: none; }
+[data-workspace] .seda-choice__control:indeterminate { background: var(--seda-checkbox-control-surface-indeterminate); }
+[data-workspace] .seda-choice__control:hover:not(:disabled):not(:checked):not(:indeterminate) { background: var(--seda-checkbox-control-surface-hover); }
+[data-workspace] .seda-choice__control[aria-invalid="true"]:not(:disabled) { background: var(--seda-checkbox-control-surface-error); border-color: var(--seda-checkbox-control-border-error); }
+[data-workspace] .workspace-radio .seda-choice__control:hover:not(:disabled):not(:checked) { background: var(--seda-radio-control-surface-hover); }
+[data-workspace] .workspace-radio[aria-invalid="true"] .seda-choice__control:not(:disabled) { background: var(--seda-radio-control-surface-error); border-color: var(--seda-radio-control-border-error); }
+[data-workspace] .workspace-radio .seda-choice__control:disabled { background: var(--seda-radio-control-surface-disabled); border-color: var(--seda-radio-control-border-disabled); }
+[data-workspace] .workspace-radio .seda-choice__control:disabled:checked::after { background: var(--seda-radio-control-dot-disabled); }
+[data-workspace] .workspace-radio .seda-choice[data-disabled="true"] .seda-choice__label { color: var(--seda-radio-label-disabled); }
+[data-workspace] .workspace-radio .seda-choice__control:focus-visible { outline-color: var(--seda-radio-focus-ring); }
+[data-workspace] .seda-toggle__control:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--seda-toggle-track-off-hover); }
+[data-workspace] .seda-toggle__control:checked:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--seda-toggle-track-on-hover); }
+[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"]) { background: var(--seda-toggle-track-disabled); cursor: not-allowed; }
+[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"])::after { background: var(--seda-toggle-thumb-disabled); }
+[data-workspace] .seda-toggle[data-disabled="true"] .seda-toggle__label { color: var(--seda-toggle-label-disabled); }
+[data-workspace] .seda-field__control:has(select[multiple]) { height: auto; }
+[data-workspace] select[multiple] { min-height: calc(3 * var(--seda-control-line-height)); }
+[data-workspace] .workspace-select .seda-field__message { color: var(--seda-select-helper-default); }
+[data-workspace] .workspace-select .seda-field__message[data-tone="error"] { color: var(--seda-select-helper-error); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-choice__label { color: var(--seda-checkbox-label-default); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]:disabled) .seda-choice__label { color: var(--seda-checkbox-label-disabled); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-field__message { color: var(--seda-checkbox-helper-default); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-field__message[data-tone="error"] { color: var(--seda-checkbox-helper-error); }
+[data-workspace] .workspace-radio .seda-choice__label { color: var(--seda-radio-label-default); }
+[data-workspace] .workspace-radio .seda-field__message { color: var(--seda-radio-helper-default); }
+[data-workspace] .workspace-radio .seda-field__message[data-tone="error"] { color: var(--seda-radio-helper-error); }
+[data-workspace] .seda-toggle__label { color: var(--seda-toggle-label-default); }
+[data-workspace] .seda-toggle .seda-field__message { color: var(--seda-toggle-helper-default); }
+[data-workspace] .seda-toggle[data-disabled="true"] .seda-field__message { color: var(--seda-toggle-helper-disabled); }
+[data-workspace] .seda-choice__control:disabled:is(:checked,:indeterminate)::after { background: var(--seda-checkbox-control-icon-disabled); }

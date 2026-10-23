@@ -1286,3 +1286,49 @@
 .seda-button[data-loading="true"] > :not(.seda-button__loading-center) { opacity: 0; }
 .seda-button__loading-center { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
 .seda-button__loading-center > .seda-button__spinner { width: var(--seda-control-icon-size, var(--seda-preset-icon-size)); height: var(--seda-control-icon-size, var(--seda-preset-icon-size)); }
+/* Focus belongs to the entire field surface, including affixes and picker icon. */
+.seda-field__input:focus-visible,
+.seda-field__select:focus-visible { outline: none; box-shadow: none; }
+.seda-field > .seda-field__control:has(:is(input, select):focus-visible) {
+  outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
+  outline-offset: 2px;
+}
+/* Progressive native picker styling preserves select semantics, form and keyboard behavior. */
+@supports (appearance: base-select) {
+  .seda-field__select:not([multiple]),
+  .seda-field__select:not([multiple])::picker(select) { appearance: base-select; }
+  .seda-field__select:not([multiple]) { align-items: center; justify-content: space-between; gap: 8px; }
+  .seda-field__select::picker-icon { content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-inline: auto 4px; flex-shrink: 0; transition: rotate .15s; }
+  .seda-field__select:open::picker-icon { rotate: 180deg; }
+  .seda-field__select::picker(select) {
+    box-sizing: border-box;
+    margin-block: 6px;
+    padding: 4px;
+    border: 1px solid var(--seda-select-border-default, var(--border-default, #d7dce5));
+    border-radius: var(--seda-control-radius, 8px);
+    background: var(--seda-select-surface-default, var(--surface-default, #fff));
+    color: var(--seda-select-foreground-default, var(--text-primary, #17212f));
+    box-shadow: 0 8px 24px #0002;
+    font: inherit;
+    max-block-size: min(320px, 60vh);
+    overflow: auto;
+  }
+  .seda-field__select option {
+    min-block-size: var(--seda-control-height, 32px);
+    padding: 6px var(--seda-control-padding-inline, 12px);
+    border-radius: max(2px, calc(var(--seda-control-radius, 8px) - 3px));
+    gap: 8px;
+    font: inherit;
+    color: inherit;
+    background: transparent;
+  }
+  .seda-field__select option:is(:hover, :focus-visible) {
+    background: var(--seda-select-surface-hover, #edf3ff);
+    outline: none;
+  }
+  .seda-field__select option:checked {
+    background: var(--seda-select-surface-active, #e4edff);
+    font-weight: 600;
+  }
+  .seda-field__select option:disabled { color: var(--seda-select-foreground-disabled, #929aaa); }
+}

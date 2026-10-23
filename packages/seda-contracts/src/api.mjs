@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
-const COMPONENTS = ['Button', 'IconButton', 'TextField'];
+import { componentNames as COMPONENTS } from './registry.mjs';
 const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
 const pointer = value => String(value).replaceAll('~', '~0').replaceAll('/', '~1');
 const issue = (code, name, message, status = 'violated') => ({

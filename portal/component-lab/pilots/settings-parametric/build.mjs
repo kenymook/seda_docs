@@ -49,7 +49,7 @@ export async function buildPilot({
     path.join(packageRoot, 'system.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['ProductWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
@@ -70,18 +70,13 @@ export async function buildPilot({
       profiles[`${theme}:${controlSize}`] = compiled;
     }
   }
-  const workspaceTokens = {};
-  for (const theme of engine.bundle.system.supportedThemes) {
-    workspaceTokens[theme] = Object.fromEntries(['select','checkbox','radio','toggle'].map(component => [component,
-      engine.resolver.resolveBranch({collection:'components',path:[component]}, {theme})]));
-  }
   const provenance = {
     reference: engine.bundle.system.source,
     tokenSource: tokensFile ? 'provided-token-file' : 'tokens.json',
     tokensSha256: sha256(tokenBytes),
     sources: { ...before, 'tokens.json': sha256(tokenBytes) },
   };
-  const catalog = { profiles, profile: engine.bundle.profile, provenance, workspaceTokens };
+  const catalog = { profiles, profile: engine.bundle.profile, provenance };
   await fs.mkdir(outputDir, { recursive: true });
   const result = await build({
     absWorkingDir: pilotRoot,
@@ -137,6 +132,7 @@ export async function buildPilot({
     artifacts: artifacts.sort((a, b) => a.path.localeCompare(b.path)),
     validation: { valid: validation.valid, planned: validation.planned },
     sourceAudit: { valid: audit.valid },
+    bundledComponents: Object.keys(result.metafile.inputs).filter(file => /seda-ui[\\/]src[\\/]components[\\/]/.test(file)),
     runtimeConformance: 'not-checked',
   };
   await fs.writeFile(path.join(outputDir, 'build-metadata.json'), JSON.stringify(metadata, null, 2) + '\n');

@@ -1,10 +1,9 @@
 import { createWebBindings } from "../../../../packages/seda-contracts/src/web.mjs";
-/** Explicit Lab adapter for library controls outside the phase-3 contract bundle. */
+/** Web geometry experiment over token branches validated by the shared compiler. */
 export function createWorkspaceBindings(
   compiled,
   derived,
   parameters,
-  branches,
 ) {
   const vars = {
     ...createWebBindings(compiled).recipes.projectName.vars,
@@ -29,24 +28,10 @@ export function createWorkspaceBindings(
       Math.max(derived.preset.icon, derived.font) * 2 + 4 + "px",
   };
   const evidence = [];
-  function visit(component, node, path = []) {
-    for (const [key, value] of Object.entries(node)) {
-      const parts = [...path, key];
-      if (value && typeof value === "object" && "cssValue" in value) {
-        const property = "--lab-" + component + "-" + parts.join("-");
-        vars[property] = value.cssValue;
-        evidence.push({
-          component,
-          property,
-          cssValue: value.cssValue,
-          chain: value.chain,
-          ref: value.ref,
-        });
-      } else visit(component, value, parts);
-    }
+  for (const [component, binding] of Object.entries(createWebBindings(compiled).controls)) {
+    Object.assign(vars, binding.vars);
+    evidence.push(...binding.evidence.map(item => ({ ...item, component: component.toLowerCase() })));
   }
-  for (const [component, branch] of Object.entries(branches))
-    visit(component, branch.children);
   return {
     vars,
     evidence,
@@ -70,8 +55,8 @@ export function createWorkspaceBindings(
     },
     parameters,
     coverage: {
-      contract: ["Button", "IconButton", "TextField"],
-      libraryAdapter: ["Select", "Checkbox", "Radio", "Toggle"],
+      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle"],
+      libraryAdapter: [],
       composition: ["Navigation", "Table", "Card", "Dialog"],
     },
   };

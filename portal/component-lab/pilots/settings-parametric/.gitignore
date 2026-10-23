@@ -6,3 +6,5 @@ test-results/
 playwright-report/
 .diagnostics-lab2/
 .diagnostics-workspace/
+
+.diagnostics-controls/

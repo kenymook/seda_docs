@@ -262,3 +262,8 @@ Figma component set: `checkbox`. Node id: `1090:16624`.
 - Сохранять `indeterminate` как пользовательское значение.
 - Показывать error только цветом control.
 - Добавлять custom checked colors без system review.
+
+
+## Исполняемый контракт web
+
+Контракт реализован в `packages/seda-contracts/contracts/Checkbox.json`. Общий compiler и runtime-проверки описаны в [D25](../../packages/seda-contracts/WORKSPACE-CONTRACTS.md). Источник исполнения — настоящий компонент `packages/seda-ui`, а не HTML-макет. Браузерное покрытие и ограничения платформ зафиксированы в [отчёте Lab](../../portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md).

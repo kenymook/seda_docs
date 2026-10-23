@@ -15,7 +15,7 @@ export { TokenResolutionError } from './tokens.mjs';
 const defaultPackageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
-const components = ['Button', 'IconButton', 'TextField'];
+import { componentNames as components, nativeElements } from './registry.mjs';
 const escapePointer = value => String(value).replaceAll('~', '~0').replaceAll('/', '~1');
 const issue = (code, at, message, status = 'violated') => ({ code, path: at, message, status, severity: status === 'violated' ? 'error' : 'warning' });
 const handlerIds = new Set(formEvents.map(event => `form.${event.event}`));
@@ -26,6 +26,10 @@ const requiredChecks = {
   Button: [['text-content', 'children'], ['aria-disabled-activation'], ['pilot-variant']],
   IconButton: [['text-content', 'aria-label'], ['slot-present', 'icon'], ['aria-disabled-activation'], ['persistent-selection-unused'], ['pilot-variant']],
   TextField: [['text-content', 'label'], ['controlled-value'], ['error-message'], ['native-disabled']],
+  Select: [['text-content', 'label'], ['selection-value'], ['error-message'], ['native-disabled']],
+  Checkbox: [['text-content', 'label'], ['checked-value'], ['error-message']],
+  Radio: [['text-content', 'label'], ['selection-value'], ['error-message']],
+  Toggle: [['text-content', 'label'], ['checked-value'], ['aria-disabled-activation']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {
@@ -112,7 +116,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     if (invalidContract.length) return { valid: false, issues: invalidContract, checks: [] };
     if (contract.id !== name) return { valid: false, issues: [issue('COMPONENT_ID_MISMATCH', '/contract/id', `Requested ${name}, received ${contract.id}.`)], checks: [] };
     const actual = api.get(name);
-    const expectedApi = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${name}Props`, nativeElement: name === 'TextField' ? 'input' : 'button' };
+    const expectedApi = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${name}Props`, nativeElement: nativeElements[name] };
     for (const [key, value] of Object.entries(expectedApi)) if (contract.api[key] !== value) invalidContract.push(issue('API_SOURCE_MISMATCH', `/contract/api/${key}`, `Expected ${value}.`));
     for (const rule of contract.rules) { const error = validateRuleDefinition(rule); if (error) invalidContract.push(issue('RULE_INVALID', '/contract/rules', error)); }
     for (const [check, prop] of requiredChecks[name]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === 'instance')) invalidContract.push(issue('REQUIRED_RULE_MISSING', '/contract/rules', `Required ${check} check is missing.`));
@@ -147,7 +151,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     for (const contract of candidate.contracts) {
       const at = `/contracts/${contract.id}`;
       const actual = api.get(contract.id);
-      const expected = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${contract.id}Props`, nativeElement: contract.id === 'TextField' ? 'input' : 'button' };
+      const expected = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${contract.id}Props`, nativeElement: nativeElements[contract.id] };
       for (const [key, value] of Object.entries(expected)) if (contract.api[key] !== value) result.push(issue('API_SOURCE_MISMATCH', `${at}/api/${key}`, `Expected ${value}, based on the actual component source.`));
       if (JSON.stringify([...(actual.props.size.enumValues ?? [])].sort()) !== JSON.stringify(Object.keys(candidate.system.sizes).sort())) result.push(issue('API_SIZE_DRIFT', `${at}/api/size`, 'Source size union and system presets differ.'));
       for (const problem of api.validate(contract.id, contract.targetDefaults, { requireRequired: false })) result.push({ ...problem, path: `${at}/targetDefaults${problem.path.replace('/props', '')}` });
@@ -161,8 +165,8 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
         if (rule.prop && !actual.props[rule.prop]) result.push(issue('RULE_PROP_UNKNOWN', `${at}/rules/${rule.id}/prop`, `Unknown prop ${rule.prop}.`));
       }
       for (const [check, prop] of requiredChecks[contract.id]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === 'instance')) result.push(issue('REQUIRED_RULE_MISSING', `${at}/rules`, `Required pilot check ${check}${prop ? ' for ' + prop : ''} is missing.`));
-      const requiredBranches = contract.id === 'TextField' ? ['default'] : contract.pilotVariants;
-      if (contract.id !== 'TextField' && !requiredBranches.length) result.push(issue('PILOT_VARIANT_MISSING', `${at}/pilotVariants`, 'Action contract needs at least one pilot variant.'));
+      const requiredBranches = !contract.pilotVariants.length ? ['default'] : contract.pilotVariants;
+      if (['Button','IconButton'].includes(contract.id) && !requiredBranches.length) result.push(issue('PILOT_VARIANT_MISSING', `${at}/pilotVariants`, 'Action contract needs at least one pilot variant.'));
       for (const role of requiredBranches) if (!own(contract.tokenBranches, role)) result.push(issue('TOKEN_BRANCH_MISSING', `${at}/tokenBranches/${role}`, `Missing branch for pilot recipe ${role}.`));
       for (const role of Object.keys(contract.tokenBranches)) if (!own(contract.tokenRequirements, role)) result.push(issue('TOKEN_REQUIREMENTS_MISSING', `${at}/tokenRequirements/${role}`, 'Every declared branch needs explicit required roles.'));
       for (const role of Object.keys(contract.tokenRequirements)) if (!own(contract.tokenBranches, role)) result.push(issue('TOKEN_BRANCH_MISSING', `${at}/tokenBranches/${role}`, 'Token requirements refer to an absent branch.'));
@@ -218,6 +222,22 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     return { valid: !issues.some(item => item.severity === 'error') && !targets.length, scope: 'current-source-defaults', issues, targetDrift: targets, runtimeConformance: 'not-checked' };
   }
 
+  function controlGeometry(controlSize, theme) {
+    const resolveMap = values => Object.fromEntries(Object.entries(values).map(([key, value]) => [key, value && typeof value === 'object' ? resolveMeasurement(value, theme) : value]));
+    return { ...resolveMap(bundle.system.sizes[controlSize]), ...resolveMap(bundle.system.geometry), boxSizing: bundle.system.boxSizing };
+  }
+
+  function compileControl(name, props, { theme = bundle.profile.configuration.theme, interaction = {} } = {}) {
+    const contract = bundle.contracts.find(item => item.id === name);
+    const checked = validateInstance(name, props, { interaction });
+    if (!checked.valid) throw new ContractValidationError(checked.issues);
+    if (!bundle.system.supportedThemes.includes(theme)) throw new ContractValidationError([issue('THEME_UNSUPPORTED', '/theme', theme)]);
+    const effective = { ...props, ...checked.appliedDefaults };
+    const branch = contract.tokenBranches[effective.variant ?? 'default'];
+    if (!branch) throw new ContractValidationError([issue('TOKEN_BRANCH_MISSING', '/variant', String(effective.variant))]);
+    return { component: name, geometry: controlGeometry(effective.size, theme), props: effective, state: checked.state, checks: checked.checks, tokenBranch: resolver.resolveBranch(branch, { theme }) };
+  }
+
   function compile(profile = bundle.profile, { overrides = {}, formState = createFormState() } = {}) {
     const authored = structuredClone(profile);
     authored.configuration = { ...authored.configuration, ...overrides };
@@ -227,7 +247,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     transitionForm(formState, { type: 'profileChanged' }, authored.formPolicy);
     const { theme, controlSize } = authored.configuration;
     const resolveMap = values => Object.fromEntries(Object.entries(values).map(([key, value]) => [key, value && typeof value === 'object' ? resolveMeasurement(value, theme) : value]));
-    const geometry = { ...resolveMap(bundle.system.sizes[controlSize]), ...resolveMap(bundle.system.geometry), boxSizing: bundle.system.boxSizing };
+    const geometry = controlGeometry(controlSize, theme);
     const family = resolver.resolve(bundle.system.typography.family, { theme });
     const labelWeight = resolver.resolve(bundle.system.typography.labelWeight, { theme });
     const instances = {};
@@ -240,7 +260,8 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const auxiliaryTokens = contract.tokenBranches.focus ? { focus: resolver.resolveBranch(contract.tokenBranches.focus, { theme }) } : {};
       instances[role] = { component: recipe.component, props, state: checked.state, tokenBranch: resolver.resolveBranch(branch, { theme }), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    return { schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), geometry, typography: { family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
+    const controls = Object.fromEntries(bundle.contracts.filter(c => !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }) }]));
+    return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), geometry, typography: { family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }
 
   function provenance() {
@@ -248,5 +269,5 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     return { reference: bundle.system.source, files: Object.fromEntries([...files].sort().map(file => [file, crypto.createHash('sha256').update(fs.readFileSync(path.join(repoRoot, file))).digest('hex')])) };
   }
 
-  return { bundle, api, resolver, validate, validateInstance, audit, compile, provenance };
+  return { bundle, api, resolver, validate, validateInstance, audit, compile, compileControl, provenance };
 }

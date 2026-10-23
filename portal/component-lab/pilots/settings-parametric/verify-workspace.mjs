@@ -202,14 +202,10 @@ try {
         ),
         name + " has resolver chain",
       );
-    assert.deepEqual(evidence.coverage.libraryAdapter, [
-      "Select",
-      "Checkbox",
-      "Radio",
-      "Toggle",
-    ]);
+    assert.deepEqual(evidence.coverage.libraryAdapter, []);
+    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle"]);
     const token = evidence.evidence.find(
-      (e) => e.property === "--lab-select-surface-default",
+      (e) => e.property === "--seda-select-surface-default",
     );
     const color = await page.evaluate((value) => {
       const el = document.createElement("span");

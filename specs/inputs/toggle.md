@@ -249,3 +249,8 @@ Figma component set: `Toggle`. Node id: `912:8761`.
 - Прятать последствия переключения только в Tooltip.
 - Оставлять on state после failed save без сообщения.
 - Добавлять custom track colors без system review.
+
+
+## Исполняемый контракт web
+
+Контракт реализован в `packages/seda-contracts/contracts/Toggle.json`. Общий compiler и runtime-проверки описаны в [D25](../../packages/seda-contracts/WORKSPACE-CONTRACTS.md). Источник исполнения — настоящий компонент `packages/seda-ui`, а не HTML-макет. Браузерное покрытие и ограничения платформ зафиксированы в [отчёте Lab](../../portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md).

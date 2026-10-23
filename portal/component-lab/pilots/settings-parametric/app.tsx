@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Button, IconButton, TextField, Select, Checkbox } from "@seda-ai/ui";
+import { Button, IconButton, TextField } from "@seda-ai/ui";
 import {
   createFormState,
   transitionForm,
@@ -9,13 +9,15 @@ import {
   createWebBindings,
   bindWebRecipe,
 } from "../../../../packages/seda-contracts/src/web.mjs";
-import { profiles, profile, provenance, workspaceTokens } from "seda:catalog";
+import { profiles, profile, provenance } from "seda:catalog";
+import { ControlFixtures } from "./control-fixtures";
 import { ReviewFixtures } from "./test-fixtures";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
 import "./styles.css";
+import { Select, Checkbox, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
 import { createWorkspaceBindings } from "./workspace-bindings.mjs";
 import "./workspace.css";
@@ -190,7 +192,7 @@ function App() {
     compiled,
     d,
     parameters,
-    workspaceTokens[configuration.theme],
+
   );
   const workspaceStyle = workspaceBinding.vars as React.CSSProperties;
   const activeCompiled = () =>
@@ -435,7 +437,7 @@ function App() {
     height: {
       v: fmt(d.height) + " px",
       desc: d.formula,
-      deps: "line-height + icon + padding-y + border + min-height → Button, IconButton, TextField",
+      deps: "line-height + icon + padding-y + border + min-height → Button, IconButton, TextField, Select",
     },
     air: {
       v: fmt(d.py) + " px",
@@ -580,7 +582,7 @@ function App() {
   }
 
   return (
-    <>
+    <ControlContractProvider compiled={compiled}>
       <div
         className="shell"
         id="lab"
@@ -735,7 +737,7 @@ function App() {
                 <span>24px</span>
               </div>
               <p className="small">
-                К базовым отступам Button и TextField. IconButton остаётся
+                К базовым отступам Button, TextField и Select. IconButton остаётся
                 квадратным.
               </p>
             </div>
@@ -1299,7 +1301,7 @@ function App() {
                   padding-x
                 </button>
                 <span className="edge">→</span>
-                <span className="deps">Button / TextField</span>
+                <span className="deps">Button / TextField / Select</span>
               </div>
               <div className="graphsecond">
                 <button
@@ -1338,8 +1340,7 @@ function App() {
                 лаборатории отделена.
               </p>
               <p>
-                Контракты: Button, IconButton, TextField. Библиотека + адаптер
-                Lab: Select, Checkbox, Radio, Toggle. Формы и таблицы —
+                Контракты: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle. Формы и таблицы —
                 композиции.
               </p>
               <details className="workspace-tokens">
@@ -1436,9 +1437,7 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                Button · IconButton · TextField — исполняемые контракты. Select
-                · Checkbox · Radio · Toggle — библиотечные компоненты с
-                адаптером Lab. Table · Card · Dialog — композиции.
+                Button · IconButton · TextField · Select · Checkbox · Radio · Toggle — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.
               </p>
@@ -1543,13 +1542,14 @@ function App() {
           </div>
         </form>
       </dialog>
+      {isReview && <ControlFixtures size={configuration.controlSize} style={workspaceStyle} />}
       {isReview && (
         <ReviewFixtures
           compiled={compiled}
           actionVars={bindings.recipes.save.vars as React.CSSProperties}
         />
       )}
-    </>
+    </ControlContractProvider>
   );
 }
 createRoot(document.getElementById("root")!).render(<App />);

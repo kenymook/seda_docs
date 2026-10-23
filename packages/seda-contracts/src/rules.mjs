@@ -1,6 +1,7 @@
+import { componentNames } from './registry.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
 const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -16,13 +17,13 @@ function content(value) {
 
 /** Contract facts, not measurements of an existing DOM. Focus is an independent input. */
 export function deriveState(component, props, interaction = {}) {
-  if (!['Button', 'IconButton', 'TextField'].includes(component)) throw new TypeError(`Unknown component ${component}`);
+  if (!componentNames.includes(component)) throw new TypeError(`Unknown component ${component}`);
   for (const [key, value] of Object.entries(interaction)) {
     if (!['hovered', 'focused', 'active'].includes(key) || typeof value !== 'boolean') throw new TypeError(`Unknown interaction fact: ${key}`);
   }
   const disabled = props.disabled === true;
   const loading = props.loading === true;
-  const error = component === 'TextField' && content(props.errorText) !== 'empty';
+  const error = ['TextField','Select','Checkbox','Radio'].includes(component) && content(props.errorText) !== 'empty';
   const focused = interaction.focused ?? false;
   const hovered = interaction.hovered ?? false;
   const active = interaction.active ?? false;
@@ -31,8 +32,8 @@ export function deriveState(component, props, interaction = {}) {
     activity: loading ? 'loading' : 'idle',
     validation: disabled ? 'none' : error ? 'error' : 'none',
     interaction: { hovered, focused, active },
-    data: component === 'TextField' ? (typeof props.value === 'string' && props.value.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (component === 'TextField' ? 'active' : 'pressed') : hovered ? 'hover' : 'default',
+    data: ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (['TextField','Select','Checkbox','Radio','Toggle'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
   };
 }
@@ -69,6 +70,22 @@ export function evaluateRules(contract, props) {
       }
       case 'slot-present':
         if (content(props[rule.prop]) === 'empty') violate(`A nonempty ${rule.prop} slot is required.`);
+        break;
+      case 'selection-value': {
+        const options = Array.isArray(props.options) ? props.options : [];
+        if (!Array.isArray(options) || !options.length || options.some(o => !o || typeof o.value !== 'string' || !o.value.trim() || content(o.label) === 'empty') || new Set(options.map(o => o.value)).size !== options.length) violate('Options require unique nonempty values and labels.');
+        if (props.value !== undefined && props.defaultValue !== undefined) violate('value and defaultValue are mutually exclusive.');
+        if (props.value !== undefined && !props.onValueChange && !props.onChange) violate('A controlled selection requires a change handler.');
+        const value = props.value ?? props.defaultValue;
+        const multi = contract.id === 'Select' && props.selection === 'multi';
+        if (value !== undefined && (multi ? !Array.isArray(value) : typeof value !== 'string')) violate('Selection value shape must match single/multi mode.');
+        const values = Array.isArray(value) ? value : value === undefined || value === '' ? [] : [value];
+        if (new Set(values).size !== values.length || values.some(v => !options.some(o => o?.value === v))) violate('Every selected value must occur exactly once in options.');
+        break;
+      }
+      case 'checked-value':
+        if (props.checked !== undefined && props.defaultChecked !== undefined) violate('checked and defaultChecked are mutually exclusive.');
+        if (props.checked !== undefined && !props.onCheckedChange && !props.onChange && !props.readOnly) violate('Controlled checked requires a change handler or readOnly.');
         break;
       case 'controlled-value':
         if (typeof props.value !== 'string' || !props.onChange || own(props, 'defaultValue')) violate('The pilot field requires value:string and onChange, without defaultValue.');

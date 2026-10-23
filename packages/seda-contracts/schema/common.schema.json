@@ -116,7 +116,9 @@
             "disabled-error-presentation",
             "component-token-binding",
             "icon-box",
-            "full-tooltip"
+            "full-tooltip",
+            "selection-value",
+            "checked-value"
           ]
         },
         "prop": {
@@ -132,7 +134,7 @@
         },
         "decision": {
           "type": "string",
-          "pattern": "^D(0[1-9]|1[0-9]|2[0-4])$"
+          "pattern": "^D(0[1-9]|1[0-9]|2[0-5])$"
         }
       },
       "required": [

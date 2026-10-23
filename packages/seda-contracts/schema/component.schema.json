@@ -12,7 +12,11 @@
       "enum": [
         "Button",
         "IconButton",
-        "TextField"
+        "TextField",
+        "Select",
+        "Checkbox",
+        "Radio",
+        "Toggle"
       ]
     },
     "api": {
@@ -37,7 +41,9 @@
         "nativeElement": {
           "enum": [
             "button",
-            "input"
+            "input",
+            "select",
+            "fieldset"
           ]
         }
       },
@@ -125,7 +131,10 @@
           "items": {
             "enum": [
               "empty",
-              "filled"
+              "filled",
+              "checked",
+              "unchecked",
+              "indeterminate"
             ]
           },
           "minItems": 0,

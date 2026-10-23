@@ -6,7 +6,7 @@
  * path: string, chain: ResolutionStep[], source?: string, tokenPath?: string[],
  * ref?: Record<string, unknown>, adapter?: string}} BindingEvidence
  * @typedef {{vars: CSSVariables, attributes: Record<string, string>, evidence: BindingEvidence[]}} RecipeBinding
- * @typedef {{layout: {vars: CSSVariables, evidence: BindingEvidence[]}, recipes: Record<string, RecipeBinding>}} WebBindings
+ * @typedef {{layout: {vars: CSSVariables, evidence: BindingEvidence[]}, recipes: Record<string, RecipeBinding>, controls: Record<string, RecipeBinding>}} WebBindings
  */
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -111,6 +111,20 @@ function requiredColors(branch, paths, at) {
   }
 }
 
+/** Bind compiled selection/choice contracts without resolving tokens in the browser. */
+export function createControlWebBindings(compiled) {
+  if (!object(compiled?.controls)) fail('/controls', 'Compiled control catalog is required.');
+  return Object.fromEntries(['Select', 'Checkbox', 'Radio', 'Toggle'].map(name => {
+    const control = compiled.controls[name];
+    const at = `/controls/${name}`;
+    if (control?.component !== name || !Array.isArray(control.tokenRequirements) || !control.tokenRequirements.length) fail(at, 'Expected compiled component contract and required roles.');
+    const target = writer();
+    requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
+    colors(target, control.tokenBranch.children, [name.toLowerCase()], `${at}/tokenBranch`);
+    return [name, { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': name } }];
+  }));
+}
+
 /** @param {Record<string, any>} compiled @returns {WebBindings} */
 export function createWebBindings(compiled) {
   if (!object(compiled) || compiled.kind !== 'seda-compiled-profile' || compiled.schemaVersion !== '0.1.0') fail('/', 'Expected SEDA compiled profile version 0.1.0.');
@@ -174,7 +188,7 @@ export function createWebBindings(compiled) {
       evidence: target.evidence,
     };
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes };
+  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: createControlWebBindings(compiled) };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

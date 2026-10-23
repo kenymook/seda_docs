@@ -2,11 +2,9 @@ import React, { useRef, useState } from "react";
 import {
   Button,
   TextField,
-  Select,
-  Checkbox,
-  Radio,
-  Toggle,
 } from "@seda-ai/ui";
+
+import { Select, Checkbox, Radio, Toggle } from "./contract-controls";
 
 type Props = {
   size: "s" | "m" | "l" | "xl";
