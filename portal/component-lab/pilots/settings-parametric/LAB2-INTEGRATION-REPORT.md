@@ -51,3 +51,13 @@
 - Данные и транспорт локальны сессии; серверная запись, реальные email-приглашения и восстановление после reload не реализованы.
 - Проверен Chromium. Firefox/WebKit, native desktop shell, screen readers и полный WCAG-аудит не проверены. Popup Select вне поддержки base-select и календарь date остаются системными.
 - Закреплённые зависимости не обновлялись. Ранее отмеченные инструментальные dependency/security-ограничения этой интеграцией не устраняются.
+
+## Дополнение: проверка библиотеки как устанавливаемого пакета
+
+В рамках цели зрелой библиотеки для сложных рабочих приложений добавлены build/prepack, публичные ESM/types/CSS artifacts, SSR-safe entry и отдельный consumer verifier. В отличие от Lab, он устанавливает tarball и не использует source alias или CSS лаборатории.
+
+Итог: 8/8 групп проверки поставки на React 18.3.1 и 19.2.7; оба приложения проходят SSR, NodeNext declarations, hydration, связанные контролы и loading. Сборка повторяется с идентичным manifest SHA-256. npm audit library toolchain после обновления Playwright: 0 findings. [Машинные результаты](../../../../packages/seda-ui/verification/package-results.json).
+
+Этот verifier нашёл отдельный дефект Button: `min-width: max-content` позволял скрытому меняющемуся label увеличивать кнопку во время loading за пределами Lab. Ограничение исправлено в library CSS; оба consumer показывают loading Δ0/0 px. Существующие contracts 90/90 и Lab 55/55 повторно прошли после исправления.
+
+Для SSR библиотечный JS entry больше не импортирует CSS автоматически. Consumers должны явно импортировать `@seda-ai/ui/styles.css`; Lab уже делал это. Migration notes находятся в `packages/seda-ui/CHANGELOG.md`. [Полный критерий зрелости](../../../../docs/library/MATURITY.md) включает четыре класса сложных рабочих приложений и остаётся незавершённым. Public npm release и native desktop build этим этапом не заявляются.

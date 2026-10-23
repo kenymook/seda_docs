@@ -1332,3 +1332,5 @@
   }
   .seda-field__select option:disabled { color: var(--seda-select-foreground-disabled, #929aaa); }
 }
+/* A pending button must not grow with the intrinsic width of a changing hidden label. */
+.seda-button[data-loading="true"] { min-width: 0; flex-shrink: 0; }

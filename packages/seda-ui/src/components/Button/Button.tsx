@@ -1,9 +1,9 @@
 import {
   forwardRef,
   useRef,
-  useLayoutEffect,
   useImperativeHandle,
 } from "react";
+import { useBrowserLayoutEffect } from "../../utils/useBrowserLayoutEffect";
 import { cx } from "../../utils/classNames";
 import type { ButtonProps } from "./Button.types";
 
@@ -29,7 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const element = useRef<HTMLButtonElement>(null);
     const measured = useRef<{ width: number; height: number } | null>(null);
     useImperativeHandle(ref, () => element.current!);
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
       const button = element.current;
       if (!button) return;
       if (loading) {

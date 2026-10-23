@@ -1,0 +1,52 @@
+name: SEDA library and contracts
+on:
+  pull_request:
+  push:
+    branches: [master, main, 'codex/**']
+permissions:
+  contents: read
+jobs:
+  library:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            packages/seda-ui/package-lock.json
+            packages/seda-contracts/package-lock.json
+            portal/component-lab/pilots/settings-parametric/package-lock.json
+      - run: npm ci
+        working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: packages/seda-contracts
+      - run: npm ci
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npx playwright install --with-deps chromium
+        working-directory: packages/seda-ui
+      - name: Use one installed Chromium for both verifiers
+        run: node -e 'const fs=require("node:fs");const {chromium}=require("./packages/seda-ui/node_modules/playwright");fs.appendFileSync(process.env.GITHUB_ENV,"SEDA_BROWSER_EXECUTABLE="+chromium.executablePath()+"\n");'
+      - run: npm run typecheck
+        working-directory: packages/seda-ui
+      - run: npm run verify:package
+        working-directory: packages/seda-ui
+      - run: npm test
+        working-directory: packages/seda-contracts
+      - run: npm run typecheck
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run build
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run verify
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seda-verification
+          include-hidden-files: true
+          path: |
+            packages/seda-ui/.diagnostics-package/*/results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/consumer.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-*/results.json

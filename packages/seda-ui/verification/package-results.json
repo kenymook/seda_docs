@@ -1,0 +1,123 @@
+{
+  "kind": "seda-ui-package-proof",
+  "date": "2026-10-23",
+  "passed": 8,
+  "failed": 0,
+  "results": [
+    {
+      "name": "tarball-export-files-and-allowlist",
+      "status": "passed",
+      "evidence": {
+        "filename": "seda-ai-ui-0.1.0.tgz",
+        "files": 93,
+        "integrity": "sha512-MhCBkOzuqM437blfbDr+2US8u8x9VEhwv68ejKvI2WjBvkjnYVmzTiITyxw7Qh3lGBOr1GZ1CEVcJIKu/tCNAQ=="
+      }
+    },
+    {
+      "name": "deterministic-build",
+      "status": "passed",
+      "evidence": {
+        "identical": true,
+        "artifacts": 89
+      }
+    },
+    {
+      "name": "react-18.3.1-native-esm-and-ssr",
+      "status": "passed",
+      "evidence": {
+        "exports": [
+          "Alert",
+          "Badge",
+          "Button",
+          "Checkbox",
+          "FileUpload",
+          "IconButton",
+          "Link",
+          "Radio",
+          "Select",
+          "Tag",
+          "TextField",
+          "Toast",
+          "Toggle"
+        ],
+        "ssrRendered": true,
+        "warningCount": 0
+      }
+    },
+    {
+      "name": "react-18.3.1-declarations",
+      "status": "passed",
+      "evidence": {
+        "moduleResolution": "NodeNext",
+        "negativeTypeChecks": 3
+      }
+    },
+    {
+      "name": "react-18.3.1-hydration-css-and-behavior",
+      "status": "passed",
+      "evidence": {
+        "cssBytes": 42508,
+        "sourceAlias": false,
+        "hydrationErrors": [],
+        "loadingDelta": {
+          "width": 0,
+          "height": 0
+        },
+        "requests": 1
+      }
+    },
+    {
+      "name": "react-19.2.7-native-esm-and-ssr",
+      "status": "passed",
+      "evidence": {
+        "exports": [
+          "Alert",
+          "Badge",
+          "Button",
+          "Checkbox",
+          "FileUpload",
+          "IconButton",
+          "Link",
+          "Radio",
+          "Select",
+          "Tag",
+          "TextField",
+          "Toast",
+          "Toggle"
+        ],
+        "ssrRendered": true,
+        "warningCount": 0
+      }
+    },
+    {
+      "name": "react-19.2.7-declarations",
+      "status": "passed",
+      "evidence": {
+        "moduleResolution": "NodeNext",
+        "negativeTypeChecks": 3
+      }
+    },
+    {
+      "name": "react-19.2.7-hydration-css-and-behavior",
+      "status": "passed",
+      "evidence": {
+        "cssBytes": 42508,
+        "sourceAlias": false,
+        "hydrationErrors": [],
+        "loadingDelta": {
+          "width": 0,
+          "height": 0
+        },
+        "requests": 1
+      }
+    }
+  ],
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  }
+}
