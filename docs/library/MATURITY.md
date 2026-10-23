@@ -151,3 +151,9 @@ Recents опубликован в **version14** на прежнем owner-privat
 ## Продвижение: документный reference Building
 
 Building (1:84) опубликован в version15 на том же owner-private сайте. [Review и production evidence](REFERENCE-BUILDING-REVIEW.md#публикация-и-production-proof): установленный пакет, 23 страницы/35 исходных блоков, реальное plain-text редактирование и local persistence, 109 browser groups +5 domain-model groups на local/publication checkout,375 source hashes на production. Это ещё не полный Notion-class editor: rich text, inline toolbar, таблицы и другие перечисленные ограничения остаются открытыми. Оба reference screens требуют визуальной приёмки, остальные семь ещё не реализованы; общая цель остаётся active.
+
+## Продвижение: качество документа и следующий reference
+
+Version16: исходная content typography Building и list guides восстановлены с отдельным профилем SEDA controls; structural mutations отклоняются до изменения принятого draft/history, rejected input возвращает видимый текст. Publication112 browser +5 model groups PASS; production375 hashes, фактический Segoe UI и depth guard подтверждены. [Детали и ограничения](REFERENCE-BUILDING-REVIEW.md#version16--опубликованный-результат-доработки). Визуальная приёмка по-прежнему открыта.
+
+Для следующего обязательного [chat screen1:3894](REFERENCE-CHAT-HANDOFF.md) получен отдельный design context восьми sublayers и QA screenshot. Это подготовка, не реализация и не приёмка. Следующий рабочий шаг — общий TextArea/Composer и связанный thread/message/activity flow на установленном пакете; девять экранов и четыре класса приложений остаются полной целью.

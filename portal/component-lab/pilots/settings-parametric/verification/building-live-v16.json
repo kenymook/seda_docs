@@ -1,0 +1,44 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/building",
+  "status": 200,
+  "sourceNode": "1:84",
+  "installedPackage": true,
+  "sourceAlias": false,
+  "matchedSourceHashes": 375,
+  "initialBlocks": 35,
+  "editAndSaveReload": true,
+  "navigationDraft": true,
+  "panelResize": true,
+  "renderedFonts": [
+    {
+      "family": "Segoe UI",
+      "postScript": "SegoeUI",
+      "glyphs": 243
+    }
+  ],
+  "typography": {
+    "body": "\"Segoe UI\", system-ui, sans-serif",
+    "control": "Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "sectionWeight": "400",
+    "guide": "1px"
+  },
+  "depthRejectionAtomic": true,
+  "independentScroll": {
+    "before": 350,
+    "after": 350,
+    "sidebar": 80,
+    "window": 0
+  },
+  "geometry": {
+    "save": 60,
+    "iconWidth": 60,
+    "iconHeight": 60,
+    "row": 60,
+    "overflow": 0
+  },
+  "saveLoadingCompletedDelta": {
+    "width": 0,
+    "height": 0
+  },
+  "pageErrors": []
+}
