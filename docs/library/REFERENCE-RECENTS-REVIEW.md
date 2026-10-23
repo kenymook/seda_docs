@@ -38,3 +38,11 @@ QA обнаружил неверное сопоставление avatar/thumbna
 ## Итог
 
 Экран подготовлен как реальное файловое приложение для оценки SEDA. Его нельзя считать полностью принятым Figma reference или подтверждением общей зрелости библиотеки. Остальные восемь экранов и четыре исходных класса приложений остаются обязательными.
+
+## Публикация и независимая проверка
+
+На прежнем owner-private сайте опубликована **version14**. [Открыть Recents](https://seda-ai-pilot.kenymook.chatgpt.site/references/recents); исходный `/references/recents.html` нормализуется хостингом к этому адресу. Существующий корень Lab сохранён. Deployment `appgdep_6adb8c23995c819198d5dbc44d359d62` succeeded; Sites source `3159a0b01d90888458c4b7579052609a6aa1c133`, GitHub code `af4fbdac9f88e956a773fb424ff391a628c1419a`. Access policy revision1: один owner, без visitors/groups.
+
+Publication checkout повторил public package build/install/manifest parity, три TypeScript проекта, build и **97/97 browser checks** (55 Lab+21 workspace+12 controls+9 reference). [Production proof](../../portal/component-lab/pilots/settings-parametric/verification/recents-live-v14.json): HTTP200, **323 исходных хеша совпали**, sourceAlias=false, installedPackage=true, 25 исходных файлов; search/filter/create/reload/trash/restore/preferences работают. XL/X14/Y6 дают Button60px, поле60px, IconButton60×60px; overflow0, JS errors0. [Production Dark](../../portal/component-lab/pilots/settings-parametric/verification/recents-live-v14-dark.png) просмотрен: type marks и avatar backgrounds восстановлены из source assets. [Lab regression live](../../portal/component-lab/pilots/settings-parametric/verification/live-workspace-v14.json) подтвердил loading Δ0/0, IconButton square, сохранение Tree/панелей, Select focus/picker и отсутствие ошибок.
+
+[GitHub Actions39987124487](https://github.com/kenymook/seda_docs/actions/runs/39987124487), job120529092943, code af4fbdac — **completed/success**. Логи независимо подтверждают package19/19, contracts111/111, TypeScript/build и browser55+21+12+9. Это remote Ubuntu/Node24/Chromium proof текущего функционального кода. Документация/production evidence добавлены после него; это не утверждение о ещё не выполненном CI следующего documentation commit. Общая приёмка девяти экранов остаётся открытой.

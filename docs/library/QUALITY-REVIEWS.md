@@ -33,3 +33,9 @@ Demo selectors теперь исключают .seda-field__input/.seda-field__s
 Joint test обнаружил crash от whitespace draft: подпись Tree обязана быть непустой, поэтому editor даёт запасное имя, не переписывая draft. Regression проверяет пустой текст, видимую ошибку, save guard и отсутствие JS errors. Все 21 workspace checks прошли после исправления. Проверка unit/geometry не заменяет эту проверку связи контролов.
 
 Production version13: просмотрен [устойчивый Dark editor с Tree](../../portal/component-lab/pilots/settings-parametric/verification/editor-tree-live-v13-dark.png); selected row различим, подписи в узкой панели обрезаются штатным ellipsis, полный текст остаётся в inspector/accessibility name. Tree selection/expansion пережили explicit save/reload; X/Y/height подтверждены production measurements. Сам editor ещё не соответствует ни одному reference frame и не закрывает приёмку девяти экранов.
+
+## Recents — оценка source assets и регрессий
+
+[Review](REFERENCE-RECENTS-REVIEW.md) содержит source/actual screenshots и раздельные статусы визуального соответствия и функциональности. Первая QA нашла portrait avatar вместо thumbnail у Главная Салют, потерянный цветной фон SVG avatars и отсутствие подложки file-type marks. Исправлены роли исходных assets и контейнеры из design context; [production Dark v14](../../portal/component-lab/pilots/settings-parametric/verification/recents-live-v14-dark.png) просмотрен после исправления. Эти дефекты не закрывались обновлением baseline.
+
+Новая ссылка на экран давала overflow64px у старого Lab390. Исправлен wrap шапки; существующие55 Lab и21 workspace checks прошли без ослабления допусков и отдельно повторены на Ubuntu CI. Installed manifest check выявил несовпадение public CSS/profiles и теперь останавливает stale package build. Технические97 browser checks и source hash parity не компенсируют незавершённую визуальную приёмку эталона.
