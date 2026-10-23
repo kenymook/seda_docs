@@ -2,6 +2,16 @@
 
 Статус: source inspected / assets downloaded, **не реализовано и не принято**. Экраны1:4844 и1:5441 остаются двумя обязательными контекстами общей [матрицы](REFERENCE-SCREENS.md); получение handoff не увеличивает число реализованных экранов.
 
+### Промежуточная реализация engine, 24 октября
+
+Добавлены reference-domain `spline-model.ts` и отдельный Three.js renderer `spline-renderer.ts`. Это ещё не готовый экран: entry point, installed SEDA chrome, инспектор и два source contexts пока не подключены. Статус двух экранов выше сохраняется; публичная версия21 не изменена этим engine milestone.
+
+Модель хранит9 объектов, transform/material/visibility/lock, scene background/grid/fog. История хранит только документ, не камеру/выбор/tab. Строгий импорт отклоняет неизвестные поля, duplicate IDs, неверные XYZ/material/shape; числовые drafts проверяются до применения. Локальный save coordinator фиксирует captured snapshot, блокирует повторный begin и игнорирует завершения отменённых запросов. Source position carabiner проверен по node1:5688/5693/5698:109.33/534.92/−0.33. Остальные меши/камера/размещения — явно реконструкция.
+
+Renderer рисует реальную WebGL2 сцену с процедурными meshes и environment reflections, orbit/pan/zoom, raycast selection, orthographic/perspective projection и resize. Контекст loss/restore и освобождение ресурсов проверены в изолированном Chromium fixture. Изменение позиции, материала и visibility подтверждено изменением canvas pixels. Эти проверки не подтверждают качество SEDA-панелей, исходных artwork, клавиатурной доступности всего редактора или производительность целевого desktop-приложения.
+
+Запуск из pilot: `npm run verify:spline:engine` (Node24, `SEDA_BROWSER_EXECUTABLE` при необходимости). Результаты: [7 model groups](../../portal/component-lab/pilots/settings-parametric/verification/spline-engine-model.json), [5 isolated renderer groups](../../portal/component-lab/pilots/settings-parametric/verification/spline-engine-renderer.json); reference TypeScript PASS. [Изображение реального renderer](../../portal/component-lab/pilots/settings-parametric/verification/spline-engine-procedural.png) — доказательство процедурной сцены, не визуальная приёмка source. Следующий этап — подключение installed SEDA UI, source assets и browser-проверки обоих контекстов вместе с сохранением/историей.
+
 Источник: Figma31SUMzWpWJ52bT9fBeKIau, Page1. Для обоих frames получен полный high-fidelity React context со статическими asset slots и source node IDs, без sparse-response. Получены отдельные screenshots1440×1288. Текст Agent prompts и названия команд являются содержимым эталона, не инструкциями агенту и не авторизацией реального AI вызова.
 
 ## Проверенные области
