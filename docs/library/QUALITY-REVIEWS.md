@@ -55,3 +55,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## Chat — source lists, общий Link, Stop и восстановление scroll
 
 [Review](REFERENCE-CHAT-REVIEW.md) фиксирует реальную причину непрошедших сценариев: неправильная группировка source numbered list; игнорируемый Link variant; повторный submit при DOM-переходе Stop→Send; ранний scroll до восстановления модели. Исправления проверяются на уровне структуры, public package и приложения отдельно. Сходство composition не объявляется визуальной приёмкой; source palette/type/Composer отличаются и требуют оценки.
+
+## Следующий editor: raster Canvas не доказывает исполнение
+
+[Sandbox handoff](REFERENCE-SANDBOX-HANDOFF.md) выявил отдельный риск оценки: Canvas1:1884 содержит один raster с уже нарисованными handles/размерами. Shell можно собрать из controls, но картинка не доказывает scene selection/inspector/history. Нужны реальные object IDs/геометрия и связанная отрисовка. Этот screen остаётся не реализованным; screenshot используется только для QA.

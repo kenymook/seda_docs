@@ -55,3 +55,5 @@ Publication checkout повторил UI/pilot/reference TypeScript, manifest pa
 ## Отдельная проверка CI
 
 Первый remote run40012527962 для functional ff02b5e не прошёл: package23/contracts115 и первые97 browser groups прошли, затем Building test не нашёл Parent document после reload; Chat в этом run не запускался. Локальный и publication Building16 прошли. Тест уточнён: перед вводом названия ждёт новый заголовок и его фактический focus, отдельно подтверждает parent/child IDs, сохранённое имя и parentId до reload. Assertions не ослаблены, timeout не увеличен. Повторный remote run проверяется отдельно; прежняя неудача не скрывается.
+
+Повторный [CI40013689889](https://github.com/kenymook/seda_docs/actions/runs/40013689889) для commit7046710ffdd7771a0fe7842020ead13a7ff979f9 **completed/success**. Job120620209128 logs подтвердили package23/contracts115/browser125/domain-model9, TypeScript/build. Это отдельное подтверждение полного текущего прогона на Ubuntu, включая Chat. Последующее добавление отчётов/handoff не объявляется проверенным этим run.
