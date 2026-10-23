@@ -18,7 +18,7 @@
 
 ## Проверки и границы доказательств
 
-На текущем локальном этапе пройдены120 contract/foundation tests (115 прежних +5 typography),7 новых Lab browser groups и три TypeScript проекта/build. Installed-package25/25 groups на React18.3.1/19.2.7 и полная регрессия150 browser/24 model groups также прошли. [Local summary](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-summary.json), [новые7 browser groups](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-results.json), [package proof](../../packages/seda-ui/verification/package-results.json). Новый CI и публикация пока не заявлены. Матрицы role/scale/theme/size являются вложенными samples, не дополнительными workflows.
+На текущем локальном этапе пройдены120 contract/foundation tests (115 прежних +5 typography),7 новых Lab browser groups и три TypeScript проекта/build. Installed-package25/25 groups на React18.3.1/19.2.7 и полная регрессия150 browser/24 model groups также прошли. [Local summary](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-summary.json), [новые7 browser groups](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-results.json), [package proof](../../packages/seda-ui/verification/package-results.json). Публикация20 и production proof подтверждены ниже; независимый CI ещё выполняется. Матрицы role/scale/theme/size являются вложенными samples, не дополнительными workflows.
 
 Новые7 browser groups: canonical Text/source, shared scale/inspector, role/history/reload, независимость X/Y/radius/controlSize, длинная кириллица/viewport, theme repaint/save и JS errors. Public verifier отдельно проверяет SSR/Strict hydration, unknown role/tag/scale rejection,23 DOM/compiler roles, inherited/explicit/standalone scopes, control geometry independence,80/100/115/150/200%, wrapping и RTL на React18/19.
 
@@ -29,3 +29,13 @@ Text не добавлен в serializable component contract registry: оста
 Typography author content в Building/Chat/Sandbox сохраняет собственную модель; UI scale не переписывает canvas font properties и не служит zoom документа. В старом Lab preview heading намеренно использует наследуемую SEDA role; это демонстрационный макет, не импортированный исходный artwork.
 
 Общая цель, остальные5 reference screens,4 класса приложений и visual acceptance всех реализованных screens остаются открытыми.
+
+## Version20 — публикация и production proof
+
+Опубликована [version20 прежнего owner-private сайта](https://seda-ai-pilot.kenymook.chatgpt.site/). Deployment appgdep_6adbd2e7e1188191a304d031c0a1e8b0 succeeded; Sites source c096a17538b38192fea09a3efdc1431ed1b2674b; functional GitHub1fcc034cfe901ab731d200cd67f6d073bef122e1. Access revision1: один owner, visitors0/groups0. [Release record](../../portal/component-lab/pilots/settings-parametric/verification/typography-v20-release.json).
+
+Publication checkout повторил150 browser/24 model groups, UI/pilot/reference TypeScript и build. [Результаты](../../portal/component-lab/pilots/settings-parametric/verification/typography-v20-publication-checks.json). На production повторены все7 новых typography groups с24 вложенными profile samples, role/history/save/reload, длинной кириллицей и тремя viewport. HTTP200;589 canonical source hashes совпали; JavaScript errors0. [Production proof](../../portal/component-lab/pilots/settings-parametric/verification/typography-live-v20.json), [Light](../../portal/component-lab/pilots/settings-parametric/verification/typography-live-v20-light.png), [Dark](../../portal/component-lab/pilots/settings-parametric/verification/typography-live-v20-dark.png).
+
+Пример applied metrics: heading/section =20/32px при100%,23/36.8px при115%,30/48px при150%; heading/panel при115% =20.7/27.6px. Это проверенные computed CSS значения, не rounded prose.
+
+[CI40027185664](https://github.com/kenymook/seda_docs/actions/runs/40027185664), job120666214894, для functional1fcc034 подтверждён in_progress. На последней проверке завершены checkout/dependencies/build, выполнялась установка Chromium; полный success не заявляется. Дальнейшая проверка должна продолжать этот run. Последующие отчёты не объявляются прошедшими его CI.

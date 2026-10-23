@@ -34,8 +34,8 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 18 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 11 компонентов, 8 профилей, API/state/token validation; 115 unit checks с foundation binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Кодовый каталог | 19 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
+| Исполняемые контракты | 11 компонентов, 8 профилей, API/state/token validation; 120 unit/foundation checks с typography binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 55+21+12 browser checks; Recents и Building — отдельные reference entries | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
 | Реальный consumer | 17/17 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
@@ -189,3 +189,5 @@ Sandbox опубликован в version19 на прежнем owner-private с
 ## Параметрическая типографика — исполнение foundation
 
 [Typography review](TYPOGRAPHY-REVIEW.md):19-й public Text и23 роли, общий compiler/CSS/provenance, inherited absolute scale80–200 и readable minimum. В Lab workspace heading/prose и editor preview подключены к общей шкале; role choice включён в history/save/reload. Локально120 contracts/foundation, package25 React18/19, browser150/model24,3 TS/build PASS. Это закрывает обнаруженный executable binding gap на этих поверхностях; remaining text adoption, contrast/AT/visual и полная цель остаются открытыми.
+
+Typography опубликована в version20; [production evidence и CI status](TYPOGRAPHY-REVIEW.md#version20-публикация-и-production-proof). Publication150 browser/24 model PASS; production7/7 typography groups,589 hashes, JS errors0, прежний owner-private access. Independent CI40027185664 ещё выполняется; общий success пока не заявляется. Визуальные/AT/contrast gates и полная цель остаются открытыми.
