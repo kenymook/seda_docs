@@ -9,6 +9,7 @@ const useClientLayoutEffect=typeof window==='undefined'?useEffect:useLayoutEffec
 export const TextArea=forwardRef<HTMLTextAreaElement,TextAreaProps>(({
  label,size:sizeProp,value,defaultValue,helperText,errorText,hideLabel=false,autoResize=false,maxRows,rows=3,resize='vertical',showCount=false,clearable=false,onClear,disabled=false,readOnly=false,required=false,className,style,id,onChange,...props
 },ref)=>{
+ if('children' in props||'dangerouslySetInnerHTML' in props)throw new TypeError('TextArea content is owned by value/defaultValue');
  const size=useSedaSize(sizeProp),generated=useId(),inputId=id??generated,messageId=inputId+'-message',counterId=inputId+'-counter';
  const autoOwnedHeight=useRef(false),inner=useRef<HTMLTextAreaElement>(null),[localValue,setLocalValue]=useState(defaultValue??'');
  const text=value??localValue,hasError=!disabled&&hasMessage(errorText),message=hasError?errorText:hasMessage(helperText)?helperText:undefined;

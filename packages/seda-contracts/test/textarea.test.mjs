@@ -3,7 +3,7 @@ import {createContractEngine,ContractValidationError} from '../src/index.mjs';im
 const engine=createContractEngine(),base={label:'Комментарий'};
 test('TextArea: native uncontrolled, controlled, readOnly ownership and clear contract',()=>{
  for(const props of [base,{...base,defaultValue:'line1\nline2'},{...base,value:'draft',onChange:{$handler:'change'}},{...base,value:'read only',readOnly:true},{...base,value:'x',clearable:true,onChange:{$handler:'change'},onClear:{$handler:'clear'}}])assert.equal(engine.validateInstance('TextArea',props).valid,true);
- for(const props of [{value:'x'},{value:'x',onChange:{$handler:'change'},defaultValue:'y'},{defaultValue:2},{value:'x',readOnly:true,clearable:true},{label:' '},{type:'email'}])assert.throws(()=>engine.compileControl('TextArea',{...base,...props}),ContractValidationError);
+ for(const props of [{value:'x'},{value:'x',onChange:{$handler:'change'},defaultValue:'y'},{defaultValue:2},{value:'x',readOnly:true,clearable:true},{label:' '},{type:'email'},{children:'hidden value'},{dangerouslySetInnerHTML:{__html:'hidden value'}}])assert.throws(()=>engine.compileControl('TextArea',{...base,...props}),ContractValidationError);
 });
 test('TextArea: row bounds and ownership reject ignored/ambiguous geometry',()=>{
  for(const props of [{rows:0},{rows:1.5},{rows:-1},{rows:3,autoResize:true,maxRows:2},{maxRows:4},{autoResize:true,maxRows:0},{resize:'both'}])assert.throws(()=>engine.compileControl('TextArea',{...base,...props}),ContractValidationError);

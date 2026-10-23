@@ -1,6 +1,6 @@
 import type {TextareaHTMLAttributes,ReactNode} from 'react';
 import type {SedaSize} from '../../types';
-export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>,'size'|'value'|'defaultValue'> {
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>,'size'|'value'|'defaultValue'|'children'|'dangerouslySetInnerHTML'> {
  label:ReactNode;
  size?:SedaSize;
  value?:string;

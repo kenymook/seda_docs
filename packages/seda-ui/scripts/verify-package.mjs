@@ -167,6 +167,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
 const area=<TextArea label="Message" rows={1} autoResize maxRows={8} clearable value="draft" onChange={()=>{}} onClear={()=>{}}/>;
 // @ts-expect-error label is required
 const namelessArea=<TextArea/>;
+// @ts-expect-error content belongs to value or defaultValue
+const childrenArea=<TextArea label="Message">Hidden value</TextArea>;
 // @ts-expect-error no arbitrary resizing modes
 const invalidArea=<TextArea label="Message" resize="both"/>;
 const tree=<Tree label="Layers" items={[{id:'frame',label:'Frame',children:[{id:'child',label:'Child'}]}]} selectionMode="multiple"/>;

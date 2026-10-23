@@ -17,3 +17,5 @@ Building импортирует TextArea из установленного publi
 ## Ограничения
 
 Status experimental: отдельная визуальная приёмка Figma node2187:3331 и всех40 variants не выполнена; настоящий OS IME и screen reader требуют ручных проверок. Composition forwarding не объявляется полной проверкой IME. Другие browser engines/native desktop shell и performance на больших текстах не подтверждены. Внутренняя clear label сейчас русская, общего i18n API ещё нет. Counter использует native UTF-16 units, не grapheme count. Rich text отсутствует. Clear notification — отдельный onClear, synthetic ChangeEvent не выдумывается. Composer/streaming/thread UI и следующий reference1:3894 ещё не реализованы.
+
+Последний API guard исключает children/dangerouslySetInnerHTML из types и отклоняет их runtime, чтобы они не задавали третий источник текста мимо value/defaultValue/counter. После этого guard повторены4 TextArea contract tests и полный installed-package verifier21/21 (включая NodeNext negative JSX и9 SSR invalid cases на каждой React версии). Полный115-test suite пройден перед этим guard; новый полный CI ещё ожидается.

@@ -3,7 +3,7 @@
   "sourceAlias": false,
   "ssr": true,
   "strictHydration": true,
-  "invalidInputsRejected": 7,
+  "invalidInputsRejected": 9,
   "measurements": [
     {
       "theme": "Light",
