@@ -158,6 +158,7 @@
 .seda-icon-button[data-variant="text"] {
   background: transparent;
   border-color: transparent;
+  color: var(--icon-button-ghost-foreground-default, var(--seda-foreground-default, var(--text-primary, #111827)));
 }
 
 .seda-icon-button[data-variant="destruction"] {

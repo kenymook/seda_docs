@@ -319,7 +319,7 @@ Handoff для Dropdown Menu должен включать:
 
 ### API и ownership
 
-- `triggerLabel: string` и `items: readonly MenuEntry[]` обязательны. Компонент владеет trigger Button; для icon-only нужны `iconOnly`, `triggerIcon` и текстовое имя. Это предотвращает вложенные кнопки и потерю ARIA-связей при произвольном trigger slot.
+- `triggerLabel: string` и `items: readonly MenuEntry[]` обязательны. Компонент владеет trigger Button (secondary); для icon-only нужны `iconOnly`, `triggerIcon` и текстовое имя, используется IconButton ghost для контекстных действий. Это предотвращает вложенные кнопки и потерю ARIA-связей при произвольном trigger slot.
 - `MenuAction`: уникальные `id`, текстовый `label`, обязательный исполняемый `onSelect`; optional `description`, `icon`, `disabled`, `danger`, `shortcut`.
 - `MenuGroup`: `type:"group"`, `id`, `label`, `items: readonly MenuAction[]`. `MenuSeparator`: `type:"separator"`, `id`. ID уникальны во всём дереве; вложенные группы не поддерживаются.
 - `size` наследует ближайший SedaProvider; standalone fallback m. `variant` default menu и пять существующих spec values. Данные групп/иконок/shortcuts составляют композицию; with-icons резервирует колонку иконок.

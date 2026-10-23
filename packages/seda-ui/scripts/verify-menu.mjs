@@ -24,7 +24,7 @@ export function MenuConsumer(){
  return h(SedaProvider,{id:'menu-provider',theme:config.theme,controlSize:config.controlSize,dir:config.dir,style:{padding:16,...(config.custom?{'--seda-control-height':'60px','--seda-control-line-height':'24px','--seda-control-padding-inline':'30px'}:{})}},
  h('input',{id:'before','aria-label':'Before'}),
  h('div',{id:'clip',style:{overflow:'hidden',width:180,height:48,transform:'translateZ(0)',...(config.edge?{position:'fixed',bottom:8,right:8}:{})}},
- mounted?h(DropdownMenu,{key:config.instance??'main',id:'commands',triggerLabel:'Действия',items:config.empty?[]:items,disabled:!!config.disabled,variant:config.variant,shortcutScope:config.shortcutScope,...(config.controlled?{open}:config.defaultOpen?{defaultOpen:true}:{}),onOpenChange:(value,reason)=>{setChanges(old=>[...old,{value,reason}]);if(!config.reject)setOpen(value);}}):null),
+ mounted?h(DropdownMenu,{key:config.instance??'main',id:'commands',triggerLabel:'Действия',iconOnly:!!config.iconOnly,triggerIcon:config.iconOnly?'⋯':undefined,items:config.empty?[]:items,disabled:!!config.disabled,variant:config.variant,shortcutScope:config.shortcutScope,...(config.controlled?{open}:config.defaultOpen?{defaultOpen:true}:{}),onOpenChange:(value,reason)=>{setChanges(old=>[...old,{value,reason}]);if(!config.reject)setOpen(value);}}):null),
  h('button',{id:'after',style:{position:'fixed',top:16,right:16}},'After'),
  h(SedaProvider,{id:'nested'},h('button',{id:'nested-command'},'Nested scope')),
  h('dialog',{ref:dialog,'aria-label':'Подтверждение'},h('button',{id:'confirm',onClick:()=>{dialog.current.close();setConfirm(false);}},'Подтвердить удаление')),
@@ -107,7 +107,14 @@ const errors=[];console.error=(...args)=>errors.push(args.join(' '));const html=
     await configure({disabled:false,empty:false,remove:null,allDisabled:false});await page.evaluate(()=>window.sedaMenu.setOpen(false));await settle();
     await configure({edge:false,allDisabled:true});await openMenu();await page.keyboard.press('Enter');assert.equal(await menu().count(),1);await close();await configure({allDisabled:false});
     await openMenu();await configure({disabled:true});assert.equal(await menu().count(),0);assert.equal(await trigger().isDisabled(),true);await configure({disabled:false,empty:true});assert.equal(await trigger().isDisabled(),true);await configure({empty:false});
-    await page.setViewportSize({width:900,height:650});await configure({theme:'dark',controlSize:'m'});await openMenu();await page.screenshot({path:path.join(cwd,'menu-dark.png')});await close();await configure({theme:'light',dir:'rtl'});await openMenu();await page.screenshot({path:path.join(cwd,'menu-light-rtl.png')});await close();
+    for(const theme of ['light','dark']){
+      await configure({theme,iconOnly:true,controlSize:'m'});
+      const appearance=await trigger().evaluate(el=>({variant:el.dataset.variant,bg:getComputedStyle(el).backgroundColor,color:getComputedStyle(el).color,icon:el.textContent,width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height}));
+      assert.equal(appearance.variant,'ghost');assert.equal(appearance.bg,'rgba(0, 0, 0, 0)');assert.equal(appearance.width,appearance.height);assert.match(appearance.icon,/⋯/);
+      const expected=metadata.themes[theme].find(x=>x.property==='--icon-button-ghost-foreground-default').cssValue;
+      const color=await page.evaluate(value=>{const el=document.createElement('span');el.style.color=value;document.body.append(el);const color=getComputedStyle(el).color;el.remove();return color;},expected);assert.equal(appearance.color,color);
+    }
+    await page.setViewportSize({width:900,height:650});await configure({theme:'dark',controlSize:'m',iconOnly:false});await openMenu();await page.screenshot({path:path.join(cwd,'menu-dark.png')});await close();await configure({theme:'light',dir:'rtl'});await openMenu();await page.screenshot({path:path.join(cwd,'menu-light-rtl.png')});await close();
     await configure({controlled:false,defaultOpen:true,instance:'strict-open'});await menu().waitFor();await page.evaluate(()=>window.sedaMenu.setMounted(false));await settle();assert.equal(await page.locator('.seda-overlay-portal').count(),0);
     await page.evaluate(()=>window.sedaMenu.setMounted(true));await menu().waitFor();await page.evaluate(()=>window.unmountSeda());await settle();assert.equal(await page.locator('.seda-overlay-portal').count(),0);
     // Explicit non-Popover fallback; independent reload/hydration.
