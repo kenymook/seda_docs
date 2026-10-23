@@ -513,7 +513,7 @@ function App() {
       setMeasurements(
         Array.from(
           document.querySelectorAll(
-            "[data-workspace] .seda-button,[data-workspace] .seda-icon-button,[data-workspace] .seda-field__control,[data-workspace] .seda-choice,[data-workspace] .seda-toggle",
+            "[data-workspace] .seda-button,[data-workspace] .seda-icon-button,[data-workspace] .seda-field__control,[data-workspace] .seda-choice,[data-workspace] .seda-toggle,[data-workspace] .seda-tabs__tab",
           ),
         )
           .filter((el) => el.getBoundingClientRect().height > 0)
