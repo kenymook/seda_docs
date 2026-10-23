@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
+import {compileTypography,createTypographyBindings,typographyRoles} from '../../seda-contracts/src/typography.mjs';
 /** Build-time only: the consumer receives self-contained CSS and provenance JSON. */
 export function buildThemeAssets(packageRoot, output) {
   const repo = path.resolve(packageRoot, "../..");
@@ -46,6 +47,7 @@ export function buildThemeAssets(packageRoot, output) {
     schemaVersion: "0.1.0",
     sources: {
       "tokens.json": hash(tokensBytes),
+      "packages/seda-contracts/src/typography.mjs":hash(fs.readFileSync(path.join(repo,'packages/seda-contracts/src/typography.mjs'))),
       "packages/seda-contracts/contracts/TextArea.json":hash(fs.readFileSync(path.join(repo,"packages/seda-contracts/contracts/TextArea.json"))),
       "packages/seda-contracts/system.json": hash(systemBytes),
       "packages/seda-ui/src/styles.css": hash(stylesBytes),
@@ -70,6 +72,17 @@ export function buildThemeAssets(packageRoot, output) {
   const css = [
     "/* Generated from tokens.json and the shared contract system. */",
   ];
+  report.typography={};
+  for(const theme of system.supportedThemes){
+    const typography=compileTypography(resolver,{theme});report.typography[system.themeAdapter[theme]]=typography;
+    const {vars}=createTypographyBindings(typography);
+    css.push(':root,.seda-provider[data-seda-theme="'+system.themeAdapter[theme]+'"]{'+Object.entries(vars).map(([key,value])=>key+':'+value+';').join('')+'}');
+  }
+  for(const role of Object.keys(typographyRoles)){
+    const p='--seda-type-'+role.replaceAll('/','-');
+    css.push('.seda-text[data-seda-text="'+role+'"]{--seda-text-rendered-size:max(var('+p+'-minimum),calc(var('+p+'-size) * var(--seda-text-scale,1)));font-family:var('+p+'-family);font-size:var(--seda-text-rendered-size);line-height:calc(var(--seda-text-rendered-size) * var('+p+'-ratio));letter-spacing:calc(var(--seda-text-rendered-size) * var('+p+'-tracking-ratio));font-weight:var('+p+'-weight);'+(role.startsWith('metric/')?'font-variant-numeric:tabular-nums;':'')+'}');
+  }
+  css.push('.seda-text[data-seda-text]{margin:0;max-width:100%;min-width:0;overflow-wrap:anywhere;}');
   const weight = { Regular: 400, Medium: 500, Semibold: 600, Bold: 700 };
   const dimension = (value, theme) =>
     value && typeof value === "object" && "collection" in value

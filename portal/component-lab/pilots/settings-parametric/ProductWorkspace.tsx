@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import {
+  Text,
   Button,
   TextField,
 } from "@seda-ai/ui";
@@ -11,6 +12,8 @@ type Props = {
   size: "s" | "m" | "l" | "xl";
   action: (role: string) => any;
   children: React.ReactNode;
+  typography: any;
+  textScale: number;
 };
 const teams = [
   { value: "Core", label: "Core" },
@@ -20,7 +23,7 @@ const teams = [
 ];
 
 /** Stateful product composition. Demo data stays in memory; no network invitation is sent. */
-export function ProductWorkspace({ size, action, children }: Props) {
+export function ProductWorkspace({ size, action, children, typography, textScale }: Props) {
   const [page, setPage] = useState("projects");
   const [settingsTab, setSettingsTab] = useState("general");
   const invalidFocus = useRef<string | null>(null);
@@ -163,10 +166,10 @@ export function ProductWorkspace({ size, action, children }: Props) {
         <div className="section-top">
           <div>
             <div className="eyebrow">РАБОЧЕЕ ПРОСТРАНСТВО</div>
-            <h1 id="workspace-settings-title">Настройки</h1>
-            <p>
+            <Text as="h1" variant="heading/page" id="workspace-settings-title">Настройки</Text>
+            <Text as="p" variant="body/default">
               Общие параметры применяются к полям, выбору значений и действиям.
-            </p>
+            </Text>
           </div>
         </div>
         <form
@@ -185,7 +188,7 @@ export function ProductWorkspace({ size, action, children }: Props) {
             items={[
               { value: "general", label: "Основные параметры", content: <div className="workspace-settings-panel">
                   <div className="form-section-heading">
-                    <h2>Основная информация</h2>
+                    <Text as="h2" variant="heading/section">Основная информация</Text>
                     <span>Текст · email · URL · число · дата · Select</span>
                   </div>
                   <div className="workspace-form-grid">
@@ -233,7 +236,7 @@ export function ProductWorkspace({ size, action, children }: Props) {
               </div> },
               { value: "access", label: "Доступ и уведомления", content: <div className="workspace-settings-panel">
                   <div className="form-section-heading">
-                    <h2>Доступ и уведомления</h2>
+                    <Text as="h2" variant="heading/section">Доступ и уведомления</Text>
                     <span>Radio · Toggle · Checkbox</span>
                   </div>
                   <div className="workspace-form-grid">
@@ -295,9 +298,9 @@ export function ProductWorkspace({ size, action, children }: Props) {
                 Отменить изменения
               </Button>
             </div>
-            <p role="status" id="workspace-notice">
+            <Text as="p" variant="body/default" role="status" id="workspace-notice">
               {notice || "Все данные остаются в этой демонстрации"}
-            </p>
+            </Text>
           </div>
         </form>
       </section>
@@ -310,8 +313,8 @@ export function ProductWorkspace({ size, action, children }: Props) {
         <div className="section-top">
           <div>
             <div className="eyebrow">ЛЮДИ И РОЛИ</div>
-            <h1 id="workspace-members-title">Команда</h1>
-            <p>Поиск, роли и добавление участника в локальную демонстрацию.</p>
+            <Text as="h1" variant="heading/page" id="workspace-members-title">Команда</Text>
+            <Text as="p" variant="body/default">Поиск, роли и добавление участника в локальную демонстрацию.</Text>
           </div>
         </div>
         <div className="preview">
@@ -400,8 +403,8 @@ export function ProductWorkspace({ size, action, children }: Props) {
             setMemberRole("all");
           }}
         >
-          <h2>Добавить участника</h2>
-          <p>Демонстрация добавления в таблицу. Письмо не отправляется.</p>
+          <Text as="h2" variant="heading/section">Добавить участника</Text>
+          <Text as="p" variant="body/default">Демонстрация добавления в таблицу. Письмо не отправляется.</Text>
           <div className="workspace-form-grid">
             <TextField
               id="invite-email"
@@ -436,7 +439,7 @@ export function ProductWorkspace({ size, action, children }: Props) {
           </Button>
         </form>
       </section>
-      <div id="editor-page" hidden={page!=="editor"}><EditorWorkspace size={size} action={action}/></div>
+      <div id="editor-page" hidden={page!=="editor"}><EditorWorkspace size={size} action={action} typography={typography} textScale={textScale}/></div>
     </>
   );
 }

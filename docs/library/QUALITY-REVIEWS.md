@@ -65,3 +65,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 [Review](REFERENCE-SANDBOX-REVIEW.md) отделяет156 редактируемых объектов от исходного bitmap: renderer/Tree/property fields/history работают на одной модели, но source artwork не принят. Числа/pending drafts имеют composition guard; blur→canvas читает актуальный snapshot, закрытый import и смена страницы инвалидируют поздние действия. Численные тесты используют actual pointer coordinates и отдельно проверяют реальное SVG смещение. Source counter49 не подменён статическим значением.
 
 Открытый visual defect Sandbox version19: fixed-size artboard captions пересекаются с предыдущим рядом на14% zoom; geometry scene/undo tests не оценивают читаемость подписей. Нужна отдельная проверка canvas overlay placement. Отдельный foundation gap — типографические роли интерфейса пока не имеют общего executable scale/binding; Lab text-scale влияет на controls, но не на произвольные h2 в editor preview.
+
+## Typography — токены против документации и runtime
+
+[Review](TYPOGRAPHY-REVIEW.md): исправлены устаревшие role mappings/семейство в foundation, подключён generated CSS, устранена window.nodeName DOM id collision. UI scale и controlSize независимы; inspector показывает реальный token и applied metrics, role choice участвует в истории. SSR fixture получил явный UTF-8; Ghost paint проверяется по фактическому hover/default state. Эти результаты не заменяют visual/contrast/AT приёмку.

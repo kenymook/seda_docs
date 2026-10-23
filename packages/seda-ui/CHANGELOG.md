@@ -64,3 +64,9 @@
 - Иcправлены RTL порядок счётчика, сохранение ручной высоты, precedence disabled+readOnly и active paint. Clear/focus, rejected controlled edits, native form reset и composition forwarding проверены в installed consumers.
 - Public package теперь18 компонентов +provider/hook,20 runtime exports. Package verifier21 aggregate groups,113 app groups и115 authored contract tests — разные области проверки, не взаимозаменяемые доказательства готовности.
 - Building использует настоящий TextArea для многострочных локальных комментариев; draft через close/reopen и сохранение/reload проверены. Полный chat/composer ещё не реализован.
+
+## Unreleased — параметрическая типографика
+
+- Public Text с23 существующими roles, semantic as и ref; наследуемый Provider textScale80–200, minimum и дробные size/line-height/tracking. Control size и author canvas font независимы.
+- Role mappings используют фактические h1/h2/h3 и title1/2/3, текущий Inter и token provenance; tokens.json не изменён.
+- Installed React18/19 proof добавляет по одной typography group: SSR/Strict hydration, кириллица/UTF-8,40 вложенных profile samples на каждый consumer, nested/explicit/standalone scopes, wrapping и RTL.

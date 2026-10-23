@@ -7,6 +7,7 @@ export function createWorkspaceBindings(
 ) {
   const web=createWebBindings(compiled);
   const vars = {
+    "--seda-text-scale":parameters.scale/100,
     ...web.layout.vars,
     ...web.recipes.projectName.vars,
     "--seda-control-height": derived.height + "px",

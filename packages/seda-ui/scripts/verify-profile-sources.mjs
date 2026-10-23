@@ -91,6 +91,8 @@ export async function verifyProfileSources(root) {
     await fs.mkdir(output);
     await fs.mkdir(path.join(temp, "packages/seda-contracts"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/contracts"));
+    await fs.mkdir(path.join(temp, "packages/seda-contracts/src"));
+    await fs.copyFile(path.join(repo,'packages/seda-contracts/src/typography.mjs'),path.join(temp,'packages/seda-contracts/src/typography.mjs'));
     for (const name of ["Button", "IconButton", "TextArea"])
       await fs.copyFile(
         path.join(repo, "packages/seda-contracts/contracts", name + ".json"),

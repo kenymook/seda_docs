@@ -8,6 +8,8 @@ import { createTokenResolver } from './tokens.mjs';
 import { createFormState, transitionForm, formEvents } from './form.mjs';
 import { deriveState, evaluateRules, validateRuleDefinition, mergeDescriptionIds } from './rules.mjs';
 import { validateWebProfile } from './web.mjs';
+import { compileTypography } from './typography.mjs';
+export { compileTypography, deriveTypography, createTypographyBindings, typographyRoles, validateTypographyScale } from './typography.mjs';
 
 export { createApiInspector, createTokenResolver, createFormState, transitionForm, formEvents, deriveState, mergeDescriptionIds };
 export { TokenResolutionError } from './tokens.mjs';
@@ -277,7 +279,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     }
     const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}) }]));
     const foundationTokens = Object.fromEntries([['surface',['surface','base']],['separator',['border','subtle']],['focus',['focus','ring']]].map(([key,path])=>[key,resolver.resolve({collection:'semantic',path,expectedType:'color'},{theme})]));
-    return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry, typography: { family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
+    return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry, typography: { roles: compileTypography(resolver,{theme}), family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }
 
   function provenance() {

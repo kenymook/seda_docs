@@ -111,3 +111,7 @@ TextArea использует общие S/M/L/XL и собственные cano
 ```
 
 Компонент зарегистрирован одиннадцатым executable contract. Installed React18/19 proofs включают SSR/Strict hydration и DOM/profile measurements. Это не приёмка40 Figma variants, реального IME на каждой ОС, screen reader или native desktop shell. Clear label сейчас русский; общей i18n модели внутренних подписей ещё нет.
+
+## Text и масштаб типографики
+
+19-й public component `Text` использует23 роли foundation. Пример: `<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Раздел</Text></SedaProvider>`. `as` задаёт native outline, `variant` — визуальную роль. Scale80–200 наследуется абсолютно; controlSize независим. CSS содержит те же token values/provenance, что общий compiler; important text minimum12px. Author content/Canvas zoom принадлежат приложению. Подробный контракт: specs/data-display/text.md; роли без prefix type/. Это foundation execution, не12-й registry component contract.

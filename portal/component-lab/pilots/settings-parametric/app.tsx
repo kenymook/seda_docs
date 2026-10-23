@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Button, IconButton, TextField } from "@seda-ai/ui";
+import { SedaProvider, Text, Button, IconButton, TextField } from "@seda-ai/ui";
 import {
   createFormState,
   transitionForm,
@@ -636,7 +636,7 @@ function App() {
         <div className="workspace">
           <aside className="rail">
             <div className="eyebrow">01 / КОНФИГУРАЦИЯ</div>
-            <h2>Параметры</h2>
+            <Text as="h2" variant="heading/section">Параметры</Text>
             <p>
               Измените параметры системы. Результат пересчитывается в
               интерфейсе.
@@ -797,11 +797,12 @@ function App() {
             </div>
           </aside>
           <main className="canvas" data-workspace style={workspaceStyle}>
-            <ProductWorkspace size={configuration.controlSize} action={real}>
+            <SedaProvider textScale={parameters.scale} style={{display:'contents'}}>
+            <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale}>
               <div className="section-top">
                 <div>
                   <div className="eyebrow">02 / LIVE PREVIEW</div>
-                  <h1>Product workspace</h1>
+                  <Text as="h1" variant="heading/page">Product workspace</Text>
                   <p>
                     Один набор правил управляет формой, фильтрами, таблицей и
                     карточками.
@@ -1135,7 +1136,7 @@ function App() {
               <div className="secondaryGrid">
                 <section className="pane">
                   <div className="eyebrow">ПРОВЕРКА ПОВЕДЕНИЯ</div>
-                  <h3>Форма настроек</h3>
+                  <Text as="h3" variant="heading/panel">Форма настроек</Text>
                   <form
                     id="settings-form"
                     noValidate
@@ -1239,7 +1240,7 @@ function App() {
                 </section>
                 <section className="pane">
                   <div className="eyebrow">03 / СРАВНЕНИЕ</div>
-                  <h3>До → после</h3>
+                  <Text as="h3" variant="heading/panel">До → после</Text>
                   <div className="compare">
                     <div>
                       <span>Базовый профиль</span>
@@ -1276,10 +1277,11 @@ function App() {
                 </section>
               </div>
             </ProductWorkspace>
+            </SedaProvider>
           </main>
           <aside className="inspector">
             <div className="eyebrow">04 / EXPLAIN ENGINE</div>
-            <h2>Инспектор</h2>
+            <Text as="h2" variant="heading/section">Инспектор</Text>
             <p>
               Выберите узел, чтобы увидеть значение, формулу и зависимые части
               интерфейса.
@@ -1383,7 +1385,7 @@ function App() {
             <div className="inspectcard">
               <div className="between">
                 <span className="eyebrow">АКТИВНЫЙ УЗЕЛ</span>
-                <code id="nodeName">{selected}</code>
+                <code id="lab-active-node">{selected}</code>
               </div>
               <div className="result" id="nodeResult">
                 {node.v}
@@ -1534,7 +1536,7 @@ function App() {
           }}
         >
           <div className="eyebrow">НОВЫЙ ПРОЕКТ</div>
-          <h2 id="modal-title">Создать проект</h2>
+          <Text as="h2" variant="heading/section" id="modal-title">Создать проект</Text>
           <div {...real("projectName")}>
             <TextField
               id="modalName"
@@ -1564,7 +1566,7 @@ function App() {
       <dialog id="delete-project-dialog" ref={deleteDialog} aria-labelledby="delete-project-title" data-workspace style={workspaceStyle}
         onClose={()=>{setDeleteProject(null);if(deleteReturnFocus.current?.isConnected)deleteReturnFocus.current.focus();else document.getElementById("search")?.focus();}}>
         <div className="modalBody">
-          <h2 id="delete-project-title">Удалить проект?</h2>
+          <Text as="h2" variant="heading/section" id="delete-project-title">Удалить проект?</Text>
           <p>Проект «{deleteProject}» будет удалён из демонстрационного списка. Несохранённая форма останется без изменений.</p>
           <div className="modalActions">
             <Button {...real("cancel")} onClick={()=>deleteDialog.current?.close()}>Отмена</Button>

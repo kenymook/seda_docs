@@ -1,4 +1,5 @@
 /** Browser-safe adapter. Input is validated compiler output; no token lookup or Node API here. */
+import { createTypographyBindings } from './typography.mjs';
 /**
  * @typedef {Record<string, string|number>} CSSVariables
  * @typedef {{collection: string, mode: string, path: string[]}} ResolutionStep
@@ -173,6 +174,8 @@ export function createWebBindings(compiled) {
   const { geometry, typography, layout, instances } = compiled;
   if (![geometry, typography, layout, instances].every(object)) fail('/', 'Compiled profile is incomplete.');
   const layoutWriter = writer();
+  const typeBindings=createTypographyBindings(typography.roles);
+  Object.assign(layoutWriter.vars,typeBindings.vars);layoutWriter.evidence.push(...typeBindings.evidence);
   for(const [key,property] of Object.entries({surface:'--surface-base',separator:'--border-subtle',focus:'--focus-ring'}))layoutWriter.add(property,compiled.foundationTokens?.[key],`/foundationTokens/${key}`,'color');
   for (const [key, value] of Object.entries(layout)) {
     const path = `/layout/${key}`;

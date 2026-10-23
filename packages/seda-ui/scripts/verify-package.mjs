@@ -5,6 +5,7 @@ import { verifyMenu } from "./verify-menu.mjs";
 import { verifySplitView } from "./verify-split-view.mjs";
 import { verifyLink } from "./verify-link.mjs";
 import { verifyTextArea } from "./verify-textarea.mjs";
+import { verifyTypography } from "./verify-typography.mjs";
 import { verifyTree } from "./verify-tree.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -149,7 +150,9 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 20);
+        assert.equal(result.exports.length, 22);
+        assert.ok(result.exports.includes("Text"));
+        assert.ok(result.exports.includes("textVariants"));
         assert.ok(result.exports.includes("TextArea"));
         assert.ok(result.exports.includes("Tree"));
         assert.ok(result.exports.includes("SplitView"));
@@ -164,7 +167,12 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const typography=<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Heading</Text></SedaProvider>;
+// @ts-expect-error invented typography role
+const invalidTextRole=<Text variant="heading/hero"/>;
+// @ts-expect-error unsupported active element
+const invalidTextTag=<Text as="button"/>;
 const area=<TextArea label="Message" rows={1} autoResize maxRows={8} clearable value="draft" onChange={()=>{}} onClear={()=>{}}/>;
 // @ts-expect-error label is required
 const namelessArea=<TextArea/>;
@@ -359,6 +367,7 @@ configuration.controlSize='s';return null;}`,
     );
     await check("react-" + version + "-tree", () => verifyTree({cwd,browser,version}));
     await check("react-"+version+"-textarea",()=>verifyTextArea({cwd,browser,version}));
+    await check("react-"+version+"-typography",()=>verifyTypography({cwd,browser,version}));
     await check("react-"+version+"-link-variants",()=>verifyLink({cwd,browser,version}));
   }
 } catch (error) {

@@ -105,7 +105,7 @@ export async function buildPilot({
       // Library peer installs must use the host's React instance, including JSX.
       'react': path.join(pilotRoot, 'node_modules/react'),
       'react-dom': path.join(pilotRoot, 'node_modules/react-dom'),
-      '@seda-ai/ui/styles.css': path.join(repoRoot, 'packages/seda-ui/src/styles.css'),
+      '@seda-ai/ui/styles.css': path.join(pilotRoot, 'node_modules/@seda-ai/ui/dist/styles.css'),
       '@seda-ai/ui': path.join(repoRoot, 'packages/seda-ui/src/index.ts'),
     },
     plugins: [{

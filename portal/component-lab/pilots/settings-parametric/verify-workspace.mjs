@@ -470,6 +470,9 @@ try {
       await trigger.click();await page.getByRole('menu').waitFor();
       const first=page.getByRole('menuitem',{name:'Открыть сведения',exact:true});
       await first.focus();
+      const hoverPaint=await trigger.evaluate(el=>{const css=getComputedStyle(el),probe=document.createElement('span');probe.style.backgroundColor=css.getPropertyValue('--icon-button-ghost-surface-hover');document.body.append(probe);const result={actual:css.backgroundColor,expected:getComputedStyle(probe).backgroundColor,token:css.getPropertyValue('--icon-button-ghost-surface-hover').trim()};probe.remove();return result;});
+      assert.ok(hoverPaint.token);assert.equal(hoverPaint.actual,hoverPaint.expected);
+      await page.mouse.move(0,0);
       const actual=await first.evaluate(el=>{const s=getComputedStyle(el);const rect=el.getBoundingClientRect();return {height:rect.height,font:parseFloat(s.fontSize),padding:parseFloat(s.paddingInlineStart),surface:getComputedStyle(el.closest('[role=menu]')).backgroundColor};});
       const derived=await page.evaluate(()=>window.sedaPilot.getLab().derived);
       near(actual.height,derived.height,'Menu row shares computed height');near(actual.font,derived.font,'Menu font');near(actual.padding,derived.fieldPaddingX,'Menu base + X');

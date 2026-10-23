@@ -402,7 +402,7 @@ try {
       );
     }
     await page.locator('[data-node="air"]').click();
-    assert.equal(await page.locator("#nodeName").textContent(), "air");
+    assert.equal(await page.locator("#lab-active-node").textContent(), "air");
     assert.match(await page.locator("#deps").textContent(), /padding-y/);
     await page.locator("#airX").fill("12");
     await settle();

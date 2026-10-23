@@ -221,7 +221,7 @@ export function ProfileConsumer(){const [config,setConfig]=useState({theme:'ligh
             theme === "light" ? "dark" : "light",
           );
           assert.equal(data.nestedSizeTheme, theme);
-          assert.deepEqual(data.config, { theme, controlSize });
+          assert.deepEqual(data.config, { theme, controlSize, textScale:100 });
           assert.equal(
             data.overflow,
             false,
