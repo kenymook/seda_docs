@@ -57,3 +57,11 @@ Material list содержит9 source names: green dark team, violet dark team,
 - Scene inspector сокращён до реальных background/grid/fog и списка материалов; source lighting/play camera/simulation/fog stack не воспроизведён полностью.
 - Source glyphs/Material previews сохранены, остальные кнопки/поля используют canonical SEDA. Размеры панелей адаптируются к реальным intrinsic размерам контролов; при нехватке ширины inspector расположен ниже viewport. Это не точная копия всех source chrome.
 - Исправлены два дефекта shared Select: доступное имя и перенос длинного значения progressive native picker. Это изменения библиотеки, не локальный обход в Spline.
+
+## Version22 — опубликованный checkpoint
+
+Обновлён прежний owner-private Site: https://seda-ai-pilot.kenymook.chatgpt.site/references/spline?context=object (Scene context: `?context=scene`). Deployment `appgdep_6adbe723ce448191b29ca480ea39b508` succeeded; Site source `87265300bc86a926d441a1d45681a6797a149b9f` соответствует GitHub functional commit `e198f7362b36ae5265d795709b18acd2b6ea0077`. Access revision1: один owner, visitors0/groups0. [Release](../../portal/component-lab/pilots/settings-parametric/verification/spline-v22-release.json).
+
+Production повторил10 UI groups с24 вложенными profile samples, source hashes607 совпали с canonical checkout, JS errors0; Save loading delta0px. [Live report](../../portal/component-lab/pilots/settings-parametric/verification/spline-live-v22.json). Publication checkout также повторил163 application browser groups,5 isolated renderer groups и35 model groups после трёх TypeScript проверок/build. Отдельный CI [40036645511](https://github.com/kenymook/seda_docs/actions/runs/40036645511), job120697656427 для exact functional commit завершился success:120 contract/foundation tests,25 package groups React18/19, та же browser/model матрица, TypeScript/build. [CI evidence](../../portal/component-lab/pilots/settings-parametric/verification/spline-v22-ci.json).
+
+Эти результаты подтверждают опубликованный checkpoint и перечисленные сценарии. Они не закрывают различия с исходником, pointer gizmo, оставшиеся3 reference screens или полную цель четырёх классов приложений. Последующие reports-only commits не переобозначаются как проверенные этим CI.

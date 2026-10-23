@@ -1,0 +1,104 @@
+{
+  "lab2": {
+    "passed": 55,
+    "failed": 0
+  },
+  "workspace": {
+    "passed": 21,
+    "failed": 0
+  },
+  "controls": {
+    "passed": 12,
+    "failed": 0
+  },
+  "recents": {
+    "passed": 9,
+    "failed": 0
+  },
+  "building": {
+    "browserPassed": 17,
+    "modelPassed": 5,
+    "failed": 0
+  },
+  "chat": {
+    "browserPassed": 12,
+    "modelPassed": 4,
+    "failed": 0
+  },
+  "sandbox": {
+    "browserPassed": 20,
+    "failed": 0,
+    "modelPassed": 19
+  },
+  "typography": {
+    "passed": 7,
+    "failed": 0
+  },
+  "spline": {
+    "passed": 10,
+    "failed": 0,
+    "modelPassed": 7
+  },
+  "splineRenderer": {
+    "scope": "Isolated real WebGL renderer, procedural geometry only; no SEDA screen or source-fidelity acceptance",
+    "passed": 5,
+    "failed": 0,
+    "results": [
+      {
+        "name": "spline-real-webgl-nine-procedural-objects",
+        "status": "passed",
+        "evidence": {
+          "status": [
+            [
+              "ready"
+            ]
+          ],
+          "objects": 9,
+          "calls": 54,
+          "triangles": 39198,
+          "webgl2": true
+        }
+      },
+      {
+        "name": "spline-transform-material-and-visibility-repaint",
+        "status": "passed",
+        "evidence": {
+          "transformPixelsChanged": true,
+          "materialPixelsChanged": true,
+          "visibilityPixelsChanged": true,
+          "transformKeepsAllMeshes": true,
+          "materialKeepsUnrelatedMeshes": true
+        }
+      },
+      {
+        "name": "spline-raycast-select-and-orbit-camera",
+        "status": "passed",
+        "evidence": {
+          "selected": "carabiner",
+          "eye": [
+            -519.2834106792646,
+            522.4936848881641,
+            1344.672261282477
+          ]
+        }
+      },
+      {
+        "name": "spline-projection-resize-context-loss-and-restore",
+        "status": "passed",
+        "evidence": {
+          "perspective": true,
+          "resize": true,
+          "contextRestored": true
+        }
+      },
+      {
+        "name": "spline-renderer-disposal-and-javascript-errors",
+        "status": "passed",
+        "evidence": {
+          "errors": [],
+          "idempotentDispose": true
+        }
+      }
+    ]
+  }
+}
