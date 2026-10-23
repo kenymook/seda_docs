@@ -1,5 +1,5 @@
 {
-  "passed": 17,
+  "passed": 19,
   "failed": 0,
   "results": [
     {
@@ -7,8 +7,8 @@
       "status": "passed",
       "evidence": {
         "filename": "seda-ai-ui-0.1.0.tgz",
-        "files": 121,
-        "integrity": "sha512-ZbvqWuLjF8+i00ve0t41MSKKdIrQQDBTum3W05g/RyPirrUD9QbEHVZ0hOL1mfnLLAnRQBZKT7TvZ2N7/yxVkg=="
+        "files": 129,
+        "integrity": "sha512-7xcNFITdo3Zo3MEV2S9S3jJjurZf78e6XugyZcLE8ekpMNJx07q1V1fdZTPgPi/F8ncZnaCxrpgoNidXw8tUTA=="
       }
     },
     {
@@ -16,7 +16,7 @@
       "status": "passed",
       "evidence": {
         "identical": true,
-        "artifacts": 117
+        "artifacts": 125
       }
     },
     {
@@ -24,7 +24,7 @@
       "status": "passed",
       "evidence": {
         "profilesMatchedToCompiler": 8,
-        "colourAndProvenanceBindingsMatched": 128,
+        "colourAndProvenanceBindingsMatched": 144,
         "sourceHashesMatched": true,
         "missingStateRejected": true
       }
@@ -51,6 +51,7 @@
           "TextField",
           "Toast",
           "Toggle",
+          "Tree",
           "useSedaConfiguration"
         ],
         "html": "<main><h1>SEDA package consumer</h1><label class=\"seda-field seda-field--text\" data-size=\"m\" data-state=\"default\" for=\"name\"><span class=\"seda-field__label\" id=\"name-label\">Project</span><span class=\"seda-field__control\" data-filled=\"true\" data-size=\"m\"><input aria-labelledby=\"name-label\" class=\"seda-field__input\" id=\"name\" value=\"Atlas\"/></span></label><label class=\"seda-field seda-field--select\" data-state=\"filled\" data-size=\"m\"><span class=\"seda-field__label\">Team</span><span class=\"seda-field__control\" data-size=\"m\"><select class=\"seda-field__select\" id=\"select\"><option value=\"a\" selected=\"\">Core</option><option value=\"b\">Design</option></select></span></label><label class=\"seda-choice\" data-size=\"m\"><input aria-checked=\"false\" class=\"seda-choice__control\" id=\"checkbox\" type=\"checkbox\"/><span class=\"seda-choice__content\"><span class=\"seda-choice__label\">Digest</span></span></label><fieldset class=\"seda-radio-group\" data-size=\"m\"><legend class=\"seda-field__label\">Visibility</legend><span class=\"seda-radio-group__items\"><label class=\"seda-choice\" data-size=\"m\"><input class=\"seda-choice__control\" name=\"visibility\" type=\"radio\" checked=\"\" value=\"a\"/><span class=\"seda-choice__content\"><span class=\"seda-choice__label\">Private</span></span></label><label class=\"seda-choice\" data-size=\"m\"><input class=\"seda-choice__control\" name=\"visibility\" type=\"radio\" value=\"b\"/><span class=\"seda-choice__content\"><span class=\"seda-choice__label\">Team</span></span></label></span></fieldset><label class=\"seda-toggle\" data-size=\"m\"><input class=\"seda-toggle__control\" id=\"toggle\" role=\"switch\" type=\"checkbox\" checked=\"\"/><span class=\"seda-toggle__content\"><span class=\"seda-toggle__label\">Notifications</span></span></label><button id=\"save\" class=\"seda-button\" data-size=\"m\" data-variant=\"secondary\" type=\"button\"><span class=\"seda-button__label\">Atlas</span></button><button id=\"help\" aria-label=\"Help\" class=\"seda-icon-button\" data-size=\"m\" data-variant=\"secondary\" type=\"button\"><span aria-hidden=\"true\" class=\"seda-icon-button__icon\">?</span></button><button id=\"resolve\">Resolve</button><output id=\"state\">{&quot;text&quot;:&quot;Atlas&quot;,&quot;selection&quot;:&quot;a&quot;,&quot;checked&quot;:false,&quot;on&quot;:true,&quot;pending&quot;:false,&quot;requests&quot;:0}</output></main>"
@@ -61,14 +62,14 @@
       "status": "passed",
       "evidence": {
         "moduleResolution": "NodeNext",
-        "negativeTypeChecks": 16
+        "negativeTypeChecks": 19
       }
     },
     {
       "name": "react-18.3.1-hydration-css-and-behavior",
       "status": "passed",
       "evidence": {
-        "cssBytes": 142705,
+        "cssBytes": 146322,
         "sourceAlias": false,
         "hydrationErrors": [],
         "loadingDelta": {
@@ -1405,7 +1406,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(33, 34, 35, 0.06)"
+                "background": "rgba(24, 25, 27, 0.06)"
               },
               "icon": {
                 "height": 24,
@@ -1468,7 +1469,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(33, 34, 35, 0.06)"
+                "background": "rgba(24, 25, 27, 0.06)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -1477,7 +1478,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(252, 252, 253, 0.11)"
+                "background": "rgba(255, 255, 255, 0.11)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1586,7 +1587,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(222, 222, 222, 0.098)"
+                "background": "rgba(222, 222, 223, 0.098)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1623,7 +1624,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(182, 182, 183, 0.086)"
+                "background": "rgba(194, 195, 195, 0.09)"
               },
               "icon": {
                 "height": 24,
@@ -1686,7 +1687,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(182, 182, 183, 0.086)"
+                "background": "rgba(194, 195, 195, 0.09)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -1695,7 +1696,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(166, 167, 168, 0.082)"
+                "background": "rgba(152, 152, 153, 0.08)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1732,7 +1733,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(226, 226, 226, 0.098)"
+                "background": "rgba(231, 231, 231, 0.1)"
               },
               "icon": {
                 "height": 32,
@@ -1795,7 +1796,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(226, 226, 226, 0.098)"
+                "background": "rgba(231, 231, 231, 0.1)"
               },
               "nestedTheme": {
                 "height": 32,
@@ -1804,7 +1805,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(101, 102, 103, 0.07)"
+                "background": "rgba(90, 91, 92, 0.067)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1913,7 +1914,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(28, 29, 31, 0.06)"
+                "background": "rgba(26, 27, 29, 0.06)"
               },
               "nestedSize": {
                 "height": 40,
@@ -4768,6 +4769,156 @@
       }
     },
     {
+      "name": "react-18.3.1-tree",
+      "status": "passed",
+      "evidence": {
+        "sourceAlias": false,
+        "ssr": true,
+        "strictHydration": true,
+        "invalidInputsRejected": 11,
+        "combinations": 16,
+        "compilerSnapshots": 7,
+        "measurements": [
+          {
+            "theme": "light",
+            "controlSize": "s",
+            "width": 260,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "s",
+            "width": 720,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "m",
+            "width": 260,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "m",
+            "width": 720,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "l",
+            "width": 260,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "l",
+            "width": 720,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "xl",
+            "width": 260,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "xl",
+            "width": 720,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "s",
+            "width": 260,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "s",
+            "width": 720,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "m",
+            "width": 260,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "m",
+            "width": 720,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "l",
+            "width": 260,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "l",
+            "width": 720,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "xl",
+            "width": 260,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "xl",
+            "width": 720,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(255, 255, 255)"
+          }
+        ],
+        "keyboard": true,
+        "independentSelectionExpansion": true,
+        "multipleRange": true,
+        "controlledRejection": true,
+        "focusRepair": true,
+        "rtl": true,
+        "externalFocusRetained": true,
+        "errors": []
+      }
+    },
+    {
       "name": "react-19.2.7-native-esm-and-ssr",
       "status": "passed",
       "evidence": {
@@ -4789,6 +4940,7 @@
           "TextField",
           "Toast",
           "Toggle",
+          "Tree",
           "useSedaConfiguration"
         ],
         "html": "<main><h1>SEDA package consumer</h1><label class=\"seda-field seda-field--text\" data-size=\"m\" data-state=\"default\" for=\"name\"><span class=\"seda-field__label\" id=\"name-label\">Project</span><span class=\"seda-field__control\" data-filled=\"true\" data-size=\"m\"><input aria-labelledby=\"name-label\" class=\"seda-field__input\" id=\"name\" value=\"Atlas\"/></span></label><label class=\"seda-field seda-field--select\" data-state=\"filled\" data-size=\"m\"><span class=\"seda-field__label\">Team</span><span class=\"seda-field__control\" data-size=\"m\"><select class=\"seda-field__select\" id=\"select\"><option value=\"a\" selected=\"\">Core</option><option value=\"b\">Design</option></select></span></label><label class=\"seda-choice\" data-size=\"m\"><input aria-checked=\"false\" class=\"seda-choice__control\" id=\"checkbox\" type=\"checkbox\"/><span class=\"seda-choice__content\"><span class=\"seda-choice__label\">Digest</span></span></label><fieldset class=\"seda-radio-group\" data-size=\"m\"><legend class=\"seda-field__label\">Visibility</legend><span class=\"seda-radio-group__items\"><label class=\"seda-choice\" data-size=\"m\"><input class=\"seda-choice__control\" type=\"radio\" name=\"visibility\" checked=\"\" value=\"a\"/><span class=\"seda-choice__content\"><span class=\"seda-choice__label\">Private</span></span></label><label class=\"seda-choice\" data-size=\"m\"><input class=\"seda-choice__control\" type=\"radio\" name=\"visibility\" value=\"b\"/><span class=\"seda-choice__content\"><span class=\"seda-choice__label\">Team</span></span></label></span></fieldset><label class=\"seda-toggle\" data-size=\"m\"><input class=\"seda-toggle__control\" id=\"toggle\" role=\"switch\" type=\"checkbox\" checked=\"\"/><span class=\"seda-toggle__content\"><span class=\"seda-toggle__label\">Notifications</span></span></label><button id=\"save\" class=\"seda-button\" data-size=\"m\" data-variant=\"secondary\" type=\"button\"><span class=\"seda-button__label\">Atlas</span></button><button id=\"help\" aria-label=\"Help\" class=\"seda-icon-button\" data-size=\"m\" data-variant=\"secondary\" type=\"button\"><span aria-hidden=\"true\" class=\"seda-icon-button__icon\">?</span></button><button id=\"resolve\">Resolve</button><output id=\"state\">{&quot;text&quot;:&quot;Atlas&quot;,&quot;selection&quot;:&quot;a&quot;,&quot;checked&quot;:false,&quot;on&quot;:true,&quot;pending&quot;:false,&quot;requests&quot;:0}</output></main>"
@@ -4799,14 +4951,14 @@
       "status": "passed",
       "evidence": {
         "moduleResolution": "NodeNext",
-        "negativeTypeChecks": 16
+        "negativeTypeChecks": 19
       }
     },
     {
       "name": "react-19.2.7-hydration-css-and-behavior",
       "status": "passed",
       "evidence": {
-        "cssBytes": 142705,
+        "cssBytes": 146322,
         "sourceAlias": false,
         "hydrationErrors": [],
         "loadingDelta": {
@@ -6252,7 +6404,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(131, 131, 132, 0.075)"
+                "background": "rgba(130, 131, 132, 0.075)"
               },
               "icon": {
                 "height": 24,
@@ -6315,7 +6467,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(131, 131, 132, 0.075)"
+                "background": "rgba(130, 131, 132, 0.075)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -6324,7 +6476,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(209, 210, 210, 0.094)"
+                "background": "rgba(210, 210, 210, 0.094)"
               },
               "nestedSize": {
                 "height": 40,
@@ -6361,7 +6513,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(205, 205, 205, 0.094)"
+                "background": "rgba(194, 195, 195, 0.09)"
               },
               "icon": {
                 "height": 24,
@@ -6424,7 +6576,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(205, 205, 205, 0.094)"
+                "background": "rgba(194, 195, 195, 0.09)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -6433,7 +6585,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(138, 138, 139, 0.075)"
+                "background": "rgba(152, 152, 153, 0.08)"
               },
               "nestedSize": {
                 "height": 40,
@@ -9503,6 +9655,156 @@
             "divider": "rgba(255, 255, 255, 0.07)"
           }
         ]
+      }
+    },
+    {
+      "name": "react-19.2.7-tree",
+      "status": "passed",
+      "evidence": {
+        "sourceAlias": false,
+        "ssr": true,
+        "strictHydration": true,
+        "invalidInputsRejected": 11,
+        "combinations": 16,
+        "compilerSnapshots": 7,
+        "measurements": [
+          {
+            "theme": "light",
+            "controlSize": "s",
+            "width": 260,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "s",
+            "width": 720,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "m",
+            "width": 260,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "m",
+            "width": 720,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "l",
+            "width": 260,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "l",
+            "width": 720,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "xl",
+            "width": 260,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "light",
+            "controlSize": "xl",
+            "width": 720,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(10, 10, 11)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "s",
+            "width": 260,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "s",
+            "width": 720,
+            "height": 24,
+            "font": "12px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "m",
+            "width": 260,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "m",
+            "width": 720,
+            "height": 32,
+            "font": "14px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "l",
+            "width": 260,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "l",
+            "width": 720,
+            "height": 40,
+            "font": "16px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "xl",
+            "width": 260,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "dark",
+            "controlSize": "xl",
+            "width": 720,
+            "height": 48,
+            "font": "18px",
+            "foreground": "rgb(255, 255, 255)"
+          }
+        ],
+        "keyboard": true,
+        "independentSelectionExpansion": true,
+        "multipleRange": true,
+        "controlledRejection": true,
+        "focusRepair": true,
+        "rtl": true,
+        "externalFocusRetained": true,
+        "errors": []
       }
     }
   ]

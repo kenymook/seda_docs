@@ -47,3 +47,9 @@ Submenus, checkable/async permission patterns, global command registry, screen r
 ## Общие layout foundation values
 
 Compiled profile теперь содержит foundationTokens: surface/base, border/subtle и focus/ring из canonical semantic collection с provenance. createWebBindings проверяет эти resolved leaves и связывает CSS variables; отсутствие значения не превращается в fallback. Workspace Inspector показывает foundation evidence отдельно от component contracts. Новый SplitView использует те же semantic values в installed package; отдельный component token family и instance contract для layout ещё требуют system review. Registry остаётся из девяти executable components. Сами layout размеры принадлежат host, а S/M/L/XL и X/Y продолжают управлять вложенными контролами.
+
+## D29 — Tree рабочих приложений
+
+Десятый executable component: actual TreeProps/defaults, unique hierarchy/depth, controlled ownership, disabled inheritance, independent selected/expanded ids и serializable state snapshot. Canonical components/tree имеет 11 color leaves с provenance; createTreeWebBindings потребляет resolved roles и общий geometry. Static browser declarations остаются not-checked. Installed React 18/19 сравнивает семь DOM snapshots на runtime (14 суммарно), а отдельные действия проверяют keyboard/range/focus/RTL. Пример editor сохраняет selected object и expanded branches вместе с model/panels; старые version1 saves без tree fields поддержаны.
+
+Текущий compiler registry содержит десять компонентов. SplitView остаётся library adapter без instance contract. Virtual/lazy/reorder/checkbox tree и AT/native desktop пока не проверены.

@@ -128,7 +128,12 @@
             "menu-open",
             "menu-keyboard",
             "menu-focus",
-            "menu-overlay"
+            "menu-overlay",
+            "tree-items",
+            "tree-state",
+            "tree-keyboard",
+            "tree-focus",
+            "tree-semantics"
           ]
         },
         "prop": {
@@ -144,7 +149,7 @@
         },
         "decision": {
           "type": "string",
-          "pattern": "^D(0[1-9]|1[0-9]|2[0-8])$"
+          "pattern": "^D(0[1-9]|1[0-9]|2[0-9])$"
         }
       },
       "required": [

@@ -25,3 +25,9 @@ Demo selectors теперь исключают .seda-field__input/.seda-field__s
 Устойчивые production screenshots снимаются после конечных CSS transitions (animations disabled только для screenshot), чтобы не принимать промежуточную интерполяцию Light→Dark за постоянный дефект. Отдельно проверены computed foreground активной навигации, disabled=false и opacity=1 в обеих темах: [visual proof](../../portal/component-lab/pilots/settings-parametric/verification/visual-editor-v12.json), [устойчивый Dark](../../portal/component-lab/pilots/settings-parametric/verification/editor-live-v12-dark.png). Это не motion/reduced-motion аудит и не обновление baseline для сокрытия регрессии.
 
 При оценке экрана проверять вместе layout, различимость команд, focus, заливку wrapper/внутреннего элемента и реальные состояния. Автоматические measurements дополняют просмотр screenshots. Для найденного визуального дефекта добавлять regression на конкретную причину; не обновлять baseline, чтобы скрыть проблему. Закрытие одного дефекта не означает готовность всей библиотеки или screen.
+
+## Tree — локальная проверка перед публикацией
+
+Просмотрены [Dark editor](../../portal/component-lab/pilots/settings-parametric/verification/editor-tree-dark.png) и installed-consumer [Dark Tree](../../packages/seda-ui/verification/tree-19.2.7-dark.png): вложенность, отличимый selected row и сохранённое полное accessible имя при ellipsis. В узкой панели длинная подпись сокращается, инспектор показывает текст целиком; это не visual acceptance Figma reference. Отдельного утверждённого Figma Tree пока нет.
+
+Joint test обнаружил crash от whitespace draft: подпись Tree обязана быть непустой, поэтому editor даёт запасное имя, не переписывая draft. Regression проверяет пустой текст, видимую ошибку, save guard и отсутствие JS errors. Все 21 workspace checks прошли после исправления. Проверка unit/geometry не заменяет эту проверку связи контролов.

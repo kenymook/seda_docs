@@ -91,3 +91,11 @@ Tabs проверяется отдельным installed consumer в соста�
   { value: "history", label: "История", content: <History /> },
 ]} />
 ```
+
+## Дерево рабочих объектов — experimental
+
+`Tree` экспортируется из установленного пакета и использует общий SedaProvider, S/M/L/XL и canonical components/tree roles. API: [Tree spec](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/navigation/tree.md). Поддержаны вложенные items, controlled/uncontrolled selection и expansion, multiple/range selection, keyboard/typeahead/RTL и focus repair. Selection не следует за фокусом. Не поддержаны virtualization, lazy loading, drag/reorder и checkbox tree. Десятый executable contract общего compiler проверяет authored facts; browser/AT readiness из compile не выводится.
+
+```tsx
+<Tree label="Слои" items={[{id:"frame",label:"Frame",children:[{id:"title",label:"Заголовок"}]}]} defaultExpandedIds={["frame"]}/>
+```

@@ -3,6 +3,7 @@ import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
 import { verifyMenu } from "./verify-menu.mjs";
 import { verifySplitView } from "./verify-split-view.mjs";
+import { verifyTree } from "./verify-tree.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import assert from "node:assert/strict";
@@ -146,7 +147,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 18);
+        assert.equal(result.exports.length, 19);
+        assert.ok(result.exports.includes("Tree"));
         assert.ok(result.exports.includes("SplitView"));
         assert.ok(result.exports.includes("DropdownMenu"));
         assert.ok(result.exports.includes("Tabs"));
@@ -159,7 +161,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const tree=<Tree label="Layers" items={[{id:'frame',label:'Frame',children:[{id:'child',label:'Child'}]}]} selectionMode="multiple"/>;
+// @ts-expect-error accessible label required
+const namelessTree=<Tree items={[]}/>;
+// @ts-expect-error hierarchy requires typed text labels
+const malformedTree=<Tree label="Layers" items={[{id:'a',label:5}]}/>;
+// @ts-expect-error no invented selection modes
+const inventedTree=<Tree label="Layers" items={[]} selectionMode="checkbox"/>;
 const menu=<DropdownMenu triggerLabel="Actions" items={[{id:'open',label:'Open',onSelect:()=>{}}]}/>;
 import {SplitView} from '@seda-ai/ui';
 const split=<SplitView primary="Tree" secondary="Editor" primaryLabel="Objects" secondaryLabel="Canvas"/>;
@@ -223,7 +232,7 @@ configuration.controlSize='s';return null;}`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 16 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 19 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -338,6 +347,7 @@ configuration.controlSize='s';return null;}`,
     await check("react-" + version + "-split-view", () =>
       verifySplitView({cwd,browser,version}),
     );
+    await check("react-" + version + "-tree", () => verifyTree({cwd,browser,version}));
   }
 } catch (error) {
   results.push({

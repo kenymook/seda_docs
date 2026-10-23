@@ -1,7 +1,8 @@
 import { componentNames } from './registry.mjs';
+import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
-const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open']);
+const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -39,6 +40,7 @@ export function deriveState(component, props, interaction = {}) {
     focusRing: focused && !disabled,
     ...(tabs ? { tabs } : {}),
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
+    ...(component==='Tree'?{tree:deriveTree(props),data:props.items?.length?'filled':'empty'}:{}),
   };
 }
 
@@ -141,6 +143,12 @@ export function evaluateRules(contract, props) {
       }
       case 'tabs-selection':
         if (props.value !== undefined && props.defaultValue !== undefined) violate('Tabs value and defaultValue are mutually exclusive.');
+        break;
+      case 'tree-items':
+        try{deriveTree(props);}catch(error){violate(error.message);}
+        break;
+      case 'tree-state':
+        if(!validateTreeState(props))violate('Tree controlled state requires its handler, excludes defaults, and single selection accepts at most one id.');
         break;
       case 'menu-items':
         if (!validMenuItems(props.items, props.shortcutScope === 'provider')) violate('Menu items require unique IDs, text labels, action handlers and valid unique shortcuts.');

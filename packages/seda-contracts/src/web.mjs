@@ -116,6 +116,16 @@ export function createTabsWebBindings(control) {
   return { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } };
 }
 
+export function createTreeWebBindings(control) {
+  const at='/controls/Tree';
+  if(control?.component!=='Tree'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled Tree and required roles.');
+  const target=writer();
+  requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),`${at}/tokenBranch`);
+  colors(target,control.tokenBranch.children,['tree'],`${at}/tokenBranch`,'--');
+  for(const [key,variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',textFieldAffixGap:'gap'}))target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
+  return {vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Tree'}};
+}
+
 function requiredColors(branch, paths, at) {
   for (const path of paths) {
     let node = branch;
@@ -214,7 +224,7 @@ export function createWebBindings(compiled) {
       evidence: target.evidence,
     };
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu) } };
+  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

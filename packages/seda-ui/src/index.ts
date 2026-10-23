@@ -14,6 +14,7 @@ export * from "./components/FileUpload";
 export * from "./components/Tabs";
 export * from "./components/DropdownMenu";
 export * from "./components/SplitView";
+export * from "./components/Tree";
 
 export { SedaProvider, useSedaConfiguration } from "./foundation/SedaProvider";
 export type { SedaConfiguration, SedaProviderProps } from "./foundation/SedaProvider";

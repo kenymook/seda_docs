@@ -51,3 +51,9 @@
 - Измерения Button используют browser layout effect с SSR-safe fallback. Исправлен intrinsic min-width, из-за которого меняющийся скрытый label увеличивал loading-кнопку вне Lab.
 - Добавлен verifier отдельной установки tarball в React 18/19: exports/types, SSR/hydration, CSS, linked controls и loading.
 - Тестовый Playwright обновлён после подтверждённого audit finding. Публикация в npm registry не выполнялась; пакет остаётся private/experimental.
+
+## Unreleased — общее дерево объектов
+
+- Tree: nested roles, single/multiple selection, independent expansion/focus, disabled inheritance, keyboard/range/typeahead/RTL, controlled rejection и focus repair. Canonical Tree tokens включены в public stylesheet/provenance; sizes берутся из общего профиля.
+- Десятый compiler contract и web bindings; React 18/19 installed proof, SSR/Strict hydration, 14 aggregate DOM/compiler snapshots, 32 profile/width samples. Проверка пакета теперь 19 групп, а не 19 независимых пользовательских сценариев.
+- Editor использует реальный Tree, синхронизирует label/selection с inspector/preview/history и сохраняет view вместе с model/panels. Исправлен crash на whitespace label при редактировании; незаполненный текст продолжает блокировать save.

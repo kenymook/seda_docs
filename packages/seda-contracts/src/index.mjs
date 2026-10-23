@@ -32,6 +32,7 @@ const requiredChecks = {
   Toggle: [['text-content', 'label'], ['checked-value'], ['aria-disabled-activation']],
   Tabs: [['text-content', 'label'], ['tabs-items'], ['tabs-selection']],
   DropdownMenu: [['text-content', 'triggerLabel'], ['menu-items'], ['menu-open']],
+  Tree: [['text-content','label'],['tree-items'],['tree-state']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {

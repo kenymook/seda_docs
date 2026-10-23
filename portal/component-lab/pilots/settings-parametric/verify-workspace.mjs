@@ -208,7 +208,7 @@ try {
       );
     assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView"]);
     assert.ok(evidence.evidence.some(e=>e.component==='foundation'&&e.property==='--border-subtle'&&e.chain.length>0));
-    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu"]);
+    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"]);
     const token = evidence.evidence.find(
       (e) => e.property === "--seda-select-surface-default",
     );
@@ -540,6 +540,19 @@ try {
     try{await page.locator('#editor-save-layout').click();assert.match(await page.locator('#editor-storage-notice').textContent(),/Не удалось сохранить/);assert.equal(await page.locator('#editor-storage-notice').getAttribute('role'),'alert');}
     finally{await page.evaluate(()=>{Storage.prototype.setItem=window.restoreEditorStorage;delete window.restoreEditorStorage;localStorage.removeItem('seda.lab.editor-layout.v1');});}
     return {corruptionFallback:true,emptyTextGuard:true,quotaErrorVisible:true};
+  });
+  await check("workspace-editor-tree-selection-expansion-and-reload", async () => {
+    await page.evaluate(()=>localStorage.removeItem('seda.lab.editor-layout.v1'));await fresh();await selectPage('editor');
+    const tree=page.getByRole('tree',{name:'Слои макета'}),frame=page.locator('#editor-node-frame'),heading=page.locator('#editor-node-heading'),button=page.locator('#editor-node-button');
+    assert.equal(await tree.count(),1);assert.equal(await heading.getAttribute('aria-level'),'2');
+    await heading.focus();await page.keyboard.press('ArrowDown');assert.equal(await button.evaluate(el=>el===document.activeElement),true);assert.match(await page.locator('#editor-selection').textContent(),/heading/);
+    await page.keyboard.press('Space');assert.match(await page.locator('#editor-selection').textContent(),/button/);
+    await page.locator('#editor-node-text').fill('Обновление из дерева');assert.equal(await button.locator('.seda-tree__label').textContent(),'Обновление из дерева');assert.equal(await page.locator('#editor-preview-button').textContent(),'Обновление из дерева');
+    await frame.locator(':scope > .seda-tree__row > [data-tree-disclosure]').click();assert.equal(await button.count(),0);assert.match(await page.locator('#editor-selection').textContent(),/button/);
+    await page.locator('#editor-save-layout').click();await fresh();await selectPage('editor');assert.equal(await frame.getAttribute('aria-expanded'),'false');assert.match(await page.locator('#editor-selection').textContent(),/button/);assert.equal(await page.locator('#editor-node-text').inputValue(),'Обновление из дерева');
+    await frame.focus();await page.keyboard.press('ArrowRight');assert.equal(await button.getAttribute('aria-selected'),'true');
+    await page.locator('#editor-node-text').fill('История дерева');await page.locator('#editor-undo').click();assert.equal(await button.locator('.seda-tree__label').textContent(),'Обновление из дерева');await page.locator('#editor-redo').click();assert.equal(await button.locator('.seda-tree__label').textContent(),'История дерева');
+    return {sharedTree:true,focusDoesNotSelect:true,selectionInspectorPreview:true,hiddenSelectionPreserved:true,viewReload:true,historyUpdatesLabels:true};
   });
   await check("workspace-browser-errors", () => assert.deepEqual(errors, []));
 } finally {

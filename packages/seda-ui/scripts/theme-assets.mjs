@@ -330,7 +330,7 @@ export function buildThemeAssets(packageRoot, output) {
     );
   }
   const classes =
-    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-dropdown-menu,.seda-dropdown-menu__surface)";
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface)";
   for (const size of Object.keys(system.sizes)) {
     const mapping = {
       height: "height",

@@ -18,7 +18,8 @@
         "Radio",
         "Toggle",
         "Tabs",
-        "DropdownMenu"
+        "DropdownMenu",
+        "Tree"
       ]
     },
     "api": {
