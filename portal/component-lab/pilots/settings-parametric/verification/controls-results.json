@@ -2801,7 +2801,10 @@
           "../../../../packages/seda-ui/src/components/FileUpload/FileUpload.types.ts",
           "../../../../packages/seda-ui/src/components/FileUpload/index.ts",
           "../../../../packages/seda-ui/src/components/Tabs/Tabs.tsx",
-          "../../../../packages/seda-ui/src/components/Tabs/index.ts"
+          "../../../../packages/seda-ui/src/components/Tabs/index.ts",
+          "../../../../packages/seda-ui/src/components/DropdownMenu/menuModel.ts",
+          "../../../../packages/seda-ui/src/components/DropdownMenu/DropdownMenu.tsx",
+          "../../../../packages/seda-ui/src/components/DropdownMenu/index.ts"
         ]
       }
     }

@@ -59,7 +59,7 @@ import '@seda-ai/ui/styles.css';
 
 ## Меню команд (experimental)
 
-`DropdownMenu` использует shared Button/IconButton, наследуемые профили/темы и portal overlay. Поддерживает группы, separators, реальные shortcuts, disabled/danger, controlled open и keyboard/typeahead. `react-dom >=18` — явная peer dependency. API и ограничения: [Dropdown Menu spec](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/overlays-layout/dropdown-menu.md#14-react-implementation--experimental). Общий instance compiler и рабочие reference screens ещё требуют интеграции. Для destructive action приложение открывает подтверждение.
+`DropdownMenu` использует shared Button/IconButton, наследуемые профили/темы и portal overlay. Поддерживает группы, separators, реальные shortcuts, disabled/danger, controlled open и keyboard/typeahead. `react-dom >=18` — явная peer dependency. API и ограничения: [Dropdown Menu spec](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/overlays-layout/dropdown-menu.md#14-react-implementation--experimental). Это девятый instance contract общего compiler; DOM snapshots сопоставляются с compiler на React 18/19. Для destructive action приложение открывает подтверждение. Рабочие reference screens ещё требуют реализации.
 
 ```tsx
 <DropdownMenu triggerLabel="Действия" items={[

@@ -2,10 +2,13 @@
 
 ## Unreleased — меню команд
 
+- D28: DropdownMenu зарегистрирован в общем compiler/API/schema с items/open/shortcut checks, authored menu snapshots и browser-safe binding; семантические focus/danger adapters имеют provenance. DOM snapshots сверяются на React 18/19.
+- Lab row actions используют настоящий DropdownMenu: details, duplicate dialog и delete confirmation с focus fallback и сохранением draft. Table/Dialog остаются композициями.
+
 - Experimental DropdownMenu: owned Button/IconButton trigger, grouped actions/descriptions/separators, реальные menu/provider shortcuts, keyboard/typeahead, disabled guards и controlled/uncontrolled open.
 - Общий document overlay stack, body portal, optional manual Popover top layer, viewport flip/clamp, RTL, наследование темы/геометрии и focus handoff в host-диалог. react-dom объявлен peer dependency.
 - Пакетный verifier проверяет installed tarball на React 18/19; отдельные menu группы включают SSR/hydration/StrictMode, 32 aggregate profile/viewport измерения и cleanup/fallback. Точные результаты хранятся в verification reports.
-- Instance contract, Lab integration, screen reader и Firefox/WebKit/desktop proof ещё не завершены. Это не объявление полного production-ready каталога.
+- Screen reader и Firefox/WebKit/desktop proof ещё не завершены. Это не объявление полного production-ready каталога.
 
 ## Unreleased — общий контракт навигации
 

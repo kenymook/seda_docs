@@ -124,6 +124,18 @@ function requiredColors(branch, paths, at) {
   }
 }
 
+/** Menu branch and the documented focus/danger semantic adapters are already resolved. */
+export function createDropdownMenuWebBindings(control) {
+  const at = '/controls/DropdownMenu';
+  if (control?.component !== 'DropdownMenu' || !object(control.geometry) || !Array.isArray(control.tokenRequirements) || !control.tokenRequirements.length) fail(at, 'Expected compiled DropdownMenu geometry and required roles.');
+  const target = writer();
+  requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
+  colors(target, control.tokenBranch.children, ['dropdown-menu'], `${at}/tokenBranch`, '--');
+  for (const property of ['--focus-ring','--status-danger-text','--status-danger-container']) target.add(property,control.semanticAdapters?.[property],`${at}/semanticAdapters/${property}`,'color');
+  for (const [key, variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',textFieldAffixGap:'gap'})) target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
+  return {vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'DropdownMenu'}};
+}
+
 /** Bind compiled selection/choice contracts without resolving tokens in the browser. */
 export function createControlWebBindings(compiled) {
   if (!object(compiled?.controls)) fail('/controls', 'Compiled control catalog is required.');
@@ -201,7 +213,7 @@ export function createWebBindings(compiled) {
       evidence: target.evidence,
     };
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Tabs: createTabsWebBindings(compiled.controls?.Tabs) } };
+  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu) } };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

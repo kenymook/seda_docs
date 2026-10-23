@@ -8,7 +8,7 @@
       "evidence": {
         "filename": "seda-ai-ui-0.1.0.tgz",
         "files": 113,
-        "integrity": "sha512-pqmqaHD5QOA9Nmuvixmyiqq5WmkSjB3MRgezzKuvi2bKMFOFXYz4R6+Svn0N8+l9do+e8bagdAPiMYQnm+yEDg=="
+        "integrity": "sha512-gZUz8h9dmclDGyjU61JwxNYc7z5P7OSNht28hjhvS0o8uLE2+bV9FrrfWWaBHc75HhKmdGp+rMpXBV5HldIiqw=="
       }
     },
     {
@@ -24,7 +24,7 @@
       "status": "passed",
       "evidence": {
         "profilesMatchedToCompiler": 8,
-        "colourAndProvenanceBindingsMatched": 80,
+        "colourAndProvenanceBindingsMatched": 104,
         "sourceHashesMatched": true,
         "missingStateRejected": true
       }
@@ -1476,7 +1476,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(253, 253, 253, 0.11)"
+                "background": "rgba(252, 253, 253, 0.11)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1622,7 +1622,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(205, 205, 205, 0.094)"
+                "background": "rgba(204, 205, 205, 0.094)"
               },
               "icon": {
                 "height": 24,
@@ -1685,7 +1685,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(205, 205, 205, 0.094)"
+                "background": "rgba(204, 205, 205, 0.094)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -1694,7 +1694,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(138, 138, 139, 0.075)"
+                "background": "rgba(138, 139, 140, 0.075)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1731,7 +1731,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(231, 231, 231, 0.1)"
+                "background": "rgba(235, 235, 236, 0.1)"
               },
               "icon": {
                 "height": 32,
@@ -1794,7 +1794,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(231, 231, 231, 0.1)"
+                "background": "rgba(235, 235, 236, 0.1)"
               },
               "nestedTheme": {
                 "height": 32,
@@ -1803,7 +1803,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(90, 91, 93, 0.067)"
+                "background": "rgba(80, 81, 83, 0.067)"
               },
               "nestedSize": {
                 "height": 40,
@@ -1840,7 +1840,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(254, 254, 254, 0.11)"
+                "background": "rgba(255, 255, 255, 0.11)"
               },
               "icon": {
                 "height": 32,
@@ -1903,7 +1903,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(254, 254, 254, 0.11)"
+                "background": "rgba(255, 255, 255, 0.11)"
               },
               "nestedTheme": {
                 "height": 32,
@@ -1912,7 +1912,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(26, 27, 29, 0.06)"
+                "background": "rgba(25, 26, 28, 0.06)"
               },
               "nestedSize": {
                 "height": 40,
@@ -4389,6 +4389,7 @@
         "hydrationErrors": [],
         "invalidInputsRejected": 8,
         "profileMeasurements": 16,
+        "compilerSnapshots": 7,
         "measurements": [
           {
             "theme": "light",
@@ -6019,7 +6020,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(32, 33, 35, 0.06)"
+                "background": "rgba(24, 25, 27, 0.06)"
               },
               "icon": {
                 "height": 24,
@@ -6082,7 +6083,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(32, 33, 35, 0.06)"
+                "background": "rgba(24, 25, 27, 0.06)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -6091,7 +6092,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(253, 253, 253, 0.11)"
+                "background": "rgba(255, 255, 255, 0.11)"
               },
               "nestedSize": {
                 "height": 40,
@@ -6128,7 +6129,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(108, 109, 110, 0.07)"
+                "background": "rgba(109, 110, 111, 0.07)"
               },
               "icon": {
                 "height": 24,
@@ -6191,7 +6192,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(108, 109, 110, 0.07)"
+                "background": "rgba(109, 110, 111, 0.07)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -6200,7 +6201,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(222, 223, 223, 0.098)"
+                "background": "rgba(222, 222, 222, 0.098)"
               },
               "nestedSize": {
                 "height": 40,
@@ -6237,7 +6238,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(182, 183, 183, 0.086)"
+                "background": "rgba(194, 194, 195, 0.09)"
               },
               "icon": {
                 "height": 24,
@@ -6300,7 +6301,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(182, 183, 183, 0.086)"
+                "background": "rgba(194, 194, 195, 0.09)"
               },
               "nestedTheme": {
                 "height": 24,
@@ -6309,7 +6310,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(166, 167, 167, 0.082)"
+                "background": "rgba(152, 153, 153, 0.08)"
               },
               "nestedSize": {
                 "height": 40,
@@ -6346,7 +6347,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(220, 220, 220, 0.098)"
+                "background": "rgba(231, 231, 231, 0.1)"
               },
               "icon": {
                 "height": 32,
@@ -6409,7 +6410,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(220, 220, 220, 0.098)"
+                "background": "rgba(231, 231, 231, 0.1)"
               },
               "nestedTheme": {
                 "height": 32,
@@ -6418,7 +6419,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(113, 113, 115, 0.07)"
+                "background": "rgba(91, 91, 93, 0.067)"
               },
               "nestedSize": {
                 "height": 40,
@@ -6455,7 +6456,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(253, 253, 253, 0.11)"
+                "background": "rgba(254, 254, 254, 0.11)"
               },
               "icon": {
                 "height": 32,
@@ -6518,7 +6519,7 @@
                 "radiusRaw": "6px",
                 "font": 12,
                 "line": 16,
-                "background": "rgba(253, 253, 253, 0.11)"
+                "background": "rgba(254, 254, 254, 0.11)"
               },
               "nestedTheme": {
                 "height": 32,
@@ -6527,7 +6528,7 @@
                 "radiusRaw": "8px",
                 "font": 14,
                 "line": 20,
-                "background": "rgba(31, 32, 34, 0.06)"
+                "background": "rgba(26, 27, 29, 0.06)"
               },
               "nestedSize": {
                 "height": 40,
@@ -9004,6 +9005,7 @@
         "hydrationErrors": [],
         "invalidInputsRejected": 8,
         "profileMeasurements": 16,
+        "compilerSnapshots": 7,
         "measurements": [
           {
             "theme": "light",

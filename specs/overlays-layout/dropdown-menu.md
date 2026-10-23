@@ -315,7 +315,7 @@ Handoff для Dropdown Menu должен включать:
 
 ## 14. React implementation — experimental
 
-Публичный `DropdownMenu` реализован в `packages/seda-ui`. Импорт из установленного `@seda-ai/ui`; CSS через `@seda-ai/ui/styles.css`. Это experimental реализация, а не подтверждение всей зрелости spec. Общий compiler пока содержит восемь других компонентов; регистрация DropdownMenu и integration proof рабочих экранов ещё требуются.
+Публичный `DropdownMenu` реализован в `packages/seda-ui`. Импорт из установленного `@seda-ai/ui`; CSS через `@seda-ai/ui/styles.css`. Это experimental реализация, а не подтверждение всей зрелости spec. DropdownMenu зарегистрирован девятым контрактом общего compiler (D28), подключён к действиям таблицы Lab. Integration proof девяти эталонных рабочих экранов ещё требуется.
 
 ### API и ownership
 

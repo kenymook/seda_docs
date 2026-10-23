@@ -4,9 +4,11 @@ import assert from "node:assert/strict";
 import {spawnSync} from "node:child_process";
 import {createServer} from "node:http";
 import {build} from "esbuild";
+import {createContractEngine} from "../../seda-contracts/src/index.mjs";
 
 /** Real installed package, SSR/hydration, StrictMode, no Lab styles or source aliases. */
 export async function verifyMenu({cwd,browser}) {
+  const engine=createContractEngine();
   await fs.writeFile(path.join(cwd,"menu-consumer.mjs"), `
 import React,{useState,useEffect,useRef} from 'react';import {DropdownMenu,SedaProvider} from '@seda-ai/ui';const h=React.createElement;
 export function MenuConsumer(){
@@ -90,6 +92,19 @@ const errors=[];console.error=(...args)=>errors.push(args.join(' '));const html=
       await configure({theme:theme==='light'?'dark':'light',custom:true});assert.equal(await focused(item('alpha')),true);const custom=await item('open').evaluate(el=>({height:el.getBoundingClientRect().height,padding:parseFloat(getComputedStyle(el).paddingInlineStart)}));assert.equal(custom.height,60);assert.equal(custom.padding,30);
       measurements.push({theme,size,width,...actual});await close();await configure({custom:false});
     }
+    let compilerSnapshots=0;
+    for(const sample of [{open:false},{open:true},{open:true,disabled:true},{open:true,empty:true},{open:true,allDisabled:true},{open:true,remove:'alpha'},{open:true,remove:'open'}]){
+      await configure({controlled:true,reject:false,disabled:false,empty:false,allDisabled:false,remove:null,...sample});
+      await page.evaluate(value=>window.sedaMenu.setOpen(value),sample.open);await settle();
+      const action=(id,label,extra={})=>({id,label,onSelect:{$handler:'menu.'+id},...extra});
+      const actions=[action('open','Открыть'),action('blocked','Недоступно',{disabled:true}),action('alpha','Álpha'),action('another','Another')].filter(item=>item.id!==sample.remove).map(item=>({...item,disabled:Boolean(item.disabled||sample.allDisabled)}));
+      const items=sample.empty?[]:[{type:'group',id:'files',label:'Files',items:actions},{type:'separator',id:'separator'},action('delete','Удалить проект',{danger:true,disabled:!!sample.allDisabled})];
+      const expected=engine.compileControl('DropdownMenu',{triggerLabel:'Действия',items,open:sample.open,onOpenChange:{$handler:'menu.open'},disabled:!!sample.disabled}).state.menu;
+      assert.equal(await trigger().getAttribute('aria-expanded'),String(expected.open));
+      const actual=await page.getByRole('menuitem').evaluateAll(items=>items.map(item=>({id:item.dataset.menuId,state:item.getAttribute('aria-disabled')==='true'?'disabled':'default',danger:item.dataset.danger==='true'})));
+      assert.deepEqual(actual,expected.open?expected.items:[]);compilerSnapshots++;
+    }
+    await configure({disabled:false,empty:false,remove:null,allDisabled:false});await page.evaluate(()=>window.sedaMenu.setOpen(false));await settle();
     await configure({edge:false,allDisabled:true});await openMenu();await page.keyboard.press('Enter');assert.equal(await menu().count(),1);await close();await configure({allDisabled:false});
     await openMenu();await configure({disabled:true});assert.equal(await menu().count(),0);assert.equal(await trigger().isDisabled(),true);await configure({disabled:false,empty:true});assert.equal(await trigger().isDisabled(),true);await configure({empty:false});
     await page.setViewportSize({width:900,height:650});await configure({theme:'dark',controlSize:'m'});await openMenu();await page.screenshot({path:path.join(cwd,'menu-dark.png')});await close();await configure({theme:'light',dir:'rtl'});await openMenu();await page.screenshot({path:path.join(cwd,'menu-light-rtl.png')});await close();
@@ -100,7 +115,7 @@ const errors=[];console.error=(...args)=>errors.push(args.join(' '));const html=
     await page.reload({waitUntil:'networkidle'});await page.waitForFunction(()=>window.sedaMenu);await configure({edge:true});await openMenu();assert.equal(await menu().getAttribute('data-top-layer'),'false');
     assert.equal(await menu().evaluate(el=>{const r=el.getBoundingClientRect();return document.elementFromPoint(r.x+10,r.y+10)?.closest('[role=menu]')===el;}),true);
     await close();assert.deepEqual(errors,[]);
-    const result={sourceAlias:false,ssr:true,strictMode:true,hydrationErrors:errors,invalidInputsRejected:invalid,profileMeasurements:measurements.length,measurements,keyboard:true,disabledGuard:true,typeahead:true,controlledRejection:true,dynamicFocusRepair:true,nestedShortcutIsolation:true,dialogFocusHandoff:true,overflowPortal:true,viewportFlip:true,popoverFallback:true,unmountCleanup:true};
+    const result={sourceAlias:false,ssr:true,strictMode:true,hydrationErrors:errors,invalidInputsRejected:invalid,profileMeasurements:measurements.length,compilerSnapshots,measurements,keyboard:true,disabledGuard:true,typeahead:true,controlledRejection:true,dynamicFocusRepair:true,nestedShortcutIsolation:true,dialogFocusHandoff:true,overflowPortal:true,viewportFlip:true,popoverFallback:true,unmountCleanup:true};
     await fs.writeFile(path.join(cwd,'menu-results.json'),JSON.stringify(result,null,2)+'\n');return result;
   }finally{await page.close();await new Promise(r=>server.close(r));}
 }

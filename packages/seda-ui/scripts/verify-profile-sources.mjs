@@ -19,6 +19,7 @@ export async function verifyProfileSources(root) {
       digest,
     );
   const engine = createContractEngine({ repoRoot: repo });
+  let colourAndProvenanceBindingsMatched = 0;
   for (const theme of ["Light", "Dark"])
     for (const controlSize of ["s", "m", "l", "xl"]) {
       const compiled = engine.compile(engine.bundle.profile, {
@@ -62,6 +63,7 @@ export async function verifyProfileSources(root) {
         ],
       ];
       bindings.push(['--tabs-indicator-selected', compiled.controls.Tabs.tokenBranch.children.indicator.selected], ['--tabs-pill-surface-selected', compiled.controls.Tabs.tokenBranch.children.pill.surface.selected]);
+      bindings.push(['--dropdown-menu-surface-default',compiled.controls.DropdownMenu.tokenBranch.children.surface.default],['--dropdown-menu-item-surface-hover',compiled.controls.DropdownMenu.tokenBranch.children.item.surface.hover],['--status-danger-text',compiled.controls.DropdownMenu.semanticAdapters['--status-danger-text']]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
         assert.ok(actual, property);
@@ -71,6 +73,7 @@ export async function verifyProfileSources(root) {
           expected.chain,
           property + " provenance",
         );
+        colourAndProvenanceBindingsMatched++;
       }
       for (const [name, value] of Object.entries(actual.geometry)) {
         assert.equal(value.value, compiled.geometry[name].value, name);
@@ -120,7 +123,7 @@ export async function verifyProfileSources(root) {
   }
   return {
     profilesMatchedToCompiler: 8,
-    colourAndProvenanceBindingsMatched: 80,
+    colourAndProvenanceBindingsMatched,
     sourceHashesMatched: true,
     missingStateRejected: true,
   };

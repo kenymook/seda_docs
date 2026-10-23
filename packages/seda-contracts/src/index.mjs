@@ -31,6 +31,7 @@ const requiredChecks = {
   Radio: [['text-content', 'label'], ['selection-value'], ['error-message']],
   Toggle: [['text-content', 'label'], ['checked-value'], ['aria-disabled-activation']],
   Tabs: [['text-content', 'label'], ['tabs-items'], ['tabs-selection']],
+  DropdownMenu: [['text-content', 'triggerLabel'], ['menu-items'], ['menu-open']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {
@@ -242,7 +243,12 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       try { resolver.resolve({ collection: branch.collection, path: [...branch.path, ...suffix], expectedType: 'color' }, {theme}); }
       catch (error) { throw new ContractValidationError([issue(error.code ?? 'TOKEN_INVALID', `/contracts/${name}/tokenRequirements/${effective.variant ?? 'default'}/${suffix.join('/')}`, error.message)]); }
     }
-    return { component: name, geometry: controlGeometry(effective.size, theme), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), runtimeConformance: 'not-checked' };
+    return { component: name, geometry: controlGeometry(effective.size, theme), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}), runtimeConformance: 'not-checked' };
+  }
+
+  // Explicit temporary adapters for documented component token gaps; resolved with provenance.
+  function menuSemantics(theme) {
+    return Object.fromEntries([['--focus-ring',['focus','ring']], ['--status-danger-text',['status','danger','text']], ['--status-danger-container',['status','danger','container']]].map(([property,path]) => [property, resolver.resolve({collection:'semantic',path,expectedType:'color'}, {theme})]));
   }
 
   function compile(profile = bundle.profile, { overrides = {}, formState = createFormState() } = {}) {
@@ -267,7 +273,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const auxiliaryTokens = contract.tokenBranches.focus ? { focus: resolver.resolveBranch(contract.tokenBranches.focus, { theme }) } : {};
       instances[role] = { component: recipe.component, props, state: checked.state, tokenBranch: resolver.resolveBranch(branch, { theme }), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    const controls = Object.fromEntries(bundle.contracts.filter(c => c.id === 'Tabs' || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }) }]));
+    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}) }]));
     return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), geometry, typography: { family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }
 

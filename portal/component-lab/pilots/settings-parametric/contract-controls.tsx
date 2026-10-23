@@ -5,6 +5,8 @@ import {
   Radio as SedaRadio,
   Toggle as SedaToggle,
   Tabs as SedaTabs,
+  DropdownMenu as SedaDropdownMenu,
+  SedaProvider,
 } from "@seda-ai/ui";
 import {
   evaluateRules,
@@ -19,7 +21,9 @@ export function ControlContractProvider({
   children: React.ReactNode;
 }) {
   return (
-    <Catalog.Provider value={compiled.controls}>{children}</Catalog.Provider>
+    <Catalog.Provider value={compiled.controls}>
+      <SedaProvider theme={compiled.domTheme} controlSize={compiled.configuration.controlSize} style={{display:"contents"}}>{children}</SedaProvider>
+    </Catalog.Provider>
   );
 }
 /** Only validates/binds props; rendering and event handling belong to the real SEDA components. */
@@ -84,4 +88,7 @@ export const Toggle = forwardRef<
 ));
 export const Tabs = forwardRef<HTMLDivElement, React.ComponentProps<typeof SedaTabs>>((props, ref) => (
   <SedaTabs {...props} {...checkedAttributes("Tabs", props, useContext(Catalog))} ref={ref} />
+));
+export const DropdownMenu = forwardRef<HTMLDivElement, React.ComponentProps<typeof SedaDropdownMenu>>((props, ref) => (
+  <SedaDropdownMenu {...props} {...checkedAttributes("DropdownMenu", props, useContext(Catalog))} ref={ref} />
 ));

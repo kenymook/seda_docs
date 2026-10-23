@@ -34,9 +34,9 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 14 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 8 компонентов, 8 профилей, API/state/token validation, 100 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
-| Реальное приложение | Lab: проекты/настройки/команда; 55+15+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
+| Кодовый каталог | 15 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
+| Исполняемые контракты | 9 компонентов, 8 профилей, API/state/token validation, 106 unit checks | Остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Реальное приложение | Lab: проекты/настройки/команда; 55+17+12 browser checks | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
 | Реальный consumer | 13/13 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Остальные компоненты, browser engines и полная contract-матрица |
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 13 package proof groups (включая две группы Tabs) | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
@@ -48,6 +48,12 @@
 В общий пакет добавлен DropdownMenu с owned Button/IconButton trigger, grouped actions, реальными shortcuts, document overlay stack и portal/top-layer placement. Installed consumer на React 18/19 проверил клавиатуру, disabled guards, controlled rejection, nested provider shortcut isolation, смену theme/geometry без потери focus, передачу focus в host-диалог, Popover fallback и StrictMode cleanup. Полный package run: 15/15 групп; меню — 16 profile/viewport измерений на runtime, 32 суммарно. Это вложенные измерения двух menu proof groups, а не 32 новых пользовательских сценария. Library и pilot TypeScript/build прошли. [Menu evidence](../../packages/seda-ui/verification/menu-results.json).
 
 DropdownMenu пока не зарегистрирован в общем instance compiler и не подключён к действиям Lab; это следующая работа. Число executable contracts остаётся 8. Screen reader, Firefox/WebKit, native desktop и девять эталонных экранов не доказаны. Общий objective остаётся активным.
+
+## Продвижение: D28 и действия таблицы
+
+DropdownMenu включён в registry/schema/API/common compiler и web adapter. Items/open/shortcut ownership проверяются на instance layer, пять browser declarations остаются not-checked. Focus/danger semantic adapters разрешаются с provenance. Installed consumer сопоставляет семь DOM snapshots с compiler на runtime (14 суммарно); profile source verifier сверяет 104 color/provenance bindings. Package proof — 15/15 групп React 18/19.
+
+Lab использует настоящий DropdownMenu в row actions: сведения, копия через существующий диалог, удаление с подтверждением. Draft и ожидаемый focus сохраняются; после удаления trigger focus идёт в search. На свежей сборке пройдены 55 Lab + 17 workspace + 12 controls = 84 browser checks. Full unit run — 106/106; после уточнения active tokenState меню повторно пройдены все шесть Menu unit tests. TypeScript и build прошли. Это не приёмка девяти reference screens и не проверка native desktop. Публикация и удалённый CI этого этапа фиксируются после фактического результата.
 
 ## Текущий этап поставки
 

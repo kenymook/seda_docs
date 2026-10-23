@@ -4,7 +4,7 @@
       "name": "build-source-artifact-integrity",
       "status": "passed",
       "evidence": {
-        "sources": 90,
+        "sources": 97,
         "artifacts": 45
       }
     },
@@ -280,8 +280,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(219, 219, 219)",
-            "bg": "rgba(231, 231, 231, 0.1)"
+            "color": "rgb(251, 251, 251)",
+            "bg": "rgba(252, 252, 252, 0.11)"
           },
           {
             "id": "help",
@@ -521,7 +521,7 @@
             "font": 12,
             "line": 16,
             "color": "rgb(29, 29, 30)",
-            "bg": "rgba(49, 50, 52, 0.063)"
+            "bg": "rgba(56, 57, 58, 0.063)"
           },
           {
             "id": "help",
@@ -760,8 +760,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(225, 225, 225)",
-            "bg": "rgba(239, 239, 239, 0.1)"
+            "color": "rgb(231, 231, 231)",
+            "bg": "rgba(242, 242, 242, 0.106)"
           },
           {
             "id": "help",
@@ -1000,8 +1000,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(46, 46, 47)",
-            "bg": "rgba(80, 81, 83, 0.067)"
+            "color": "rgb(34, 34, 35)",
+            "bg": "rgba(63, 64, 66, 0.063)"
           },
           {
             "id": "help",
@@ -1240,8 +1240,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(255, 255, 255)",
-            "bg": "rgba(255, 255, 255, 0.11)"
+            "color": "rgb(234, 234, 234)",
+            "bg": "rgba(244, 244, 244, 0.106)"
           },
           {
             "id": "help",
@@ -1480,8 +1480,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(10, 10, 11)",
-            "bg": "rgba(24, 25, 27, 0.06)"
+            "color": "rgb(25, 25, 26)",
+            "bg": "rgba(49, 50, 52, 0.063)"
           },
           {
             "id": "help",
@@ -1720,8 +1720,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(255, 255, 255)",
-            "bg": "rgba(255, 255, 255, 0.11)"
+            "color": "rgb(236, 236, 236)",
+            "bg": "rgba(245, 245, 245, 0.106)"
           },
           {
             "id": "help",

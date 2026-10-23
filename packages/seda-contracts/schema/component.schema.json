@@ -17,7 +17,8 @@
         "Checkbox",
         "Radio",
         "Toggle",
-        "Tabs"
+        "Tabs",
+        "DropdownMenu"
       ]
     },
     "api": {

@@ -204,7 +204,7 @@ try {
         name + " has resolver chain",
       );
     assert.deepEqual(evidence.coverage.libraryAdapter, []);
-    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs"]);
+    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu"]);
     const token = evidence.evidence.find(
       (e) => e.property === "--seda-select-surface-default",
     );
@@ -456,6 +456,43 @@ try {
       retained: "New B",
       navigation: "projects → settings → members → projects",
     };
+  });
+  await check("workspace-menu-contract-and-profile-focus", async () => {
+    await fresh();
+    const trigger=page.getByRole('button',{name:'Действия проекта Atlas Platform',exact:true});
+    const measurements=[];
+    for(const theme of ['Light','Dark'])for(const size of ['s','m','l','xl']){
+      await configure(theme,size,{scale:125,air:4,airX:12,radius:125});
+      await trigger.click();await page.getByRole('menu').waitFor();
+      const first=page.getByRole('menuitem',{name:'Открыть сведения',exact:true});
+      await first.focus();
+      const actual=await first.evaluate(el=>{const s=getComputedStyle(el);const rect=el.getBoundingClientRect();return {height:rect.height,font:parseFloat(s.fontSize),padding:parseFloat(s.paddingInlineStart),surface:getComputedStyle(el.closest('[role=menu]')).backgroundColor};});
+      const derived=await page.evaluate(()=>window.sedaPilot.getLab().derived);
+      near(actual.height,derived.height,'Menu row shares computed height');near(actual.font,derived.font,'Menu font');near(actual.padding,derived.fieldPaddingX,'Menu base + X');
+      assert.equal(await trigger.evaluate(el=>Math.abs(el.getBoundingClientRect().width-el.getBoundingClientRect().height)<=1),true);
+      await page.evaluate(({theme,size})=>window.sedaPilot.configure({theme,controlSize:size}),{theme:theme==='Light'?'Dark':'Light',size:size==='xl'?'s':'xl'});await settle();
+      assert.equal(await first.evaluate(el=>document.activeElement===el),true);
+      measurements.push({theme,size,...actual});await page.keyboard.press('Escape');assert.equal(await trigger.evaluate(el=>document.activeElement===el),true);
+    }
+    const evidence=await page.evaluate(()=>window.sedaPilot.getWorkspaceEvidence());
+    assert.ok(evidence.evidence.some(e=>e.component==='dropdownmenu'&&e.property==='--dropdown-menu-item-surface-hover'&&e.chain.length>1));
+    return {measurements,focusRetained:true,iconTriggerSquare:true};
+  });
+  await check("workspace-menu-actions-and-dialog-handoff", async () => {
+    await fresh();
+    const trigger=page.getByRole('button',{name:'Действия проекта Atlas Platform',exact:true});
+    await trigger.click();await page.getByRole('menuitem',{name:'Открыть сведения',exact:true}).click();
+    assert.equal(await page.locator('#project').inputValue(),'Atlas Platform');assert.equal(await page.locator('#project').evaluate(el=>document.activeElement===el),true);
+    await trigger.click();await page.getByRole('menuitem',{name:'Создать копию',exact:true}).click();
+    assert.equal(await page.getByRole('menu').count(),0);assert.equal(await page.locator('#modalName').inputValue(),'Atlas Platform — копия');assert.equal(await page.locator('#modalName').evaluate(el=>document.activeElement===el),true);
+    await page.locator('#modalName').press('Enter');assert.equal(await page.locator('#tbody tr').count(),5);
+    await page.locator('#project').fill('Несохранённый draft');
+    await trigger.click();await page.getByRole('menuitem',{name:'Удалить проект',exact:true}).click();
+    assert.equal(await page.locator('#tbody tr').count(),5);assert.equal(await page.locator('#delete-project-dialog').evaluate(el=>el.open),true);
+    await page.keyboard.press('Escape');await settle();assert.equal(await page.locator('#tbody tr').count(),5);assert.equal(await trigger.evaluate(el=>document.activeElement===el),true);
+    await trigger.click();await page.getByRole('menuitem',{name:'Удалить проект',exact:true}).click();await page.locator('#confirmDeleteProject').click();await settle();
+    assert.equal(await page.locator('#tbody tr').count(),4);assert.equal(await trigger.count(),0);assert.equal(await page.locator('#search').evaluate(el=>document.activeElement===el),true);assert.equal(await page.locator('#project').inputValue(),'Несохранённый draft');
+    return {details:true,copyDialog:true,deleteConfirmation:true,cancelRetained:true,removedTriggerFocusFallback:true,formDraftRetained:true};
   });
   await check("workspace-browser-errors", () => assert.deepEqual(errors, []));
 } finally {

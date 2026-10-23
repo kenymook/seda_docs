@@ -1,7 +1,7 @@
 import { componentNames } from './registry.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
-const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection']);
+const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -22,7 +22,8 @@ export function deriveState(component, props, interaction = {}) {
     if (!['hovered', 'focused', 'active'].includes(key) || typeof value !== 'boolean') throw new TypeError(`Unknown interaction fact: ${key}`);
   }
   const tabs = component === 'Tabs' ? deriveTabsSelection(props) : undefined;
-  const disabled = tabs ? tabs.value === null : props.disabled === true;
+  const menu = component === 'DropdownMenu' ? deriveMenu(props) : undefined;
+  const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
   const error = ['TextField','Select','Checkbox','Radio'].includes(component) && content(props.errorText) !== 'empty';
   const focused = interaction.focused ?? false;
@@ -34,10 +35,43 @@ export function deriveState(component, props, interaction = {}) {
     validation: disabled ? 'none' : error ? 'error' : 'none',
     interaction: { hovered, focused, active },
     data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (['TextField','Select','Checkbox','Radio','Toggle','Tabs'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (['TextField','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
     ...(tabs ? { tabs } : {}),
+    ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
   };
+}
+
+const menuActions = items => Array.isArray(items) ? items.flatMap(item => item?.type === 'separator' ? [] : item?.type === 'group' ? Array.isArray(item.items) ? item.items : [] : item ? [item] : []) : [];
+function deriveMenu(props) {
+  const items = menuActions(props.items);
+  const unavailable = props.disabled === true || !items.length;
+  return { controlled: props.open !== undefined, requestedOpen: props.open ?? props.defaultOpen ?? false,
+    open: !unavailable && (props.open ?? props.defaultOpen ?? false), unavailable,
+    items: items.map(item => ({id:item.id, state:item.disabled ? 'disabled' : 'default', danger:item.danger === true})) };
+}
+
+/** Host handlers may be real functions or typed opaque bindings; neither is executed here. */
+function handler(value) {
+  return typeof value === 'function' || value && typeof value === 'object' && Object.keys(value).length === 1 && typeof value.$handler === 'string' && value.$handler.trim().length > 0;
+}
+function validMenuItems(items, provider) {
+  if (!Array.isArray(items)) return false;
+  const ids = new Set(), shortcuts = new Set();
+  const id = value => { if (typeof value !== 'string' || !value.trim() || ids.has(value)) return false; ids.add(value);return true; };
+  const text = value => typeof value === 'string' && value.trim().length > 0;
+  const action = item => {
+    if (!item || typeof item !== 'object' || !id(item.id) || item.type !== undefined && item.type !== 'action' || !text(item.label) || !handler(item.onSelect)) return false;
+    if (item.shortcut !== undefined) {
+      const s = item.shortcut;
+      if (!s || !text(s.key) || !text(s.label) || !Array.isArray(s.modifiers) || s.modifiers.some(m => !['Control','Meta','Alt','Shift'].includes(m)) || new Set(s.modifiers).size !== s.modifiers.length || provider && !s.modifiers.some(m => ['Control','Meta','Alt'].includes(m))) return false;
+      const signature = [...s.modifiers].sort().join('+') + ':' + s.key.toLocaleLowerCase();
+      if (shortcuts.has(signature)) return false;
+      shortcuts.add(signature);
+    }
+    return true;
+  };
+  return items.every(item => item && typeof item === 'object' && (item.type === 'separator' ? id(item.id) : item.type === 'group' ? id(item.id) && text(item.label) && Array.isArray(item.items) && item.items.every(action) : action(item)));
 }
 
 /** Authored selection snapshot; internal uncontrolled state/focus still needs browser evidence. */
@@ -107,6 +141,13 @@ export function evaluateRules(contract, props) {
       }
       case 'tabs-selection':
         if (props.value !== undefined && props.defaultValue !== undefined) violate('Tabs value and defaultValue are mutually exclusive.');
+        break;
+      case 'menu-items':
+        if (!validMenuItems(props.items, props.shortcutScope === 'provider')) violate('Menu items require unique IDs, text labels, action handlers and valid unique shortcuts.');
+        break;
+      case 'menu-open':
+        if (props.open !== undefined && (props.defaultOpen !== undefined || !handler(props.onOpenChange))) violate('Controlled menu requires onOpenChange and excludes defaultOpen.');
+        if (props.iconOnly && content(props.triggerIcon) === 'empty') violate('Icon-only menu trigger needs triggerIcon.');
         break;
       case 'controlled-value':
         if (typeof props.value !== 'string' || !props.onChange || own(props, 'defaultValue')) violate('The pilot field requires value:string and onChange, without defaultValue.');

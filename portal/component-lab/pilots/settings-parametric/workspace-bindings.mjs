@@ -55,7 +55,7 @@ export function createWorkspaceBindings(
     },
     parameters,
     coverage: {
-      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs"],
+      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu"],
       libraryAdapter: [],
       composition: ["Navigation", "Table", "Card", "Dialog"],
     },

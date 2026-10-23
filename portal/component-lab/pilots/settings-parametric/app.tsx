@@ -17,8 +17,9 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
 import "../../../../packages/seda-ui/src/navigation.css";
+import "../../../../packages/seda-ui/src/overlays.css";
 import "./styles.css";
-import { Select, Checkbox, ControlContractProvider } from "./contract-controls";
+import { Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
 import { createWorkspaceBindings } from "./workspace-bindings.mjs";
 import "./workspace.css";
@@ -67,6 +68,9 @@ function App() {
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(10);
   const [query, setQuery] = useState("");
+  const [deleteProject, setDeleteProject] = useState<string | null>(null);
+  const deleteDialog = useRef<HTMLDialogElement>(null);
+  const deleteReturnFocus = useRef<HTMLElement | null>(null);
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState("size");
   const [projects, setProjects] = useState([
@@ -486,7 +490,7 @@ function App() {
     },
     components: {
       v: measurements.length + " видимых контролов",
-      desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs",
+      desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu",
       deps: "height + radius + font → React → DOM",
     },
   };
@@ -1030,13 +1034,24 @@ function App() {
                           <td>{p.team}</td>
                           <td>{p.updated}</td>
                           <td>
-                            <IconButton
-                              {...real("help")}
+                            <DropdownMenu
+                              style={real("help").style}
                               size={configuration.controlSize}
-                              variant="ghost"
-                              aria-label={"Открыть сведения " + p.name}
-                              icon={<span>···</span>}
-                              onClick={() => chooseProject(p.name)}
+                              triggerLabel={"Действия проекта " + p.name}
+                              iconOnly
+                              triggerIcon={<span>···</span>}
+                              variant="grouped"
+                              items={[
+                                {type:"group",id:"project",label:p.name,items:[
+                                  {id:"open",label:"Открыть сведения",onSelect:()=>chooseProject(p.name)},
+                                  {id:"duplicate",label:"Создать копию",onSelect:()=>{setModalName(p.name+" — копия");modal.current?.showModal();}},
+                                ]},
+                                {type:"separator",id:"danger-separator"},
+                                {id:"delete",label:"Удалить проект",danger:true,onSelect:()=>{
+                                  deleteReturnFocus.current=document.activeElement as HTMLElement;
+                                  setDeleteProject(p.name);deleteDialog.current?.showModal();
+                                }},
+                              ]}
                             />
                           </td>
                         </tr>
@@ -1341,13 +1356,13 @@ function App() {
                 лаборатории отделена.
               </p>
               <p>
-                Контракты: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs. Формы и таблицы —
+                Контракты: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu. Формы и таблицы —
                 композиции.
               </p>
               <details className="workspace-tokens">
                 <summary>Источники дополнительных контролов</summary>
                 {workspaceBinding.evidence.map((item: any) => (
-                  <div key={item.property}>
+                  <div key={`${item.component}:${item.property}:${item.path}`}>
                     <code>
                       {item.property} = {item.cssValue}
                     </code>
@@ -1438,7 +1453,7 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                Button · IconButton · TextField · Select · Checkbox · Radio · Toggle · Tabs — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
+                Button · IconButton · TextField · Select · Checkbox · Radio · Toggle · Tabs · DropdownMenu — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.
               </p>
@@ -1542,6 +1557,22 @@ function App() {
             </Button>
           </div>
         </form>
+      </dialog>
+      <dialog id="delete-project-dialog" ref={deleteDialog} aria-labelledby="delete-project-title" data-workspace style={workspaceStyle}
+        onClose={()=>{setDeleteProject(null);if(deleteReturnFocus.current?.isConnected)deleteReturnFocus.current.focus();else document.getElementById("search")?.focus();}}>
+        <div className="modalBody">
+          <h2 id="delete-project-title">Удалить проект?</h2>
+          <p>Проект «{deleteProject}» будет удалён из демонстрационного списка. Несохранённая форма останется без изменений.</p>
+          <div className="modalActions">
+            <Button {...real("cancel")} onClick={()=>deleteDialog.current?.close()}>Отмена</Button>
+            <Button {...real("save")} id="confirmDeleteProject" onClick={()=>{
+              if(deleteProject===null)return;
+              setProjects(previous=>previous.filter(project=>project.name!==deleteProject));
+              setSelectedProjects(previous=>previous.filter(name=>name!==deleteProject));
+              deleteDialog.current?.close();
+            }}>Удалить проект</Button>
+          </div>
+        </div>
       </dialog>
       {isReview && <ControlFixtures size={configuration.controlSize} style={workspaceStyle} />}
       {isReview && (

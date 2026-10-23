@@ -2357,7 +2357,7 @@
       "name": "workspace-tokens-and-native-keyboard",
       "status": "passed",
       "evidence": {
-        "resolvedLeaves": 184,
+        "resolvedLeaves": 215,
         "selectSurface": "rgb(23, 23, 24)",
         "keyboard": "Select/Radio/Toggle"
       }
@@ -2412,6 +2412,92 @@
         "snapshot": "Request A",
         "retained": "New B",
         "navigation": "projects → settings → members → projects"
+      }
+    },
+    {
+      "name": "workspace-menu-contract-and-profile-focus",
+      "status": "passed",
+      "evidence": {
+        "measurements": [
+          {
+            "theme": "Light",
+            "size": "s",
+            "height": 36,
+            "font": 15,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Light",
+            "size": "m",
+            "height": 45,
+            "font": 18,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Light",
+            "size": "l",
+            "height": 54,
+            "font": 20,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Light",
+            "size": "xl",
+            "height": 63,
+            "font": 23,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Dark",
+            "size": "s",
+            "height": 36,
+            "font": 15,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          },
+          {
+            "theme": "Dark",
+            "size": "m",
+            "height": 45,
+            "font": 18,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          },
+          {
+            "theme": "Dark",
+            "size": "l",
+            "height": 54,
+            "font": 20,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          },
+          {
+            "theme": "Dark",
+            "size": "xl",
+            "height": 63,
+            "font": 23,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          }
+        ],
+        "focusRetained": true,
+        "iconTriggerSquare": true
+      }
+    },
+    {
+      "name": "workspace-menu-actions-and-dialog-handoff",
+      "status": "passed",
+      "evidence": {
+        "details": true,
+        "copyDialog": true,
+        "deleteConfirmation": true,
+        "cancelRetained": true,
+        "removedTriggerFocusFallback": true,
+        "formDraftRetained": true
       }
     },
     {

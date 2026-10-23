@@ -6,6 +6,7 @@
     "hydrationErrors": [],
     "invalidInputsRejected": 8,
     "profileMeasurements": 16,
+    "compilerSnapshots": 7,
     "measurements": [
       {
         "theme": "light",
@@ -267,6 +268,7 @@
     "hydrationErrors": [],
     "invalidInputsRejected": 8,
     "profileMeasurements": 16,
+    "compilerSnapshots": 7,
     "measurements": [
       {
         "theme": "light",
