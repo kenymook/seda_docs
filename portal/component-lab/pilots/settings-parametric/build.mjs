@@ -49,7 +49,7 @@ export async function buildPilot({
     path.join(packageRoot, 'system.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['app.tsx', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['app.tsx', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
@@ -93,6 +93,9 @@ export async function buildPilot({
     loader: { '.woff': 'file', '.woff2': 'file' },
     nodePaths: [path.join(pilotRoot, 'node_modules')],
     alias: {
+      // Library peer installs must use the host's React instance, including JSX.
+      'react': path.join(pilotRoot, 'node_modules/react'),
+      'react-dom': path.join(pilotRoot, 'node_modules/react-dom'),
       '@seda-ai/ui/styles.css': path.join(repoRoot, 'packages/seda-ui/src/styles.css'),
       '@seda-ai/ui': path.join(repoRoot, 'packages/seda-ui/src/index.ts'),
     },

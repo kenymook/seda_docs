@@ -1089,15 +1089,6 @@
   display: none;
 }
 
-.seda-button[data-seda-loading-slot="true"] > .seda-button__leading,
-.seda-button[data-loading="true"] > .seda-button__leading {
-  display: inline-flex;
-}
-
-.seda-button[data-loading="true"] > .seda-button__leading > .seda-button__icon-content {
-  visibility: hidden;
-}
-
 .seda-button__spinner,
 .seda-icon-button__spinner {
   box-sizing: border-box;
@@ -1289,3 +1280,9 @@
 [data-seda-contract="TextField"] .seda-field--text[data-disabled="true"] .seda-field__affix > svg {
   color: var(--seda-icon-disabled);
 }
+
+/* Loading preserves the measured border box; no permanent spinner slot. */
+.seda-button { position: relative; }
+.seda-button[data-loading="true"] > :not(.seda-button__loading-center) { opacity: 0; }
+.seda-button__loading-center { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.seda-button__loading-center > .seda-button__spinner { width: var(--seda-control-icon-size, var(--seda-preset-icon-size)); height: var(--seda-control-icon-size, var(--seda-preset-icon-size)); }

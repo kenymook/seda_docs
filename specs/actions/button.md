@@ -391,3 +391,7 @@ AI не должен:
 - Использовать `disabled` без объяснения причины.
 - Заменять loading label spinner без accessible name.
 - Создавать custom one-off button colors вне component tokens.
+
+### Runtime: loading geometry (Lab 2.0)
+
+В React-реализации leading slot создаётся только при наличии `iconLeft`. Перед показом центрированного spinner замеряется фактический border box; width/height фиксируются на время loading и возвращаются к authored styles после завершения. Label сохраняет accessible name, но визуально скрыт. Form guard дополнительно блокирует programmatic submit. Матрица проверки: Light/Dark × S/M/L/XL × три длины label × четыре набора icon slots, допуск 1 px.

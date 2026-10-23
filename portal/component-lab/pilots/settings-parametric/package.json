@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "build": "node build.mjs",
     "serve": "node server.mjs",
     "typecheck": "tsc --noEmit",
-    "verify": "node verify.mjs"
+    "verify": "node verify-lab2.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",
