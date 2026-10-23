@@ -47,3 +47,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## Building — различие declared и фактически отрисованного шрифта
 
 [Продолжение review](REFERENCE-BUILDING-REVIEW.md#доработка-типографики-и-границ-изменений): source Segoe UI16/26 и regular headings восстановлены в content surface, Inter controls сохранён. Проверяется не только computed font-family: CDP возвращает actual platform font и число glyphs. На Windows подтверждён Segoe UI; на Linux/Mac используется fallback и нельзя обещать те же переносы. Визуальное соответствие всё ещё требует приёмки. Структурная команда сверх глубины отклоняется до изменения модели/history; rejected typing/paste восстанавливают DOM по принятой модели.
+
+## TextArea — целостность ввода и состояние в реальном приложении
+
+[Review](TEXTAREA-REVIEW.md) фиксирует фактические дефекты и regression: bidi порядок счётчика, потеря ручной высоты на rerender, disabled+readOnly cascade, active paint и скрытый источник значения children/HTML. Все исправлены до публикации17; installed React18/19 и production checked. Просмотрен Light/Dark dialog Building с сохранённым multiline comment: один textarea frame, label/counter и ожидаемая высота по общему профилю. Отдельная Figma component/AT/native desktop приёмка этим не заменяется.

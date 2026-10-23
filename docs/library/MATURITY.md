@@ -163,3 +163,5 @@ Version16: исходная content typography Building и list guides восс�
 [TextArea review](TEXTAREA-REVIEW.md):18-й public component,11-й executable contract, installed React18/19 proof21 groups,115 authored contract tests; первый реальный consumer — многострочный комментарий Building. Общие X/Y/theme/size применяются к нему через compiler, input/resize/state ownership проверены. Это подготовка общего multiline primitive; chat/composer и1:3894 не объявляются готовыми.
 
 Предыдущий CI39998965507, job120569761098, commit c0fe956, завершился success: исправленное ожидание focus Recents подтверждено. Его результат относится к version16, не к новым TextArea изменениям.
+
+TextArea опубликован в version17, [production/CI evidence](TEXTAREA-REVIEW.md#публикация-и-независимый-ci):385 hashes; compiled/native geometry, autosize cap, clear/focus и multiline save/reload подтверждены. CI40004394206 для23d8c1c completed/success: contracts115, package21, browser113, model5, TypeScript/build. Этим закрыт текущий технический этап общего multiline primitive; visual/AT/desktop maturity, Chat Composer и оставшиеся reference screens остаются незавершёнными.
