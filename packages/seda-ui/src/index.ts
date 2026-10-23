@@ -12,6 +12,7 @@ export * from "./components/Alert";
 export * from "./components/Toast";
 export * from "./components/FileUpload";
 export * from "./components/Tabs";
+export * from "./components/DropdownMenu";
 
 export { SedaProvider, useSedaConfiguration } from "./foundation/SedaProvider";
 export type { SedaConfiguration, SedaProviderProps } from "./foundation/SedaProvider";

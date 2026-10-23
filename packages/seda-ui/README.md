@@ -57,7 +57,17 @@ import '@seda-ai/ui/styles.css';
 
 Проверка включает 24 сочетания theme/size/width на каждом React runtime, четыре размера без provider, nested scopes, local overrides и loading при смене профиля. Reduced motion/forced colors — smoke checks, без заявления полной accessibility-сертификации. Стили импортируются явно; для source alias всё ещё нужен build CSS, эталонный способ потребления — установленный пакет.
 
-## Вкладки рабочих панелей
+## Меню команд (experimental)
+
+`DropdownMenu` использует shared Button/IconButton, наследуемые профили/темы и portal overlay. Поддерживает группы, separators, реальные shortcuts, disabled/danger, controlled open и keyboard/typeahead. `react-dom >=18` — явная peer dependency. API и ограничения: [Dropdown Menu spec](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/overlays-layout/dropdown-menu.md#14-react-implementation--experimental). Общий instance compiler и рабочие reference screens ещё требуют интеграции. Для destructive action приложение открывает подтверждение.
+
+```tsx
+<DropdownMenu triggerLabel="Действия" items={[
+  { id: "open", label: "Открыть", onSelect: openDocument },
+]} />
+```
+
+## Вкладки рабочих панелей — API
 
 `Tabs` поддерживает line/pill, наследуемый размер, controlled/uncontrolled выбор, automatic/manual activation, RTL keyboard и сохранение mounted panels. [Полный API и границы](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/navigation/tabs.md#14-react-implementation--experimental). Импорт: `import { Tabs } from "@seda-ai/ui"`. Требуются `label` списка и items с value/label/content.
 

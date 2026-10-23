@@ -1,6 +1,7 @@
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
+import { verifyMenu } from "./verify-menu.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import assert from "node:assert/strict";
@@ -144,7 +145,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 16);
+        assert.equal(result.exports.length, 17);
+        assert.ok(result.exports.includes("DropdownMenu"));
         assert.ok(result.exports.includes("Tabs"));
         assert.ok(result.exports.includes("SedaProvider"));
         assert.ok(result.exports.includes("useSedaConfiguration"));
@@ -155,7 +157,16 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const menu=<DropdownMenu triggerLabel="Actions" items={[{id:'open',label:'Open',onSelect:()=>{}}]}/>;
+// @ts-expect-error trigger accessible name is required
+const namelessMenu=<DropdownMenu items={[]}/>;
+// @ts-expect-error action requires executable callback
+const fakeAction=<DropdownMenu triggerLabel="Actions" items={[{id:'open',label:'Open'}]}/>;
+// @ts-expect-error undocumented menu variants are rejected
+const badMenuVariant=<DropdownMenu triggerLabel="Actions" items={[]} variant="invented"/>;
+// @ts-expect-error shortcut modifiers use the declared keyboard vocabulary
+const badShortcut=<DropdownMenu triggerLabel="Actions" items={[{id:'open',label:'Open',onSelect:()=>{},shortcut:{key:'o',label:'Alt+O',modifiers:['Option']}}]}/>;
 // @ts-expect-error unknown Button variant must not become any
 const badVariant=<Button variant="invented">Save</Button>;
 const goodTabs=<Tabs label="Panels" items={[{value:'a',label:'A',content:'Panel'}]} activationMode="manual"/>;
@@ -202,7 +213,7 @@ configuration.controlSize='s';return null;}`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 9 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 13 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -310,6 +321,9 @@ configuration.controlSize='s';return null;}`,
     );
     await check("react-" + version + "-tabs-navigation", () =>
       verifyTabs({ cwd, browser, version }),
+    );
+    await check("react-" + version + "-menu-overlays", () =>
+      verifyMenu({ cwd, browser, version }),
     );
   }
 } catch (error) {

@@ -312,3 +312,48 @@ Handoff для Dropdown Menu должен включать:
 - Скрывать permission logic от handoff.
 - Делать disabled item без объяснимого контекста.
 - Генерировать список commands через AI без проверки владельца действия.
+
+## 14. React implementation — experimental
+
+Публичный `DropdownMenu` реализован в `packages/seda-ui`. Импорт из установленного `@seda-ai/ui`; CSS через `@seda-ai/ui/styles.css`. Это experimental реализация, а не подтверждение всей зрелости spec. Общий compiler пока содержит восемь других компонентов; регистрация DropdownMenu и integration proof рабочих экранов ещё требуются.
+
+### API и ownership
+
+- `triggerLabel: string` и `items: readonly MenuEntry[]` обязательны. Компонент владеет trigger Button; для icon-only нужны `iconOnly`, `triggerIcon` и текстовое имя. Это предотвращает вложенные кнопки и потерю ARIA-связей при произвольном trigger slot.
+- `MenuAction`: уникальные `id`, текстовый `label`, обязательный исполняемый `onSelect`; optional `description`, `icon`, `disabled`, `danger`, `shortcut`.
+- `MenuGroup`: `type:"group"`, `id`, `label`, `items: readonly MenuAction[]`. `MenuSeparator`: `type:"separator"`, `id`. ID уникальны во всём дереве; вложенные группы не поддерживаются.
+- `size` наследует ближайший SedaProvider; standalone fallback m. `variant` default menu и пять существующих spec values. Данные групп/иконок/shortcuts составляют композицию; with-icons резервирует колонку иконок.
+- `open` + `onOpenChange` — controlled; иначе `defaultOpen` и local state. Нельзя одновременно open/defaultOpen. Причины callback: trigger, escape, outside, focus-out, tab, select, unavailable.
+- `disabled` или пустой список действий блокирует trigger и скрывает поверхность; состояние open сбрасывается через unavailable request. При controlled rejection владелец сохраняет решение.
+- `side:top|bottom` default bottom; `align:start|end` default start. RTL учитывается. Placement переворачивается/ограничивается viewport.
+- `shortcutScope:menu|provider` default menu. Shortcut содержит настоящий key, массив модификаторов Control/Meta/Alt/Shift и видимый label. Provider scope требует командный модификатор и ближайший SedaProvider. Вложенные provider scopes изолированы; ввод в input/textarea/select/contenteditable, repeat/composition/AltGraph не запускает команды. Внешние application shortcuts и конфликты между меню требуют отдельного реестра команд.
+
+### Keyboard, focus и overlays
+
+Enter/Space/click открывает список; ArrowDown/ArrowUp на trigger открывают первый/последний item. Стрелки, Home/End и typeahead перемещают focus. Typeahead нормализует диакритику; повтор символа циклически перебирает совпадения, пауза 500 ms начинает новый поиск. Disabled item доступен стрелками для чтения причины, имеет aria-disabled и не активируется; в Tab order не входит.
+
+Escape закрывает верхнее меню с возвратом focus на trigger. Tab/Shift+Tab закрывает и продолжает DOM порядок относительно trigger. Pointer/focus outside закрывают без перехвата нового target. При выборе focus возвращается до вызова action, поэтому открытый host-диалог получает focus последним. Подтверждение destructive действия принадлежит приложению: danger сам по себе не подтверждает удаление.
+
+Surface размещается portal в ownerDocument.body и использует manual Popover top layer при наличии; fallback — fixed portal с document overlay stack. Это позволяет выходить за overflow/transform контейнер trigger. Тема, геометрия, направление и локальные common control CSS variables копируются из trigger scope, обновляются при resize/scroll и смене конфигурации. Private positioning adapter: gutter 8 px, gap 4 px, min width 192 px, max width 360 px, ограниченные viewport. Это реализационные ограничения, не новые canonical tokens.
+
+### Токены и границы проверки
+
+Menu colors используют существующие dropdown-menu component tokens. Geometry берётся из общего профиля. `focus-ring` и semantic `status-danger-text/container` используются явно как adapter: отдельных component tokens focus/danger в текущем DropdownMenu наборе нет (**Token gap**). Shadow производный от border; токены не добавлялись. Добавление отсутствующего used component token блокирует build вместо молчаливого fallback.
+
+Installed tarball consumer проверяет React 18/19, SSR/hydration/StrictMode, API rejection, клавиатуру, disabled guards, реальные shortcuts, controlled rejection, focus repair/диалог, 16 profile/viewport комбинаций на runtime, наследование common geometry при открытом меню, fallback и cleanup. Фактические результаты находятся в verifier reports; наличие сценария в этом описании не означает успешный прогон.
+
+Непроверенное/неподдержанное: submenus, checkable items, async permission model, глобальный command registry, screen readers, Firefox/WebKit и native desktop shells. Длинные labels/descriptions переносятся; row может быть выше базового профиля. S/M не обещают touch target 44 px. Контраст и полноценная WCAG 2.2 AA приёмка не объявлены завершёнными. Figma variant соответствие требует отдельного визуального сравнения с component source.
+
+### Пример
+
+```tsx
+<DropdownMenu triggerLabel="Действия проекта" variant="grouped" items={[
+  { type: "group", id: "project", label: "Проект", items: [
+    { id: "open", label: "Открыть", onSelect: openProject },
+    { id: "share", label: "Поделиться", disabled: !canShare,
+      description: !canShare ? "Нужна роль редактора" : undefined, onSelect: shareProject },
+  ] },
+  { type: "separator", id: "danger-separator" },
+  { id: "delete", label: "Удалить проект", danger: true, onSelect: openDeleteConfirmation },
+]} />
+```

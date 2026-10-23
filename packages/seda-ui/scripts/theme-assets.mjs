@@ -30,9 +30,10 @@ export function buildThemeAssets(packageRoot, output) {
     path.join(packageRoot, "src/provider.css"),
   );
   const navigationBytes = fs.readFileSync(path.join(packageRoot, "src/navigation.css"));
+  const overlayBytes = fs.readFileSync(path.join(packageRoot, "src/overlays.css"));
   const usedProperties = new Set(
     Array.from(
-      (String(stylesBytes) + "\n" + String(providerBytes) + "\n" + String(navigationBytes)).matchAll(
+      (String(stylesBytes) + "\n" + String(providerBytes) + "\n" + String(navigationBytes) + "\n" + String(overlayBytes)).matchAll(
         /var\((--[a-zA-Z0-9-]+)/g,
       ),
       (match) => match[1],
@@ -47,6 +48,7 @@ export function buildThemeAssets(packageRoot, output) {
       "packages/seda-ui/src/styles.css": hash(stylesBytes),
       "packages/seda-ui/src/provider.css": hash(providerBytes),
       "packages/seda-ui/src/navigation.css": hash(navigationBytes),
+      "packages/seda-ui/src/overlays.css": hash(overlayBytes),
       "packages/seda-ui/scripts/theme-assets.mjs": hash(
         fs.readFileSync(new URL(import.meta.url)),
       ),
@@ -233,7 +235,7 @@ export function buildThemeAssets(packageRoot, output) {
           );
         }
       }
-    const requiredCss = String(navigationBytes) + fs.readFileSync(
+    const requiredCss = String(navigationBytes) + String(overlayBytes) + fs.readFileSync(
       path.join(packageRoot, "src/provider.css"),
       "utf8",
     );
@@ -326,7 +328,7 @@ export function buildThemeAssets(packageRoot, output) {
     );
   }
   const classes =
-    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs)";
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-dropdown-menu,.seda-dropdown-menu__surface)";
   for (const size of Object.keys(system.sizes)) {
     const mapping = {
       height: "height",

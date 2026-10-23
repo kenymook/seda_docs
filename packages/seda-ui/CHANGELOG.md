@@ -1,5 +1,12 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — меню команд
+
+- Experimental DropdownMenu: owned Button/IconButton trigger, grouped actions/descriptions/separators, реальные menu/provider shortcuts, keyboard/typeahead, disabled guards и controlled/uncontrolled open.
+- Общий document overlay stack, body portal, optional manual Popover top layer, viewport flip/clamp, RTL, наследование темы/геометрии и focus handoff в host-диалог. react-dom объявлен peer dependency.
+- Пакетный verifier проверяет installed tarball на React 18/19; отдельные menu группы включают SSR/hydration/StrictMode, 32 aggregate profile/viewport измерения и cleanup/fallback. Точные результаты хранятся в verification reports.
+- Instance contract, Lab integration, screen reader и Firefox/WebKit/desktop proof ещё не завершены. Это не объявление полного production-ready каталога.
+
 ## Unreleased — общий контракт навигации
 
 - Tabs подключён к registry/API inspector/common compiler с items/selection checks, default/selected/disabled snapshots и обязательными token roles. Смешанные value/defaultValue отклоняются.

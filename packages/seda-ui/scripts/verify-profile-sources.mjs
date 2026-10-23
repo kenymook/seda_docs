@@ -108,6 +108,7 @@ export async function verifyProfileSources(root) {
       path.join(pkg, "src/styles.css"),
     );
     await fs.copyFile(path.join(root, "src/navigation.css"), path.join(pkg, "src/navigation.css"));
+    await fs.copyFile(path.join(root, "src/overlays.css"), path.join(pkg, "src/overlays.css"));
     assert.throws(
       () => buildThemeAssets(pkg, output),
       /Required public component token is missing: --select-border-focus/,

@@ -2,6 +2,8 @@
 
 Объектив: «Создай дизайн систему будущего. Критерий зрелости дизайн системы, на основе нее можно собрать такие интерфесы как figma, Notion, ChatGPT, Cloude Design».
 
+Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; эталонные экраны пока не реализованы и не оценены.
+
 Пользователь уточнил приоритет: максимально зрелая библиотека для веб- и десктоп-приложений. Ни зелёная лаборатория, ни количество specs не доказывают этот результат. Ниже рабочая декомпозиция полного критерия, а не замена цели одним удобным этапом. Состояние на 23 октября 2026.
 
 ## Что должно быть доказано
@@ -40,6 +42,12 @@
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 13 package proof groups (включая две группы Tabs) | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
 | Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
+
+## Продвижение: experimental DropdownMenu
+
+В общий пакет добавлен DropdownMenu с owned Button/IconButton trigger, grouped actions, реальными shortcuts, document overlay stack и portal/top-layer placement. Installed consumer на React 18/19 проверил клавиатуру, disabled guards, controlled rejection, nested provider shortcut isolation, смену theme/geometry без потери focus, передачу focus в host-диалог, Popover fallback и StrictMode cleanup. Полный package run: 15/15 групп; меню — 16 profile/viewport измерений на runtime, 32 суммарно. Это вложенные измерения двух menu proof groups, а не 32 новых пользовательских сценария. Library и pilot TypeScript/build прошли. [Menu evidence](../../packages/seda-ui/verification/menu-results.json).
+
+DropdownMenu пока не зарегистрирован в общем instance compiler и не подключён к действиям Lab; это следующая работа. Число executable contracts остаётся 8. Screen reader, Firefox/WebKit, native desktop и девять эталонных экранов не доказаны. Общий objective остаётся активным.
 
 ## Текущий этап поставки
 
