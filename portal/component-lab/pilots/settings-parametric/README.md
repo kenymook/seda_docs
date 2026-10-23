@@ -16,7 +16,7 @@ npm --prefix portal/component-lab/pilots/settings-parametric run verify
 npm --prefix portal/component-lab/pilots/settings-parametric run serve
 ```
 
-`verify` последовательно выполняет `verify-lab2.mjs`, `verify-workspace.mjs`, `verify-controls.mjs`, `verify-recents.mjs`, `verify-building.mjs` и `verify-chat.mjs`. Они поднимают собственные loopback-серверы на свободных портах и закрывают их после проверки. Для установленного Chromium можно задать `SEDA_BROWSER_EXECUTABLE`. Превью: http://127.0.0.1:5184/ . Проверочные fixtures библиотеки доступны при `?review=1`.
+`verify` последовательно выполняет `verify-lab2.mjs`, `verify-workspace.mjs`, `verify-controls.mjs`, `verify-recents.mjs`, `verify-building.mjs`, `verify-chat.mjs`, `verify-sandbox-model.mjs` и `verify-sandbox.mjs`. Они поднимают собственные loopback-серверы на свободных портах и закрывают их после проверки. Для установленного Chromium можно задать `SEDA_BROWSER_EXECUTABLE`. Превью: http://127.0.0.1:5184/ . Проверочные fixtures библиотеки доступны при `?review=1`.
 
 ## Что реализовано
 
@@ -56,3 +56,5 @@ Button сохраняет фактический border box и X на время
 Browser QA — Chromium; это проверка реализованной рабочей области, а не сертификация всей дизайн-системы. Исторический `verify.mjs` этапа 3 сохранён без изменений и не является runner нового интерфейса.
 
 Chat reference1:3894: `/references/chat.html`; installed SEDA controls, thread/draft/branch/reload и явно локальный fixture transport. [Review](../../../../docs/library/REFERENCE-CHAT-REVIEW.md) отделяет реализацию от незавершённой визуальной приёмки и реального AI backend.
+
+Sandbox reference1:1875: `/references/sandbox.html`; реконструированный редактируемый SVG документ, shared SEDA chrome, real mixed values/history/local storage. Source raster Canvas исключён из runtime. [Review и ограничения](../../../../docs/library/REFERENCE-SANDBOX-REVIEW.md).

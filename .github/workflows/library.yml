@@ -66,3 +66,5 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-building/*.png
 
             portal/component-lab/pilots/settings-parametric/.diagnostics-chat/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox/model-results.json

@@ -1,6 +1,6 @@
 # Sandbox Ruslan — подготовка editor reference1:1875
 
-Источник: [Figma Ruslan, Sandbox Ruslan – Figma](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=1-1875). Статус: **не реализовано / не оценено**. Получение handoff не закрывает экран или класс Figma.
+Источник: [Figma Ruslan, Sandbox Ruslan – Figma](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=1-1875). Статус: подготовлена рабочая реконструкция editor; [review и ограничения](REFERENCE-SANDBOX-REVIEW.md). Получение handoff и реконструкция не закрывают визуальную приёмку экрана или класс Figma.
 
 ## Проверенный источник
 
@@ -21,7 +21,7 @@
 |1:2253 /1:2273|Fill и Stroke|
 |1:3517|Нижний editor toolbar|
 
-Сохранены137 непустых image-файлов (115 уникальных хешей) из этих contexts в локальном handoff, с SHA-256 manifest. Они ещё не подключены к runtime. Первоначальный HTTP клиент возвращал202 с пустым body: такие ответы не считаются assets. Повторная загрузка штатным Node client подтвердила200/image content и непустые bytes. В source документации не сохраняются временные asset URLs.
+Сохранены137 непустых image-файлов (115 уникальных хешей) из этих contexts в локальном handoff, с SHA-256 manifest. 136 chrome assets подключены к runtime; raster Canvas остаётся QA-only. Первоначальный HTTP клиент возвращал202 с пустым body: такие ответы не считаются assets. Повторная загрузка штатным Node client подтвердила200/image content и непустые bytes. В source документации не сохраняются временные asset URLs.
 
 Проверенные размеры: rail49px; sidebar240px плюс граница; canvas viewport800px отx290; inspector350px отx1090. Source zoom14%, верхний inspector toolbar48px, tabs/zoom row≈32.67px, нижний toolbar529×48px. Рабочие панели должны иметь собственный scroll; это desktop editor, а не mobile website.
 
@@ -39,4 +39,4 @@ Canvas1:1884 предоставлен как **одна растровая ка�
 - Общие theme/size/X/Y меняют chrome controls. Canvas zoom и размеры контента являются состоянием документа, их нельзя подменять control density.
 - Отдельные focus/keyboard/long labels, Light/Dark,S/M/L/XL и resize проверки. Правильная формула/DOM геометрия не заменяет визуальную приёмку исходных panel proportions, плотности и состояний.
 
-Непринятые части: scene model, runtime, source artwork fidelity, property/mixed-state contract, keyboard/AT/native desktop, performance и full Layers context. Нового опубликованного editor entry пока нет. Полная цель девяти экранов и четырёх классов приложений сохраняется.
+Непринятые части: scene model, runtime, source artwork fidelity, property/mixed-state contract, keyboard/AT/native desktop, performance и full Layers context. Editor entry `/references/sandbox.html` подготовлен локально; публикация и итоговые проверки фиксируются в review. Полная цель девяти экранов и четырёх классов приложений сохраняется.

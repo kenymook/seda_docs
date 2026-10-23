@@ -59,3 +59,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## Следующий editor: raster Canvas не доказывает исполнение
 
 [Sandbox handoff](REFERENCE-SANDBOX-HANDOFF.md) выявил отдельный риск оценки: Canvas1:1884 содержит один raster с уже нарисованными handles/размерами. Shell можно собрать из controls, но картинка не доказывает scene selection/inspector/history. Нужны реальные object IDs/геометрия и связанная отрисовка. Этот screen остаётся не реализованным; screenshot используется только для QA.
+
+## Sandbox — связанная модель вместо raster Canvas
+
+[Review](REFERENCE-SANDBOX-REVIEW.md) отделяет156 редактируемых объектов от исходного bitmap: renderer/Tree/property fields/history работают на одной модели, но source artwork не принят. Числа/pending drafts имеют composition guard; blur→canvas читает актуальный snapshot, закрытый import и смена страницы инвалидируют поздние действия. Численные тесты используют actual pointer coordinates и отдельно проверяют реальное SVG смещение. Source counter49 не подменён статическим значением.

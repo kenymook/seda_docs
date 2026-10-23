@@ -2,7 +2,7 @@
 
 Объектив: «Создай дизайн систему будущего. Критерий зрелости дизайн системы, на основе нее можно собрать такие интерфесы как figma, Notion, ChatGPT, Cloude Design».
 
-Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; Recents и Building опубликованы; Chat реализован с локальным fixture transport. Визуальная приёмка этих трёх экранов не завершена; остальные шесть экранов не реализованы.
+Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; Recents и Building опубликованы; Chat реализован с локальным fixture transport. Визуальная приёмка этих трёх экранов не завершена; Sandbox имеет рабочую реконструкцию с неполным source artwork; остальные пять экранов не реализованы.
 
 Пользователь уточнил приоритет: максимально зрелая библиотека для веб- и десктоп-приложений. Ни зелёная лаборатория, ни количество specs не доказывают этот результат. Ниже рабочая декомпозиция полного критерия, а не замена цели одним удобным этапом. Состояние на 23 октября 2026.
 
@@ -174,3 +174,10 @@ TextArea опубликован в version17, [production/CI evidence](TEXTAREA-
 Chat опубликован в version18 на том же owner-private сайте. Production proof:437 source hashes,8 profile samples, Stop/retry/attachment/draft/reload, JS errors0. Publication checkout125 browser +9 domain-model groups и TypeScript/build PASS; [отчёт](REFERENCE-CHAT-REVIEW.md#публикация18-и-production-proof). Визуальная приёмка трёх screens и полная цель остаются открытыми.
 
 CI40013689889 для7046710ffdd7771a0fe7842020ead13a7ff979f9 completed/success, включая Chat12 browser/4 model. [Следующий Sandbox editor handoff](REFERENCE-SANDBOX-HANDOFF.md): детальные contexts панелей и137 проверенных asset files подготовлены; raster Canvas отдельно помечен QA-only. Editor ещё не реализован и не засчитывается в готовность.
+
+
+## Sandbox1:1875 — модель и рабочий editor
+
+[Review](REFERENCE-SANDBOX-REVIEW.md):156 реальных SVG frame/text/shape объектов в12 реконструированных artboards,15 страниц, shared SEDA chrome и один SceneArtwork renderer для canvas/preview.15 domain-model и18 browser groups проверяют Tree/selection/mixed properties, affine transforms, parent-child normalization, group/reparent, pointer/keyboard/cancel, snapshot save/import/recovery и24 profile samples. Общая регрессия143 browser groups и24 domain-model groups прошла; TypeScript/build PASS. Это не новые executable component contracts.
+
+Source Canvas оказался одним raster с готовыми handles: он не используется как UI. Content/геометрия реконструированы приблизительно; начальное выделение2 реальных объектов не выдаётся за исходные49. Artwork fidelity, visual acceptance, auto-layout/vector/prototype и native/AT/performance остаются открытыми. Остальные5 reference screens ещё не реализованы; полная цель не завершена.
