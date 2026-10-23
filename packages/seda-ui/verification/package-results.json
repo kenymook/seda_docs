@@ -119,5 +119,19 @@
     "high": 0,
     "critical": 0,
     "total": 0
+  },
+  "ci": {
+    "run": "https://github.com/kenymook/seda_docs/actions/runs/39946528027",
+    "commit": "b680ca9751b1db921c7778ca4dc6238d279d011b",
+    "platform": "ubuntu-latest",
+    "node": 24,
+    "conclusion": "success",
+    "scope": [
+      "clean installs",
+      "package consumer proof",
+      "90 contracts tests",
+      "TypeScript",
+      "81 browser checks"
+    ]
   }
 }

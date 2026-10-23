@@ -39,7 +39,7 @@
 | Реальный consumer | 8/8 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Общие темы/плотность вне Lab; остальные компоненты и browser engines |
 | Foundation вне Lab | Базовый styles.css | Обнаружено: общие геометрия/токены для всех контролов пока зависят от Lab bridge; устранить до заявления о зрелости |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
-| Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; добавлен CI workflow | Удалённый CI ещё должен подтвердить результат; выпуск артефакта и полная политика совместимости |
+| Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
 
 ## Текущий этап поставки
 
@@ -59,3 +59,5 @@
 6. Провести полный аудит исходного objective по каждому обязательному сценарию и качеству; только после этого обсуждать общую зрелость и выпуск.
 
 Доказательство текущего этапа: [package results](../../packages/seda-ui/verification/package-results.json), [consumer verifier](../../packages/seda-ui/scripts/verify-package.mjs), [CI](../../.github/workflows/library.yml). Consumer-проверка нашла и закрыла реальный рост loading Button при изменении label вне Lab.
+
+Удалённое подтверждение: [GitHub Actions run 39946528027](https://github.com/kenymook/seda_docs/actions/runs/39946528027), commit `b680ca9751b1db921c7778ca4dc6238d279d011b`: чистые npm ci, package proof, 90 contracts tests, TypeScript и все три browser runners — success. Это подтверждает этап поставки на Windows/Ubuntu, но не заменяет аудит четырёх классов приложений.
