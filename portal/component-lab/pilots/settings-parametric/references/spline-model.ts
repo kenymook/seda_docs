@@ -56,6 +56,7 @@ export function updateScene(document:SplineDocument,change:Partial<Pick<SplineDo
 export class SplineHistory {
  private past:SplineDocument[]=[]; private future:SplineDocument[]=[];private current:SplineDocument;
  constructor(document:SplineDocument){validateDocument(document);this.current=copy(document);}
+ replace(document:SplineDocument){validateDocument(document);this.current=copy(document);this.past=[];this.future=[];}
  get document(){return copy(this.current);}
  get canUndo(){return this.past.length>0;}get canRedo(){return this.future.length>0;}
  apply(next:SplineDocument){validateDocument(next);if(serializeDocument(next)===serializeDocument(this.current))return false;this.past.push(copy(this.current));if(this.past.length>50)this.past.shift();this.current=copy(next);this.future=[];return true;}
@@ -69,6 +70,7 @@ export class SplineSave {
  private sequence=0;private pending:{token:number;text:string}|null=null;private saved:string;
  constructor(document:SplineDocument){this.saved=serializeDocument(document);}
  get busy(){return this.pending!==null;}
+ invalidate(){this.saved='';}
  dirty(document:SplineDocument){return serializeDocument(document)!==this.saved;}
  begin(document:SplineDocument){if(this.pending)return null;const request={token:++this.sequence,text:serializeDocument(document)};this.pending=request;return{...request};}
  finish(token:number,write:(text:string)=>void){if(this.pending?.token!==token)return false;const request=this.pending;

@@ -73,3 +73,12 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## Caption paint bounds и быстрые structural shortcuts
 
 Для Canvas overlays различены SVG typographic box и glyph ink: font-size не уменьшен, исходные frame coordinates не сдвинуты. Проверяется12 initial labels, grapheme truncation, actual paint overlap и document isolation. Отдельный CI defect Building исправлен в приложении: synchronous layout focus repair вместо RAF; тест намеренно удерживает RAF, а не добавляет sleep. Результаты не закрывают весь visual/AT gate.
+
+
+## Spline — связанный inspector и intrinsic layout
+
+Реальный3D renderer отделён от shared UI. При visual review обнаружены: длинный выбранный текст native base-select переносился в несколько строк и выходил за фиксированную высоту; Select accessible name захватывал options. Оба дефекта исправлены в библиотеке, installed React18/19 consumer проверяет точное имя/override, narrow host и настоящий keyboard picker.
+
+Другой дефект принадлежал reference layout: фиксированный230px inspector не вмещал intrinsic Delete button при text150% и X24/Y12. Кнопка не уменьшена и не обрезана: host рассчитывает minimum inspector по derived font/padding, затем переводит внутренний SplitView в вертикальный режим при нехватке ширины. Материалы используют общий Tree вместо кнопок с чрезмерной intrinsic шириной. При обычном S100% сохранены source sidebar320 / viewport x336,y55,width858,height1217 / inspector230 на1440×1288; точный screenshot artwork отличается и визуальная приёмка остаётся открытой.
+
+Список открытых механизмов и source отличий находится в REFERENCE-SPLINE-HANDOFF.md.10 UI groups /5 renderer groups /7 model groups имеют отдельный scope;24 profile samples не считаются независимыми пользовательскими сценариями.

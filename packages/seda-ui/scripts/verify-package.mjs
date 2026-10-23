@@ -139,7 +139,7 @@ try {
 import React,{useState} from 'react';import {SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';
 const h=React.createElement;
 export function Consumer(){const [text,setText]=useState('Atlas');const [selection,setSelection]=useState('a');const [checked,setChecked]=useState(false);const [on,setOn]=useState(true);const [pending,setPending]=useState(false);const [requests,setRequests]=useState(0);
-return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name',label:'Project',value:text,onChange:e=>setText(e.target.value)}),h(Select,{id:'select',label:'Team',value:selection,options:[{value:'a',label:'Core'},{value:'b',label:'Design'}],onValueChange:setSelection}),h(Checkbox,{id:'checkbox',label:'Digest',checked,disabled:!on,onCheckedChange:setChecked}),h(Radio,{name:'visibility',label:'Visibility',value:selection,options:[{value:'a',label:'Private'},{value:'b',label:'Team'}],onValueChange:setSelection}),h(Toggle,{id:'toggle',label:'Notifications',checked:on,onCheckedChange:setOn}),h(Button,{id:'save',loading:pending,onClick:()=>{setPending(true);setRequests(n=>n+1);}},text),h(IconButton,{id:'help','aria-label':'Help',icon:'?'}),h('button',{id:'resolve',onClick:()=>setPending(false)},'Resolve'),h('output',{id:'state'},JSON.stringify({text,selection,checked,on,pending,requests})));}
+return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name',label:'Project',value:text,onChange:e=>setText(e.target.value)}),h(Select,{id:'select',label:'Team',value:selection,options:[{value:'a',label:'Core'},{value:'b',label:'Design'}],onValueChange:setSelection}),h(Checkbox,{id:'checkbox',label:'Digest',checked,disabled:!on,onCheckedChange:setChecked}),h(Radio,{name:'visibility',label:'Visibility',value:selection,options:[{value:'a',label:'Private'},{value:'b',label:'Team'}],onValueChange:setSelection}),h(Toggle,{id:'toggle',label:'Notifications',checked:on,onCheckedChange:setOn}),h(Button,{id:'save',loading:pending,onClick:()=>{setPending(true);setRequests(n=>n+1);}},text),h(IconButton,{id:'help','aria-label':'Help',icon:'?'}),h('button',{id:'resolve',onClick:()=>setPending(false)},'Resolve'),h('div',{style:{width:180}},h(Select,{id:'select-long',label:'Camera',helperText:'Choose a camera',defaultValue:'long',options:[{value:'long',label:'Personal Camera with a very long label'},{value:'short',label:'Other camera'}]})),h(Select,{id:'select-override',label:'Visible title','aria-label':'Custom accessible title',options:[{value:'a',label:'First choice'}]}),h('output',{id:'state'},JSON.stringify({text,selection,checked,on,pending,requests})));}
 `,
         );
         const r = spawnSync(process.execPath, ["ssr.mjs"], {
@@ -304,12 +304,25 @@ configuration.controlSize='s';return null;}`,
         try {
           await page.goto("http://127.0.0.1:" + server.address().port);
           await page.waitForFunction(() => document.querySelector("#save"));
+          assert.equal(await page.getByRole('combobox',{name:'Team',exact:true}).count(),1);
+          assert.equal(await page.locator('#select').getAttribute('aria-labelledby'),'select-label');
           await page.locator("#name").fill("Atlas edited");
           await page.locator("#select").selectOption("b");
+          assert.equal(await page.getByRole('combobox',{name:'Team',exact:true}).count(),1);
           assert.equal(
             await page.locator("input[type=radio][value=b]").isChecked(),
             true,
           );
+          assert.equal(await page.getByRole('combobox',{name:'Camera',exact:true}).count(),1);
+          assert.equal(await page.getByRole('combobox',{name:'Custom accessible title',exact:true}).count(),1);
+          const longGeometry=await page.locator('#select-long').evaluate(el=>({whiteSpace:getComputedStyle(el).whiteSpace,height:el.clientHeight,scrollHeight:el.scrollHeight,parentWidth:el.closest('.seda-field').getBoundingClientRect().width}));
+          assert.equal(longGeometry.whiteSpace,'nowrap');
+          assert.ok(longGeometry.scrollHeight<=longGeometry.height+1);
+          assert.ok(longGeometry.parentWidth<=181);
+          await page.locator('#select-long').click();
+          await page.keyboard.press('End');await page.keyboard.press('Enter');
+          assert.equal(await page.locator('#select-long').inputValue(),'short');
+          assert.equal(await page.getByRole('combobox',{name:'Camera',exact:true}).count(),1);
           await page.locator("#checkbox").check();
           await page.locator("#toggle").uncheck();
           assert.equal(await page.locator("#checkbox").isDisabled(), true);

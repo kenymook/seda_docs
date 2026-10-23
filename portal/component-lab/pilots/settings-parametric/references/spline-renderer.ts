@@ -48,6 +48,7 @@ export class SplineRenderer {
  readonly scene=new THREE.Scene();readonly renderer:THREE.WebGLRenderer;
  private camera:THREE.OrthographicCamera|THREE.PerspectiveCamera;
  private controls:OrbitControls;private roots=new THREE.Group();private grid=new THREE.GridHelper(3000,60,0x888888,0xaaaaaa);
+ private rendered=new Map<string,{shape:SceneObject['shape'];material:MaterialName;root:THREE.Group}>();
  private environment:THREE.WebGLRenderTarget;private selected:THREE.BoxHelper|null=null;private frame=0;private destroyed=false;private lost=false;private applying=false;
  private down:{x:number;y:number}|null=null;private width=1;private height=1;private observer:ResizeObserver;
  constructor(private canvas:HTMLCanvasElement,private callbacks:RendererCallbacks){
@@ -72,8 +73,9 @@ export class SplineRenderer {
   this.camera.position.set(...view.eye);this.camera.zoom=view.zoom;this.controls.target.set(...view.target);this.controls.update();this.projection();this.select(view.selection);this.invalidate();
  }finally{this.applying=false;}}
  setDocument(document:SplineDocument){
-  if(this.selected){this.scene.remove(this.selected);this.selected.dispose();this.selected=null;}disposeObject(this.roots);this.roots.clear();
-  for(const object of document.objects){const root=shapeObject(object.shape,sceneMaterial(object.material));root.userData.objectId=object.id;root.position.set(...object.position);root.rotation.set(...object.rotation.map(THREE.MathUtils.degToRad) as [number,number,number]);root.scale.set(...object.scale);root.visible=object.visible;this.roots.add(root);}
+  if(this.selected){this.scene.remove(this.selected);this.selected.dispose();this.selected=null;}
+  const ids=new Set(document.objects.map(object=>object.id));for(const[id,item]of this.rendered)if(!ids.has(id)){this.roots.remove(item.root);disposeObject(item.root);this.rendered.delete(id);}
+  for(const object of document.objects){let item=this.rendered.get(object.id);if(!item||item.shape!==object.shape||item.material!==object.material){if(item){this.roots.remove(item.root);disposeObject(item.root);}item={shape:object.shape,material:object.material,root:shapeObject(object.shape,sceneMaterial(object.material))};item.root.userData.objectId=object.id;this.rendered.set(object.id,item);this.roots.add(item.root);}const root=item.root;root.position.set(...object.position);root.rotation.set(...object.rotation.map(THREE.MathUtils.degToRad) as [number,number,number]);root.scale.set(...object.scale);root.visible=object.visible;}
   this.scene.background=new THREE.Color(document.background);this.scene.fog=document.fog?new THREE.Fog(document.background,1600,3500):null;this.grid.visible=document.grid;this.scene.updateMatrixWorld(true);this.invalidate();
  }
  select(id:string|null){if(this.selected){this.scene.remove(this.selected);this.selected.dispose();this.selected=null;}const object=this.roots.children.find(item=>item.userData.objectId===id);if(object&&object.visible){this.selected=new THREE.BoxHelper(object,0x4a8aff);this.scene.add(this.selected);}this.invalidate();}

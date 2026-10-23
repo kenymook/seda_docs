@@ -37,6 +37,7 @@ Select — контрол выбора одного или нескольких 
 
 - **Options are data** — каждый option имеет stable `value`, видимый `label` и optional metadata.
 - **Selection is explicit** — selected state виден и программно доступен.
+- Native Select связывает доступное имя только с видимым label через `aria-labelledby`. Options и helper/error входят в значение и описание, а не в имя поля. Явные `aria-label` / `aria-labelledby` потребителя сохраняют приоритет; индикатор required скрыт от имени.
 - **Open state has ownership** — trigger, dropdown и parent Form не должны конфликтовать за `open`.
 - **Tokens before visuals** — trigger, arrow, list и option оформляются через component tokens.
 - **AI assists, system governs** — AI может предложить структуру options, но не утверждает data model и business rules.

@@ -1,5 +1,9 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — доступное имя Select
+
+- Native Select использует отдельную связь с label: options/helper/error больше не включаются в имя контрола. Required marker скрыт от имени; явные ARIA naming props потребителя сохранены. Длинное выбранное значение progressive native picker остаётся в одной строке с ellipsis и отдельной стрелкой. Installed React18/19 consumer проверяет точное имя до/после выбора, explicit ARIA override, узкий host и настоящий keyboard picker.
+
 ## Unreleased — панели редактора и изоляция темы
 
 - Добавлен experimental SplitView: horizontal/vertical, pointer capture/transform, keyboard/RTL, Enter minimum/restore, Escape/pointercancel, controlled rejection, clamp с сохранением requested intent, вложенные mounted panels и unmount cleanup.

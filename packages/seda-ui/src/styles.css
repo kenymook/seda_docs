@@ -1299,8 +1299,8 @@
 @supports (appearance: base-select) {
   .seda-field__select:not([multiple]),
   .seda-field__select:not([multiple])::picker(select) { appearance: base-select; }
-  .seda-field__select:not([multiple]) { align-items: center; justify-content: space-between; gap: 8px; }
-  .seda-field__select::picker-icon { content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-inline: auto 4px; flex-shrink: 0; transition: rotate .15s; }
+  .seda-field__select:not([multiple]) { display: block; position: relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-inline-end: 20px; }
+  .seda-field__select::picker-icon { content: ""; position: absolute; inset-inline-end: 4px; top: calc(50% - 5px); width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin: 0; transition: rotate .15s; }
   .seda-field__select:open::picker-icon { rotate: 180deg; }
   .seda-field__select::picker(select) {
     box-sizing: border-box;

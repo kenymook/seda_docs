@@ -29,6 +29,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const selectId = id ?? generatedId;
+    const labelId = `${selectId}-label`;
     const messageId = `${selectId}-message`;
     const hasError = !disabled && hasMessage(errorText);
     const message = hasError
@@ -58,13 +59,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         data-state={resolvedState}
         data-size={size}
       >
-        <span className="seda-field__label">
+        <span className="seda-field__label" id={labelId}>
           {label}
-          {required ? " *" : null}
+          {required ? <span aria-hidden="true"> *</span> : null}
         </span>
         <span className="seda-field__control" data-size={size}>
           <select
             {...props}
+            aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] ? undefined : labelId)}
             aria-describedby={mergeDescriptionIds(
               externalDescriptions,
               message != null ? messageId : undefined,

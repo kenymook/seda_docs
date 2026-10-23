@@ -24,7 +24,9 @@
       "evidence": {
         "transformPixelsChanged": true,
         "materialPixelsChanged": true,
-        "visibilityPixelsChanged": true
+        "visibilityPixelsChanged": true,
+        "transformKeepsAllMeshes": true,
+        "materialKeepsUnrelatedMeshes": true
       }
     },
     {
