@@ -1,0 +1,1832 @@
+{
+  "scope": "joint web/desktop application workspace",
+  "results": [
+    {
+      "name": "workspace-geometry-Light-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Light-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Light-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Light-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 31,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 17,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 8,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "name": "workspace-tokens-and-native-keyboard",
+      "status": "passed",
+      "evidence": {
+        "resolvedLeaves": 124,
+        "selectSurface": "rgb(23, 23, 24)",
+        "keyboard": "Select/Radio/Toggle"
+      }
+    },
+    {
+      "name": "workspace-projects-coupled-table",
+      "status": "passed",
+      "evidence": {
+        "filters": "intersection",
+        "bulk": "2 active → paused",
+        "pagination": "3+1",
+        "creation": "resets filters"
+      }
+    },
+    {
+      "name": "workspace-settings-validation-state",
+      "status": "passed",
+      "evidence": {
+        "validation": "text/email/url/number",
+        "persistence": "navigation and profile changes",
+        "cancel": "last session snapshot"
+      }
+    },
+    {
+      "name": "workspace-members-local-addition",
+      "status": "passed",
+      "evidence": {
+        "added": 1,
+        "duplicate": "blocked",
+        "networkInvitations": "none"
+      }
+    },
+    {
+      "name": "workspace-pending-save-across-navigation",
+      "status": "passed",
+      "evidence": {
+        "snapshot": "Request A",
+        "retained": "New B",
+        "navigation": "projects → settings → members → projects"
+      }
+    },
+    {
+      "name": "workspace-browser-errors",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

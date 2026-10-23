@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { Button, IconButton, TextField } from "@seda-ai/ui";
+import { Button, IconButton, TextField, Select, Checkbox } from "@seda-ai/ui";
 import {
   createFormState,
   transitionForm,
@@ -9,13 +9,16 @@ import {
   createWebBindings,
   bindWebRecipe,
 } from "../../../../packages/seda-contracts/src/web.mjs";
-import { profiles, profile, provenance } from "seda:catalog";
+import { profiles, profile, provenance, workspaceTokens } from "seda:catalog";
 import { ReviewFixtures } from "./test-fixtures";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
 import "./styles.css";
+import { ProductWorkspace } from "./ProductWorkspace";
+import { createWorkspaceBindings } from "./workspace-bindings.mjs";
+import "./workspace.css";
 import { derive, fmt } from "./lab-model.mjs";
 
 type Configuration = {
@@ -54,6 +57,12 @@ function App() {
     strict: true,
   });
   const [view, setView] = useState("table");
+  const [teamFilter, setTeamFilter] = useState("all");
+  const [onlyActive, setOnlyActive] = useState(false);
+  const [sort, setSort] = useState("original");
+  const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState("size");
@@ -81,7 +90,7 @@ function App() {
   const [modalName, setModalName] = useState("");
   const modal = useRef<HTMLDialogElement>(null);
   const [measurements, setMeasurements] = useState<
-    { id: string; h: number; expected: number }[]
+    { id: string; h: number; expected: number; flexible?: boolean }[]
   >([]);
   const [configuration, setConfiguration] =
     useState<Configuration>(initialConfiguration);
@@ -177,6 +186,13 @@ function App() {
     } as React.CSSProperties,
   });
 
+  const workspaceBinding = createWorkspaceBindings(
+    compiled,
+    d,
+    parameters,
+    workspaceTokens[configuration.theme],
+  );
+  const workspaceStyle = workspaceBinding.vars as React.CSSProperties;
   const activeCompiled = () =>
     replacementRef.current ??
     profiles[
@@ -320,6 +336,7 @@ function App() {
       getState: () => structuredClone(formRef.current),
       getCompiled: () => structuredClone(activeCompiled()),
       getLab: () => ({ parameters, derived: d }),
+      getWorkspaceEvidence: () => structuredClone(workspaceBinding),
       getEvidence: () => structuredClone(bindings),
       getRequests: () => structuredClone(requestsRef.current),
       ...(isReview ? { replaceCompiled } : {}),
@@ -366,10 +383,39 @@ function App() {
     draft: "Черновик",
     paused: "Приостановлен",
   };
-  const items = projects.filter(
+  const filteredItems = projects.filter(
     (p) =>
       p.name.toLowerCase().includes(query.trim().toLowerCase()) &&
-      (filter === "all" || p.status === filter),
+      (filter === "all" || p.status === filter) &&
+      (teamFilter === "all" || p.team === teamFilter) &&
+      (!onlyActive || p.status === "active"),
+  );
+  if (sort === "name-asc")
+    filteredItems.sort((a, b) => a.name.localeCompare(b.name));
+  if (sort === "name-desc")
+    filteredItems.sort((a, b) => b.name.localeCompare(a.name));
+  const currentPage = Math.min(
+    pageIndex,
+    Math.max(0, Math.ceil(filteredItems.length / pageSize) - 1),
+  );
+  const items = filteredItems.slice(
+    currentPage * pageSize,
+    (currentPage + 1) * pageSize,
+  );
+  const selectedVisible = items.filter((p) =>
+    selectedProjects.includes(p.name),
+  );
+  const resetFilters = () => {
+    setQuery("");
+    setFilter("all");
+    setTeamFilter("all");
+    setOnlyActive(false);
+    setSort("original");
+    setPageIndex(0);
+  };
+  useEffect(
+    () => setPageIndex(0),
+    [query, filter, teamFilter, onlyActive, sort, pageSize],
   );
   const chooseProject = (name: string) => {
     dispatch({ type: "change", value: name });
@@ -436,8 +482,8 @@ function App() {
       deps: "size + radius multiplier → radius of controls",
     },
     components: {
-      v: "5 контролов",
-      desc: "Реальные Button, IconButton, TextField",
+      v: measurements.length + " видимых контролов",
+      desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle",
       deps: "height + radius + font → React → DOM",
     },
   };
@@ -455,30 +501,54 @@ function App() {
       ? ["Размер текста меньше 12 px: требуется проверка читаемости."]
       : []),
   ];
-  const failed = measurements.filter((m) => Math.abs(m.h - m.expected) > 1);
+  const failed = measurements.filter((m) =>
+    m.flexible ? m.h < m.expected - 1 : Math.abs(m.h - m.expected) > 1,
+  );
   useEffect(() => {
+    let frame = 0;
     const measure = () =>
       setMeasurements(
-        ["create", "save", "cancel", "help", "project"].map((id) => {
-          const el = document.getElementById(id)!;
-          return {
-            id,
-            h: (id === "project"
-              ? el.closest(".seda-field__control")!
-              : el
-            ).getBoundingClientRect().height,
-            expected:
-              id === "save" && form.saving
+        Array.from(
+          document.querySelectorAll(
+            "[data-workspace] .seda-button,[data-workspace] .seda-icon-button,[data-workspace] .seda-field__control,[data-workspace] .seda-choice,[data-workspace] .seda-toggle",
+          ),
+        )
+          .filter((el) => el.getBoundingClientRect().height > 0)
+          .map((el, index) => ({
+            id:
+              el.id ||
+              el.querySelector("input,select")?.id ||
+              "control-" + index,
+            h: el.getBoundingClientRect().height,
+            expected: el.matches(".workspace-row-choice")
+              ? Math.max(d.preset.icon, d.font)
+              : el.id === "save" && form.saving
                 ? (pendingHeightRef.current ?? d.height)
                 : d.height,
-          };
-        }),
+            flexible: el.matches(".seda-choice,.seda-toggle"),
+          })),
       );
-    const frame = requestAnimationFrame(measure);
-    window.addEventListener("resize", measure);
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(measure);
+    };
+    const target = document.querySelector("main[data-workspace]")!;
+    const mutation = new MutationObserver(schedule);
+    mutation.observe(target, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["hidden", "style", "data-state", "data-loading"],
+    });
+    const resize = new ResizeObserver(schedule);
+    resize.observe(target);
+    schedule();
+    window.addEventListener("resize", schedule);
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener("resize", measure);
+      mutation.disconnect();
+      resize.disconnect();
+      window.removeEventListener("resize", schedule);
     };
   }, [compiled, parameters, form.saving]);
   function exportJson() {
@@ -492,6 +562,7 @@ function App() {
       pendingHeight: form.saving ? pendingHeightRef.current : null,
       pendingPaddingX: form.saving ? pendingPaddingRef.current : null,
       evidence: bindings,
+      workspace: workspaceBinding,
       provenance,
       scope:
         "Custom geometry is a laboratory derivation; Table/Card/Dialog are demo compositions.",
@@ -716,288 +787,475 @@ function App() {
               применяется только к дополнительным настройкам лаборатории.
             </div>
           </aside>
-          <main className="canvas">
-            <div className="section-top">
-              <div>
-                <div className="eyebrow">02 / LIVE PREVIEW</div>
-                <h1>Product workspace</h1>
-                <p>
-                  Один набор правил управляет формой, фильтрами, таблицей и
-                  карточками.
-                </p>
-              </div>
-              <div className="view-switch">
-                <button
-                  data-view="table"
-                  className={view === "table" ? "active" : ""}
-                  onClick={() => setView("table")}
-                >
-                  Таблица
-                </button>
-                <button
-                  data-view="cards"
-                  className={view === "cards" ? "active" : ""}
-                  onClick={() => setView("cards")}
-                >
-                  Карточки
-                </button>
-              </div>
-            </div>
-            <div className="preview" id="preview">
-              <div className="panelhead">
+          <main className="canvas" data-workspace style={workspaceStyle}>
+            <ProductWorkspace size={configuration.controlSize} action={real}>
+              <div className="section-top">
                 <div>
-                  <b>Проекты</b>
-                  <span className="hint">Управление рабочим пространством</span>
+                  <div className="eyebrow">02 / LIVE PREVIEW</div>
+                  <h1>Product workspace</h1>
+                  <p>
+                    Один набор правил управляет формой, фильтрами, таблицей и
+                    карточками.
+                  </p>
                 </div>
-                <Button
-                  {...real("save")}
-                  id="create"
-                  size={configuration.controlSize}
-                  variant="primary"
-                  onClick={() => modal.current?.showModal()}
-                >
-                  + Создать проект
-                </Button>
-              </div>
-              <div className="toolbar">
-                <div className="searchwrap" {...real("projectName")}>
-                  <TextField
-                    id="search"
-                    label="Поиск проектов"
-                    aria-label="Поиск проектов"
+                <div className="view-switch">
+                  <Button
+                    {...real("cancel")}
                     size={configuration.controlSize}
-                    placeholder="Поиск проектов..."
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
+                    data-view="table"
+                    className={view === "table" ? "active" : ""}
+                    onClick={() => setView("table")}
+                  >
+                    Таблица
+                  </Button>
+                  <Button
+                    {...real("cancel")}
+                    size={configuration.controlSize}
+                    data-view="cards"
+                    className={view === "cards" ? "active" : ""}
+                    onClick={() => setView("cards")}
+                  >
+                    Карточки
+                  </Button>
                 </div>
-                <select
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-                  id="filter"
-                  aria-label="Фильтр статуса"
-                >
-                  <option value="all">Все статусы</option>
-                  <option value="active">Активные</option>
-                  <option value="draft">Черновики</option>
-                  <option value="paused">Приостановлены</option>
-                </select>
-                <span className="count" id="count">
-                  {items.length} проектов
-                </span>
               </div>
-              <div id="tableView" hidden={view !== "table"}>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>ПРОЕКТ</th>
-                      <th>СТАТУС</th>
-                      <th>КОМАНДА</th>
-                      <th>ОБНОВЛЁН</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbody">
-                    {items.map((p) => (
-                      <tr key={p.name}>
-                        <td>
-                          <span className="avatar">{p.name.slice(0, 1)}</span>
-                          {p.name}
-                        </td>
-                        <td>
-                          <span className={"pill " + p.status}>
-                            {statusLabels[p.status]}
-                          </span>
-                        </td>
-                        <td>{p.team}</td>
-                        <td>{p.updated}</td>
-                        <td>
-                          <IconButton
-                            {...real("help")}
-                            size={configuration.controlSize}
-                            variant="ghost"
-                            aria-label={"Открыть сведения " + p.name}
-                            icon={<span>···</span>}
-                            onClick={() => chooseProject(p.name)}
-                          />
-                        </td>
-                      </tr>
-                    ))}
-                    {!items.length && (
-                      <tr>
-                        <td colSpan={5}>Проекты не найдены</td>
-                      </tr>
+              <div className="preview" id="preview">
+                <div className="panelhead">
+                  <div>
+                    <b>Проекты</b>
+                    <span className="hint">
+                      Управление рабочим пространством
+                    </span>
+                  </div>
+                  <Button
+                    {...real("save")}
+                    id="create"
+                    size={configuration.controlSize}
+                    variant="primary"
+                    onClick={() => modal.current?.showModal()}
+                  >
+                    + Создать проект
+                  </Button>
+                </div>
+                <div className="toolbar workspace-filters">
+                  <div className="searchwrap" {...real("projectName")}>
+                    <TextField
+                      id="search"
+                      label="Поиск проектов"
+                      aria-label="Поиск проектов"
+                      size={configuration.controlSize}
+                      placeholder="Поиск проектов..."
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
+                  </div>
+                  <Select
+                    className="workspace-select"
+                    id="filter"
+                    label="Статус"
+                    aria-label="Фильтр статуса"
+                    size={configuration.controlSize}
+                    value={filter}
+                    onValueChange={(v) => setFilter(String(v))}
+                    options={[
+                      { value: "all", label: "Все статусы" },
+                      { value: "active", label: "Активные" },
+                      { value: "draft", label: "Черновики" },
+                      { value: "paused", label: "Приостановлены" },
+                    ]}
+                  />
+                  <Select
+                    className="workspace-select"
+                    id="team-filter"
+                    label="Команда"
+                    size={configuration.controlSize}
+                    value={teamFilter}
+                    onValueChange={(v) => setTeamFilter(String(v))}
+                    options={["all", "Core", "Product", "Design", "Mobile"].map(
+                      (v) => ({
+                        value: v,
+                        label: v === "all" ? "Все команды" : v,
+                      }),
                     )}
-                  </tbody>
-                </table>
-              </div>
-              <div className="cards" id="cardsView" hidden={view !== "cards"}>
-                {items.map((p) => (
-                  <article className="productcard" key={p.name}>
-                    <header>
-                      <b>{p.name}</b>
-                      <span className={"pill " + p.status}>
-                        {statusLabels[p.status]}
-                      </span>
-                    </header>
-                    <div>
-                      <p>Команда: {p.team}</p>
-                      <p>Обновлён: {p.updated}</p>
-                    </div>
+                  />
+                  <Select
+                    className="workspace-select"
+                    id="project-sort"
+                    label="Сортировка"
+                    size={configuration.controlSize}
+                    value={sort}
+                    onValueChange={(v) => setSort(String(v))}
+                    options={[
+                      { value: "original", label: "Исходный порядок" },
+                      { value: "name-asc", label: "Название А → Я" },
+                      { value: "name-desc", label: "Название Я → А" },
+                    ]}
+                  />
+                  <div className="workspace-filter-actions">
+                    <Checkbox
+                      className="workspace-checkbox"
+                      id="only-active"
+                      label="Только активные"
+                      size={configuration.controlSize}
+                      checked={onlyActive}
+                      onCheckedChange={setOnlyActive}
+                    />
                     <Button
                       {...real("cancel")}
                       size={configuration.controlSize}
-                      onClick={() => chooseProject(p.name)}
+                      id="reset-filters"
+                      onClick={resetFilters}
                     >
-                      Подробнее
+                      Сбросить фильтры
                     </Button>
-                  </article>
-                ))}
-                {!items.length && <p>Проекты не найдены</p>}
-              </div>
-            </div>
-            <div className="secondaryGrid">
-              <section className="pane">
-                <div className="eyebrow">ПРОВЕРКА ПОВЕДЕНИЯ</div>
-                <h3>Форма настроек</h3>
-                <form
-                  id="settings-form"
-                  noValidate
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    dispatch({
-                      type: "submit",
-                      route: formRef.current.saveError
-                        ? "retry"
-                        : "programmatic",
-                    });
-                  }}
+                  </div>
+                  <span className="count" id="count">
+                    {filteredItems.length} проектов
+                  </span>
+                </div>
+                {selectedProjects.length > 0 && (
+                  <div
+                    className="workspace-bulk"
+                    role="region"
+                    aria-label="Групповые действия"
+                  >
+                    <strong>Выбрано: {selectedProjects.length}</strong>
+                    <Button
+                      {...real("cancel")}
+                      id="bulk-pause"
+                      size={configuration.controlSize}
+                      onClick={() => {
+                        setProjects((previous) =>
+                          previous.map((p) =>
+                            selectedProjects.includes(p.name)
+                              ? { ...p, status: "paused" }
+                              : p,
+                          ),
+                        );
+                        setSelectedProjects([]);
+                      }}
+                    >
+                      Приостановить выбранные
+                    </Button>
+                    <Button
+                      {...real("cancel")}
+                      size={configuration.controlSize}
+                      onClick={() => setSelectedProjects([])}
+                    >
+                      Снять выбор
+                    </Button>
+                  </div>
+                )}
+                <div
+                  id="tableView"
+                  className="workspace-table-scroll"
+                  tabIndex={0}
+                  aria-label="Таблица проектов"
+                  hidden={view !== "table"}
                 >
-                  <div className="fieldrow">
-                    <div className="fieldslot" {...real("projectName")}>
-                      <TextField
-                        {...propsFor("projectName")}
-                        id="project"
-                        ref={fieldRef}
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          <Checkbox
+                            className="workspace-checkbox workspace-row-choice"
+                            id="select-all-projects"
+                            size={configuration.controlSize}
+                            label="Выбрать видимые проекты"
+                            checked={
+                              items.length > 0 &&
+                              selectedVisible.length === items.length
+                            }
+                            indeterminate={
+                              selectedVisible.length > 0 &&
+                              selectedVisible.length < items.length
+                            }
+                            disabled={!items.length}
+                            onCheckedChange={(checked) =>
+                              setSelectedProjects((previous) =>
+                                checked
+                                  ? Array.from(
+                                      new Set([
+                                        ...previous,
+                                        ...items.map((p) => p.name),
+                                      ]),
+                                    )
+                                  : previous.filter(
+                                      (name) =>
+                                        !items.some((p) => p.name === name),
+                                    ),
+                              )
+                            }
+                          />
+                        </th>
+                        <th>ПРОЕКТ</th>
+                        <th>СТАТУС</th>
+                        <th>КОМАНДА</th>
+                        <th>ОБНОВЛЁН</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody">
+                      {items.map((p) => (
+                        <tr key={p.name}>
+                          <td>
+                            <Checkbox
+                              className="workspace-checkbox workspace-row-choice"
+                              size={configuration.controlSize}
+                              label={"Выбрать " + p.name}
+                              checked={selectedProjects.includes(p.name)}
+                              onCheckedChange={(checked) =>
+                                setSelectedProjects((previous) =>
+                                  checked
+                                    ? [...previous, p.name]
+                                    : previous.filter(
+                                        (name) => name !== p.name,
+                                      ),
+                                )
+                              }
+                            />
+                          </td>
+                          <td>
+                            <span className="avatar">{p.name.slice(0, 1)}</span>
+                            {p.name}
+                          </td>
+                          <td>
+                            <span className={"pill " + p.status}>
+                              {statusLabels[p.status]}
+                            </span>
+                          </td>
+                          <td>{p.team}</td>
+                          <td>{p.updated}</td>
+                          <td>
+                            <IconButton
+                              {...real("help")}
+                              size={configuration.controlSize}
+                              variant="ghost"
+                              aria-label={"Открыть сведения " + p.name}
+                              icon={<span>···</span>}
+                              onClick={() => chooseProject(p.name)}
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                      {!items.length && (
+                        <tr>
+                          <td colSpan={6}>Проекты не найдены</td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="cards" id="cardsView" hidden={view !== "cards"}>
+                  {items.map((p) => (
+                    <article className="productcard" key={p.name}>
+                      <header>
+                        <b>{p.name}</b>
+                        <span className={"pill " + p.status}>
+                          {statusLabels[p.status]}
+                        </span>
+                      </header>
+                      <div>
+                        <p>Команда: {p.team}</p>
+                        <p>Обновлён: {p.updated}</p>
+                      </div>
+                      <Button
+                        {...real("cancel")}
+                        size={configuration.controlSize}
+                        onClick={() => chooseProject(p.name)}
+                      >
+                        Подробнее
+                      </Button>
+                    </article>
+                  ))}
+                  {!items.length && <p>Проекты не найдены</p>}
+                </div>
+              </div>
+              <div className="workspace-pagination">
+                <p role="status">
+                  {filteredItems.length ? currentPage * pageSize + 1 : 0}–
+                  {Math.min((currentPage + 1) * pageSize, filteredItems.length)}{" "}
+                  из {filteredItems.length}
+                </p>
+                <div>
+                  <Select
+                    className="workspace-select"
+                    id="page-size"
+                    label="Строк на странице"
+                    size={configuration.controlSize}
+                    value={String(pageSize)}
+                    onValueChange={(v) => setPageSize(Number(v))}
+                    options={[3, 5, 10].map((n) => ({
+                      value: String(n),
+                      label: String(n),
+                    }))}
+                  />
+                  <Button
+                    {...real("cancel")}
+                    id="previous-page"
+                    size={configuration.controlSize}
+                    disabled={currentPage === 0}
+                    onClick={() => setPageIndex((p) => Math.max(0, p - 1))}
+                  >
+                    Назад
+                  </Button>
+                  <Button
+                    {...real("cancel")}
+                    id="next-page"
+                    size={configuration.controlSize}
+                    disabled={
+                      (currentPage + 1) * pageSize >= filteredItems.length
+                    }
+                    onClick={() => setPageIndex((p) => p + 1)}
+                  >
+                    Далее
+                  </Button>
+                </div>
+              </div>
+              <div className="secondaryGrid">
+                <section className="pane">
+                  <div className="eyebrow">ПРОВЕРКА ПОВЕДЕНИЯ</div>
+                  <h3>Форма настроек</h3>
+                  <form
+                    id="settings-form"
+                    noValidate
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      dispatch({
+                        type: "submit",
+                        route: formRef.current.saveError
+                          ? "retry"
+                          : "programmatic",
+                      });
+                    }}
+                  >
+                    <div className="fieldrow">
+                      <div className="fieldslot" {...real("projectName")}>
+                        <TextField
+                          {...propsFor("projectName")}
+                          id="project"
+                          ref={fieldRef}
+                        />
+                      </div>
+                      <IconButton
+                        {...propsFor("help")}
+                        {...real("help")}
+                        id="help"
+                        aria-controls="help-panel"
                       />
                     </div>
-                    <IconButton
-                      {...propsFor("help")}
-                      {...real("help")}
-                      id="help"
-                      aria-controls="help-panel"
-                    />
-                  </div>
-                  <div id="help-panel" hidden={!form.helpExpanded}>
-                    {compiled.copy.helpText}
-                  </div>
-                  <div className="msg" id="validation" aria-live="polite">
-                    {form.saveError}
-                  </div>
-                  <div className="actions">
-                    <Button
-                      {...propsFor("save")}
-                      {...real("save", true)}
-                      id="save"
-                    />
-                    <Button
-                      {...propsFor("cancel")}
-                      {...real("cancel")}
-                      id="cancel"
-                    />
-                  </div>
-                </form>
-                <div className="transport">
-                  <b>Тест запросов · демо без сервера</b>
-                  <span id="requestState" role="status">
-                    {form.activeRequest
-                      ? "Запрос #" +
-                        form.activeRequest.id +
-                        " · отправлено: «" +
-                        form.activeRequest.value +
-                        "»"
-                      : stateLabel}
-                  </span>
-                  <label>
-                    Ответ{" "}
-                    <select
+                    <div id="help-panel" hidden={!form.helpExpanded}>
+                      {compiled.copy.helpText}
+                    </div>
+                    <div className="msg" id="validation" aria-live="polite">
+                      {form.saveError}
+                    </div>
+                    <div className="actions">
+                      <Button
+                        {...propsFor("save")}
+                        {...real("save", true)}
+                        id="save"
+                      />
+                      <Button
+                        {...propsFor("cancel")}
+                        {...real("cancel")}
+                        id="cancel"
+                      />
+                    </div>
+                  </form>
+                  <div className="transport">
+                    <b>Тест запросов · демо без сервера</b>
+                    <span id="requestState" role="status">
+                      {form.activeRequest
+                        ? "Запрос #" +
+                          form.activeRequest.id +
+                          " · отправлено: «" +
+                          form.activeRequest.value +
+                          "»"
+                        : stateLabel}
+                    </span>
+                    <Select
+                      className="workspace-select"
                       id="transport-mode"
+                      label="Ответ демо-транспорта"
+                      size={configuration.controlSize}
                       value={transportMode}
-                      onChange={(e) =>
-                        setTransportMode(e.target.value as TransportMode)
+                      onValueChange={(v) =>
+                        setTransportMode(String(v) as TransportMode)
                       }
-                    >
-                      <option value="manual">Вручную</option>
-                      <option value="success">Успех через 900 мс</option>
-                      <option value="failure">Ошибка через 900 мс</option>
-                    </select>
-                  </label>
-                  <div className="transportActions">
-                    <Button
-                      {...real("cancel")}
-                      id="success"
-                      size="s"
-                      disabled={!form.saving}
-                      onClick={() =>
-                        form.activeRequest &&
-                        respond(form.activeRequest.id, "success")
-                      }
-                    >
-                      Ответ: успех
-                    </Button>
-                    <Button
-                      {...real("cancel")}
-                      id="failure"
-                      size="s"
-                      disabled={!form.saving}
-                      onClick={() =>
-                        form.activeRequest &&
-                        respond(form.activeRequest.id, "failure")
-                      }
-                    >
-                      Ответ: ошибка
-                    </Button>
+                      options={[
+                        { value: "manual", label: "Вручную" },
+                        { value: "success", label: "Успех через 900 мс" },
+                        { value: "failure", label: "Ошибка через 900 мс" },
+                      ]}
+                    />
+                    <div className="transportActions">
+                      <Button
+                        {...real("cancel")}
+                        id="success"
+                        size="s"
+                        disabled={!form.saving}
+                        onClick={() =>
+                          form.activeRequest &&
+                          respond(form.activeRequest.id, "success")
+                        }
+                      >
+                        Ответ: успех
+                      </Button>
+                      <Button
+                        {...real("cancel")}
+                        id="failure"
+                        size="s"
+                        disabled={!form.saving}
+                        onClick={() =>
+                          form.activeRequest &&
+                          respond(form.activeRequest.id, "failure")
+                        }
+                      >
+                        Ответ: ошибка
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </section>
-              <section className="pane">
-                <div className="eyebrow">03 / СРАВНЕНИЕ</div>
-                <h3>До → после</h3>
-                <div className="compare">
-                  <div>
-                    <span>Базовый профиль</span>
-                    <strong id="before">{d.preset.height} px</strong>
+                </section>
+                <section className="pane">
+                  <div className="eyebrow">03 / СРАВНЕНИЕ</div>
+                  <h3>До → после</h3>
+                  <div className="compare">
+                    <div>
+                      <span>Базовый профиль</span>
+                      <strong id="before">{d.preset.height} px</strong>
+                    </div>
+                    <span className="arrow">→</span>
+                    <div>
+                      <span>Текущая система</span>
+                      <strong id="after">{fmt(d.height)} px</strong>
+                    </div>
                   </div>
-                  <span className="arrow">→</span>
-                  <div>
-                    <span>Текущая система</span>
-                    <strong id="after">{fmt(d.height)} px</strong>
+                  <div className="delta" id="delta">
+                    Изменение высоты: {fmt(d.height - d.preset.height)} px
                   </div>
-                </div>
-                <div className="delta" id="delta">
-                  Изменение высоты: {fmt(d.height - d.preset.height)} px
-                </div>
-                <div className="metricrow">
-                  <span>Размер шрифта</span>
-                  <b id="fontMetric">{d.font} px</b>
-                </div>
-                <div className="metricrow">
-                  <span>Радиус</span>
-                  <b id="radiusMetric">{fmt(d.radius)} px</b>
-                </div>
-                <div className="metricrow">
-                  <span>Затронутые контролы</span>
-                  <b>5 элементов</b>
-                </div>
-                <div
-                  id="conflict"
-                  className={issues.length ? "conflict warn" : "conflict"}
-                  role="status"
-                >
-                  {issues.join(" ") || "Конфликтов геометрии не обнаружено."}
-                </div>
-              </section>
-            </div>
+                  <div className="metricrow">
+                    <span>Размер шрифта</span>
+                    <b id="fontMetric">{d.font} px</b>
+                  </div>
+                  <div className="metricrow">
+                    <span>Радиус</span>
+                    <b id="radiusMetric">{fmt(d.radius)} px</b>
+                  </div>
+                  <div className="metricrow">
+                    <span>Затронутые контролы</span>
+                    <b>{measurements.length} видимых</b>
+                  </div>
+                  <div
+                    id="conflict"
+                    className={issues.length ? "conflict warn" : "conflict"}
+                    role="status"
+                  >
+                    {issues.join(" ") || "Конфликтов геометрии не обнаружено."}
+                  </div>
+                </section>
+              </div>
+            </ProductWorkspace>
           </main>
           <aside className="inspector">
             <div className="eyebrow">04 / EXPLAIN ENGINE</div>
@@ -1072,6 +1330,38 @@ function App() {
               </div>
             </div>
             <div className="inspectcard">
+              <div className="eyebrow">ОХВАТ WORKSPACE</div>
+              <p>
+                Общие параметры применяются ко всей рабочей области приложения.
+                У Checkbox/Radio/Toggle X меняет интервал до подписи, Y — высоту
+                строки. Круг Radio и форма Toggle сохраняются. Служебная панель
+                лаборатории отделена.
+              </p>
+              <p>
+                Контракты: Button, IconButton, TextField. Библиотека + адаптер
+                Lab: Select, Checkbox, Radio, Toggle. Формы и таблицы —
+                композиции.
+              </p>
+              <details className="workspace-tokens">
+                <summary>Источники дополнительных контролов</summary>
+                {workspaceBinding.evidence.map((item: any) => (
+                  <div key={item.property}>
+                    <code>
+                      {item.property} = {item.cssValue}
+                    </code>
+                    <small>
+                      {item.chain
+                        .map(
+                          (step: any) =>
+                            step.collection + "/" + step.path.join("/"),
+                        )
+                        .join(" → ")}
+                    </small>
+                  </div>
+                ))}
+              </details>
+            </div>
+            <div className="inspectcard">
               <div className="between">
                 <span className="eyebrow">АКТИВНЫЙ УЗЕЛ</span>
                 <code id="nodeName">{selected}</code>
@@ -1111,7 +1401,9 @@ function App() {
                   : failed.length
                     ? "Расхождение > 1 px: " +
                       failed.map((m) => m.id).join(", ")
-                    : "PASS: 5 контролов, допуск ±1 px" +
+                    : "PASS: " +
+                      measurements.length +
+                      " контролов, допуск ±1 px" +
                       (form.saving ? " · loading сохраняет snapshot" : "")}
               </div>
             </div>
@@ -1144,8 +1436,9 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                Button · IconButton · TextField — реальные SEDA UI. Table · Card
-                · Dialog · Select · Range — демонстрационные композиции.
+                Button · IconButton · TextField — исполняемые контракты. Select
+                · Checkbox · Radio · Toggle — библиотечные компоненты с
+                адаптером Lab. Table · Card · Dialog — композиции.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.
               </p>
@@ -1197,9 +1490,10 @@ function App() {
       </div>
       <dialog
         id="modal"
+        data-workspace
         ref={modal}
         aria-labelledby="modal-title"
-        style={{ ...geometryVars } as React.CSSProperties}
+        style={workspaceStyle}
       >
         <form
           className="modalBody"
