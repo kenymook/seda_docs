@@ -1,0 +1,107 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/chat?thread=8169812a-3dee-46e2-9629-82a0df9ee0ec",
+  "httpStatus": 200,
+  "matchedSourceHashes": 437,
+  "sourceNode": "1:3894",
+  "installedPackage": true,
+  "localFixtureTransport": true,
+  "duplicateGuard": true,
+  "stopDoesNotSubmit": true,
+  "partialRetained": true,
+  "retry": true,
+  "attachmentSnapshot": true,
+  "profileSamples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "height": 36,
+      "padding": 24,
+      "buttonPadding": 22,
+      "buttonHeight": 36,
+      "iconWidth": 36,
+      "iconHeight": 36,
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "height": 44,
+      "padding": 24,
+      "buttonPadding": 26,
+      "buttonHeight": 44,
+      "iconWidth": 44,
+      "iconHeight": 44,
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "height": 52,
+      "padding": 24,
+      "buttonPadding": 30,
+      "buttonHeight": 52,
+      "iconWidth": 52,
+      "iconHeight": 52,
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "height": 60,
+      "padding": 24,
+      "buttonPadding": 34,
+      "buttonHeight": 60,
+      "iconWidth": 60,
+      "iconHeight": 60,
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "height": 36,
+      "padding": 24,
+      "buttonPadding": 22,
+      "buttonHeight": 36,
+      "iconWidth": 36,
+      "iconHeight": 36,
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "height": 44,
+      "padding": 24,
+      "buttonPadding": 26,
+      "buttonHeight": 44,
+      "iconWidth": 44,
+      "iconHeight": 44,
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "height": 52,
+      "padding": 24,
+      "buttonPadding": 30,
+      "buttonHeight": 52,
+      "iconWidth": 52,
+      "iconHeight": 52,
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "height": 60,
+      "padding": 24,
+      "buttonPadding": 34,
+      "buttonHeight": 60,
+      "iconWidth": 60,
+      "iconHeight": 60,
+      "overflow": 0
+    }
+  ],
+  "keyboardResize": true,
+  "draftReload": true,
+  "interruptedRecovery": true,
+  "errors": []
+}

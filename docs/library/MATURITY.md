@@ -170,3 +170,5 @@ TextArea опубликован в version17, [production/CI evidence](TEXTAREA-
 ## Chat reference1:3894 — функциональный этап
 
 [Review](REFERENCE-CHAT-REVIEW.md): installed SEDA TextArea/Select/Button/Link/Menu/SplitView и другие shared controls, thread/draft/branch/attachments/scroll/streaming/stop/retry с честным локальным transport. Четыре model и12 browser groups,24 вложенных profile samples и180-message history fixture. Public Link visual variants исправлены в общей библиотеке; package23/23 groups на React18/19, контракты115/115, browser125 и model9 отдельных групп, TypeScript/build PASS. Это функциональная готовность этапа; Figma визуальная приёмка, реальный AI backend, native desktop/AT/performance и оставшиеся шесть экранов открыты. Полная цель не завершена.
+
+Chat опубликован в version18 на том же owner-private сайте. Production proof:437 source hashes,8 profile samples, Stop/retry/attachment/draft/reload, JS errors0. Publication checkout125 browser +9 domain-model groups и TypeScript/build PASS; [отчёт](REFERENCE-CHAT-REVIEW.md#публикация18-и-production-proof). Визуальная приёмка трёх screens и полная цель остаются открытыми.
