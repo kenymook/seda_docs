@@ -69,3 +69,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## Typography — токены против документации и runtime
 
 [Review](TYPOGRAPHY-REVIEW.md): исправлены устаревшие role mappings/семейство в foundation, подключён generated CSS, устранена window.nodeName DOM id collision. UI scale и controlSize независимы; inspector показывает реальный token и applied metrics, role choice участвует в истории. SSR fixture получил явный UTF-8; Ghost paint проверяется по фактическому hover/default state. Эти результаты не заменяют visual/contrast/AT приёмку.
+
+## Caption paint bounds и быстрые structural shortcuts
+
+Для Canvas overlays различены SVG typographic box и glyph ink: font-size не уменьшен, исходные frame coordinates не сдвинуты. Проверяется12 initial labels, grapheme truncation, actual paint overlap и document isolation. Отдельный CI defect Building исправлен в приложении: synchronous layout focus repair вместо RAF; тест намеренно удерживает RAF, а не добавляет sleep. Результаты не закрывают весь visual/AT gate.

@@ -2,117 +2,16 @@
   "commit": "1fcc034cfe901ab731d200cd67f6d073bef122e1",
   "runId": 40027185664,
   "jobId": 120666214894,
-  "status": "in_progress",
-  "conclusion": null,
-  "steps": [
-    {
-      "name": "Set up job",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 1
-    },
-    {
-      "name": "Run actions/checkout@v4",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 2
-    },
-    {
-      "name": "Run actions/setup-node@v4",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 3
-    },
-    {
-      "name": "Run npm ci",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 4
-    },
-    {
-      "name": "Run npm ci",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 5
-    },
-    {
-      "name": "Run npm run build",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 6
-    },
-    {
-      "name": "Run npm ci",
-      "status": "completed",
-      "conclusion": "success",
-      "number": 7
-    },
-    {
-      "name": "Run npx playwright install --with-deps chromium",
-      "status": "in_progress",
-      "conclusion": null,
-      "number": 8
-    },
-    {
-      "name": "Use one installed Chromium for both verifiers",
-      "status": "pending",
-      "conclusion": null,
-      "number": 9
-    },
-    {
-      "name": "Run npm run typecheck",
-      "status": "pending",
-      "conclusion": null,
-      "number": 10
-    },
-    {
-      "name": "Run npm run verify:package",
-      "status": "pending",
-      "conclusion": null,
-      "number": 11
-    },
-    {
-      "name": "Run npm test",
-      "status": "pending",
-      "conclusion": null,
-      "number": 12
-    },
-    {
-      "name": "Run npm run typecheck",
-      "status": "pending",
-      "conclusion": null,
-      "number": 13
-    },
-    {
-      "name": "Run npm run build",
-      "status": "pending",
-      "conclusion": null,
-      "number": 14
-    },
-    {
-      "name": "Run npm run verify",
-      "status": "pending",
-      "conclusion": null,
-      "number": 15
-    },
-    {
-      "name": "Run actions/upload-artifact@v4",
-      "status": "pending",
-      "conclusion": null,
-      "number": 16
-    },
-    {
-      "name": "Post Run actions/setup-node@v4",
-      "status": "pending",
-      "conclusion": null,
-      "number": 31
-    },
-    {
-      "name": "Post Run actions/checkout@v4",
-      "status": "pending",
-      "conclusion": null,
-      "number": 32
-    }
-  ],
-  "scope": "Remote status only; local120/25/150/24 and production7/7 are separate evidence. No remote success claimed."
+  "status": "completed",
+  "conclusion": "failure",
+  "scope": "Completed previous functional1fcc034 CI; focus fix is a later change and must receive a new CI result.",
+  "failedScenario": "document-keyboard-move-nest-copy-delete",
+  "failure": "true !== false: outdent followed indent before RAF restored focused editable",
+  "contractsAndFoundationPassed": 120,
+  "installedPackageGroupsPassed": 25,
+  "typescript": true,
+  "build": true,
+  "browserPassedBeforeStop": 112,
+  "browserFailed": 1,
+  "remainingBrowserGroupsNotRun": 37
 }

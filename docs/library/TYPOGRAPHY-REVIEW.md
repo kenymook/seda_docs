@@ -18,7 +18,7 @@
 
 ## Проверки и границы доказательств
 
-На текущем локальном этапе пройдены120 contract/foundation tests (115 прежних +5 typography),7 новых Lab browser groups и три TypeScript проекта/build. Installed-package25/25 groups на React18.3.1/19.2.7 и полная регрессия150 browser/24 model groups также прошли. [Local summary](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-summary.json), [новые7 browser groups](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-results.json), [package proof](../../packages/seda-ui/verification/package-results.json). Публикация20 и production proof подтверждены ниже; независимый CI ещё выполняется. Матрицы role/scale/theme/size являются вложенными samples, не дополнительными workflows.
+На текущем локальном этапе пройдены120 contract/foundation tests (115 прежних +5 typography),7 новых Lab browser groups и три TypeScript проекта/build. Installed-package25/25 groups на React18.3.1/19.2.7 и полная регрессия150 browser/24 model groups также прошли. [Local summary](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-summary.json), [новые7 browser groups](../../portal/component-lab/pilots/settings-parametric/verification/typography-local-results.json), [package proof](../../packages/seda-ui/verification/package-results.json). Публикация20 и production proof подтверждены ниже; первый независимый CI завершился failure в Building, см. уточнение ниже. Матрицы role/scale/theme/size являются вложенными samples, не дополнительными workflows.
 
 Новые7 browser groups: canonical Text/source, shared scale/inspector, role/history/reload, независимость X/Y/radius/controlSize, длинная кириллица/viewport, theme repaint/save и JS errors. Public verifier отдельно проверяет SSR/Strict hydration, unknown role/tag/scale rejection,23 DOM/compiler roles, inherited/explicit/standalone scopes, control geometry independence,80/100/115/150/200%, wrapping и RTL на React18/19.
 
@@ -38,4 +38,10 @@ Publication checkout повторил150 browser/24 model groups, UI/pilot/refer
 
 Пример applied metrics: heading/section =20/32px при100%,23/36.8px при115%,30/48px при150%; heading/panel при115% =20.7/27.6px. Это проверенные computed CSS значения, не rounded prose.
 
-[CI40027185664](https://github.com/kenymook/seda_docs/actions/runs/40027185664), job120666214894, для functional1fcc034 подтверждён in_progress. На последней проверке завершены checkout/dependencies/build, выполнялась установка Chromium; полный success не заявляется. Дальнейшая проверка должна продолжать этот run. Последующие отчёты не объявляются прошедшими его CI.
+[CI40027185664](https://github.com/kenymook/seda_docs/actions/runs/40027185664), job120666214894, для functional1fcc034 завершился failure в Building keyboard scenario; полный browser success не заявляется. Последующие отчёты не объявляются прошедшими его CI.
+
+## Уточнение результата CI40027185664
+
+Run завершился failure, а не ожиданием установки Chromium. Raw job120666214894 logs подтверждают package25/25 и contract/foundation120/120, TypeScript/build PASS. Browser pipeline остановился в Building document-keyboard-move-nest-copy-delete:15/16 Building browser groups, остальные Chat/Sandbox/Typography suites в этом run не запускались. Ранее опубликованные local/production typography proofs сохраняют свой scope, но этот run не доказывает полный browser success.
+
+Причина: после DOM reparent фокус возвращался через RAF; следующая быстрая клавиатурная команда успевала прийти в body и игнорировалась. Исправление переносит owned focus в useLayoutEffect с document/page guard. Новый regression держит RAF и выполняет6 последовательных indent/outdent commands; Building17/17 browser и5/5 model проходят локально. Новый CI ещё необходим.

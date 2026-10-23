@@ -191,3 +191,9 @@ Sandbox опубликован в version19 на прежнем owner-private с
 [Typography review](TYPOGRAPHY-REVIEW.md):19-й public Text и23 роли, общий compiler/CSS/provenance, inherited absolute scale80–200 и readable minimum. В Lab workspace heading/prose и editor preview подключены к общей шкале; role choice включён в history/save/reload. Локально120 contracts/foundation, package25 React18/19, browser150/model24,3 TS/build PASS. Это закрывает обнаруженный executable binding gap на этих поверхностях; remaining text adoption, contrast/AT/visual и полная цель остаются открытыми.
 
 Typography опубликована в version20; [production evidence и CI status](TYPOGRAPHY-REVIEW.md#version20-публикация-и-production-proof). Publication150 browser/24 model PASS; production7/7 typography groups,589 hashes, JS errors0, прежний owner-private access. Independent CI40027185664 ещё выполняется; общий success пока не заявляется. Визуальные/AT/contrast gates и полная цель остаются открытыми.
+
+## Качество editor workflows и следующий source handoff
+
+Исправлены paint overlaps12 Sandbox captions при14% zoom и задержка focus после структурных команд Building. Целевые local результаты: Sandbox20 browser/19 model, Building17 browser/5 model; общая настроенная матрица теперь153 browser/28 model и требует полного publication/CI прогона. [Sandbox review](REFERENCE-SANDBOX-REVIEW.md), [Building review](REFERENCE-BUILDING-REVIEW.md).
+
+CI40027185664 завершился failure в Building shortcut scenario; package25/contract120/TypeScript/build прошли. Новый focus regression держит RAF и подтверждает исправление локально. [Spline handoff1:4844/1:5441](REFERENCE-SPLINE-HANDOFF.md):полные contexts,88 assets/58 hashes и1440×1288 QA source подготовлены; runtime ещё не реализован. Остальные5 screens и общая цель остаются открытыми.
