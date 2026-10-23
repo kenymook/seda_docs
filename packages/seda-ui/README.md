@@ -59,6 +59,13 @@ import '@seda-ai/ui/styles.css';
 
 ## Вкладки рабочих панелей
 
-`Tabs` поддерживает line/pill, наследуемый размер, controlled/uncontrolled выбор, automatic/manual activation, RTL keyboard и сохранение mounted panels. [Полный API и границы](../../specs/navigation/tabs.md#14-react-implementation--experimental). Импорт: `import { Tabs } from "@seda-ai/ui"`. Требуются `label` списка и items с value/label/content.
+`Tabs` поддерживает line/pill, наследуемый размер, controlled/uncontrolled выбор, automatic/manual activation, RTL keyboard и сохранение mounted panels. [Полный API и границы](https://github.com/kenymook/seda_docs/blob/515ad7a9cf9018fc36e942b0be872e0ade07ed79/specs/navigation/tabs.md#14-react-implementation--experimental). Импорт: `import { Tabs } from "@seda-ai/ui"`. Требуются `label` списка и items с value/label/content.
 
 Tabs проверяется отдельным installed consumer в составе verify:package; это не означает регистрацию восьмого компонента в общем compiler. Полных editor primitives и четырёх reference applications пока нет.
+
+```tsx
+<Tabs label="Панели документа" activationMode="manual" items={[
+  { value: "properties", label: "Свойства", content: <PropertiesForm /> },
+  { value: "history", label: "История", content: <History /> },
+]} />
+```

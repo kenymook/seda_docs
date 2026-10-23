@@ -36,8 +36,8 @@
 | Исполняемые контракты | 7 контролов, 8 профилей, API/state/token validation, 93 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда; 55+14+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
-| Реальный consumer | 11/11 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Остальные компоненты, browser engines и полная contract-матрица |
-| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 11 consumer proof groups | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
+| Реальный consumer | 13/13 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Остальные компоненты, browser engines и полная contract-матрица |
+| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 13 package proof groups (включая две группы Tabs) | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
 | Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
 
@@ -47,7 +47,7 @@
 - Обещание этапа: пакет можно собрать, установить и использовать без исходников репозитория.
 - Внешний к исходникам proof: два отдельных consumer-проекта устанавливают настоящий npm tarball.
 - Граница готовности этапа: entry/types/CSS присутствуют, SSR/hydration/types/interactions проходят на заявленных React 18/19, сборка воспроизводится, React не вшит в библиотеку.
-- Этот этап **не завершает общий objective**. Public theme/profile layer теперь проверен вне лаборатории. Следующая работа — базовые элементы рабочих пространств: Tabs, overlays/menus, панели, дерево и команды; затем reference applications и их общие contracts.
+- Этот этап **не завершает общий objective**. Public theme/profile layer теперь проверен вне лаборатории. Следующая работа — Tabs instance contract и остальные элементы рабочих пространств: overlays/menus, панели, дерево и команды; затем reference applications и их общие contracts.
 
 ## Последовательность реализации
 
@@ -74,3 +74,5 @@
 ## Продвижение: Tabs рабочих панелей
 
 Первый public navigation component — Tabs (line/pill) с keyboard/RTL, controlled state, hidden mounted panels и focus repair. Installed consumer React 18/19 проверяет SSR/hydration и 64 комбинации профиля/варианта/ширины суммарно. Navigation proof добавляет две группы к package verifier: локально 13/13. Это ещё не восьмой instance contract общего compiler и не полноценная workspace navigation. Следующая работа: подключить Tabs к contract layer, затем overlays/menus, resizable panels, Tree и commands. Общий objective остаётся активным.
+
+Удалённая проверка Tabs: [run 39956240735](https://github.com/kenymook/seda_docs/actions/runs/39956240735), commit `515ad7a9cf9018fc36e942b0be872e0ade07ed79`: чистые installs, TypeScript обоих проектов, package 13/13, contracts 93/93, build и Lab/workspace/controls 81/81 — success. [Измерения Tabs](../../packages/seda-ui/verification/tabs-results.json). На приватном сайте остаётся проверенная version 8 с public-provider этапом; новые вкладки пока только в библиотеке и installed consumer proof.
