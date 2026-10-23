@@ -61,6 +61,7 @@ export async function verifyProfileSources(root) {
           compiled.controls.Toggle.tokenBranch.children.track.off.default,
         ],
       ];
+      bindings.push(['--tabs-indicator-selected', compiled.controls.Tabs.tokenBranch.children.indicator.selected], ['--tabs-pill-surface-selected', compiled.controls.Tabs.tokenBranch.children.pill.surface.selected]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
         assert.ok(actual, property);
@@ -106,6 +107,7 @@ export async function verifyProfileSources(root) {
       path.join(root, "src/styles.css"),
       path.join(pkg, "src/styles.css"),
     );
+    await fs.copyFile(path.join(root, "src/navigation.css"), path.join(pkg, "src/navigation.css"));
     assert.throws(
       () => buildThemeAssets(pkg, output),
       /Required public component token is missing: --select-border-focus/,
@@ -117,7 +119,7 @@ export async function verifyProfileSources(root) {
   }
   return {
     profilesMatchedToCompiler: 8,
-    colourAndProvenanceBindingsMatched: 64,
+    colourAndProvenanceBindingsMatched: 80,
     sourceHashesMatched: true,
     missingStateRejected: true,
   };

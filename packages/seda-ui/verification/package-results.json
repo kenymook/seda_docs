@@ -8,7 +8,7 @@
       "evidence": {
         "filename": "seda-ai-ui-0.1.0.tgz",
         "files": 103,
-        "integrity": "sha512-N4rHQDoo9m/9bF2DbxpkR3RfCy0TWE6+CctpIrZQnAx55e83zA3PV0yt9kpW6MKqyEQIVe+siH/ptk9sOt44Uw=="
+        "integrity": "sha512-HBDuS0VTXMxXMN8EYx5x4cN3uz40RMzVkcZ9VUCe7RkJWsos1Q6g4Q2pH8OoiHZmnWNWNa4TUtbDJPAm4RCmNQ=="
       }
     },
     {
@@ -24,7 +24,7 @@
       "status": "passed",
       "evidence": {
         "profilesMatchedToCompiler": 8,
-        "colourAndProvenanceBindingsMatched": 64,
+        "colourAndProvenanceBindingsMatched": 80,
         "sourceHashesMatched": true,
         "missingStateRejected": true
       }
@@ -66,7 +66,7 @@
       "name": "react-18.3.1-hydration-css-and-behavior",
       "status": "passed",
       "evidence": {
-        "cssBytes": 134685,
+        "cssBytes": 134894,
         "sourceAlias": false,
         "hydrationErrors": [],
         "loadingDelta": {
@@ -111,7 +111,8 @@
         "ssr": true,
         "hydrationErrors": [],
         "combinations": 32,
-        "invalidInputsRejected": 4,
+        "compilerSnapshots": 7,
+        "invalidInputsRejected": 5,
         "relationships": true,
         "keyboard": "automatic/manual, Home/End, wrap, skip disabled, RTL",
         "controlledRejection": true,
@@ -158,7 +159,7 @@
       "name": "react-19.2.7-hydration-css-and-behavior",
       "status": "passed",
       "evidence": {
-        "cssBytes": 134685,
+        "cssBytes": 134894,
         "sourceAlias": false,
         "hydrationErrors": [],
         "loadingDelta": {
@@ -203,7 +204,8 @@
         "ssr": true,
         "hydrationErrors": [],
         "combinations": 32,
-        "invalidInputsRejected": 4,
+        "compilerSnapshots": 7,
+        "invalidInputsRejected": 5,
         "relationships": true,
         "keyboard": "automatic/manual, Home/End, wrap, skip disabled, RTL",
         "controlledRejection": true,
@@ -217,22 +219,13 @@
   "kind": "seda-ui-package-proof",
   "date": "2026-10-23",
   "ci": {
-    "status": "success",
-    "runId": 39956240735,
-    "jobId": 120422672871,
-    "commit": "515ad7a9cf9018fc36e942b0be872e0ade07ed79",
-    "url": "https://github.com/kenymook/seda_docs/actions/runs/39956240735",
-    "environment": "clean Ubuntu, Node 24"
-  },
-  "previousProviderCi": {
-    "status": "success",
-    "runId": 39954141798,
-    "commit": "13acd516fc11b84757777b44fd0279ad42f22601"
+    "status": "pending",
+    "reason": "await clean remote run for Tabs contract integration"
   },
   "assets": {
-    "cssBytes": 132974,
-    "cssGzipBytes": 15543,
-    "optionalProfilesBytes": 935244,
+    "cssBytes": 133587,
+    "cssGzipBytes": 15526,
+    "optionalProfilesBytes": 935355,
     "profilesLoadedByDefault": false
   }
 }

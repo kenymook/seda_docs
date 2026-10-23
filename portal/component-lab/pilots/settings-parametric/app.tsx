@@ -16,6 +16,7 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
+import "../../../../packages/seda-ui/src/navigation.css";
 import "./styles.css";
 import { Select, Checkbox, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
@@ -485,7 +486,7 @@ function App() {
     },
     components: {
       v: measurements.length + " видимых контролов",
-      desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle",
+      desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs",
       deps: "height + radius + font → React → DOM",
     },
   };
@@ -1340,7 +1341,7 @@ function App() {
                 лаборатории отделена.
               </p>
               <p>
-                Контракты: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle. Формы и таблицы —
+                Контракты: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs. Формы и таблицы —
                 композиции.
               </p>
               <details className="workspace-tokens">
@@ -1437,7 +1438,7 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                Button · IconButton · TextField · Select · Checkbox · Radio · Toggle — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
+                Button · IconButton · TextField · Select · Checkbox · Radio · Toggle · Tabs — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.
               </p>

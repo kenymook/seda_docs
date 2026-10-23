@@ -71,14 +71,15 @@ try {
           );
           for (const width of [1543, 1024, 390]) {
             await page.setViewportSize({ width, height: 1100 });
-            for (const section of ["projects", "settings", "members"]) {
-              await selectPage(section);
+            for (const section of ["projects", "settings", "access", "members"]) {
+              await selectPage(section === "access" ? "settings" : section);
+              if (section === "settings" || section === "access") await page.getByRole("tab", { name: section === "access" ? "Доступ и уведомления" : "Основные параметры", exact:true }).click();
               const data = await page
                 .locator("main[data-workspace]")
                 .evaluate((root) =>
                   [
                     ...root.querySelectorAll(
-                      ".seda-field__control,.seda-button,.seda-icon-button",
+                      ".seda-field__control,.seda-button,.seda-icon-button,.seda-tabs__tab",
                     ),
                   ]
                     .filter((el) => el.getBoundingClientRect().height > 0)
@@ -96,7 +97,7 @@ try {
                         radius: parseFloat(s.borderRadius),
                         font: parseFloat(s.fontSize),
                         line: parseFloat(s.lineHeight),
-                        kind: el.classList.contains("seda-icon-button")
+                        kind: el.classList.contains("seda-tabs__tab") ? "tab" : el.classList.contains("seda-icon-button")
                           ? "icon"
                           : el.classList.contains("seda-button")
                             ? "button"
@@ -106,10 +107,10 @@ try {
                 );
               for (const v of data) {
                 near(v.height, d.height, v.id + " height");
-                near(v.radius, d.radius, v.id + " radius");
+                if (v.kind !== "tab") near(v.radius, d.radius, v.id + " radius");
                 near(v.font, d.font, v.id + " font");
                 near(v.line, d.line, v.id + " line");
-                if (v.kind === "field")
+                if (v.kind === "field" || v.kind === "tab")
                   near(v.padding, d.fieldPaddingX, v.id + " field X");
                 if (v.kind === "button")
                   near(v.padding, d.buttonPaddingX, v.id + " button X");
@@ -203,7 +204,7 @@ try {
         name + " has resolver chain",
       );
     assert.deepEqual(evidence.coverage.libraryAdapter, []);
-    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle"]);
+    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs"]);
     const token = evidence.evidence.find(
       (e) => e.property === "--seda-select-surface-default",
     );
@@ -229,6 +230,7 @@ try {
     await page.keyboard.press("ArrowDown");
     await page.keyboard.press("Enter");
     assert.ok(await page.locator("#workspace-region").inputValue());
+    await page.getByRole("tab", {name:"Доступ и уведомления",exact:true}).click();
     const radio = page.locator(
       'input[name="workspace-visibility"][value="private"]',
     );
@@ -245,6 +247,8 @@ try {
     assert.equal(await page.locator("#workspace-digest").isDisabled(), true);
     await page.keyboard.press("Space");
     assert.equal(await page.locator("#workspace-digest").isDisabled(), false);
+    await page.getByRole("tab", {name:"Доступ и уведомления",exact:true}).focus();
+    await page.keyboard.press("Home");
     const ring = await page.locator("#workspace-region").evaluate((el) => {
       el.focus();
       return getComputedStyle(el.closest(".seda-field__control")).outlineStyle;
@@ -361,6 +365,37 @@ try {
       persistence: "navigation and profile changes",
       cancel: "last session snapshot",
     };
+  });
+  await check("workspace-tabs-contract-and-cross-panel-validation", async () => {
+    await fresh();await selectPage("settings");
+    const general=page.getByRole("tab",{name:"Основные параметры",exact:true});
+    const access=page.getByRole("tab",{name:"Доступ и уведомления",exact:true});
+    assert.equal(await page.locator("#settings-tabs").getAttribute("data-seda-contract"),"Tabs");
+    await page.locator("#workspace-name").fill("Unsaved panel draft");
+    await general.focus();await page.keyboard.press("ArrowRight");
+    assert.equal(await access.getAttribute("aria-selected"),"true");
+    assert.equal(await page.locator("#workspace-name").isVisible(),false);
+    await page.locator("#workspace-notifications").uncheck();
+    assert.equal(await page.locator("#workspace-digest").isDisabled(),true);
+    await access.focus();await page.keyboard.press("Home");
+    assert.equal(await page.locator("#workspace-name").inputValue(),"Unsaved panel draft");
+    await page.locator("#workspace-name").fill("");await access.click();
+    await page.locator("#workspace-apply").click();
+    assert.equal(await general.getAttribute("aria-selected"),"true");
+    assert.equal(await page.locator("#workspace-name").evaluate(el=>el===document.activeElement),true);
+    assert.equal(await page.locator("#workspace-name").getAttribute("aria-invalid"),"true");
+    await page.locator("#workspace-name").fill("Desktop panels");
+    await configure("Dark","xl",{scale:125,air:6,airX:18,radius:150});
+    await access.click();assert.equal(await page.locator("#workspace-notifications").isChecked(),false);
+    const tabGeometry=await access.evaluate(el=>({height:el.getBoundingClientRect().height,padding:parseFloat(getComputedStyle(el).paddingInlineStart)}));
+    const derived=await page.evaluate(()=>window.sedaPilot.getLab().derived);
+    near(tabGeometry.height,derived.height,"Tabs compiled/experimental height");near(tabGeometry.padding,derived.fieldPaddingX,"Tabs base + X");
+    await page.locator("#workspace-apply").click();assert.match(await page.locator("#workspace-notice").textContent(),/сохранены/);
+    await general.click();assert.equal(await page.locator("#workspace-name").inputValue(),"Desktop panels");
+    await page.setViewportSize({width:390,height:900});
+    assert.equal(await page.locator("#settings-tabs [role=tablist]").evaluate(el=>el.scrollWidth>el.clientWidth),true);
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)<=1);
+    return {contract:"Tabs",draftRetained:true,crossPanelErrorRevealed:true,keyboard:true,notificationsRetained:true,tabGeometry};
   });
   await check("workspace-members-local-addition", async () => {
     await fresh();

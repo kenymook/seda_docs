@@ -190,13 +190,13 @@ test("New contract registry rejects missing required rules, invalid sources and 
     .tokenRequirements.default.push(["surface", "missing-state"]);
   assert.equal(engine.validate(candidate).valid, false);
 });
-test("All eight common compiled profiles contain four component contracts with provenance", () => {
+test("All eight common compiled profiles contain selection and navigation contracts with provenance", () => {
   for (const theme of ["Light", "Dark"])
     for (const controlSize of ["s", "m", "l", "xl"]) {
       const compiled = engine.compile(engine.bundle.profile, {
         overrides: { theme, controlSize },
       });
-      assert.deepEqual(Object.keys(compiled.controls), names);
+      assert.deepEqual(Object.keys(compiled.controls), [...names, "Tabs"]);
       for (const name of names) {
         assert.equal(compiled.controls[name].component, name);
         assert.ok(

@@ -196,7 +196,7 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
         } else expression = serialize(value, new Set());
         entries.push({ key, expression });
       } catch (error) {
-        issues.push(issue('API_VALUE_UNCHECKED', key, error.message, 'not-checked'));
+        issues.push(issue(error.code ?? 'API_VALUE_UNCHECKED', key, error.message, error.code ? 'violated' : 'not-checked'));
       }
     }
     return [...issues, ...checkExpressions(name, entries, 'API_PROP_TYPE')];
@@ -287,6 +287,16 @@ function serialize(value, ancestors) {
   if (typeof value !== 'object') throw new Error(`Unsupported recipe value: ${typeof value}`);
   if (ancestors.has(value)) throw new Error('Cyclic recipe values are not supported');
   if (!Array.isArray(value) && ![Object.prototype, null].includes(Object.getPrototypeOf(value))) throw new Error('Custom object instances require a binding adapter');
+  if (own(value, '$handler') || own(value, '$slot')) {
+    const descriptor = own(value, '$handler') ? '$handler' : '$slot';
+    if (Object.keys(value).length !== 1 || typeof value[descriptor] !== 'string' || !value[descriptor].trim()) {
+      const error = new Error('Nested binding descriptor must contain exactly one nonempty $handler or $slot');
+      error.code = 'API_BINDING_DESCRIPTOR';
+      throw error;
+    }
+    // The full enclosing property is checked by TypeScript; a slot in value/label cannot bypass its type.
+    return descriptor === '$handler' ? '(...__args: any[]): void => {}' : '(null as unknown as __SedaSlot)';
+  }
   ancestors.add(value);
   const result = Array.isArray(value)
     ? `[${value.map(item => serialize(item, ancestors)).join(',')}]`

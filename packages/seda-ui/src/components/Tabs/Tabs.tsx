@@ -31,6 +31,8 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
       throw new TypeError("Tabs require a label and unique non-empty item values/labels");
     if (!["automatic", "manual"].includes(activationMode) || !["line", "pill"].includes(variant))
       throw new TypeError("Unsupported Tabs activationMode or variant");
+    if (value !== undefined && defaultValue !== undefined)
+      throw new TypeError("Tabs value and defaultValue are mutually exclusive");
     const select = (next: string) => {
       if (!enabled.includes(next) || next === selected) return;
       if (value === undefined) setLocalValue(next);

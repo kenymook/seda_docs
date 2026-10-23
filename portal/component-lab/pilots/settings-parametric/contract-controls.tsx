@@ -4,6 +4,7 @@ import {
   Checkbox as SedaCheckbox,
   Radio as SedaRadio,
   Toggle as SedaToggle,
+  Tabs as SedaTabs,
 } from "@seda-ai/ui";
 import {
   evaluateRules,
@@ -80,4 +81,7 @@ export const Toggle = forwardRef<
     {...checkedAttributes("Toggle", props, useContext(Catalog))}
     ref={ref}
   />
+));
+export const Tabs = forwardRef<HTMLDivElement, React.ComponentProps<typeof SedaTabs>>((props, ref) => (
+  <SedaTabs {...props} {...checkedAttributes("Tabs", props, useContext(Catalog))} ref={ref} />
 ));

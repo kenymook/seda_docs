@@ -142,3 +142,8 @@ Browser-safe entry points `./web` и `./form` не импортируют Node, 
 Web-слой требует всех цветовых ролей, которые читает CSS, и проверяет числовые ограничения: положительные высота/шрифт/строка/иконка, неотрицательные радиус/границы/отступы. Отрицательный letter spacing допустим. Не поддерживаемое браузером размерное значение останавливает сборку до рендера.
 
 Набор из восьми профилей строится из авторских данных. Редактирование `system.json`, профиля, токенов или исходного компонента требует новой сборки; переключение уже собранной темы/размера работает в браузере без пересоздания формы.
+
+
+## Навигация рабочих панелей
+
+Tabs — восьмой component contract. `compileControl('Tabs', {label:'Панели', items:[{value:'properties',label:'Свойства',content:{$slot:'document.properties'}}]})` проверяет фактический API, items и selection, разрешает общую геометрию/цвета и оставляет DOM conformance not-checked. Nested slots проверяются на тип всего property; они не исполняются compiler. `state.tabs` — authored snapshot с effective value и per-item default/selected/disabled. `createTabsWebBindings` — browser-safe binding уже разрешённого output. Подробные правила и границы: D27 в WORKSPACE-CONTRACTS.md.

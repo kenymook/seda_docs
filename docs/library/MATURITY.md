@@ -33,8 +33,8 @@
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
 | Кодовый каталог | 14 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 7 контролов, 8 профилей, API/state/token validation, 93 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
-| Реальное приложение | Lab: проекты/настройки/команда; 55+14+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
+| Исполняемые контракты | 8 компонентов, 8 профилей, API/state/token validation, 100 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Реальное приложение | Lab: проекты/настройки/команда; 55+15+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
 | Реальный consumer | 13/13 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Остальные компоненты, browser engines и полная contract-матрица |
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 13 package proof groups (включая две группы Tabs) | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
@@ -73,6 +73,12 @@
 
 ## Продвижение: Tabs рабочих панелей
 
-Первый public navigation component — Tabs (line/pill) с keyboard/RTL, controlled state, hidden mounted panels и focus repair. Installed consumer React 18/19 проверяет SSR/hydration и 64 комбинации профиля/варианта/ширины суммарно. Navigation proof добавляет две группы к package verifier: локально 13/13. Это ещё не восьмой instance contract общего compiler и не полноценная workspace navigation. Следующая работа: подключить Tabs к contract layer, затем overlays/menus, resizable panels, Tree и commands. Общий objective остаётся активным.
+Первый public navigation component — Tabs (line/pill) с keyboard/RTL, controlled state, hidden mounted panels и focus repair. Installed consumer React 18/19 проверяет SSR/hydration и 64 комбинации профиля/варианта/ширины суммарно. Navigation proof добавляет две группы к package verifier: локально 13/13. Tabs теперь является восьмым instance contract общего compiler; интегрирован в Settings с сохранением draft и раскрытием скрытой ошибки. Это пока не полноценная workspace navigation. Следующая работа: overlays/menus, resizable panels, Tree и commands. Общий objective остаётся активным.
 
-Удалённая проверка Tabs: [run 39956240735](https://github.com/kenymook/seda_docs/actions/runs/39956240735), commit `515ad7a9cf9018fc36e942b0be872e0ade07ed79`: чистые installs, TypeScript обоих проектов, package 13/13, contracts 93/93, build и Lab/workspace/controls 81/81 — success. [Измерения Tabs](../../packages/seda-ui/verification/tabs-results.json). На приватном сайте остаётся проверенная version 8 с public-provider этапом; новые вкладки пока только в библиотеке и installed consumer proof.
+Удалённая проверка Tabs: [run 39956240735](https://github.com/kenymook/seda_docs/actions/runs/39956240735), commit `515ad7a9cf9018fc36e942b0be872e0ade07ed79`: чистые installs, TypeScript обоих проектов, package 13/13, contracts 93/93, build и Lab/workspace/controls 81/81 — success. [Измерения Tabs](../../packages/seda-ui/verification/tabs-results.json). Публикация этой проверки была version 8; последующий этап Tabs описан ниже.
+
+## Продвижение: общий контракт и Settings Tabs
+
+D27 добавил Tabs в registry/schema/API inspector/common compiler. Сериализованные nested slots проверяются по реальным TypeScript props; значения choice snapshots и обязательные token roles проверяются при compileControl. Web binding использует разрешённые данные с provenance. В installed consumer семь DOM snapshots на runtime сопоставляются с compiler; профильный generator теперь сверяет 80 color/provenance bindings суммарно.
+
+Settings Lab использует настоящий Tabs через contract adapter. Panels сохраняют mounted поля, cross-panel validation открывает скрытую ошибку до focus; common size/theme/X/Y влияют и на Tabs. Package proof 13/13, полный unit run 100/100 и browser 55+15+12 прошли локально; после ужесточения direct compileControl повторно прошли все семь Tabs tests. Финальная чистая CI и публикация фиксируются отдельной записью. Общий objective не завершён.

@@ -26,7 +26,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 24
         },
         {
@@ -62,7 +74,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 24
         },
         {
@@ -98,7 +122,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 24
         },
         {
@@ -134,7 +170,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 56
         },
         {
@@ -170,7 +218,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 56
         },
         {
@@ -206,7 +266,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 56
         },
         {
@@ -248,7 +320,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 32
         },
         {
@@ -284,7 +368,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 32
         },
         {
@@ -320,7 +416,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 32
         },
         {
@@ -356,7 +464,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 66
         },
         {
@@ -392,7 +512,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 66
         },
         {
@@ -428,7 +560,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 66
         },
         {
@@ -470,7 +614,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 40
         },
         {
@@ -506,7 +662,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 40
         },
         {
@@ -542,7 +710,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 40
         },
         {
@@ -578,7 +758,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 76
         },
         {
@@ -614,7 +806,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 76
         },
         {
@@ -650,7 +854,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 76
         },
         {
@@ -692,7 +908,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 48
         },
         {
@@ -728,7 +956,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 48
         },
         {
@@ -764,7 +1004,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 48
         },
         {
@@ -800,7 +1052,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 86
         },
         {
@@ -836,7 +1100,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 86
         },
         {
@@ -872,7 +1148,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 86
         },
         {
@@ -914,7 +1202,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 24
         },
         {
@@ -950,7 +1250,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 24
         },
         {
@@ -986,7 +1298,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 24
         },
         {
@@ -1022,7 +1346,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 56
         },
         {
@@ -1058,7 +1394,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 56
         },
         {
@@ -1094,7 +1442,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 56
         },
         {
@@ -1136,7 +1496,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 32
         },
         {
@@ -1172,7 +1544,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 32
         },
         {
@@ -1208,7 +1592,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 32
         },
         {
@@ -1244,7 +1640,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 66
         },
         {
@@ -1280,7 +1688,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 66
         },
         {
@@ -1316,7 +1736,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 66
         },
         {
@@ -1358,7 +1790,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 40
         },
         {
@@ -1394,7 +1838,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 40
         },
         {
@@ -1430,7 +1886,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 40
         },
         {
@@ -1466,7 +1934,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 76
         },
         {
@@ -1502,7 +1982,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 76
         },
         {
@@ -1538,7 +2030,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 76
         },
         {
@@ -1580,7 +2084,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 48
         },
         {
@@ -1616,7 +2132,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 48
         },
         {
@@ -1652,7 +2180,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 48
         },
         {
@@ -1688,7 +2228,19 @@
           },
           "width": 1543,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 11,
           "height": 86
         },
         {
@@ -1724,7 +2276,19 @@
           },
           "width": 1024,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 11,
           "height": 86
         },
         {
@@ -1760,7 +2324,19 @@
           },
           "width": 390,
           "section": "settings",
-          "visibleControls": 17,
+          "visibleControls": 15,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 11,
           "height": 86
         },
         {
@@ -1781,7 +2357,7 @@
       "name": "workspace-tokens-and-native-keyboard",
       "status": "passed",
       "evidence": {
-        "resolvedLeaves": 124,
+        "resolvedLeaves": 184,
         "selectSurface": "rgb(23, 23, 24)",
         "keyboard": "Select/Radio/Toggle"
       }
@@ -1803,6 +2379,21 @@
         "validation": "text/email/url/number",
         "persistence": "navigation and profile changes",
         "cancel": "last session snapshot"
+      }
+    },
+    {
+      "name": "workspace-tabs-contract-and-cross-panel-validation",
+      "status": "passed",
+      "evidence": {
+        "contract": "Tabs",
+        "draftRetained": true,
+        "crossPanelErrorRevealed": true,
+        "keyboard": true,
+        "notificationsRetained": true,
+        "tabGeometry": {
+          "height": 67,
+          "padding": 28
+        }
       }
     },
     {

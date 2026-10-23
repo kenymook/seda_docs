@@ -81,3 +81,13 @@ Lab сохраняет свой исходный layout и эксперимен�
 Свежая production-проверка: HTTP 200; все 85 source hashes совпали с проверенным checkout; Projects/Settings/Members, сохранение snapshot и зависимые controls работают; loading Δ0/0 px, IconButton квадратный, Select использует styled native picker и одну рамку focus; page errors 0. [Результат](verification/live-provider-v8.json).
 
 Числа тестов относятся к ограниченным проверяемым слоям, а не к полной зрелости библиотеки: 93 unit tests общего compiler/contracts, 81 browser check Lab и 11 групп поставки/consumer tests. Вложенные матрицы и palette snapshots не считаются отдельными пользовательскими сценариями. Полная работа по четырём reference applications продолжается.
+
+## D27: Tabs в общем compiler и рабочей форме
+
+Восьмой executable component contract — Tabs. API/defaults извлекаются из реальных types/implementation, nested content/icon slots проходят TypeScript проверку внутри items. Правила items/selection и authored per-item states, line/pill token requirements и browser-safe binding входят в общий compiler. Прямой compileControl теперь отклоняет отсутствующие обязательные color roles; только валидировать весь profile заранее недостаточно.
+
+Settings использует настоящий SEDA Tabs: две панели с mounted полями, сохранение draft и зависимых controls, раскрытие панели ошибки до focus. Size/theme/text scale/X/Y влияют и на Tabs; это тот же Lab geometry experiment поверх canonical profile. Публичный пакет включает navigation CSS автоматически.
+
+Локально прошли TypeScript обоих проектов, 13 package proof groups, полный unit run 100/100, Lab/workspace/controls 55+15+12. После усиления прямого compileControl отдельно повторены семь Tabs tests — PASS. Consumer DOM сопоставляется с compiler в семи selection snapshots на каждом React runtime; восемь общих профилей и 80 цветовых привязок/цепочек сверены с public generator. Финальная чистая CI и повторная публикационная проверка фиксируются после завершения.
+
+Шесть Tabs DOM checks в статическом contract report остаются not-checked. Browser proofs не заменяют screen readers, Firefox/WebKit, native desktop runtime, full catalogue и четыре сложных reference applications. Следующая общая работа: overlays/menus, resizable panels, Tree и commands. Общая цель остаётся активной.

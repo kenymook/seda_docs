@@ -4,16 +4,18 @@ import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { createServer } from "node:http";
 import { build } from "esbuild";
+import { createContractEngine } from "../../seda-contracts/src/index.mjs";
 
 /** Consumer uses only installed tarball exports, including SSR -> hydration. */
 export async function verifyTabs({cwd, browser}) {
+  const engine = createContractEngine();
   await fs.writeFile(path.join(cwd, "tabs-consumer.mjs"), `
 import React,{useState,useEffect} from 'react';import {Tabs,SedaProvider,TextField} from '@seda-ai/ui';const h=React.createElement;
 export function TabsConsumer(){const [config,setConfig]=useState({theme:'light',controlSize:'m',variant:'line',activationMode:'automatic',controlled:false,dir:'ltr'});const [value,setValue]=useState('a');const [calls,setCalls]=useState([]);const items=[{value:'a',label:'Свойства',icon:'A',content:h(TextField,{id:'tab-field',label:'Название',defaultValue:'Atlas'})},{value:'blocked',label:'Недоступно',disabled:true,content:'Blocked'},{value:'b',label:'История',content:h('p',null,'History')},{value:'c',label:'Очень длинное название вкладки для проверки прокрутки',content:h('p',null,'Versions')}].filter(item=>!config.remove||item.value!==config.remove).map(item=>({...item,disabled:item.disabled||config.disable===item.value||config.allDisabled}));
 useEffect(()=>{window.sedaTabs={configure:next=>setConfig(old=>({...old,...next})),select:setValue};return()=>{delete window.sedaTabs;};},[]);
 return h(SedaProvider,{theme:config.theme,controlSize:config.controlSize,dir:config.dir,style:{padding:16}},h(Tabs,{id:'work-tabs',label:'Рабочие панели',items,variant:config.variant,activationMode:config.activationMode,...(config.controlled?{value}:{}),onValueChange:next=>{setCalls(old=>[...old,next]);if(!config.reject)setValue(next);}}),h('output',{id:'tab-state'},JSON.stringify({value,calls})),h('button',{id:'outside'},'Outside'));}
 `);
-  await fs.writeFile(path.join(cwd,"tabs-ssr.mjs"), `import React from 'react';import {renderToString} from 'react-dom/server';import {TabsConsumer} from './tabs-consumer.mjs';import {Tabs} from '@seda-ai/ui';import assert from 'node:assert/strict';const errors=[];console.error=(...a)=>errors.push(a.join(' '));for(const props of [{label:'',items:[]},{label:'Panels',items:[{value:'a',label:'A'},{value:'a',label:'B'}]},{label:'Panels',items:[],variant:'invented'},{label:'Panels',items:[],activationMode:'invented'}])assert.throws(()=>renderToString(React.createElement(Tabs,props)),TypeError);const html=renderToString(React.createElement(TabsConsumer));if(errors.length)throw Error(errors.join('\\n'));console.log(JSON.stringify({html}));`);
+  await fs.writeFile(path.join(cwd,"tabs-ssr.mjs"), `import React from 'react';import {renderToString} from 'react-dom/server';import {TabsConsumer} from './tabs-consumer.mjs';import {Tabs} from '@seda-ai/ui';import assert from 'node:assert/strict';const errors=[];console.error=(...a)=>errors.push(a.join(' '));for(const props of [{label:'',items:[]},{label:'Panels',items:[{value:'a',label:'A'},{value:'a',label:'B'}]},{label:'Panels',items:[],variant:'invented'},{label:'Panels',items:[],activationMode:'invented'},{label:'Panels',items:[],value:'a',defaultValue:'b'}])assert.throws(()=>renderToString(React.createElement(Tabs,props)),TypeError);const html=renderToString(React.createElement(TabsConsumer));if(errors.length)throw Error(errors.join('\\n'));console.log(JSON.stringify({html}));`);
   const ssr=spawnSync(process.execPath,["tabs-ssr.mjs"],{cwd,encoding:"utf8",windowsHide:true});
   assert.equal(ssr.status,0,ssr.stdout+ssr.stderr);assert.equal(ssr.stderr,"");
   const {html}=JSON.parse(ssr.stdout);
@@ -61,9 +63,28 @@ return h(SedaProvider,{theme:config.theme,controlSize:config.controlSize,dir:con
     }
     await tab('a').focus();await page.keyboard.press('ArrowRight');assert.equal(await tab('b').evaluate(el=>getComputedStyle(el).outlineStyle),'solid');
     await configure({allDisabled:true});assert.equal(await selected().count(),0);assert.equal(await page.locator('[role=tab][tabindex="0"]').count(),0);assert.equal(await page.getByRole('tabpanel').count(),0);await configure({allDisabled:false});
+    let compilerSnapshots = 0;
+    for (const sample of [
+      {value:'a'}, {value:'b'}, {value:'blocked'}, {value:'removed'},
+      {value:'b',remove:'b'}, {value:'b',disable:'b'}, {value:'a',allDisabled:true},
+    ]) {
+      await configure({controlled:true,remove:null,disable:null,allDisabled:false,...sample});
+      await page.evaluate(value=>window.sedaTabs.select(value),sample.value);
+      await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+      const input = { label:'Рабочие панели', value:sample.value, items: [
+        {value:'a',label:'Свойства',content:{$slot:'properties'}},
+        {value:'blocked',label:'Недоступно',disabled:true,content:null},
+        {value:'b',label:'История',content:'History'},
+        {value:'c',label:'Versions',content:'Versions'},
+      ].filter(item=>item.value!==sample.remove).map(item=>({...item,disabled:Boolean(item.disabled||sample.allDisabled||sample.disable===item.value)})) };
+      const expected=engine.compileControl('Tabs',input).state.tabs;
+      const actual=await page.locator('[role="tab"]').evaluateAll(tabs=>tabs.map(tab=>({value:decodeURIComponent(tab.id.split('-tab-')[1]),state:tab.disabled?'disabled':tab.getAttribute('aria-selected')==='true'?'selected':'default'})));
+      assert.deepEqual(actual,expected.items);compilerSnapshots++;
+    }
+    await configure({allDisabled:false});await page.evaluate(()=>window.sedaTabs.select('a'));
     await page.screenshot({path:path.join(cwd,'tabs-dark.png')});await configure({theme:'light',variant:'line'});await page.screenshot({path:path.join(cwd,'tabs-light.png')});
     assert.deepEqual(errors,[]);
-    const result={sourceAlias:false,ssr:true,hydrationErrors:errors,combinations,invalidInputsRejected:4,relationships:relations,keyboard:'automatic/manual, Home/End, wrap, skip disabled, RTL',controlledRejection:true,dynamicFocusRepair:true,panelDraftRetained:true,themeChangeDidNotStealFocus:true,measurements};
+    const result={sourceAlias:false,ssr:true,hydrationErrors:errors,combinations,compilerSnapshots,invalidInputsRejected:5,relationships:relations,keyboard:'automatic/manual, Home/End, wrap, skip disabled, RTL',controlledRejection:true,dynamicFocusRepair:true,panelDraftRetained:true,themeChangeDidNotStealFocus:true,measurements};
     await fs.writeFile(path.join(cwd,'tabs-results.json'),JSON.stringify(result,null,2)+'\n');return result;
   }finally{await page.close();await new Promise(r=>server.close(r));}
 }

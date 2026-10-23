@@ -16,7 +16,8 @@
         "Select",
         "Checkbox",
         "Radio",
-        "Toggle"
+        "Toggle",
+        "Tabs"
       ]
     },
     "api": {
@@ -43,7 +44,8 @@
             "button",
             "input",
             "select",
-            "fieldset"
+            "fieldset",
+            "div"
           ]
         }
       },

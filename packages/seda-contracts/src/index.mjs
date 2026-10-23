@@ -30,6 +30,7 @@ const requiredChecks = {
   Checkbox: [['text-content', 'label'], ['checked-value'], ['error-message']],
   Radio: [['text-content', 'label'], ['selection-value'], ['error-message']],
   Toggle: [['text-content', 'label'], ['checked-value'], ['aria-disabled-activation']],
+  Tabs: [['text-content', 'label'], ['tabs-items'], ['tabs-selection']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {
@@ -235,7 +236,13 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     const effective = { ...props, ...checked.appliedDefaults };
     const branch = contract.tokenBranches[effective.variant ?? 'default'];
     if (!branch) throw new ContractValidationError([issue('TOKEN_BRANCH_MISSING', '/variant', String(effective.variant))]);
-    return { component: name, geometry: controlGeometry(effective.size, theme), props: effective, state: checked.state, checks: checked.checks, tokenBranch: resolver.resolveBranch(branch, { theme }) };
+    const requirements = contract.tokenRequirements[effective.variant ?? 'default'];
+    if (!requirements?.length) throw new ContractValidationError([issue('TOKEN_REQUIREMENTS_MISSING', '/tokenRequirements', String(effective.variant))]);
+    for (const suffix of requirements) {
+      try { resolver.resolve({ collection: branch.collection, path: [...branch.path, ...suffix], expectedType: 'color' }, {theme}); }
+      catch (error) { throw new ContractValidationError([issue(error.code ?? 'TOKEN_INVALID', `/contracts/${name}/tokenRequirements/${effective.variant ?? 'default'}/${suffix.join('/')}`, error.message)]); }
+    }
+    return { component: name, geometry: controlGeometry(effective.size, theme), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), runtimeConformance: 'not-checked' };
   }
 
   function compile(profile = bundle.profile, { overrides = {}, formState = createFormState() } = {}) {
@@ -260,7 +267,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const auxiliaryTokens = contract.tokenBranches.focus ? { focus: resolver.resolveBranch(contract.tokenBranches.focus, { theme }) } : {};
       instances[role] = { component: recipe.component, props, state: checked.state, tokenBranch: resolver.resolveBranch(branch, { theme }), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    const controls = Object.fromEntries(bundle.contracts.filter(c => !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }) }]));
+    const controls = Object.fromEntries(bundle.contracts.filter(c => c.id === 'Tabs' || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }) }]));
     return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), geometry, typography: { family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }
 

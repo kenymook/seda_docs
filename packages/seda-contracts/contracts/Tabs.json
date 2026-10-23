@@ -1,0 +1,547 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Tabs",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Tabs/Tabs.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Tabs/Tabs.tsx",
+    "export": "TabsProps",
+    "nativeElement": "div"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "div",
+      "required": true
+    },
+    {
+      "name": "tablist",
+      "element": "div",
+      "prop": "label",
+      "required": true
+    },
+    {
+      "name": "items",
+      "element": "button",
+      "prop": "items",
+      "required": true
+    },
+    {
+      "name": "panels",
+      "element": "div",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "variant": "line",
+    "activationMode": "automatic"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [
+    "line",
+    "pill"
+  ],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "tabs"
+      ]
+    },
+    "line": {
+      "collection": "components",
+      "path": [
+        "tabs"
+      ]
+    },
+    "pill": {
+      "collection": "components",
+      "path": [
+        "tabs"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "A nonempty tablist label is required.",
+      "check": "text-content",
+      "layer": "instance",
+      "decision": "D27",
+      "prop": "label"
+    },
+    {
+      "id": "items",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Items have unique nonempty values and text labels plus a content field; empty lists are supported.",
+      "check": "tabs-items",
+      "layer": "instance",
+      "decision": "D27"
+    },
+    {
+      "id": "selection",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Controlled and default selection are mutually exclusive; unknown/disabled values fall back to the first enabled item.",
+      "check": "tabs-selection",
+      "layer": "instance",
+      "decision": "D27"
+    },
+    {
+      "id": "keyboard",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Arrows, Home/End, manual Enter/Space, wrap, disabled skip and RTL agree with activation mode.",
+      "check": "tabs-keyboard",
+      "layer": "browser",
+      "decision": "D27"
+    },
+    {
+      "id": "panels",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Unique tab/panel IDs are reciprocal; one enabled panel is visible, mounted drafts survive switches, zero for empty/all-disabled.",
+      "check": "tabs-panels",
+      "layer": "browser",
+      "decision": "D27"
+    },
+    {
+      "id": "focus-repair",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Removal/disable repairs tablist focus; re-entry returns to selected tab; theme/profile changes do not steal external focus.",
+      "check": "tabs-focus-repair",
+      "layer": "browser",
+      "decision": "D27"
+    },
+    {
+      "id": "focus",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "A single visible focus ring uses tabs/focus/ring and survives horizontal scrolling.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D27"
+    },
+    {
+      "id": "geometry",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Height/font follow the compiled profile and long labels use horizontal overflow.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D27"
+    },
+    {
+      "id": "tokens",
+      "source": "specs/navigation/tabs.md",
+      "condition": "Supported horizontal Tabs API",
+      "expected": "Light/Dark line/pill states use authored tabs leaves with provenance.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D27"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "platform-assistive-technology",
+      "status": "not-checked",
+      "reason": "Chromium consumer evidence does not establish screen readers, other engines or native desktop runtimes."
+    },
+    {
+      "id": "vertical-close-reorder-lazy",
+      "status": "decision-needed",
+      "reason": "Current horizontal API keeps panels mounted; vertical orientation, closing, reordering and lazy unmount are outside this contract."
+    }
+  ],
+  "evidence": {
+    "source": "specs/navigation/tabs.md",
+    "baseline": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "foreground",
+        "active"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "hover"
+      ],
+      [
+        "indicator",
+        "hover"
+      ],
+      [
+        "indicator",
+        "selected"
+      ],
+      [
+        "item",
+        "icon",
+        "active"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "hover"
+      ],
+      [
+        "item",
+        "icon",
+        "selected"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "list",
+        "surface"
+      ],
+      [
+        "pill",
+        "border",
+        "active"
+      ],
+      [
+        "pill",
+        "border",
+        "default"
+      ],
+      [
+        "pill",
+        "border",
+        "disabled"
+      ],
+      [
+        "pill",
+        "border",
+        "hover"
+      ],
+      [
+        "pill",
+        "border",
+        "selected"
+      ],
+      [
+        "pill",
+        "foreground",
+        "active"
+      ],
+      [
+        "pill",
+        "foreground",
+        "default"
+      ],
+      [
+        "pill",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "pill",
+        "foreground",
+        "hover"
+      ],
+      [
+        "pill",
+        "foreground",
+        "selected"
+      ],
+      [
+        "pill",
+        "icon",
+        "active"
+      ],
+      [
+        "pill",
+        "icon",
+        "default"
+      ],
+      [
+        "pill",
+        "icon",
+        "disabled"
+      ],
+      [
+        "pill",
+        "icon",
+        "hover"
+      ],
+      [
+        "pill",
+        "icon",
+        "selected"
+      ],
+      [
+        "pill",
+        "surface",
+        "active"
+      ],
+      [
+        "pill",
+        "surface",
+        "default"
+      ],
+      [
+        "pill",
+        "surface",
+        "disabled"
+      ],
+      [
+        "pill",
+        "surface",
+        "hover"
+      ],
+      [
+        "pill",
+        "surface",
+        "selected"
+      ]
+    ],
+    "line": [
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "foreground",
+        "active"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "hover"
+      ],
+      [
+        "indicator",
+        "hover"
+      ],
+      [
+        "indicator",
+        "selected"
+      ],
+      [
+        "item",
+        "icon",
+        "active"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "hover"
+      ],
+      [
+        "item",
+        "icon",
+        "selected"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "list",
+        "surface"
+      ]
+    ],
+    "pill": [
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "list",
+        "surface"
+      ],
+      [
+        "pill",
+        "border",
+        "active"
+      ],
+      [
+        "pill",
+        "border",
+        "default"
+      ],
+      [
+        "pill",
+        "border",
+        "disabled"
+      ],
+      [
+        "pill",
+        "border",
+        "hover"
+      ],
+      [
+        "pill",
+        "border",
+        "selected"
+      ],
+      [
+        "pill",
+        "foreground",
+        "active"
+      ],
+      [
+        "pill",
+        "foreground",
+        "default"
+      ],
+      [
+        "pill",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "pill",
+        "foreground",
+        "hover"
+      ],
+      [
+        "pill",
+        "foreground",
+        "selected"
+      ],
+      [
+        "pill",
+        "icon",
+        "active"
+      ],
+      [
+        "pill",
+        "icon",
+        "default"
+      ],
+      [
+        "pill",
+        "icon",
+        "disabled"
+      ],
+      [
+        "pill",
+        "icon",
+        "hover"
+      ],
+      [
+        "pill",
+        "icon",
+        "selected"
+      ],
+      [
+        "pill",
+        "surface",
+        "active"
+      ],
+      [
+        "pill",
+        "surface",
+        "default"
+      ],
+      [
+        "pill",
+        "surface",
+        "disabled"
+      ],
+      [
+        "pill",
+        "surface",
+        "hover"
+      ],
+      [
+        "pill",
+        "surface",
+        "selected"
+      ]
+    ]
+  }
+}
+

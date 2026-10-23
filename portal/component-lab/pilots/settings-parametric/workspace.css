@@ -554,3 +554,6 @@ body.dark .form-section-heading span {
 [data-workspace] .seda-choice__control:disabled:is(:checked,:indeterminate)::after { background: var(--seda-checkbox-control-icon-disabled); }
 /* TextField already owns its label margin; avoid adding the shared grid gap twice. */
 [data-workspace] .seda-field--text { gap: 0; }
+
+/* Composition spacing belongs to the settings content, not to Tabs token overrides. */
+.workspace-settings-panel { padding-block-start: 24px; }

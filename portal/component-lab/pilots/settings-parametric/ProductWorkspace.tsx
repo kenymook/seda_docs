@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   Button,
   TextField,
 } from "@seda-ai/ui";
 
-import { Select, Checkbox, Radio, Toggle } from "./contract-controls";
+import { Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
 
 type Props = {
   size: "s" | "m" | "l" | "xl";
@@ -21,6 +21,8 @@ const teams = [
 /** Stateful product composition. Demo data stays in memory; no network invitation is sent. */
 export function ProductWorkspace({ size, action, children }: Props) {
   const [page, setPage] = useState("projects");
+  const [settingsTab, setSettingsTab] = useState("general");
+  const invalidFocus = useRef<string | null>(null);
   const [settings, setSettings] = useState({
     name: "Atlas Platform",
     email: "owner@atlas.example",
@@ -36,6 +38,12 @@ export function ProductWorkspace({ size, action, children }: Props) {
   const [saved, setSaved] = useState(settings);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [notice, setNotice] = useState("");
+  useLayoutEffect(() => {
+    if (invalidFocus.current) {
+      document.getElementById(invalidFocus.current)?.focus();
+      invalidFocus.current = null;
+    }
+  }, [errors]);
   const update = (key: keyof typeof settings, value: string | boolean) =>
     setSettings((s) => ({ ...s, [key]: value }));
   const [members, setMembers] = useState([
@@ -100,7 +108,8 @@ export function ProductWorkspace({ size, action, children }: Props) {
     if (!settings.date) next.date = "Укажите дату запуска";
     setErrors(next);
     if (Object.keys(next).length) {
-      document.getElementById("workspace-" + Object.keys(next)[0])?.focus();
+      invalidFocus.current = "workspace-" + Object.keys(next)[0];
+      setSettingsTab("general");
       setNotice("Проверьте поля формы");
       return;
     }
@@ -164,89 +173,103 @@ export function ProductWorkspace({ size, action, children }: Props) {
           noValidate
           onSubmit={saveSettings}
         >
-          <div className="form-section-heading">
-            <h2>Основная информация</h2>
-            <span>Текст · email · URL · число · дата · Select</span>
-          </div>
-          <div className="workspace-form-grid">
-            {field("name", "Название пространства", "text", { required: true })}
-            {field("email", "Контактный email", "email", { required: true })}
-            {field("url", "Адрес проекта", "url", {
-              helperText: "Только HTTPS",
-            })}
-            {field("budget", "Месячный бюджет", "number", {
-              min: 0,
-              suffix: <span>₽</span>,
-            })}
-            {field("date", "Дата запуска", "date")}
-            <Select
-              className="workspace-select"
-              id="workspace-team"
-              size={size}
-              label="Основная команда"
-              value={settings.team}
-              options={teams}
-              onValueChange={(v) => update("team", String(v))}
-            />
-            <Select
-              className="workspace-select"
-              id="workspace-region"
-              size={size}
-              label="Регион данных"
-              value={settings.region}
-              options={[
-                { value: "eu", label: "Европа" },
-                { value: "us", label: "Северная Америка" },
-                { value: "ap", label: "Азия и Океания" },
-              ]}
-              onValueChange={(v) => update("region", String(v))}
-            />
-            <TextField
-              id="workspace-id"
-              label="Идентификатор"
-              size={size}
-              value="atlas-workspace-01"
-              disabled
-              helperText="Назначается системой"
-            />
-          </div>
-          <div className="form-section-heading">
-            <h2>Доступ и уведомления</h2>
-            <span>Radio · Toggle · Checkbox</span>
-          </div>
-          <div className="workspace-form-grid">
-            <Radio
-              className="workspace-radio"
-              size={size}
-              name="workspace-visibility"
-              label="Доступ к проектам"
-              value={settings.visibility}
-              onValueChange={(v) => update("visibility", v)}
-              options={[
-                { value: "private", label: "Только участники" },
-                { value: "team", label: "Вся команда" },
-              ]}
-            />
-            <div className="workspace-preferences">
-              <Toggle
-                className="workspace-toggle"
-                id="workspace-notifications"
-                label="Уведомления о событиях"
-                size={size}
-                checked={settings.notifications}
-                onCheckedChange={(v) => update("notifications", v)}
-              />
-              <Checkbox
-                className="workspace-checkbox"
-                id="workspace-digest"
-                size={size}
-                label="Еженедельный отчёт по email"
-                checked={settings.digest}
-                disabled={!settings.notifications}
-                onCheckedChange={(v) => update("digest", v)}
-              />
-            </div>
-          </div>
+          <Tabs
+            id="settings-tabs"
+            label="Разделы настроек пространства"
+            size={size}
+            variant="line"
+            value={settingsTab}
+            onValueChange={setSettingsTab}
+            items={[
+              { value: "general", label: "Основные параметры", content: <div className="workspace-settings-panel">
+                  <div className="form-section-heading">
+                    <h2>Основная информация</h2>
+                    <span>Текст · email · URL · число · дата · Select</span>
+                  </div>
+                  <div className="workspace-form-grid">
+                    {field("name", "Название пространства", "text", { required: true })}
+                    {field("email", "Контактный email", "email", { required: true })}
+                    {field("url", "Адрес проекта", "url", {
+                      helperText: "Только HTTPS",
+                    })}
+                    {field("budget", "Месячный бюджет", "number", {
+                      min: 0,
+                      suffix: <span>₽</span>,
+                    })}
+                    {field("date", "Дата запуска", "date")}
+                    <Select
+                      className="workspace-select"
+                      id="workspace-team"
+                      size={size}
+                      label="Основная команда"
+                      value={settings.team}
+                      options={teams}
+                      onValueChange={(v) => update("team", String(v))}
+                    />
+                    <Select
+                      className="workspace-select"
+                      id="workspace-region"
+                      size={size}
+                      label="Регион данных"
+                      value={settings.region}
+                      options={[
+                        { value: "eu", label: "Европа" },
+                        { value: "us", label: "Северная Америка" },
+                        { value: "ap", label: "Азия и Океания" },
+                      ]}
+                      onValueChange={(v) => update("region", String(v))}
+                    />
+                    <TextField
+                      id="workspace-id"
+                      label="Идентификатор"
+                      size={size}
+                      value="atlas-workspace-01"
+                      disabled
+                      helperText="Назначается системой"
+                    />
+                  </div>
+              </div> },
+              { value: "access", label: "Доступ и уведомления", content: <div className="workspace-settings-panel">
+                  <div className="form-section-heading">
+                    <h2>Доступ и уведомления</h2>
+                    <span>Radio · Toggle · Checkbox</span>
+                  </div>
+                  <div className="workspace-form-grid">
+                    <Radio
+                      className="workspace-radio"
+                      size={size}
+                      name="workspace-visibility"
+                      label="Доступ к проектам"
+                      value={settings.visibility}
+                      onValueChange={(v) => update("visibility", v)}
+                      options={[
+                        { value: "private", label: "Только участники" },
+                        { value: "team", label: "Вся команда" },
+                      ]}
+                    />
+                    <div className="workspace-preferences">
+                      <Toggle
+                        className="workspace-toggle"
+                        id="workspace-notifications"
+                        label="Уведомления о событиях"
+                        size={size}
+                        checked={settings.notifications}
+                        onCheckedChange={(v) => update("notifications", v)}
+                      />
+                      <Checkbox
+                        className="workspace-checkbox"
+                        id="workspace-digest"
+                        size={size}
+                        label="Еженедельный отчёт по email"
+                        checked={settings.digest}
+                        disabled={!settings.notifications}
+                        onCheckedChange={(v) => update("digest", v)}
+                      />
+                    </div>
+                  </div>
+              </div> },
+            ]}
+          />
           <div className="workspace-form-footer">
             <div className="actions">
               <Button

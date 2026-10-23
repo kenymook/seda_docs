@@ -1,7 +1,7 @@
 import { componentNames } from './registry.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
-const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value']);
+const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -21,7 +21,8 @@ export function deriveState(component, props, interaction = {}) {
   for (const [key, value] of Object.entries(interaction)) {
     if (!['hovered', 'focused', 'active'].includes(key) || typeof value !== 'boolean') throw new TypeError(`Unknown interaction fact: ${key}`);
   }
-  const disabled = props.disabled === true;
+  const tabs = component === 'Tabs' ? deriveTabsSelection(props) : undefined;
+  const disabled = tabs ? tabs.value === null : props.disabled === true;
   const loading = props.loading === true;
   const error = ['TextField','Select','Checkbox','Radio'].includes(component) && content(props.errorText) !== 'empty';
   const focused = interaction.focused ?? false;
@@ -32,10 +33,21 @@ export function deriveState(component, props, interaction = {}) {
     activity: loading ? 'loading' : 'idle',
     validation: disabled ? 'none' : error ? 'error' : 'none',
     interaction: { hovered, focused, active },
-    data: ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (['TextField','Select','Checkbox','Radio','Toggle'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (['TextField','Select','Checkbox','Radio','Toggle','Tabs'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
+    ...(tabs ? { tabs } : {}),
   };
+}
+
+/** Authored selection snapshot; internal uncontrolled state/focus still needs browser evidence. */
+function deriveTabsSelection(props) {
+  const items = Array.isArray(props.items) ? props.items : [];
+  const enabled = items.filter(item => item && !item.disabled);
+  const requestedValue = props.value ?? props.defaultValue ?? null;
+  const value = enabled.some(item => item.value === requestedValue) ? requestedValue : enabled[0]?.value ?? null;
+  return { requestedValue, value, controlled: props.value !== undefined, activationMode: props.activationMode ?? 'automatic',
+    items: items.map(item => ({ value: item?.value, state: item?.disabled ? 'disabled' : item?.value === value ? 'selected' : 'default' })) };
 }
 
 /** Target ARIA composition; the existing TextField adapter is audited separately. */
@@ -86,6 +98,15 @@ export function evaluateRules(contract, props) {
       case 'checked-value':
         if (props.checked !== undefined && props.defaultChecked !== undefined) violate('checked and defaultChecked are mutually exclusive.');
         if (props.checked !== undefined && !props.onCheckedChange && !props.onChange && !props.readOnly) violate('Controlled checked requires a change handler or readOnly.');
+        break;
+      case 'tabs-items': {
+        const items = props.items;
+        if (!Array.isArray(items) || items.some(item => !item || typeof item !== 'object' || Array.isArray(item) || typeof item.value !== 'string' || !item.value.trim() || typeof item.label !== 'string' || !item.label.trim() || !own(item, 'content')) || new Set(items.map(item => item.value)).size !== items.length)
+          violate('Tabs items require unique nonempty string values/labels and a content field; an empty list is supported.');
+        break;
+      }
+      case 'tabs-selection':
+        if (props.value !== undefined && props.defaultValue !== undefined) violate('Tabs value and defaultValue are mutually exclusive.');
         break;
       case 'controlled-value':
         if (typeof props.value !== 'string' || !props.onChange || own(props, 'defaultValue')) violate('The pilot field requires value:string and onChange, without defaultValue.');

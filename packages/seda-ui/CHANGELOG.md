@@ -1,6 +1,13 @@
 # Изменения @seda-ai/ui
 
-## Unreleased — навигация рабочих панелей
+## Unreleased — общий контракт навигации
+
+- Tabs подключён к registry/API inspector/common compiler с items/selection checks, default/selected/disabled snapshots и обязательными token roles. Смешанные value/defaultValue отклоняются.
+- Вложенные opaque $slot/$handler bindings проверяются TypeScript внутри полного property; неверный тип/descriptor не проходит как valid.
+- Browser-safe Tabs binding связывает compiler geometry/colors/provenance; SSR/hydration consumer сверяет rendered item states с compiler.
+- Общие Tabs styles вынесены в navigation.css, включённый в публичный styles.css. Отдельный CSS import пользователю пакета не нужен.
+
+## Ранее — навигация рабочих панелей
 
 - Добавлен experimental Tabs: line/pill, inherited size, controlled/uncontrolled selection, manual/automatic activation, RTL arrows, disabled skip, Home/End и focus repair при изменении items.
 - Panels остаются mounted; hidden сохраняет локальный draft. Empty/all-disabled list имеет ноль доступных tabs. Нет lazy/unmount/close/vertical API.

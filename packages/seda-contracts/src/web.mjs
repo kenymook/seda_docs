@@ -94,13 +94,26 @@ function writer() {
   };
 }
 
-function colors(target, node, prefix, at) {
+function colors(target, node, prefix, at, namespace = '--seda-') {
   if (!object(node)) fail(at, 'Expected a resolved color branch.');
   for (const [key, value] of Object.entries(node)) {
     const parts = [...prefix, key];
-    if (object(value) && own(value, 'value')) target.add(`--seda-${parts.join('-')}`, value, `${at}/${key}`, 'color');
-    else colors(target, value, parts, `${at}/${key}`);
+    if (object(value) && own(value, 'value')) target.add(`${namespace}${parts.join('-')}`, value, `${at}/${key}`, 'color');
+    else colors(target, value, parts, `${at}/${key}`, namespace);
   }
+}
+
+/** Navigation binding consumes validated compiler data, never reads tokens in the browser. */
+export function createTabsWebBindings(control) {
+  const at = '/controls/Tabs';
+  if (control?.component !== 'Tabs' || !object(control.geometry) || !Array.isArray(control.tokenRequirements) || !control.tokenRequirements.length) fail(at, 'Expected compiled Tabs contract, geometry and required roles.');
+  const target = writer();
+  requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
+  colors(target, control.tokenBranch.children, ['tabs'], `${at}/tokenBranch`, '--');
+  for (const [key, variable] of Object.entries({ height: 'height', radius: 'radius', fontSize: 'font-size', lineHeight: 'line-height', iconSize: 'icon-size', borderWidth: 'border-width', textFieldPaddingInline: 'field-padding', textFieldAffixGap: 'gap' })) {
+    target.add(`--seda-preset-${variable}`, px(control.geometry[key], `${at}/geometry/${key}`, { positive: ['height','fontSize','lineHeight','iconSize'].includes(key) }), `${at}/geometry/${key}`);
+  }
+  return { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } };
 }
 
 function requiredColors(branch, paths, at) {
@@ -188,7 +201,7 @@ export function createWebBindings(compiled) {
       evidence: target.evidence,
     };
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: createControlWebBindings(compiled) };
+  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Tabs: createTabsWebBindings(compiled.controls?.Tabs) } };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

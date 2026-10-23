@@ -2799,7 +2799,9 @@
           "../../../../packages/seda-ui/src/components/Toast/index.ts",
           "../../../../packages/seda-ui/src/components/FileUpload/FileUpload.tsx",
           "../../../../packages/seda-ui/src/components/FileUpload/FileUpload.types.ts",
-          "../../../../packages/seda-ui/src/components/FileUpload/index.ts"
+          "../../../../packages/seda-ui/src/components/FileUpload/index.ts",
+          "../../../../packages/seda-ui/src/components/Tabs/Tabs.tsx",
+          "../../../../packages/seda-ui/src/components/Tabs/index.ts"
         ]
       }
     }
