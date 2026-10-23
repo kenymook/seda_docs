@@ -4,7 +4,7 @@
 
 ### Промежуточная реализация engine и UI, 24 октября
 
-Добавлены reference-domain `spline-model.ts` и отдельный Three.js renderer `spline-renderer.ts`. Подключены entry point `/references/spline.html?context=scene` / `?context=object`, installed SEDA chrome, инспектор и общая сцена. Это ещё не полная реализация исходных экранов: mesh artwork, gizmo и часть редакторских механизмов остаются открытыми. Состояние публикации фиксируется отдельным release report.
+Добавлены reference-domain `spline-model.ts` и отдельный Three.js renderer `spline-renderer.ts`. Подключены entry point `/references/spline.html?context=scene` / `?context=object`, installed SEDA chrome, инспектор и общая сцена. Это ещё не полная реализация исходных экранов: mesh artwork и часть редакторских механизмов остаются открытыми; текущий кандидат уже содержит настоящий pointer gizmo. Состояние публикации фиксируется отдельным release report.
 
 Модель хранит9 объектов, transform/material/visibility/lock, scene background/grid/fog. История хранит только документ, не камеру/выбор/tab. Строгий импорт отклоняет неизвестные поля, duplicate IDs, неверные XYZ/material/shape; числовые drafts проверяются до применения. Локальный save coordinator фиксирует captured snapshot, блокирует повторный begin и игнорирует завершения отменённых запросов. Source position carabiner проверен по node1:5688/5693/5698:109.33/534.92/−0.33. Остальные меши/камера/размещения — явно реконструкция.
 
@@ -52,7 +52,7 @@ Material list содержит9 source names: green dark team, violet dark team,
 ### Открытые различия с исходником
 
 - Процедурные meshes, camera, floor и material shaders приближённые; исходная scene/GLB не предоставлена. Прямое сравнение показывает заметное отличие форм, бликов и поверхности; artwork PASS не заявлен.
-- Вместо source gizmo пока BoxHelper и реальные XYZ поля/клавиатурные шаги. Pointer transform gizmo ещё не подключён.
+- Подключён настоящий Three TransformControls Move/Rotate/Scale с pointer hit testing и keyboard alternative через XYZ. Визуальное совпадение самого gizmo с source не принято.
 - States/Events/Modifiers/Collision/Variables, импорт image/media/audio assets, libraries, timeline и collaboration не реализованы. Секции содержат явное ограничение, без поддельных переключателей состояния. AI composer не вызывает provider.
 - Scene inspector сокращён до реальных background/grid/fog и списка материалов; source lighting/play camera/simulation/fog stack не воспроизведён полностью.
 - Source glyphs/Material previews сохранены, остальные кнопки/поля используют canonical SEDA. Размеры панелей адаптируются к реальным intrinsic размерам контролов; при нехватке ширины inspector расположен ниже viewport. Это не точная копия всех source chrome.
@@ -65,3 +65,15 @@ Material list содержит9 source names: green dark team, violet dark team,
 Production повторил10 UI groups с24 вложенными profile samples, source hashes607 совпали с canonical checkout, JS errors0; Save loading delta0px. [Live report](../../portal/component-lab/pilots/settings-parametric/verification/spline-live-v22.json). Publication checkout также повторил163 application browser groups,5 isolated renderer groups и35 model groups после трёх TypeScript проверок/build. Отдельный CI [40036645511](https://github.com/kenymook/seda_docs/actions/runs/40036645511), job120697656427 для exact functional commit завершился success:120 contract/foundation tests,25 package groups React18/19, та же browser/model матрица, TypeScript/build. [CI evidence](../../portal/component-lab/pilots/settings-parametric/verification/spline-v22-ci.json).
 
 Эти результаты подтверждают опубликованный checkpoint и перечисленные сценарии. Они не закрывают различия с исходником, pointer gizmo, оставшиеся3 reference screens или полную цель четырёх классов приложений. Последующие reports-only commits не переобозначаются как проверенные этим CI.
+
+## Pointer gizmo — текущий кандидат
+
+Используется реальный TransformControls с явным ownership DOM capture. Один gesture transaction хранит отдельный preview, не мутирует history/save document и применяется одним commit на отпускании указателя. Document signature/selection ownership проверяются перед завершением; отмена при Escape/pointercancel/lost capture/blur/resize/context loss/unmount не создаёт запись истории. Числовые drafts, readonly/locked/hidden, modal и preview не позволяют начать pointer edit. Wheel и второй pointer во время жеста не управляют камерой.
+
+Найден и исправлен resize→pointerup race: одного ResizeObserver недостаточно. Проверяются захваченные canvas rect и viewport/DPR синхронно на move/up. Новый тест подтверждает rollback и при быстрых resize/up.
+
+Усиленный WebGL recovery тест обнаружил потерю отражений: старый draw-call-only check проходил, хотя PMREM render target утрачивал содержимое. Environment теперь регенерируется после context restore. Изображение до/после восстановления совпадает в проверенном Chromium; это не сертификация всех GPU/driver combinations.
+
+Локально: [9 model groups](../../portal/component-lab/pilots/settings-parametric/verification/spline-gizmo-model.json), [5 renderer groups с appearance recovery](../../portal/component-lab/pilots/settings-parametric/verification/spline-gizmo-renderer.json),10 существующих UI groups и [11 pointer integration groups](../../portal/component-lab/pilots/settings-parametric/verification/spline-gizmo-ui.json). Pointer matrix содержит16 вложенных комбинаций Light/Dark × S/M/L/XL ×1024/1440 с text150%/X24/Y12; это не16 отдельных workflows. Blur/pointercancel fixtures синтетические и не объявляются OS/hardware/AT acceptance.
+
+Манипулятор и3D math принадлежат reference app, не новому SEDA component contract; все его DOM controls остаются installed SEDA. Точная mesh/material/camera реконструкция, scene inspector parity, States/Events/Modifiers/Collision/Variables/import/collaboration/AI и общая visual/AT/performance приёмка остаются открытыми. Version22 выше — исторический checkpoint; публикация этого кандидата будет записана отдельно.

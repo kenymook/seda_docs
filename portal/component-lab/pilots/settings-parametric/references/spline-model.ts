@@ -53,6 +53,15 @@ export function transformAxis(document:SplineDocument,id:string,kind:'position'|
  const vector:Vector3=[...object[kind]];vector[axis]=value;return updateObject(document,id,{[kind]:vector});
 }
 export function updateScene(document:SplineDocument,change:Partial<Pick<SplineDocument,'background'|'grid'|'fog'>>){const next={...document,...change};validateDocument(next);return next;}
+export type ObjectTransform=Pick<SceneObject,'position'|'rotation'|'scale'>;
+/** One owned pointer transaction. Preview is never a committed document or a save snapshot. */
+export class SplineTransformGesture {
+ private readonly base:SplineDocument;private readonly signature:string;private preview:SplineDocument;private closed=false;
+ constructor(document:SplineDocument,readonly id:string){validateDocument(document);const object=document.objects.find(item=>item.id===id);if(!object||!object.visible||object.locked)throw Error('Объект недоступен для манипуляции');this.base=copy(document);this.preview=copy(document);this.signature=serializeDocument(document);}
+ update(transform:ObjectTransform){if(this.closed)throw Error('Жест уже завершён');record(transform);keys(transform,['position','rotation','scale']);const next=updateObject(this.base,this.id,transform);this.preview=next;return copy(next);}
+ finish(current:SplineDocument){if(this.closed)throw Error('Жест уже завершён');this.closed=true;if(serializeDocument(current)!==this.signature)throw Error('Документ изменился во время жеста');return copy(this.preview);}
+ cancel(){this.closed=true;}
+}
 export class SplineHistory {
  private past:SplineDocument[]=[]; private future:SplineDocument[]=[];private current:SplineDocument;
  constructor(document:SplineDocument){validateDocument(document);this.current=copy(document);}

@@ -82,3 +82,10 @@ Production version13: просмотрен [устойчивый Dark editor с 
 Другой дефект принадлежал reference layout: фиксированный230px inspector не вмещал intrinsic Delete button при text150% и X24/Y12. Кнопка не уменьшена и не обрезана: host рассчитывает minimum inspector по derived font/padding, затем переводит внутренний SplitView в вертикальный режим при нехватке ширины. Материалы используют общий Tree вместо кнопок с чрезмерной intrinsic шириной. При обычном S100% сохранены source sidebar320 / viewport x336,y55,width858,height1217 / inspector230 на1440×1288; точный screenshot artwork отличается и визуальная приёмка остаётся открытой.
 
 Список открытых механизмов и source отличий находится в REFERENCE-SPLINE-HANDOFF.md.10 UI groups /5 renderer groups /7 model groups имеют отдельный scope;24 profile samples не считаются независимыми пользовательскими сценариями.
+
+
+## Spline — gesture transaction и настоящая WebGL recovery
+
+Pointer drag связывает TransformControls/preview/inspector/authoritative document через отдельный transaction, один undo entry и guarded finish. Тест сравнивает сцену после undo с исходной без selection/gizmo overlays, а не сравнивает разные hover states. Найденный resize→pointerup race закрыт синхронной сверкой rect/viewport/DPR; Observer-only cancellation была недостаточной.
+
+Appearance recovery отдельно от draw calls: потеря PMREM render target делала серебро чёрным после context restore. Теперь environment создаётся заново, pixel identity до/после восстановлена на проверенном browser/GPU fixture. Старое5/5 renderer evidence version22 имело более узкий scope и не переобозначается как проверка appearance. Pointer tests отдельно маркируют синтетические blur/cancel события и16 profile samples. Полная source/OS/AT/performance приёмка открыта.

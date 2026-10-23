@@ -72,5 +72,6 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-typography/*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-spline/*.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-spline/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-spline-manipulator/*.png
             packages/seda-ui/.diagnostics-package/*/react-*/typography-results.json
             packages/seda-ui/.diagnostics-package/*/react-*/typography-*.png

@@ -9,3 +9,5 @@ playwright-report/
 
 .diagnostics-controls/
 .diagnostics-spline/
+
+.diagnostics-spline-manipulator/
