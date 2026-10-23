@@ -3,7 +3,13 @@ import { Button, IconButton, TextField } from "@seda-ai/ui";
 import { createWebBindings } from "../../../../packages/seda-contracts/src/web.mjs";
 
 /** Real components for conditions outside the main form; mounted only in ?review=1. */
-export function ReviewFixtures({ compiled }: { compiled: any }) {
+export function ReviewFixtures({
+  compiled,
+  actionVars,
+}: {
+  compiled: any;
+  actionVars?: React.CSSProperties;
+}) {
   const [label, setLabel] = useState("Сохранить");
   const [loading, setLoading] = useState(false);
   const [activations, setActivations] = useState(0);
@@ -61,7 +67,7 @@ export function ReviewFixtures({ compiled }: { compiled: any }) {
           <Button
             key={slots}
             {...action.attributes}
-            style={action.vars as React.CSSProperties}
+            style={actionVars ?? (action.vars as React.CSSProperties)}
             id={`review-button-${slots}`}
             size={compiled.configuration.controlSize}
             variant="primary"

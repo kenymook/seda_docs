@@ -49,6 +49,7 @@ function App() {
   const [parameters, setParameters] = useState({
     scale: 100,
     air: 0,
+    airX: 0,
     radius: 100,
     strict: true,
   });
@@ -102,6 +103,9 @@ function App() {
   );
   const fieldRef = useRef<HTMLInputElement>(null);
   const pendingHeightRef = useRef<number | null>(null);
+  const pendingPaddingRef = useRef<{ value: number; airX: number } | null>(
+    null,
+  );
   const compiled =
     replacement ??
     profiles[`${configuration.theme}:${configuration.controlSize}`];
@@ -113,6 +117,19 @@ function App() {
     "--seda-control-font-size": d.font + "px",
     "--seda-control-line-height": d.line + "px",
   };
+  const geometryFor = (role: string, preserveRequest = false) => ({
+    ...geometryVars,
+    ...(compiled.instances[role].component === "IconButton"
+      ? {}
+      : {
+          "--seda-control-padding-inline":
+            (compiled.instances[role].component === "TextField"
+              ? d.fieldPaddingX
+              : preserveRequest && form.saving
+                ? (pendingPaddingRef.current?.value ?? d.buttonPaddingX)
+                : d.buttonPaddingX) + "px",
+        }),
+  });
   const bindings = {
     ...baseBindings,
     recipes: Object.fromEntries(
@@ -120,11 +137,11 @@ function App() {
         role,
         {
           ...b,
-          vars: { ...b.vars, ...geometryVars },
+          vars: { ...b.vars, ...geometryFor(role, role === "save") },
           evidence: b.evidence.map((item) => {
-            const calculated = (geometryVars as Record<string, string>)[
-              item.property
-            ];
+            const calculated = (
+              geometryFor(role, role === "save") as Record<string, string>
+            )[item.property];
             return calculated
               ? {
                   ...item,
@@ -132,7 +149,17 @@ function App() {
                   cssValue: calculated,
                   derivation: {
                     source: "lab-model.mjs#derive",
-                    parameters,
+                    parameters:
+                      role === "save" &&
+                      form.saving &&
+                      item.property === "--seda-control-padding-inline"
+                        ? {
+                            ...parameters,
+                            airX:
+                              pendingPaddingRef.current?.airX ??
+                              parameters.airX,
+                          }
+                        : parameters,
                     inputs: compiled.geometry,
                   },
                 }
@@ -142,11 +169,11 @@ function App() {
       ]),
     ),
   };
-  const real = (role: string) => ({
+  const real = (role: string, preserveRequest = false) => ({
     ...bindings.recipes[role].attributes,
     style: {
       ...bindings.recipes[role].vars,
-      ...geometryVars,
+      ...geometryFor(role, preserveRequest),
     } as React.CSSProperties,
   });
 
@@ -171,6 +198,10 @@ function App() {
         if (effect.target === "projectName") fieldRef.current?.focus();
       } else if (effect.type === "save") {
         pendingHeightRef.current = d.height;
+        pendingPaddingRef.current = {
+          value: d.buttonPaddingX,
+          airX: parameters.airX,
+        };
         requestsRef.current.push({
           requestId: effect.requestId,
           value: effect.value,
@@ -251,7 +282,7 @@ function App() {
     replacementRef.current = null;
     setReplacement(null);
     setTransportMode("manual");
-    setParameters({ scale: 100, air: 0, radius: 100, strict: true });
+    setParameters({ scale: 100, air: 0, airX: 0, radius: 100, strict: true });
     refreshRequests();
   }
 
@@ -375,6 +406,29 @@ function App() {
         fmt(d.py),
       deps: "compiled geometry + vertical air → padding-y → height",
     },
+    airX: {
+      v:
+        "Button " +
+        fmt(d.buttonPaddingX) +
+        " / TextField " +
+        fmt(d.fieldPaddingX) +
+        " px",
+      desc:
+        "Button: " +
+        d.preset.buttonPaddingX +
+        " + " +
+        parameters.airX +
+        " = " +
+        fmt(d.buttonPaddingX) +
+        " px; TextField: " +
+        d.preset.fieldPaddingX +
+        " + " +
+        parameters.airX +
+        " = " +
+        fmt(d.fieldPaddingX) +
+        " px",
+      deps: "compiled buttonPaddingInline / textFieldPaddingInline + X → padding-inline → Button width / TextField inner space; IconButton → height × height",
+    },
     radius: {
       v: fmt(d.radius) + " px",
       desc:
@@ -436,6 +490,7 @@ function App() {
       calculated: d,
       baseGeometry: compiled.geometry,
       pendingHeight: form.saving ? pendingHeightRef.current : null,
+      pendingPaddingX: form.saving ? pendingPaddingRef.current : null,
       evidence: bindings,
       provenance,
       scope:
@@ -483,6 +538,7 @@ function App() {
                 setParameters({
                   scale: 100,
                   air: 0,
+                  airX: 0,
                   radius: 100,
                   strict: true,
                 });
@@ -586,6 +642,31 @@ function App() {
                 <span>0</span>
                 <span>12px</span>
               </div>
+            </div>
+            <div className="control">
+              <div className="between">
+                <label htmlFor="airX">Дополнительный отступ по X</label>
+                <output id="airXValue">+{parameters.airX} px</output>
+              </div>
+              <input
+                id="airX"
+                type="range"
+                min="0"
+                max="24"
+                step="1"
+                value={parameters.airX}
+                onChange={(e) =>
+                  setParameters((p) => ({ ...p, airX: Number(e.target.value) }))
+                }
+              />
+              <div className="ends">
+                <span>0</span>
+                <span>24px</span>
+              </div>
+              <p className="small">
+                К базовым отступам Button и TextField. IconButton остаётся
+                квадратным.
+              </p>
             </div>
             <div className="control">
               <div className="between">
@@ -814,7 +895,11 @@ function App() {
                     {form.saveError}
                   </div>
                   <div className="actions">
-                    <Button {...propsFor("save")} {...real("save")} id="save" />
+                    <Button
+                      {...propsFor("save")}
+                      {...real("save", true)}
+                      id="save"
+                    />
                     <Button
                       {...propsFor("cancel")}
                       {...real("cancel")}
@@ -949,6 +1034,17 @@ function App() {
               </button>
               <div className="graphsecond">
                 <button
+                  data-node="airX"
+                  className={"node " + (selected === "airX" ? "chosen" : "")}
+                  onClick={() => setSelected("airX")}
+                >
+                  padding-x
+                </button>
+                <span className="edge">→</span>
+                <span className="deps">Button / TextField</span>
+              </div>
+              <div className="graphsecond">
+                <button
                   data-node="air"
                   className={"node " + (selected === "air" ? "chosen" : "")}
                   onClick={() => setSelected("air")}
@@ -1073,9 +1169,7 @@ function App() {
                       )}
                     </code>
                     <span>
-                      {(geometryVars as any)[item.property]
-                        ? "Lab derive ← "
-                        : ""}
+                      {item.derivation ? "Lab derive ← " : ""}
                       {item.path}
                     </span>
                     <small>
@@ -1155,7 +1249,12 @@ function App() {
           </div>
         </form>
       </dialog>
-      {isReview && <ReviewFixtures compiled={compiled} />}
+      {isReview && (
+        <ReviewFixtures
+          compiled={compiled}
+          actionVars={bindings.recipes.save.vars as React.CSSProperties}
+        />
+      )}
     </>
   );
 }

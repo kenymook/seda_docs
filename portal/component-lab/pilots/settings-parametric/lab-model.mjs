@@ -4,7 +4,7 @@
 export const fmt = (n) =>
   Number.isInteger(n) ? String(n) : String(Number(n.toFixed(2)));
 /** @param {{geometry:Record<string,{value:number}>}} compiled
- * @param {{scale:number,air:number,radius:number,strict:boolean}} opts */
+ * @param {{scale:number,air:number,airX?:number,radius:number,strict:boolean}} opts */
 export function derive(compiled, opts) {
   const g = compiled.geometry;
   const p = {
@@ -14,6 +14,8 @@ export function derive(compiled, opts) {
     radius: g.radius.value,
     icon: g.iconSize.value,
     border: g.borderWidth.value,
+    buttonPaddingX: g.buttonPaddingInline.value,
+    fieldPaddingX: g.textFieldPaddingInline.value,
   };
   const line = Math.round((p.line * opts.scale) / 100),
     font = Math.round((p.font * opts.scale) / 100);
@@ -24,6 +26,8 @@ export function derive(compiled, opts) {
   const radius = Math.round(p.radius * opts.radius) / 100;
   return {
     preset: p,
+    buttonPaddingX: p.buttonPaddingX + (opts.airX ?? 0),
+    fieldPaddingX: p.fieldPaddingX + (opts.airX ?? 0),
     line,
     font,
     basePad,
