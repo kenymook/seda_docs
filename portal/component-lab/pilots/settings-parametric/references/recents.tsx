@@ -10,21 +10,13 @@ import {createWorkspaceBindings} from '../workspace-bindings.mjs';
 import {initialFiles,defaults,readFiles,readPreferences,filterFiles,nameError,filesKey,preferencesKey} from './file-model';
 import type {WorkspaceFile,Preferences} from './file-model';
 import './recents.css';
+import {WorkspaceDialog} from './reference-dialog';
 
 const asset=(name:string)=>'./assets/'+name;
 const icon=(name:string,size=16)=><img src={asset(name)} alt="" width={size} height={size}/>;
 const projects=['💡 SDDS 2.0','💎 SDDS Base','🌀 Plasma SD Service (exB2C)','🟢 SDDS Service','🟢 SDDS Insol [deprecated]','🌀 Plasma Infra','🟦 Plasma Giga [deprecated]','🌀 Plasma SD HomeOS','🛠 SDDS All Your Base','🌀 Plasma Salute Service','🌀 Plasma Core','📁 SDDS Netology','🌀 Plasma SD Mid (exB2B)','🌀 Plasma StarDS','🌀 Plasma Playground','🌀 Plasma ASDK','🟢 SDDS SbShop [deprecated]','🔹 SDDS AI [deprecated]','🖼 SDDS × Caldera Online','🌀 Plasma Builder','📁 Тестируем коннектед проджекты','🌀 Plasma Source'];
 type Modal={kind:'create';type:string}|{kind:'rename'|'open';id:string}|{kind:'delete';ids:string[]}|{kind:'settings'|'news'|'notifications'|'help'|'reset'}|null;
 function routeSection(){const params=new URLSearchParams(location.search),section=params.get('section');return params.has('project')?'project:'+params.get('project')!.slice(0,160):section&&['recents','community','drafts','teams','trash'].includes(section)?section:'recents';}
-
-/** Native dialog composition; not claimed as a certified SEDA Dialog component. */
-function WorkspaceDialog({title,children,onDismiss}:{title:string;children:React.ReactNode;onDismiss:()=>void}){
- const ref=useRef<HTMLDialogElement>(null);
- useEffect(()=>{ref.current?.showModal();return()=>{ref.current?.close();};},[]);
- return <dialog ref={ref} className="reference-dialog" aria-labelledby="reference-dialog-title" onCancel={event=>{event.preventDefault();onDismiss();}}>
-  <header><h2 id="reference-dialog-title">{title}</h2><IconButton aria-label="Закрыть диалог" variant="ghost" icon={icon('recentsTools-imgIcon.svg')} onClick={onDismiss}/></header>{children}
- </dialog>;
-}
 
 function RecentsWorkspace(){
  const [files,setFiles]=useState<WorkspaceFile[]>([]),[preferences,setPreferences]=useState<Preferences>(defaults);
@@ -101,7 +93,7 @@ function RecentsWorkspace(){
   <a className="reference-skip" href="#reference-main">К файлам</a>
   <aside className="reference-sidebar" aria-label="Навигация рабочего пространства">
    <div className="reference-account"><DropdownMenu triggerLabel="Kenymook" triggerIcon={<img className="reference-avatar" src={asset('recentsSidebarTop-imgImage.png')} alt="" width="24" height="24"/>} items={[
-    {id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'reload',label:'Перезагрузить локальные файлы',disabled:busy,onSelect:load},{id:'lab',label:'Открыть лабораторию',onSelect:()=>{location.href='../';}}]}/><IconButton variant="ghost" aria-label="Уведомления" icon={icon('recentsSidebarTop-imgIcon1.svg',24)} onClick={()=>show({kind:'notifications'})}/></div>
+    {id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'reload',label:'Перезагрузить локальные файлы',disabled:busy,onSelect:load},{id:'documents',label:'Документы — Building',onSelect:()=>{location.href='./building.html';}},{id:'lab',label:'Открыть лабораторию',onSelect:()=>{location.href='../';}}]}/><IconButton variant="ghost" aria-label="Уведомления" icon={icon('recentsSidebarTop-imgIcon1.svg',24)} onClick={()=>show({kind:'notifications'})}/></div>
    <TextField id="reference-search" className="reference-search" label="Поиск файлов" type="search" placeholder="Search" prefix={icon('recentsSidebarTop-imgIcon2.svg')} value={query} onChange={event=>{setQuery(event.target.value);setSelected([]);}}/>
    <nav aria-label="Разделы файлов" className="reference-navigation">
     {[['recents','Recents','recentsSidebarNav-imgIcon.svg'],['community','Community','recentsSidebarNav-imgIcon1.svg']].map(([id,label,img])=><a key={id} href={'?section='+id} aria-current={section===id?'page':undefined} onClick={event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();navigate(id);}}>{icon(img,24)}<span>{label}</span></a>)}

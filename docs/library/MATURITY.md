@@ -2,7 +2,7 @@
 
 Объектив: «Создай дизайн систему будущего. Критерий зрелости дизайн системы, на основе нее можно собрать такие интерфесы как figma, Notion, ChatGPT, Cloude Design».
 
-Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; эталонные экраны пока не реализованы и не оценены.
+Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; Recents опубликован, Building реализован локально; их визуальная приёмка не завершена, остальные семь экранов не реализованы.
 
 Пользователь уточнил приоритет: максимально зрелая библиотека для веб- и десктоп-приложений. Ни зелёная лаборатория, ни количество specs не доказывают этот результат. Ниже рабочая декомпозиция полного критерия, а не замена цели одним удобным этапом. Состояние на 23 октября 2026.
 
@@ -34,9 +34,9 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 16 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 9 компонентов, 8 профилей, API/state/token validation; 107 unit checks с foundation binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
-| Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 55+20+12 browser checks | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
+| Кодовый каталог | 17 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
+| Исполняемые контракты | 10 компонентов, 8 профилей, API/state/token validation; 111 unit checks с foundation binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 55+21+12 browser checks; Recents и Building — отдельные reference entries | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
 | Реальный consumer | 17/17 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 17 package proof groups, в том числе Tabs/Menu/SplitView | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |

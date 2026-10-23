@@ -124,7 +124,7 @@ export async function buildPilot({
   if((await fs.lstat(installedPackage)).isSymbolicLink())throw Error('Reference application requires an installed package, not a source link');
   const referenceOut=path.join(outputDir,'references');
   const referenceBuild=await build({
-    absWorkingDir:pilotRoot,entryPoints:[path.join(pilotRoot,'references/recents.tsx')],outdir:referenceOut,
+    absWorkingDir:pilotRoot,entryPoints:['recents','building'].map(name=>path.join(pilotRoot,'references',name+'.tsx')),outdir:referenceOut,
     bundle:true,format:'esm',jsx:'automatic',target:'es2020',metafile:true,minify:true,
     loader:{'.woff':'file','.woff2':'file'},assetNames:'fonts/[name]-[hash]',
     plugins:[{name:'reference-contract-catalog',setup(builder){
@@ -143,6 +143,7 @@ export async function buildPilot({
   if(referenceInputs.some(file=>/seda-ui[\\/]src[\\/]/.test(file))||!referenceInputs.some(file=>file.includes('node_modules/@seda-ai/ui/dist/components/Button/Button.js')))throw Error('Reference must consume installed SEDA public ESM');
   await fs.cp(path.join(pilotRoot,'references/assets'),path.join(referenceOut,'assets'),{recursive:true});
   await fs.copyFile(path.join(pilotRoot,'references/recents.html'),path.join(referenceOut,'recents.html'));
+  await fs.copyFile(path.join(pilotRoot,'references/building.html'),path.join(referenceOut,'building.html'));
   const after = await fingerprint();
   const afterTokens = await fs.readFile(tokenPath);
   if (JSON.stringify(before) !== JSON.stringify(after) || sha256(tokenBytes) !== sha256(afterTokens)) {
@@ -165,7 +166,10 @@ export async function buildPilot({
     validation: { valid: validation.valid, planned: validation.planned },
     sourceAudit: { valid: audit.valid },
     bundledComponents: Object.keys(result.metafile.inputs).filter(file => /seda-ui[\\/]src[\\/]components[\\/]/.test(file)),
-    references:{recents:{route:'/references/recents.html',sourceNode:'1:691',sourceAlias:false,installedPackage:true,navigationProvenance,bundledComponents:referenceInputs.filter(file=>file.includes('node_modules/@seda-ai/ui/dist/components/'))}},
+    references:Object.fromEntries([['recents','1:691'],['building','1:84']].map(([name,sourceNode])=>{
+      const output=Object.entries(referenceBuild.metafile.outputs).find(([file])=>file.endsWith('/'+name+'.js'))?.[1];
+      return [name,{route:'/references/'+name+'.html',sourceNode,sourceAlias:false,installedPackage:true,...(name==='recents'?{navigationProvenance}:{}),bundledComponents:Object.entries(output?.inputs??{}).filter(([file,info])=>info.bytesInOutput>0&&file.includes('node_modules/@seda-ai/ui/dist/components/')).map(([file])=>file)}];
+    })),
     runtimeConformance: 'not-checked',
   };
   await fs.writeFile(path.join(outputDir, 'build-metadata.json'), JSON.stringify(metadata, null, 2) + '\n');

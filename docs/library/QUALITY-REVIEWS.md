@@ -39,3 +39,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 [Review](REFERENCE-RECENTS-REVIEW.md) содержит source/actual screenshots и раздельные статусы визуального соответствия и функциональности. Первая QA нашла portrait avatar вместо thumbnail у Главная Салют, потерянный цветной фон SVG avatars и отсутствие подложки file-type marks. Исправлены роли исходных assets и контейнеры из design context; [production Dark v14](../../portal/component-lab/pilots/settings-parametric/verification/recents-live-v14-dark.png) просмотрен после исправления. Эти дефекты не закрывались обновлением baseline.
 
 Новая ссылка на экран давала overflow64px у старого Lab390. Исправлен wrap шапки; существующие55 Lab и21 workspace checks прошли без ослабления допусков и отдельно повторены на Ubuntu CI. Installed manifest check выявил несовпадение public CSS/profiles и теперь останавливает stale package build. Технические97 browser checks и source hash parity не компенсируют незавершённую визуальную приёмку эталона.
+
+## Building — локальная проверка документа
+
+[Review](REFERENCE-BUILDING-REVIEW.md) разделяет 5 model и 12 browser groups, 24 вложенных profile samples и незавершённое визуальное соответствие. Сравнение source/actual показывает отличия шрифта, переносов, sidebar/Tree surfaces, контраста и дополнительных команд. Геометрический PASS не закрывает эти расхождения. Проверка выделения между блоками выявила риск обработки Enter/Delete в чужом диапазоне; добавлены guard и отдельный сценарий с границами на Element. Общая цель и визуальная приёмка остаются открытыми.
