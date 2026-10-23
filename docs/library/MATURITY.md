@@ -4,7 +4,7 @@
 
 Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; Recents и Building опубликованы; Chat реализован с локальным fixture transport. Визуальная приёмка этих трёх экранов не завершена; Sandbox имеет рабочую реконструкцию с неполным source artwork; остальные пять экранов не реализованы.
 
-Пользователь уточнил приоритет: максимально зрелая библиотека для веб- и десктоп-приложений. Ни зелёная лаборатория, ни количество specs не доказывают этот результат. Ниже рабочая декомпозиция полного критерия, а не замена цели одним удобным этапом. Состояние на 23 октября 2026.
+Пользователь уточнил приоритет: максимально зрелая библиотека для веб- и десктоп-приложений. Ни зелёная лаборатория, ни количество specs не доказывают этот результат. Ниже рабочая декомпозиция полного критерия, а не замена цели одним удобным этапом. Состояние на 24 октября 2026.
 
 ## Что должно быть доказано
 
@@ -36,12 +36,12 @@
 |---|---|---|
 | Кодовый каталог | 19 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
 | Исполняемые контракты | 11 компонентов, 8 профилей, API/state/token validation; 120 unit/foundation checks с typography binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
-| Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 55+21+12 browser checks; Recents и Building — отдельные reference entries | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
+| Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 153 browser/28 model groups; Recents, Building, Chat и Sandbox — отдельные reference entries | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
-| Реальный consumer | 17/17 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
-| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 17 package proof groups, в том числе Tabs/Menu/SplitView | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
+| Реальный consumer | 25/25 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
+| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 25 package proof groups, включая Text/TextArea/Tree/Tabs/Menu/SplitView | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
-| Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
+| Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI40031537628 Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
 
 ## Продвижение: experimental DropdownMenu
 
@@ -197,3 +197,6 @@ Typography опубликована в version20; [production evidence и CI sta
 Исправлены paint overlaps12 Sandbox captions при14% zoom и задержка focus после структурных команд Building. Целевые local результаты: Sandbox20 browser/19 model, Building17 browser/5 model; общая настроенная матрица теперь153 browser/28 model и требует полного publication/CI прогона. [Sandbox review](REFERENCE-SANDBOX-REVIEW.md), [Building review](REFERENCE-BUILDING-REVIEW.md).
 
 CI40027185664 завершился failure в Building shortcut scenario; package25/contract120/TypeScript/build прошли. Новый focus regression держит RAF и подтверждает исправление локально. [Spline handoff1:4844/1:5441](REFERENCE-SPLINE-HANDOFF.md):полные contexts,88 assets/58 hashes и1440×1288 QA source подготовлены; runtime ещё не реализован. Остальные5 screens и общая цель остаются открытыми.
+
+
+Version21 опубликована на прежнем owner-private сайте. [Release/CI и production proof](REFERENCE-SANDBOX-REVIEW.md#version21-публикация-и-независимый-ci): CI40031537628 для3a05c57 completed/success,120 contract/foundation/25 package/153 browser/28 model, TypeScript/build. Publication153/28 и productionSandbox20/Building2 прошли. Исправлены конкретные captions/focus defects; full visual/AT/performance и оставшиеся5 screens не закрыты.

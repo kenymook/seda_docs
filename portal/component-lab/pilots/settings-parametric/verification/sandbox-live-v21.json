@@ -1,0 +1,724 @@
+{
+  "scope": "Production Sandbox editor version21; full20 browser groups, reconstructed artwork, visual acceptance pending",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/sandbox",
+  "browserPassed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "name": "sandbox-source-assets-installed-controls-and-live-scene",
+      "status": "passed",
+      "evidence": {
+        "assets": 136,
+        "sceneNodes": 156,
+        "pages": 15,
+        "realSvg": true,
+        "rasterNotRuntime": true,
+        "installedComponents": true,
+        "box": {
+          "x": 290,
+          "y": 0,
+          "width": 792,
+          "height": 1259
+        }
+      }
+    },
+    {
+      "name": "sandbox-mixed-input-apply-undo-and-invalid-draft",
+      "status": "passed",
+      "evidence": {
+        "syntheticImeGuard": true,
+        "mixedMeansAbsentCommonValue": true,
+        "applyToBoth": true,
+        "undo": true,
+        "invalidDraftRetained": true,
+        "noAccidentalCanvasAction": true,
+        "escapeCancel": true
+      }
+    },
+    {
+      "name": "sandbox-blur-to-canvas-and-late-gesture-ownership",
+      "status": "passed",
+      "evidence": {
+        "blurCommitsToOriginalObject": true,
+        "newSelectionRetained": true,
+        "pageChangeCancelsOldGesture": true
+      }
+    },
+    {
+      "name": "sandbox-pointer-move-rotated-node-and-escape",
+      "status": "passed",
+      "evidence": {
+        "requestedScreenDelta": {
+          "x": 14,
+          "y": 7
+        },
+        "actualNativeDelta": {
+          "x": 14.000030517578125,
+          "y": 7
+        },
+        "worldDelta": {
+          "x": 100.00021798270086,
+          "y": 50
+        },
+        "renderedSvgDelta": {
+          "x": 14.00006103515625,
+          "y": 7
+        },
+        "rotatedNode": true,
+        "escapeRestoresDocument": true
+      }
+    },
+    {
+      "name": "sandbox-resize-rotated-anchor-and-keyboard-handle",
+      "status": "passed",
+      "evidence": {
+        "rotatedAnchorPreserved": true,
+        "pointerResize": true,
+        "keyboardIncrement": 1
+      }
+    },
+    {
+      "name": "sandbox-parent-child-selection-moves-once",
+      "status": "passed",
+      "evidence": {
+        "treeMultiSelect": true,
+        "ancestorNormalization": true,
+        "worldMoveOnce": true
+      }
+    },
+    {
+      "name": "sandbox-pan-zoom-and-document-isolation",
+      "status": "passed",
+      "evidence": {
+        "panDelta": {
+          "x": 40,
+          "y": 25
+        },
+        "zoomAnchor": true,
+        "noBrowserZoom": true,
+        "documentUnchanged": true
+      }
+    },
+    {
+      "name": "sandbox-group-copy-ungroup-and-undo",
+      "status": "passed",
+      "evidence": {
+        "groupRealHierarchy": true,
+        "ungroupWorldPreserved": true,
+        "copyUniqueIds": true,
+        "undo": true
+      }
+    },
+    {
+      "name": "sandbox-pages-url-rename-remove-and-history",
+      "status": "passed",
+      "evidence": {
+        "add": true,
+        "rename": true,
+        "routeBack": true,
+        "remove": true,
+        "undoRestoresPageAndUrl": true
+      }
+    },
+    {
+      "name": "sandbox-real-text-font-fill-lock-and-visibility",
+      "status": "passed",
+      "evidence": {
+        "escapedText": true,
+        "multiline": true,
+        "actualFontAndColor": {
+          "font": "Georgia",
+          "size": "48px",
+          "line": "72px",
+          "color": "rgb(226, 48, 68)",
+          "align": "center"
+        },
+        "lockGuard": true,
+        "visibilityRestoresContent": true
+      }
+    },
+    {
+      "name": "sandbox-align-and-distribute-real-objects",
+      "status": "passed",
+      "evidence": {
+        "distributionChangesModel": true,
+        "commonXAfterAlign": true,
+        "undo": true
+      }
+    },
+    {
+      "name": "sandbox-draw-shapes-marquee-and-delete",
+      "status": "passed",
+      "evidence": {
+        "rectangleDraw": true,
+        "negativeDirectionEllipse": true,
+        "marqueeSelectsBoth": true,
+        "deleteUndo": true
+      }
+    },
+    {
+      "name": "sandbox-save-snapshot-loading-and-newer-draft",
+      "status": "passed",
+      "evidence": {
+        "capturedX": 111,
+        "retainedX": 222,
+        "duplicateWrites": 0,
+        "loadingDelta": {
+          "width": 0,
+          "height": 0
+        },
+        "profileChangedWhilePending": true
+      }
+    },
+    {
+      "name": "sandbox-storage-quota-export-and-import-validation",
+      "status": "passed",
+      "evidence": {
+        "quotaRetainsModel": true,
+        "exportRoundtrip": true,
+        "unsupportedPaintRejected": true,
+        "safeTextImport": true,
+        "reload": true
+      }
+    },
+    {
+      "name": "sandbox-dismissed-import-cannot-overwrite-newer-model",
+      "status": "passed",
+      "evidence": {
+        "dismissInvalidatesRead": true,
+        "newerEditRetained": true
+      }
+    },
+    {
+      "name": "sandbox-profiles-controls-panels-and-document-isolation",
+      "status": "passed",
+      "evidence": {
+        "samples": 24,
+        "measurements": [
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "s",
+            "field": 36,
+            "padding": 24,
+            "button": 36,
+            "buttonPadding": 22,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tree": 36,
+            "select": 36,
+            "textarea": 68,
+            "line": 16,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "m",
+            "field": 44,
+            "padding": 24,
+            "button": 44,
+            "buttonPadding": 26,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tree": 44,
+            "select": 44,
+            "textarea": 84,
+            "line": 20,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "l",
+            "field": 52,
+            "padding": 24,
+            "button": 52,
+            "buttonPadding": 30,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tree": 52,
+            "select": 52,
+            "textarea": 100,
+            "line": 24,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "xl",
+            "field": 60,
+            "padding": 24,
+            "button": 60,
+            "buttonPadding": 34,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tree": 60,
+            "select": 60,
+            "textarea": 116,
+            "line": 28,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "s",
+            "field": 36,
+            "padding": 24,
+            "button": 36,
+            "buttonPadding": 22,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tree": 36,
+            "select": 36,
+            "textarea": 68,
+            "line": 16,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "m",
+            "field": 44,
+            "padding": 24,
+            "button": 44,
+            "buttonPadding": 26,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tree": 44,
+            "select": 44,
+            "textarea": 84,
+            "line": 20,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "l",
+            "field": 52,
+            "padding": 24,
+            "button": 52,
+            "buttonPadding": 30,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tree": 52,
+            "select": 52,
+            "textarea": 100,
+            "line": 24,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "xl",
+            "field": 60,
+            "padding": 24,
+            "button": 60,
+            "buttonPadding": 34,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tree": 60,
+            "select": 60,
+            "textarea": 116,
+            "line": 28,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "field": 36,
+            "padding": 24,
+            "button": 36,
+            "buttonPadding": 22,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tree": 36,
+            "select": 36,
+            "textarea": 68,
+            "line": 16,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "field": 44,
+            "padding": 24,
+            "button": 44,
+            "buttonPadding": 26,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tree": 44,
+            "select": 44,
+            "textarea": 84,
+            "line": 20,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "field": 52,
+            "padding": 24,
+            "button": 52,
+            "buttonPadding": 30,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tree": 52,
+            "select": 52,
+            "textarea": 100,
+            "line": 24,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "field": 60,
+            "padding": 24,
+            "button": 60,
+            "buttonPadding": 34,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tree": 60,
+            "select": 60,
+            "textarea": 116,
+            "line": 28,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "field": 36,
+            "padding": 24,
+            "button": 36,
+            "buttonPadding": 22,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tree": 36,
+            "select": 36,
+            "textarea": 68,
+            "line": 16,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "field": 44,
+            "padding": 24,
+            "button": 44,
+            "buttonPadding": 26,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tree": 44,
+            "select": 44,
+            "textarea": 84,
+            "line": 20,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "field": 52,
+            "padding": 24,
+            "button": 52,
+            "buttonPadding": 30,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tree": 52,
+            "select": 52,
+            "textarea": 100,
+            "line": 24,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "field": 60,
+            "padding": 24,
+            "button": 60,
+            "buttonPadding": 34,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tree": 60,
+            "select": 60,
+            "textarea": 116,
+            "line": 28,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 12
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "s",
+            "field": 36,
+            "padding": 24,
+            "button": 36,
+            "buttonPadding": 22,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tree": 36,
+            "select": 36,
+            "textarea": 68,
+            "line": 16,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "m",
+            "field": 44,
+            "padding": 24,
+            "button": 44,
+            "buttonPadding": 26,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tree": 44,
+            "select": 44,
+            "textarea": 84,
+            "line": 20,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "l",
+            "field": 52,
+            "padding": 24,
+            "button": 52,
+            "buttonPadding": 30,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tree": 52,
+            "select": 52,
+            "textarea": 100,
+            "line": 24,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "xl",
+            "field": 60,
+            "padding": 24,
+            "button": 60,
+            "buttonPadding": 34,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tree": 60,
+            "select": 60,
+            "textarea": 116,
+            "line": 28,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "s",
+            "field": 36,
+            "padding": 24,
+            "button": 36,
+            "buttonPadding": 22,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tree": 36,
+            "select": 36,
+            "textarea": 68,
+            "line": 16,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "m",
+            "field": 44,
+            "padding": 24,
+            "button": 44,
+            "buttonPadding": 26,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tree": 44,
+            "select": 44,
+            "textarea": 84,
+            "line": 20,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "l",
+            "field": 52,
+            "padding": 24,
+            "button": 52,
+            "buttonPadding": 30,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tree": 52,
+            "select": 52,
+            "textarea": 100,
+            "line": 24,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "xl",
+            "field": 60,
+            "padding": 24,
+            "button": 60,
+            "buttonPadding": 34,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tree": 60,
+            "select": 60,
+            "textarea": 116,
+            "line": 28,
+            "sceneFont": "64px",
+            "overflow": 0,
+            "captionLabels": 9
+          }
+        ],
+        "documentUnchangedByProfiles": true,
+        "keyboardPanels": true,
+        "reload": true
+      }
+    },
+    {
+      "name": "sandbox-preview-same-renderer-and-corrupt-recovery",
+      "status": "passed",
+      "evidence": {
+        "previewUsesLiveScene": true,
+        "explicitCorruptRecovery": true
+      }
+    },
+    {
+      "name": "sandbox-captions-real-bounds-long-name-and-movement",
+      "status": "passed",
+      "evidence": {
+        "initialLabels": 12,
+        "inkBoundsNoOverlap": true,
+        "ellipsisAtGraphemeBoundary": true,
+        "fullNativeTitleAndTree": true,
+        "movementFollowsModel": true,
+        "reload": true
+      }
+    },
+    {
+      "name": "sandbox-captions-zoom-pan-resize-without-document-mutation",
+      "status": "passed",
+      "evidence": {
+        "measurements": [
+          {
+            "delta": -400,
+            "labels": 12
+          },
+          {
+            "pan": true,
+            "labels": 12
+          },
+          {
+            "delta": 500,
+            "labels": 10
+          },
+          {
+            "pan": true,
+            "labels": 10
+          },
+          {
+            "delta": -600,
+            "labels": 6
+          },
+          {
+            "pan": true,
+            "labels": 6
+          },
+          {
+            "delta": 900,
+            "labels": 6
+          },
+          {
+            "pan": true,
+            "labels": 6
+          },
+          {
+            "width": 1280,
+            "labels": 6
+          },
+          {
+            "width": 1440,
+            "labels": 6
+          },
+          {
+            "width": 1920,
+            "labels": 6
+          }
+        ],
+        "documentUnchanged": true,
+        "screenSpaceFontUnchanged": true,
+        "overcrowdedLabelsHidden": true
+      }
+    },
+    {
+      "name": "sandbox-browser-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": [],
+        "dialogsHandled": [
+          "beforeunload",
+          "beforeunload"
+        ]
+      }
+    }
+  ],
+  "errors": []
+}
