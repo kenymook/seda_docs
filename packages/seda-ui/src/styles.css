@@ -1367,3 +1367,21 @@
 .seda-textarea[data-disabled=true] .seda-textarea__input::placeholder{color:var(--text-area-foreground-disabled)}
 
 .seda-textarea[data-read-only=true]:not([data-disabled=true])>.seda-field__label{color:var(--text-area-label-read-only)}
+
+/* Public Link variants use their canonical component branches. Danger has a documented semantic token gap. */
+.seda-link[data-variant="default"]{color:var(--link-default-foreground-default)}
+.seda-link[data-variant="default"]:hover{color:var(--link-default-foreground-hover)}
+.seda-link[data-variant="default"]:active{color:var(--link-default-foreground-pressed)}
+.seda-link[data-variant="default"]:is(:visited,[data-visited="true"]){color:var(--link-default-foreground-visited)}
+.seda-link[data-variant="default"]:is(:visited,[data-visited="true"]):hover{color:var(--link-default-foreground-visitedHover)}
+.seda-link[data-variant="default"]:is(:visited,[data-visited="true"]):active{color:var(--link-default-foreground-visitedPressed)}
+.seda-link[data-variant="subtle"]{color:var(--link-subtle-foreground-default);text-decoration:none}
+.seda-link[data-variant="subtle"]:hover{color:var(--link-subtle-foreground-hover)}
+.seda-link[data-variant="subtle"]:active{color:var(--link-subtle-foreground-pressed)}
+.seda-link[data-variant="inverse"]{color:var(--link-inverse-foreground-default)}
+.seda-link[data-variant="inverse"]:hover{color:var(--link-inverse-foreground-hover)}
+.seda-link[data-variant="inverse"]:active{color:var(--link-inverse-foreground-pressed)}
+.seda-link[data-variant="danger"]{color:var(--status-danger-text)}
+.seda-link[data-strong="true"]{font-weight:600}
+.seda-link:focus-visible{outline-color:var(--link-focus-ring)}
+.seda-link[data-variant][aria-disabled="true"]{color:var(--link-disabled-foreground)}

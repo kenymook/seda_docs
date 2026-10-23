@@ -16,7 +16,7 @@ npm --prefix portal/component-lab/pilots/settings-parametric run verify
 npm --prefix portal/component-lab/pilots/settings-parametric run serve
 ```
 
-`verify` последовательно выполняет `verify-lab2.mjs`, `verify-workspace.mjs` и `verify-controls.mjs`. Они поднимают собственные loopback-серверы на свободных портах и закрывают их после проверки. Для установленного Chromium можно задать `SEDA_BROWSER_EXECUTABLE`. Превью: http://127.0.0.1:5184/ . Проверочные fixtures библиотеки доступны при `?review=1`.
+`verify` последовательно выполняет `verify-lab2.mjs`, `verify-workspace.mjs`, `verify-controls.mjs`, `verify-recents.mjs`, `verify-building.mjs` и `verify-chat.mjs`. Они поднимают собственные loopback-серверы на свободных портах и закрывают их после проверки. Для установленного Chromium можно задать `SEDA_BROWSER_EXECUTABLE`. Превью: http://127.0.0.1:5184/ . Проверочные fixtures библиотеки доступны при `?review=1`.
 
 ## Что реализовано
 
@@ -54,3 +54,5 @@ Button сохраняет фактический border box и X на время
 4. **12 control checks**: 8 групп Light/Dark × S/M/L/XL по 5 состояний × 4 контрола (160 снимков), клавиатура/multi, disabled/loading guard, единая рамка фокуса и оформленный popup, проверка реально собранных SEDA TSX и browser errors.
 
 Browser QA — Chromium; это проверка реализованной рабочей области, а не сертификация всей дизайн-системы. Исторический `verify.mjs` этапа 3 сохранён без изменений и не является runner нового интерфейса.
+
+Chat reference1:3894: `/references/chat.html`; installed SEDA controls, thread/draft/branch/reload и явно локальный fixture transport. [Review](../../../../docs/library/REFERENCE-CHAT-REVIEW.md) отделяет реализацию от незавершённой визуальной приёмки и реального AI backend.

@@ -2,7 +2,7 @@
 
 Объектив: «Создай дизайн систему будущего. Критерий зрелости дизайн системы, на основе нее можно собрать такие интерфесы как figma, Notion, ChatGPT, Cloude Design».
 
-Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; Recents и Building опубликованы; их визуальная приёмка не завершена, остальные семь экранов не реализованы.
+Обязательное дополнение пользователя от 23 октября 2026: для сдачи готового проекта необходимо подготовить рабочие экраны уровня [Figma Ruslan](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=0-1), оценить качество их реализации и устранить блокирующие дефекты. [Матрица девяти эталонных экранов и методика приёмки](REFERENCE-SCREENS.md) — часть этой цели. Это требование дополняет четыре класса приложений ниже. Текущие тесты компонентов и лаборатории сами по себе его не закрывают; Recents и Building опубликованы; Chat реализован с локальным fixture transport. Визуальная приёмка этих трёх экранов не завершена; остальные шесть экранов не реализованы.
 
 Пользователь уточнил приоритет: максимально зрелая библиотека для веб- и десктоп-приложений. Ни зелёная лаборатория, ни количество specs не доказывают этот результат. Ниже рабочая декомпозиция полного критерия, а не замена цели одним удобным этапом. Состояние на 23 октября 2026.
 
@@ -165,3 +165,8 @@ Version16: исходная content typography Building и list guides восс�
 Предыдущий CI39998965507, job120569761098, commit c0fe956, завершился success: исправленное ожидание focus Recents подтверждено. Его результат относится к version16, не к новым TextArea изменениям.
 
 TextArea опубликован в version17, [production/CI evidence](TEXTAREA-REVIEW.md#публикация-и-независимый-ci):385 hashes; compiled/native geometry, autosize cap, clear/focus и multiline save/reload подтверждены. CI40004394206 для23d8c1c completed/success: contracts115, package21, browser113, model5, TypeScript/build. Этим закрыт текущий технический этап общего multiline primitive; visual/AT/desktop maturity, Chat Composer и оставшиеся reference screens остаются незавершёнными.
+
+
+## Chat reference1:3894 — функциональный этап
+
+[Review](REFERENCE-CHAT-REVIEW.md): installed SEDA TextArea/Select/Button/Link/Menu/SplitView и другие shared controls, thread/draft/branch/attachments/scroll/streaming/stop/retry с честным локальным transport. Четыре model и12 browser groups,24 вложенных profile samples и180-message history fixture. Public Link visual variants исправлены в общей библиотеке; package23/23 groups на React18/19, контракты115/115, browser125 и model9 отдельных групп, TypeScript/build PASS. Это функциональная готовность этапа; Figma визуальная приёмка, реальный AI backend, native desktop/AT/performance и оставшиеся шесть экранов открыты. Полная цель не завершена.

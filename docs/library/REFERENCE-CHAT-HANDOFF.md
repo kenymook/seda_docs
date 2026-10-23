@@ -1,6 +1,6 @@
 # Чат — подготовка обязательного reference screen
 
-Источник: [Ruslan,1:3894 «Проектирование дизайн системы»](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=1-3894). Статус: **не реализовано / не оценено**. Подготовка design context не заменяет рабочий экран.
+Источник: [Ruslan,1:3894 «Проектирование дизайн системы»](https://www.figma.com/design/31SUMzWpWJ52bT9fBeKIau/Ruslan?node-id=1-3894). Статус: рабочая реализация подготовлена; [review и ограничения](REFERENCE-CHAT-REVIEW.md). Визуальная приёмка не завершена.
 
 ## Что прочитано
 

@@ -10,10 +10,11 @@
     "build": "node build.mjs",
     "serve": "node server.mjs",
     "typecheck": "tsc --noEmit && tsc --noEmit --project references/tsconfig.json",
-    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs && node verify-building.mjs",
+    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs && node verify-building.mjs && node verify-chat.mjs",
     "verify:building": "node verify-building.mjs",
     "verify:workspace": "node verify-workspace.mjs",
-    "verify:controls": "node verify-controls.mjs"
+    "verify:controls": "node verify-controls.mjs",
+    "verify:chat": "node verify-chat.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",

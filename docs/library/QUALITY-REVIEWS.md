@@ -51,3 +51,7 @@ Production version13: просмотрен [устойчивый Dark editor с 
 ## TextArea — целостность ввода и состояние в реальном приложении
 
 [Review](TEXTAREA-REVIEW.md) фиксирует фактические дефекты и regression: bidi порядок счётчика, потеря ручной высоты на rerender, disabled+readOnly cascade, active paint и скрытый источник значения children/HTML. Все исправлены до публикации17; installed React18/19 и production checked. Просмотрен Light/Dark dialog Building с сохранённым multiline comment: один textarea frame, label/counter и ожидаемая высота по общему профилю. Отдельная Figma component/AT/native desktop приёмка этим не заменяется.
+
+## Chat — source lists, общий Link, Stop и восстановление scroll
+
+[Review](REFERENCE-CHAT-REVIEW.md) фиксирует реальную причину непрошедших сценариев: неправильная группировка source numbered list; игнорируемый Link variant; повторный submit при DOM-переходе Stop→Send; ранний scroll до восстановления модели. Исправления проверяются на уровне структуры, public package и приложения отдельно. Сходство composition не объявляется визуальной приёмкой; source palette/type/Composer отличаются и требуют оценки.

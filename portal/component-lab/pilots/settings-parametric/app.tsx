@@ -610,7 +610,7 @@ function App() {
             </div>
           </div>
           <div className="topmeta">
-            <a className="subtle" href="./references/recents.html">Файлы</a><a className="subtle" href="./references/building.html">Документы</a>
+            <a className="subtle" href="./references/recents.html">Файлы</a><a className="subtle" href="./references/building.html">Документы</a><a className="subtle" href="./references/chat.html">Чат</a>
             <span className="status-dot"></span> Live calculations{" "}
             <button
               onClick={() => {

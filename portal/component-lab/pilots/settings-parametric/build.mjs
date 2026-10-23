@@ -124,7 +124,7 @@ export async function buildPilot({
   if((await fs.lstat(installedPackage)).isSymbolicLink())throw Error('Reference application requires an installed package, not a source link');
   const referenceOut=path.join(outputDir,'references');
   const referenceBuild=await build({
-    absWorkingDir:pilotRoot,entryPoints:['recents','building'].map(name=>path.join(pilotRoot,'references',name+'.tsx')),outdir:referenceOut,
+    absWorkingDir:pilotRoot,entryPoints:['recents','building','chat'].map(name=>path.join(pilotRoot,'references',name+'.tsx')),outdir:referenceOut,
     bundle:true,format:'esm',jsx:'automatic',target:'es2020',metafile:true,minify:true,
     loader:{'.woff':'file','.woff2':'file'},assetNames:'fonts/[name]-[hash]',
     plugins:[{name:'reference-contract-catalog',setup(builder){
@@ -139,11 +139,13 @@ export async function buildPilot({
     const selected=branch.item.surface.selected,accent=branch.item.accent.selected;
     navigationProvenance[theme]={selected,accent};
     await fs.appendFile(path.join(referenceOut,'recents.css'),`\n.reference-app[data-seda-theme="${theme.toLowerCase()}"]{--reference-nav-selected:${selected.cssValue};--reference-nav-accent:${accent.cssValue};}\n`);
+    await fs.appendFile(path.join(referenceOut,'chat.css'),`\n.chat-app[data-seda-theme="${theme.toLowerCase()}"]{--chat-nav-selected:${selected.cssValue};--chat-nav-accent:${accent.cssValue};}\n`);
   }
   if(referenceInputs.some(file=>/seda-ui[\\/]src[\\/]/.test(file))||!referenceInputs.some(file=>file.includes('node_modules/@seda-ai/ui/dist/components/Button/Button.js')))throw Error('Reference must consume installed SEDA public ESM');
   await fs.cp(path.join(pilotRoot,'references/assets'),path.join(referenceOut,'assets'),{recursive:true});
   await fs.copyFile(path.join(pilotRoot,'references/recents.html'),path.join(referenceOut,'recents.html'));
   await fs.copyFile(path.join(pilotRoot,'references/building.html'),path.join(referenceOut,'building.html'));
+  await fs.copyFile(path.join(pilotRoot,'references/chat.html'),path.join(referenceOut,'chat.html'));
   const after = await fingerprint();
   const afterTokens = await fs.readFile(tokenPath);
   if (JSON.stringify(before) !== JSON.stringify(after) || sha256(tokenBytes) !== sha256(afterTokens)) {
@@ -166,9 +168,9 @@ export async function buildPilot({
     validation: { valid: validation.valid, planned: validation.planned },
     sourceAudit: { valid: audit.valid },
     bundledComponents: Object.keys(result.metafile.inputs).filter(file => /seda-ui[\\/]src[\\/]components[\\/]/.test(file)),
-    references:Object.fromEntries([['recents','1:691'],['building','1:84']].map(([name,sourceNode])=>{
+    references:Object.fromEntries([['recents','1:691'],['building','1:84'],['chat','1:3894']].map(([name,sourceNode])=>{
       const output=Object.entries(referenceBuild.metafile.outputs).find(([file])=>file.endsWith('/'+name+'.js'))?.[1];
-      return [name,{route:'/references/'+name+'.html',sourceNode,sourceAlias:false,installedPackage:true,...(name==='recents'?{navigationProvenance}:{}),bundledComponents:Object.entries(output?.inputs??{}).filter(([file,info])=>info.bytesInOutput>0&&file.includes('node_modules/@seda-ai/ui/dist/components/')).map(([file])=>file)}];
+      return [name,{route:'/references/'+name+'.html',sourceNode,sourceAlias:false,installedPackage:true,...(['recents','chat'].includes(name)?{navigationProvenance}:{}),bundledComponents:Object.entries(output?.inputs??{}).filter(([file,info])=>info.bytesInOutput>0&&file.includes('node_modules/@seda-ai/ui/dist/components/')).map(([file])=>file)}];
     })),
     runtimeConformance: 'not-checked',
   };
