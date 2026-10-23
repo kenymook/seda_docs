@@ -1,0 +1,33 @@
+{
+  "lab2": {
+    "passed": 55,
+    "failed": 0
+  },
+  "workspace": {
+    "passed": 21,
+    "failed": 0
+  },
+  "controls": {
+    "passed": 12,
+    "failed": 0
+  },
+  "recents": {
+    "passed": 9,
+    "failed": 0
+  },
+  "building": {
+    "browserPassed": 16,
+    "modelPassed": 5,
+    "failed": 0
+  },
+  "chat": {
+    "browserPassed": 12,
+    "modelPassed": 4,
+    "failed": 0
+  },
+  "sandbox": {
+    "browserPassed": 18,
+    "failed": 0,
+    "modelPassed": 15
+  }
+}
