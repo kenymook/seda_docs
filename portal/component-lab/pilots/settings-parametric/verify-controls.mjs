@@ -211,6 +211,8 @@ try {
       await select.evaluate((el) => el === document.activeElement),
       true,
     );
+    const labelTops = await page.evaluate(() => ['member-search','member-role-filter'].map(id => document.getElementById(id).closest('.seda-field').querySelector('.seda-field__label').getBoundingClientRect().top));
+    assert.ok(Math.abs(labelTops[0]-labelTops[1])<=1, `Label alignment: ${labelTops}`);
     const selected = await focusEvidence(select);
     assert.equal(selected.inner, "none");
     assert.equal(selected.outer, "solid", JSON.stringify(selected));
@@ -226,7 +228,7 @@ try {
     await page.screenshot({ path: path.join(output, "picker.png") });
     await page.keyboard.press("Escape");
     await page.screenshot({ path: path.join(output, "focus.png") });
-    return { input, select: selected, styledNativePicker: supported };
+    return { input, select: selected, labelTops, styledNativePicker: supported };
   });
   await check("errors-and-real-library-source", async () => {
     assert.deepEqual(errors, []);

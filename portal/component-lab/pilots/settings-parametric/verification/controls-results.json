@@ -2748,6 +2748,10 @@
           "outer": "solid",
           "outlineWidth": "2px"
         },
+        "labelTops": [
+          346.59375,
+          346.59375
+        ],
         "styledNativePicker": true
       }
     },
