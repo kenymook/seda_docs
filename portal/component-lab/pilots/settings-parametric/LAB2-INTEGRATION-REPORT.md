@@ -71,3 +71,13 @@
 Исправлен отдельный пограничный loading-дефект: короткая кнопка S росла 21.5→42 px при изменении общего профиля на XL. Теперь snapshot включает padding; обе consumer-версии сохраняют Δ0/0 px и применяют новый padding после ответа. [Package summary](../../../../packages/seda-ui/verification/package-results.json), [provider measurements](../../../../packages/seda-ui/verification/provider-results.json).
 
 Lab сохраняет свой исходный layout и экспериментальные X/Y overrides. Проверка provider выполняется в отдельном consumer с реальным установленным пакетом, а не выдаёт CSS лаборатории за поведение библиотеки. Общая цель четырёх классов сложных приложений не считается завершённой; полный API остальных компонентов и platform/accessibility matrix остаются впереди.
+
+## Публикация public provider / version 8
+
+Проверенный код: `13acd516fc11b84757777b44fd0279ad42f22601`. [Clean Ubuntu CI 39954141798](https://github.com/kenymook/seda_docs/actions/runs/39954141798): package 11/11, contracts 93/93, TypeScript, build и 81 browser checks — success. Публикационный checkout повторно прошёл TypeScript/build и 55+14+12 checks.
+
+На прежнем owner-private Site опубликована версия 8. Source SHA: `1b513b5357f61550853cf1c280e8a8921766a8c7`; deployment `appgdep_6adb5551651881919460b2625bd339d4` — succeeded. Access policy revision 1: один owner, без групп/внешних посетителей.
+
+Свежая production-проверка: HTTP 200; все 85 source hashes совпали с проверенным checkout; Projects/Settings/Members, сохранение snapshot и зависимые controls работают; loading Δ0/0 px, IconButton квадратный, Select использует styled native picker и одну рамку focus; page errors 0. [Результат](verification/live-provider-v8.json).
+
+Числа тестов относятся к ограниченным проверяемым слоям, а не к полной зрелости библиотеки: 93 unit tests общего compiler/contracts, 81 browser check Lab и 11 групп поставки/consumer tests. Вложенные матрицы и palette snapshots не считаются отдельными пользовательскими сценариями. Полная работа по четырём reference applications продолжается.

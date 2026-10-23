@@ -33,10 +33,10 @@
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
 | Кодовый каталог | 13 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 7 контролов, 8 профилей, API/state/token validation, 90 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Исполняемые контракты | 7 контролов, 8 профилей, API/state/token validation, 93 unit checks | Контракты навигации, overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда; 55+14+12 browser checks | Четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
-| Реальный consumer | 11/11 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Общие темы/плотность вне Lab; остальные компоненты и browser engines |
+| Реальный consumer | 11/11 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection и loading | Остальные компоненты, browser engines и полная contract-матрица |
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 11 consumer proof groups | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
 | Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
@@ -47,7 +47,7 @@
 - Обещание этапа: пакет можно собрать, установить и использовать без исходников репозитория.
 - Внешний к исходникам proof: два отдельных consumer-проекта устанавливают настоящий npm tarball.
 - Граница готовности этапа: entry/types/CSS присутствуют, SSR/hydration/types/interactions проходят на заявленных React 18/19, сборка воспроизводится, React не вшит в библиотеку.
-- Этот этап **не завершает общий objective**. Следующая работа — общий public theme/profile layer вне лаборатории и базовые элементы рабочих пространств: Tabs, overlays/menus, панели, дерево и команды; затем reference applications и их общие contracts.
+- Этот этап **не завершает общий objective**. Public theme/profile layer теперь проверен вне лаборатории. Следующая работа — базовые элементы рабочих пространств: Tabs, overlays/menus, панели, дерево и команды; затем reference applications и их общие contracts.
 
 ## Последовательность реализации
 
@@ -68,3 +68,5 @@
 Добавлен SedaProvider, два режима темы и четыре размера вне Lab CSS. По 24 комбинации theme/size/width и по 4 bare-size сценария проверяются на каждом React runtime, с nested scopes, local overrides, state retention, error/focus и loading при смене профиля. Palette-проверка содержит 240 снимков состояний двух action-компонентов (2 React × 2 темы × 6 вариантов × 5 состояний × 2 компонента). Это вложенные измерения 11 групп, а не 240 новых пользовательских сценариев.
 
 93 unit tests подтверждают API defaults/provenance, token resolver и существующие rules. Поведение остальных компонентов, полные contract variants, навигация/overlays/editor primitives и четыре целевых класса приложений остаются незавершёнными. Следующий общий кодовый слой — навигация, панели и команды по существующим specs.
+
+Удалённая проверка public provider: [run 39954141798](https://github.com/kenymook/seda_docs/actions/runs/39954141798), commit `13acd516fc11b84757777b44fd0279ad42f22601`: package 11/11, contracts 93/93, TypeScript, build и Lab/workspace/controls 81/81 — success на чистом Ubuntu/Node 24.

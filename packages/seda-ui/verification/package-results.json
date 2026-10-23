@@ -179,8 +179,12 @@
     }
   ],
   "ci": {
-    "status": "pending",
-    "reason": "await clean remote run for provider changes"
+    "status": "success",
+    "runId": 39954141798,
+    "jobId": 120415644170,
+    "commit": "13acd516fc11b84757777b44fd0279ad42f22601",
+    "url": "https://github.com/kenymook/seda_docs/actions/runs/39954141798",
+    "environment": "clean Ubuntu, Node 24"
   },
   "assets": {
     "cssBytes": 125946,
