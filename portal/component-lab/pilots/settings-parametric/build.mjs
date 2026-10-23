@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { createContractEngine } from '../../../../packages/seda-contracts/src/index.mjs';
 import { createWebBindings } from '../../../../packages/seda-contracts/src/web.mjs';
 
@@ -39,8 +40,16 @@ export async function buildPilot({
   const packageRoot = path.join(repoRoot, 'packages/seda-contracts');
   const tokenPath = path.resolve(tokensFile || path.join(repoRoot, 'tokens.json'));
   const tokenBytes = await fs.readFile(tokenPath);
+  const libraryRoot=path.join(repoRoot,'packages/seda-ui');
+  const libraryBuild=spawnSync(process.execPath,[path.join(libraryRoot,'scripts/build.mjs')],{cwd:libraryRoot,encoding:'utf8',windowsHide:true});
+  if(libraryBuild.status!==0)throw Error('Public SEDA build failed: '+libraryBuild.stdout+libraryBuild.stderr);
+  const canonicalManifest=await fs.readFile(path.join(libraryRoot,'dist/manifest.json'),'utf8');
+  const installedManifest=await fs.readFile(path.join(pilotRoot,'node_modules/@seda-ai/ui/dist/manifest.json'),'utf8');
+  if(canonicalManifest!==installedManifest)throw Error('Installed SEDA package is stale. Build packages/seda-ui, then run npm ci in the pilot before building the reference application.');
   const tokens = JSON.parse(tokenBytes.toString('utf8'));
   const sourceFiles = [
+    ...await filesBelow(path.join(pilotRoot,'references')),
+    ...await filesBelow(path.join(pilotRoot,'node_modules/@seda-ai/ui/dist')),
     ...await filesBelow(path.join(repoRoot, 'packages/seda-ui/src')),
     ...await filesBelow(path.join(packageRoot, 'src')),
     ...await filesBelow(path.join(packageRoot, 'schema')),
@@ -111,13 +120,36 @@ export async function buildPilot({
     }],
   });
   await fs.copyFile(path.join(pilotRoot, 'index.html'), path.join(outputDir, 'index.html'));
+  const installedPackage=path.join(pilotRoot,'node_modules/@seda-ai/ui');
+  if((await fs.lstat(installedPackage)).isSymbolicLink())throw Error('Reference application requires an installed package, not a source link');
+  const referenceOut=path.join(outputDir,'references');
+  const referenceBuild=await build({
+    absWorkingDir:pilotRoot,entryPoints:[path.join(pilotRoot,'references/recents.tsx')],outdir:referenceOut,
+    bundle:true,format:'esm',jsx:'automatic',target:'es2020',metafile:true,minify:true,
+    loader:{'.woff':'file','.woff2':'file'},assetNames:'fonts/[name]-[hash]',
+    plugins:[{name:'reference-contract-catalog',setup(builder){
+      builder.onResolve({filter:/^seda:catalog$/},()=>({path:'catalog',namespace:'seda'}));
+      builder.onLoad({filter:/.*/,namespace:'seda'},()=>({contents:Object.entries(catalog).map(([name,value])=>`export const ${name} = ${JSON.stringify(value)};`).join('\n'),loader:'js'}));
+    }}]
+  });
+  const referenceInputs=Object.keys(referenceBuild.metafile.inputs);
+  const navigationProvenance={};
+  for(const theme of ['Light','Dark']){
+    const branch=engine.resolver.resolveBranch({collection:'components',path:['sidebar']},{theme}).children;
+    const selected=branch.item.surface.selected,accent=branch.item.accent.selected;
+    navigationProvenance[theme]={selected,accent};
+    await fs.appendFile(path.join(referenceOut,'recents.css'),`\n.reference-app[data-seda-theme="${theme.toLowerCase()}"]{--reference-nav-selected:${selected.cssValue};--reference-nav-accent:${accent.cssValue};}\n`);
+  }
+  if(referenceInputs.some(file=>/seda-ui[\\/]src[\\/]/.test(file))||!referenceInputs.some(file=>file.includes('node_modules/@seda-ai/ui/dist/components/Button/Button.js')))throw Error('Reference must consume installed SEDA public ESM');
+  await fs.cp(path.join(pilotRoot,'references/assets'),path.join(referenceOut,'assets'),{recursive:true});
+  await fs.copyFile(path.join(pilotRoot,'references/recents.html'),path.join(referenceOut,'recents.html'));
   const after = await fingerprint();
   const afterTokens = await fs.readFile(tokenPath);
   if (JSON.stringify(before) !== JSON.stringify(after) || sha256(tokenBytes) !== sha256(afterTokens)) {
     throw new Error('A source changed during the build. Rebuild before verifying the page.');
   }
   const artifacts = [];
-  for (const name of [...Object.keys(result.metafile.outputs), path.join(outputDir, 'index.html')]) {
+  for (const name of [...Object.keys(result.metafile.outputs), path.join(outputDir, 'index.html'),...await filesBelow(referenceOut)]) {
     const file = path.resolve(pilotRoot, name);
     const relative = path.relative(outputDir, file).split(path.sep).join('/');
     if (relative.startsWith('../')) throw new Error(`Unexpected output outside build directory: ${name}`);
@@ -133,6 +165,7 @@ export async function buildPilot({
     validation: { valid: validation.valid, planned: validation.planned },
     sourceAudit: { valid: audit.valid },
     bundledComponents: Object.keys(result.metafile.inputs).filter(file => /seda-ui[\\/]src[\\/]components[\\/]/.test(file)),
+    references:{recents:{route:'/references/recents.html',sourceNode:'1:691',sourceAlias:false,installedPackage:true,navigationProvenance,bundledComponents:referenceInputs.filter(file=>file.includes('node_modules/@seda-ai/ui/dist/components/'))}},
     runtimeConformance: 'not-checked',
   };
   await fs.writeFile(path.join(outputDir, 'build-metadata.json'), JSON.stringify(metadata, null, 2) + '\n');

@@ -610,6 +610,7 @@ function App() {
             </div>
           </div>
           <div className="topmeta">
+            <a className="subtle" href="./references/recents.html">Рабочие экраны</a>
             <span className="status-dot"></span> Live calculations{" "}
             <button
               onClick={() => {
@@ -1357,7 +1358,7 @@ function App() {
                 лаборатории отделена.
               </p>
               <p>
-                Контракты: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu. Формы и таблицы —
+                Контракты: {workspaceBinding.coverage.contract.join(", ")}. Формы и таблицы —
                 композиции.
               </p>
               <details className="workspace-tokens">
@@ -1454,7 +1455,7 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                Button · IconButton · TextField · Select · Checkbox · Radio · Toggle · Tabs · DropdownMenu — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
+                {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
                 SplitView — общий experimental layout; размеры панелей управляются отдельно.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.

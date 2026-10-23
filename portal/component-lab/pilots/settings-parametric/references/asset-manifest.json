@@ -1,0 +1,412 @@
+{
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "sourceNode": "1:691",
+  "purpose": "Original Figma images and exported vector assets; full-screen reference screenshot is QA only and is not rendered by the app.",
+  "assets": [
+    {
+      "file": "card-1-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-1-imgImage.png",
+      "bytes": 134387,
+      "sha256": "a690d1c06f04fc29eb19b3b18e9e2524e80cf5f2e737cc6c291b6736568974de"
+    },
+    {
+      "file": "card-10-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-10-imgImageImage.png",
+      "bytes": 182338,
+      "sha256": "14bf156e16e3384bcf2e0bf7bed22e93fa8b3e3adf2af63a2ee3ae006f7efaa3"
+    },
+    {
+      "file": "card-11-avatar.png",
+      "bytes": 847,
+      "sha256": "10e5ae37bc1184d821808da4cc9b4d0b4e83eee4e31ebbb1aaf199a646970424"
+    },
+    {
+      "file": "card-11-imgIcon.svg",
+      "bytes": 1447,
+      "sha256": "21c7f75813fc31a9b90ec1586eb8077c608faa5f65b83fbf6b41f693615d8bdd"
+    },
+    {
+      "file": "card-11-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "81e5d2102a0795380c0aa5b128faca6654fe1e42790c0ad97e4a6ca9fa8c4a3b"
+    },
+    {
+      "file": "card-11-imgImageImage.png",
+      "bytes": 160076,
+      "sha256": "7f28bb8ca0b1da9a14b01a78dc448916178f8f87b87111c67a5d0bf45564d881"
+    },
+    {
+      "file": "card-12-imgContainer.png",
+      "bytes": 165,
+      "sha256": "486000c182c1ff26fa0188117bffbe83d70848bfeb4ae0964cc455aa856d617c"
+    },
+    {
+      "file": "card-12-imgIconFigJamFile.svg",
+      "bytes": 1219,
+      "sha256": "29b8f6af6bdcb571b4d12b5f0bbf1dab2f6bf6d87afd1944632c40cbf555e9bd"
+    },
+    {
+      "file": "card-12-imgImageImage.png",
+      "bytes": 193795,
+      "sha256": "d77047ddb0c2b960be588abd56737a7740377c628aa23e304aaaee8c83c355cc"
+    },
+    {
+      "file": "card-13-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-13-imgImage.png",
+      "bytes": 43548,
+      "sha256": "22df3df0f7126afd5778a3faed0f9705f117144aa592637e55552f13cd71deec"
+    },
+    {
+      "file": "card-14-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-14-imgImage.png",
+      "bytes": 34968,
+      "sha256": "da2715d7e96abfbb82f461086b3cec69b10ef4d0d6f98b9d81bdc53cee453c92"
+    },
+    {
+      "file": "card-15-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-15-imgImage.png",
+      "bytes": 82087,
+      "sha256": "8a63ee00e224af988f7212456f16069ead29bf97d6251eae0eba077d6b95b6ad"
+    },
+    {
+      "file": "card-16-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-16-imgImage.png",
+      "bytes": 329404,
+      "sha256": "437666686af580b5e2a151a900f15a537421f60e333b98a9a9973e9c63746730"
+    },
+    {
+      "file": "card-17-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-17-imgImage.png",
+      "bytes": 63113,
+      "sha256": "a63fa2f67e24c2d3599e99d980f30a5ed89c1dbdfe05081f878572018866d9f9"
+    },
+    {
+      "file": "card-18-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-18-imgImage.png",
+      "bytes": 127793,
+      "sha256": "05999baa7c94ca7253635b9ec5bf703e955881677e9d46f3017b9f1401085d70"
+    },
+    {
+      "file": "card-19-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-19-imgImage.png",
+      "bytes": 93041,
+      "sha256": "428a9032534152419219166f59815aa5378909fd5d1e6b0a4251dfeb17450b0e"
+    },
+    {
+      "file": "card-2-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-2-imgImageImage.png",
+      "bytes": 73057,
+      "sha256": "380821e9d0f5b53addec39ef27e5c3202038c165a283a10f9144c3e3f974c081"
+    },
+    {
+      "file": "card-20-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-20-imgImage.png",
+      "bytes": 45521,
+      "sha256": "3b3fba333dfb6a57867203e8ba05cdbaa007641cdf01d5ed37b3851aba266f9d"
+    },
+    {
+      "file": "card-21-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-21-imgImage.png",
+      "bytes": 47570,
+      "sha256": "00ce7fd557aaf3e9bc87f989813bdd30645495e62f6ee606f53c1b40a284eb52"
+    },
+    {
+      "file": "card-22-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-22-imgImage.png",
+      "bytes": 64258,
+      "sha256": "91134af01c8f1cb85fc5be3f58fc75d58bb56ecf4a6b715d6ae79ccf1a839028"
+    },
+    {
+      "file": "card-23-avatar.png",
+      "bytes": 149,
+      "sha256": "375dacadb8c2215f99c513d2984a2a47c44d6825251486f1a29767be2882eb78"
+    },
+    {
+      "file": "card-23-imgIcon.svg",
+      "bytes": 1447,
+      "sha256": "21c7f75813fc31a9b90ec1586eb8077c608faa5f65b83fbf6b41f693615d8bdd"
+    },
+    {
+      "file": "card-23-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "81e5d2102a0795380c0aa5b128faca6654fe1e42790c0ad97e4a6ca9fa8c4a3b"
+    },
+    {
+      "file": "card-23-imgImage.png",
+      "bytes": 200347,
+      "sha256": "fe3791f0935d6ca6ce1a7bf2106644b4a7b1e17fdb1fe6cee4726403c05c864a"
+    },
+    {
+      "file": "card-24-imgIconPrototypeFile.svg",
+      "bytes": 1032,
+      "sha256": "283601589014eb2d7158f98180b1e4da61c0be6dcb83150f76c03a593b4d3ed2"
+    },
+    {
+      "file": "card-24-imgImage.png",
+      "bytes": 157994,
+      "sha256": "6c49f7b973745af35a1fcf6fa0a915dc94b4ab08035156def27869c4b82164a6"
+    },
+    {
+      "file": "card-3-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-3-imgImageImage.png",
+      "bytes": 120037,
+      "sha256": "305e8169f77da4f48c140920a65b9eebc3867054e333935fb1afdd30334eb24b"
+    },
+    {
+      "file": "card-4-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-4-imgImage.png",
+      "bytes": 99810,
+      "sha256": "ca89260ddfa90f4602bc72a6c8814e5fc3b8d6a5498fd734d1dccc5ddafe9bac"
+    },
+    {
+      "file": "card-5-imgIcon.svg",
+      "bytes": 1447,
+      "sha256": "21c7f75813fc31a9b90ec1586eb8077c608faa5f65b83fbf6b41f693615d8bdd"
+    },
+    {
+      "file": "card-5-imgIconRepoFile.svg",
+      "bytes": 3479,
+      "sha256": "6bfa18366e472420ad60539c97cda4b79ba39812f6026e04f55c610cfe29e0e7"
+    },
+    {
+      "file": "card-5-imgImage.png",
+      "bytes": 7196,
+      "sha256": "60c2a9bdd1966d45d6e5f99f524b65dde64ca1f6a7b9e56bf1260dce8f591b89"
+    },
+    {
+      "file": "card-5-imgImage1.png",
+      "bytes": 165062,
+      "sha256": "1dbf4101f6d5cd79326c11cb3a6352df2e5341e676507ea70aea454425f9137e"
+    },
+    {
+      "file": "card-6-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-6-imgImageImage.png",
+      "bytes": 118484,
+      "sha256": "0ec5efed56017de76660de05a4794debcec7d44d808f880eb7c5c870b0db3a95"
+    },
+    {
+      "file": "card-7-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "card-7-imgImage.png",
+      "bytes": 83929,
+      "sha256": "eae29b4af4ea01a0e2eea4521751d8ddad42d45278f5deee346d5add696ded5c"
+    },
+    {
+      "file": "card-8-avatar.png",
+      "bytes": 853,
+      "sha256": "d1e238f7362c9c7681327bc9c40e51ea3c4b43f91d4f692816091271bf77042f"
+    },
+    {
+      "file": "card-8-imgIcon.svg",
+      "bytes": 1468,
+      "sha256": "341c6c7a3b746c2de48e819f5317b8c9e4aae1b91e4545fe3795eae82fea5d0f"
+    },
+    {
+      "file": "card-8-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "3c43830889098ed65ab4fc7a6e9b0f59aaa958d391c1195f77bb25a6ecb0149c"
+    },
+    {
+      "file": "card-8-imgImage.png",
+      "bytes": 124569,
+      "sha256": "d8a654204e5aead09096f66161b2b373642ca267956e213174bd1d8c88225e04"
+    },
+    {
+      "file": "card-9-imgIconPublishedFile.svg",
+      "bytes": 2628,
+      "sha256": "392cf9e5d90290240af2792beb1b826b7398715cd95c204eddcc90be389eadcf"
+    },
+    {
+      "file": "card-9-imgImage.png",
+      "bytes": 103460,
+      "sha256": "c549463e3ece3ecbf2b44c5470cb8d589c4ee4c26a2d9b6cda8fc2c149a9b2ec"
+    },
+    {
+      "file": "recentsCard-imgIconDesignFile.svg",
+      "bytes": 2521,
+      "sha256": "bed30951785faee326c83a0cca66b1adef8a4c3275d813729fbfa3ee3454aee6"
+    },
+    {
+      "file": "recentsCard-imgImage.png",
+      "bytes": 8131,
+      "sha256": "622804c4174effa31d427bb800c549d86cdc5d5bec8c094586cf807ab2ed41be"
+    },
+    {
+      "file": "recentsCard-imgImageImage.png",
+      "bytes": 321090,
+      "sha256": "82b471c4d523839f1e815fa84e29bd33c7c1638bff4a2ea42d5c9fa8643a0edc"
+    },
+    {
+      "file": "recentsDrafts-imgIcon.svg",
+      "bytes": 1245,
+      "sha256": "dc7b2f01047b28dfbf710397039384d748e19e736256fdb4869337fff46e7627"
+    },
+    {
+      "file": "recentsFilterContext-imgIcon.svg",
+      "bytes": 866,
+      "sha256": "204c37576619bb4bac3b876f85101d7ea1a7d94c65eacd7014423667719ed8a8"
+    },
+    {
+      "file": "recentsFilterContext-imgIcon1.svg",
+      "bytes": 3178,
+      "sha256": "0a3c003a50863c26f268148d6d74cf7be0a5607c6d9cfb5f523341bcb034bde3"
+    },
+    {
+      "file": "recentsFilterContext-imgIcon2.svg",
+      "bytes": 2240,
+      "sha256": "aca196e767963009f05aac085abe5e6bc382468feca0efaca321c8c0924d93f5"
+    },
+    {
+      "file": "recentsHeader-imgIcon.svg",
+      "bytes": 2044,
+      "sha256": "5195bdb9916b3dc0840d1de4bb698c6a9df7b944afa2074bb0896ab0bb28b3c9"
+    },
+    {
+      "file": "recentsHeader-imgIcon1.svg",
+      "bytes": 850,
+      "sha256": "d60f6f8c8c33f7499a7b5bbf985d9762815bd1441ba582d1f7686ae01ef44518"
+    },
+    {
+      "file": "recentsHeader-imgIcon2.svg",
+      "bytes": 2414,
+      "sha256": "85fc2cdc1fe0a9dc7a4a7eee6fdef37ce01155fa4972c4b436c781e88a6f2089"
+    },
+    {
+      "file": "recentsHeader-imgIcon3.svg",
+      "bytes": 4266,
+      "sha256": "4a192125f82000910e61a966bdc77b295b78bc9013ee2ff9ba19a3a7c3d06af2"
+    },
+    {
+      "file": "recentsHeader-imgIcon4.svg",
+      "bytes": 845,
+      "sha256": "4a9537daabf30b506e840fd3a5a8221ab96a15f266ff557235a3bf5a428e809d"
+    },
+    {
+      "file": "recentsHelp-imgIcon.svg",
+      "bytes": 2459,
+      "sha256": "22f90f09153c6c7c3562bf5f8f09314a2468a06a754206d51053cb0959ffd752"
+    },
+    {
+      "file": "recentsPlan-imgIcon.svg",
+      "bytes": 1077,
+      "sha256": "ca70754b2ad5a128080c48978c8c5c1b93f1a262ddf59bb6868435768e6bb319"
+    },
+    {
+      "file": "recentsSidebarNav-imgIcon.svg",
+      "bytes": 1369,
+      "sha256": "a1a0eba7dbdeee4e6778abb3f845e6799396dadbfb7160abd29269643bf74e6e"
+    },
+    {
+      "file": "recentsSidebarNav-imgIcon1.svg",
+      "bytes": 1866,
+      "sha256": "e479268307184f5355a478f541f44307569a8df174e477714b60424239a3af43"
+    },
+    {
+      "file": "recentsSidebarTop-imgIcon.svg",
+      "bytes": 845,
+      "sha256": "4a9537daabf30b506e840fd3a5a8221ab96a15f266ff557235a3bf5a428e809d"
+    },
+    {
+      "file": "recentsSidebarTop-imgIcon1.svg",
+      "bytes": 1932,
+      "sha256": "1c55871518499dca9183bf7151ab31e401e895b2dfdaec10131a2f6233159996"
+    },
+    {
+      "file": "recentsSidebarTop-imgIcon2.svg",
+      "bytes": 1513,
+      "sha256": "80f7cb87090c618825afa82659825f34c04808ea076a78de64cb956c260ad220"
+    },
+    {
+      "file": "recentsSidebarTop-imgImage.png",
+      "bytes": 8131,
+      "sha256": "622804c4174effa31d427bb800c549d86cdc5d5bec8c094586cf807ab2ed41be"
+    },
+    {
+      "file": "recentsTeamNav-imgIcon.svg",
+      "bytes": 3178,
+      "sha256": "0a3c003a50863c26f268148d6d74cf7be0a5607c6d9cfb5f523341bcb034bde3"
+    },
+    {
+      "file": "recentsTeamNav-imgIcon1.svg",
+      "bytes": 2287,
+      "sha256": "0c361c1b4cf4c48b721a04c93f8d9a8cd00515d221a86b97b27656da3234a412"
+    },
+    {
+      "file": "recentsTools-imgIcon.svg",
+      "bytes": 1283,
+      "sha256": "d6644fe69fa4b41b800dbcd51f2f1ce6403f5cab6ef749b72af192759a61772f"
+    },
+    {
+      "file": "recentsTools-imgImage.svg",
+      "bytes": 92928,
+      "sha256": "703e5fd2e9355e6b3605e8c8b4caa06bbf314cd0f67df49b8d508f8105c4ef19"
+    }
+  ]
+}

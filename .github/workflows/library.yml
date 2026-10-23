@@ -23,6 +23,8 @@ jobs:
         working-directory: packages/seda-ui
       - run: npm ci
         working-directory: packages/seda-contracts
+      - run: npm run build
+        working-directory: packages/seda-ui
       - run: npm ci
         working-directory: portal/component-lab/pilots/settings-parametric
       - run: npx playwright install --with-deps chromium
@@ -54,5 +56,8 @@ jobs:
             packages/seda-ui/.diagnostics-package/*/react-*/tabs-results.json
             packages/seda-ui/.diagnostics-package/*/react-*/split-results.json
             packages/seda-ui/.diagnostics-package/*/react-*/split-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/tree-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/tree-results.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-*/results.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-workspace/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-recents/*.png

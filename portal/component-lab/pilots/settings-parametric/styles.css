@@ -835,11 +835,17 @@ body.dark dialog {
 }
 @media (max-width: 780px) {
   .top {
-    padding: 0 15px;
+    padding: 12px 15px;
+    height: auto;
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .topmeta {
     font-size: 0;
     gap: 7px;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
   .workspace {
     display: block;

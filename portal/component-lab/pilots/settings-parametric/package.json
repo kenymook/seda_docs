@@ -9,15 +9,16 @@
   "scripts": {
     "build": "node build.mjs",
     "serve": "node server.mjs",
-    "typecheck": "tsc --noEmit",
-    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs",
+    "typecheck": "tsc --noEmit && tsc --noEmit --project references/tsconfig.json",
+    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs",
     "verify:workspace": "node verify-workspace.mjs",
     "verify:controls": "node verify-controls.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "@seda-ai/ui": "file:../../../../packages/seda-ui"
   },
   "devDependencies": {
     "@types/react": "18.3.24",

@@ -39,3 +39,6 @@ coverage/
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-recents/
+portal/component-lab/pilots/settings-parametric/.diagnostics-recents-first.png

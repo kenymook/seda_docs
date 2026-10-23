@@ -139,3 +139,9 @@ Editor использует Tree вместо отдельных buttons: вло
 [Production proof](../../portal/component-lab/pilots/settings-parametric/verification/live-tree-v13.json): HTTP200, **109 исходных хешей совпали**; Tree selection/expansion/inspector/preview/undo/save/reload прошли. При X14/Y6 высота строк S/M/L/XL =36/44/52/60 px, padding24 px на обеих темах — совпадает с derived geometry; loading Button Δ0/0 и IconButton square. [Устойчивые Light/Dark](../../portal/component-lab/pilots/settings-parametric/verification/visual-tree-v13.json) просмотрены, JS errors0. Обе проверки работают с той же приватной publication.
 
 Новый CI [39981202806](https://github.com/kenymook/seda_docs/actions/runs/39981202806), job120508631144, подтверждён live/in_progress: dependency install/Chromium/TypeScript прошли, package proof выполняется. Его полный success ещё не заявляется. В статическом summary UI перечислены прежние девять контрактов; подробный provenance и coverage API уже содержат десятый Tree. Этот текст следует перевести на общий registry при следующем изменении; он не использовался как доказательство runtime coverage.
+
+## Продвижение: первый рабочий reference screen
+
+Recents (`1:691`) подготовлен отдельным installed-package React entry на прежнем сайте, с 25 исходными previews и полноценными локальными действиями. [Подробная оценка](REFERENCE-RECENTS-REVIEW.md) разделяет технически пройденные сценарии и незавершённую визуальную приёмку. 9/9 новых browser groups, TypeScript и build pass; 24 вложенные profile/viewport комбинации не объявляются отдельными workflows. Общая цель остаётся active; остальные восемь reference screens не реализованы.
+
+Tree CI [39981202806](https://github.com/kenymook/seda_docs/actions/runs/39981202806), code afa5d889, теперь completed/success. Это удалённое подтверждение предыдущего Tree этапа, не нового reference code. Краткий список contracts в Lab теперь получает имена из общего coverage, включая Tree, вместо устаревшей строки.
