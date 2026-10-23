@@ -91,3 +91,12 @@ Settings использует настоящий SEDA Tabs: две панели 
 Локально прошли TypeScript обоих проектов, 13 package proof groups, полный unit run 100/100, Lab/workspace/controls 55+15+12. После усиления прямого compileControl отдельно повторены семь Tabs tests — PASS. Consumer DOM сопоставляется с compiler в семи selection snapshots на каждом React runtime; восемь общих профилей и 80 цветовых привязок/цепочек сверены с public generator. Финальная чистая CI и повторная публикационная проверка фиксируются после завершения.
 
 Шесть Tabs DOM checks в статическом contract report остаются not-checked. Browser proofs не заменяют screen readers, Firefox/WebKit, native desktop runtime, full catalogue и четыре сложных reference applications. Следующая общая работа: overlays/menus, resizable panels, Tree и commands. Общая цель остаётся активной.
+
+
+## Публикация version 9 и чистая CI D27
+
+[CI 39959381410](https://github.com/kenymook/seda_docs/actions/runs/39959381410), code `0d3f6e11c090bafffc808c57b459e6882ab26a59`: все шаги success — package 13/13, unit 100/100, оба TypeScript, build и browser 55+15+12. Follow-up `9fd9b99` включает Tabs в измерения Inspector; его run 39959605474 пока in_progress на установке Chromium и не объявлен успешным. Публикационный checkout с follow-up прошёл TypeScript/build и все 82 browser checks.
+
+Прежний private Site: version 9; deployment `appgdep_6adb5e73b50c81918347af75514712e4` succeeded; source SHA `3990395fb70c5f4e6bdd211c1a9d402678939626`. Policy revision 1 сохранена: один owner, без groups/external visitors. На живом сайте проверены настоящий contract Tabs, keyboard, draft retention и раскрытие ошибки скрытой панели; loading Δ0/0, IconButton square, single focus/Select picker, JS errors 0. Все 90 source hashes совпали с проверенным checkout. При сверке provider.css единственное расхождение оказалось CRLF/LF; deployment bytes отдельно совпали с Git blob, после восстановления canonical LF повторная строгая сверка прошла без изменения кода. [Live result](verification/live-tabs-v9.json), [Settings Light](verification/settings-tabs-Light.png), [Settings Dark](verification/settings-tabs-Dark.png).
+
+Эта публикация не завершает цель зрелой библиотеки. Четыре сложных reference applications, overlays/menus, panels/Tree/commands, data/editor/conversation primitives и полная runtime/accessibility matrix остаются впереди.

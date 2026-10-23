@@ -219,13 +219,24 @@
   "kind": "seda-ui-package-proof",
   "date": "2026-10-23",
   "ci": {
-    "status": "pending",
-    "reason": "await clean remote run for Tabs contract integration"
+    "status": "success",
+    "runId": 39959381410,
+    "jobId": 120433211590,
+    "commit": "0d3f6e11c090bafffc808c57b459e6882ab26a59",
+    "url": "https://github.com/kenymook/seda_docs/actions/runs/39959381410",
+    "environment": "clean Ubuntu, Node 24"
   },
   "assets": {
     "cssBytes": 133587,
     "cssGzipBytes": 15526,
     "optionalProfilesBytes": 935355,
     "profilesLoadedByDefault": false
+  },
+  "inspectorFollowupCi": {
+    "status": "in_progress",
+    "runId": 39959605474,
+    "jobId": 120433974069,
+    "commit": "9fd9b99f2b875ad4625f9ceb979778e1385e8eaf",
+    "lastObservedStep": "Install Chromium"
   }
 }
