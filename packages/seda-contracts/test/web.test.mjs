@@ -7,6 +7,19 @@ import { createWebBindings, bindWebRecipe, WebBindingError } from '../src/web.mj
 const engine = createContractEngine();
 const source = JSON.parse(fs.readFileSync(new URL('../../../tokens.json', import.meta.url), 'utf8'));
 
+test('Shared layout foundation: canonical semantic colors reach CSS with provenance and cannot be omitted',()=>{
+ for(const theme of ['Light','Dark']){
+  const compiled=engine.compile(undefined,{overrides:{theme}});
+  const binding=createWebBindings(compiled).layout;
+  for(const [name,property,path] of [['surface','--surface-base',['surface','base']],['separator','--border-subtle',['border','subtle']],['focus','--focus-ring',['focus','ring']]]){
+   const canonical=engine.resolver.resolve({collection:'semantic',path,expectedType:'color'},{theme});
+   assert.equal(binding.vars[property],canonical.cssValue);
+   assert.deepEqual(binding.evidence.find(item=>item.property===property).chain,canonical.chain);
+   const missing=structuredClone(compiled);delete missing.foundationTokens[name];assert.throws(()=>createWebBindings(missing),WebBindingError);
+  }
+ }
+});
+
 test('R01/R02/R10: eight profiles map geometry, tokens and provenance to actual CSS assignments', () => {
   for (const theme of ['Light', 'Dark']) for (const controlSize of ['s', 'm', 'l', 'xl']) {
     const compiled = engine.compile(undefined, { overrides: { theme, controlSize } });

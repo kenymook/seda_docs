@@ -754,11 +754,11 @@ body.dark .inspectcard,
 body.dark .productcard,
 body.dark .node,
 body.dark .secondary,
-body.dark .fieldrow input,
-body.dark .toolbar select,
+body.dark .fieldrow input:not(.seda-field__input),
+body.dark .toolbar select:not(.seda-field__select),
 body.dark .searchwrap,
 body.dark .modalBody,
-body.dark .modalBody input {
+body.dark .modalBody input:not(.seda-field__input) {
   background: #1d2938;
   color: #edf3fc;
   border-color: #334256;
@@ -773,7 +773,7 @@ body.dark .count,
 body.dark td {
   color: #9bacc4;
 }
-body.dark .searchwrap input {
+body.dark .searchwrap input:not(.seda-field__input) {
   color: #fff;
 }
 body.dark th,

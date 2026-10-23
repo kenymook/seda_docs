@@ -4,7 +4,7 @@
       "name": "build-source-artifact-integrity",
       "status": "passed",
       "evidence": {
-        "sources": 97,
+        "sources": 103,
         "artifacts": 45
       }
     },
@@ -520,8 +520,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(29, 29, 30)",
-            "bg": "rgba(56, 57, 58, 0.063)"
+            "color": "rgb(34, 34, 35)",
+            "bg": "rgba(63, 64, 66, 0.063)"
           },
           {
             "id": "help",
@@ -1000,8 +1000,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(34, 34, 35)",
-            "bg": "rgba(63, 64, 66, 0.063)"
+            "color": "rgb(40, 40, 41)",
+            "bg": "rgba(81, 81, 83, 0.067)"
           },
           {
             "id": "help",
@@ -1240,8 +1240,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(234, 234, 234)",
-            "bg": "rgba(244, 244, 244, 0.106)"
+            "color": "rgb(230, 230, 230)",
+            "bg": "rgba(241, 242, 242, 0.106)"
           },
           {
             "id": "help",
@@ -1480,7 +1480,7 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(25, 25, 26)",
+            "color": "rgb(22, 22, 23)",
             "bg": "rgba(49, 50, 52, 0.063)"
           },
           {
@@ -1720,8 +1720,8 @@
             "radius": 6,
             "font": 12,
             "line": 16,
-            "color": "rgb(236, 236, 236)",
-            "bg": "rgba(245, 245, 245, 0.106)"
+            "color": "rgb(234, 234, 234)",
+            "bg": "rgba(244, 244, 244, 0.106)"
           },
           {
             "id": "help",

@@ -67,6 +67,18 @@ import '@seda-ai/ui/styles.css';
 ]} />
 ```
 
+## Разделяемые рабочие панели (experimental)
+
+`SplitView` — две постоянно mounted панели с pointer/keyboard resize, RTL, controlled/uncontrolled размером, minimum/maximum bounds и явным overflow при нехватке места. Два вложенных SplitView дают три области редактора. `Enter` минимизирует/восстанавливает primary (при minSize=0 — collapse), `Escape` отменяет drag. Host владеет моделью и сохранением. [Полный API, token gaps и ограничения](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/overlays-layout/split-view.md). Instance contract ещё не зарегистрирован; provider/foundation binding не заменяет его.
+
+```tsx
+<div style={{height:520}}>
+  <SplitView primaryLabel="Объекты" secondaryLabel="Редактор"
+    primary={<Objects />} secondary={<Editor />}
+    primarySize={width} onSizeChange={setWidth} minSize={120} secondaryMinSize={400}/>
+</div>
+```
+
 ## Вкладки рабочих панелей — API
 
 `Tabs` поддерживает line/pill, наследуемый размер, controlled/uncontrolled выбор, automatic/manual activation, RTL keyboard и сохранение mounted panels. [Полный API и границы](https://github.com/kenymook/seda_docs/blob/codex/seda-lab2-integration-20261023/specs/navigation/tabs.md#14-react-implementation--experimental). Импорт: `import { Tabs } from "@seda-ai/ui"`. Требуются `label` списка и items с value/label/content.

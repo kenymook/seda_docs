@@ -5,6 +5,7 @@ import {
 } from "@seda-ai/ui";
 
 import { Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
+import {EditorWorkspace} from "./EditorWorkspace";
 
 type Props = {
   size: "s" | "m" | "l" | "xl";
@@ -135,6 +136,7 @@ export function ProductWorkspace({ size, action, children }: Props) {
           ["projects", "Проекты"],
           ["settings", "Настройки"],
           ["members", "Команда"],
+          ["editor", "Редактор"],
         ].map(([id, label]) => (
           <Button
             key={id}
@@ -434,6 +436,7 @@ export function ProductWorkspace({ size, action, children }: Props) {
           </Button>
         </form>
       </section>
+      <div id="editor-page" hidden={page!=="editor"}><EditorWorkspace size={size} action={action}/></div>
     </>
   );
 }

@@ -2,6 +2,7 @@ import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
 import { verifyMenu } from "./verify-menu.mjs";
+import { verifySplitView } from "./verify-split-view.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import assert from "node:assert/strict";
@@ -145,7 +146,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 17);
+        assert.equal(result.exports.length, 18);
+        assert.ok(result.exports.includes("SplitView"));
         assert.ok(result.exports.includes("DropdownMenu"));
         assert.ok(result.exports.includes("Tabs"));
         assert.ok(result.exports.includes("SedaProvider"));
@@ -159,6 +161,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         path.join(cwd, "types.tsx"),
         `import {DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
 const menu=<DropdownMenu triggerLabel="Actions" items={[{id:'open',label:'Open',onSelect:()=>{}}]}/>;
+import {SplitView} from '@seda-ai/ui';
+const split=<SplitView primary="Tree" secondary="Editor" primaryLabel="Objects" secondaryLabel="Canvas"/>;
+// @ts-expect-error panel labels are required
+const namelessSplit=<SplitView primary="A" secondary="B"/>;
+// @ts-expect-error layout orientation vocabulary is closed
+const badSplitOrientation=<SplitView primary="A" secondary="B" primaryLabel="A" secondaryLabel="B" orientation="diagonal"/>;
+// @ts-expect-error pane extent uses CSS px numbers, not ambiguous strings
+const badSplitSize=<SplitView primary="A" secondary="B" primaryLabel="A" secondaryLabel="B" primarySize="30%"/>;
 // @ts-expect-error trigger accessible name is required
 const namelessMenu=<DropdownMenu items={[]}/>;
 // @ts-expect-error action requires executable callback
@@ -213,7 +223,7 @@ configuration.controlSize='s';return null;}`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 13 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 16 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -324,6 +334,9 @@ configuration.controlSize='s';return null;}`,
     );
     await check("react-" + version + "-menu-overlays", () =>
       verifyMenu({ cwd, browser, version }),
+    );
+    await check("react-" + version + "-split-view", () =>
+      verifySplitView({cwd,browser,version}),
     );
   }
 } catch (error) {

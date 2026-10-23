@@ -18,6 +18,7 @@ import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
 import "../../../../packages/seda-ui/src/navigation.css";
 import "../../../../packages/seda-ui/src/overlays.css";
+import "../../../../packages/seda-ui/src/layout.css";
 import "./styles.css";
 import { Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
@@ -1454,6 +1455,7 @@ function App() {
               </div>
               <p className="small">
                 Button · IconButton · TextField · Select · Checkbox · Radio · Toggle · Tabs · DropdownMenu — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
+                SplitView — общий experimental layout; размеры панелей управляются отдельно.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.
               </p>

@@ -71,7 +71,7 @@ try {
           );
           for (const width of [1543, 1024, 390]) {
             await page.setViewportSize({ width, height: 1100 });
-            for (const section of ["projects", "settings", "access", "members"]) {
+            for (const section of ["projects", "settings", "access", "members", "editor"]) {
               await selectPage(section === "access" ? "settings" : section);
               if (section === "settings" || section === "access") await page.getByRole("tab", { name: section === "access" ? "Доступ и уведомления" : "Основные параметры", exact:true }).click();
               const data = await page
@@ -86,6 +86,7 @@ try {
                     .map((el) => {
                       const s = getComputedStyle(el),
                         b = el.getBoundingClientRect();
+                      const inner=el.querySelector('.seda-field__input,.seda-field__select');
                       return {
                         id:
                           el.id ||
@@ -97,6 +98,7 @@ try {
                         radius: parseFloat(s.borderRadius),
                         font: parseFloat(s.fontSize),
                         line: parseFloat(s.lineHeight),
+                        ...(inner ? {innerBackground:getComputedStyle(inner).backgroundColor,innerColor:getComputedStyle(inner).color,wrapperColor:s.color} : {}),
                         kind: el.classList.contains("seda-tabs__tab") ? "tab" : el.classList.contains("seda-icon-button")
                           ? "icon"
                           : el.classList.contains("seda-button")
@@ -106,6 +108,7 @@ try {
                     }),
                 );
               for (const v of data) {
+                if(v.innerBackground!==undefined){assert.equal(v.innerBackground,'rgba(0, 0, 0, 0)',v.id+' inner field must let the compiled surface show through');assert.equal(v.innerColor,v.wrapperColor,v.id+' inherits compiled foreground');}
                 near(v.height, d.height, v.id + " height");
                 if (v.kind !== "tab") near(v.radius, d.radius, v.id + " radius");
                 near(v.font, d.font, v.id + " font");
@@ -203,7 +206,8 @@ try {
         ),
         name + " has resolver chain",
       );
-    assert.deepEqual(evidence.coverage.libraryAdapter, []);
+    assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView"]);
+    assert.ok(evidence.evidence.some(e=>e.component==='foundation'&&e.property==='--border-subtle'&&e.chain.length>0));
     assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu"]);
     const token = evidence.evidence.find(
       (e) => e.property === "--seda-select-surface-default",
@@ -497,6 +501,45 @@ try {
     await trigger.click();await page.getByRole('menuitem',{name:'Удалить проект',exact:true}).click();await page.locator('#confirmDeleteProject').click();await settle();
     assert.equal(await page.locator('#tbody tr').count(),4);assert.equal(await trigger.count(),0);assert.equal(await page.locator('#search').evaluate(el=>document.activeElement===el),true);assert.equal(await page.locator('#project').inputValue(),'Несохранённый draft');
     return {details:true,copyDialog:true,deleteConfirmation:true,cancelRetained:true,removedTriggerFocusFallback:true,formDraftRetained:true};
+  });
+  await check("workspace-dialog-field-theme-isolation", async () => {
+    await page.setViewportSize({width:1543,height:1100});await fresh();const samples=[];
+    for(const theme of ['Light','Dark'])for(const size of ['s','m','l','xl']){
+      await configure(theme,size,{scale:125,air:6,airX:24,radius:125});await page.locator('#create').click();
+      const field=page.locator('#modalName');
+      const actual=await field.evaluate(el=>{const inner=getComputedStyle(el),outer=getComputedStyle(el.closest('.seda-field__control'));return {innerBackground:inner.backgroundColor,innerColor:inner.color,wrapperColor:outer.color,wrapperBackground:outer.backgroundColor,padding:parseFloat(outer.paddingInlineStart)};});
+      assert.equal(actual.innerBackground,'rgba(0, 0, 0, 0)');assert.equal(actual.innerColor,actual.wrapperColor);assert.notEqual(actual.wrapperBackground,'rgba(0, 0, 0, 0)');
+      samples.push({theme,size,...actual});await page.keyboard.press('Escape');
+    }
+    await page.locator('#size').selectOption('xl');await page.locator('#theme').selectOption('dark');await page.locator('#airX').fill('24');await page.screenshot({path:path.join(output,'dark-field-isolation.png')});
+    return {samples};
+  });
+  await check("workspace-editor-panels-history-and-local-save", async () => {
+    await page.setViewportSize({width:1543,height:1100});await page.evaluate(()=>localStorage.removeItem('seda.lab.editor-layout.v1'));await fresh();await selectPage('editor');
+    const navigation=page.getByRole('separator',{name:'Ширина списка объектов',exact:true});
+    const paneSize=()=>page.locator('#editor-layout-primary').evaluate(el=>el.getBoundingClientRect().width);
+    const before=await paneSize();await navigation.focus();await page.keyboard.press('ArrowRight');await settle();near(await paneSize(),before+8,'editor panel keyboard');
+    await page.locator('#editor-node-button').click();await page.locator('#editor-node-text').fill('Запустить задачу');
+    assert.equal(await page.locator('#editor-preview-button').textContent(),'Запустить задачу');
+    await page.locator('#editor-undo').click();assert.equal(await page.locator('#editor-preview-button').textContent(),'Создать задачу');await page.locator('#editor-redo').click();assert.equal(await page.locator('#editor-preview-button').textContent(),'Запустить задачу');
+    await page.locator('#editor-button-variant').selectOption('secondary');assert.equal(await page.locator('#editor-preview-button').getAttribute('data-variant'),'secondary');
+    await page.locator('#editor-button-disabled').check();assert.equal(await page.locator('#editor-preview-button').isDisabled(),true);await page.locator('#editor-button-disabled').uncheck();await page.locator('#editor-preview-button').click();assert.equal(await page.locator('#editor-preview-count').textContent(),'1');
+    await page.locator('#editor-node-visible').uncheck();assert.equal(await page.locator('#editor-preview-button').isVisible(),false);await page.locator('#editor-node-visible').check();
+    await configure('Dark','l',{scale:125,air:4,airX:12,radius:125});assert.equal(await page.locator('#editor-node-text').inputValue(),'Запустить задачу');assert.equal(await page.locator('#editor-preview-count').textContent(),'1');
+    await selectPage('projects');await selectPage('editor');assert.equal(await page.locator('#editor-node-text').inputValue(),'Запустить задачу');
+    await page.locator('#editor-save-layout').click();assert.match(await page.locator('#editor-storage-notice').textContent(),/сохранены/);const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('seda.lab.editor-layout.v1')));assert.equal(saved.document.button.text,'Запустить задачу');
+    await fresh();await selectPage('editor');await page.locator('#editor-node-button').click();assert.equal(await page.locator('#editor-node-text').inputValue(),'Запустить задачу');assert.equal(await page.locator('#editor-button-variant').inputValue(),'secondary');near(await paneSize(),saved.navigation,'saved panel restored');assert.match(await page.locator('#editor-storage-notice').textContent(),/Восстановлен/);
+    for(const theme of ['Light','Dark']){await configure(theme,'m',{scale:100,air:0,airX:0,radius:100});await page.screenshot({path:path.join(output,'editor-'+theme.toLowerCase()+'.png')});}
+    return {keyboardResize:true,history:true,previewLinked:true,disabledAndVisible:true,profileDraftRetained:true,navigationRetained:true,localReload:true,saved};
+  });
+  await check("workspace-editor-storage-errors-and-corruption", async () => {
+    await page.evaluate(()=>localStorage.setItem('seda.lab.editor-layout.v1','{"version":99}'));await fresh();await selectPage('editor');assert.match(await page.locator('#editor-storage-notice').textContent(),/Не удалось восстановить/);
+    await page.locator('#editor-node-button').click();await page.locator('#editor-node-text').fill(' ');await page.locator('#editor-save-layout').click();assert.match(await page.locator('#editor-storage-notice').textContent(),/Заполните текст/);assert.equal(await page.locator('#editor-preview-button').count(),0);
+    await page.locator('#editor-node-text').fill('Восстановленный текст');
+    await page.evaluate(()=>{window.restoreEditorStorage=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new DOMException('Disabled storage','QuotaExceededError');};});
+    try{await page.locator('#editor-save-layout').click();assert.match(await page.locator('#editor-storage-notice').textContent(),/Не удалось сохранить/);assert.equal(await page.locator('#editor-storage-notice').getAttribute('role'),'alert');}
+    finally{await page.evaluate(()=>{Storage.prototype.setItem=window.restoreEditorStorage;delete window.restoreEditorStorage;localStorage.removeItem('seda.lab.editor-layout.v1');});}
+    return {corruptionFallback:true,emptyTextGuard:true,quotaErrorVisible:true};
   });
   await check("workspace-browser-errors", () => assert.deepEqual(errors, []));
 } finally {

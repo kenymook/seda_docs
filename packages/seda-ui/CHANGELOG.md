@@ -1,5 +1,13 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — панели редактора и изоляция темы
+
+- Добавлен experimental SplitView: horizontal/vertical, pointer capture/transform, keyboard/RTL, Enter minimum/restore, Escape/pointercancel, controlled rejection, clamp с сохранением requested intent, вложенные mounted panels и unmount cleanup.
+- Layout CSS включён в публичный stylesheet; semantic surface/base, border/subtle и focus/ring генерируются из canonical tokens. Нет новой component token family и нет заявления общего instance contract SplitView.
+- Installed React 18/19 verifier добавляет две группы SplitView; NodeNext проверяет labels, numeric extents и orientation.
+- Lab получил редактор с тремя областями, linked inspector/preview, undo/redo и явным browser-local сохранением/reload/error handling. Это композиция для проверки библиотеки, не готовый Figma reference screen.
+- Legacy demo Dark selectors больше не перекрашивают SEDA input/select. Browser checks теперь проверяют прозрачность внутреннего элемента и наследование foreground, включая диалог.
+
 ## Unreleased — меню команд
 
 - Icon-only DropdownMenu использует ghost IconButton. Ghost foreground теперь учитывает canonical token и compiled adapter; исправлен белый trigger с неразличимым многоточием в Dark Lab. Добавлены theme/size проверки trigger в package consumer и workspace.

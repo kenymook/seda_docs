@@ -126,6 +126,7 @@ try {
       fs.readFileSync(path.join(source, "provider.css"), "utf8") +
       "\n" + fs.readFileSync(path.join(source, "navigation.css"), "utf8") +
       "\n" + fs.readFileSync(path.join(source, "overlays.css"), "utf8") +
+      "\n" + fs.readFileSync(path.join(source, "layout.css"), "utf8") +
       "\n" +
       themeAssets.css,
   );

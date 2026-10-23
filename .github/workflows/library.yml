@@ -52,4 +52,7 @@ jobs:
             packages/seda-ui/.diagnostics-package/*/react-*/menu-*.png
             packages/seda-ui/.diagnostics-package/*/react-*/menu-results.json
             packages/seda-ui/.diagnostics-package/*/react-*/tabs-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/split-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/split-*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-*/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workspace/*.png

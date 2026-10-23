@@ -5,8 +5,10 @@ export function createWorkspaceBindings(
   derived,
   parameters,
 ) {
+  const web=createWebBindings(compiled);
   const vars = {
-    ...createWebBindings(compiled).recipes.projectName.vars,
+    ...web.layout.vars,
+    ...web.recipes.projectName.vars,
     "--seda-control-height": derived.height + "px",
     "--seda-control-radius": derived.radius + "px",
     "--seda-control-font-size": derived.font + "px",
@@ -27,8 +29,8 @@ export function createWorkspaceBindings(
     "--lab-toggle-width":
       Math.max(derived.preset.icon, derived.font) * 2 + 4 + "px",
   };
-  const evidence = [];
-  for (const [component, binding] of Object.entries(createWebBindings(compiled).controls)) {
+  const evidence = web.layout.evidence.map(item=>({...item,component:'foundation'}));
+  for (const [component, binding] of Object.entries(web.controls)) {
     Object.assign(vars, binding.vars);
     evidence.push(...binding.evidence.map(item => ({ ...item, component: component.toLowerCase() })));
   }
@@ -56,8 +58,8 @@ export function createWorkspaceBindings(
     parameters,
     coverage: {
       contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu"],
-      libraryAdapter: [],
-      composition: ["Navigation", "Table", "Card", "Dialog"],
+      libraryAdapter: ["SplitView"],
+      composition: ["Navigation", "Table", "Card", "Dialog", "Editor"],
     },
   };
 }

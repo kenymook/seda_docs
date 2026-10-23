@@ -43,3 +43,7 @@ createDropdownMenuWebBindings использует разрешённый compon
 Lab использует настоящий DropdownMenu в строках проектов: открыть сведения, создать копию через existing dialog, удалить только после подтверждения. Отмена сохраняет строку; подтверждение очищает row selection, сохраняет draft формы и переводит focus в search при удалении trigger. Диалоги и таблица остаются композициями; данные локальные, серверных операций здесь нет. Provider bridge передаёт правильную тему/размер порталу. Источники одинаковых CSS properties имеют отдельные React keys по component/property/path.
 
 Submenus, checkable/async permission patterns, global command registry, screen reader, Firefox/WebKit и native shell не подтверждены. Следующий слой для reference screens — панели/Tree/commands и связанные рабочие композиции.
+
+## Общие layout foundation values
+
+Compiled profile теперь содержит foundationTokens: surface/base, border/subtle и focus/ring из canonical semantic collection с provenance. createWebBindings проверяет эти resolved leaves и связывает CSS variables; отсутствие значения не превращается в fallback. Workspace Inspector показывает foundation evidence отдельно от component contracts. Новый SplitView использует те же semantic values в installed package; отдельный component token family и instance contract для layout ещё требуют system review. Registry остаётся из девяти executable components. Сами layout размеры принадлежат host, а S/M/L/XL и X/Y продолжают управлять вложенными контролами.

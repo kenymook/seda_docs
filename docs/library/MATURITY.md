@@ -34,11 +34,11 @@
 
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 15 component exports + provider/configuration API; 52 component specs (54 Markdown с template и button-system) | Полное покрытие согласованного каталога и сложных editor primitives |
-| Исполняемые контракты | 9 компонентов, 8 профилей, API/state/token validation, 106 unit checks | Остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
-| Реальное приложение | Lab: проекты/настройки/команда; 55+17+12 browser checks | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
+| Кодовый каталог | 16 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
+| Исполняемые контракты | 9 компонентов, 8 профилей, API/state/token validation; 107 unit checks с foundation binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
+| Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 55+20+12 browser checks | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
-| Реальный consumer | 15/15 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs и Menu | Остальные компоненты, browser engines и полная contract-матрица |
+| Реальный consumer | 17/17 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 13 package proof groups (включая две группы Tabs) | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
 | Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |

@@ -156,6 +156,7 @@ export function createWebBindings(compiled) {
   const { geometry, typography, layout, instances } = compiled;
   if (![geometry, typography, layout, instances].every(object)) fail('/', 'Compiled profile is incomplete.');
   const layoutWriter = writer();
+  for(const [key,property] of Object.entries({surface:'--surface-base',separator:'--border-subtle',focus:'--focus-ring'}))layoutWriter.add(property,compiled.foundationTokens?.[key],`/foundationTokens/${key}`,'color');
   for (const [key, value] of Object.entries(layout)) {
     const path = `/layout/${key}`;
     const resolved = object(value) ? px(value, path, { positive: key === 'containerMaxWidth' }) : {

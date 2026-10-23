@@ -31,9 +31,10 @@ export function buildThemeAssets(packageRoot, output) {
   );
   const navigationBytes = fs.readFileSync(path.join(packageRoot, "src/navigation.css"));
   const overlayBytes = fs.readFileSync(path.join(packageRoot, "src/overlays.css"));
+  const layoutBytes = fs.readFileSync(path.join(packageRoot, "src/layout.css"));
   const usedProperties = new Set(
     Array.from(
-      (String(stylesBytes) + "\n" + String(providerBytes) + "\n" + String(navigationBytes) + "\n" + String(overlayBytes)).matchAll(
+      (String(stylesBytes) + "\n" + String(providerBytes) + "\n" + String(navigationBytes) + "\n" + String(overlayBytes) + "\n" + String(layoutBytes)).matchAll(
         /var\((--[a-zA-Z0-9-]+)/g,
       ),
       (match) => match[1],
@@ -49,6 +50,7 @@ export function buildThemeAssets(packageRoot, output) {
       "packages/seda-ui/src/provider.css": hash(providerBytes),
       "packages/seda-ui/src/navigation.css": hash(navigationBytes),
       "packages/seda-ui/src/overlays.css": hash(overlayBytes),
+      "packages/seda-ui/src/layout.css": hash(layoutBytes),
       "packages/seda-ui/scripts/theme-assets.mjs": hash(
         fs.readFileSync(new URL(import.meta.url)),
       ),

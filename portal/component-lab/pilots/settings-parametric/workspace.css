@@ -557,3 +557,17 @@ body.dark .form-section-heading span {
 
 /* Composition spacing belongs to the settings content, not to Tabs token overrides. */
 .workspace-settings-panel { padding-block-start: 24px; }
+
+/* Experimental editor composition, built with shared SplitView and controls. */
+.editor-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-block-end:16px; }
+.editor-toolbar > span { color:var(--seda-foreground-default); }
+.editor-surface { height:520px; min-width:0; border:1px solid var(--border-subtle); border-radius:var(--seda-control-radius); overflow:hidden; }
+.editor-objects,.editor-properties,.editor-preview { padding:16px; min-height:100%; }
+.editor-objects,.editor-properties { display:flex; flex-direction:column; align-items:stretch; gap:16px; }
+.editor-objects h2,.editor-properties h2 { font-size:var(--seda-control-font-size); margin:0; }
+.editor-objects .seda-button { justify-content:flex-start; }
+.editor-objects [aria-pressed="true"] { outline:2px solid var(--focus-ring); outline-offset:-2px; }
+.editor-preview { background:var(--surface-base); overflow:auto; }
+.editor-artboard { border:1px solid var(--border-subtle); padding:20px; }
+.editor-artboard h2 { overflow-wrap:anywhere; }
+.editor-artboard .seda-button { max-width:100%; }

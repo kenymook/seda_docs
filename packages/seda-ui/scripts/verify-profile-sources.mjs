@@ -64,6 +64,7 @@ export async function verifyProfileSources(root) {
       ];
       bindings.push(['--tabs-indicator-selected', compiled.controls.Tabs.tokenBranch.children.indicator.selected], ['--tabs-pill-surface-selected', compiled.controls.Tabs.tokenBranch.children.pill.surface.selected]);
       bindings.push(['--dropdown-menu-surface-default',compiled.controls.DropdownMenu.tokenBranch.children.surface.default],['--dropdown-menu-item-surface-hover',compiled.controls.DropdownMenu.tokenBranch.children.item.surface.hover],['--status-danger-text',compiled.controls.DropdownMenu.semanticAdapters['--status-danger-text']]);
+      bindings.push(['--surface-base',compiled.foundationTokens.surface],['--border-subtle',compiled.foundationTokens.separator],['--focus-ring',compiled.foundationTokens.focus]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
         assert.ok(actual, property);
@@ -112,6 +113,7 @@ export async function verifyProfileSources(root) {
     );
     await fs.copyFile(path.join(root, "src/navigation.css"), path.join(pkg, "src/navigation.css"));
     await fs.copyFile(path.join(root, "src/overlays.css"), path.join(pkg, "src/overlays.css"));
+    await fs.copyFile(path.join(root, "src/layout.css"), path.join(pkg, "src/layout.css"));
     assert.throws(
       () => buildThemeAssets(pkg, output),
       /Required public component token is missing: --select-border-focus/,
