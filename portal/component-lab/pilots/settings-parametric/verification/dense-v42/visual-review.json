@@ -1,0 +1,24 @@
+{
+  "reviewer": "Codex agent visual review; no independent designer signoff",
+  "files": [
+    "Light/Dark × grid/list baseline and final",
+    "Light/Dark × 960/1440 XL150 X24 Y12",
+    "8 reference routes × Light/Dark M100",
+    "6 Files selected/menu/error/focus screenshots in Light/Dark"
+  ],
+  "foundAndFixed": [
+    "Light glyph visibility",
+    "Ink extent hidden by SVG whitespace",
+    "Account/search overlap at extreme settings",
+    "Clipped filter labels",
+    "Duplicate menu chevrons",
+    "Composer actions squeeze editable area"
+  ],
+  "remaining": [
+    "Other source icon families need optical normalization",
+    "Building muted glyph contrast",
+    "Inspector density families",
+    "Full Figma acceptance and OS/AT checks"
+  ],
+  "scope": "UI chrome and component composition; authored documents and canvas fixtures remain independent"
+}

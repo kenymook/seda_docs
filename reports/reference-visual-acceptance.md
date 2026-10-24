@@ -30,3 +30,7 @@
 Список frame IDs — существующая карта интеграции, не свидетельство свежего чтения всех frames. В этой итерации заново прочитан только Building1:84. См. [отчёт и границы результатов](2026-10-25-document-visual-fidelity.md).
 
 Открыты source chrome и дополнительные состояния Building, свежая приёмка остальных frames, отсутствующие public runtime компоненты, rich text/virtualization, full RTL и target OS/AT. Архивный Figma scan и зелёные частные проверки эти пункты не закрывают.
+
+## 25.10 — согласованность компонентов
+
+[Files visual pass](2026-10-25-dense-visual-consistency.md): общие menu/action rhythm перенесены на8 apps;16 route/theme screenshots просмотрены. Files получил собственный verified optical/theme glyph adapter, flow filters,24px rhythm и card radius из compiled geometry; source34/32px композиция намеренно адаптирована. Это не fresh pixel fidelity approval всех9 frames. Для остальных source icon families оптическая приёмка открыта.

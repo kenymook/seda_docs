@@ -21,6 +21,10 @@
 
 Открыты плотность сложных редакторов, полнота и оптическое качество иконок, все component variants/backgrounds/popups, полный RTL, системная accessibility и performance. Текущая библиотека не объявляется Level 3 или production-ready на основании архивного Figma health score.
 
+## Визуальный проход Files и перенос правил — 25.10
+
+Первый плотный экран Files получил optical/theme glyph adapter,24px gutters/gaps, общий radius и flow layout filters. Shared menu disclosure и action rhythm применены к8 routes; просмотрены16 theme/route screenshots и6 Files states. Composer использует public TextArea plain. Проверки:123contracts,45installed-package groups, Files48 иComposer48 parameter samples. Это частичная визуальная приёмка; остальные source icon families, inspector density и полный Figma/OS/AT review открыты. [Результаты и границы](2026-10-25-dense-visual-consistency.md).
+
 ## Архивная оценка Figma от 2026-06-12
 
 Ниже сохранён прежний отчёт snapshot `2026-06-12T16:52:43.458Z`. Его “Done”, scan score 100, owner approval и “Strong” относятся только к тем историческим проверкам. Они не являются текущим статусом React runtime, визуальной готовности или всей цели. Эта архивная часть требует нового аудита при использовании её сведений.

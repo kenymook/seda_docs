@@ -51,7 +51,7 @@ try {
   await check("build-source-artifact-integrity", async () => {
     const metadata = JSON.parse(
       await fs.readFile(
-        path.join(import.meta.dirname, "dist/build-metadata.json"),
+        path.join(process.env.SEDA_PILOT_DIST || path.join(import.meta.dirname, "dist"), "build-metadata.json"),
       ),
     );
     const hash = (bytes) =>

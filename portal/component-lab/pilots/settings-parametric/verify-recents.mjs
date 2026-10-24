@@ -20,7 +20,9 @@ try{
  await fresh();
  await check('reference-package-assets-and-frame-structure',async()=>{
   const metadata=await page.evaluate(async()=>fetch('/build-metadata.json').then(response=>response.json()));assert.equal(metadata.references.recents.sourceAlias,false);assert.equal(metadata.references.recents.installedPackage,true);assert.ok(metadata.references.recents.bundledComponents.some(file=>file.endsWith('/Select/Select.js')));assert.equal(await list().count(),25);
-  const geometry=await page.locator('.reference-file').first().boundingBox();assert.ok(Math.abs(geometry.x-275)<=1);assert.ok(Math.abs(geometry.width-355.6667)<=1);assert.ok(Math.abs(geometry.y-162)<=2);
+  const geometry=await page.locator('.reference-file').first().boundingBox(),main=await page.locator('.reference-main').boundingBox(),filters=await page.locator('.reference-filters').boundingBox(),tabs=await page.locator('.seda-tabs__list').boundingBox();
+  // SEDA composition deliberately replaces the source's 34/32px gutters/gaps with 24/24px.
+  assert.ok(Math.abs(geometry.x-(main.x+24))<=1);assert.ok(Math.abs(geometry.width-(main.width-4*24)/3)<=1);assert.ok(Math.abs(geometry.y-(Math.max(filters.y+filters.height,tabs.y+tabs.height)+16))<=1);
   assert.equal(await page.locator('.reference-sidebar').evaluate(el=>el.getBoundingClientRect().width),241);
   // Load every lazy thumbnail before asserting the asset set; the sidebar scroll is independent.
   await page.locator('.reference-main').evaluate(el=>{el.scrollTop=el.scrollHeight;});await page.waitForLoadState('networkidle');await page.locator('.reference-main').evaluate(el=>{el.scrollTop=0;});await settle();
