@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-25",
+  "runtimeSource": "d27442f376d9e8057d28924562bb4df5ff7c9492",
+  "siteSource": "7e4b5801491f93b9fecf0f6e5a2d73cf4693bd8d",
+  "version": 40,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deploymentId": "appgdep_6add1ffb37708191ac8b504251658183",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_5dc2213f91088191959a3508bd28533a",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archive": {
+    "bytes": 7745807,
+    "sha256": "16da506b054452fb9f0869f298cb740abbf01f8b562b46de88d5b7ff15ab1b7d"
+  },
+  "typeScriptProjects": 3,
+  "packageGroups": {
+    "passed": 45,
+    "failed": 0,
+    "scope": "After callback ref cleanup, before final keyboard click listener. Final same-runtime tarball independently rechecked afterwards: 21 Tooltip workflows and 16 matrix cases per React18/19."
+  },
+  "pilotSequenceExitCode": 0,
+  "pilotScope": "Full pilot before callback ref cleanup/keyboard click listener. Focused Tooltip64/Modal32/Lab55 after ref fix, final package Tooltip React18/19 plus production checks after keyboard fix. Verifier-only changes afterwards set explicit viewport and cover all4 placements. No runtime changes after deployment.",
+  "loading": {
+    "combinations": 288,
+    "maxDeltaWidth": 0,
+    "maxDeltaHeight": 0
+  },
+  "production": {
+    "sourceHashesMatched": 783,
+    "rootTextSamples": 24,
+    "tooltipSamples": 64,
+    "modalSamples": 32,
+    "errors": []
+  },
+  "limitations": [
+    "Tooltip surface geometry experimental; Figma fidelity unverified",
+    "Chromium only; AT/OS/native shell and full RTL not certified",
+    "No executable Tooltip surface instance contract",
+    "Not whole-library acceptance"
+  ],
+  "rawSHA256": {
+    "v40-chat-tooltip.png": "59c27ae1aff00f573280121446706e792911900605d4d6318d704dd7fc95b89b",
+    "v40-final-build-log.txt": "9b1ee9ebed6e7167bf2c7fdb4a51400cf45ec601f91c71b44806672f2c7171f8",
+    "v40-final-tarball-log.txt": "349bd475271974b873be381cc4487c8281adbce923d0abdc6bb8d2e6c7460879",
+    "v40-focused-log.txt": "7aef4ded6d4a331fa68fdc7672f0e7a755eb7899575de8291e7dcf9787c38325",
+    "v40-loading-results.json": "25f6b70240940123c48a3adb3e481c1db651f5046048dadc7bcfec4a8f4892ed",
+    "v40-package-log.txt": "c7697a353ac5581695423427287360239c7cb2fe7025e2e821df4f95f3842c56",
+    "v40-package-summary.json": "3735740401eda1447ee0d1124133e3c3730944108c120365501b2fcb5488be10",
+    "v40-pilot-log.txt": "a28905ec4d9746ac5412a703d5065da530f4cb32059313b9580f6f0e31faa94c",
+    "v40-production-results.json": "fbfe41a095bc5116322695b05f75e6b2d857e913b9ba052e0a1ffb74a6a5fcdd",
+    "v40-ref-cleanup-before.txt": "8c38697601c8765497e29eec7c1d77f8dd90256837b5f04bc14606efff866755",
+    "v40-sandbox-tooltip.png": "dad48df3244a510d8f3b152cf4627b5d2bff3e661f0d8fe0ca4c462d3839d9da",
+    "v40-tooltip-react-18.3.1.json": "77966f08b971ceb5c0a03a684c2037800034255be5c477d4e9cc07454b3acd62",
+    "v40-tooltip-react-19.2.7.json": "77966f08b971ceb5c0a03a684c2037800034255be5c477d4e9cc07454b3acd62",
+    "v40-tooltip-workspace.json": "4714e3b9785ef234f0334db948d96085cf2f579bc45c4add5ec1087535910023"
+  }
+}

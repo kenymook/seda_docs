@@ -12,6 +12,7 @@
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
 | Визуальная согласованность | Последние доказательства: `verification/application-v39-release.json`, `verification/modal-v38-release.json` и `verification/visual-v37-release.json` в pilot | Добавлены shared scale в Files/Documents/Chat, Text roles в4 apps, constrained Button/Menu, Tabs focus reveal и границы панелей/dock. Зрелость всего визуального слоя не подтверждена |
 | Modal | Public native dialog + common WorkspaceDialog in 8 reference apps | Реальный React-компонент; 32 production route/theme/density samples и package React18/19 PASS; surface geometry experimental, Figma fidelity и surface-family executable contract открыты |
+| Tooltip | Public text-only Tooltip and IconButton.tooltip in 4 reference apps | 45 package groups before final keyboard listener; final Tooltip21 workflows and 16 matrix samples per React18/19, plus production Tooltip64/Modal32/text24, source hashes783. Experimental geometry; no surface instance contract or AT/Figma acceptance |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 

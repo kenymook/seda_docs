@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';import fs from 'node:fs/promises';import path from 'node:path';import{pathToFileURL}from'node:url';import{chromium}from'playwright';import{createPilotServer}from'./server.mjs';
 const routes={recents:'Справка',building:'Справка',chat:'Справка',sandbox:'Поиск слоёв'};
 export async function verifyTooltipWorkspace(page,origin,output){
+ await page.setViewportSize({width:1440,height:1288});
  const samples=[],errors=[];const listen=e=>errors.push(e.message);page.on('pageerror',listen);page.setDefaultTimeout(12000);
  try{for(const[route,name]of Object.entries(routes)){
   await page.goto(origin+'/references/'+route+'.html');
