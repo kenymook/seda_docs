@@ -124,7 +124,7 @@ export async function buildPilot({
   if((await fs.lstat(installedPackage)).isSymbolicLink())throw Error('Reference application requires an installed package, not a source link');
   const referenceOut=path.join(outputDir,'references');
   const referenceBuild=await build({
-    absWorkingDir:pilotRoot,entryPoints:['recents','building','chat','sandbox','spline','webflow','framer'].map(name=>path.join(pilotRoot,'references',name+'.tsx')),outdir:referenceOut,
+    absWorkingDir:pilotRoot,entryPoints:['recents','building','chat','sandbox','spline','webflow','framer','workflow'].map(name=>path.join(pilotRoot,'references',name+'.tsx')),outdir:referenceOut,
     bundle:true,format:'esm',jsx:'automatic',target:'es2020',metafile:true,minify:true,
     loader:{'.woff':'file','.woff2':'file'},assetNames:'fonts/[name]-[hash]',
     plugins:[{name:'reference-contract-catalog',setup(builder){
@@ -151,6 +151,7 @@ export async function buildPilot({
   await fs.copyFile(path.join(pilotRoot,'references/spline.html'),path.join(referenceOut,'spline.html'));
   await fs.copyFile(path.join(pilotRoot,'references/webflow.html'),path.join(referenceOut,'webflow.html'));
   await fs.copyFile(path.join(pilotRoot,'references/framer.html'),path.join(referenceOut,'framer.html'));
+  await fs.copyFile(path.join(pilotRoot,'references/workflow.html'),path.join(referenceOut,'workflow.html'));
   const after = await fingerprint();
   const afterTokens = await fs.readFile(tokenPath);
   if (JSON.stringify(before) !== JSON.stringify(after) || sha256(tokenBytes) !== sha256(afterTokens)) {
@@ -173,7 +174,7 @@ export async function buildPilot({
     validation: { valid: validation.valid, planned: validation.planned },
     sourceAudit: { valid: audit.valid },
     bundledComponents: Object.keys(result.metafile.inputs).filter(file => /seda-ui[\\/]src[\\/]components[\\/]/.test(file)),
-    references:Object.fromEntries([['recents','1:691'],['building','1:84'],['chat','1:3894'],['sandbox','1:1875'],['spline','1:4844'],['webflow','1:5922'],['framer','1:7743']].map(([name,sourceNode])=>{
+    references:Object.fromEntries([['recents','1:691'],['building','1:84'],['chat','1:3894'],['sandbox','1:1875'],['spline','1:4844'],['webflow','1:5922'],['framer','1:7743'],['workflow','1:8421']].map(([name,sourceNode])=>{
       const output=Object.entries(referenceBuild.metafile.outputs).find(([file])=>file.endsWith('/'+name+'.js'))?.[1];
       return [name,{route:'/references/'+name+'.html',sourceNode,...(name==='spline'?{contexts:{scene:'1:4844',object:'1:5441'},proceduralGeometry:true}:{}),sourceAlias:false,installedPackage:true,...(['recents','chat','sandbox'].includes(name)?{navigationProvenance}:{}),bundledComponents:Object.entries(output?.inputs??{}).filter(([file,info])=>info.bytesInOutput>0&&file.includes('node_modules/@seda-ai/ui/dist/components/')).map(([file])=>file)}];
     })),

@@ -1,7 +1,7 @@
 {
   "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
   "sourceNode": "1:8421",
-  "runtimeAssetsConnected": false,
+  "runtimeAssetsConnected": true,
   "assets": [
     {
       "name": "imgVector",
@@ -45,7 +45,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon.svg"
     },
     {
       "name": "imgIcon1",
@@ -56,7 +57,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon1.svg"
     },
     {
       "name": "imgIcon2",
@@ -111,7 +113,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon5.svg"
     },
     {
       "name": "imgIcon6",
@@ -144,7 +147,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon8.svg"
     },
     {
       "name": "imgIcon9",
@@ -232,7 +236,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon16.svg"
     },
     {
       "name": "imgIcon17",
@@ -243,7 +248,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon17.svg"
     },
     {
       "name": "imgIcon18",
@@ -309,7 +315,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon23.svg"
     },
     {
       "name": "imgIcon24",
@@ -320,7 +327,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon24.svg"
     },
     {
       "name": "imgIcon25",
@@ -331,7 +339,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon25.svg"
     },
     {
       "name": "imgIcon26",
@@ -342,7 +351,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon26.svg"
     },
     {
       "name": "imgIcon27",
@@ -353,7 +363,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon27.svg"
     },
     {
       "name": "imgIcon28",
@@ -364,7 +375,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon28.svg"
     },
     {
       "name": "imgIcon29",
@@ -375,7 +387,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon29.svg"
     },
     {
       "name": "imgIcon30",
@@ -386,7 +399,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon30.svg"
     },
     {
       "name": "imgIcon31",
@@ -397,7 +411,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon31.svg"
     },
     {
       "name": "imgIcon32",
@@ -408,7 +423,8 @@
       "width": "24",
       "height": "24",
       "viewBox": "0 0 24 24",
-      "runtimeUsed": false
+      "runtimeUsed": true,
+      "runtimeFile": "workflow-imgIcon32.svg"
     },
     {
       "name": "imgIcon33",
@@ -509,5 +525,7 @@
       "viewBox": "0 0 24 24",
       "runtimeUsed": false
     }
-  ]
+  ],
+  "runtimeConnectedCount": 16,
+  "runtimeScope": "16 exact exported SVG assets for task cards, node menu, navigation rail and select/hand toolbar."
 }

@@ -73,3 +73,6 @@ Application suite:12 browser groups, внутри одной16 appearance sample
 ## Production version27
 
 Опубликована на прежнем owner-private Site.704 canonical source hashes совпали;12 application groups +1 integrity check прошли,16 nested appearance samples, glyph paint подтверждён actual screenshots. JS errors0, Save loading delta0px. Production добавляет собственный hosting iframe, поэтому verifier считает три iframe приложения по owner-контейнеру; исходный4-vs3 FAIL сохранён отдельно. Exact functional source11479bc; Site sourceabd8c66. Полный publication checkout:199 application/22 isolated/59 model,3 TypeScript/build PASS. CI40087768737/job120854084808 ещё выполнялся при публикации. Evidence: `verification/framer-v27-release.json` и `framer-live-v27-results.json`.
+
+
+CI exact Framer27 source11479bc завершился completed/success: run40087768737/job120854084808.120 contracts/foundation,25 package,199 application/22 isolated/59 model;3 TypeScript/build. Evidence `verification/framer-v27-ci.json`. Последующий workflow editor этим результатом не покрывается.

@@ -79,3 +79,5 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-webflow/*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.png
