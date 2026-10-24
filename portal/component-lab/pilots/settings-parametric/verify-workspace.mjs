@@ -206,7 +206,7 @@ try {
         ),
         name + " has resolver chain",
       );
-    assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView", "FileUpload"]);
+    assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast"]);
     assert.ok(evidence.evidence.some(e=>e.component==='foundation'&&e.property==='--border-subtle'&&e.chain.length>0));
     assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"]);
     const token = evidence.evidence.find(

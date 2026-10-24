@@ -15,7 +15,8 @@
       "import": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
-    "./profiles.json": "./dist/profiles.json"
+    "./profiles.json": "./dist/profiles.json",
+    "./icons.json": "./dist/icon-catalog.json"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

@@ -1,0 +1,4 @@
+# SVG exports are byte-verified assets; do not rewrite them across Windows/CI.
+assets/icons/seda/*.svg -text
+assets/icons/seda/icons.json text eol=lf
+packages/seda-ui/src/components/Icon/seda-icon-assets.ts text eol=lf

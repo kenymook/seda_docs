@@ -2,11 +2,17 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-06-11
+> **Last reviewed** · 2026-10-24
 > **Figma** · [badge](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1183-18587)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `state-vocabulary.md`, `tokens.md`
+
+## Runtime — 2026-10-24
+
+Badge использует общий preset font/line/icon, компактную высоту от строки и scale/X/Y. Dot остаётся кругом, pill shape сохраняется. Count/max — safe integers; max >0; count ≤0 скрывает count badge. Значение 0 в label variant сохраняется. Нейтральная поверхность непрозрачна для безопасного использования внутри цветного Tag. Внутренний view tag-counter документирован и не допускает произвольного styling nested Badge.
+
+[Точные aliases, SVG provenance и ограничения](../../docs/library/FEEDBACK-VISUAL-HANDOFF.md). Runtime адаптация не является executable instance contract или внешней визуальной/AT-приёмкой.
 
 ---
 
@@ -212,10 +218,10 @@ Badge чаще всего декоративен визуально, но его
 | `badge/foreground/brand` | Brand Badge text. | `text/on-brand/primary` |
 | `badge/border/brand` | Brand Badge border. | `border/brand/subtle` |
 | `badge/surface/danger` | Danger Badge surface. | `status/danger/container` |
-| `badge/foreground/danger` | Danger Badge text. | `status/danger/text` |
+| `badge/foreground/danger` | Danger Badge text. | `text/danger` |
 | `badge/icon/danger` | Danger Badge icon. | `status/danger/icon` |
 | `badge/surface/ai` | AI Badge surface. | `status/ai/container` |
-| `badge/foreground/ai` | AI Badge text. | `status/ai/text` |
+| `badge/foreground/ai` | AI Badge text. | `text/ai` |
 | `badge/surface/disabled` | Disabled Badge surface. | `status/disabled/container` |
 
 ### Token gaps

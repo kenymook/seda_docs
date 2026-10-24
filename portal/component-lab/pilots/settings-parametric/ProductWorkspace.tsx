@@ -6,6 +6,11 @@ import {
   Icon,
   IconButton,
   FileUpload,
+  Alert,
+  Toast,
+  Badge,
+  Tag,
+  type AlertVariant,
 } from "@seda-ai/ui";
 
 import { Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
@@ -144,6 +149,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
           ["members", "Команда"],
           ["editor", "Редактор"],
           ["components", "Компоненты"],
+          ["feedback", "Состояния"],
         ].map(([id, label]) => (
           <Button
             key={id}
@@ -450,8 +456,54 @@ export function ProductWorkspace({ size, action, children, typography, textScale
         <Text as="p" variant="body/default">Сравните текст, иконки, края и интервалы при изменении общих параметров. Это рабочая проверка визуального слоя, а не отметка готовности библиотеки.</Text>
         <VisualConsistency size={size} action={action} />
       </section>
+      <section id="feedback-page" className="workspace-page" hidden={page!=="feedback"} aria-labelledby="feedback-title">
+        <Text as="h1" variant="heading/page" id="feedback-title">Состояния рабочего интерфейса</Text>
+        <Text as="p" variant="body/default">Сообщения, фильтр и счётчики собраны из SEDA. Выбор и удаление фильтра меняют локальный список; сетевые операции не выполняются.</Text>
+        <FeedbackWorkspace />
+      </section>
     </>
   );
+}
+
+function FeedbackWorkspace() {
+  const [severity,setSeverity]=useState<AlertVariant>("info");
+  const [selected,setSelected]=useState(false);
+  const [hasFilter,setHasFilter]=useState(true);
+  const [showAlert,setShowAlert]=useState(true);
+  const [notice,setNotice]=useState<string|null>(null);
+  const noticeTrigger=useRef<HTMLButtonElement>(null);
+  const filterTrigger=useRef<HTMLButtonElement>(null);
+  const alertTrigger=useRef<HTMLButtonElement>(null);
+  const tone=severity==="error"?"danger":severity;
+  const items=[{name:"Atlas",mine:true},{name:"Nova",mine:false},{name:"Orbit",mine:true},{name:"Horizon",mine:false}].filter(item=>!selected||item.mine);
+  return <div className="feedback-workspace">
+    <div className="pane feedback-workspace__controls">
+      <Select id="feedback-severity" label="Вариант сообщения" value={severity} onValueChange={value=>setSeverity(value as AlertVariant)} options={[
+        {value:"info",label:"Информация"},{value:"success",label:"Успех"},{value:"warning",label:"Предупреждение"},{value:"error",label:"Ошибка"},{value:"ai",label:"AI-предложение"}]} />
+      <div className="visual-consistency__actions">
+        <Button ref={noticeTrigger} id="feedback-show-toast" iconLeft={<Icon name="info" />} onClick={()=>setNotice(`Показано проектов: ${items.length}`)}>Показать уведомление</Button>
+        <Button ref={alertTrigger} id="feedback-show-alert" disabled={showAlert} onClick={()=>{setShowAlert(true);requestAnimationFrame(()=>document.getElementById("feedback-severity")?.focus());}}>Вернуть сообщение</Button>
+      </div>
+    </div>
+    {showAlert&&<Alert id="feedback-alert" variant={severity} title={severity==="ai"?"AI-предложение требует проверки":"Пример состояния: "+severity}
+      description="Это визуальный пример сообщения. Его цвет, текст и иконка следуют общей системе; состояние сервера не имитируется."
+      dismissLabel="Скрыть пример сообщения" onDismiss={()=>{setShowAlert(false);requestAnimationFrame(()=>alertTrigger.current?.focus());}} />}
+    <div className="pane">
+      <div className="visual-consistency__actions">
+        {hasFilter&&<Tag id="feedback-filter" type="selectable" tone={tone} selected={selected} badgeValue={2}
+          leadingIcon={<Icon name="user" />} dismissible dismissLabel="Удалить фильтр моих проектов"
+          onSelectedChange={value=>{setSelected(value);setNotice(value?"Фильтр включён: 2 проекта":"Фильтр выключен: 4 проекта");}}
+          onDismiss={()=>{setHasFilter(false);setSelected(false);setNotice("Фильтр удалён");requestAnimationFrame(()=>filterTrigger.current?.focus());}}>Мои проекты</Tag>}
+        <Button ref={filterTrigger} id="feedback-restore-filter" disabled={hasFilter} onClick={()=>setHasFilter(true)}>Вернуть фильтр</Button>
+        <Badge id="feedback-count" count={items.length} tone={tone} accessibleLabel={`Проектов в списке: ${items.length}`} />
+      </div>
+      <ul className="feedback-workspace__list" id="feedback-projects">{items.map(item=><li key={item.name}><Text as="span" variant="body/default">{item.name}</Text><Tag leadingIcon={<Icon name="info" />}>{item.mine?"Мой проект":"Командный проект"}</Tag></li>)}</ul>
+    </div>
+    {notice&&<Toast id="feedback-toast" intent={severity==="ai"?"info":severity} duration={null} title={notice}
+      description="Постоянное уведомление: закройте его вручную. Автоочередь Toast здесь не имитируется."
+      actionLabel={selected?"Сбросить фильтр":undefined} onAction={()=>{setSelected(false);setNotice("Фильтр сброшен: 4 проекта");}}
+      dismissLabel="Закрыть уведомление" onDismiss={()=>{setNotice(null);noticeTrigger.current?.focus();}} />}
+  </div>;
 }
 
 function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {

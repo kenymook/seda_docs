@@ -116,7 +116,7 @@ export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
           type="file"
         />
         <span aria-hidden="true" className="seda-file-upload__icon">
-          {icon ?? <Icon name="add" />}
+          {icon ?? <Icon name="upload" />}
         </span>
         <span className="seda-file-upload__content">
           <span className="seda-file-upload__label" id={labelId}>

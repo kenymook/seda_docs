@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { SedaProvider, Text, Icon, Button, IconButton, TextField } from "@seda-ai/ui";
+import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
 import {
   createFormState,
   transitionForm,
@@ -491,7 +491,7 @@ function App() {
       deps: "size + radius multiplier → radius of controls",
     },
     components: {
-      v: measurements.length + " видимых контролов",
+      v: measurements.length + " однострочных контролов",
       desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu",
       deps: "height + radius + font → React → DOM",
     },
@@ -589,6 +589,7 @@ function App() {
   }
 
   return (
+    <SedaProvider id="lab-scope" theme={compiled.domTheme} controlSize="m" textScale={100} style={{display:"contents"}}>
     <ControlContractProvider compiled={compiled}>
       <div
         className="shell"
@@ -611,8 +612,11 @@ function App() {
             </div>
           </div>
           <div className="topmeta">
+            <nav className="reference-nav" aria-label="Эталонные приложения">
             <a className="subtle" href="./references/recents.html">Файлы</a><a className="subtle" href="./references/building.html">Документы</a><a className="subtle" href="./references/chat.html">Чат</a><a className="subtle" href="./references/sandbox.html">Sandbox</a><a className="subtle" href="./references/spline.html?context=scene">3D Scene</a><a className="subtle" href="./references/webflow.html">Webflow</a><a className="subtle" href="./references/framer.html">Framer</a><a className="subtle" href="./references/workflow.html">Workflow</a>
-            <span className="status-dot"></span> Live calculations{" "}
+            </nav>
+            <span className="live-status"><span className="status-dot" aria-hidden="true"></span>Live calculations</span>
+            <div className="lab-header-actions">
             <button
               onClick={() => {
                 configure(initialConfiguration);
@@ -632,6 +636,7 @@ function App() {
             <button onClick={exportJson} id="export" className="subtle">
               Экспорт JSON
             </button>
+            </div>
           </div>
         </header>
         <div className="workspace">
@@ -798,7 +803,7 @@ function App() {
             </div>
           </aside>
           <main className="canvas" data-workspace style={workspaceStyle}>
-            <SedaProvider textScale={parameters.scale} style={{display:'contents'}}>
+            <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} style={{display:'contents'}}>
             <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale}>
               <div className="section-top">
                 <div>
@@ -1033,9 +1038,7 @@ function App() {
                             {p.name}
                           </td>
                           <td>
-                            <span className={"pill " + p.status}>
-                              {statusLabels[p.status]}
-                            </span>
+                            <Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"} />}>{statusLabels[p.status]}</Tag>
                           </td>
                           <td>{p.team}</td>
                           <td>{p.updated}</td>
@@ -1075,9 +1078,7 @@ function App() {
                     <article className="productcard" key={p.name}>
                       <header>
                         <b>{p.name}</b>
-                        <span className={"pill " + p.status}>
-                          {statusLabels[p.status]}
-                        </span>
+                        <Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"} />}>{statusLabels[p.status]}</Tag>
                       </header>
                       <div>
                         <p>Команда: {p.team}</p>
@@ -1462,6 +1463,8 @@ function App() {
               <p className="small">
                 {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
                 SplitView — общий experimental layout; размеры панелей управляются отдельно.
+                Badge/Tag/Alert/Toast и FileUpload — библиотечные адаптеры общей геометрии;
+                их instance contracts ещё не введены. Многострочная высота feedback не входит в проверку однострочных контролов.
                 Дополнительная геометрия — эксперимент Lab, не сертифицированный
                 профиль.
               </p>
@@ -1590,6 +1593,7 @@ function App() {
         />
       )}
     </ControlContractProvider>
+    </SedaProvider>
   );
 }
 createRoot(document.getElementById("root")!).render(<App />);

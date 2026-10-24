@@ -1,5 +1,12 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — feedback, исходные иконки и semantic palette
+
+- Общая геометрия Badge/Tag/Alert/Toast, естественная multiline-высота и отсутствие пустых slots. Native selectable Tag и независимый dismiss; вложенный counter — реальный Badge с documented view.
+- 17 оригинальных SVG SEDA, проверяемый генератор и public icons.json. FileUpload получает исходный upload glyph.
+- Status containers/text/icon согласованы; общий filled brand blue60/70/80 обеспечивает readable white text. Все semantic color роли доступны композициям, вложенные token leaves больше не пропускаются.
+- Duration Toast по-прежнему metadata: lifecycle/queue не объявляются готовыми. Figma/AT приёмка и feedback instance contracts остаются открытыми.
+
 ## Unreleased — FileUpload в общей геометрии
 
 - FileUpload наследует общий preset, размер иконки, шрифт, строку, gap и radius; multiline-контент растёт естественно. Lab применяет X/Y ко всем трём вариантам с сохранением их базовых отступов.

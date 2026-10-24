@@ -1,14 +1,16 @@
 import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
+import { Icon, type IconName } from "../Icon";
 import { cx } from "../../utils/classNames";
+import { hasMessage } from "../../utils/fieldMessage";
 import type { AlertProps, AlertVariant } from "./Alert.types";
 
-const defaultIcons: Record<AlertVariant, string> = {
-  info: "i",
-  success: "✓",
-  warning: "!",
-  error: "!",
-  ai: "AI",
+const defaultIcons: Record<AlertVariant, IconName> = {
+  info: "info",
+  success: "success",
+  warning: "warning",
+  error: "error",
+  ai: "ai",
 };
 
 function defaultRole(variant: AlertVariant) {
@@ -41,7 +43,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ) => {
     const size = useSedaSize(sizeProp);
     const resolvedRole = role ?? defaultRole(variant);
-    const resolvedIcon = icon ?? defaultIcons[variant];
+    const resolvedIcon = icon ?? <Icon name={defaultIcons[variant]} />;
 
     return (
       <div
@@ -49,6 +51,8 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
         className={cx("seda-alert", className)}
         data-size={size}
         data-variant={variant}
+        data-show-icon={showIcon ? "true" : "false"}
+        data-dismissible={dismissible || onDismiss ? "true" : "false"}
         ref={ref}
         role={resolvedRole}
       >
@@ -59,12 +63,12 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
         ) : null}
         <div className="seda-alert__content">
           <div className="seda-alert__title">{title}</div>
-          {description ? <div className="seda-alert__description">{description}</div> : null}
-          {children ? <div className="seda-alert__body">{children}</div> : null}
-          {action || actionLabel ? (
+          {hasMessage(description) ? <div className="seda-alert__description">{description}</div> : null}
+          {hasMessage(children) ? <div className="seda-alert__body">{children}</div> : null}
+          {action || hasMessage(actionLabel) ? (
             <div className="seda-alert__actions">
               {action ?? (
-                <button className="seda-alert__action" onClick={onAction} type="button">
+                <button className="seda-alert__action" disabled={!onAction} onClick={onAction} type="button">
                   {actionLabel}
                 </button>
               )}
@@ -75,10 +79,11 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
           <button
             aria-label={dismissLabel ?? "Dismiss alert"}
             className="seda-alert__dismiss"
+            disabled={!onDismiss}
             onClick={onDismiss}
             type="button"
           >
-            ×
+            <Icon name="close" />
           </button>
         ) : null}
       </div>

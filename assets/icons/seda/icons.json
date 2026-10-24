@@ -5,16 +5,131 @@
     "pageName": "Icons"
   },
   "icons": [
-    { "name": "add", "style": "line", "figmaNodeId": "789:207", "figmaName": "Icon/Line/add", "file": "add.svg" },
-    { "name": "arrow-right", "style": "line", "figmaNodeId": "787:63", "figmaName": "Icon/Line/arrowRight", "file": "arrow-right.svg" },
-    { "name": "arrow-down", "style": "line", "figmaNodeId": "787:62", "figmaName": "Icon/Line/arrowDown", "file": "arrow-down.svg" },
-    { "name": "arrow-chevron-down", "style": "line", "figmaNodeId": "6054:6020", "figmaName": "Icon/Line/arrowChevronDown", "file": "arrow-chevron-down.svg" },
-    { "name": "close", "style": "line", "figmaNodeId": "789:227", "figmaName": "Icon/Line/close", "file": "close.svg" },
-    { "name": "search", "style": "line", "figmaNodeId": "788:79", "figmaName": "Icon/Line/search", "file": "search.svg" },
-    { "name": "calendar", "style": "line", "figmaNodeId": "789:166", "figmaName": "Icon/Line/calendar", "file": "calendar.svg" },
-    { "name": "clock", "style": "line", "figmaNodeId": "789:185", "figmaName": "Icon/Line/clock", "file": "clock.svg" },
-    { "name": "info", "style": "line", "figmaNodeId": "789:189", "figmaName": "Icon/Line/circleInformation", "file": "info.svg" },
-    { "name": "sun", "style": "line", "figmaNodeId": "789:162", "figmaName": "Icon/Line/sun", "file": "sun.svg" },
-    { "name": "moon", "style": "line", "figmaNodeId": "977:11180", "figmaName": "Icon/Line/moon", "file": "moon.svg" }
+    {
+      "name": "add",
+      "style": "line",
+      "figmaNodeId": "789:207",
+      "figmaName": "Icon/Line/add",
+      "file": "add.svg"
+    },
+    {
+      "name": "arrow-right",
+      "style": "line",
+      "figmaNodeId": "787:63",
+      "figmaName": "Icon/Line/arrowRight",
+      "file": "arrow-right.svg"
+    },
+    {
+      "name": "arrow-down",
+      "style": "line",
+      "figmaNodeId": "787:62",
+      "figmaName": "Icon/Line/arrowDown",
+      "file": "arrow-down.svg"
+    },
+    {
+      "name": "arrow-chevron-down",
+      "style": "line",
+      "figmaNodeId": "6054:6020",
+      "figmaName": "Icon/Line/arrowChevronDown",
+      "file": "arrow-chevron-down.svg"
+    },
+    {
+      "name": "close",
+      "style": "line",
+      "figmaNodeId": "789:227",
+      "figmaName": "Icon/Line/close",
+      "file": "close.svg"
+    },
+    {
+      "name": "search",
+      "style": "line",
+      "figmaNodeId": "788:79",
+      "figmaName": "Icon/Line/search",
+      "file": "search.svg"
+    },
+    {
+      "name": "calendar",
+      "style": "line",
+      "figmaNodeId": "789:166",
+      "figmaName": "Icon/Line/calendar",
+      "file": "calendar.svg"
+    },
+    {
+      "name": "clock",
+      "style": "line",
+      "figmaNodeId": "789:185",
+      "figmaName": "Icon/Line/clock",
+      "file": "clock.svg"
+    },
+    {
+      "name": "info",
+      "style": "line",
+      "figmaNodeId": "789:189",
+      "figmaName": "Icon/Line/circleInformation",
+      "file": "info.svg"
+    },
+    {
+      "name": "sun",
+      "style": "line",
+      "figmaNodeId": "789:162",
+      "figmaName": "Icon/Line/sun",
+      "file": "sun.svg"
+    },
+    {
+      "name": "moon",
+      "style": "line",
+      "figmaNodeId": "977:11180",
+      "figmaName": "Icon/Line/moon",
+      "file": "moon.svg"
+    },
+    {
+      "name": "success",
+      "style": "line",
+      "figmaNodeId": "789:208",
+      "figmaName": "Icon/Line/circleSuccess",
+      "file": "success.svg",
+      "sha256": "a44155802504c0e0844d0490e47d0293d70d157d8849197c6666523d69ffd8fc"
+    },
+    {
+      "name": "error",
+      "style": "line",
+      "figmaNodeId": "789:195",
+      "figmaName": "Icon/Line/circleError",
+      "file": "error.svg",
+      "sha256": "1a113d20df7a0f42c3b61a91e72c13302504cba682fedc148f56e618ad7fea78"
+    },
+    {
+      "name": "ai",
+      "style": "line",
+      "figmaNodeId": "789:168",
+      "figmaName": "Icon/Line/bubbleAi",
+      "file": "ai.svg",
+      "sha256": "996fda3ab625da563d92c71fcc27af69e7508c415d153b798956a5b996c5e07c"
+    },
+    {
+      "name": "upload",
+      "style": "line",
+      "figmaNodeId": "1575:8769",
+      "figmaName": "Icon/Line/upload",
+      "file": "upload.svg",
+      "sha256": "a974064799fca8de087eeb565faeae0c856b37cf2c72139079e2354a07028f76"
+    },
+    {
+      "name": "warning",
+      "style": "source",
+      "figmaNodeId": "2228:8785",
+      "figmaName": "converted (9) 1",
+      "file": "warning.svg",
+      "sha256": "cf4fdf08516ae8a8de74131f42c18d4994f7043090c5712d8e682b3323123255",
+      "sourceContextNodeId": "2228:8783"
+    },
+    {
+      "name": "user",
+      "style": "line",
+      "figmaNodeId": "789:230",
+      "figmaName": "Icon/Line/user",
+      "file": "user.svg",
+      "sha256": "4e26383fd928278e9f9bcd461dc875ca12427268418597b7087832d2dd33722f"
+    }
   ]
 }

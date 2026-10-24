@@ -3,9 +3,11 @@ import path from "node:path";
 import crypto from "node:crypto";
 import ts from "typescript";
 import { buildThemeAssets } from "./theme-assets.mjs";
+import { verifyIconAssets } from "./icon-assets.mjs";
 import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const source = path.join(root, "src");
+const iconCatalog = verifyIconAssets(root);
 const output = path.join(root, "dist");
 const staging = path.join(root, `.build-dist-${process.pid}`);
 function assertOwned(directory) {
@@ -120,6 +122,7 @@ try {
     path.join(staging, "styles.css"),
   );
   const themeAssets = buildThemeAssets(root, staging);
+  fs.writeFileSync(path.join(staging, "icon-catalog.json"), JSON.stringify(iconCatalog, null, 2) + "\n");
   fs.appendFileSync(
     path.join(staging, "styles.css"),
     "\n" +

@@ -51,6 +51,7 @@ export async function buildPilot({
     ...await filesBelow(path.join(pilotRoot,'references')),
     ...await filesBelow(path.join(pilotRoot,'node_modules/@seda-ai/ui/dist')),
     ...await filesBelow(path.join(repoRoot, 'packages/seda-ui/src')),
+    ...await filesBelow(path.join(repoRoot, 'assets/icons/seda')),
     ...await filesBelow(path.join(packageRoot, 'src')),
     ...await filesBelow(path.join(packageRoot, 'schema')),
     ...await filesBelow(path.join(packageRoot, 'contracts')),

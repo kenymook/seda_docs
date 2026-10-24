@@ -19,6 +19,7 @@ export function createWorkspaceBindings(
     "--seda-control-field-padding-inline": derived.fieldPaddingX + "px",
     "--seda-control-button-padding-inline": derived.buttonPaddingX + "px",
     "--seda-control-extra-padding-inline": parameters.airX + "px",
+    "--seda-control-extra-padding-block": parameters.air + "px",
     "--seda-control-gap": compiled.geometry.textFieldAffixGap.value + "px",
     "--seda-control-padding-inline": derived.fieldPaddingX + "px",
     "--lab-choice-gap":
@@ -55,6 +56,18 @@ export function createWorkspaceBindings(
         font: derived.font,
         value: Math.max(derived.icon, derived.font),
       },
+      feedback: {
+        source: "compiled.geometry + lab-model.mjs#derive",
+        font: derived.font,
+        line: derived.line,
+        icon: derived.icon,
+        radius: derived.radius,
+        paddingY: derived.py,
+        extraX: parameters.airX,
+        extraY: parameters.air,
+        layout: "Intrinsic multi-line Alert/Toast; semantic pill Tag/Badge and circular dot retain their shape.",
+        instanceContract: false,
+      },
     },
     geometry: {
       height: derived.height,
@@ -66,7 +79,7 @@ export function createWorkspaceBindings(
     parameters,
     coverage: {
       contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"],
-      libraryAdapter: ["SplitView", "FileUpload"],
+      libraryAdapter: ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast"],
       composition: ["Navigation", "Table", "Card", "Dialog", "Editor"],
     },
   };

@@ -4,19 +4,7 @@ import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { build } from 'esbuild';
 
-const rgba=value=>{
-  assert.match(value,/^rgba?\(/);
-  const numbers=value.match(/[\d.]+/g).map(Number);
-  return [...numbers.slice(0,3),numbers[3]??1];
-};
-const over=(foreground,background)=>foreground.slice(0,3).map((value,i)=>value*foreground[3]+background[i]*(1-foreground[3]));
-function textContrast(foreground,backgrounds){
-  const background=backgrounds.toReversed().reduce((background,value)=>over(rgba(value),background),[255,255,255]);
-  const painted=over(rgba(foreground),background);
-  const luminance=rgb=>rgb.map(value=>value/255).reduce((sum,value,i)=>sum+[.2126,.7152,.0722][i]*(value<=.04045?value/12.92:((value+.055)/1.055)**2.4),0);
-  const [lo,hi]=[luminance(background),luminance(painted)].sort((a,b)=>a-b);
-  return (hi+.05)/(lo+.05);
-}
+import {textContrast} from './verify-colors.mjs';
 
 /** Installed consumer: no Lab CSS and no source aliases. */
 export async function verifyFileUpload({cwd,browser}) {

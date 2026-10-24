@@ -578,3 +578,9 @@ body.dark .form-section-heading span {
 .editor-artboard { border:1px solid var(--border-subtle); padding:20px; }
 .editor-artboard h2 { overflow-wrap:anywhere; }
 .editor-artboard .seda-button { max-width:100%; }
+
+.feedback-workspace { display:grid; gap:24px; }
+.feedback-workspace__controls { display:grid; grid-template-columns:minmax(180px,1fr) minmax(0,2fr); align-items:end; gap:20px; }
+.feedback-workspace__list { list-style:none; padding:0; margin:20px 0 0; }
+.feedback-workspace__list li { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding-block:12px; border-block-start:1px solid var(--border-default); }
+@media(max-width:1100px) { .feedback-workspace__controls { grid-template-columns:minmax(0,1fr); } }

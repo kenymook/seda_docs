@@ -127,6 +127,11 @@ export async function verifyProfileSources(root) {
     await fs.writeFile(path.join(temp, "tokens.json"), JSON.stringify(uploadTokens));
     assert.throws(() => buildThemeAssets(pkg, output),
       /Required public component token is missing: --file-upload-surface-success/);
+    const nestedTokens = JSON.parse(await fs.readFile(path.join(repo, "tokens.json"), "utf8"));
+    delete nestedTokens.$collections.components.$modes["Mode 1"].alert.description.foreground.info;
+    await fs.writeFile(path.join(temp, "tokens.json"), JSON.stringify(nestedTokens));
+    assert.throws(() => buildThemeAssets(pkg, output),
+      /Required public component token is missing: --alert-description-foreground-info/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -138,5 +143,6 @@ export async function verifyProfileSources(root) {
     sourceHashesMatched: true,
     missingStateRejected: true,
     missingUploadStateRejected: true,
+    missingNestedFeedbackRoleRejected: true,
   };
 }

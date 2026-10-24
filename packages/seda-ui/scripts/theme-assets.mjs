@@ -101,33 +101,22 @@ export function buildThemeAssets(packageRoot, output) {
       evidence.push({ property, ...leaf });
     };
     function visit(node, parts, collection) {
-      for (const [name, value] of Object.entries(node)) {
-        const p = [...parts, name];
-        if (value && typeof value === "object" && "cssValue" in value) {
-          if (value.type === "color") {
-            const property = "--" + p.join("-");
-            if (usedProperties.has(property)) add(property, value);
-            if (
-              collection === "components" &&
-              usedProperties.has("--seda-" + p.join("-"))
-            )
-              add("--seda-" + p.join("-"), value);
-          }
-        } else visit(value, p, collection);
+      if (!node || typeof node !== "object") return;
+      // Importer data may contain both a leaf and named children at one node.
+      // Resolve each exact leaf path instead of dropping children after a parent leaf.
+      if ("$value" in node) {
+        const value=resolver.resolve({collection,path:parts},{theme});
+        if(value.type === "color") {
+          const property="--"+parts.join("-");
+          if(collection === "semantic" || usedProperties.has(property)) add(property,value);
+          if(collection === "components" && usedProperties.has("--seda-"+parts.join("-"))) add("--seda-"+parts.join("-"),value);
+        }
       }
+      for(const [name,value] of Object.entries(node))
+        if(!name.startsWith("$")) visit(value,[...parts,name],collection);
     }
-    for (const collection of ["semantic", "components"]) {
-      const mode = collection === "semantic" ? theme : "Mode 1";
-      for (const group of Object.keys(
-        tokens.$collections[collection].$modes[mode],
-      ))
-        visit(
-          resolver.resolveBranch({ collection, path: [group] }, { theme })
-            .children,
-          [group],
-          collection,
-        );
-    }
+    for(const collection of ["semantic","components"])
+      visit(tokens.$collections[collection].$modes[collection === "semantic" ? theme : "Mode 1"],[],collection);
     const actionMappings = {
       Button: {
         primary: ["button", "primary", "solid"],
@@ -267,7 +256,7 @@ export function buildThemeAssets(packageRoot, output) {
       )
         throw Error("Required public component token is missing: " + match[1]);
     for (const property of usedProperties)
-      if (property.startsWith("--file-upload-") && !variables.has(property))
+      if (["--file-upload-","--alert-","--toast-","--badge-","--tag-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
         throw Error("Required public component token is missing: " + property);
     const primitives = {
       choiceRadius: resolver.resolve(
@@ -349,7 +338,7 @@ export function buildThemeAssets(packageRoot, output) {
     );
   }
   const classes =
-    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload)";
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload,.seda-badge,.seda-tag,.seda-alert,.seda-toast)";
   for (const size of Object.keys(system.sizes)) {
     const mapping = {
       height: "height",

@@ -42,7 +42,7 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 ## Иконки и геометрия контрола
 
-`Icon` использует 11 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
+`Icon` использует 17 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
 
 ```tsx
 import { Button, Icon, TextField } from '@seda-ai/ui';
@@ -131,3 +131,14 @@ TextArea использует общие S/M/L/XL и собственные cano
 ## Text и масштаб типографики
 
 19-й public component `Text` использует23 роли foundation. Пример: `<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Раздел</Text></SedaProvider>`. `as` задаёт native outline, `variant` — визуальную роль. Scale80–200 наследуется абсолютно; controlSize независим. CSS содержит те же token values/provenance, что общий compiler; important text minimum12px. Author content/Canvas zoom принадлежат приложению. Подробный контракт: specs/data-display/text.md; роли без prefix type/. Это foundation execution, не12-й registry component contract.
+
+
+## Feedback и палитра композиций
+
+Badge, Tag, Alert и Toast используют общие preset/font/line/icon/scale. Pill/dot сохраняют смысловую форму; rich feedback растёт по содержимому. Вложенный счётчик Tag — Badge с внутренним view tag-counter. Selectable Tag теперь имеет отдельные native main/dismiss buttons: aria-pressed находится на main; dismiss не меняет selection. Внешний ref остаётся ref обёртки layout. Action/dismiss без handlers недоступны.
+
+Public styles экспортируют все semantic color роли с provenance. Filled brand default/hover/pressed используют blue60/70/80 в обеих темах для контраста белого текста. Status feedback использует согласованные container/text/icon роли. Новые роли и Figma handoff: docs/library/FEEDBACK-VISUAL-HANDOFF.md в репозитории.
+
+Каталог имён/происхождения иконок доступен через export @seda-ai/ui/icons.json; SVG bytes встроены, временные Figma URLs в runtime не используются. Генератор scripts/icon-assets.mjs проверяет каталог и rejects stale generated module при build.
+
+Toast пока presentation-only: duration — metadata; automatic timer/queue/pause/dedupe не реализованы. В Lab используется явный persistent duration=null и родительские handlers. Это ограничение требует полноценного Toast host перед заявлением готовности lifecycle.

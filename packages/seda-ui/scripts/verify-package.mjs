@@ -5,6 +5,7 @@ import { verifyMenu } from "./verify-menu.mjs";
 import { verifySplitView } from "./verify-split-view.mjs";
 import { verifyLink } from "./verify-link.mjs";
 import { verifyFileUpload } from "./verify-file-upload.mjs";
+import { verifyFeedback } from "./verify-feedback.mjs";
 import { verifyTextArea } from "./verify-textarea.mjs";
 import { verifyTypography } from "./verify-typography.mjs";
 import { verifyTree } from "./verify-tree.mjs";
@@ -391,6 +392,7 @@ configuration.controlSize='s';return null;}`,
     await check("react-"+version+"-typography",()=>verifyTypography({cwd,browser,version}));
     await check("react-"+version+"-link-variants",()=>verifyLink({cwd,browser,version}));
     await check("react-"+version+"-file-upload",()=>verifyFileUpload({cwd,browser,version}));
+    await check("react-"+version+"-feedback",()=>verifyFeedback({cwd,browser,version}));
   }
 } catch (error) {
   results.push({
