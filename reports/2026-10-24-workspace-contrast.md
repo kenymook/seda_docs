@@ -34,4 +34,9 @@
 
 Это computed DOM text audit шести Lab-экранов; не pixel audit, не аудит всего текста reference artboards и не WCAG/AT сертификация. Не проверены этим аудитом все icon/border контрасты, native OS popups, authored canvas, raster, gradients и все состояния каждого компонента. Full AT/OS/browser-engine, визуальная плотность сложных экранов, полнота иконок и executable feedback contracts остаются открытыми. Reference-regression подтверждает поведение, а не их визуальное совпадение с Figma. Общая цель не завершена.
 
-Публикация и production proof будут добавлены после deploy.
+## Публикация и production proof
+
+- Прежний URL https://seda-ai-pilot.kenymook.chatgpt.site/, version34. Native deployment `appgdep_6adcd07fdc048191a7c2cce2875c454c` succeeded. Custom/revision1: один владелец, без visitors/groups.
+- GitHub functional source `ec1120c628b5af99c0e57c5f4c2b7095ce7e9a08`; Site source `571693fe4415d74b71eddd39dd1cb3228f19e39f`. Archive SHA256 `d3916ebd4405c2691499f453021e46a19eeecb2c6e5aca1bbffeb3840c199e44`, 7,547,603 bytes.
+- Production Chromium повторил все 144 сочетания, gaps и Light/Dark captures: 0 failures, 0 JS errors. Все 755 source hashes совпали с проверенным checkout. Raw release/baseline/field/production evidence в `verification/contrast-v34-release.json`; три снимка рядом.
+- Приватность и URL сохранены. Это закрывает перечисленные текстовые дефекты, а не полную цель зрелой дизайн-системы.
