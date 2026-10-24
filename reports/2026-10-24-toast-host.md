@@ -23,4 +23,10 @@
 
 OS/screen-reader/browser-engine приёмка, notification history, persistence между сессиями, cross-window coordination и executable feedback instance contracts остаются открытыми. Window blur проверен browser event fixture, не OS certification. Action callback не auto-dismiss и не async transport: приложение владеет результатом и закрытием. Наличие диапазона duration от 1с не означает доступность короткого показа; production policy должна давать достаточно времени. Motion не добавлялся. Общая цель остаётся активной.
 
-API: [Toast spec](../specs/feedback/toast.md). Публикация и production proof будут добавлены после deploy.
+API: [Toast spec](../specs/feedback/toast.md).
+## Публикация и production proof
+
+- Прежний URL https://seda-ai-pilot.kenymook.chatgpt.site/, version33. Deployment `appgdep_6adccaec82088191b527bccb73067b2c` succeeded. Custom/revision1: один владелец, без visitors/groups.
+- GitHub functional source `5e2a1ae4b30802c317dc3ed07380a9ec8055b5bc`; Site source `812c5998a3878dacab353a1afb77438a2f94502f`. Archive SHA256 `3218910fd8c1fe6cc795d341c966785a7bb479b039410b21422f849d0fa47a72`, 7,548,109 bytes.
+- Production Chromium: 10/10 групп PASS, все 755 source hashes совпали; реальные queue/promotion/dedupe/action/clear/focus, 24 host и 24 feedback theme/size/scale сочетания, Light/Dark captures, 0 JS errors. Raw proof и два queue captures сохранены в verification/toast-v33-release.json и рядом.
+- Контракты повторно: 120/120 PASS. Перед публикацией один barrel приведён к точным Git-байтам; после rebuild все 145 dist-файлов совпали с проверенным tarball побайтно. Functional package proof остаётся применимым, source provenance проверен отдельно на production.
