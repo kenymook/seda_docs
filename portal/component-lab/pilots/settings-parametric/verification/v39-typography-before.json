@@ -1,0 +1,256 @@
+{
+  "samples": [
+    {
+      "route": "recents",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".reference-header h1",
+          "font": "14px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".reference-file-summary h2",
+          "font": "14px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".reference-file-summary p",
+          "font": "12px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".reference-local-note",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "recents",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".reference-header h1",
+          "font": "14px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".reference-file-summary h2",
+          "font": "14px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".reference-file-summary p",
+          "font": "12px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".reference-local-note",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "building",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".building-nav-label",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": "#doc-dirty",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": "#doc-status",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".building-document>h1",
+          "font": "40px",
+          "line": "64px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "building",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".building-nav-label",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": "#doc-dirty",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": "#doc-status",
+          "font": "12px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".building-document>h1",
+          "font": "40px",
+          "line": "64px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "chat",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".chat-navigation-scroll h2",
+          "font": "14px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".chat-activity h2",
+          "font": "14px",
+          "line": "22px",
+          "role": null
+        },
+        {
+          "selector": ".chat-source-label",
+          "font": "11px",
+          "line": "18px",
+          "role": null
+        },
+        {
+          "selector": ".chat-composer-note",
+          "font": "11px",
+          "line": "18px",
+          "role": null
+        },
+        {
+          "selector": "#chat-save-state",
+          "font": "11px",
+          "line": "20px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "chat",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".chat-navigation-scroll h2",
+          "font": "14px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".chat-activity h2",
+          "font": "14px",
+          "line": "22px",
+          "role": null
+        },
+        {
+          "selector": ".chat-source-label",
+          "font": "11px",
+          "line": "18px",
+          "role": null
+        },
+        {
+          "selector": ".chat-composer-note",
+          "font": "11px",
+          "line": "18px",
+          "role": null
+        },
+        {
+          "selector": "#chat-save-state",
+          "font": "11px",
+          "line": "20px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "sandbox",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".sandbox-section-heading h2",
+          "font": "12px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".sandbox-properties-section h2",
+          "font": "12px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".sandbox-status span",
+          "font": "10px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".sandbox-navigation>header small",
+          "font": "10px",
+          "line": "20px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "sandbox",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".sandbox-section-heading h2",
+          "font": "12px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".sandbox-properties-section h2",
+          "font": "12px",
+          "line": "16px",
+          "role": null
+        },
+        {
+          "selector": ".sandbox-status span",
+          "font": "10px",
+          "line": "20px",
+          "role": null
+        },
+        {
+          "selector": ".sandbox-navigation>header small",
+          "font": "10px",
+          "line": "20px",
+          "role": null
+        }
+      ]
+    }
+  ]
+}

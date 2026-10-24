@@ -4566,9 +4566,9 @@
     "errors": []
   },
   "rawSHA256": {
-    "v38-package-log.txt": "ecfefb569d046f98e14b0fb0225f2862d0c2905b32d14eef9c1dc52abc1ddf9d",
-    "v38-contracts-log.txt": "6172e8a5acb7f6f8b442188303b21fa0948c5e393b1604edf0c49089ce39a3df",
-    "v38-pilot-log.txt": "073b55ae8532b6d93937bfbc2dcb8afd175b2c4a1c2e9d4d9d9ac40b0f6bab0b",
+    "v38-package-log.txt": "3b7e15cf5ba637918a75c9000b0bbe1aae28b0bb5963f9d4eb622964f8354841",
+    "v38-contracts-log.txt": "aa2419435072bc8c1a95c9b6e7d5eabe45e84813d7999d76c591e89d3bf7e9da",
+    "v38-pilot-log.txt": "df4a7f3df75ca2138a03f1ec2c0c834f1ce9bb35f1b111710e826bafb87af56b",
     "packages\\seda-ui\\.diagnostics-package\\2026-10-24T19-02-43-000Z\\results.json": "5b2058287003c5d943cfbc1ddf76399a23d7a3aee7e6085666363c5071fe542a",
     "packages\\seda-ui\\.diagnostics-package\\2026-10-24T19-02-43-000Z\\react-18.3.1\\modal-results.json": "adb857c3c74ddf503974a98214a69569707213642d22d939b69c14e9bc8809e1",
     "packages\\seda-ui\\.diagnostics-package\\2026-10-24T19-02-43-000Z\\react-19.2.7\\modal-results.json": "adb857c3c74ddf503974a98214a69569707213642d22d939b69c14e9bc8809e1",
@@ -4586,5 +4586,11 @@
     "no executable Modal instance/surface-family contract",
     "root Lab specialized dialogs remain compositions",
     "Firefox/WebKit, AT, native desktop shell and full visual acceptance not verified"
-  ]
+  ],
+  "originalLogSHA256BeforeGitTextNormalization": {
+    "v38-contracts-log.txt": "6172e8a5acb7f6f8b442188303b21fa0948c5e393b1604edf0c49089ce39a3df",
+    "v38-package-log.txt": "ecfefb569d046f98e14b0fb0225f2862d0c2905b32d14eef9c1dc52abc1ddf9d",
+    "v38-pilot-log.txt": "073b55ae8532b6d93937bfbc2dcb8afd175b2c4a1c2e9d4d9d9ac40b0f6bab0b"
+  },
+  "logNormalization": "LF; content preserved; rawSHA256 log entries match committed Git bytes."
 }
