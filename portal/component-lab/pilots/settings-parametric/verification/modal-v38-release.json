@@ -1,0 +1,4590 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "57453e0980f5acc8abf6bcaef4b7102fa793c224",
+  "siteSource": "626f9afac798529aa70b3693026bbf8d99bd2b1c",
+  "version": 38,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deploymentId": "appgdep_6add036413c48191905dc50f8e4aeff1",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_309c9f8041a4819182e31008ed96895d",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 122,
+  "packageGroupsPassed": 41,
+  "packageGroupsFailed": 0,
+  "fullPilotSequenceExitCode": 0,
+  "newReferenceModalSequenceExitCode": 0,
+  "loading": {
+    "combinations": 288,
+    "maxWidthDelta": 0,
+    "maxHeightDelta": 0
+  },
+  "modalPackage": {
+    "react-18.3.1-modal": {
+      "invalid": 13,
+      "ssr": true,
+      "strictHydration": true,
+      "samples": [
+        {
+          "theme": "light",
+          "size": "s",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "s",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "m",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "m",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "l",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "l",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "xl",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "xl",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "s",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "s",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "m",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "m",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "l",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "l",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "xl",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "xl",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        }
+      ],
+      "workflows": [
+        "focus-cycle",
+        "inert-background",
+        "menu-escape",
+        "safe-confirmation",
+        "alert",
+        "escape-policy",
+        "rejected-native-close",
+        "method-dialog-return-value",
+        "dynamic-focus-repair",
+        "scrim-gesture",
+        "removed-trigger-fallback",
+        "loading-geometry",
+        "short-viewport-scroll",
+        "empty-slots",
+        "fullscreen",
+        "forced-colors",
+        "unmount"
+      ]
+    },
+    "react-19.2.7-modal": {
+      "invalid": 13,
+      "ssr": true,
+      "strictHydration": true,
+      "samples": [
+        {
+          "theme": "light",
+          "size": "s",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "s",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "m",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "m",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "l",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "l",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "xl",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 16,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "light",
+          "size": "xl",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 30,
+          "background": "rgb(255, 255, 255)",
+          "expectedBackground": "#ffffff",
+          "icon": "rgba(24, 25, 27, 0.6)",
+          "owner": "rgba(24, 25, 27, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "s",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "s",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "m",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "m",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "l",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "l",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 44,
+            "height": 44
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "xl",
+          "scale": 80,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 16,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        },
+        {
+          "theme": "dark",
+          "size": "xl",
+          "scale": 150,
+          "width": 720,
+          "close": {
+            "width": 48,
+            "height": 48
+          },
+          "title": 30,
+          "background": "rgb(38, 38, 39)",
+          "expectedBackground": "#262627",
+          "icon": "rgba(255, 255, 255, 0.6)",
+          "owner": "rgba(255, 255, 255, 0.6)"
+        }
+      ],
+      "workflows": [
+        "focus-cycle",
+        "inert-background",
+        "menu-escape",
+        "safe-confirmation",
+        "alert",
+        "escape-policy",
+        "rejected-native-close",
+        "method-dialog-return-value",
+        "dynamic-focus-repair",
+        "scrim-gesture",
+        "removed-trigger-fallback",
+        "loading-geometry",
+        "short-viewport-scroll",
+        "empty-slots",
+        "fullscreen",
+        "forced-colors",
+        "unmount"
+      ]
+    }
+  },
+  "production": {
+    "version": 38,
+    "sourceHashesMatched": 773,
+    "typography": {
+      "scope": "Real SEDA Text roles in project subtitle, count, headings, metadata, table headers, pagination and cards",
+      "samples": [
+        {
+          "theme": "Light",
+          "size": "s",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "s",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "s",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "m",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "m",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "m",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "l",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "l",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "l",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "xl",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "xl",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Light",
+          "size": "xl",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "s",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "s",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "s",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "m",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "m",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "m",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "l",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "l",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "l",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "xl",
+          "scale": 80,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 14.4,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 14.4,
+                  "line": 19.2,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 12,
+                  "line": 17.1429,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "xl",
+          "scale": 100,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 14,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 14,
+                  "line": 20,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 12,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 12,
+                  "line": 16,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 10,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 10,
+                  "line": 14,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "theme": "Dark",
+          "size": "xl",
+          "scale": 150,
+          "measurements": [
+            {
+              "selector": "#projects-subtitle",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#count",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#projects-panel-title",
+              "role": "heading/panel",
+              "expectedSize": 27,
+              "values": [
+                {
+                  "role": "heading/panel",
+                  "font": 27,
+                  "line": 36,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": "#projects-description",
+              "role": "body/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "body/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-pagination>p",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead strong",
+              "role": "label/default",
+              "expectedSize": 21,
+              "values": [
+                {
+                  "role": "label/default",
+                  "font": 21,
+                  "line": 30,
+                  "weight": 600
+                }
+              ]
+            },
+            {
+              "selector": ".product-masthead>div>div>span",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": ".workspace-account",
+              "role": "caption/default",
+              "expectedSize": 18,
+              "values": [
+                {
+                  "role": "caption/default",
+                  "font": 18,
+                  "line": 24,
+                  "weight": 400
+                }
+              ]
+            },
+            {
+              "selector": "#preview th [data-seda-text]",
+              "role": "label/xsmall",
+              "expectedSize": 15,
+              "values": [
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                },
+                {
+                  "role": "label/xsmall",
+                  "font": 15,
+                  "line": 21,
+                  "weight": 600
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "filterCounts": [
+        1,
+        0,
+        4
+      ],
+      "cardsScale": true,
+      "servicePanelIsolated": true
+    },
+    "modal": {
+      "samples": [
+        {
+          "route": "recents",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "recents",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 48,
+            "height": 48,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "recents",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "recents",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 48,
+            "height": 48,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "building",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "building",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 48,
+            "height": 48,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "building",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "building",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 48,
+            "height": 48,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "chat",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "chat",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 48,
+            "height": 48,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "chat",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "chat",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 20,
+          "expectedTitleFont": 20,
+          "textScale": 100,
+          "close": {
+            "width": 48,
+            "height": 48,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "sandbox",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "sandbox",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "sandbox",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "sandbox",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "spline",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "spline",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "spline",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "spline",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "webflow",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "webflow",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "webflow",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "webflow",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "framer",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "framer",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "framer",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "framer",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "workflow",
+          "theme": "light",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "workflow",
+          "theme": "light",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(255, 255, 255)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "workflow",
+          "theme": "dark",
+          "size": "s",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 44,
+            "height": 44,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        },
+        {
+          "route": "workflow",
+          "theme": "dark",
+          "size": "xl",
+          "width": 720,
+          "titleRole": "heading/section",
+          "titleFont": 30,
+          "expectedTitleFont": 30,
+          "textScale": 150,
+          "close": {
+            "width": 62,
+            "height": 62,
+            "icon": "close"
+          },
+          "background": "rgb(38, 38, 39)",
+          "body": true,
+          "focusInside": true
+        }
+      ],
+      "errors": []
+    },
+    "errors": []
+  },
+  "rawSHA256": {
+    "v38-package-log.txt": "ecfefb569d046f98e14b0fb0225f2862d0c2905b32d14eef9c1dc52abc1ddf9d",
+    "v38-contracts-log.txt": "6172e8a5acb7f6f8b442188303b21fa0948c5e393b1604edf0c49089ce39a3df",
+    "v38-pilot-log.txt": "073b55ae8532b6d93937bfbc2dcb8afd175b2c4a1c2e9d4d9d9ac40b0f6bab0b",
+    "packages\\seda-ui\\.diagnostics-package\\2026-10-24T19-02-43-000Z\\results.json": "5b2058287003c5d943cfbc1ddf76399a23d7a3aee7e6085666363c5071fe542a",
+    "packages\\seda-ui\\.diagnostics-package\\2026-10-24T19-02-43-000Z\\react-18.3.1\\modal-results.json": "adb857c3c74ddf503974a98214a69569707213642d22d939b69c14e9bc8809e1",
+    "packages\\seda-ui\\.diagnostics-package\\2026-10-24T19-02-43-000Z\\react-19.2.7\\modal-results.json": "adb857c3c74ddf503974a98214a69569707213642d22d939b69c14e9bc8809e1",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-reference-modal\\reference-modal-results.json": "a21b6d3e19c6194410c032cb36f1d9052a9d38ad44caf9ea0d6b5675aec3ddd2",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-lab2\\results.json": "fbdb818763b4f83ace56d03cd1c649f0f18ebce16904f3b8bb860bbf4973dadf",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-workspace\\results.json": "40e4e713b1de598e05920f206188e2b56044065ddc20cff695333939d198ddd9",
+    "../.integration-input/modal-live-v38\\results.json": "1e63e071d49eafc9d734f5afc6cb6b466c892e2163b90b1980efae7cd5d66a54",
+    "v38-modal-workflow-dark-xl.png": "b770ca4c59218451fb6b1d856cc6692513b88c4eac20eb8e4165492b11d82949",
+    "v38-modal-recents-dark-xl.png": "d30128b170e6d491efa48363e0c4c431199a34d3bc30e4c87fa0a8ea09d26d04",
+    "v38-modal-600x360.png": "184d42852e85e2cfeb036b1ecbc218ef3838a2b0f5e24bed5ab85d8f3fb22cf2",
+    "v38-modal-360x640.png": "9e9a60a6e9c3c291e554e61dd4a5844172f0a668766bb4d2209b143aa22fffa6"
+  },
+  "limitations": [
+    "experimental surface geometry; Figma 6653:395 blocked by MCP quota",
+    "no executable Modal instance/surface-family contract",
+    "root Lab specialized dialogs remain compositions",
+    "Firefox/WebKit, AT, native desktop shell and full visual acceptance not verified"
+  ]
+}
