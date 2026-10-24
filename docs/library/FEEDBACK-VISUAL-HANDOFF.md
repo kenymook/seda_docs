@@ -51,6 +51,6 @@ SVG geometry не перерисовывалась. Каталог: `assets/icon
 
 ## Открытые границы
 
-Эти четыре компонента ещё не имеют executable instance contracts. Toast остаётся presentation-компонентом: duration — metadata; автоматические timer/queue/pause/dedupe не реализованы. В рабочем примере используется явный persistent `duration=null`, закрытие и actions принадлежат родителю. Нельзя заявлять production-ready Toast lifecycle по одной проверке палитры/геометрии.
+Эти четыре компонента ещё не имеют executable instance contracts. Сам Toast остаётся presentation-компонентом: duration — metadata. Исполняемый lifecycle реализован отдельно через ToastProvider/ToastViewport/useToast: FIFO, dedupe, таймер активного показа, pause и focus return. Контракт API и границы: [Toast spec](../../specs/feedback/toast.md#react-host-исполняемые-правила). Полная AT/OS-приёмка host остаётся открытой.
 
-Нужны внешняя визуальная оценка, полная AT/OS/browser матрица, полноценный Toast host, контракты feedback и дальнейшая проверка плотности сложных панелей. Figma parity всех исходных экранов этим этапом не доказана.
+Нужны внешняя визуальная оценка, полная AT/OS/browser матрица, приёмка Toast host на целевых платформах, контракты feedback и дальнейшая проверка плотности сложных панелей. Figma parity всех исходных экранов этим этапом не доказана.

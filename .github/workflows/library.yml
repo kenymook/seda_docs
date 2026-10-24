@@ -64,6 +64,7 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-visual-consistency/*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-feedback/*.png
             packages/seda-ui/.diagnostics-package/*/react-*/feedback-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/toast-host-*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-workspace/*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-recents/*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-building/*.png

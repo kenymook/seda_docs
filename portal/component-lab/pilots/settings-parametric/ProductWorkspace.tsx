@@ -8,6 +8,9 @@ import {
   FileUpload,
   Alert,
   Toast,
+  ToastProvider,
+  ToastViewport,
+  useToast,
   Badge,
   Tag,
   type AlertVariant,
@@ -503,6 +506,25 @@ function FeedbackWorkspace() {
       description="Постоянное уведомление: закройте его вручную. Автоочередь Toast здесь не имитируется."
       actionLabel={selected?"Сбросить фильтр":undefined} onAction={()=>{setSelected(false);setNotice("Фильтр сброшен: 4 проекта");}}
       dismissLabel="Закрыть уведомление" onDismiss={()=>{setNotice(null);noticeTrigger.current?.focus();}} />}
+    <ToastProvider><ToastQueueDemo /></ToastProvider>
+  </div>;
+}
+
+function ToastQueueDemo() {
+  const {notify,clear,visible,queued}=useToast();
+  const trigger=useRef<HTMLButtonElement>(null),serial=useRef(0);
+  const [reviewed,setReviewed]=useState(0);
+  return <div className="pane" id="feedback-queue-demo">
+    <Text as="h3" variant="heading/section">Очередь уведомлений</Text>
+    <Text as="p" variant="body/default">До трёх сообщений одновременно. Время показа начинается после выхода из очереди и останавливается при наведении, фокусе или неактивном окне. Действия и ошибки остаются до закрытия.</Text>
+    <div className="visual-consistency__actions">
+      <Button id="queue-add" ref={trigger} iconLeft={<Icon name="add" />} onClick={()=>notify({title:`Локальное событие ${++serial.current}`,intent:"success",description:"Автозакрытие через 5 секунд активного показа.",dismissLabel:"Закрыть сообщение очереди"})}>Добавить событие</Button>
+      <Button id="queue-burst" onClick={()=>{for(let i=0;i<5;i++)notify({title:`Событие серии ${++serial.current}`,intent:"info",dismissLabel:"Закрыть сообщение очереди"});}}>Серия из 5</Button>
+      <Button id="queue-review" onClick={()=>notify({dedupeKey:"review",title:"Проверка макета",description:"Повторное нажатие обновляет это сообщение.",actionLabel:"Отметить проверенным",onAction:()=>setReviewed(value=>value+1),dismissLabel:"Закрыть сообщение очереди"})}>Сообщение с действием</Button>
+      <Button id="queue-clear" disabled={!visible.length&&!queued} onClick={clear}>Очистить очередь</Button>
+    </div>
+    <Text as="p" variant="body/default" id="queue-summary">Видимых: {visible.length} · В очереди: {queued} · Отметок проверки: {reviewed}</Text>
+    <ToastViewport id="feedback-queue" aria-label="Очередь событий рабочего пространства" restoreFocusRef={trigger} />
   </div>;
 }
 

@@ -734,6 +734,15 @@
   text-decoration: underline;
 }
 
+/* Placement stays in application CSS so theme and parametric scope are inherited. */
+.seda-toast-viewport {
+  display: grid;
+  gap: var(--seda-control-gap, var(--seda-preset-button-gap, 8px));
+  min-width: 0;
+  max-width: 100%;
+}
+.seda-toast-viewport .seda-toast { max-width: 100%; min-width: 0; }
+
 .seda-toast__dismiss {
   align-items: center;
   color: var(--seda-toast-close, var(--toast-close-icon-default, currentColor));

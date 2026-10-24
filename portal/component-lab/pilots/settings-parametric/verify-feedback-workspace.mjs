@@ -50,6 +50,23 @@ try{
   await check('feedback-target-viewports-themes-and-captures',async()=>{
     const samples=[];for(const width of [1280,1920])for(const theme of ['Light','Dark']){await page.setViewportSize({width,height:900});await page.evaluate(theme=>window.sedaPilot.configure({theme,controlSize:'m'}),theme);await page.locator('#scale').fill('100');await page.locator('#feedback-severity').selectOption('warning');await settle();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth),0);await page.locator('#reset').focus();await page.keyboard.press('Tab');assert.equal(await page.locator('#export').evaluate(el=>el===document.activeElement),true);const header=await page.locator('#export').evaluate(el=>({width:el.clientWidth,scroll:el.scrollWidth,right:el.getBoundingClientRect().right,edge:el.parentElement.getBoundingClientRect().right}));assert.ok(header.scroll<=header.width+1);assert.ok(header.right<=header.edge+1,JSON.stringify({width,theme,...header}));assert.ok(header.right<=page.viewportSize().width);await page.screenshot({path:path.join(output,`feedback-${width}-${theme}.png`),fullPage:true});samples.push({width,theme});}return{samples};
   });
+  await check('toast-host-real-queue-actions-and-clear',async()=>{
+    await page.locator('#queue-burst').click();await settle();assert.equal(await page.locator('#feedback-queue .seda-toast').count(),3);assert.match(await page.locator('#queue-summary').textContent(),/В очереди: 2/);
+    await page.locator('#feedback-queue .seda-toast__dismiss').first().click();await settle();assert.equal(await page.locator('#feedback-queue .seda-toast').count(),3);assert.match(await page.locator('#queue-summary').textContent(),/В очереди: 1/);
+    await page.locator('#queue-clear').click();await settle();assert.equal(await page.locator('#feedback-queue .seda-toast').count(),0);assert.equal(await page.locator('#queue-clear').isDisabled(),true);
+    await page.locator('#queue-review').click();await page.locator('#queue-review').click();await settle();assert.equal(await page.locator('#feedback-queue .seda-toast').count(),1);assert.equal(await page.locator('#feedback-queue .seda-toast').getAttribute('data-duration'),'persistent');
+    await page.locator('#feedback-queue .seda-toast__action').click();assert.match(await page.locator('#queue-summary').textContent(),/Отметок проверки: 1/);
+    return{threeVisibleTwoQueued:true,promoted:true,clear:true,dedupe:true,realAction:true};
+  });
+  await check('toast-host-inherits-parametric-scope-and-focus',async()=>{
+    const samples=[];
+    for(const theme of ['Light','Dark'])for(const size of ['s','m','l','xl'])for(const scale of [80,100,150]){
+      await page.evaluate(({theme,size})=>window.sedaPilot.configure({theme,controlSize:size}),{theme,size});await page.locator('#scale').fill(String(scale));await settle();
+      const metrics=await page.locator('#feedback-queue .seda-toast').evaluate(el=>({font:parseFloat(getComputedStyle(el.querySelector('.seda-toast__title')).fontSize),icon:el.querySelector('.seda-icon').getBoundingClientRect().width,expected:window.sedaPilot.getLab().derived,overflow:el.scrollWidth>el.clientWidth+1}));near(metrics.font,metrics.expected.font,'host font');near(metrics.icon,metrics.expected.icon,'host icon');assert.equal(metrics.overflow,false);samples.push({theme,size,scale});
+    }
+    await page.locator('#feedback-queue .seda-toast__dismiss').focus();await page.keyboard.press('Escape');await settle();assert.equal(await page.locator('#feedback-queue .seda-toast').count(),0);assert.equal(await page.locator('#queue-add').evaluate(el=>el===document.activeElement),true);
+    return{samples,focusRestored:true,noPortalScopeLoss:true};
+  });
   await check('feedback-browser-errors',()=>assert.deepEqual(errors,[]));
 }finally{await browser.close();await new Promise(resolve=>server.close(resolve));await fs.writeFile(path.join(output,'results.json'),JSON.stringify({scope:'Real SEDA feedback composition, filter/state actions and shared semantic palette',results,errors},null,2));}
 const failed=results.filter(r=>r.status==='failed');console.log(JSON.stringify({passed:results.length-failed.length,failed:failed.length,output}));if(failed.length)process.exitCode=1;

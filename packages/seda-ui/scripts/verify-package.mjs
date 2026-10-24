@@ -6,6 +6,7 @@ import { verifySplitView } from "./verify-split-view.mjs";
 import { verifyLink } from "./verify-link.mjs";
 import { verifyFileUpload } from "./verify-file-upload.mjs";
 import { verifyFeedback } from "./verify-feedback.mjs";
+import { verifyToastHost } from "./verify-toast-host.mjs";
 import { verifyTextArea } from "./verify-textarea.mjs";
 import { verifyTypography } from "./verify-typography.mjs";
 import { verifyTree } from "./verify-tree.mjs";
@@ -152,7 +153,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 23);
+        assert.equal(result.exports.length, 26);
+        for (const name of ["ToastProvider", "ToastViewport", "useToast"]) assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Icon"));
         assert.ok(result.exports.includes("Text"));
         assert.ok(result.exports.includes("textVariants"));
@@ -229,7 +231,14 @@ const wrongTheme=<SedaProvider theme="sepia"/>;
 const wrongSize=<SedaProvider controlSize="huge"/>;
 function ConfigTypeCheck(){const configuration=useSedaConfiguration();
 // @ts-expect-error context snapshots are readonly
-configuration.controlSize='s';return null;}`,
+configuration.controlSize='s';return null;}
+import {ToastProvider,ToastViewport,useToast,type ToastOptions} from '@seda-ai/ui';
+const toastHost=<ToastProvider><ToastViewport aria-label="Events"/></ToastProvider>;
+function HostTypeCheck(){const host=useToast();const id:string|null=host.notify({title:'Saved',duration:null,dedupeKey:'save'});if(id)host.update(id,{description:'Updated'});
+// @ts-expect-error notification content is required
+host.notify({duration:5000});
+// @ts-expect-error arbitrary action nodes remain presentation-only
+const options:ToastOptions={title:'Saved',action:<button>Invented</button>};return null;}`,
       );
       await fs.writeFile(
         path.join(cwd, "tsconfig.json"),
@@ -256,7 +265,7 @@ configuration.controlSize='s';return null;}`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 20 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 22 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -393,6 +402,7 @@ configuration.controlSize='s';return null;}`,
     await check("react-"+version+"-link-variants",()=>verifyLink({cwd,browser,version}));
     await check("react-"+version+"-file-upload",()=>verifyFileUpload({cwd,browser,version}));
     await check("react-"+version+"-feedback",()=>verifyFeedback({cwd,browser,version}));
+    await check("react-"+version+"-toast-host",()=>verifyToastHost({cwd,browser,version}));
   }
 } catch (error) {
   results.push({

@@ -9,7 +9,29 @@
 
 ## Runtime — 2026-10-24
 
-Toast использует общую геометрию и intent-aware container/foreground/description/icon роли. Иконки/close — исходные SVG SEDA. ВАЖНО: текущий React Toast — presentation-компонент. duration пока metadata; timer/queue/pause/dedupe отсутствуют. Используйте persistent duration=null и родительские action/dismiss handlers; автоматический lifecycle требует отдельного host и приёмки.
+Toast использует общую геометрию и intent-aware container/foreground/description/icon роли. Иконки/close — исходные SVG SEDA. Сам Toast остаётся presentation-компонентом: duration у него metadata. Для исполняемого lifecycle используйте ToastProvider + один ToastViewport и useToast. Полная AT/OS-приёмка и executable instance contract ещё не завершены.
+
+### React host: исполняемые правила
+
+Host добавлен отдельно, потому что отдельный Toast не владеет очередью приложения и не может выбирать placement.
+
+- `ToastProvider` изолирует очередь в памяти. `useToast()` возвращает `notify(options): string | null`, `update(id, patch): boolean`, `dismiss(id): boolean`, `clear()`, readonly `visible` и `queued`.
+- `ToastOptions`: title, description, intent, icon, showIcon, actionLabel, onAction, dismissLabel, duration, dedupeKey. Произвольные action nodes остаются в presentation API. Действие не закрывает сообщение автоматически: закрытие после результата принадлежит приложению.
+- FIFO: до 3 видимых и 50 ожидающих. При заполнении notify возвращает null, сохраняя существующие сообщения. dedupeKey обновляет прежний item даже при полной очереди, сохраняя ID и позицию. Конфликт ключей при update отклоняется атомарно.
+- Neutral/info/success: 5000 мс активного показа. Action/warning/error по умолчанию persistent. Явная duration: null либо конечное число 1000–2147483647 мс. Короткую длительность приложение обязано обосновать доступностью; наличие API не означает, что 1 секунда подходит пользователю.
+- Timer начинается только после показа. Hover (кроме touch), focus внутри, hidden document и неактивное окно приостанавливают его; причины независимы, остаток сохраняется. Update/dedupe начинают новый срок, сохраняя паузу. Снятие viewport останавливает таймеры, повторное монтирование продолжает остаток; уничтожение provider уничтожает очередь. Таймер старой revision не закрывает обновлённый item.
+- При появлении фокус не перемещается. Escape закрывает только сообщение с текущим фокусом. При удалении сфокусированного сообщения фокус возвращается в restoreFocusRef либо origin, затем region. Нет глобального перехвата Escape.
+- ToastViewport — именованный section без второго live region: каждый item сохраняет собственный role status/alert. Placement задаёт CSS приложения. Размещайте viewport внутри SEDA scope: host не переносит его в body и не теряет theme/scale/X/Y. Появление/удаление без движения; reduced-motion не требует отдельной анимации.
+- Один viewport на provider; второй отклоняется. Независимые providers допустимы. Нет глобального singleton, сетевых запросов, localStorage, автоматического журнала и скрытого server transport.
+
+```tsx
+<ToastProvider>
+  <Workspace />
+  <ToastViewport aria-label="События рабочего пространства" />
+</ToastProvider>
+// В Workspace: const {notify, update, dismiss} = useToast();
+// const id = notify({title: 'Макет сохранён', intent: 'success', dedupeKey: 'save'});
+```
 
 [Точные aliases, SVG provenance и ограничения](../../docs/library/FEEDBACK-VISUAL-HANDOFF.md). Runtime адаптация не является executable instance contract или внешней визуальной/AT-приёмкой.
 

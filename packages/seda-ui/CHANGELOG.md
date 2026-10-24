@@ -1,5 +1,11 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — Toast host
+
+- Отдельные ToastProvider/ToastViewport/useToast: ограниченная FIFO-очередь, dedupe/update, активное время показа, hover/focus/window pause, сохранение остатка при remount и guard старой revision.
+- Arrival без autofocus, локальный Escape и возврат фокуса; provider isolation, без глобального singleton и transport. Состояния видны в рабочем Lab.
+- Presentation Toast сохраняет API; автоматический lifecycle работает только через host. Полная AT/OS-приёмка ещё требуется.
+
 ## Unreleased — feedback, исходные иконки и semantic palette
 
 - Общая геометрия Badge/Tag/Alert/Toast, естественная multiline-высота и отсутствие пустых slots. Native selectable Tag и независимый dismiss; вложенный counter — реальный Badge с documented view.
