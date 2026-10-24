@@ -168,3 +168,7 @@ Toast остаётся presentation-компонентом. Исполняемы
 `Button fullWidth` удерживает ширину в parent, включая длинный label и icon slots. Однострочная подпись получает ellipsis; полное имя остаётся доступным, а приложение передаёт полный native `title` для компактных навигационных строк. Критические действия лучше размещать шире или группировать вертикально. Многострочная геометрия ещё не входит в Button contract. Loading измеряет реальный ограниченный border box.
 
 DropdownMenu ограничивает текстовый trigger доступной шириной, используя этот публичный Button recipe и полный triggerLabel в title. API и семантика меню не меняются.
+
+
+### Tooltip
+`Tooltip` accepts plain `content`, `variant="default"|"light"`, `placement="top"|"bottom"|"left"|"right"`, `disabled`, `describedBy` and a render function child. Spread its ref and aria-describedby onto the real trigger. It does not provide the trigger's accessible name. `IconButton tooltip="..."` binds the same runtime automatically; `title` remains native only when tooltip is absent. Hover350ms, focus immediate, Escape/click dismissal, hoverable surface, no auto-dismiss, document-exclusive, existing descriptions preserved. Surface geometry is experimental; Text caption/default follows provider textScale. Arrow/size/controlled delay are not public props. Disabled actions need a visible alternative explanation. Test coverage does not certify screen-reader/desktop-shell support.

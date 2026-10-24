@@ -1,3 +1,4 @@
+import {verifyTooltip} from './verify-tooltip.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -159,7 +160,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 27);
+        assert.equal(result.exports.length, 28);
+        assert.ok(result.exports.includes("Tooltip"));
         assert.ok(result.exports.includes("Modal"));
         for (const name of ["ToastProvider", "ToastViewport", "useToast"]) assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Icon"));
@@ -179,7 +181,12 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const tooltip=<Tooltip content="Help">{trigger=><button {...trigger}>Own name</button>}</Tooltip>;
+// @ts-expect-error Tooltip content cannot contain controls
+const interactiveTooltip=<Tooltip content={<button>Action</button>}>{trigger=><button {...trigger}>Name</button>}</Tooltip>;
+// @ts-expect-error Arrow is not a supported runtime prop
+const inventedTooltip=<Tooltip content="Help" arrow>{trigger=><button {...trigger}>Name</button>}</Tooltip>;
 const modal=<Modal open={true} onOpenChange={(open,details)=>{console.log(open,details.reason)}} title="Workspace" footer={<Button>Save</Button>}/>;
 // @ts-expect-error controlled owner is required
 const ownerlessModal=<Modal open title="Workspace"/>;
@@ -422,6 +429,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-choice-layout",()=>verifyChoiceLayout({cwd,browser}));
     await check("react-"+version+"-icon-catalog",()=>verifyIconCatalog({cwd,browser}));
     await check("react-"+version+"-modal",()=>verifyModal({cwd,browser}));
+    await check("react-"+version+"-tooltip",()=>verifyTooltip({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

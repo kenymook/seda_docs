@@ -1412,3 +1412,10 @@
 
 :is(.seda-alert__action,.seda-alert__dismiss,.seda-toast__action,.seda-toast__dismiss):disabled { opacity:.45; cursor:not-allowed; }
 .seda-tag:not([data-disabled="true"]) .seda-tag__dismiss:disabled { opacity:.45; cursor:not-allowed; }
+
+/* Tooltip surface geometry is an experimental composition; colors use existing component tokens. */
+.seda-tooltip{position:fixed;inset:auto;margin:0;border:0;box-sizing:border-box;padding:6px;width:max-content;visibility:hidden;z-index:var(--seda-overlay-z-index,1001);background:transparent;color:var(--tooltip-dark-foreground);overflow:auto;font-family:var(--seda-font-family,Inter,system-ui,sans-serif);}
+.seda-tooltip__content{box-sizing:border-box;min-width:0;padding:8px 12px;border:1px solid transparent;border-radius:6px;background:var(--tooltip-dark-surface);color:var(--tooltip-dark-foreground);overflow-wrap:anywhere;}
+.seda-tooltip[data-variant=light]>.seda-tooltip__content{background:var(--tooltip-light-surface);color:var(--tooltip-light-foreground);border-color:var(--tooltip-light-border);}
+.seda-tooltip .seda-text{color:inherit;white-space:normal;}
+@media(forced-colors:active){.seda-tooltip__content,.seda-tooltip[data-variant=light]>.seda-tooltip__content{background:Canvas;color:CanvasText;border-color:CanvasText;}}

@@ -23,3 +23,5 @@ export type { SedaConfiguration, SedaProviderProps } from "./foundation/SedaProv
 export * from "./components/TextArea";
 export * from "./components/Text";
 export * from "./components/Modal";
+
+export * from './components/Tooltip';

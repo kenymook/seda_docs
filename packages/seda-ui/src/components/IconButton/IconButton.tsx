@@ -1,5 +1,6 @@
+import {useTooltip} from '../Tooltip/Tooltip';
 import { useSedaSize } from "../../foundation/SedaProvider";
-import { forwardRef } from "react";
+import { useCallback, forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { IconButtonProps } from "./IconButton.types";
 
@@ -22,8 +23,12 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ) => {
     const size = useSedaSize(sizeProp);
     const isBlocked = disabled || loading;
+    const hint=useTooltip({content:tooltip??'',disabled:!tooltip||!!disabled,...(props['aria-describedby']?{describedBy:props['aria-describedby']}:{})});
+    const anchor=hint.trigger.ref;
+    const bindRef=useCallback((node:HTMLButtonElement|null)=>{anchor(node);if(typeof ref==='function')ref(node);else if(ref)ref.current=node;},[anchor,ref]);
 
     return (
+      <>
       <button
         {...props}
         aria-busy={loading ? true : props["aria-busy"]}
@@ -42,14 +47,17 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           }
           onClick?.(event);
         }}
-        ref={ref}
-        title={tooltip ?? props.title}
+        ref={bindRef}
+        aria-describedby={hint.trigger['aria-describedby']}
+        title={tooltip ? undefined : props.title}
         type={type}
       >
         <span aria-hidden="true" className="seda-icon-button__icon">
           {loading ? <span className="seda-icon-button__spinner" /> : icon}
         </span>
       </button>
+      {hint.surface}
+      </>
     );
   },
 );

@@ -133,3 +133,6 @@
 - Public Text с23 существующими roles, semantic as и ref; наследуемый Provider textScale80–200, minimum и дробные size/line-height/tracking. Control size и author canvas font независимы.
 - Role mappings используют фактические h1/h2/h3 и title1/2/3, текущий Inter и token provenance; tokens.json не изменён.
 - Installed React18/19 proof добавляет по одной typography group: SSR/Strict hydration, кириллица/UTF-8,40 вложенных profile samples на каждый consumer, nested/explicit/standalone scopes, wrapping и RTL.
+
+
+- Add public text-only Tooltip and connect IconButton.tooltip to shared hover/focus/escape runtime instead of native title. Preserve description IDs, refs and button metrics; scope portals to owning native dialog. Experimental surface geometry, existing colors and Text role, no new tokens.
