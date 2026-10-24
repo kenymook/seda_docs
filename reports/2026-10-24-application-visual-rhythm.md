@@ -33,3 +33,12 @@ UI scale80–150% добавлен к сохранённым appearance preferen
 ## Границы зрелости
 
 `reports/component-maturity-matrix.md` теперь отделяет текущую React-реализацию от архивного Figma scan2026-06-12. Score100 и старые “Done” не подтверждают production-ready статус библиотеки. Открыты оставшиеся legacy-тексты других композиций, полное покрытие/оптика иконок, плотность редакторов, variants/backgrounds/popups, полное RTL, Figma fidelity/bindings, target browser/OS/AT/performance и feedback instance contracts. Квота Figma ограничила часть дополнительных запросов; недоступные glyphs не подменены выдуманными оригиналами. Общая цель остаётся активной.
+
+## Публикация и production proof
+
+- Прежний приватный URL https://seda-ai-pilot.kenymook.chatgpt.site/, version37. Custom/revision1: один owner, ноль visitors/groups.
+- GitHub implementation `b6768f73d87c8a09ec35d7203cc25ffe006eab75`; Site source `1edd7f52e62dfd7545f18cdaec1b3ea0eaed122f`.
+- Deployment `appgdep_6adcf42cb1688191a2b9e344e2b2ea47` succeeded. Архив7,590,956 bytes, SHA256 `4d90b6585ee5a4ef81a3d671ec0654f83f43e665ca9bec1b1be10c4b36ad5592`.
+- Production повторила text24 и icons96, UI scale reload и keyboard reachability всех7 enabled toolbar actions при960px. Все764 source hashes совпали; 0 JS errors. Обе отмеченные подписи:80%=12px,100%=12px,150%=18px.
+
+[Release evidence и hashes raw-результатов](../portal/component-lab/pilots/settings-parametric/verification/visual-v37-release.json). Снимки: [до,150%](../portal/component-lab/pilots/settings-parametric/verification/v37-text-before-150.png), [после Light,150%](../portal/component-lab/pilots/settings-parametric/verification/v37-text-Light-150.png), [после Dark,150%](../portal/component-lab/pilots/settings-parametric/verification/v37-text-Dark-150.png), [toolbar960](../portal/component-lab/pilots/settings-parametric/verification/v37-toolbar-960-large.png), [menu Dark](../portal/component-lab/pilots/settings-parametric/verification/v37-menu-Dark.png), [forced-colors installed package](../portal/component-lab/pilots/settings-parametric/verification/v37-icon-forced-colors.png).

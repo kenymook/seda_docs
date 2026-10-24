@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "b6768f73d87c8a09ec35d7203cc25ffe006eab75",
+  "siteSource": "1edd7f52e62dfd7545f18cdaec1b3ea0eaed122f",
+  "version": 37,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deploymentId": "appgdep_6adcf42cb1688191a2b9e344e2b2ea47",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_e791b55e9f948191a2c6b236ce886c41",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 122,
+  "fullPilotSequenceExitCode": 0,
+  "focusedFinalSequence": [
+    "workspace-text",
+    "icon-workspace-with-960-focus",
+    "lab2",
+    "workspace",
+    "sandbox"
+  ],
+  "limits": [
+    "Chromium verification; browser/OS/AT acceptance remains open",
+    "Icon catalog is not complete for every application",
+    "Legacy typography in other compositions and Figma fidelity remain open"
+  ],
+  "packageGroupsPassed": 39,
+  "packageGroupsFailed": 0,
+  "consumers": {
+    "18.3.1": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "iconCount": 25,
+      "sizeThemeSamples": 8,
+      "allMasksMatchCatalogSha256": true,
+      "allGlyphsPaint": true,
+      "forcedMenu": [
+        {
+          "name": "Copy",
+          "disabled": false,
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "Delete",
+          "disabled": false,
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "Blocked delete",
+          "disabled": true,
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        }
+      ],
+      "forcedColorsStates": 2,
+      "errors": []
+    },
+    "19.2.7": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "iconCount": 25,
+      "sizeThemeSamples": 8,
+      "allMasksMatchCatalogSha256": true,
+      "allGlyphsPaint": true,
+      "forcedMenu": [
+        {
+          "name": "Copy",
+          "disabled": false,
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "Delete",
+          "disabled": false,
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "Blocked delete",
+          "disabled": true,
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        }
+      ],
+      "forcedColorsStates": 2,
+      "errors": []
+    }
+  },
+  "productionBaseline": {
+    "version": 36,
+    "samples": [
+      {
+        "scale": 100,
+        "rows": [
+          {
+            "selector": "#preview .panelhead .hint",
+            "text": "Управление рабочим пространством",
+            "font": 11,
+            "role": null
+          },
+          {
+            "selector": "#count",
+            "text": "4 проектов",
+            "font": 11,
+            "role": null
+          }
+        ]
+      },
+      {
+        "scale": 150,
+        "rows": [
+          {
+            "selector": "#preview .panelhead .hint",
+            "text": "Управление рабочим пространством",
+            "font": 11,
+            "role": null
+          },
+          {
+            "selector": "#count",
+            "text": "4 проектов",
+            "font": 11,
+            "role": null
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  "production": {
+    "sourceHashesMatched": 764,
+    "typographySamples": 24,
+    "iconSamples": 96,
+    "toolbarReachability": {
+      "width": 960,
+      "actions": 7,
+      "overflow": true,
+      "allVisibleOnFocus": true
+    },
+    "errors": []
+  },
+  "captionSizes": {
+    "80": {
+      "subtitle": 12,
+      "count": 12
+    },
+    "100": {
+      "subtitle": 12,
+      "count": 12
+    },
+    "150": {
+      "subtitle": 18,
+      "count": 18
+    }
+  },
+  "loading": {
+    "samples": 288,
+    "maximumWidthDelta": 0,
+    "maximumHeightDelta": 0
+  },
+  "archiveSha256": "4d90b6585ee5a4ef81a3d671ec0654f83f43e665ca9bec1b1be10c4b36ad5592",
+  "archiveBytes": 7590956,
+  "rawEvidence": {
+    "packages/seda-ui/.diagnostics-package/2026-10-24T17-34-23-482Z/results.json": {
+      "sha256": "8fc5e0f1438b5818efb5e11f72da968c377886e235aec14a034345b7bb62c271",
+      "bytes": 5743528
+    },
+    "packages/seda-ui/.diagnostics-package/2026-10-24T17-34-23-482Z/react-18.3.1/icon-catalog-results.json": {
+      "sha256": "e67576a1c2996d780d0cbc469604c7512d047f4b68a2ab454fe5c8fd32f475cf",
+      "bytes": 118846
+    },
+    "packages/seda-ui/.diagnostics-package/2026-10-24T17-34-23-482Z/react-19.2.7/icon-catalog-results.json": {
+      "sha256": "fc9ef11ad6ae3a6414f98ce7ed5bfc815197f52a895d35e57bdb9415d28858c1",
+      "bytes": 118846
+    },
+    "../.integration-input/visual-live-before-v37/results.json": {
+      "sha256": "04eac973ecd981e953dc96dbf8c94292e58bc2fafac5fae138fb2d1badf133f5",
+      "bytes": 844
+    },
+    "../.integration-input/visual-live-v37/results.json": {
+      "sha256": "bbc6824c5d50bb5ff0404a4ccc4ef4d19461db368c5101a99ff391e453b9e296",
+      "bytes": 213914
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-workspace-text/results.json": {
+      "sha256": "12b81883e3c0611b565361eaa5bdd511b19b7279e49c46f7278a351d2f4ef3d8",
+      "bytes": 81729
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-icon-workspace/results.json": {
+      "sha256": "c695c2ffee6f3e01c5e4ef54f5fb90c3d0ce3bc21340a4981b33e560adbd3dc3",
+      "bytes": 115717
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-lab2/results.json": {
+      "sha256": "6067c486f3c8f4dc9a8da1fa16625a9ef0aac5d731b0c42d80cdf3a533251eec",
+      "bytes": 120379
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-workspace/results.json": {
+      "sha256": "40e4e713b1de598e05920f206188e2b56044065ddc20cff695333939d198ddd9",
+      "bytes": 73095
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox/results.json": {
+      "sha256": "56f552a2018157a362cf9944e48e44225193a18412d2d0ed4c7d76621eb45247",
+      "bytes": 18323
+    }
+  }
+}
