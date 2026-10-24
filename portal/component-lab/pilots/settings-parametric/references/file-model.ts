@@ -4,9 +4,9 @@ export interface WorkspaceFile {
  thumbnail?:string; avatar?:string; icon?:string; previewInset?:number; shared:boolean; folder:string;
  trashed:boolean; starred:boolean; viewed:number;
 }
-export interface Preferences { theme:'light'|'dark';size:'s'|'m'|'l'|'xl';airX:number;airY:number;view:'grid'|'list' }
+export interface Preferences { theme:'light'|'dark';size:'s'|'m'|'l'|'xl';scale:number;airX:number;airY:number;view:'grid'|'list' }
 export const filesKey='seda.reference.recents.files.v1',preferencesKey='seda.reference.recents.preferences.v1';
-export const defaults:Preferences={theme:'dark',size:'m',airX:0,airY:0,view:'grid'};
+export const defaults:Preferences={theme:'dark',size:'m',scale:100,airX:0,airY:0,view:'grid'};
 export const initialFiles=seed.files as WorkspaceFile[];
 const assets=new Set(initialFiles.flatMap(file=>[file.thumbnail,file.avatar,file.icon].filter(Boolean)));
 export function readFiles(raw:string|null):WorkspaceFile[]{
@@ -22,7 +22,9 @@ export function readFiles(raw:string|null):WorkspaceFile[]{
 export function readPreferences(raw:string|null):Preferences{
  if(!raw)return {...defaults};const value=JSON.parse(raw);
  if(!value||!['light','dark'].includes(value.theme)||!['s','m','l','xl'].includes(value.size)||!['grid','list'].includes(value.view)||!Number.isInteger(value.airX)||value.airX<0||value.airX>24||!Number.isInteger(value.airY)||value.airY<0||value.airY>12)throw Error('Повреждены параметры интерфейса');
- return value;
+ const scale=value.scale===undefined?100:value.scale;
+ if(typeof scale!=='number'||!Number.isFinite(scale)||scale<80||scale>150)throw Error('Повреждён масштаб интерфейса');
+ return {...value,scale};
 }
 export interface FileQuery {section:string;tab:string;query:string;organization:string;type:string;folder:string|null}
 export function filterFiles(files:readonly WorkspaceFile[],filter:FileQuery){

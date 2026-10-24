@@ -201,6 +201,8 @@ Button следует foundation rules для spacing, sizing, radius и iconogr
 - `fullWidth` допустим в forms, mobile layouts и narrow panels.
 - Icon-label gap должен оставаться token-driven.
 
+React-адаптер пока сохраняет однострочную исполняемую геометрию. `fullWidth` действительно ограничивает кнопку шириной parent, включая длинную подпись и icon slots: подпись получает ellipsis, иконки сохраняют собственные размеры. Для таких компактных строк приложение передаёт полную подпись в native `title`; accessible name остаётся полным. Нельзя незаметно обрезать критическое действие: предпочтительнее расширить область или сложить action group. Многострочный Button потребует отдельного geometry contract, а не локального изменения height. Loading фиксирует уже ограниченный фактический border box.
+
 ---
 
 ## 7. Accessibility

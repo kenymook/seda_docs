@@ -95,6 +95,11 @@
 
 .seda-button[data-full-width="true"] {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.seda-button[data-full-width="true"] > .seda-button__label {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
 .seda-button:disabled,

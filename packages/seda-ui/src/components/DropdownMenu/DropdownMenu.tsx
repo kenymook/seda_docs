@@ -226,7 +226,7 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         }
       } };
     return <div {...props} ref={ref} id={rootId} className={cx("seda-dropdown-menu",className)} data-size={size}>
-      {iconOnly ? <IconButton {...triggerProps} variant="ghost" aria-label={triggerLabel} icon={triggerIcon} /> : <Button {...triggerProps} iconLeft={triggerIcon}>{triggerLabel}</Button>}
+      {iconOnly ? <IconButton {...triggerProps} variant="ghost" aria-label={triggerLabel} icon={triggerIcon} /> : <Button {...triggerProps} fullWidth title={triggerLabel} iconLeft={triggerIcon}>{triggerLabel}</Button>}
       {isOpen && portalHost ? createPortal(<SedaProvider ref={scope} theme={configuration.theme} controlSize={size} style={{display:"contents"}}>
         <div ref={surface} id={`${rootId}-menu`} className="seda-dropdown-menu__surface" role="menu" aria-labelledby={`${rootId}-trigger`}
           data-size={size} data-variant={variant} tabIndex={-1} onKeyDown={menuKey}

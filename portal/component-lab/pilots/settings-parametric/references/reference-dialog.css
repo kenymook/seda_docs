@@ -1,3 +1,4 @@
 .reference-dialog form,.reference-settings{display:grid;gap:16px}
 .reference-dialog-actions{display:flex;gap:12px;flex-wrap:wrap}
+.reference-dialog-content{display:grid;gap:16px;min-width:0}
 .reference-dialog p:not(.seda-text){line-height:1.6}

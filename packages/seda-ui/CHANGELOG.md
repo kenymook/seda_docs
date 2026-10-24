@@ -1,5 +1,12 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — constrained actions
+
+- Button fullWidth больше не растягивает узкий parent через min-width:max-content. Однострочный label получает ellipsis, иконки сохраняют размеры, loading фиксирует ограниченный border box.
+- Tabs прокручивает только собственный tablist, полностью раскрывая focused tab, который помещается в его viewport. Keyboard/resize сохраняют document scroll и focus panel; большие labels не уменьшаются.
+- Текстовый DropdownMenu trigger использует этот recipe и полный title; меню остаётся доступным клавиатурой.
+
+
 ## Unreleased — native Modal
 
 - Публичный controlled Modal использует native dialog/top layer, Text heading/section, SEDA IconButton и существующие modal color tokens. Surface widths отделены от плотности контролов; геометрия пока experimental adapter с явно описанным источником.

@@ -162,3 +162,9 @@ Public styles экспортируют все semantic color роли с provena
 Каталог имён/происхождения иконок доступен через export @seda-ai/ui/icons.json; SVG bytes встроены, временные Figma URLs в runtime не используются. Генератор scripts/icon-assets.mjs проверяет каталог и rejects stale generated module при build.
 
 Toast остаётся presentation-компонентом. Исполняемый host: `ToastProvider`, один `ToastViewport` и `useToast()` с notify/update/dismiss/clear. FIFO: 3 видимых +50 ожидающих, dedupe сохраняет ID/позицию; overflow возвращает null. Таймер начинает отсчёт после показа, сохраняет остаток при hover/focus/неактивном окне и remount viewport. Action/warning/error persistent по умолчанию. Приход не перемещает фокус, Escape закрывает сфокусированный item. Placement задаёт приложение внутри SEDA scope. Подробные границы и duration policy: spec Toast. AT/OS-приёмка и instance contract остаются открытыми.
+
+## Constrained actions
+
+`Button fullWidth` удерживает ширину в parent, включая длинный label и icon slots. Однострочная подпись получает ellipsis; полное имя остаётся доступным, а приложение передаёт полный native `title` для компактных навигационных строк. Критические действия лучше размещать шире или группировать вертикально. Многострочная геометрия ещё не входит в Button contract. Loading измеряет реальный ограниченный border box.
+
+DropdownMenu ограничивает текстовый trigger доступной шириной, используя этот публичный Button recipe и полный triggerLabel в title. API и семантика меню не меняются.

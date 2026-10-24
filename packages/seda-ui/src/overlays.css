@@ -53,7 +53,7 @@
   .seda-modal .seda-modal__close.seda-icon-button:not(:disabled):not([aria-disabled="true"]):hover { color: HighlightText; background: Highlight; }
 }
 .seda-overlay-portal { display: contents; }
-.seda-dropdown-menu { display: inline-block; min-width: 0; }
+.seda-dropdown-menu { display: inline-block; min-width: 0; max-width: 100%; }
 .seda-dropdown-menu__surface {
   box-sizing: border-box; position: fixed; inset: auto; margin: 0; visibility: hidden;
   z-index: var(--seda-overlay-z-index, 1000); width: max-content; overflow: auto; overscroll-behavior: contain;

@@ -19,13 +19,37 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
     const requested = value !== undefined ? value : localValue;
     const selected = requested !== undefined && enabled.includes(requested) ? requested : enabled[0];
     const roving = focusValue !== undefined && enabled.includes(focusValue) ? focusValue : selected;
+    const reveal = (button: HTMLElement) => {
+      const viewport = list.current;
+      if (!viewport) return;
+      const box = viewport.getBoundingClientRect(), tab = button.getBoundingClientRect();
+      const style = viewport.ownerDocument.defaultView!.getComputedStyle(viewport);
+      const left = box.left + viewport.clientLeft + (parseFloat(style.paddingLeft) || 0);
+      const right = box.left + viewport.clientLeft + viewport.clientWidth - (parseFloat(style.paddingRight) || 0);
+      const delta = tab.width > right - left ? (style.direction === 'rtl' ? tab.right - right : tab.left - left)
+        : tab.left < left ? tab.left - left : tab.right > right ? tab.right - right : 0;
+      if (Math.abs(delta) > .05) viewport.scrollBy({left: delta, behavior: 'instant'});
+    };
     // Only repair focus if it was in this tablist; updates must not steal panel focus.
     useBrowserLayoutEffect(() => {
       if (value === undefined && localValue !== selected) setLocalValue(selected);
       if (focusWithin.current && roving !== undefined && (!list.current?.contains(document.activeElement) || (document.activeElement as HTMLButtonElement)?.disabled)) {
-        buttons.current.get(roving)?.focus();
+        buttons.current.get(roving)?.focus({preventScroll:true});
       }
+      const active = list.current?.ownerDocument.activeElement;
+      if (active && list.current?.contains(active)) reveal(active as HTMLElement);
     });
+    useBrowserLayoutEffect(() => {
+      const viewport = list.current, view = viewport?.ownerDocument.defaultView;
+      if (!viewport || !view?.ResizeObserver) return;
+      const observer = new view.ResizeObserver(() => {
+        const active = viewport.ownerDocument.activeElement;
+        if (active && viewport.contains(active)) reveal(active as HTMLElement);
+      });
+      observer.observe(viewport);
+      for (const button of buttons.current.values()) observer.observe(button);
+      return () => observer.disconnect();
+    }, [items]);
     const ids = new Set(items.map((item) => item.value));
     if (!label.trim() || ids.size !== items.length || items.some((item) => !item.value.trim() || !item.label.trim()))
       throw new TypeError("Tabs require a label and unique non-empty item values/labels");
@@ -51,7 +75,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
       if (next !== undefined) {
         event.preventDefault();
         setFocusValue(next);
-        buttons.current.get(next)?.focus();
+        buttons.current.get(next)?.focus({preventScroll:true});
         if (activationMode === "automatic") select(next);
       }
     };
@@ -65,7 +89,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
             return <button key={item.value} ref={(node) => { if (node) buttons.current.set(item.value, node); else buttons.current.delete(item.value); }}
               className="seda-tabs__tab" type="button" role="tab" id={`${rootId}-tab-${suffix}`} aria-controls={`${rootId}-panel-${suffix}`}
               aria-selected={selected === item.value} disabled={item.disabled} tabIndex={roving === item.value ? 0 : -1}
-              onFocus={() => setFocusValue(item.value)} onKeyDown={(event) => navigate(event, item.value)} onClick={() => select(item.value)}>
+              onFocus={(event) => {setFocusValue(item.value);reveal(event.currentTarget);}} onKeyDown={(event) => navigate(event, item.value)} onClick={() => select(item.value)}>
               {item.icon != null ? <span className="seda-tabs__icon" aria-hidden="true">{item.icon}</span> : null}<span>{item.label}</span>
             </button>;
           })}

@@ -83,8 +83,16 @@ return h(SedaProvider,{theme:config.theme,controlSize:config.controlSize,dir:con
     }
     await configure({allDisabled:false});await page.evaluate(()=>window.sedaTabs.select('a'));
     await page.screenshot({path:path.join(cwd,'tabs-dark.png')});await configure({theme:'light',variant:'line'});await page.screenshot({path:path.join(cwd,'tabs-light.png')});
+    const focusVisibility=[];
+    for(const dir of ['ltr','rtl'])for(const width of [900,390]){
+      await page.setViewportSize({width,height:650});await configure({dir,controlled:false,reject:false,remove:null,disable:null,allDisabled:false,controlSize:'xl'});
+      await tab('a').focus();await page.keyboard.press('End');await page.keyboard.press(dir==='ltr'?'ArrowLeft':'ArrowRight');
+      await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+      const visible=await tab('b').evaluate(node=>{const list=node.closest('[role=tablist]'),r=node.getBoundingClientRect(),v=list.getBoundingClientRect();return{left:r.left,right:r.right,viewportLeft:v.left,viewportRight:v.right,focused:node===document.activeElement,documentScrollX:scrollX};});
+      assert.ok(visible.focused);assert.ok(visible.left>=visible.viewportLeft-1&&visible.right<=visible.viewportRight+1,JSON.stringify({dir,width,...visible}));assert.equal(visible.documentScrollX,0);focusVisibility.push({dir,width,...visible});
+    }
     assert.deepEqual(errors,[]);
-    const result={sourceAlias:false,ssr:true,hydrationErrors:errors,combinations,compilerSnapshots,invalidInputsRejected:5,relationships:relations,keyboard:'automatic/manual, Home/End, wrap, skip disabled, RTL',controlledRejection:true,dynamicFocusRepair:true,panelDraftRetained:true,themeChangeDidNotStealFocus:true,measurements};
+    const result={sourceAlias:false,ssr:true,hydrationErrors:errors,combinations,compilerSnapshots,invalidInputsRejected:5,relationships:relations,keyboard:'automatic/manual, Home/End, wrap, skip disabled, RTL',focusVisibility,controlledRejection:true,dynamicFocusRepair:true,panelDraftRetained:true,themeChangeDidNotStealFocus:true,measurements};
     await fs.writeFile(path.join(cwd,'tabs-results.json'),JSON.stringify(result,null,2)+'\n');return result;
   }finally{await page.close();await new Promise(r=>server.close(r));}
 }
