@@ -36,7 +36,7 @@
 |---|---|---|
 | Кодовый каталог | 19 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
 | Исполняемые контракты | 11 компонентов, 8 профилей, API/state/token validation; 120 unit/foundation checks с typography binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
-| Реальное приложение | Lab: проекты/настройки/команда/experimental editor; 153 browser/28 model groups; Recents, Building, Chat и Sandbox — отдельные reference entries | Девять эталонных экранов и четыре перечисленных класса сложных рабочих интерфейсов |
+| Реальное приложение | Lab: проекты/настройки/команда/experimental editor;8 reference entries охватывают9 исходных frames, включая два Spline-контекста. Workflow опубликован в version29 с явно локальным fixture | Полная visual/keyboard/AT/OS/performance приёмка девяти реконструкций и сценарии четырёх перечисленных классов сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
 | Реальный consumer | 25/25 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
 | Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 25 package proof groups, включая Text/TextArea/Tree/Tabs/Menu/SplitView | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
@@ -200,3 +200,10 @@ CI40027185664 завершился failure в Building shortcut scenario; packag
 
 
 Version21 опубликована на прежнем owner-private сайте. [Release/CI и production proof](REFERENCE-SANDBOX-REVIEW.md#version21-публикация-и-независимый-ci): CI40031537628 для3a05c57 completed/success,120 contract/foundation/25 package/153 browser/28 model, TypeScript/build. Publication153/28 и productionSandbox20/Building2 прошли. Исправлены конкретные captions/focus defects; full visual/AT/performance и оставшиеся5 screens не закрыты.
+
+
+## Текущая граница после Workflow29
+
+Все девять source frames имеют рабочие реконструкции разной глубины. Это не завершает objective: точная визуальная приёмка, общие primitive/contract gaps, target-runtime/AT/performance и полный продуктовый аудит остаются открытыми. Workflow применяет installed SEDA и реальные DAG/run/save guards; исполнение metadata/pass-through обозначено как локальное. Найденный provider array regression исправлен отдельно от первой зелёной функциональной матрицы; [release29](../../portal/component-lab/pilots/settings-parametric/verification/workflow-v29-release.json) сохраняет области каждой проверки.
+
+Следующий конкретный library gap, обнаруженный в реальном приложении: FileUpload использует готовый SEDA компонент, но его размеры/отступы ещё не полностью связаны с общими X/Y и executable contract отсутствует. Его нужно исправлять в общей библиотеке/компиляторе, не частным CSS Workflow. Таблица текущих доказательств не заменяет свежий dependency audit или screenreader/OS evidence.

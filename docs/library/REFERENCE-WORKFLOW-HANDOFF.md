@@ -43,3 +43,8 @@ SEDA: Button/IconButton/Text/TextField/TextArea/Select/DropdownMenu/SplitView/Fi
 Version28 прошла17 production checks:15 application groups +1 source-integrity +1 target-viewport group.724 hashes совпали;16 appearance samples и4 дополнительных samples1280×800/1920×1080 Light/Dark; Run/Save loading0px, JS errors0. Это история до следующего исправления.
 
 Дополнительный import audit нашёл, что `String(provider)` допускал массив `["fail"]` или `["fixture"]`; strict test сначала воспроизвёл15 PASS/1 FAIL. Исправление требует primitive string до enum validation. Unit suite снова16/16; browser storage case дополнительно проверяет отказ от array provider, source fallback и сохранение исходных повреждённых bytes до явного Save. Старые version28 reports сохранены; прежний зелёный набор не переобозначается как полная schema acceptance. Evidence `workflow-provider-array-before-fix.json`.
+
+
+## Production version29
+
+Primitive-provider исправление опубликовано на том же owner-private Site.17 production checks PASS:15 application groups,724 source hashes, отдельная группа1280×800/1920×1080 ×Light/Dark; внутри application matrix16 appearance samples. Corrupt provider array отклоняется, исходные bytes остаются до явного Save. Run/Save loading delta0px, JS errors0. Exact source815f657; Site39f0661. Для этого изолированного исправления повторены3 TypeScript/build и16 workflow model/15 application groups. Предшествующий полный CI e8fc0ef (214/22/75) завершился success и сохранён отдельно; CI815f657 ещё выполнялся при публикации. [Release29](../../portal/component-lab/pilots/settings-parametric/verification/workflow-v29-release.json). Это не source visual или общая product acceptance.
