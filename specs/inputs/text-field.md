@@ -198,7 +198,7 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/text-field/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/text-field/border/disabled` | Граница disabled. | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/text-field/foreground/default` | Текст value. | `text/primary` |
-| `$collections/components/$modes/Mode 1/text-field/foreground/placeholder` | Placeholder. | `text/muted` |
+| `$collections/components/$modes/Mode 1/text-field/foreground/placeholder` | Placeholder. | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/text-field/foreground/disabled` | Текст disabled. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/text-field/label/default` | Label. | `text/secondary` |
 | `$collections/components/$modes/Mode 1/text-field/label/disabled` | Label disabled. | `status/disabled/text` |

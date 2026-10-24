@@ -172,7 +172,7 @@ Figma component set: `TextArea`. Variants: 40.
 | `$collections/components/$modes/Mode 1/text-area/border/read-only` | Component token | `border/subtle` |
 | `$collections/components/$modes/Mode 1/text-area/border/loading` | Component token | `border/default` |
 | `$collections/components/$modes/Mode 1/text-area/foreground/default` | Component token | `text/primary` |
-| `$collections/components/$modes/Mode 1/text-area/foreground/placeholder` | Component token | `text/muted` |
+| `$collections/components/$modes/Mode 1/text-area/foreground/placeholder` | Component token | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/text-area/foreground/disabled` | Component token | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/text-area/foreground/read-only` | Component token | `text/secondary` |
 | `$collections/components/$modes/Mode 1/text-area/label/default` | Component token | `text/secondary` |

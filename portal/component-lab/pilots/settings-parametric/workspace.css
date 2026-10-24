@@ -221,7 +221,7 @@ body.dark [data-workspace] {
 }
 .product-masthead span:not(.workspace-symbol) {
   font-size: 11px;
-  color: #73839a;
+  color: var(--text-tertiary);
 }
 .workspace-symbol {
   display: grid;
@@ -268,7 +268,7 @@ body.dark [data-workspace] {
 }
 .form-section-heading span {
   font-size: 11px;
-  color: #7c8a9f;
+  color: var(--text-tertiary);
 }
 .form-section-heading:not(:first-child) {
   border-top: 1px solid #e1e7ef;
@@ -584,3 +584,7 @@ body.dark .form-section-heading span {
 .feedback-workspace__list { list-style:none; padding:0; margin:20px 0 0; }
 .feedback-workspace__list li { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding-block:12px; border-block-start:1px solid var(--border-default); }
 @media(max-width:1100px) { .feedback-workspace__controls { grid-template-columns:minmax(0,1fr); } }
+
+/* Composition rhythm uses the same compiled layout roles as forms/actions. */
+.feedback-workspace__queue { display:grid; gap:var(--seda-layout-actions-gap); }
+.feedback-workspace__queue > :is(h3,p) { margin:0; }

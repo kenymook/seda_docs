@@ -514,7 +514,7 @@ function ToastQueueDemo() {
   const {notify,clear,visible,queued}=useToast();
   const trigger=useRef<HTMLButtonElement>(null),serial=useRef(0);
   const [reviewed,setReviewed]=useState(0);
-  return <div className="pane" id="feedback-queue-demo">
+  return <div className="pane feedback-workspace__queue" id="feedback-queue-demo">
     <Text as="h3" variant="heading/section">Очередь уведомлений</Text>
     <Text as="p" variant="body/default">До трёх сообщений одновременно. Время показа начинается после выхода из очереди и останавливается при наведении, фокусе или неактивном окне. Действия и ошибки остаются до закрытия.</Text>
     <div className="visual-consistency__actions">

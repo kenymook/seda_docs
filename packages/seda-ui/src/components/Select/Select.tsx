@@ -95,7 +95,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             value={value}
           >
             {placeholder && !multiple ? (
-              <option value="" disabled={required}>
+              <option value="" data-seda-placeholder="true" disabled={required}>
                 {placeholder}
               </option>
             ) : null}

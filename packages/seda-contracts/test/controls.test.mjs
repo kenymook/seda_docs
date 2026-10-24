@@ -1,11 +1,20 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import {
   createContractEngine,
   ContractValidationError,
 } from "../src/index.mjs";
 import { createControlWebBindings } from "../src/web.mjs";
 const engine = createContractEngine();
+test('Select placeholder role is required by validation and the web bridge', () => {
+  const tokens=JSON.parse(fs.readFileSync(new URL('../../../tokens.json',import.meta.url),'utf8'));
+  delete tokens.$collections.components.$modes['Mode 1'].select.foreground.placeholder;
+  assert.equal(createContractEngine({tokens}).validate().valid,false);
+  const compiled=structuredClone(engine.compile());
+  delete compiled.controls.Select.tokenBranch.children.foreground.placeholder;
+  assert.throws(()=>createControlWebBindings(compiled),/placeholder/);
+});
 const names = ["Select", "Checkbox", "Radio", "Toggle"];
 const handler = { $handler: "workspace.change" };
 const options = [

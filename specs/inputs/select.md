@@ -205,7 +205,7 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/select/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/select/border/disabled` | Граница disabled. | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/select/foreground/default` | Текст выбранного значения. | `text/primary` |
-| `$collections/components/$modes/Mode 1/select/foreground/placeholder` | Placeholder. | `text/muted` |
+| `$collections/components/$modes/Mode 1/select/foreground/placeholder` | Placeholder. | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/select/foreground/disabled` | Текст disabled. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/select/arrow/default` | Arrow icon. | `icon/tertiary` |
 | `$collections/components/$modes/Mode 1/select/arrow/active` | Arrow в open/active. | `icon/primary` |

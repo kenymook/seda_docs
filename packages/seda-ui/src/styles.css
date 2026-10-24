@@ -1245,6 +1245,9 @@
 /* Focus belongs to the entire field surface, including affixes and picker icon. */
 .seda-field__input:focus-visible,
 .seda-field__select:focus-visible { outline: none; box-shadow: none; }
+.seda-field__select:not(:disabled):has(> option[data-seda-placeholder="true"]:checked) {
+  color: var(--seda-select-foreground-placeholder, var(--select-foreground-placeholder));
+}
 .seda-field > .seda-field__control:has(:is(input, select):focus-visible) {
   outline: 2px solid var(--seda-focus-ring, var(--focus-ring, #2563eb));
   outline-offset: 2px;

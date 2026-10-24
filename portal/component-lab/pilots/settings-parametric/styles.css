@@ -118,7 +118,7 @@ select:focus-visible {
   letter-spacing: -0.6px;
 }
 p {
-  color: #798497;
+  color: inherit;
   line-height: 1.55;
   margin: 7px 0 22px;
   font-size: 12px;
@@ -156,7 +156,7 @@ p {
 .control output {
   font-variant-numeric: tabular-nums;
   font-size: 12px;
-  color: #3168de;
+  color: var(--text-brand);
   font-weight: 750;
 }
 .control input[type="range"] {
@@ -165,7 +165,7 @@ p {
   margin: 15px 0 3px;
 }
 .ends {
-  color: #a1acba;
+  color: var(--text-tertiary);
   font-size: 10px;
 }
 .sectionline {
@@ -377,7 +377,7 @@ td {
   padding: 18px 21px;
   border-top: 1px solid #eef1f4;
   font-size: 12px;
-  color: #6c7889;
+  color: var(--text-tertiary);
 }
 td:first-child {
   color: #25344b;
@@ -389,8 +389,8 @@ td:first-child {
   width: 29px;
   height: 29px;
   border-radius: 8px;
-  background: #e8efff;
-  color: #3068d9;
+  background: var(--status-info-container);
+  color: var(--text-info);
   margin-right: 9px;
   font-size: 11px;
 }
@@ -550,7 +550,7 @@ td:first-child {
   font-size: 12px;
 }
 .transport > span {
-  color: #788599;
+  color: var(--text-tertiary);
   font-size: 11px;
 }
 .transportActions {
@@ -573,7 +573,7 @@ td:first-child {
 }
 .compare span {
   font-size: 10px;
-  color: #8b98a7;
+  color: var(--text-tertiary);
 }
 .compare strong {
   font-size: 21px;
@@ -581,11 +581,11 @@ td:first-child {
 }
 .arrow {
   font-size: 22px;
-  color: #5780d5 !important;
+  color: var(--text-brand) !important;
 }
 .delta {
   font-size: 11px;
-  color: #4771c9;
+  color: var(--text-brand);
   padding: 14px 0;
 }
 .metricrow {
@@ -596,7 +596,7 @@ td:first-child {
   border-top: 1px solid #e9edf3;
   padding: 12px 0;
   font-size: 11px;
-  color: #7b8698;
+  color: var(--text-tertiary);
 }
 .metricrow b {
   font-size: 12px;
@@ -643,7 +643,7 @@ td:first-child {
 }
 .edge {
   font-size: 17px;
-  color: #95add3;
+  color: var(--text-brand);
 }
 .graphsecond {
   display: flex;
@@ -664,7 +664,7 @@ td:first-child {
 }
 .inspectcard code {
   font-size: 11px;
-  color: #4a7dd8;
+  color: var(--text-brand);
 }
 .result {
   font-weight: 800;
@@ -710,7 +710,7 @@ td:first-child {
   border-bottom: 1px solid #eff2f5;
 }
 .checks b {
-  color: #237d56;
+  color: var(--text-success);
 }
 dialog {
   border: 1px solid #e2e7ef;
