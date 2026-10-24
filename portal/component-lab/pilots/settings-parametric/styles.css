@@ -31,7 +31,7 @@ button:disabled:not([class^="seda-"]):not([class*=" seda-"]) {
 button:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid #74a7ff;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 .shell {

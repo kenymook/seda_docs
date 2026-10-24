@@ -15,6 +15,13 @@ test('Select placeholder role is required by validation and the web bridge', () 
   delete compiled.controls.Select.tokenBranch.children.foreground.placeholder;
   assert.throws(()=>createControlWebBindings(compiled),/placeholder/);
 });
+test('Control boundary and error marker roles cannot be omitted before rendering', () => {
+  const targets=[['Checkbox',['control','icon','error']],['Radio',['control','dot','error']],['Toggle',['thumb','on']],['Toggle',['border','default']],['Toggle',['border','disabled']]];
+  const tokens=JSON.parse(fs.readFileSync(new URL('../../../tokens.json',import.meta.url),'utf8'));
+  for(const [name,parts]of targets){let node=tokens.$collections.components.$modes['Mode 1'][name.toLowerCase()];for(const part of parts.slice(0,-1))node=node[part];delete node[parts.at(-1)];}
+  assert.equal(createContractEngine({tokens}).validate().valid,false);
+  for(const [name,parts]of targets){const compiled=structuredClone(engine.compile());let node=compiled.controls[name].tokenBranch.children;for(const part of parts.slice(0,-1))node=node[part];delete node[parts.at(-1)];assert.throws(()=>createControlWebBindings(compiled));}
+});
 const names = ["Select", "Checkbox", "Radio", "Toggle"];
 const handler = { $handler: "workspace.change" };
 const options = [

@@ -192,8 +192,8 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/text-field/surface/focus` | Фон focus. | `surface/base` |
 | `$collections/components/$modes/Mode 1/text-field/surface/disabled` | Фон disabled. | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/text-field/surface/error` | Фон error. | `status/danger/container` |
-| `$collections/components/$modes/Mode 1/text-field/border/default` | Граница по умолчанию. | `border/default` |
-| `$collections/components/$modes/Mode 1/text-field/border/hover` | Граница hover. | `border/hover` |
+| `$collections/components/$modes/Mode 1/text-field/border/default` | Граница по умолчанию. | `border/control/default` |
+| `$collections/components/$modes/Mode 1/text-field/border/hover` | Граница hover. | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/text-field/border/focus` | Граница focus. | `border/focus` |
 | `$collections/components/$modes/Mode 1/text-field/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/text-field/border/disabled` | Граница disabled. | `status/disabled/border` |

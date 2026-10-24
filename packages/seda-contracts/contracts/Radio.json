@@ -218,6 +218,11 @@
         "control",
         "dot",
         "disabled"
+      ],
+      [
+        "control",
+        "dot",
+        "error"
       ]
     ]
   }

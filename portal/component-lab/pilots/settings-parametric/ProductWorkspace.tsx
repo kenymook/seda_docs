@@ -547,10 +547,10 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
         <IconButton id={`visual-icon-${state}`} size={size} aria-label="Информация" icon={<Icon name="info" />} disabled={state==="disabled"} loading={loading} />
       </div>
       <div className="visual-consistency__actions">
-        <Checkbox label="Включить в отчёт" size={size} defaultChecked disabled={state==="disabled"} />
-        <Toggle label="Уведомления" size={size} checked={enabled} onChange={event=>setEnabled(event.target.checked)} disabled={state==="disabled"} />
+        <Checkbox id={`visual-check-${state}`} label="Включить в отчёт" size={size} defaultChecked disabled={state==="disabled"} errorText={state==="error"?"Проверьте выбранные разделы":undefined} />
+        <Toggle id={`visual-toggle-${state}`} label="Уведомления" size={size} checked={enabled} onChange={event=>setEnabled(event.target.checked)} disabled={state==="disabled"} />
       </div>
-      <Radio name={`visual-period-${state}`} label="Периодичность" options={[{value:"weekly",label:"Еженедельно"},{value:"monthly",label:"Ежемесячно"}]} size={size} defaultValue="weekly" disabled={state==="disabled"} />
+      <Radio id={`visual-radio-${state}`} name={`visual-period-${state}`} label="Периодичность" options={[{value:"weekly",label:"Еженедельно"},{value:"monthly",label:"Ежемесячно"}]} size={size} defaultValue="weekly" disabled={state==="disabled"} errorText={state==="error"?"Проверьте периодичность":undefined} />
       <Tabs label={`Вкладки — ${state}`} size={size} items={[{value:"activity",label:"Активность",icon:<Icon name="clock" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Иконки в полях, действиях и навигации следуют одному размеру.</Text>},{value:"calendar",label:"Календарь",icon:<Icon name="calendar" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Состояние вкладки сохраняется при смене масштаба.</Text>}]} />
       <div className="visual-consistency__uploads">
         {(["dropzone","button","inline"] as const).map(variant=>{

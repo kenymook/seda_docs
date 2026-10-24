@@ -163,12 +163,13 @@ Figma component set: `radio`. Node id: `1082:14510`.
 | `$collections/components/$modes/Mode 1/radio/control/surface/selected` | Control surface selected | `container/brand/default` |
 | `$collections/components/$modes/Mode 1/radio/control/surface/error` | Control surface error | `status/danger/container` |
 | `$collections/components/$modes/Mode 1/radio/control/surface/disabled` | Control surface disabled | `status/disabled/container` |
-| `$collections/components/$modes/Mode 1/radio/control/border/default` | Control border default | `border/default` |
-| `$collections/components/$modes/Mode 1/radio/control/border/hover` | Control border hover | `border/hover` |
+| `$collections/components/$modes/Mode 1/radio/control/border/default` | Control border default | `border/control/default` |
+| `$collections/components/$modes/Mode 1/radio/control/border/hover` | Control border hover | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/radio/control/border/selected` | Control border selected | `border/brand/default` |
 | `$collections/components/$modes/Mode 1/radio/control/border/error` | Control border error | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/radio/control/border/disabled` | Control border disabled | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/radio/control/dot/selected` | Dot selected | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/radio/control/dot/error` | Selected error marker | `status/danger/icon` |
 | `$collections/components/$modes/Mode 1/radio/control/dot/disabled` | Dot disabled | `status/disabled/icon` |
 | `$collections/components/$modes/Mode 1/radio/control/dot/default` | Dot default | `surface/base` |
 

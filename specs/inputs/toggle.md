@@ -147,14 +147,17 @@ Figma component set: `Toggle`. Node id: `912:8761`.
 
 | Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| `$collections/components/$modes/Mode 1/toggle/track/off/default` | Track off default | `container/neutral/default` |
-| `$collections/components/$modes/Mode 1/toggle/track/off/hover` | Track off hover | `container/neutral/hover` |
-| `$collections/components/$modes/Mode 1/toggle/track/off/active` | Track off active | `container/neutral/pressed` |
+| `$collections/components/$modes/Mode 1/toggle/track/off/default` | Track off default | `container/neutral/strong/default` |
+| `$collections/components/$modes/Mode 1/toggle/track/off/hover` | Track off hover | `container/neutral/strong/hover` |
+| `$collections/components/$modes/Mode 1/toggle/track/off/active` | Track off active | `container/neutral/strong/pressed` |
 | `$collections/components/$modes/Mode 1/toggle/track/on/default` | Track on default | `container/brand/default` |
 | `$collections/components/$modes/Mode 1/toggle/track/on/hover` | Track on hover | `container/brand/hover` |
 | `$collections/components/$modes/Mode 1/toggle/track/on/active` | Track on active | `container/brand/pressed` |
 | `$collections/components/$modes/Mode 1/toggle/track/disabled` | Track disabled | `status/disabled/container` |
-| `$collections/components/$modes/Mode 1/toggle/thumb/default` | Thumb default | `surface/base` |
+| `$collections/components/$modes/Mode 1/toggle/thumb/default` | Thumb off | `surface/base` |
+| `$collections/components/$modes/Mode 1/toggle/thumb/on` | Thumb on | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/toggle/border/default` | Essential track boundary | `border/control/default` |
+| `$collections/components/$modes/Mode 1/toggle/border/disabled` | Inactive track boundary | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/toggle/thumb/disabled` | Thumb disabled | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/toggle/label/default` | Label default | `text/primary` |
 | `$collections/components/$modes/Mode 1/toggle/label/disabled` | Label disabled | `status/disabled/text` |

@@ -199,8 +199,8 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/select/surface/focus` | Фон focus. | `surface/base` |
 | `$collections/components/$modes/Mode 1/select/surface/disabled` | Фон disabled. | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/select/surface/error` | Фон error. | `status/danger/container` |
-| `$collections/components/$modes/Mode 1/select/border/default` | Граница trigger. | `border/default` |
-| `$collections/components/$modes/Mode 1/select/border/hover` | Граница hover. | `border/hover` |
+| `$collections/components/$modes/Mode 1/select/border/default` | Граница trigger. | `border/control/default` |
+| `$collections/components/$modes/Mode 1/select/border/hover` | Граница hover. | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/select/border/focus` | Граница focus. | `border/focus` |
 | `$collections/components/$modes/Mode 1/select/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/select/border/disabled` | Граница disabled. | `status/disabled/border` |
@@ -217,7 +217,7 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/select/option/foreground/default` | Текст option. | `text/primary` |
 | `$collections/components/$modes/Mode 1/select/option/foreground/disabled` | Текст disabled option. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/select/option/surface/hover` | Фон hover option. | `container/neutral/hover` |
-| `$collections/components/$modes/Mode 1/select/option/surface/selected` | Фон selected option. | `container/neutral/selected` |
+| `$collections/components/$modes/Mode 1/select/option/surface/selected` | Фон selected option. | `container/brand/default` |
 
 Token gaps:
 

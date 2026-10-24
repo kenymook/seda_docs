@@ -1,5 +1,11 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — essential boundaries и compound choice states
+
+- Neutral control boundaries отделены от декоративных borders. Focus ring теперь opaque; Toggle off track и on thumb различимы, новая граница не меняет размеры/insets. Forced-colors использует CanvasText/GrayText.
+- Checkbox/Radio сохраняют checked/mixed/error marker при hover; unchecked Radio не наследует Checkbox indeterminate bar. Disabled имеет приоритет.
+- Custom token overrides должны включать новые required Checkbox control/icon/error, Radio control/dot/error и Toggle thumb/on, border/default, border/disabled. Canonical token source уже содержит их. Подробнее: reports/2026-10-24-control-boundaries.md в репозитории.
+
 ## Unreleased — Toast host
 
 - Отдельные ToastProvider/ToastViewport/useToast: ограниченная FIFO-очередь, dedupe/update, активное время показа, hover/focus/window pause, сохранение остатка при remount и guard старой revision.

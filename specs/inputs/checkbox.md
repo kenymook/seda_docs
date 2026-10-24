@@ -165,13 +165,14 @@ Figma component set: `checkbox`. Node id: `1090:16624`.
 | `$collections/components/$modes/Mode 1/checkbox/control/surface/indeterminate` | Control surface indeterminate | `container/brand/default` |
 | `$collections/components/$modes/Mode 1/checkbox/control/surface/error` | Control surface error | `status/danger/container` |
 | `$collections/components/$modes/Mode 1/checkbox/control/surface/disabled` | Control surface disabled | `status/disabled/container` |
-| `$collections/components/$modes/Mode 1/checkbox/control/border/default` | Control border default | `border/default` |
-| `$collections/components/$modes/Mode 1/checkbox/control/border/hover` | Control border hover | `border/hover` |
+| `$collections/components/$modes/Mode 1/checkbox/control/border/default` | Control border default | `border/control/default` |
+| `$collections/components/$modes/Mode 1/checkbox/control/border/hover` | Control border hover | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/checkbox/control/border/checked` | Control border checked | `border/brand/default` |
 | `$collections/components/$modes/Mode 1/checkbox/control/border/error` | Control border error | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/checkbox/control/border/disabled` | Control border disabled | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/checkbox/control/icon/checked` | Check icon | `text/on-brand/primary` |
 | `$collections/components/$modes/Mode 1/checkbox/control/icon/indeterminate` | Indeterminate icon | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/checkbox/control/icon/error` | Checked/mixed error marker | `status/danger/icon` |
 | `$collections/components/$modes/Mode 1/checkbox/control/icon/disabled` | Disabled icon | `status/disabled/icon` |
 
 ### Token gaps

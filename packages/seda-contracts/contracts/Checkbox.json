@@ -229,6 +229,11 @@
         "control",
         "icon",
         "disabled"
+      ],
+      [
+        "control",
+        "icon",
+        "error"
       ]
     ]
   }

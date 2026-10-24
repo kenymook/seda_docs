@@ -6,6 +6,11 @@ const rgba=value=>{
   return [...numbers.slice(0,3).map(value=>value*multiplier),numbers[3]??1];
 };
 const over=(foreground,background)=>foreground.slice(0,3).map((value,i)=>value*foreground[3]+background[i]*(1-foreground[3]));
+/** Paint a translucent part on its own layers before comparing to a different adjacent surface. */
+export function paintColor(foreground,backgrounds){
+  const background=backgrounds.toReversed().reduce((background,value)=>over(rgba(value),background),[255,255,255]);
+  return `rgb(${over(rgba(foreground),background).join(' ')})`;
+}
 export function textContrast(foreground,backgrounds){
   const background=backgrounds.toReversed().reduce((background,value)=>over(rgba(value),background),[255,255,255]);
   const painted=over(rgba(foreground),background);
