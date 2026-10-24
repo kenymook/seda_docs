@@ -31,6 +31,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
+    const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
     const hasError = !disabled && hasMessage(errorText);
     const message = hasError
@@ -60,6 +61,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       >
         <input
           {...props}
+          aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] ? undefined : labelId)}
           aria-checked={indeterminate ? "mixed" : checked}
           aria-describedby={mergeDescriptionIds(
             externalDescriptions,
@@ -86,7 +88,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           type="checkbox"
         />
         <span className="seda-choice__content">
-          <span className="seda-choice__label">
+          <span className="seda-choice__label" id={labelId}>
             {label}
             {required ? " *" : null}
           </span>

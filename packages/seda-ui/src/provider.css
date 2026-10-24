@@ -113,14 +113,45 @@
   --seda-field-label: var(--select-label-disabled);
 }
 :is(.seda-choice, .seda-toggle) {
+  /* Anchor the mark and neighbouring controls to the primary line, never the helper block. */
+  --seda-choice-mark-size: var(--seda-preset-icon-size, 16px);
+  --seda-choice-line: var(--seda-control-line-height, var(--seda-preset-line-height, 20px));
+  --seda-choice-head: max(var(--seda-choice-line), calc(var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset, 2px)));
   box-sizing: border-box;
-  align-items: center;
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  align-content: start;
   min-height: var(--seda-control-height, var(--seda-preset-height));
   padding-block: max(
     0px,
-    calc((var(--seda-preset-height) - var(--seda-preset-line-height)) / 2)
+    calc((var(--seda-control-height, var(--seda-preset-height, 32px)) - var(--seda-choice-head)) / 2)
   );
   gap: var(--seda-control-gap, var(--seda-preset-gap));
+}
+:is(.seda-choice__content, .seda-toggle__content) {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  align-self: first baseline;
+  gap: var(--seda-message-gap, 6px);
+}
+:is(.seda-choice__label, .seda-toggle__label) {
+  display: block;
+  box-sizing: border-box;
+  min-block-size: var(--seda-choice-head);
+  padding-block: max(0px, calc((var(--seda-choice-head) - var(--seda-choice-line)) / 2));
+  overflow-wrap: anywhere;
+}
+:is(.seda-choice__control, .seda-toggle__control) {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  position: relative;
+  top: calc((var(--seda-choice-head) - var(--seda-choice-mark-size)) / 2);
+}
+.seda-toggle__control {
+  top: calc((var(--seda-choice-head) - var(--seda-choice-mark-size) - 2 * var(--seda-primitive-toggle-inset, 2px)) / 2);
 }
 .seda-provider .seda-choice__control {
   appearance: none;

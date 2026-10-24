@@ -25,6 +25,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
     const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
+    const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
     const message = hasMessage(statusText)
       ? statusText
@@ -45,6 +46,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
       >
         <input
           {...props}
+          aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] ? undefined : labelId)}
           aria-describedby={mergeDescriptionIds(
             externalDescriptions,
             message != null ? messageId : undefined,
@@ -76,7 +78,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
           type="checkbox"
         />
         <span className="seda-toggle__content">
-          <span className="seda-toggle__label">
+          <span className="seda-toggle__label" id={labelId}>
             {label}
             {required ? " *" : null}
           </span>

@@ -119,6 +119,12 @@ Figma component set: `Toggle`. Node id: `912:8761`.
 
 ## 7. Accessibility
 
+### Геометрия подписи и описания
+
+Track центрируется относительно первой строки label. Helper/status размещается после полной подписи и не участвует в центрировании track. Высота первой строки учитывает line-height и track с его существующим inset; Checkbox/Radio того же preset используют ту же опору. Горизонтальные группы с разными описаниями выравниваются через `align-items: first baseline`.
+
+В React label связан через `aria-labelledby`, helper/status — через `aria-describedby`; описание не дублируется в доступном имени. Явные `aria-label`/`aria-labelledby` потребителя имеют приоритет. Async/loading guards сохраняются.
+
 Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |

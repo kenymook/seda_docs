@@ -1,5 +1,11 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — first-line alignment
+
+- Checkbox, Radio и Toggle привязаны к первой строке подписи. Helper/error и переносы больше не центрируют маркер относительно всего блока; совместные горизонтальные группы используют первую baseline. Отступы и высота следуют существующему preset и параметрам Lab.
+- Подпись и описание разделены через aria-labelledby/aria-describedby с сохранением явного имени потребителя. Radio сохраняет helperText=0.
+- Проверки установленного tarball и реального Lab измеряют эту геометрию отдельно; это не означает завершённую visual/AT/OS-приёмку библиотеки.
+
 ## Unreleased — essential boundaries и compound choice states
 
 - Neutral control boundaries отделены от декоративных borders. Focus ring теперь opaque; Toggle off track и on thumb различимы, новая граница не меняет размеры/insets. Forced-colors использует CanvasText/GrayText.

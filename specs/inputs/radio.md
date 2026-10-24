@@ -120,6 +120,12 @@ Figma component set: `radio`. Node id: `1082:14510`.
 
 ## 7. Accessibility
 
+### Геометрия и описание варианта
+
+Маркер каждого варианта привязан к первой строке label; перенос label и helper не меняют эту опору. В горизонтальной группе варианты выравниваются через `align-items: first baseline`, а не по центру общей высоты. Высота первой строки согласована с Checkbox/Toggle того же preset.
+
+Каждый native input получает уникальный `aria-labelledby` на подпись варианта и `aria-describedby` на его helper. Helper не входит повторно в доступное имя; числовой helper `0` отображается. Legend и описание группы сохраняют отдельный контекст.
+
 Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |

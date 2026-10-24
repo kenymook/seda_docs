@@ -120,6 +120,12 @@ Figma component set: `checkbox`. Node id: `1090:16624`.
 
 ## 7. Accessibility
 
+### Геометрия подписи и описания
+
+Маркер центрируется относительно первой строки label. Helper/error располагается под полной подписью и не смещает маркер, в том числе при переносе label. Общая высота первой строки учитывает line-height и высоту Toggle того же preset, чтобы Checkbox, Radio и Toggle сохраняли общий ритм. Горизонтальные группы таких контролов используют `align-items: first baseline`; центрирование всей высоты компонентов с разными описаниями не подходит.
+
+В React label связан через `aria-labelledby`, helper/error — через `aria-describedby`. Описание не включается повторно в доступное имя. Явные `aria-label`/`aria-labelledby` потребителя сохраняются; числовой helper `0` отображается.
+
 Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |

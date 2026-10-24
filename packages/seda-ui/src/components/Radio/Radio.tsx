@@ -56,7 +56,7 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
           {required ? " *" : null}
         </legend>
         <span className="seda-radio-group__items">
-          {options.map((option) => (
+          {options.map((option, index) => (
             <label
               className="seda-choice"
               data-disabled={disabled || option.disabled ? "true" : undefined}
@@ -64,6 +64,8 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
               key={option.value}
             >
               <input
+                aria-labelledby={`${generatedName}-option-${index}-label`}
+                aria-describedby={hasMessage(option.helperText) ? `${generatedName}-option-${index}-message` : undefined}
                 className="seda-choice__control"
                 defaultChecked={
                   value === undefined
@@ -85,9 +87,9 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
                 }
               />
               <span className="seda-choice__content">
-                <span className="seda-choice__label">{option.label}</span>
-                {option.helperText ? (
-                  <span className="seda-field__message">
+                <span className="seda-choice__label" id={`${generatedName}-option-${index}-label`}>{option.label}</span>
+                {hasMessage(option.helperText) ? (
+                  <span className="seda-field__message" id={`${generatedName}-option-${index}-message`}>
                     {option.helperText}
                   </span>
                 ) : null}
