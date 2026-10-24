@@ -34,3 +34,8 @@ Browser verification первоначально выбирал центр treeit
 Наличие Save означает локальную запись snapshot, а не серверный проект. Publish открывает явное сообщение об отсутствии внешнего backend; JSON export не выдаётся за публикацию. Восстановление после повреждённого storage сохраняет исходные повреждённые байты до явного сохранения пользователем.
 
 Доказательства: `verification/webflow-editor-local.json`, `webflow-domain-local.json`, `webflow-preview-local.json`, `webflow-source-asset-inventory.json`. CI сохраняет свежие `.diagnostics-webflow` reports и screenshots. Production evidence должно фиксироваться отдельно для конкретной опубликованной версии.
+
+
+## Дополнительный visual review после version24
+
+Production version24 прошла13 сценариев и сверку695 source hashes, но screenshot XL/150% выявил перенос Navigator по буквам рядом с Collapse. Старые проверки ширины viewport и отсутствия document overflow этого не обнаружили. Новая проверка высоты однострочного заголовка сначала воспроизвела FAIL (72px при line-height36px), затем прошла после переноса Collapse на следующую строку без уменьшения шрифта/отступов SEDA.16 samples теперь включают реальную высоту/line-height Navigator. Version24 reports сохранены отдельно и не выдаются за проверку исправления.

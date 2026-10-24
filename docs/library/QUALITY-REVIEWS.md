@@ -96,3 +96,6 @@ Appearance recovery отдельно от draw calls: потеря PMREM render 
 ## Webflow — authored CSS и SEDA chrome
 
 [Review](REFERENCE-WEBFLOW-REVIEW.md): один документ связывает navigator, native iframe, overlay и inspector. Specified values и computed CSS разделены; Inter загружен в обоих документах.16 вложенных samples проверяют параметры SEDA без изменения authored units. Структурная реконструкция не равна точной исходной иерархии; toolbar/inspector отличаются плотностью, визуальная/AT/performance приёмка открыта.
+
+
+Webflow version24: визуальный просмотр XL/150% обнаружил вертикальное разбиение Navigator рядом с Collapse при зелёной geometry matrix. Добавлен regression по фактической высоте заголовка; получен FAIL на прежней раскладке и PASS после wrap команды. Source icons/font sizes и shared SEDA controls сохранены. Старые production screenshots/version24 evidence сохранены.

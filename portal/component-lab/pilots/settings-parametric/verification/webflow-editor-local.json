@@ -54,7 +54,7 @@
       "name": "webflow-add-real-text-content-and-relative-typography",
       "status": "passed",
       "evidence": {
-        "id": "text-6097d1a2-6574-4972-ac4a-c5e74a411c59",
+        "id": "text-40302841-8226-4b30-9439-dbbe369b9623",
         "font": 25.792,
         "lineHeight": 38.688,
         "textEscaped": true
@@ -106,6 +106,11 @@
             "viewportField": {
               "textWidth": 33.3017578125,
               "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -118,6 +123,11 @@
             "viewportField": {
               "textWidth": 38.85205078125,
               "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -130,6 +140,11 @@
             "viewportField": {
               "textWidth": 44.40234375,
               "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -142,6 +157,11 @@
             "viewportField": {
               "textWidth": 49.95263671875,
               "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -154,6 +174,11 @@
             "viewportField": {
               "textWidth": 33.3017578125,
               "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -166,6 +191,11 @@
             "viewportField": {
               "textWidth": 38.85205078125,
               "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -178,6 +208,11 @@
             "viewportField": {
               "textWidth": 44.40234375,
               "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -190,6 +225,11 @@
             "viewportField": {
               "textWidth": 49.95263671875,
               "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -202,6 +242,11 @@
             "viewportField": {
               "textWidth": 33.3017578125,
               "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -214,6 +259,11 @@
             "viewportField": {
               "textWidth": 38.85205078125,
               "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -226,6 +276,11 @@
             "viewportField": {
               "textWidth": 44.40234375,
               "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -238,6 +293,11 @@
             "viewportField": {
               "textWidth": 49.95263671875,
               "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -250,6 +310,11 @@
             "viewportField": {
               "textWidth": 33.3017578125,
               "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -262,6 +327,11 @@
             "viewportField": {
               "textWidth": 38.85205078125,
               "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -274,6 +344,11 @@
             "viewportField": {
               "textWidth": 44.40234375,
               "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           },
           {
@@ -286,6 +361,11 @@
             "viewportField": {
               "textWidth": 49.95263671875,
               "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
             }
           }
         ],
