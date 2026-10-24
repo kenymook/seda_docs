@@ -1002,3 +1002,6 @@ details {
   top: 100%;
   left: 0;
 }
+
+/* Reference app navigation grows independently of the Lab workspace width. */
+.top .brand{flex:none}.top .topmeta{min-width:0;overflow-x:auto;max-width:100%}.topmeta .status-dot{flex:none}
