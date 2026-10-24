@@ -25,7 +25,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     const isBlocked = disabled || loading;
     const hint=useTooltip({content:tooltip??'',disabled:!tooltip||!!disabled,...(props['aria-describedby']?{describedBy:props['aria-describedby']}:{})});
     const anchor=hint.trigger.ref;
-    const bindRef=useCallback((node:HTMLButtonElement|null)=>{anchor(node);if(typeof ref==='function')ref(node);else if(ref)ref.current=node;},[anchor,ref]);
+    const bindRef=useCallback((node:HTMLButtonElement|null)=>{
+      anchor(node);
+      if(typeof ref==='function'){
+        const cleanup:unknown=ref(node);
+        if(typeof cleanup==='function')return()=>{anchor(null);cleanup();};
+      }else if(ref)ref.current=node;
+    },[anchor,ref]);
 
     return (
       <>
