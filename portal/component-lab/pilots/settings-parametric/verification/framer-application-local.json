@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:58295/references/framer.html",
+  "url": "http://127.0.0.1:61639/references/framer.html",
   "scope": "Reconstructed Framer editor application on installed SEDA; inferred authored layout, source H1 height mismatch remains open. Not Framer parity or full visual/AT/OS acceptance.",
   "passed": 12,
   "failed": 0,
@@ -9,7 +9,8 @@
       "status": "passed",
       "evidence": {
         "installedComponents": 12,
-        "frames": 3,
+        "applicationFrames": 3,
+        "totalPageIframes": 3,
         "actualGlyphPaint": true,
         "sourceHeight90Unmatched": true,
         "sourceIcons": 5

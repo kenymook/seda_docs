@@ -1,6 +1,6 @@
 # Framer reference: React editor и native preview
 
-Статус: собрана рабочая React-реконструкция редактора на installed SEDA с предметной моделью размеров и тремя native canvas. Domain10/native preview9/application12 проверены; публикация готовится. Это не новый публичный компонент или executable contract SEDA. Source visual fidelity остаётся открытой.
+Статус: собрана рабочая React-реконструкция редактора на installed SEDA с предметной моделью размеров и тремя native canvas. Domain10/native preview9/application12 проверены; опубликовано в owner-private version27. Это не новый публичный компонент или executable contract SEDA. Source visual fidelity остаётся открытой.
 
 ## Источник
 
@@ -56,7 +56,7 @@ Parent-created FontFace давал Inter в computed style и корректны
 
 ## Publication26: реальный paint текста
 
-Исправление FontFace realm опубликовано на прежнем owner-private Site. Production Webflow: 13 application groups +1 integrity check, 696 совпавших source hashes; actual Inter glyph paint подтверждён visible/hidden screenshot comparison и просмотром screenshot. 16 nested appearance samples, JS errors0, Save loading delta0px. Exact b69940d CI run40085925017/job120848724045 completed/success: 120 contracts/foundation,25 installed-package,187 application groups,22 isolated renderer/preview,59 model groups;3 TypeScript/build. Framer application chrome отсутствует; native preview/model проверки не заменяют его. Source H1 height90 и inferred actual135 остаются несоответствием. Evidence: `verification/iframe-v26-release.json`, `iframe-v26-ci.json`, `iframe-live-v26-results.json`; исторические version25 отчёты сохранены.
+Исправление FontFace realm опубликовано на прежнем owner-private Site. Production Webflow: 13 application groups +1 integrity check, 696 совпавших source hashes; actual Inter glyph paint подтверждён visible/hidden screenshot comparison и просмотром screenshot. 16 nested appearance samples, JS errors0, Save loading delta0px. Exact b69940d CI run40085925017/job120848724045 completed/success: 120 contracts/foundation,25 installed-package,187 application groups,22 isolated renderer/preview,59 model groups;3 TypeScript/build. На этапе version26 Framer application chrome отсутствовал; последующий этап version27 описан ниже. Source H1 height90 и inferred actual135 остаются несоответствием. Evidence: `verification/iframe-v26-release.json`, `iframe-v26-ci.json`, `iframe-live-v26-results.json`; исторические version25 отчёты сохранены.
 
 
 ## Рабочий React editor после version26
@@ -68,3 +68,8 @@ Undo/redo, pending draft guards, safe text/tag/visibility, local snapshot/reload
 Application suite:12 browser groups, внутри одной16 appearance samples (Light/Dark × S/M/L/XL ×1024/1440, scale150/X24/Y12). Проверяются glyph paint, native geometry, responsive cascade/reset, invalid drafts, parent Fill rejection, text safety/visibility/tag/pages, snapshot/edit-during-save/loading/reload, quota retry/corrupt bytes, pan/zoom/preview, keyboard resize/search и отсутствие JS errors. Общая визуальная/AT/OS приёмка этими проверками не закрывается. При screenshot review найдены и исправлены перенос title, перекрытие toolbar items и потеря площади canvas при больших профилях; matrix теперь проверяет single-line title, отсутствие overlap и canvas≥350px при window height1100. Toolbar при больших профилях прокручивается горизонтально, навигация/inspector независимо прокручиваются. Полноценный overflow menu, сохранение view preferences и screenreader audit ещё нужны.
 
 Реальная H1 height135 против source90 остаётся открытой; inferred DOM и typography не выдаются за исходный проект Framer. Source 1440×1288 сохранён отдельно от текущих screenshots.
+
+
+## Production version27
+
+Опубликована на прежнем owner-private Site.704 canonical source hashes совпали;12 application groups +1 integrity check прошли,16 nested appearance samples, glyph paint подтверждён actual screenshots. JS errors0, Save loading delta0px. Production добавляет собственный hosting iframe, поэтому verifier считает три iframe приложения по owner-контейнеру; исходный4-vs3 FAIL сохранён отдельно. Exact functional source11479bc; Site sourceabd8c66. Полный publication checkout:199 application/22 isolated/59 model,3 TypeScript/build PASS. CI40087768737/job120854084808 ещё выполнялся при публикации. Evidence: `verification/framer-v27-release.json` и `framer-live-v27-results.json`.

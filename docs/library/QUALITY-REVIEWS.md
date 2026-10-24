@@ -104,3 +104,10 @@ Webflow version24: визуальный просмотр XL/150% обнаруж�
 ## Iframe Inter — computed metrics против glyph paint
 
 При подготовке Framer discovered: parent-created FontFace, добавленный в iframe FontFaceSet, в проверенном Chromium показывал loaded и white Inter40/45, но не рисовал glyphs. Это затрагивает и authored preview Webflow25; ранние DOM/geometry tests не проверяли paint. Создание FontFace в собственном realm исправляет paint без расширения sandbox. Новые native Framer и application Webflow проверки сравнивают actual screenshots текста visible/hidden. Реальные Inter metrics изменили inferred H1 height90→135; source90 остаётся открытым отклонением, шрифт не уменьшен для маскировки.
+
+
+## Framer — плотные панели и границы окружения
+
+React editor на installed SEDA связывает три native canvas и inspector. Screenshot XL/150% выявил перенос title и потерю площади холста, затем overlap title с toolbar. Исправлена раскладка без уменьшения SEDA scale/X/Y;16 appearance samples проверяют title height, соседние bounds и canvas≥350px при window height1100. При больших профилях toolbars прокручиваются в своих границах. Полноценная overflow-menu модель ещё нужна. Source H1 height90 vs actual inferred135 не подгоняется.
+
+Добавление Framer в Lab header вызвало51px overflow на1024:8 workspace groups FAIL, исправление границ header вернуло21/21 PASS. Production environment имеет дополнительный iframe; первый count-all assertion получил4 вместо3, после уточнения ownership13 production checks PASS. Исходный report сохранён. Это исправление области теста, не удаление iframe или ослабление native geometry/paint требований.

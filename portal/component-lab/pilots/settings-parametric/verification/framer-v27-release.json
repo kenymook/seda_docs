@@ -1,0 +1,66 @@
+{
+  "version": 27,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adc8f742f34819185896bb9a6b96801",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_74e9b3cba7408191992f76c9eb34e2ea",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "route": "https://seda-ai-pilot.kenymook.chatgpt.site/references/framer.html",
+  "siteSource": "abd8c66e3faf97e881983fad760b0cd4bab0122d",
+  "githubFunctionalSource": "11479bcefae4ab4f0ec942fe15b4a6cbdab5a72d",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "users": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "production": {
+    "canonicalSourceHashes": 704,
+    "applicationBrowserGroups": 12,
+    "sourceIntegrityChecks": 1,
+    "nestedAppearanceSamples": 16,
+    "actualInterGlyphPaint": true,
+    "javascriptErrors": 0,
+    "saveLoadingDeltaWidth": 0,
+    "saveLoadingDeltaHeight": 0,
+    "applicationFrames": 3,
+    "totalPageIframes": 4,
+    "note": "Initial production assertion counted hosting iframe too (4 vs3); preserved initial report. Verifier now counts application-owned .fr-frame-host iframe. No application behavior changed for this correction."
+  },
+  "publicationCheckoutChecks": {
+    "typescriptProjects": 3,
+    "build": "PASS",
+    "applicationBrowserGroups": 199,
+    "isolatedRendererGroups": 22,
+    "domainModelGroups": 59
+  },
+  "prepublicationRegression": {
+    "source": "ba01d36ad5e43e1a70a431754032857553bb11a4",
+    "workspaceFailedGroups": 8,
+    "cause": "New Framer navigation link caused51px document overflow at1024. Header scroll boundaries fixed without hiding navigation.",
+    "correctedSource": "11479bcefae4ab4f0ec942fe15b4a6cbdab5a72d",
+    "correctedWorkspacePassedGroups": 21
+  },
+  "ci": {
+    "run": 40087768737,
+    "job": 120854084808,
+    "commit": "11479bcefae4ab4f0ec942fe15b4a6cbdab5a72d",
+    "statusAtPublication": "in_progress",
+    "note": "Current run has package/contracts/TypeScript/build steps completed; full application step still running at publication. Do not attribute preceding b699 CI to new Framer chrome."
+  },
+  "archive": {
+    "name": "seda-framer-v27-deploy.tar.gz",
+    "bytes": 7196949,
+    "sha256": "b5df04e15b5f899980bb22ab458752b348f83609e29e8de640bc0cddae4b8527"
+  },
+  "remaining": [
+    "Source H1 height90 vs inferred browser135; exact visual/source fidelity remains open",
+    "Full OS/AT/keyboard/performance acceptance",
+    "Framer provider/collaboration/import/Agent/vector/effects/external publishing absent",
+    "View preferences and mature toolbar overflow menus",
+    "Workflow graph1:8421 not implemented",
+    "Complete Figma/Notion/ChatGPT/Claude Design maturity objective"
+  ]
+}
