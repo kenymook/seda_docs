@@ -26,3 +26,15 @@ Checkbox/Toggle связывают label через aria-labelledby, сохра�
 ## Ограничения
 
 Геометрия и доступные имена проверены в Chromium, а не сертифицированы всеми браузерами и screen readers. RTL-матрица проверяет первую строку, но не заявляет полной поддержки зеркалирования Toggle и всей навигации. Исходный package fixture использует browser font fallback; итоговая Lab-галерея проверяет реальную типографику приложения. Figma-паритет, OS/AT-приёмка, общая плотность сложных редакторов и оставшееся покрытие иконками остаются открытыми. Исправление этой раскладки не означает готовности всей дизайн-системы.
+
+## Итоговый прогон и публикация
+
+Окончательная последовательность `npm run verify --prefix portal/component-lab/pilots/settings-parametric` завершилась с exitCode 0: choice48, nontext96, text144, visual24, feedback8, Lab55, workspace21, controls12, все восемь reference-приложений и их model/preview/renderer suites. Сборка и установленный пакет совпадают по всем 145 dist-файлам; 144 проверяемых build artifacts в package verifier не включают отдельный manifest.
+
+- GitHub implementation: `69775bde929e530a5917252106a7326e9b8356a4` в прежнем PR #4.
+- Site source: `8a1bb8536cdbabe1f7154211497f440570dc54d1`; version36, deployment `appgdep_6adce533f3648191bf7096861c3fdd92` succeeded.
+- Прежний URL https://seda-ai-pilot.kenymook.chatgpt.site/ остаётся приватным: custom/revision1, один owner, ноль visitors/groups.
+- Production: повторены 48 сочетаний общих параметров, maximum first-line delta 0 px, 0 JS errors. Все 755 source hashes совпали с локальными исходниками.
+- Архив: 7,564,631 bytes, SHA256 `39beb2bf07a12999daca9773d02fe35f63142c867453edd4cd508956bde385cb`.
+
+[Release evidence и hashes raw-результатов](../portal/component-lab/pilots/settings-parametric/verification/choice-v36-release.json). Production captures: [Light](../portal/component-lab/pilots/settings-parametric/verification/v36-choices-Light.png), [Dark](../portal/component-lab/pilots/settings-parametric/verification/v36-choices-Dark.png). Это доказательство конкретного исправления; общая цель зрелой библиотеки остаётся открытой.

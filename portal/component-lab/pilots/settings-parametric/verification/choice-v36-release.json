@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "69775bde929e530a5917252106a7326e9b8356a4",
+  "siteSource": "8a1bb8536cdbabe1f7154211497f440570dc54d1",
+  "version": 36,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deploymentId": "appgdep_6adce533f3648191bf7096861c3fdd92",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_0320ac30f75c819186eb33e05ce46340",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 122,
+  "pilotFullSequence": {
+    "command": "npm run verify --prefix portal/component-lab/pilots/settings-parametric",
+    "exitCode": 0,
+    "eightReferenceApplications": true
+  },
+  "limits": [
+    "Chromium geometry and accessible names; not full screen-reader or OS acceptance",
+    "RTL first-line geometry; full RTL behaviour not certified",
+    "Figma visual fidelity and complete icon coverage remain open"
+  ],
+  "packageGroupsPassed": 37,
+  "packageGroupsFailed": 0,
+  "consumers": {
+    "18.3.1": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "sampleCount": 80,
+      "maximumFirstLineDelta": 0,
+      "overflowRows": 0,
+      "errors": []
+    },
+    "19.2.7": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "sampleCount": 80,
+      "maximumFirstLineDelta": 0,
+      "overflowRows": 0,
+      "errors": []
+    }
+  },
+  "baselineMaximumFirstLineDelta": 45,
+  "localLab": {
+    "sampleCount": 48,
+    "maximumFirstLineDelta": 0,
+    "errors": []
+  },
+  "production": {
+    "sampleCount": 48,
+    "maximumFirstLineDelta": 0,
+    "errors": [],
+    "sourceHashesMatched": 755
+  },
+  "labGroupsPassed": 55,
+  "loading": {
+    "matrixSamples": 288,
+    "maximumWidthDelta": 0,
+    "maximumHeightDelta": 0
+  },
+  "workspaceGroupsPassed": 21,
+  "controlsGroupsPassed": 12,
+  "archiveSha256": "39beb2bf07a12999daca9773d02fe35f63142c867453edd4cd508956bde385cb",
+  "archiveBytes": 7564631,
+  "rawEvidence": {
+    "packages/seda-ui/.diagnostics-package/2026-10-24T16-47-05-563Z/results.json": {
+      "sha256": "5a4cfbdb1d2eb0734c57d0901bca20c75cd3ac708a35dfcf7231242ae1031232",
+      "bytes": 5449282
+    },
+    "packages/seda-ui/.diagnostics-package/2026-10-24T16-47-05-563Z/react-18.3.1/choice-layout-results.json": {
+      "sha256": "e27b72e5eeb425810975ccafafd548241196416a0137a5ddafab804184854014",
+      "bytes": 164321
+    },
+    "packages/seda-ui/.diagnostics-package/2026-10-24T16-47-05-563Z/react-19.2.7/choice-layout-results.json": {
+      "sha256": "e27b72e5eeb425810975ccafafd548241196416a0137a5ddafab804184854014",
+      "bytes": 164321
+    },
+    "../.integration-input/choice-layout-before.json": {
+      "sha256": "fe2cd46654fcc44d19a1510045cf8ce2ed0a16f469a701188b5d5ab22086750f",
+      "bytes": 163565
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-choice-layout/results.json": {
+      "sha256": "8fd38d83c0abdab4257b07264a73e7c1485f97ab86d7cef0b2eb88c08adc83d7",
+      "bytes": 90252
+    },
+    "../.integration-input/choice-live-v36/results.json": {
+      "sha256": "d81e22c0ee4cf2c7eb0279874362b9ba547c16836529dd84247c9d404f3f24db",
+      "bytes": 90275
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-lab2/results.json": {
+      "sha256": "10ed3e5765135a762f3d6abad898c983f121799f25d2b758dcd62212cd06aab1",
+      "bytes": 120379
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-workspace/results.json": {
+      "sha256": "40e4e713b1de598e05920f206188e2b56044065ddc20cff695333939d198ddd9",
+      "bytes": 73095
+    },
+    "portal/component-lab/pilots/settings-parametric/.diagnostics-controls/results.json": {
+      "sha256": "f1d703451d991827a4eb710f1e36cf706de988c7413205fb303542a6a9ee3f4c",
+      "bytes": 87003
+    }
+  }
+}
