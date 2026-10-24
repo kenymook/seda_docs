@@ -1,0 +1,8 @@
+/* Composition recipe over the existing foundation 4/8/12/16/24 spacing scale.
+   This does not override control anatomy or authored canvas/document content. */
+ .seda-provider [data-workspace-actions][class]{align-items:center;column-gap:8px;row-gap:8px}
+.seda-provider [data-workspace-actions=compact][class]{column-gap:4px}
+.reference-glyph{vertical-align:middle}
+.reference-section-disclosure{transition:transform .12s}
+[aria-expanded=true] .reference-section-disclosure{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.reference-section-disclosure{transition:none}}

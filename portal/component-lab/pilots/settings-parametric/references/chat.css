@@ -36,3 +36,17 @@
 .chat-thread-link .chat-chrome-icon{width:var(--seda-control-icon-size,var(--seda-preset-icon-size));height:var(--seda-control-icon-size,var(--seda-preset-icon-size));flex:none}
 .chat-history{position:relative;flex:1;min-height:0;min-width:0;display:flex;flex-direction:column}
 .chat-bottom{bottom:12px}
+
+/* The application owns this compound surface; SEDA owns every child control. */
+.chat-composer-column{container-type:inline-size}
+.chat-composer-row{background:var(--container-neutral-default);border:1px solid var(--border-subtle);border-radius:calc(var(--seda-control-height,32px) / 2 + 10px);padding:8px;min-height:52px;align-items:center;flex-wrap:nowrap}
+.chat-composer-row>.seda-textarea{min-width:0;flex:1 1 0}
+.chat-composer-row>.seda-icon-button{flex:none}
+.chat-composer-actions{flex:none;flex-wrap:nowrap}
+@container(max-width:520px){.chat-composer-row{flex-wrap:wrap}.chat-composer-row>.seda-textarea{flex-basis:calc(100% - var(--seda-control-height,32px) - 8px)}.chat-composer-actions{max-width:100%;flex-wrap:wrap}}
+
+.chat-app[data-seda-theme=dark] .chat-voice-icon{filter:invert(1)}
+
+.chat-composer-row{flex-wrap:wrap}
+.chat-composer-row>.seda-textarea{flex:1 1 min(calc(100% - var(--seda-control-height,32px) - 8px),calc(var(--seda-control-font-size,14px) * 16));min-width:0}
+.chat-composer-actions{max-width:100%;flex-wrap:wrap}

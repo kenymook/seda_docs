@@ -1419,3 +1419,12 @@
 .seda-tooltip[data-variant=light]>.seda-tooltip__content{background:var(--tooltip-light-surface);color:var(--tooltip-light-foreground);border-color:var(--tooltip-light-border);}
 .seda-tooltip .seda-text{color:inherit;white-space:normal;}
 @media(forced-colors:active){.seda-tooltip__content,.seda-tooltip[data-variant=light]>.seda-tooltip__content{background:Canvas;color:CanvasText;border-color:CanvasText;}}
+
+/* Plain fields compose into an owning surface without changing layout or state semantics. */
+.seda-field.seda-textarea[data-appearance=plain]:not([data-disabled=true]):not([data-state=error])>.seda-textarea__control{background:transparent;border-color:transparent}
+@media(forced-colors:active){.seda-field.seda-textarea[data-appearance=plain]>.seda-textarea__control{border-color:CanvasText}}
+
+/* Menu disclosure is part of the shared text trigger, not application styling. */
+.seda-menu-disclosure{transition:transform 120ms ease}
+[aria-haspopup=menu][aria-expanded=true] .seda-menu-disclosure{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.seda-menu-disclosure{transition:none}}

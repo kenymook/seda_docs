@@ -18,3 +18,11 @@ test('TextArea: all themes/sizes use own canonical tokens and geometry, profile 
  for(const theme of ['Light','Dark'])for(const size of ['s','m','l','xl']){const control=engine.compileControl('TextArea',{...base,size},{theme}),binding=createTextAreaWebBindings(control);assert.equal(binding.attributes['data-seda-contract'],'TextArea');assert.equal(binding.vars['--seda-preset-height'],{s:'24px',m:'32px',l:'40px',xl:'48px'}[size]);assert.ok(binding.evidence.some(item=>item.property==='--text-area-focus-ring'));assert.ok(binding.evidence.some(item=>item.property==='--text-area-surface-read-only'));const bad=structuredClone(control);delete bad.tokenBranch.children.foreground.placeholder;assert.throws(()=>createTextAreaWebBindings(bad));}
  assert.equal(createWebBindings(engine.compile()).controls.TextArea.attributes['data-seda-contract'],'TextArea');assert.equal(engine.audit().valid,true);
 });
+
+test('TextArea: plain appearance is explicit and geometry is invariant',()=>{
+ for(const theme of ['Light','Dark'])for(const size of ['s','m','l','xl']){
+  const outlined=engine.compileControl('TextArea',{...base,size},{theme}),plain=engine.compileControl('TextArea',{...base,size,appearance:'plain'},{theme});
+  assert.deepEqual(plain.geometry,outlined.geometry);
+ }
+ assert.throws(()=>engine.compileControl('TextArea',{...base,appearance:'invented'}),ContractValidationError);
+});

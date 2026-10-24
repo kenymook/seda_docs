@@ -34,11 +34,11 @@ export async function verifyIconCatalog({cwd,browser}) {
     await page.goto('http://127.0.0.1:'+server.address().port);await page.waitForSelector('[data-seda-icon]');
     for(const theme of ['light','dark'])for(const size of ['s','m','l','xl']){
       await page.evaluate(config=>window.configure(config),{theme,size});await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
-      const glyphs=await page.locator('button [data-seda-icon]').evaluateAll(icons=>icons.map(icon=>{
+      const glyphs=await page.locator('section button [data-seda-icon]').evaluateAll(icons=>icons.map(icon=>{
         const button=icon.closest('button'),r=icon.getBoundingClientRect(),b=button.getBoundingClientRect(),s=getComputedStyle(icon);
         return{name:icon.dataset.sedaIcon,width:r.width,height:r.height,expected:parseFloat(getComputedStyle(button).getPropertyValue('--seda-preset-icon-size')),centerDelta:Math.abs(r.top+r.height/2-b.top-b.height/2),color:s.backgroundColor,ownerColor:getComputedStyle(button).color,mask:s.maskImage,hidden:icon.getAttribute('aria-hidden')};
       }));
-      assert.equal(glyphs.length,catalog.icons.length*2);
+      assert.equal(glyphs.length,catalog.icons.length*2);assert.equal(await page.getByRole('button',{name:'Icon menu',exact:true}).locator('[data-seda-icon=arrow-chevron-down]').count(),1);
       for(const glyph of glyphs){assert.equal(glyph.width,glyph.expected);assert.equal(glyph.height,glyph.expected);assert.ok(glyph.centerDelta<=1);assert.equal(glyph.color,glyph.ownerColor);assert.equal(glyph.hidden,'true');}
       samples.push({theme,size,glyphs:glyphs.map(({mask,...glyph})=>glyph)});
       if(size==='m')await page.screenshot({path:path.join(cwd,'icon-catalog-'+theme+'.png')});

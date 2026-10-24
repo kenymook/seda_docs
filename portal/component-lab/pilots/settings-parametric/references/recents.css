@@ -51,3 +51,37 @@
 
 .reference-type-icon{width:var(--seda-control-icon-size,var(--seda-preset-icon-size));height:var(--seda-control-icon-size,var(--seda-preset-icon-size))}
 .reference-type-icon>img{width:100%;height:100%}
+
+/* Dense workspace reference: shared baselines, grid-owned filters, quiet surfaces. */
+.reference-sidebar{background:var(--surface-base)}
+.reference-header,.reference-banner{padding-inline:24px}
+.reference-account{min-height:49px;flex:none;border-bottom:1px solid var(--border-subtle)}
+.reference-team{gap:8px;padding:16px;min-height:48px}
+.reference-navigation a,.reference-projects nav a{gap:8px;padding-inline:8px}
+.reference-navigation a>.reference-glyph{flex:none}
+.reference-navigation a>span:not(.reference-glyph){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.reference-projects nav a{display:flex;align-items:center}
+.reference-collection{display:flex;flex-wrap:wrap;column-gap:16px;padding:16px 24px 0}
+.reference-filters{position:static;inset:auto;top:auto;order:2;flex:1 1 max-content;align-self:start;max-width:100%;flex-wrap:wrap;padding:0;margin:0 0 16px}
+.reference-tabs{display:contents}
+.reference-tabs>.seda-tabs__list{order:1;flex:1 1 max-content;max-width:100%;min-width:0;padding:0;min-height:var(--seda-control-height);align-self:start;margin-bottom:16px;gap:4px}
+.reference-tabs>.seda-tabs__panel{order:3;flex:1 0 100%;min-width:0}
+.reference-files{padding:0 0 24px;gap:24px}
+.reference-file{border-radius:var(--seda-control-radius,var(--seda-preset-radius))}
+.reference-file-summary{gap:8px;padding:12px;min-height:64px}
+.reference-file-summary p.seda-text{color:var(--text-secondary)}
+.reference-folder-grid{padding:0 0 24px}
+.reference-files--list .reference-file-open{padding-inline-start:48px;min-height:max(80px,calc(var(--seda-control-height) + 24px))}
+.reference-files--list .reference-file-summary{padding-inline-end:calc(var(--seda-control-height) + 24px)}
+.reference-files--list .reference-thumbnail{width:96px;height:64px}
+.reference-file-selection{padding:0;width:var(--seda-control-height);height:var(--seda-control-height);display:grid;place-items:center}
+.reference-file-selection .seda-choice{padding:0;gap:0}
+.reference-status{padding-inline:24px}
+@container(width < 1050px){.reference-filters{grid-column:1/-1;grid-row:2;padding:0}.reference-tabs>.seda-tabs__list{grid-column:1/-1;grid-row:1;padding:0}.reference-tabs>.seda-tabs__panel{grid-row:3}}
+@container(width < 700px){.reference-collection{padding-inline:16px}.reference-files{padding-inline:0}.reference-filters{padding-inline:0}.reference-header,.reference-banner{padding-inline:16px}}
+
+.reference-files--list{gap:8px}
+
+.reference-app.seda-provider{grid-template-columns:min(max(241px,calc(var(--seda-control-font-size,14px) * 9 + var(--seda-control-height,32px) + 32px)),max(241px,calc(100vw - 680px))) minmax(0,1fr)}
+.reference-filters>.seda-field{width:max(180px,calc(var(--seda-control-font-size,14px) * 12 + var(--seda-control-field-padding-inline,12px) * 2 + var(--seda-control-icon-size,16px) + 8px));max-width:100%}
+.reference-filters>.seda-field:nth-child(2){width:max(112px,calc(var(--seda-control-font-size,14px) * 7 + var(--seda-control-field-padding-inline,12px) * 2 + var(--seda-control-icon-size,16px) + 8px))}

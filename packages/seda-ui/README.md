@@ -172,3 +172,9 @@ DropdownMenu ограничивает текстовый trigger доступн�
 
 ### Tooltip
 `Tooltip` accepts plain `content`, `variant="default"|"light"`, `placement="top"|"bottom"|"left"|"right"`, `disabled`, `describedBy` and a render function child. Spread its ref and aria-describedby onto the real trigger. It does not provide the trigger's accessible name. `IconButton tooltip="..."` binds the same runtime automatically; `title` remains native only when tooltip is absent. Hover350ms, focus immediate, Escape/click dismissal, hoverable surface, no auto-dismiss, document-exclusive, existing descriptions preserved. Surface geometry is experimental; Text caption/default follows provider textScale. Arrow/size/controlled delay are not public props. Disabled actions need a visible alternative explanation. Test coverage does not certify screen-reader/desktop-shell support.
+
+### Plain appearance для составной поверхности (experimental)
+
+`appearance="outlined"` — прежнее поведение по умолчанию. `appearance="plain"` нужен для composer внутри общей поверхности: убирает только собственную заливку и видимую рамку default/hover/active/focus/readOnly. Геометрия, X/Y, autoResize, accessible label и focus ring сохраняются; error и disabled используют прежние component tokens. Forced colors сохраняет видимую границу. Оболочка приложения отвечает за общую поверхность и layout, не меняет внутренние элементы TextArea. Причина нового API: прежний TextArea нельзя было встроить в единую поверхность без произвольных вложенных CSS overrides. Это документированное расширение runtime, не новый Figma variant и не доказательство визуального совпадения всей библиотеки.
+
+Текстовый trigger DropdownMenu содержит trailing chevron из каталога SEDA; iconOnly не получает вторую иконку. Это общий признак раскрытия во всех приложениях; имя действия и keyboard policy сохраняются.

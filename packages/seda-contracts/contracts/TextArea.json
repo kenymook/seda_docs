@@ -42,6 +42,7 @@
     "autoResize": false,
     "resize": "vertical",
     "hideLabel": false,
+    "appearance": "outlined",
     "showCount": false,
     "clearable": false,
     "disabled": false,

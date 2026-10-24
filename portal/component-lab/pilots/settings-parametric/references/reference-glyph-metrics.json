@@ -1,0 +1,65 @@
+{
+  "method": "256px alpha bounds >16, original SVG bytes; target maximum ink extent 0.8 of slot; monochrome UI only",
+  "glyphs": {
+    "recentsSidebarTop-imgIcon1.svg": {
+      "extent": 0.5859375,
+      "cx": 0.5,
+      "cy": 0.5,
+      "sha256": "1c55871518499dca9183bf7151ab31e401e895b2dfdaec10131a2f6233159996"
+    },
+    "recentsSidebarTop-imgIcon2.svg": {
+      "extent": 0.5,
+      "cx": 0.5,
+      "cy": 0.5,
+      "sha256": "80f7cb87090c618825afa82659825f34c04808ea076a78de64cb956c260ad220"
+    },
+    "recentsSidebarNav-imgIcon.svg": {
+      "extent": 0.54296875,
+      "cx": 0.478515625,
+      "cy": 0.478515625,
+      "sha256": "a1a0eba7dbdeee4e6778abb3f845e6799396dadbfb7160abd29269643bf74e6e"
+    },
+    "recentsSidebarNav-imgIcon1.svg": {
+      "extent": 0.5859375,
+      "cx": 0.478515625,
+      "cy": 0.5,
+      "sha256": "e479268307184f5355a478f541f44307569a8df174e477714b60424239a3af43"
+    },
+    "recentsDrafts-imgIcon.svg": {
+      "extent": 0.5859375,
+      "cx": 0.5,
+      "cy": 0.5,
+      "sha256": "dc7b2f01047b28dfbf710397039384d748e19e736256fdb4869337fff46e7627"
+    },
+    "recentsTeamNav-imgIcon.svg": {
+      "extent": 0.5,
+      "cx": 0.5,
+      "cy": 0.5,
+      "sha256": "0a3c003a50863c26f268148d6d74cf7be0a5607c6d9cfb5f523341bcb034bde3"
+    },
+    "recentsTeamNav-imgIcon1.svg": {
+      "extent": 0.54296875,
+      "cx": 0.5,
+      "cy": 0.478515625,
+      "sha256": "0c361c1b4cf4c48b721a04c93f8d9a8cd00515d221a86b97b27656da3234a412"
+    },
+    "recentsFilterContext-imgIcon1.svg": {
+      "extent": 0.5,
+      "cx": 0.5,
+      "cy": 0.5,
+      "sha256": "0a3c003a50863c26f268148d6d74cf7be0a5607c6d9cfb5f523341bcb034bde3"
+    },
+    "recentsFilterContext-imgIcon2.svg": {
+      "extent": 0.50390625,
+      "cx": 0.509765625,
+      "cy": 0.478515625,
+      "sha256": "aca196e767963009f05aac085abe5e6bc382468feca0efaca321c8c0924d93f5"
+    },
+    "recentsHelp-imgIcon.svg": {
+      "extent": 0.5078125,
+      "cx": 0.5,
+      "cy": 0.5,
+      "sha256": "22f90f09153c6c7c3562bf5f8f09314a2468a06a754206d51053cb0959ffd752"
+    }
+  }
+}

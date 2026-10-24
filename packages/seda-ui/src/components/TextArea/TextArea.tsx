@@ -7,9 +7,10 @@ import {IconButton} from '../IconButton';
 import type {TextAreaProps} from './TextArea.types';
 const useClientLayoutEffect=typeof window==='undefined'?useEffect:useLayoutEffect;
 export const TextArea=forwardRef<HTMLTextAreaElement,TextAreaProps>(({
- label,size:sizeProp,value,defaultValue,helperText,errorText,hideLabel=false,autoResize=false,maxRows,rows=3,resize='vertical',showCount=false,clearable=false,onClear,disabled=false,readOnly=false,required=false,className,style,id,onChange,...props
+ label,size:sizeProp,value,defaultValue,helperText,errorText,hideLabel=false,appearance='outlined',autoResize=false,maxRows,rows=3,resize='vertical',showCount=false,clearable=false,onClear,disabled=false,readOnly=false,required=false,className,style,id,onChange,...props
 },ref)=>{
  if('children' in props||'dangerouslySetInnerHTML' in props)throw new TypeError('TextArea content is owned by value/defaultValue');
+ if(!['outlined','plain'].includes(appearance))throw new TypeError('Invalid TextArea appearance');
  const size=useSedaSize(sizeProp),generated=useId(),inputId=id??generated,messageId=inputId+'-message',counterId=inputId+'-counter';
  const autoOwnedHeight=useRef(false),inner=useRef<HTMLTextAreaElement>(null),[localValue,setLocalValue]=useState(defaultValue??'');
  const text=value??localValue,hasError=!disabled&&hasMessage(errorText),message=hasError?errorText:hasMessage(helperText)?helperText:undefined;
@@ -23,7 +24,7 @@ export const TextArea=forwardRef<HTMLTextAreaElement,TextAreaProps>(({
  useEffect(()=>{const el=inner.current,form=el?.form;if(!el||!form)return;let frame=0;const reset=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{setLocalValue(el.value);measure();});};form.addEventListener('reset',reset);return()=>{cancelAnimationFrame(frame);form.removeEventListener('reset',reset);};},[props.form,autoResize,maxRows,rows]);
  const descriptions=props['aria-describedby']?.split(/\s+/).filter(token=>token&&(message!=null||token!==messageId)&&(showCount||token!==counterId)).join(' ');
  const clearVisible=clearable&&text.length>0&&!disabled&&!readOnly;
- return <div className={cx('seda-field','seda-textarea',className)} style={{...style,'--seda-textarea-rows':rows} as CSSProperties} data-size={size} data-disabled={disabled||undefined} data-read-only={readOnly||undefined} data-state={disabled?'disabled':hasError?'error':readOnly?'read-only':'default'}>
+ return <div className={cx('seda-field','seda-textarea',className)} style={{...style,'--seda-textarea-rows':rows} as CSSProperties} data-size={size} data-appearance={appearance} data-disabled={disabled||undefined} data-read-only={readOnly||undefined} data-state={disabled?'disabled':hasError?'error':readOnly?'read-only':'default'}>
   <label htmlFor={inputId} id={inputId+'-label'} className={cx('seda-field__label',hideLabel&&'seda-visually-hidden')}>{label}{required&&<span aria-hidden="true"> *</span>}</label>
   <div className="seda-field__control seda-textarea__control" data-filled={text.length>0||undefined} data-clear={clearVisible||undefined}>
    <textarea {...props} id={inputId} ref={inner} className="seda-textarea__input" rows={rows} required={required} disabled={disabled} readOnly={readOnly} value={value} defaultValue={defaultValue} style={{resize:autoResize?'none':resize}} aria-invalid={disabled?undefined:hasError?true:props['aria-invalid']} aria-labelledby={props['aria-labelledby']??(props['aria-label']?undefined:inputId+'-label')} aria-describedby={mergeDescriptionIds(descriptions,message!=null?messageId:undefined,showCount?counterId:undefined)} onChange={event=>{if(value===undefined)setLocalValue(event.currentTarget.value);onChange?.(event);measure();queueMicrotask(measure);}}/>

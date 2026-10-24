@@ -1,3 +1,13 @@
+## Unreleased — consistent dense workspace
+
+- Text DropdownMenu trigger includes the original SEDA chevron; icon-only triggers retain their existing anatomy. Accessible name and ownership remain unchanged.
+- Files workspace establishes shared action spacing, scalable card shape, grid-owned filters and theme-inheriting monochrome glyphs. Identity artwork remains separate.
+
+## Unreleased — compound message surface
+
+- TextArea: explicit experimental `appearance="plain"` for owning surfaces; outlined default, geometry, error/disabled paint and focus remain intact. Compiler/API/default audit includes appearance.
+- Chat composer uses the public appearance and all four original Figma actions; voice remains visibly unavailable and never simulates a connected service.
+
 # Изменения @seda-ai/ui
 
 ## Unreleased — constrained actions

@@ -8,6 +8,8 @@ export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaE
  helperText?:ReactNode;
  errorText?:ReactNode;
  hideLabel?:boolean;
+ /** Plain integrates into an owning surface; preserves geometry, error/disabled paint and focus. */
+ appearance?:'outlined'|'plain';
  autoResize?:boolean;
  maxRows?:number;
  resize?:'vertical'|'none';

@@ -58,7 +58,7 @@ const errors=[];console.error=(...args)=>errors.push(args.join(' '));const html=
   const openMenu=async()=>{await trigger().click();await menu().waitFor();await settle();};
   const close=async()=>{if(await menu().count()){await page.keyboard.press('Escape');await settle();}assert.equal(await menu().count(),0);};
   try{
-    await page.goto('http://127.0.0.1:'+server.address().port,{waitUntil:'networkidle'});await page.waitForFunction(()=>window.sedaMenu);
+    await page.goto('http://127.0.0.1:'+server.address().port,{waitUntil:'networkidle'});await page.waitForFunction(()=>window.sedaMenu);assert.equal(await trigger().locator('[data-seda-icon=arrow-chevron-down]').count(),1,'Text menus expose a shared disclosure glyph');
     await trigger().focus();await page.keyboard.press('ArrowUp');await menu().waitFor();assert.equal(await focused(item('delete')),true);
     assert.equal(await menu().getAttribute('aria-labelledby'),'commands-trigger');assert.equal(await trigger().getAttribute('aria-controls'),'commands-menu');
     assert.equal(await page.getByRole('group',{name:'Files'}).count(),1);assert.equal(await page.getByRole('separator').count(),1);
