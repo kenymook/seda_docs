@@ -57,7 +57,7 @@
     "Windows Chromium / Segoe UI; other browsers/OS/AT not accepted",
     "SEDA chrome weights/palette and extra editor actions differ from source"
   ],
-  "logNormalization": "UTF8 LF; hashes verified against committed Git bytes",
+  "logNormalization": "UTF8 LF; terminal blank line removed from TypeScript log; hashes verified against committed Git bytes",
   "rawSHA256": {
     "v41-building-after.png": "922187acd9dd1b5ab93b07f704fe9c7625e3f974e106d41fd14ba630da37f01f",
     "v41-building-before.png": "6fbd755ca968afc3e100750aaa5c596f9e8aa6e204bc29a9f2e2681d09a85ab2",
@@ -75,6 +75,6 @@
     "v41-source-assets.json": "c8daa20c6aa93893d62d5aae931018e4ac3b9e3b0db13617086c17c74ffbca8e",
     "v41-tree-18.3.1.json": "bc8c250ad32acb74e89686dbbaef5fa2079fce1419a3fe28f2d98808616d657d",
     "v41-tree-19.2.7.json": "bc8c250ad32acb74e89686dbbaef5fa2079fce1419a3fe28f2d98808616d657d",
-    "v41-typecheck-log.txt": "04af6a9bc477d602faad10c9fa321fa623183311fddfd42ea829137351010d9f"
+    "v41-typecheck-log.txt": "bf7153ac8fceefba7811b52330ca1a6cba5d193d672585d352d6d4d5d7f8268a"
   }
 }
