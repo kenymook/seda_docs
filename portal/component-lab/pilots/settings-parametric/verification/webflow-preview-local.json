@@ -1,0 +1,128 @@
+{
+  "scope": "Isolated authored DOM/CSS preview only; not the Webflow editor UI, source fidelity, SEDA controls, accessibility or publication acceptance.",
+  "passed": 8,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "name": "real-empty-reference-dom-and-source-selection-geometry",
+      "status": "passed",
+      "evidence": {
+        "id": "slide-1",
+        "x": 54,
+        "y": 96.125,
+        "width": 884,
+        "height": 416.46875,
+        "fontSize": "12.896px",
+        "lineHeight": "19.344px",
+        "display": "inline-block",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "name": "native-vw-relative-unit-inheritance-no-depth-multiplication",
+      "status": "passed",
+      "evidence": [
+        {
+          "id": "body",
+          "fontSize": "12.896px"
+        },
+        {
+          "id": "container",
+          "fontSize": "25.792px"
+        },
+        {
+          "id": "hero-slider",
+          "fontSize": "25.792px"
+        },
+        {
+          "id": "slide-1",
+          "fontSize": "25.792px"
+        }
+      ]
+    },
+    {
+      "name": "native-viewport-reflows-vw-and-breakpoint-overrides",
+      "status": "passed",
+      "evidence": {
+        "body": {
+          "id": "body",
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 2312.59375,
+          "fontSize": "10.4px",
+          "lineHeight": "15.6px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "slide": {
+          "id": "slide-1",
+          "x": 54,
+          "y": 96.125,
+          "width": 346,
+          "height": 416.46875,
+          "fontSize": "10.4px",
+          "lineHeight": "15.6px",
+          "display": "inline-block",
+          "color": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "authored-text-live-edit-selection-and-html-escaping",
+      "status": "passed",
+      "evidence": {
+        "textEscaped": true,
+        "realClickSelection": true,
+        "liveTextUpdate": true
+      }
+    },
+    {
+      "name": "native-line-height-inheritance-and-ui-scale-isolation",
+      "status": "passed",
+      "evidence": {
+        "id": "text-d198d32f-dd58-4cbb-bb23-21797f461900",
+        "x": 54,
+        "y": 96.125,
+        "width": 884,
+        "height": 60,
+        "fontSize": "40px",
+        "lineHeight": "60px",
+        "display": "block",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "name": "visibility-removes-hit-area-and-invalid-updates-preserve-dom",
+      "status": "passed",
+      "evidence": {
+        "invalidViewportAtomic": true,
+        "hiddenHeight": 0
+      }
+    },
+    {
+      "name": "spacing-grid-and-border-use-native-css-with-reset",
+      "status": "passed",
+      "evidence": {
+        "before": {
+          "display": "grid",
+          "columns": "426px 426px",
+          "padding": "24px",
+          "border": "4px",
+          "borderColor": "rgb(0, 0, 0)"
+        },
+        "reset": "inline-block"
+      }
+    },
+    {
+      "name": "dispose-removes-frame-and-rejects-further-updates",
+      "status": "passed",
+      "evidence": {
+        "frames": 0,
+        "rejected": true,
+        "measurement": null
+      }
+    }
+  ]
+}
