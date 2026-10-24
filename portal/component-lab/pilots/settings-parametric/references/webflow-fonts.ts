@@ -1,0 +1,9 @@
+import font400latin from '@fontsource/inter/files/inter-latin-400-normal.woff2';
+import font400cyrillic from '@fontsource/inter/files/inter-cyrillic-400-normal.woff2';
+import font500latin from '@fontsource/inter/files/inter-latin-500-normal.woff2';
+import font500cyrillic from '@fontsource/inter/files/inter-cyrillic-500-normal.woff2';
+import font600latin from '@fontsource/inter/files/inter-latin-600-normal.woff2';
+import font600cyrillic from '@fontsource/inter/files/inter-cyrillic-600-normal.woff2';
+import font700latin from '@fontsource/inter/files/inter-latin-700-normal.woff2';
+import font700cyrillic from '@fontsource/inter/files/inter-cyrillic-700-normal.woff2';
+export const previewFonts=[{url:font400latin,weight:400 as const,unicodeRange:'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'},{url:font400cyrillic,weight:400 as const,unicodeRange:'U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116'},{url:font500latin,weight:500 as const,unicodeRange:'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'},{url:font500cyrillic,weight:500 as const,unicodeRange:'U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116'},{url:font600latin,weight:600 as const,unicodeRange:'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'},{url:font600cyrillic,weight:600 as const,unicodeRange:'U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116'},{url:font700latin,weight:700 as const,unicodeRange:'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'},{url:font700cyrillic,weight:700 as const,unicodeRange:'U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116'}];

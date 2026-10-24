@@ -91,3 +91,8 @@ Pointer drag связывает TransformControls/preview/inspector/authoritativ
 Appearance recovery отдельно от draw calls: потеря PMREM render target делала серебро чёрным после context restore. Теперь environment создаётся заново, pixel identity до/после восстановлена на проверенном browser/GPU fixture. Старое5/5 renderer evidence version22 имело более узкий scope и не переобозначается как проверка appearance. Pointer tests отдельно маркируют синтетические blur/cancel события и16 profile samples. Полная source/OS/AT/performance приёмка открыта.
 
 После реального pointer gesture отдельно проверяются длинные дробные XYZ. Целое250 помещалось в grid, а147.79153846153852 обрезалось. Исправлена раскладка columns по текущим числам/derived metrics; UI font/padding и точность модели сохранены.16 pointer profile samples теперь включают measured input scrollWidth/clientWidth.
+
+
+## Webflow — authored CSS и SEDA chrome
+
+[Review](REFERENCE-WEBFLOW-REVIEW.md): один документ связывает navigator, native iframe, overlay и inspector. Specified values и computed CSS разделены; Inter загружен в обоих документах.16 вложенных samples проверяют параметры SEDA без изменения authored units. Структурная реконструкция не равна точной исходной иерархии; toolbar/inspector отличаются плотностью, визуальная/AT/performance приёмка открыта.
