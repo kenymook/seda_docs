@@ -64,7 +64,10 @@
       "noPhantomSlots": true,
       "zeroContent": true,
       "forcedColors": true,
-      "errors": []
+      "errors": [],
+      "stateCombinations": 192,
+      "parametricSamples": 8,
+      "minimumActiveTextContrast": 5.119539598034452
     },
     "react-19.2.7-feedback": {
       "installedPackage": true,
@@ -109,7 +112,10 @@
       "noPhantomSlots": true,
       "zeroContent": true,
       "forcedColors": true,
-      "errors": []
+      "errors": [],
+      "stateCombinations": 192,
+      "parametricSamples": 8,
+      "minimumActiveTextContrast": 5.119539598034452
     }
   },
   "production": {
