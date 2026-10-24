@@ -1,3 +1,58 @@
+/* Modal surface geometry is an experimental adapter; see README provenance. */
+.seda-modal {
+  --seda-modal-width: 560px;
+  box-sizing: border-box; position: fixed; inset: 0; margin: auto;
+  width: min(var(--seda-modal-width), calc(100vw - 64px)); max-width: calc(100vw - 64px);
+  max-height: calc(100dvh - 64px); padding: 24px; overflow: auto; overscroll-behavior: contain;
+  border: 1px solid var(--modal-border-default); border-radius: 12px;
+  color: var(--text-primary); background: var(--modal-surface-default); box-shadow: 0 16px 64px #0006;
+  font-family: var(--seda-font-family, system-ui, sans-serif);
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+}
+.seda-modal:not([open]) { display: none; }
+.seda-modal[open] { display: flex; flex-direction: column; gap: 24px; }
+.seda-modal[data-modal-size="s"] { --seda-modal-width: 480px; }
+.seda-modal[data-modal-size="l"] { --seda-modal-width: 720px; }
+.seda-modal[data-modal-size="xl"] { --seda-modal-width: 960px; }
+.seda-modal[data-modal-variant="fullscreen"] { width: calc(100vw - 64px); height: calc(100dvh - 64px); }
+.seda-modal::backdrop { background: var(--modal-scrim-default); }
+.seda-modal__header { display: flex; align-items: center; gap: 16px; flex: 0 0 auto; min-width: 0; }
+.seda-modal__heading { display: grid; gap: 8px; min-width: 0; flex: 1; max-height: 30dvh; overflow: auto; }
+.seda-modal__heading > .seda-text { margin: 0; overflow-wrap: anywhere; }
+.seda-modal__heading > h2 { color: var(--modal-title-foreground); }
+.seda-modal__heading > h2:focus { outline: none; }
+.seda-modal__description { color: var(--modal-description-foreground); }
+.seda-modal__body { min-width: 0; min-height: 0; flex: 1 1 auto; overflow: auto; overscroll-behavior: contain; }
+.seda-modal__content > :first-child { margin-block-start: 0; }
+.seda-modal__content > :last-child { margin-block-end: 0; }
+.seda-modal__footer { display: flex; flex: 0 0 auto; gap: 12px; flex-wrap: wrap; min-width: 0; max-height: 40dvh; overflow: auto; }
+.seda-modal__body:focus-visible { outline: 2px solid var(--modal-focus-ring); outline-offset: -2px; }
+/* Owned close recipe: 44px accessibility target, shared icon scale. */
+.seda-modal .seda-modal__close.seda-icon-button {
+  flex: 0 0 auto; padding: 0;
+  width: max(44px, var(--seda-control-height, var(--seda-preset-height)));
+  height: max(44px, var(--seda-control-height, var(--seda-preset-height)));
+  min-width: max(44px, var(--seda-control-height, var(--seda-preset-height)));
+  min-height: max(44px, var(--seda-control-height, var(--seda-preset-height)));
+  color: var(--modal-close-icon-default); background: transparent; border-color: transparent;
+}
+.seda-modal .seda-modal__close.seda-icon-button:not(:disabled):not([aria-disabled="true"]):hover { color: var(--modal-close-icon-hover); background: var(--modal-close-surface-hover); border-color: transparent; }
+.seda-modal .seda-modal__close.seda-icon-button:not(:disabled):not([aria-disabled="true"]):active { color: var(--modal-close-icon-hover); background: var(--modal-close-surface-active); border-color: transparent; }
+.seda-modal .seda-modal__close.seda-icon-button:focus-visible { outline: 2px solid var(--modal-focus-ring); outline-offset: 2px; }
+@media (max-height: 480px), (max-width: 480px) {
+  .seda-modal { max-width: calc(100vw - 32px); width: min(var(--seda-modal-width), calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 16px; }
+  .seda-modal[open] { gap: 16px; }
+  .seda-modal[data-modal-variant="fullscreen"] { width: calc(100vw - 32px); height: calc(100dvh - 32px); }
+}
+@media (forced-colors: active) {
+  .seda-modal { background: Canvas; color: CanvasText; border-color: CanvasText; }
+  .seda-modal::backdrop { background: Canvas; opacity: .7; }
+  .seda-modal__heading > h2, .seda-modal__description { color: CanvasText; }
+  .seda-modal .seda-modal__close.seda-icon-button { color: ButtonText; }
+  .seda-modal .seda-modal__close.seda-icon-button:not(:disabled):not([aria-disabled="true"]):hover { color: HighlightText; background: Highlight; }
+}
+.seda-overlay-portal { display: contents; }
 .seda-dropdown-menu { display: inline-block; min-width: 0; }
 .seda-dropdown-menu__surface {
   box-sizing: border-box; position: fixed; inset: auto; margin: 0; visibility: hidden;

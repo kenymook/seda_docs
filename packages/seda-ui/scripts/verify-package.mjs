@@ -11,6 +11,7 @@ import { verifyFieldContrast } from "./verify-field-contrast.mjs";
 import { verifyControlContrast } from "./verify-control-contrast.mjs";
 import { verifyChoiceLayout } from "./verify-choice-layout.mjs";
 import { verifyIconCatalog } from "./verify-icon-catalog.mjs";
+import { verifyModal } from "./verify-modal.mjs";
 import { verifyTextArea } from "./verify-textarea.mjs";
 import { verifyTypography } from "./verify-typography.mjs";
 import { verifyTree } from "./verify-tree.mjs";
@@ -157,7 +158,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 26);
+        assert.equal(result.exports.length, 27);
+        assert.ok(result.exports.includes("Modal"));
         for (const name of ["ToastProvider", "ToastViewport", "useToast"]) assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Icon"));
         assert.ok(result.exports.includes("Text"));
@@ -176,7 +178,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const modal=<Modal open={true} onOpenChange={(open,details)=>{console.log(open,details.reason)}} title="Workspace" footer={<Button>Save</Button>}/>;
+// @ts-expect-error controlled owner is required
+const ownerlessModal=<Modal open title="Workspace"/>;
+// @ts-expect-error surfaces do not support arbitrary dimensions
+const arbitraryModal=<Modal open={false} onOpenChange={()=>{}} title="Workspace" width={900}/>;
+// @ts-expect-error size is a named surface width
+const invalidModalSize=<Modal open={false} onOpenChange={()=>{}} title="Workspace" size="wide"/>;
 const icon=<Icon name="search"/>;
 // @ts-expect-error only original SEDA catalog names are accepted
 const inventedIcon=<Icon name="invented"/>;
@@ -411,6 +420,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-control-contrast",()=>verifyControlContrast({cwd,browser,version}));
     await check("react-"+version+"-choice-layout",()=>verifyChoiceLayout({cwd,browser}));
     await check("react-"+version+"-icon-catalog",()=>verifyIconCatalog({cwd,browser}));
+    await check("react-"+version+"-modal",()=>verifyModal({cwd,browser}));
   }
 } catch (error) {
   results.push({

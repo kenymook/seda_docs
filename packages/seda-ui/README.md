@@ -33,9 +33,27 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 Сборка повторяется в verifier; сравниваются SHA-256 артефактов. `dist/manifest.json` содержит хеши выходных файлов. Архив не публикуется в npm registry.
 
+## Modal: native surface, experimental geometry
+
+```tsx
+<Modal open={open} onOpenChange={setOpen} title="Настройки проекта"
+  size="l" description="Изменения вступят в силу после сохранения"
+  footer={<Button loading={saving} onClick={save}>Сохранить</Button>}>
+  <TextField label="Название" />
+</Modal>
+```
+
+`open` и `onOpenChange` обязательны; uncontrolled режима нет. Второй аргумент callback — `{reason, returnValue}`: `close-button`, `escape`, `scrim`, `native`. Владелец может отклонить запрос, например из-за несохранённых изменений. Нативные `close()`/`method="dialog"` также возвращаются владельцу; при отказе поверхность открывается снова. `showCloseButton=true`, `closeOnEscape=true`, `closeOnScrimClick=false`. Для confirmation/alert обязательна description и запрещён scrim-dismiss. Закрытие во время async submit определяет приложение; Modal не симулирует сохранение.
+
+`variant`: default/confirmation/alert/fullscreen. `size`: s/m/l/xl — ширина поверхности, **не** размер контрола. Fullscreen использует xl. `title` — обязательная строка; `description`, `children`, `footer` — содержимое. `footer` заменяет предложенные в дизайн-спеке primaryAction/secondaryAction: публичные Button остаются самостоятельными и сохраняют собственные loading/disabled/danger props. `closeLabel` нужен для локализации доступного имени. `initialFocusRef` задаёт точку входа; иначе default выбирает первое поле, confirmation/alert — безопасный заголовок. `returnFocusRef` задаёт логическую цель, если trigger удаляется. Открывать вложенные модальные окна запрещено; одновременно допускается одна поверхность в документе.
+
+Цвета берутся из существующих `modal/*` tokens, заголовок — Text heading/section. Собственный close recipe сохраняет квадратную зону минимум 44px, а glyph наследует общий масштаб иконок. Body прокручивается отдельно; заголовок и footer имеют свои ограничения в коротком viewport. Tab/Shift+Tab замыкаются внутри окна. Нативный `<dialog>.showModal()` обеспечивает top layer и неактивный фон. Программно перемещать фокус за пределы модального сценария не следует.
+
+**Происхождение геометрии:** L=720px, padding=24px, radius=12px, viewport gutter=32px, shadow `0 16px 64px #0006` сохранены из reference-dialog.css на commit b6768f7. S=480/M=560/XL=960 и адаптация короткого viewport — промежуточный documented adapter. В tokens отсутствуют width/padding/gap/radius/shadow Modal; они не объявляются восстановленными из Figma. Источник дизайна Su1jWqKc9TkD1R8f7wHOQU node 6653:395 в этой итерации недоступен из-за MCP quota. Визуальная приёмка относительно Figma остаётся открытой. Modal пока **не имеет исполняемого instance-контракта**; его нельзя пропускать через compileControl с формулой однострочной высоты. Реализация не подтверждает WebKit/Firefox, assistive technology, native desktop shell или closed Shadow DOM.
+
 ## Границы зрелости
 
-20 component exports и foundation API не означают готовность всей библиотеки. Одиннадцать компонентов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton/Tabs/DropdownMenu/Tree/TextArea проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
+21 component exports и foundation API не означают готовность всей библиотеки. Одиннадцать компонентов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton/Tabs/DropdownMenu/Tree/TextArea проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
 
 Следующие обязательные направления: полная матрица взаимодействий и доступности, навигация/overlays/data-компоненты, документация и политика совместимости. WCAG-сертификация, Firefox/WebKit, screen readers и native desktop shell этими тестами не подтверждаются.
 

@@ -244,6 +244,12 @@ Modal следует [foundation/accessibility.md](../../foundation/accessibilit
 
 ## 9. Code mapping
 
+### React implementation (2026-10-24, experimental)
+
+Публичный `Modal` находится в `packages/seda-ui/src/components/Modal`. Controlled API, defaults, native close reasons, focus refs, composable footer и происхождение временной геометрии описаны в [README пакета](../../packages/seda-ui/README.md#modal-native-surface-experimental-geometry). Таблица ниже сохраняет design intent; primaryAction/secondaryAction не являются props React-адаптера: вместо них используется footer с публичными Button. `initialFocusRef`, `returnFocusRef` и локализуемый `closeLabel` добавлены для выполнения focus/i18n требований.
+
+Surface size отделён от control density. Одиннадцать существующих исполняемых контрактов не включают Modal: отдельная surface-family compiler model ещё необходима. Статус дизайн-спецификации не означает приёмку новой React-реализации. Figma 6653:395 не удалось перечитать из-за quota; соответствие размеров/пропорций и ручная AT/OS-приёмка остаются `Needs system review`. Новые tokens и variants не добавлялись.
+
 | Design concept | Suggested prop / API | Правила |
 | --- | --- | --- |
 | Open state | `open` | Controlled или uncontrolled, но поведение закрытия должно быть явным. |

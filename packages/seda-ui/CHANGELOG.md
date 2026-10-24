@@ -1,5 +1,11 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — native Modal
+
+- Публичный controlled Modal использует native dialog/top layer, Text heading/section, SEDA IconButton и существующие modal color tokens. Surface widths отделены от плотности контролов; геометрия пока experimental adapter с явно описанным источником.
+- DropdownMenu внутри native dialog сохраняет portal в его DOM scope: body portal попадал в inert background и не получал focus. Native Popover продолжает выводить menu поверх clipping.
+- Initial/return focus, Tab boundaries, Escape/scrim policies, native close requests и прокрутка входят в React-адаптер. Shared WorkspaceDialog переводит reference-приложения на него; это не добавляет сертифицированный surface contract и не закрывает визуальную приёмку Figma/AT/OS.
+
 ## Unreleased — application icons
 
 - Восемь оригинальных glyphs SEDA дополняют публичный каталог до 25: undo/redo, more, copy, trash, settings, circle, monitor. Исходные SVG, node IDs и hashes сохраняются; Icon показывает data-seda-icon для инспекции.

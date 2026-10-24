@@ -69,7 +69,9 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       if (!isOpen || !trigger.current) return;
       const host = trigger.current.ownerDocument.createElement("div");
       host.className = "seda-overlay-portal";
-      trigger.current.ownerDocument.body.append(host);
+      // A body portal is inert while a native modal is active. Keep the
+      // menu inside its owning dialog; Popover still escapes surface clipping.
+      (trigger.current.closest('dialog[open]') ?? trigger.current.ownerDocument.body).append(host);
       setPortalHost(host);
       return () => {
         setPortalHost(current => current === host ? null : current);
