@@ -111,3 +111,10 @@ Webflow version24: визуальный просмотр XL/150% обнаруж�
 React editor на installed SEDA связывает три native canvas и inspector. Screenshot XL/150% выявил перенос title и потерю площади холста, затем overlap title с toolbar. Исправлена раскладка без уменьшения SEDA scale/X/Y;16 appearance samples проверяют title height, соседние bounds и canvas≥350px при window height1100. При больших профилях toolbars прокручиваются в своих границах. Полноценная overflow-menu модель ещё нужна. Source H1 height90 vs actual inferred135 не подгоняется.
 
 Добавление Framer в Lab header вызвало51px overflow на1024:8 workspace groups FAIL, исправление границ header вернуло21/21 PASS. Production environment имеет дополнительный iframe; первый count-all assertion получил4 вместо3, после уточнения ownership13 production checks PASS. Исходный report сохранён. Это исправление области теста, не удаление iframe или ослабление native geometry/paint требований.
+
+
+## Workflow — source tools, run panel и strict schema
+
+Рабочие typed connections и local run не равны provider integration. На XL/150% текстовые кнопки rail обрезались; заменены точными source SVG на Seda IconButton и caption roles, ширина rail следует control height. Run panel отделена от properties scroll; Run в карточке блокируется тем же empty-iterator guard, что Run selected. Вложенная матрица проверяет реальную вместимость rail и native wire endpoints.
+
+После version28 additional negative import case воспроизвёл provider array coercion:15/1 FAIL при зелёных функциональных checks. Исправлен primitive type guard;16/16 model checks и15/15 browser checks включают corrupt storage array provider с сохранением исходных bytes. Это не универсальный security audit; полный source visual/AT/OS/performance review остаётся открытым.

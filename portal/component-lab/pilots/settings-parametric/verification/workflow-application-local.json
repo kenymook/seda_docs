@@ -1,5 +1,5 @@
 {
-  "url": "http://127.0.0.1:64921/references/workflow.html",
+  "url": "http://127.0.0.1:55347/references/workflow.html",
   "scope": "Workflow reconstructed application on installed SEDA with typed DAG and local metadata/pass-through fixture. No AI inference, pixel analysis, billing, source visual fidelity or AT/OS acceptance.",
   "passed": 15,
   "failed": 0,
@@ -109,6 +109,7 @@
       "evidence": {
         "quotaVisible": true,
         "retry420": true,
+        "arrayProviderRejectedAndPreserved": true,
         "corruptBytesPreserved": true
       }
     },
