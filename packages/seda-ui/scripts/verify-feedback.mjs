@@ -9,7 +9,7 @@ import {textContrast} from './verify-colors.mjs';
 export async function verifyFeedback({cwd,browser}) {
   const profiles=JSON.parse(await fs.readFile(path.join(cwd,'node_modules/@seda-ai/ui/dist/profiles.json'),'utf8'));
   const icons=JSON.parse(await fs.readFile(createRequire(path.join(cwd,'package.json')).resolve('@seda-ai/ui/icons.json'),'utf8'));
-  assert.equal(icons.icons.length,17);
+  assert.equal(icons.icons.length,25);
   assert.ok(icons.icons.every(icon=>/^[a-f0-9]{64}$/.test(icon.sha256)));
   await fs.writeFile(path.join(cwd,'feedback-entry.mjs'),`
     import React from 'react';import {createRoot} from 'react-dom/client';

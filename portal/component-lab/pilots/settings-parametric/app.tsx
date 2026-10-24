@@ -809,10 +809,10 @@ function App() {
                 <div>
                   <div className="eyebrow">02 / LIVE PREVIEW</div>
                   <Text as="h1" variant="heading/page">Product workspace</Text>
-                  <p>
+                  <Text as="p" variant="body/default" id="projects-description">
                     Один набор правил управляет формой, фильтрами, таблицей и
                     карточками.
-                  </p>
+                  </Text>
                 </div>
                 <div className="view-switch">
                   <Button
@@ -838,10 +838,10 @@ function App() {
               <div className="preview" id="preview">
                 <div className="panelhead">
                   <div>
-                    <b>Проекты</b>
-                    <span className="hint">
+                    <Text as="h2" variant="heading/panel" id="projects-panel-title">Проекты</Text>
+                    <Text className="hint" variant="caption/default" id="projects-subtitle">
                       Управление рабочим пространством
-                    </span>
+                    </Text>
                   </div>
                   <Button
                     {...real("save")}
@@ -927,9 +927,9 @@ function App() {
                       Сбросить фильтры
                     </Button>
                   </div>
-                  <span className="count" id="count">
+                  <Text className="count" id="count" variant="caption/default">
                     {filteredItems.length} проектов
-                  </span>
+                  </Text>
                 </div>
                 {selectedProjects.length > 0 && (
                   <div
@@ -937,7 +937,7 @@ function App() {
                     role="region"
                     aria-label="Групповые действия"
                   >
-                    <strong>Выбрано: {selectedProjects.length}</strong>
+                    <Text as="strong" variant="label/default">Выбрано: {selectedProjects.length}</Text>
                     <Button
                       {...real("cancel")}
                       id="bulk-pause"
@@ -1006,10 +1006,10 @@ function App() {
                             }
                           />
                         </th>
-                        <th>ПРОЕКТ</th>
-                        <th>СТАТУС</th>
-                        <th>КОМАНДА</th>
-                        <th>ОБНОВЛЁН</th>
+                        <th><Text variant="label/xsmall">ПРОЕКТ</Text></th>
+                        <th><Text variant="label/xsmall">СТАТУС</Text></th>
+                        <th><Text variant="label/xsmall">КОМАНДА</Text></th>
+                        <th><Text variant="label/xsmall">ОБНОВЛЁН</Text></th>
                         <th></th>
                       </tr>
                     </thead>
@@ -1048,15 +1048,15 @@ function App() {
                               size={configuration.controlSize}
                               triggerLabel={"Действия проекта " + p.name}
                               iconOnly
-                              triggerIcon={<span>···</span>}
+                              triggerIcon={<Icon name="more" />}
                               variant="grouped"
                               items={[
                                 {type:"group",id:"project",label:p.name,items:[
-                                  {id:"open",label:"Открыть сведения",onSelect:()=>chooseProject(p.name)},
-                                  {id:"duplicate",label:"Создать копию",onSelect:()=>{setModalName(p.name+" — копия");modal.current?.showModal();}},
+                                  {id:"open",label:"Открыть сведения",icon:<Icon name="info" />,onSelect:()=>chooseProject(p.name)},
+                                  {id:"duplicate",label:"Создать копию",icon:<Icon name="copy" />,onSelect:()=>{setModalName(p.name+" — копия");modal.current?.showModal();}},
                                 ]},
                                 {type:"separator",id:"danger-separator"},
-                                {id:"delete",label:"Удалить проект",danger:true,onSelect:()=>{
+                                {id:"delete",label:"Удалить проект",icon:<Icon name="trash" />,danger:true,onSelect:()=>{
                                   deleteReturnFocus.current=document.activeElement as HTMLElement;
                                   setDeleteProject(p.name);deleteDialog.current?.showModal();
                                 }},
@@ -1077,12 +1077,12 @@ function App() {
                   {items.map((p) => (
                     <article className="productcard" key={p.name}>
                       <header>
-                        <b>{p.name}</b>
+                        <Text as="strong" variant="label/default">{p.name}</Text>
                         <Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"} />}>{statusLabels[p.status]}</Tag>
                       </header>
                       <div>
-                        <p>Команда: {p.team}</p>
-                        <p>Обновлён: {p.updated}</p>
+                        <Text as="p" variant="body/small">Команда: {p.team}</Text>
+                        <Text as="p" variant="body/small">Обновлён: {p.updated}</Text>
                       </div>
                       <Button
                         {...real("cancel")}
@@ -1093,15 +1093,15 @@ function App() {
                       </Button>
                     </article>
                   ))}
-                  {!items.length && <p>Проекты не найдены</p>}
+                  {!items.length && <Text as="p" variant="body/default">Проекты не найдены</Text>}
                 </div>
               </div>
               <div className="workspace-pagination">
-                <p role="status">
+                <Text as="p" variant="caption/default" role="status">
                   {filteredItems.length ? currentPage * pageSize + 1 : 0}–
                   {Math.min((currentPage + 1) * pageSize, filteredItems.length)}{" "}
                   из {filteredItems.length}
-                </p>
+                </Text>
                 <div>
                   <Select
                     className="workspace-select"

@@ -10,6 +10,7 @@ import { verifyToastHost } from "./verify-toast-host.mjs";
 import { verifyFieldContrast } from "./verify-field-contrast.mjs";
 import { verifyControlContrast } from "./verify-control-contrast.mjs";
 import { verifyChoiceLayout } from "./verify-choice-layout.mjs";
+import { verifyIconCatalog } from "./verify-icon-catalog.mjs";
 import { verifyTextArea } from "./verify-textarea.mjs";
 import { verifyTypography } from "./verify-typography.mjs";
 import { verifyTree } from "./verify-tree.mjs";
@@ -409,6 +410,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-field-contrast",()=>verifyFieldContrast({cwd,browser,version}));
     await check("react-"+version+"-control-contrast",()=>verifyControlContrast({cwd,browser,version}));
     await check("react-"+version+"-choice-layout",()=>verifyChoiceLayout({cwd,browser}));
+    await check("react-"+version+"-icon-catalog",()=>verifyIconCatalog({cwd,browser}));
   }
 } catch (error) {
   results.push({

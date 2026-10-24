@@ -478,7 +478,7 @@ try {
       near(actual.height,derived.height,'Menu row shares computed height');near(actual.font,derived.font,'Menu font');near(actual.padding,derived.fieldPaddingX,'Menu base + X');
       assert.equal(await trigger.evaluate(el=>Math.abs(el.getBoundingClientRect().width-el.getBoundingClientRect().height)<=1),true);
       const triggerPalette=await trigger.evaluate(el=>({variant:el.dataset.variant,foreground:getComputedStyle(el).color,background:getComputedStyle(el).backgroundColor,text:el.textContent}));
-      assert.equal(triggerPalette.variant,'ghost');assert.equal(triggerPalette.background,'rgba(0, 0, 0, 0)');assert.match(triggerPalette.text,/···/);
+      assert.equal(triggerPalette.variant,'ghost');assert.equal(triggerPalette.background,'rgba(0, 0, 0, 0)');assert.equal(await trigger.locator('[data-seda-icon]').getAttribute('data-seda-icon'),'more');
       const iconColor=await page.evaluate(value=>{const e=document.createElement('span');e.style.color=value;document.body.append(e);const color=getComputedStyle(e).color;e.remove();return color;},(await page.evaluate(()=>window.sedaPilot.getEvidence())).recipes.help.vars['--seda-foreground-default']);
       assert.equal(triggerPalette.foreground,iconColor);
       await page.evaluate(({theme,size})=>window.sedaPilot.configure({theme,controlSize:size}),{theme:theme==='Light'?'Dark':'Light',size:size==='xl'?'s':'xl'});await settle();

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {Text,Button,TextField,SplitView,Tree} from "@seda-ai/ui";
+import {Text,Icon,Button,TextField,SplitView,Tree} from "@seda-ai/ui";
 import {Select,Toggle,Checkbox} from "./contract-controls";
 import {deriveTypography} from '../../../../packages/seda-contracts/src/typography.mjs';
 import type {TextVariant} from '@seda-ai/ui';
@@ -48,8 +48,8 @@ export function EditorWorkspace({size,action,typography,textScale}:{size:"s"|"m"
   <div className="section-top"><div><div className="eyebrow">ПАНЕЛИ РАБОЧЕГО ПРИЛОЖЕНИЯ</div><Text as="h1" variant="heading/page" id="editor-title">Редактор интерфейса</Text>
   <Text as="p" variant="body/default">Общие компоненты SEDA: разделители, поля, выбор и preview. Экспериментальная композиция, не готовый экран из Figma.</Text></div></div>
   <div className="editor-toolbar">
-   <Button {...pane} size={size} id="editor-undo" disabled={!past.length} onClick={undo}>Отменить</Button>
-   <Button {...pane} size={size} id="editor-redo" disabled={!future.length} onClick={redo}>Повторить</Button>
+   <Button {...pane} size={size} id="editor-undo" iconLeft={<Icon name="undo" />} disabled={!past.length} onClick={undo}>Отменить</Button>
+   <Button {...pane} size={size} id="editor-redo" iconLeft={<Icon name="redo" />} disabled={!future.length} onClick={redo}>Повторить</Button>
    <Button {...pane} size={size} id="editor-reset-panels" onClick={()=>{setNavigation(180);setCanvas(300);}}>Сбросить панели</Button>
    <Button {...action("save")} size={size} id="editor-save-layout" onClick={persist}>Сохранить макет</Button>
    <span id="editor-dirty">{dirty?"Макет изменён":"Макет без изменений"}</span>

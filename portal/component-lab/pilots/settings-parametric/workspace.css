@@ -222,7 +222,6 @@ body.dark [data-workspace] {
   font-size: 15px;
 }
 .product-masthead span:not(.workspace-symbol) {
-  font-size: 11px;
   color: var(--text-tertiary);
 }
 .workspace-symbol {
@@ -409,9 +408,6 @@ body.dark [data-workspace] {
 .workspace-select {
   min-width: 0;
 }
-.workspace-pagination span {
-  font-size: 12px;
-}
 body.dark .product-masthead,
 body.dark .workspace-form-footer,
 body.dark .form-section-heading,
@@ -484,6 +480,8 @@ body.dark .form-section-heading span {
   white-space: nowrap;
 }
 [data-workspace] .view-switch {
+  flex: 0 0 auto;
+  width: max-content;
   max-width: 100%;
   min-width: 0;
   display: grid;

@@ -35,20 +35,22 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 ## Границы зрелости
 
-14 component exports и foundation API не означают готовность всей библиотеки. Восемь компонентов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton/Tabs проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
+20 component exports и foundation API не означают готовность всей библиотеки. Одиннадцать компонентов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton/Tabs/DropdownMenu/Tree/TextArea проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
 
 Следующие обязательные направления: полная матрица взаимодействий и доступности, навигация/overlays/data-компоненты, документация и политика совместимости. WCAG-сертификация, Firefox/WebKit, screen readers и native desktop shell этими тестами не подтверждаются.
 
 
 ## Иконки и геометрия контрола
 
-`Icon` использует 17 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
+`Icon` использует 25 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
 
 ```tsx
 import { Button, Icon, TextField } from '@seda-ai/ui';
 <Button iconLeft={<Icon name="add" />}>Создать проект</Button>
 <TextField label="Поиск" prefix={<Icon name="search" />} />
 ```
+
+`undo`, `redo`, `more`, `copy`, `trash`, `settings`, `circle`, `monitor` дополняют исходный набор. `data-seda-icon` показывает имя фактически отрисованного glyph. Геометрия оригинальных SVG не перерисовывается; каталог содержит source node IDs и SHA-256.
 
 Иконка наследует цвет и размер слота. По умолчанию она декоративна; самостоятельной смысловой иконке передайте `label`. IconButton должен иметь собственный `aria-label`. SVG и IMG в непосредственном слоте нормализуются по его размерам; составные пользовательские обёртки с абсолютной геометрией требуют собственного адаптера.
 

@@ -1,6 +1,6 @@
 # Iconography
 
-> Figma: TBD
+> Figma: [SEDA Icons](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU?node-id=3-3828)
 
 Iconography описывает роли, размеры, стиль и accessibility-правила для иконок в SEDA UI. Иконка должна усиливать смысл интерфейса, ускорять сканирование и помогать различать состояния, но не заменять текст там, где текст нужен для понимания.
 
@@ -32,6 +32,27 @@ Iconography описывает роли, размеры, стиль и accessibi
 | Affix | Prefix/suffix icon внутри field | Decorative или interactive по сценарию |
 | Data | Обозначает тип объекта, формат, источник | Label или accessible name, если смысл важен |
 | Illustration | Empty state или onboarding visual | Обычно decorative, если текст уже объясняет состояние |
+
+---
+
+## Исполняемый каталог веб-библиотеки
+
+`assets/icons/seda/icons.json` связывает публичное имя с исходным Figma node и неизменённым SVG. `packages/seda-ui/scripts/icon-assets.mjs` проверяет bytes/hash и генерирует модуль для `Icon`; public `@seda-ai/ui/icons.json` включает SHA-256. В каталоге 25 glyphs; это не полный набор для всех редакторов.
+
+| Публичное имя | Оригинал SEDA | Роль в приложении |
+| --- | --- | --- |
+| undo / redo | arrowLeftU / arrowRightU | История документа |
+| more | more | Меню действий объекта |
+| copy / trash | copy / trash | Копирование / удаление |
+| settings | settings | Настройки интерфейса |
+| circle | circle | Инструмент Ellipse |
+| monitor | monitor | Просмотр документа |
+
+Размер и цвет glyph наследуются от владеющего слота; масштаб текста контролов должен менять и размер иконки через общую геометрию. Zoom холста и authored typography не должны умножаться на UI scale. Имя фактически отрисованной иконки доступно в `data-seda-icon`. Новые имена — semantic aliases оригиналов, а не перерисованные аналоги.
+
+В forced-colors CSS mask сохраняет alpha, а цвет получает от host через `forced-color-adjust: preserve-parent-color`; семантика свойства описана в [CSS Color Adjustment, section 3.2](https://drafts.csswg.org/css-color-adjust/#forced-color-adjust-prop). Это требует browser/OS-проверки и не является само по себе AT-сертификацией.
+
+Не заменяйте недостающий glyph случайным Unicode-символом: для Hand пока используется подписанная текстовая команда. Референсные изображения, аватары, логотипы и authored canvas artwork не становятся библиотечными иконками автоматически. Для них сохраняются собственные исходники и пропорции.
 
 ---
 

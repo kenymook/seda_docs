@@ -1,40 +1,26 @@
 # Component Maturity Matrix
 
-Last updated: 2026-06-12  
-Figma inventory: `portal/docs-site/figma-components.json` generated at `2026-06-12T16:52:43.458Z`  
-Figma file: `SEDA AI v0.2.0` / `Su1jWqKc9TkD1R8f7wHOQU`
+Актуальная оценка: 2026-10-24. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
 
-This matrix tracks whether SEDA AI can be treated as an AI-ready design system, not just a green Figma scan. Portal health is currently `score=100` after the latest scan and health rerun, but production readiness also requires stable component APIs, reviewed specs, owners, Figma links, visual QA, and handoff/code mapping.
+## Текущее состояние React-реализации
 
-## Current Readiness
+| Область | Авторитетное основание | Статус |
+| --- | --- | --- |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 20 component exports плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload instance contracts ещё отсутствуют |
+| Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | Каталог расширяется с 17 до 25; полнота для всех приложений не достигнута |
+| Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
+| Визуальная согласованность | Последние опубликованные доказательства: `verification/choice-v36-release.json` в pilot | Исправлены конкретные дефекты, включая first-line alignment; зрелость всего визуального слоя не подтверждена |
+| Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
+| Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 
-| Layer | Current state | Readiness |
-|---|---|---:|
-| Tokens | `tokens.json` has foundation, semantic, and component token layers; portal reports `invalidReferences=0`. | Strong |
-| Foundation | 19 foundation docs exist, including governance, validation, token pipeline, accessibility, content, and theming. | Strong |
-| Component specs | 52 production specs exist, follow the AI documentation structure, and are marked `ready`. Button Social was removed as a standalone production spec. | Strong |
-| Figma inventory | 107 component sets, 164 standalone components, 3757 variants. | Strong |
-| Automated health | Saved scan captures Button System, IconButton visual-token alignment, Tag rebinding, and Button Social removal. Button / Button, Button / IconButton, Tag / Interactive, and Tag / Selectable all have score `100`, unstyled text `0`, raw paints `0`, and audit warnings `0`. | Strong |
-| Governance | All production specs have owner `Kenymook`, real Figma links, and markdown status `ready`; the owner approval pass is complete. | Strong |
-| Public API consistency | Main P1 API normalization batch is reflected in the saved Figma inventory; remaining API work is strategic visual/semantic modeling. | Strong |
-| Visual QA | Initial P2 fixes and Button System scan are reflected in the saved inventory. IconButton live visual-token validation now matches Button across all 144 combinations and the saved scan captures the aligned 144-variant set. | Strong |
-| Code mapping | Specs include code mapping sections; registry, Code Connect plan, package export coverage report, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag/Alert/Toast/FileUpload exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
+Обязательные условия готовности: реальные SEDA-компоненты вместо макета, управляемые общими параметрами контроли и типографика, согласованные icon/text/padding/состояния, рабочие сложные экраны, проверенные keyboard/focus/persistence/async сценарии, сопоставление с исходными Figma frames и целевыми browser/OS/AT. Каждый пункт требует соответствующего по объёму доказательства. Ни один частный зелёный тест не заменяет приёмку всей библиотеки.
 
-Overall maturity: **Level 3 candidate / AI-ready Design System pending Code Connect mappings**.
+Открыты плотность сложных редакторов, полнота и оптическое качество иконок, все component variants/backgrounds/popups, полный RTL, системная accessibility и performance. Текущая библиотека не объявляется Level 3 или production-ready на основании архивного Figma health score.
 
-Target maturity: **Level 3 / AI-ready Design System**.
+## Архивная оценка Figma от 2026-06-12
 
-## Blocking Themes
-
-| Theme | Count / Scope | Why it blocks 100% |
-|---|---:|---|
-| Spec status is not `ready` | 0 specs | Done: all 52 production specs are owner-approved as `ready`. |
-| Placeholder Figma links | 0 public specs | Done for production specs; `specs/component-spec-template.md` intentionally keeps `TBD`. |
-| Public API normalization | Strategic residuals | Most public API inconsistencies have been normalized; remaining decisions affect visual semantics and code mapping. |
-| Known visual QA gaps | 0 tracked items after live fix | IconButton visual-token alignment is captured in the saved scan with score `100` and no raw/direct semantic issues. |
-| Scan quality polish | 9 saved-scan items | Remaining saved-scan penalties are Avatar effect/text token gaps, standalone emoji artwork without bindings, and provider-logo brand artwork exceptions. |
-| Code Connect missing | System-wide | Priority plan, mapping review, package export coverage report, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag/Alert/Toast/FileUpload Wave 2 exports exist; Figma-side mapping is blocked by account access. |
-| Package export coverage | 39 remaining exports | `packages/seda-ui` currently covers 13 of 52 production specs. The remaining components are tracked in `reports/package-export-coverage.md`; next batch should broaden into app shell and AI surfaces. |
+Ниже сохранён прежний отчёт snapshot `2026-06-12T16:52:43.458Z`. Его “Done”, scan score 100, owner approval и “Strong” относятся только к тем историческим проверкам. Они не являются текущим статусом React runtime, визуальной готовности или всей цели. Эта архивная часть требует нового аудита при использовании её сведений.
 
 ## Latest Scan Results
 

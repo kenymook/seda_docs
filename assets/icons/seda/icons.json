@@ -130,6 +130,70 @@
       "figmaName": "Icon/Line/user",
       "file": "user.svg",
       "sha256": "4e26383fd928278e9f9bcd461dc875ca12427268418597b7087832d2dd33722f"
+    },
+    {
+      "name": "undo",
+      "style": "line",
+      "figmaNodeId": "787:64",
+      "figmaName": "Icon/Line/arrowLeftU",
+      "file": "undo.svg",
+      "sha256": "1727ff898d34862416b7efe2c6acf6e9d235172394ad224d0c93f7716c53c570"
+    },
+    {
+      "name": "redo",
+      "style": "line",
+      "figmaNodeId": "787:67",
+      "figmaName": "Icon/Line/arrowRightU",
+      "file": "redo.svg",
+      "sha256": "97e34a65ce080a33986734876637352ada28b67e94b8e0a0c70991cb68dfca7f"
+    },
+    {
+      "name": "more",
+      "style": "line",
+      "figmaNodeId": "789:225",
+      "figmaName": "Icon/Line/more",
+      "file": "more.svg",
+      "sha256": "3ec6b223030647bea633dc9edc462962990b068b1eb6555a008ade2478d48ce1"
+    },
+    {
+      "name": "copy",
+      "style": "line",
+      "figmaNodeId": "1623:10132",
+      "figmaName": "Icon/Line/copy",
+      "file": "copy.svg",
+      "sha256": "1ff6a1220302e6e3a304129a6dacbc6ac1cf7ebfa222df273ab836dd856d6e94"
+    },
+    {
+      "name": "trash",
+      "style": "line",
+      "figmaNodeId": "977:11186",
+      "figmaName": "Icon/Line/trash",
+      "file": "trash.svg",
+      "sha256": "ebe1613a5d3928073ba7e8392dcdc7f91db8a6684bc755432509e4d234aaae6d"
+    },
+    {
+      "name": "settings",
+      "style": "line",
+      "figmaNodeId": "789:228",
+      "figmaName": "Icon/Line/settings",
+      "file": "settings.svg",
+      "sha256": "63897090695a89961d64130abe0794cfb9adc9d171193b592124ac5816476dfe"
+    },
+    {
+      "name": "circle",
+      "style": "line",
+      "figmaNodeId": "873:11533",
+      "figmaName": "Icon/Line/circle",
+      "file": "circle.svg",
+      "sha256": "a112626fe731c53f4f822c9ab1a96b46c8f6d42675223c360f6086b28fca7e11"
+    },
+    {
+      "name": "monitor",
+      "style": "line",
+      "figmaNodeId": "789:153",
+      "figmaName": "Icon/Line/monitor",
+      "file": "monitor.svg",
+      "sha256": "561ca4bf538a2171155576165b50169f1bb6e0eba4912af5a68a86dfff4904e8"
     }
   ]
 }

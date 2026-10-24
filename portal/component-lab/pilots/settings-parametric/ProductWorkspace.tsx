@@ -139,11 +139,11 @@ export function ProductWorkspace({ size, action, children, typography, textScale
             A
           </span>
           <div>
-            <strong>Atlas workspace</strong>
-            <span>Рабочее пространство · локальная демонстрация</span>
+            <Text as="strong" variant="label/default">Atlas workspace</Text>
+            <Text variant="caption/default">Рабочее пространство · локальная демонстрация</Text>
           </div>
         </div>
-        <span className="workspace-account">AK · Владелец</span>
+        <Text className="workspace-account" variant="caption/default">AK · Владелец</Text>
       </div>
       <nav className="product-nav" aria-label="Навигация рабочего пространства">
         {[
@@ -202,7 +202,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
               { value: "general", label: "Основные параметры", content: <div className="workspace-settings-panel">
                   <div className="form-section-heading">
                     <Text as="h2" variant="heading/section">Основная информация</Text>
-                    <span>Текст · email · URL · число · дата · Select</span>
+                    <Text variant="caption/default">Текст · email · URL · число · дата · Select</Text>
                   </div>
                   <div className="workspace-form-grid">
                     {field("name", "Название пространства", "text", { required: true })}
@@ -250,7 +250,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
               { value: "access", label: "Доступ и уведомления", content: <div className="workspace-settings-panel">
                   <div className="form-section-heading">
                     <Text as="h2" variant="heading/section">Доступ и уведомления</Text>
-                    <span>Radio · Toggle · Checkbox</span>
+                    <Text variant="caption/default">Radio · Toggle · Checkbox</Text>
                   </div>
                   <div className="workspace-form-grid">
                     <Radio

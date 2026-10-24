@@ -1,5 +1,12 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — application icons
+
+- Восемь оригинальных glyphs SEDA дополняют публичный каталог до 25: undo/redo, more, copy, trash, settings, circle, monitor. Исходные SVG, node IDs и hashes сохраняются; Icon показывает data-seda-icon для инспекции.
+- Mask-based Icon наследует системный цвет host в forced-colors. Danger icon в DropdownMenu согласован с destructive label, disabled сохраняет свой приоритет.
+- Lab, его редактор и Sandbox используют общие glyphs; масштаб chrome Sandbox хранится отдельно от authored scene/camera. Hand остаётся явной текстовой командой до добавления оригинальной иконки.
+
+
 ## Unreleased — first-line alignment
 
 - Checkbox, Radio и Toggle привязаны к первой строке подписи. Helper/error и переносы больше не центрируют маркер относительно всего блока; совместные горизонтальные группы используют первую baseline. Отступы и высота следуют существующему preset и параметрам Lab.
