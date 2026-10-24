@@ -77,3 +77,5 @@ jobs:
             packages/seda-ui/.diagnostics-package/*/react-*/typography-*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-webflow/*.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-webflow/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.png

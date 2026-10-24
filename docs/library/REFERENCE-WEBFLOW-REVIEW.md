@@ -44,3 +44,6 @@ Production version24 прошла13 сценариев и сверку695 source
 ## Production version25
 
 Navigator correction опубликована на том же owner-private Site.695 source hashes совпали;13 application groups и1 integrity check прошли, включая16 nested appearance samples с новой проверкой Navigator; JS errors0, Save loading delta0px. Доступ: revision1, один owner, visitors0/groups0. [Release evidence](../../portal/component-lab/pilots/settings-parametric/verification/webflow-v25-release.json) отдельно фиксирует source commit, deployment и область CI. Общая visual/AT/performance приёмка этим не закрыта.
+
+
+Полный CI exact functional c919ff8 завершился success: run40082351255/job120838317053.120 contracts/foundation,25 installed-package,187 application browser groups,13 isolated renderer/preview и49 domain groups;3 TypeScript/build. [CI evidence](../../portal/component-lab/pilots/settings-parametric/verification/webflow-v25-ci.json). Последующая незавершённая подготовка Framer этим результатом не покрывается.

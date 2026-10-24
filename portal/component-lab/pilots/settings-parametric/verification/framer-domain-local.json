@@ -1,0 +1,47 @@
+{
+  "scope": "Framer reconstruction and shared authored-CSS domain only; no Framer UI, source fidelity, accessibility or publication acceptance.",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "framer-four-source-pages-heading-and-inferred-layout-roundtrip",
+      "status": "passed"
+    },
+    {
+      "name": "framer-breakpoint-thresholds-differ-from-webflow-without-changing-defaults",
+      "status": "passed"
+    },
+    {
+      "name": "shared-css-intrinsic-sizing-and-flex-factors-are-validated",
+      "status": "passed"
+    },
+    {
+      "name": "framer-fixed-and-fit-reset-main-axis-grow-atomically",
+      "status": "passed"
+    },
+    {
+      "name": "framer-main-axis-fill-uses-real-flex-weight-and-zero-basis",
+      "status": "passed"
+    },
+    {
+      "name": "framer-cross-axis-fit-does-not-remain-stretched-or-erase-other-fill",
+      "status": "passed"
+    },
+    {
+      "name": "framer-height-fill-requires-parent-budget-and-preserves-width-mode",
+      "status": "passed"
+    },
+    {
+      "name": "framer-phone-override-does-not-leak-and-native-default-main-auto-is-fit",
+      "status": "passed"
+    },
+    {
+      "name": "framer-out-of-flow-fill-uses-containing-block-percentages",
+      "status": "passed"
+    },
+    {
+      "name": "framer-size-input-rejects-partials-invalid-units-and-unknown-modes",
+      "status": "passed"
+    }
+  ]
+}

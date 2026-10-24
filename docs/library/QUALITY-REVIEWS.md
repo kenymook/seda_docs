@@ -99,3 +99,8 @@ Appearance recovery отдельно от draw calls: потеря PMREM render 
 
 
 Webflow version24: визуальный просмотр XL/150% обнаружил вертикальное разбиение Navigator рядом с Collapse при зелёной geometry matrix. Добавлен regression по фактической высоте заголовка; получен FAIL на прежней раскладке и PASS после wrap команды. Source icons/font sizes и shared SEDA controls сохранены. Старые production screenshots/version24 evidence сохранены.
+
+
+## Iframe Inter — computed metrics против glyph paint
+
+При подготовке Framer discovered: parent-created FontFace, добавленный в iframe FontFaceSet, в проверенном Chromium показывал loaded и white Inter40/45, но не рисовал glyphs. Это затрагивает и authored preview Webflow25; ранние DOM/geometry tests не проверяли paint. Создание FontFace в собственном realm исправляет paint без расширения sandbox. Новые native Framer и application Webflow проверки сравнивают actual screenshots текста visible/hidden. Реальные Inter metrics изменили inferred H1 height90→135; source90 остаётся открытым отклонением, шрифт не уменьшен для маскировки.

@@ -1,0 +1,22 @@
+{
+  "runId": 40082351255,
+  "jobId": 120838317053,
+  "commit": "c919ff8ba052925d497bde2a97cf481336c243dc",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/kenymook/seda_docs/actions/runs/40082351255",
+  "evidence": "Decoded job logs inspected, including the Navigator readability regression in the Webflow appearance matrix.",
+  "contractsAndFoundation": 120,
+  "installedPackageGroups": 25,
+  "applicationBrowserGroups": 187,
+  "isolatedRendererGroups": 13,
+  "domainModelGroups": 49,
+  "typescriptProjects": 3,
+  "build": "PASS",
+  "artifact": {
+    "id": 12556037687,
+    "bytes": 13518587,
+    "digest": "sha256:6b72fd70e8efb958e927f45e85c5d6e228db6cf7bf9070df96bb166bb731955b"
+  },
+  "scope": "Published Webflow25 functional source. Later unfinished Framer working-tree changes are not covered by this CI."
+}

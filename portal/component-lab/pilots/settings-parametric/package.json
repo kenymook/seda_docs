@@ -10,7 +10,7 @@
     "build": "node build.mjs",
     "serve": "node server.mjs",
     "typecheck": "tsc --noEmit && tsc --noEmit --project references/tsconfig.json",
-    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs && node verify-building.mjs && node verify-chat.mjs && node verify-sandbox-model.mjs && node verify-sandbox.mjs && node verify-typography.mjs && node verify-spline-model.mjs && node verify-spline-renderer.mjs && node verify-spline.mjs && node verify-spline-manipulator.mjs && node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs",
+    "verify": "node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs && node verify-building.mjs && node verify-chat.mjs && node verify-sandbox-model.mjs && node verify-sandbox.mjs && node verify-typography.mjs && node verify-spline-model.mjs && node verify-spline-renderer.mjs && node verify-spline.mjs && node verify-spline-manipulator.mjs && node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs && node verify-framer-model.mjs && node verify-framer-preview.mjs",
     "verify:building": "node verify-building.mjs",
     "verify:workspace": "node verify-workspace.mjs",
     "verify:controls": "node verify-controls.mjs",
@@ -19,7 +19,8 @@
     "verify:typography": "node verify-typography.mjs",
     "verify:spline:engine": "node verify-spline-model.mjs && node verify-spline-renderer.mjs && node verify-spline.mjs && node verify-spline-manipulator.mjs",
     "verify:webflow:domain": "node verify-webflow-model.mjs && node verify-webflow-preview.mjs",
-    "verify:webflow": "node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs"
+    "verify:webflow": "node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs",
+    "verify:framer:domain": "node verify-framer-model.mjs && node verify-framer-preview.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",

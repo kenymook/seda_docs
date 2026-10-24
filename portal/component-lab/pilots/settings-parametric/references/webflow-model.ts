@@ -2,13 +2,14 @@
 export const breakpoints=['desktop','tablet','landscape','portrait'] as const;
 export type Breakpoint=typeof breakpoints[number];
 export type Length={value:number;unit:'px'|'%'|'vw'|'vh'|'rem'|'em'};
-export type Dimension=Length|'auto'|'none';
+export type Dimension=Length|'auto'|'none'|'fit-content';
 export interface AuthorStyle {
  display:'block'|'flex'|'grid'|'inline-block'|'none';position:'static'|'relative'|'absolute'|'fixed';
  width:Dimension;height:Dimension;minWidth:Dimension;minHeight:Dimension;maxWidth:Dimension;maxHeight:Dimension;
  marginTop:Dimension;marginRight:Dimension;marginBottom:Dimension;marginLeft:Dimension;
  paddingTop:Length;paddingRight:Length;paddingBottom:Length;paddingLeft:Length;
  top:Dimension;right:Dimension;bottom:Dimension;left:Dimension;
+ flexGrow:number;flexShrink:number;flexBasis:Dimension;alignSelf:'auto'|'stretch'|'flex-start'|'center'|'flex-end'|'baseline';
  gap:Length;flexDirection:'row'|'column';justifyContent:'flex-start'|'center'|'flex-end'|'space-between';alignItems:'stretch'|'flex-start'|'center'|'flex-end'|'baseline';
  gridColumns:number;overflow:'visible'|'hidden'|'auto'|'scroll';verticalAlign:'baseline'|'top'|'middle'|'bottom';
  fontFamily:'Inter'|'Arial'|'Georgia'|'monospace';fontSize:Length;fontWeight:400|500|600|700;lineHeight:number|Length;
@@ -23,7 +24,7 @@ export interface AuthorDocument {version:1;pages:AuthorPage[];rules:Record<strin
 export interface AuthorView {pageId:string;selection:string|null;width:number;height:number;zoom:number;panX:number;panY:number}
 export const documentKey='seda.reference.webflow.document.v1';
 const clone=<T>(value:T):T=>structuredClone(value),px=(value:number):Length=>({value,unit:'px'});
-export const initialStyle:AuthorStyle={display:'block',position:'static',width:'auto',height:'auto',minWidth:px(0),minHeight:px(0),maxWidth:'none',maxHeight:'none',marginTop:px(0),marginRight:px(0),marginBottom:px(0),marginLeft:px(0),paddingTop:px(0),paddingRight:px(0),paddingBottom:px(0),paddingLeft:px(0),top:'auto',right:'auto',bottom:'auto',left:'auto',gap:px(0),flexDirection:'row',justifyContent:'flex-start',alignItems:'stretch',gridColumns:1,overflow:'visible',verticalAlign:'baseline',fontFamily:'Inter',fontSize:px(16),fontWeight:400,lineHeight:1.5,color:'#ffffff',backgroundColor:'#00000000',borderColor:'#000000',borderWidth:px(0),borderRadius:px(0),textAlign:'left',textDecoration:'none',opacity:1,zIndex:'auto'};
+export const initialStyle:AuthorStyle={display:'block',position:'static',width:'auto',height:'auto',minWidth:px(0),minHeight:px(0),maxWidth:'none',maxHeight:'none',marginTop:px(0),marginRight:px(0),marginBottom:px(0),marginLeft:px(0),paddingTop:px(0),paddingRight:px(0),paddingBottom:px(0),paddingLeft:px(0),top:'auto',right:'auto',bottom:'auto',left:'auto',gap:px(0),flexGrow:0,flexShrink:1,flexBasis:'auto',alignSelf:'auto',flexDirection:'row',justifyContent:'flex-start',alignItems:'stretch',gridColumns:1,overflow:'visible',verticalAlign:'baseline',fontFamily:'Inter',fontSize:px(16),fontWeight:400,lineHeight:1.5,color:'#ffffff',backgroundColor:'#00000000',borderColor:'#000000',borderWidth:px(0),borderRadius:px(0),textAlign:'left',textDecoration:'none',opacity:1,zIndex:'auto'};
 const inherited=new Set<StyleKey>(['fontFamily','fontSize','fontWeight','lineHeight','color','textAlign']);
 export const styleKeys=Object.keys(initialStyle) as StyleKey[];
 const kinds:NodeKind[]=['body','container','section','slider','mask','slide','text','divider','component','embed'];
@@ -32,19 +33,21 @@ const idPattern=/^[A-Za-z][A-Za-z0-9_-]{0,79}$/,classPattern=/^[A-Za-z_][A-Za-z0
 function record(value:unknown):asserts value is Record<string,unknown>{if(!value||typeof value!=='object'||Array.isArray(value)||![Object.prototype,null].includes(Object.getPrototypeOf(value)))throw Error('Ожидается простой объект');}
 const reservedNames=new Set(['__proto__','prototype','constructor']);
 function exact(value:Record<string,unknown>,keys:string[]){if(Object.keys(value).length!==keys.length||keys.some(key=>!Object.hasOwn(value,key)))throw Error('Неизвестная структура документа');}
-const lengths=new Set<StyleKey>(['width','height','minWidth','minHeight','maxWidth','maxHeight','marginTop','marginRight','marginBottom','marginLeft','paddingTop','paddingRight','paddingBottom','paddingLeft','top','right','bottom','left','gap','fontSize','borderWidth','borderRadius']);
+const lengths=new Set<StyleKey>(['width','height','minWidth','minHeight','maxWidth','maxHeight','marginTop','marginRight','marginBottom','marginLeft','paddingTop','paddingRight','paddingBottom','paddingLeft','top','right','bottom','left','gap','fontSize','borderWidth','borderRadius','flexBasis']);
 const negative=new Set<StyleKey>(['marginTop','marginRight','marginBottom','marginLeft','top','right','bottom','left']);
-const allowAuto=new Set<StyleKey>(['width','height','marginTop','marginRight','marginBottom','marginLeft','top','right','bottom','left']);
+const allowAuto=new Set<StyleKey>(['width','height','marginTop','marginRight','marginBottom','marginLeft','top','right','bottom','left','flexBasis']);
 const allowNone=new Set<StyleKey>(['maxWidth','maxHeight']);
-const enums:Partial<Record<StyleKey,readonly unknown[]>>={display:['block','flex','grid','inline-block','none'],position:['static','relative','absolute','fixed'],flexDirection:['row','column'],justifyContent:['flex-start','center','flex-end','space-between'],alignItems:['stretch','flex-start','center','flex-end','baseline'],overflow:['visible','hidden','auto','scroll'],verticalAlign:['baseline','top','middle','bottom'],fontFamily:['Inter','Arial','Georgia','monospace'],fontWeight:[400,500,600,700],textAlign:['left','center','right','justify'],textDecoration:['none','underline','line-through']};
+const allowIntrinsic=new Set<StyleKey>(['width','height','minWidth','minHeight','maxWidth','maxHeight']);
+const enums:Partial<Record<StyleKey,readonly unknown[]>>={display:['block','flex','grid','inline-block','none'],position:['static','relative','absolute','fixed'],alignSelf:['auto','stretch','flex-start','center','flex-end','baseline'],flexDirection:['row','column'],justifyContent:['flex-start','center','flex-end','space-between'],alignItems:['stretch','flex-start','center','flex-end','baseline'],overflow:['visible','hidden','auto','scroll'],verticalAlign:['baseline','top','middle','bottom'],fontFamily:['Inter','Arial','Georgia','monospace'],fontWeight:[400,500,600,700],textAlign:['left','center','right','justify'],textDecoration:['none','underline','line-through']};
 function validateLength(value:unknown,key:StyleKey){record(value);exact(value,['value','unit']);if(typeof value.value!=='number'||!Number.isFinite(value.value)||Math.abs(value.value)>100000||(!negative.has(key)&&value.value<0)||!['px','%','vw','vh','rem','em'].includes(String(value.unit))||key==='borderWidth'&&value.unit==='%')throw Error('Недопустимая CSS длина: '+key);if(key==='fontSize'&&value.value<=0)throw Error('Размер шрифта должен быть положительным');}
 export function validateStyleValue(key:StyleKey,value:unknown){
  if(!styleKeys.includes(key))throw Error('Неизвестное CSS свойство');
- if(lengths.has(key)){if(value==='auto'&&allowAuto.has(key)||value==='none'&&allowNone.has(key))return;validateLength(value,key);return;}
+ if(lengths.has(key)){if(value==='auto'&&allowAuto.has(key)||value==='none'&&allowNone.has(key)||value==='fit-content'&&allowIntrinsic.has(key))return;validateLength(value,key);return;}
  if(enums[key]){if(!enums[key]!.includes(value))throw Error('Неподдерживаемое CSS значение: '+key);return;}
  if(['color','backgroundColor','borderColor'].includes(key)){if(typeof value!=='string'||!/^#[0-9a-f]{6}(?:[0-9a-f]{2})?$/i.test(value))throw Error('Нужен HEX цвет');return;}
  if(key==='lineHeight'){if(typeof value==='number'&&Number.isFinite(value)&&value>=.5&&value<=5)return;validateLength(value,'fontSize');return;}
  if(key==='zIndex'&&value==='auto')return;
+ if(key==='flexGrow'||key==='flexShrink'){if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>100)throw Error('Flex factor вне0–100');return;}
  if(typeof value!=='number'||!Number.isFinite(value)||key==='opacity'&&(value<0||value>1)||key==='gridColumns'&&(!Number.isInteger(value)||value<1||value>12)||key==='zIndex'&&(!Number.isInteger(value)||Math.abs(value)>100000))throw Error('Недопустимое числовое CSS значение');
 }
 export function parseStyleInput(key:StyleKey,text:string):AuthorStyle[StyleKey]{
@@ -53,7 +56,7 @@ export function parseStyleInput(key:StyleKey,text:string):AuthorStyle[StyleKey]{
   const match=/^([+-]?(?:\d+(?:\.\d*)?|\.\d+))\s*(px|%|vw|vh|rem|em)$/i.exec(raw);
   if(match)value={value:Number(match[1]),unit:match[2].toLowerCase()};
   else if(key==='lineHeight'&&/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw))value=Number(raw);
- }else if(['gridColumns','fontWeight','opacity','zIndex'].includes(key)&&/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw))value=Number(raw);
+ }else if(['gridColumns','fontWeight','opacity','zIndex','flexGrow','flexShrink'].includes(key)&&/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw))value=Number(raw);
  validateStyleValue(key,value);return value as AuthorStyle[StyleKey];
 }
 export function formatStyleValue(value:AuthorStyle[StyleKey]){return typeof value==='object'?String(value.value)+value.unit:String(value);}
