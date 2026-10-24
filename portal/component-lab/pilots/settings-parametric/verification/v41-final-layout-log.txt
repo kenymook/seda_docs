@@ -1,0 +1,7 @@
+{
+  "outputDir": "C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\dist",
+  "profileCount": 8,
+  "sourceAudit": true,
+  "tokenHash": "334af4749694972533babac55ef9f760e5a4501979854faab5c9c500331711f6"
+}
+{"textBoxes":36,"parameterCases":24,"maxX":0,"maxY":0.16700000000003,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-building-layout"}

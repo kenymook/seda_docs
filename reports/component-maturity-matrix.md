@@ -1,18 +1,19 @@
 # Component Maturity Matrix
 
-Актуальная оценка: 2026-10-24. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
+Актуальная оценка: 2026-10-25. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
 
 ## Текущее состояние React-реализации
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 21 component exports плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 22 основных component exports плюс provider/host APIs | Реальная реализация, не полная библиотека |
 | Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
 | Визуальная согласованность | Последние доказательства: `verification/application-v39-release.json`, `verification/modal-v38-release.json` и `verification/visual-v37-release.json` в pilot | Добавлены shared scale в Files/Documents/Chat, Text roles в4 apps, constrained Button/Menu, Tabs focus reveal и границы панелей/dock. Зрелость всего визуального слоя не подтверждена |
 | Modal | Public native dialog + common WorkspaceDialog in 8 reference apps | Реальный React-компонент; 32 production route/theme/density samples и package React18/19 PASS; surface geometry experimental, Figma fidelity и surface-family executable contract открыты |
 | Tooltip | Public text-only Tooltip and IconButton.tooltip in 4 reference apps | 45 package groups before final keyboard listener; final Tooltip21 workflows and 16 matrix samples per React18/19, plus production Tooltip64/Modal32/text24, source hashes783. Experimental geometry; no surface instance contract or AT/Figma acceptance |
+| Visual reference: Building | Fresh Figma context/metadata/render 2026-10-25, node1:84 | Authored36 text boxes: X0/Y≤0.167px;3 guides and3 action bindings checked. Shared Tree host paint fixed. Full-screen chrome/other8 frames remain unaccepted |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 

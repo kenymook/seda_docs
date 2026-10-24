@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-25",
+  "runtimeSource": "4d8af39dabea53f146595dcd0861189ff03f19a6",
+  "siteSource": "b3c761fe6adc3069095e9087c1b5b82df6a1eb62",
+  "version": 41,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deploymentId": "appgdep_6add2bf24a6881919b48db2ae134ba8d",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_0fb0a766d38c8191b917dcaa3789e36f",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archive": {
+    "bytes": 7748321,
+    "sha256": "ba001fd31cccb0db84a9a9685524efc69226c85296b0b88498ed14d10c392273"
+  },
+  "typeScriptProjects": 3,
+  "packageGroupsPassed": 45,
+  "extraTreeNeutralHostCasesPerReact": 16,
+  "pilotSequenceExitCode": 0,
+  "scope": "Full pilot before last navigation glyph/guide changes; after glyphs: document model5/browser17 and layout24. After guides: build/layout36/guides3/parameters24. Public package runtime unchanged after package45; Tree test-only extra neutral assertions independently passed both installed React consumers. Final production repeats all targeted layout and overlay checks. Image decode readiness is a verifier-only fix after deployment.",
+  "sourceReference": {
+    "file": "31SUMzWpWJ52bT9fBeKIau",
+    "node": "1:84",
+    "captured": "2026-10-25",
+    "expected": "Fresh metadata, not implementation-generated coordinates",
+    "activeAssets": 43,
+    "byteIdenticalOldExports": 36,
+    "originalSVGReplacements": 7,
+    "legacyRasterAliasesRetained": 7
+  },
+  "production": {
+    "sourceHashesMatched": 791,
+    "textBoxes": 36,
+    "guides": 3,
+    "actionAssetBindings": 3,
+    "parameterCases": 24,
+    "maxTextXError": 0,
+    "maxTextYError": 0.16700000000003,
+    "rootTextCases": 24,
+    "tooltipCases": 64,
+    "modalCases": 32,
+    "javascriptErrors": []
+  },
+  "loading": {
+    "combinations": 288,
+    "maxWidthDelta": 0,
+    "maxHeightDelta": 0
+  },
+  "limitations": [
+    "Authored flow only, not whole-screen pixel fidelity",
+    "Other8 original frames have no fresh visual acceptance",
+    "Windows Chromium / Segoe UI; other browsers/OS/AT not accepted",
+    "SEDA chrome weights/palette and extra editor actions differ from source"
+  ],
+  "logNormalization": "UTF8 LF; hashes verified against committed Git bytes",
+  "rawSHA256": {
+    "v41-building-after.png": "922187acd9dd1b5ab93b07f704fe9c7625e3f974e106d41fd14ba630da37f01f",
+    "v41-building-before.png": "6fbd755ca968afc3e100750aaa5c596f9e8aa6e204bc29a9f2e2681d09a85ab2",
+    "v41-building-figma.png": "8cea529ecf9032b5cc432d368ded73669910a5ebe650bc3707d6256ea2d7a048",
+    "v41-building-large-960.png": "03f04e1beee76a2804bbadcee3a88c6c7bcf23bfe2af3cba9106a6f49c73e3e7",
+    "v41-building-layout-results.json": "f82b5d17b45091ca8187721ab20a087e13adf7868274f96a97265808c03e186d",
+    "v41-building-source-metadata.xml": "e6edf8bf9e7d1de6e0de58d6e753423019bd46fc4c332eb7f7c9e8372b4edbd9",
+    "v41-final-layout-log.txt": "872c588b35a46e4025a1048cd7ca833b7066c601463d1555ca41482906f84e5a",
+    "v41-focused-log.txt": "6831c8d7630e0232b9ba7c5c25deff6b58ed06fda20e86c08487a68f5c838496",
+    "v41-layout-comparison.json": "6dcc53d90e300d9f100bcc72f6062a5c7a48fc0f8968df7f14a10a7d30e80bc2",
+    "v41-package-log.txt": "a1c4c4d5d510a8e02f9df39947a1ae6eff7586bb4517e35ebe6bfe33c98ddc7d",
+    "v41-package-summary.json": "86aec0a976a254e422cca4dd1078e6603ab16baf6f31ee7e65ab409cc56d2303",
+    "v41-pilot-log.txt": "34835ea89c041d1ea7b5247bb546360988d0ea8076006af5e806463e6eea6212",
+    "v41-production-results.json": "5860a42f80d5d0962edc25b9a2362dbd56dccd37bf790261f2cf3cbafbdf6f99",
+    "v41-source-assets.json": "c8daa20c6aa93893d62d5aae931018e4ac3b9e3b0db13617086c17c74ffbca8e",
+    "v41-tree-18.3.1.json": "bc8c250ad32acb74e89686dbbaef5fa2079fce1419a3fe28f2d98808616d657d",
+    "v41-tree-19.2.7.json": "bc8c250ad32acb74e89686dbbaef5fa2079fce1419a3fe28f2d98808616d657d",
+    "v41-typecheck-log.txt": "04af6a9bc477d602faad10c9fa321fa623183311fddfd42ea829137351010d9f"
+  }
+}

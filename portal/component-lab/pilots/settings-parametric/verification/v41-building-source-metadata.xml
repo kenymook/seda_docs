@@ -1,0 +1,908 @@
+<frame id="1:84" name="Building" x="0" y="0" width="1440" height="1288">
+  <frame id="1:85" name="Body" x="0" y="0" width="1440" height="1288">
+    <frame id="1:86" name="Main Content" x="0" y="0" width="1440" height="1288">
+      <frame id="1:87" name="Container" x="228" y="0" width="1212" height="1288">
+        <frame id="1:88" name="Container" x="0" y="0" width="1212" height="1288">
+          <frame id="1:89" name="Container" x="0" y="0" width="1212" height="48">
+            <frame id="1:90" name="Container" x="16" y="7.666666507720947" width="426.9583435058594" height="32">
+              <frame id="1:91" name="Navigation" x="0" y="0" width="426.9583435058594" height="32">
+                <frame id="1:92" name="Link:margin" x="0" y="0" width="137.11459350585938" height="32">
+                  <frame id="1:93" name="Link" x="8" y="0" width="121.11458587646484" height="32">
+                    <frame id="1:94" name="Text:margin" x="4" y="7" width="22" height="18">
+                      <frame id="1:95" name="Image - 🚧, construction" x="0" y="0" width="18" height="18" />
+                    </frame>
+                    <frame id="1:96" name="Container" x="26" y="4" width="91.11458587646484" height="24">
+                      <text id="1:97" name="SDDS / Plasma" x="0" y="0" width="92" height="24" />
+                    </frame>
+                  </frame>
+                </frame>
+                <frame id="1:98" name="Text" x="137.11459350585938" y="4" width="4" height="24">
+                  <text id="1:99" name="/" x="0" y="0" width="7" height="24" />
+                </frame>
+                <frame id="1:100" name="Link:margin" x="141.11459350585938" y="0" width="135.9479217529297" height="32">
+                  <frame id="1:101" name="Link" x="8" y="0" width="119.94792175292969" height="32">
+                    <frame id="1:102" name="Text:margin" x="4" y="7" width="22" height="18">
+                      <frame id="1:103" name="Image - 🚩, triangular_flag_on_post" x="0" y="0" width="18" height="18" />
+                    </frame>
+                    <frame id="1:104" name="Container" x="26" y="4" width="89.94792175292969" height="24">
+                      <text id="1:105" name="Plasma Design" x="0" y="0" width="90" height="24" />
+                    </frame>
+                  </frame>
+                </frame>
+                <frame id="1:106" name="Text" x="277.0625" y="4" width="4" height="24">
+                  <text id="1:107" name="/" x="0" y="0" width="7" height="24" />
+                </frame>
+                <frame id="1:108" name="Link:margin" x="281.0625" y="0" width="145.89584350585938" height="32">
+                  <frame id="1:109" name="Link" x="8" y="0" width="129.89584350585938" height="32">
+                    <frame id="1:110" name="Text:margin" x="4" y="7" width="22" height="18">
+                      <frame id="1:111" name="Image - 💲, heavy_dollar_sign" x="0" y="0" width="18" height="18" />
+                    </frame>
+                    <frame id="1:112" name="Container" x="26" y="4" width="99.89583587646484" height="24">
+                      <text id="1:113" name="SDDS описание" x="0" y="0" width="100" height="24" />
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+            <frame id="1:114" name="Container" x="937.2603759765625" y="-0.000001430511474609375" width="258.7395935058594" height="47.333335876464844">
+              <frame id="1:115" name="Container" x="0" y="7.666667938232422" width="258.7395935058594" height="32">
+                <frame id="1:116" name="Button:margin" x="0" y="0" width="105.73958587646484" height="32">
+                  <frame id="1:117" name="Button" x="12" y="0" width="93.73958587646484" height="32">
+                    <text id="1:118" name="Поделиться" x="9.369792938232422" y="4" width="75" height="24" />
+                  </frame>
+                </frame>
+                <frame id="1:119" name="Container:margin" x="105.73958587646484" y="2" width="36" height="28">
+                  <frame id="1:120" name="Container" x="8" y="0" width="28" height="28">
+                    <frame id="1:121" name="Icon" x="4" y="4" width="20" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:124" name="Container:margin" x="141.73959350585938" y="2" width="36" height="28">
+                  <frame id="1:125" name="Container" x="8" y="0" width="28" height="28">
+                    <frame id="1:126" name="Icon" x="4" y="4" width="20" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:128" name="Container:margin" x="177.73959350585938" y="2" width="36" height="28">
+                  <frame id="1:129" name="Container" x="8" y="0" width="28" height="28">
+                    <frame id="1:130" name="Icon" x="4" y="4" width="20" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:132" name="Text:margin" x="213.73959350585938" y="9" width="9" height="14">
+                  <frame id="1:133" name="Text" x="8" y="0" width="1" height="14" />
+                </frame>
+                <frame id="1:134" name="Container:margin" x="222.73959350585938" y="2" width="36" height="28">
+                  <frame id="1:135" name="Container" x="8" y="0" width="28" height="28">
+                    <frame id="1:136" name="Icon" x="4" y="4" width="20" height="20" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="1:138" name="Container" x="0" y="48" width="1212" height="1240">
+            <frame id="1:139" name="Container" x="252" y="0" width="708" height="270.16668701171875">
+              <frame id="1:140" name="Container" x="0" y="0" width="708" height="206.1666717529297">
+                <frame id="1:141" name="Container" x="0" y="0" width="708" height="80" />
+                <frame id="1:142" name="Container" x="0" y="80" width="708" height="94.16667175292969">
+                  <frame id="1:143" name="Text" x="0" y="0" width="78" height="94.16667175292969">
+                    <frame id="1:144" name="Image - 💲, heavy_dollar_sign" x="0" y="16.166671752929688" width="78" height="78" />
+                  </frame>
+                </frame>
+                <frame id="1:145" name="Text" x="0" y="174.1666717529297" width="708" height="32">
+                  <frame id="1:146" name="Container:margin" x="0" y="0" width="100" height="40">
+                    <frame id="1:147" name="Container" x="0" y="4" width="92" height="32">
+                      <frame id="1:148" name="Icon" x="3" y="6" width="20" height="20" />
+                      <frame id="1:150" name="Container" x="23" y="6" width="63" height="20">
+                        <text id="1:151" name="Обложка" x="4" y="0" width="59" height="20" />
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="1:152" name="Container:margin" x="100" y="0" width="194" height="40">
+                    <frame id="1:153" name="Container" x="0" y="4" width="186" height="32">
+                      <frame id="1:154" name="Icon" x="3" y="6" width="20" height="20" />
+                      <frame id="1:157" name="Container" x="23" y="6" width="157" height="20">
+                        <text id="1:158" name="Добавить комментарий" x="4" y="0" width="153" height="20" />
+                      </frame>
+                    </frame>
+                  </frame>
+                </frame>
+              </frame>
+              <frame id="1:159" name="Header" x="0" y="206.1666717529297" width="708" height="64">
+                <text id="1:160" name="SDDS описание" x="0" y="0" width="293" height="64" />
+              </frame>
+            </frame>
+            <frame id="1:161" name="Container" x="252" y="270.16668701171875" width="708" height="969.8333129882812">
+              <frame id="1:162" name="Article" x="0" y="0" width="708" height="2593.197998046875">
+                <frame id="1:163" name="Container" x="0" y="0" width="708" height="2078">
+                  <frame id="1:164" name="Section" x="0" y="20" width="708" height="88">
+                    <text id="1:165" name="SDDS — корпоративная дизайн‑система для внутренних" x="2" y="5" width="704" height="78" />
+                  </frame>
+                  <frame id="1:166" name="Section" x="0" y="108" width="708" height="36" />
+                  <frame id="1:167" name="Section:margin" x="0" y="144" width="708" height="62">
+                    <frame id="1:168" name="Section" x="0" y="1" width="708" height="60">
+                      <text id="1:169" name="SDDS — это стратегическая платформа, которая ускор" x="2" y="4" width="705" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:170" name="Section" x="0" y="206" width="708" height="36" />
+                  <frame id="1:171" name="Section" x="0" y="242" width="708" height="36">
+                    <text id="1:172" name="Модели поставки и бизнес‑следствия" x="2" y="5" width="278" height="26" />
+                  </frame>
+                  <frame id="1:173" name="Section" x="0" y="278" width="708" height="280">
+                    <frame id="1:174" name="Container" x="0" y="1" width="708" height="34">
+                      <frame id="1:175" name="Container" x="0" y="4" width="24" height="26">
+                        <text id="1:176" name="1." x="5.5" y="0" width="13" height="26" />
+                      </frame>
+                      <frame id="1:177" name="Container" x="24" y="4" width="684" height="26">
+                        <text id="1:178" name="Эталонная (reference) дизайн‑система" x="2" y="0" width="279" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:179" name="Container" x="0" y="35" width="708" height="244">
+                      <frame id="1:180" name="Text" x="12" y="1" width="1" height="243" />
+                      <frame id="1:181" name="Section" x="24" y="1" width="684" height="60">
+                        <frame id="1:182" name="Container" x="0" y="4" width="24" height="52">
+                          <text id="1:183" name="a." x="6" y="0" width="12" height="26" />
+                        </frame>
+                        <frame id="1:184" name="Container" x="24" y="4" width="660" height="52">
+                          <text id="1:185" name="Описание: команда SDDS развивает и поддерживает од" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:186" name="Section" x="24" y="61" width="684" height="61">
+                        <frame id="1:187" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:188" name="b." x="5.5" y="0" width="13" height="26" />
+                        </frame>
+                        <frame id="1:189" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:190" name="Бизнес‑выгоды: обеспечивает максимальную консистен" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:191" name="Section" x="24" y="122" width="684" height="61">
+                        <frame id="1:192" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:193" name="c." x="6.5" y="0" width="11" height="26" />
+                        </frame>
+                        <frame id="1:194" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:195" name="Управление: централизованное принятие решений, дол" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:196" name="Section" x="24" y="183" width="684" height="61">
+                        <frame id="1:197" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:198" name="d." x="5.5" y="0" width="13" height="26" />
+                        </frame>
+                        <frame id="1:199" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:200" name="Коммерческая модель: internal shared service / бюд" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="1:201" name="Section" x="0" y="558" width="708" height="280">
+                    <frame id="1:202" name="Container" x="0" y="1" width="708" height="34">
+                      <frame id="1:203" name="Container" x="0" y="4" width="24" height="26">
+                        <text id="1:204" name="2." x="5.5" y="0" width="13" height="26" />
+                      </frame>
+                      <frame id="1:205" name="Container" x="24" y="4" width="684" height="26">
+                        <text id="1:206" name="Форк + дизайн и код от Plasma (полный сервис)" x="2" y="0" width="355" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:207" name="Container" x="0" y="35" width="708" height="244">
+                      <frame id="1:208" name="Text" x="12" y="1" width="1" height="243" />
+                      <frame id="1:209" name="Section" x="24" y="1" width="684" height="60">
+                        <frame id="1:210" name="Container" x="0" y="4" width="24" height="52">
+                          <text id="1:211" name="a." x="6" y="0" width="12" height="26" />
+                        </frame>
+                        <frame id="1:212" name="Container" x="24" y="4" width="660" height="52">
+                          <text id="1:213" name="Описание: Plasma производит форк дизайн‑системы и " x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:214" name="Section" x="24" y="61" width="684" height="61">
+                        <frame id="1:215" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:216" name="b." x="5.5" y="0" width="13" height="26" />
+                        </frame>
+                        <frame id="1:217" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:218" name="Бизнес‑выгоды: кастомизация под конкретный продукт" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:219" name="Section" x="24" y="122" width="684" height="61">
+                        <frame id="1:220" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:221" name="c." x="6.5" y="0" width="11" height="26" />
+                        </frame>
+                        <frame id="1:222" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:223" name="Управление: SDDS отвечает за реализацию и поддержк" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:224" name="Section" x="24" y="183" width="684" height="61">
+                        <frame id="1:225" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:226" name="d." x="5.5" y="0" width="13" height="26" />
+                        </frame>
+                        <frame id="1:227" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:228" name="Коммерческая модель: проектные контракты/платные у" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="1:229" name="Section" x="0" y="838" width="708" height="306">
+                    <frame id="1:230" name="Container" x="0" y="1" width="708" height="34">
+                      <frame id="1:231" name="Container" x="0" y="4" width="24" height="26">
+                        <text id="1:232" name="3." x="5.5" y="0" width="13" height="26" />
+                      </frame>
+                      <frame id="1:233" name="Container" x="24" y="4" width="684" height="26">
+                        <text id="1:234" name="Форк + дизайн со стороны клиента, код — от SDDS (к" x="2" y="0" width="544" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:235" name="Container" x="0" y="35" width="708" height="270">
+                      <frame id="1:236" name="Text" x="12" y="1" width="1" height="269" />
+                      <frame id="1:237" name="Section" x="24" y="1" width="684" height="60">
+                        <frame id="1:238" name="Container" x="0" y="4" width="24" height="52">
+                          <text id="1:239" name="a." x="6" y="0" width="12" height="26" />
+                        </frame>
+                        <frame id="1:240" name="Container" x="24" y="4" width="660" height="52">
+                          <text id="1:241" name="Описание: клиент сохраняет дизайн‑ответственность," x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:242" name="Section" x="24" y="61" width="684" height="87">
+                        <frame id="1:243" name="Container" x="0" y="5" width="24" height="78">
+                          <text id="1:244" name="b." x="5.5" y="0" width="13" height="26" />
+                        </frame>
+                        <frame id="1:245" name="Container" x="24" y="5" width="660" height="78">
+                          <text id="1:246" name="Бизнес‑выгоды: позволяет продуктовым командам сохр" x="2" y="0" width="658" height="78" />
+                        </frame>
+                      </frame>
+                      <frame id="1:247" name="Section" x="24" y="148" width="684" height="61">
+                        <frame id="1:248" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:249" name="c." x="6.5" y="0" width="11" height="26" />
+                        </frame>
+                        <frame id="1:250" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:251" name="Управление: чёткое разделение ответственности (диз" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                      <frame id="1:252" name="Section" x="24" y="209" width="684" height="61">
+                        <frame id="1:253" name="Container" x="0" y="5" width="24" height="52">
+                          <text id="1:254" name="d." x="5.5" y="0" width="13" height="26" />
+                        </frame>
+                        <frame id="1:255" name="Container" x="24" y="5" width="660" height="52">
+                          <text id="1:256" name="Коммерческая модель: ставка за реализацию/интеграц" x="2" y="0" width="658" height="52" />
+                        </frame>
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="1:257" name="Section" x="0" y="1144" width="708" height="36">
+                    <text id="1:258" name="Продукт DS Builder — бизнес‑эффект и возможности м" x="2" y="5" width="493" height="26" />
+                  </frame>
+                  <frame id="1:259" name="Section" x="0" y="1180" width="708" height="62">
+                    <frame id="1:260" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:261" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:262" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:263" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:264" name="Описание: самостоятельный продукт команды — инстру" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:265" name="Section" x="0" y="1242" width="708" height="88">
+                    <frame id="1:266" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:267" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:268" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:269" name="Container" x="26" y="5" width="682" height="78">
+                      <text id="1:270" name="Бизнес‑выгоды: снижает число оперативных запросов " x="0" y="0" width="682" height="78" />
+                    </frame>
+                  </frame>
+                  <frame id="1:271" name="Section" x="0" y="1330" width="708" height="62">
+                    <frame id="1:272" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:273" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:274" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:275" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:276" name="Риски/управление: нужны guardrails и валидация, чт" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:277" name="Section" x="0" y="1392" width="708" height="62">
+                    <frame id="1:278" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:279" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:280" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:281" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:282" name="Коммерческая модель: подписка/лимит доступа, платн" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:283" name="Section" x="0" y="1454" width="708" height="36">
+                    <text id="1:284" name="Операционные рекомендации и контрактные моменты" x="2" y="5" width="412" height="26" />
+                  </frame>
+                  <frame id="1:285" name="Section" x="0" y="1490" width="708" height="62">
+                    <frame id="1:286" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:287" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:288" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:289" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:290" name="SLA и поддержка: определить уровни поддержки для к" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:291" name="Section" x="0" y="1552" width="708" height="62">
+                    <frame id="1:292" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:293" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:294" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:295" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:296" name="Владелец roadmaps: для эталонной версии — SDDS; дл" x="0" y="0" width="684" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:297" name="Section" x="0" y="1614" width="708" height="62">
+                    <frame id="1:298" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:299" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:300" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:301" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:302" name="Обновления и миграции: предусмотреть механизм пере" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:303" name="Section" x="0" y="1676" width="708" height="62">
+                    <frame id="1:304" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:305" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:306" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:307" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:308" name="Качество и приёмка: чек‑листы, критерии соответств" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:309" name="Section" x="0" y="1738" width="708" height="62">
+                    <frame id="1:310" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:311" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:312" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:313" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:314" name="Безопасность и соответствие: учесть нормативные/ко" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:315" name="Section" x="0" y="1800" width="708" height="36">
+                    <text id="1:316" name="KPI и метрики успеха" x="2" y="5" width="156" height="26" />
+                  </frame>
+                  <frame id="1:317" name="Section" x="0" y="1836" width="708" height="36">
+                    <frame id="1:318" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:319" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:320" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:321" name="Container" x="26" y="5" width="682" height="26">
+                      <text id="1:322" name="Время от запроса до релиза компонента." x="0" y="0" width="305" height="26" />
+                    </frame>
+                  </frame>
+                  <frame id="1:323" name="Section" x="0" y="1872" width="708" height="36">
+                    <frame id="1:324" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:325" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:326" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:327" name="Container" x="26" y="5" width="682" height="26">
+                      <text id="1:328" name="Количество обращений к SDDS по поддержке/кастомиза" x="0" y="0" width="455" height="26" />
+                    </frame>
+                  </frame>
+                  <frame id="1:329" name="Section" x="0" y="1908" width="708" height="36">
+                    <frame id="1:330" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:331" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:332" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:333" name="Container" x="26" y="5" width="682" height="26">
+                      <text id="1:334" name="Доля команд, использующих эталонную систему vs фор" x="0" y="0" width="434" height="26" />
+                    </frame>
+                  </frame>
+                  <frame id="1:335" name="Section" x="0" y="1944" width="708" height="36">
+                    <frame id="1:336" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:337" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:338" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:339" name="Container" x="26" y="5" width="682" height="26">
+                      <text id="1:340" name="Снижение дублирования компонентов и общего объёма " x="0" y="0" width="492" height="26" />
+                    </frame>
+                  </frame>
+                  <frame id="1:341" name="Section" x="0" y="1980" width="708" height="62">
+                    <frame id="1:342" name="Container" x="0" y="5" width="26" height="24">
+                      <frame id="1:343" name="Container" x="8.5" y="0" width="7" height="26">
+                        <text id="1:344" name="•" x="0" y="0" width="7" height="26" />
+                      </frame>
+                    </frame>
+                    <frame id="1:345" name="Container" x="26" y="5" width="682" height="52">
+                      <text id="1:346" name="Скорость внедрения изменений через DS Builder (вре" x="0" y="0" width="682" height="52" />
+                    </frame>
+                  </frame>
+                  <frame id="1:347" name="Section" x="0" y="2042" width="708" height="36" />
+                </frame>
+                <frame id="1:348" name="Container" x="0" y="2078" width="708" height="515.2000122070312" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:349" name="Container" x="1384" y="1156" width="36" height="92">
+    <frame id="1:350" name="Container:margin" x="0" y="0" width="36" height="46">
+      <frame id="1:351" name="Container" x="0" y="10" width="36" height="36">
+        <frame id="1:352" name="Icon" x="8" y="8" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="1:356" name="Container:margin" x="0" y="46" width="36" height="46">
+      <frame id="1:357" name="Button - Центр помощи" x="0" y="10" width="36" height="36">
+        <frame id="1:358" name="Icon" x="10" y="10" width="16" height="16" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:360" name="Container" x="0" y="0" width="228" height="1288">
+    <frame id="1:361" name="Container" x="0" y="0" width="227" height="1288">
+      <frame id="1:362" name="Container" x="0" y="0" width="227" height="54">
+        <frame id="1:363" name="Container" x="8" y="8" width="211" height="38">
+          <frame id="1:364" name="Container" x="0" y="6" width="181" height="26">
+            <frame id="1:365" name="Container" x="0" y="0" width="32" height="26">
+              <frame id="1:366" name="Text" x="3" y="0" width="26" height="26">
+                <text id="1:367" name="K" x="7" y="4" width="12" height="18" />
+              </frame>
+            </frame>
+            <frame id="1:368" name="Container" x="32" y="1" width="96" height="24">
+              <frame id="1:369" name="Text" x="8" y="0" width="68" height="24">
+                <text id="1:370" name="Kenymook" x="0" y="0" width="66" height="24" />
+              </frame>
+              <frame id="1:371" name="Icon" x="84" y="6" width="12" height="12" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="1:373" name="Container" x="0" y="54" width="227" height="32">
+        <frame id="1:374" name="Container" x="7.8333282470703125" y="0" width="32" height="32">
+          <frame id="1:375" name="Icon" x="6" y="6" width="20" height="20" />
+        </frame>
+        <frame id="1:377" name="Container" x="52.666664123535156" y="0" width="32" height="32">
+          <frame id="1:378" name="Icon" x="6" y="6" width="20" height="20" />
+        </frame>
+        <frame id="1:386" name="Container" x="97.5" y="0" width="32" height="32">
+          <frame id="1:387" name="Icon" x="6" y="6" width="20" height="20" />
+        </frame>
+        <frame id="1:390" name="Container" x="142.3333282470703" y="0" width="32" height="32">
+          <frame id="1:391" name="Icon" x="6" y="6" width="20" height="20" />
+        </frame>
+        <frame id="1:394" name="Container" x="187.1666717529297" y="0" width="32" height="32">
+          <frame id="1:395" name="Icon" x="6" y="6" width="20" height="20" />
+        </frame>
+      </frame>
+      <frame id="1:399" name="Container" x="0" y="86" width="227" height="8" />
+      <frame id="1:400" name="Container:margin" x="0" y="94" width="227" height="48">
+        <frame id="1:401" name="Container" x="8" y="8" width="211" height="32">
+          <frame id="1:402" name="Link" x="0" y="0" width="179" height="32">
+            <frame id="1:403" name="Icon" x="8" y="6" width="20" height="20" />
+            <frame id="1:407" name="Container" x="28" y="4" width="143" height="24">
+              <text id="1:408" name="Buildin AI" x="8" y="0" width="59" height="24" />
+            </frame>
+          </frame>
+          <frame id="1:409" name="Button - История задач:margin" x="179" y="4" width="32" height="24">
+            <frame id="1:410" name="Button - История задач" x="0" y="0" width="24" height="24">
+              <frame id="1:411" name="Text" x="2" y="2" width="20" height="20">
+                <frame id="1:412" name="Icon" x="2" y="2" width="16" height="16" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="1:415" name="Container" x="0" y="142" width="227" height="1040">
+        <frame id="1:416" name="Container" x="0" y="0" width="227" height="1020">
+          <frame id="1:417" name="Container" x="0" y="0" width="227" height="96">
+            <frame id="1:418" name="Container:margin" x="0" y="0" width="227" height="32">
+              <frame id="1:419" name="Container" x="8" y="0" width="211" height="32">
+                <frame id="1:420" name="Container" x="8" y="6" width="77" height="20">
+                  <text id="1:421" name="Избранное" x="0" y="0" width="62" height="20" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="1:422" name="Container" x="0" y="32" width="227" height="32">
+              <frame id="1:423" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:424" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:425" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:426" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:427" name="Image - ☑️, ballot_box_with_check" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:428" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:429" name="Рабочие задачи" x="8" y="0" width="103" height="24" />
+                </frame>
+                <frame id="1:430" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:431" name="Container" x="0" y="64" width="227" height="32">
+              <frame id="1:432" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:433" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:434" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:435" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:436" name="Image - 🐕‍🦺, service_dog" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:437" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:438" name="Личные задачи" x="8" y="0" width="99" height="24" />
+                </frame>
+                <frame id="1:439" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="1:440" name="Container" x="0" y="96" width="227" height="84">
+            <frame id="1:441" name="Container:margin" x="0" y="20" width="227" height="32">
+              <frame id="1:442" name="Container" x="8" y="0" width="211" height="32">
+                <frame id="1:443" name="Container" x="0" y="0" width="187" height="32">
+                  <frame id="1:444" name="Container" x="8" y="6" width="93" height="20">
+                    <text id="1:445" name="Пространство" x="0" y="0" width="78" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:446" name="Container" x="187" y="6" width="24" height="20" />
+              </frame>
+            </frame>
+            <frame id="1:447" name="Container:margin" x="0" y="52" width="227" height="32">
+              <frame id="1:448" name="Container" x="8" y="0" width="211" height="32">
+                <frame id="1:449" name="Container" x="0" y="6" width="28" height="20">
+                  <frame id="1:450" name="Icon" x="10" y="2" width="16" height="16" />
+                </frame>
+                <frame id="1:452" name="Text" x="28" y="4" width="68" height="24">
+                  <text id="1:453" name="New page" x="4" y="0" width="63" height="24" />
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="1:454" name="Container" x="0" y="180" width="227" height="724">
+            <frame id="1:455" name="Container:margin" x="0" y="20" width="227" height="32">
+              <frame id="1:456" name="Container" x="8" y="0" width="211" height="32">
+                <frame id="1:457" name="Container" x="0" y="0" width="167" height="32">
+                  <frame id="1:458" name="Container" x="8" y="6" width="57" height="20">
+                    <text id="1:459" name="Личное" x="0" y="0" width="43" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:460" name="Container" x="167" y="6" width="44" height="20" />
+              </frame>
+            </frame>
+            <frame id="1:461" name="Container" x="0" y="52" width="227" height="32">
+              <frame id="1:462" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:463" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:464" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:465" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:466" name="Icon" x="0" y="0" width="20" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:468" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:469" name="AI" x="8" y="0" width="13" height="24" />
+                </frame>
+                <frame id="1:470" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:471" name="Container" x="0" y="84" width="227" height="32">
+              <frame id="1:472" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:473" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:474" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:475" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:476" name="Icon" x="0" y="0" width="20" height="20" />
+                  </frame>
+                </frame>
+                <frame id="1:478" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:479" name="SEDA AI Design System" x="8" y="0" width="144" height="24" />
+                </frame>
+                <frame id="1:480" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:481" name="Container" x="0" y="116" width="227" height="384">
+              <frame id="1:482" name="Container" x="0" y="0" width="227" height="32">
+                <frame id="1:483" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:484" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:485" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                    <frame id="1:486" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:487" name="Image - 🚧, construction" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:488" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                    <text id="1:489" name="SDDS / Plasma" x="8" y="0" width="92" height="24" />
+                  </frame>
+                  <frame id="1:490" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:491" name="Container" x="0" y="32" width="227" height="32">
+                <frame id="1:492" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:493" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:494" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:495" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:496" name="Image - ☑️, ballot_box_with_check" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:497" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:498" name="Рабочие задачи" x="8" y="0" width="103" height="24" />
+                  </frame>
+                  <frame id="1:499" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:500" name="Container" x="0" y="64" width="227" height="32">
+                <frame id="1:501" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:502" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:503" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:504" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:505" name="Image - 🧠, brain" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:506" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:507" name="Поток мыслей" x="8" y="0" width="93" height="24" />
+                  </frame>
+                  <frame id="1:508" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:509" name="Container" x="0" y="96" width="227" height="32">
+                <frame id="1:510" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:511" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:512" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:513" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:514" name="Text" x="-2.5" y="1" width="25" height="18">
+                        <text id="1:515" name="🗓" x="0" y="0" width="25" height="18" />
+                      </frame>
+                    </frame>
+                  </frame>
+                  <frame id="1:516" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:517" name="Расписание встреч" x="8" y="0" width="122" height="24" />
+                  </frame>
+                  <frame id="1:518" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:519" name="Container" x="0" y="128" width="227" height="32">
+                <frame id="1:520" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:521" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:522" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:523" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:524" name="Image - 🚩, triangular_flag_on_post" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:525" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:526" name="Plasma Design" x="8" y="0" width="90" height="24" />
+                  </frame>
+                  <frame id="1:527" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:528" name="Container" x="0" y="160" width="227" height="32">
+                <frame id="1:529" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:530" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:531" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:532" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:533" name="Image - 💣, bomb" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:534" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:535" name="По работе" x="8" y="0" width="67" height="24" />
+                  </frame>
+                  <frame id="1:536" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:537" name="Container" x="0" y="192" width="227" height="32">
+                <frame id="1:538" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:539" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:540" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:541" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:542" name="Image - 🍄, mushroom" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:543" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:544" name="Презентации" x="8" y="0" width="85" height="24" />
+                  </frame>
+                  <frame id="1:545" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:546" name="Container" x="0" y="224" width="227" height="32">
+                <frame id="1:547" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:548" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:549" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:550" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:551" name="Image - ♻️, recycle" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:552" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:553" name="Дизайн система" x="8" y="0" width="103" height="24" />
+                  </frame>
+                  <frame id="1:554" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:555" name="Container" x="0" y="256" width="227" height="32">
+                <frame id="1:556" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:557" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:558" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:559" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:560" name="Image - 🧙‍♂️, male_mage" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:561" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:562" name="POGOALS" x="8" y="0" width="62" height="24" />
+                  </frame>
+                  <frame id="1:563" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:564" name="Container" x="0" y="288" width="227" height="32">
+                <frame id="1:565" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:566" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:567" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:568" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:569" name="Image - 🤼‍♀️, woman-wrestling" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:570" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:571" name="Команда" x="8" y="0" width="57" height="24" />
+                  </frame>
+                  <frame id="1:572" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:573" name="Container" x="0" y="320" width="227" height="32">
+                <frame id="1:574" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:575" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:576" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:577" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:578" name="Icon" x="0" y="0" width="20" height="20" />
+                    </frame>
+                  </frame>
+                  <frame id="1:580" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:581" name="Заметки" x="8" y="0" width="53" height="24" />
+                  </frame>
+                  <frame id="1:582" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+              <frame id="1:583" name="Container" x="0" y="352" width="227" height="32">
+                <frame id="1:584" name="Link" x="8" y="0" width="211" height="32">
+                  <frame id="1:585" name="Container" x="20.666667938232422" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                  <frame id="1:586" name="Text:margin" x="24.666667938232422" y="6" width="24" height="20">
+                    <frame id="1:587" name="Text" x="4" y="0" width="20" height="20">
+                      <frame id="1:588" name="Image - 🔑, key" x="1" y="1" width="18" height="18" />
+                    </frame>
+                  </frame>
+                  <frame id="1:589" name="Container" x="48.66666793823242" y="4" width="145.6666717529297" height="24">
+                    <text id="1:590" name="Доступы" x="8" y="0" width="55" height="24" />
+                  </frame>
+                  <frame id="1:591" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+                </frame>
+              </frame>
+            </frame>
+            <frame id="1:592" name="Container" x="0" y="500" width="227" height="32">
+              <frame id="1:593" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:594" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:595" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:596" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:597" name="Image - 💪, muscle" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:598" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:599" name="RS App" x="8" y="0" width="46" height="24" />
+                </frame>
+                <frame id="1:600" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:601" name="Container" x="0" y="532" width="227" height="32">
+              <frame id="1:602" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:603" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:604" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:605" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:606" name="Image - 🎯, dart" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:607" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:608" name="Media" x="8" y="0" width="39" height="24" />
+                </frame>
+                <frame id="1:609" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:610" name="Container" x="0" y="564" width="227" height="32">
+              <frame id="1:611" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:612" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:613" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:614" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:615" name="Image - 💢, anger" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:616" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:617" name="Ban-list" x="8" y="0" width="47" height="24" />
+                </frame>
+                <frame id="1:618" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:619" name="Container" x="0" y="596" width="227" height="32">
+              <frame id="1:620" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:621" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:622" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:623" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:624" name="Image - 🌵, cactus" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:625" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:626" name="Сбер" x="8" y="0" width="33" height="24" />
+                </frame>
+                <frame id="1:627" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:628" name="Container" x="0" y="628" width="227" height="32">
+              <frame id="1:629" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:630" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:631" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:632" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:633" name="Image - 🧐, face_with_monocle" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:634" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:635" name="Education" x="8" y="0" width="62" height="24" />
+                </frame>
+                <frame id="1:636" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:637" name="Container" x="0" y="660" width="227" height="32">
+              <frame id="1:638" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:639" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:640" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:641" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:642" name="Image - 🤘, the_horns, sign_of_the_horns" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:643" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:644" name="Change" x="8" y="0" width="48" height="24" />
+                </frame>
+                <frame id="1:645" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+            <frame id="1:646" name="Container" x="0" y="692" width="227" height="32">
+              <frame id="1:647" name="Link" x="8" y="0" width="211" height="32">
+                <frame id="1:648" name="Container" x="0.6666669845581055" y="15.999950408935547" width="4" height="0.00009999999747378752" />
+                <frame id="1:649" name="Text:margin" x="4.6666669845581055" y="6" width="24" height="20">
+                  <frame id="1:650" name="Text" x="4" y="0" width="20" height="20">
+                    <frame id="1:651" name="Image - 🤩, star-struck, grinning_face_with_star_eyes" x="1" y="1" width="18" height="18" />
+                  </frame>
+                </frame>
+                <frame id="1:652" name="Container" x="28.666667938232422" y="4" width="165.6666717529297" height="24">
+                  <text id="1:653" name="Personal" x="8" y="0" width="53" height="24" />
+                </frame>
+                <frame id="1:654" name="Container:margin" x="194.33334350585938" y="15.999950408935547" width="8" height="0.00009999999747378752" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="1:655" name="Container" x="0" y="904" width="227" height="116">
+            <frame id="1:656" name="Container" x="8" y="20" width="211" height="32">
+              <frame id="1:657" name="Container" x="10" y="6" width="20" height="20">
+                <frame id="1:658" name="Icon" x="2" y="2" width="16" height="16" />
+              </frame>
+              <frame id="1:660" name="Container" x="30" y="4" width="99" height="24">
+                <text id="1:661" name="Мои подписки" x="4" y="0" width="95" height="24" />
+              </frame>
+            </frame>
+            <frame id="1:662" name="Container" x="8" y="52" width="211" height="32">
+              <frame id="1:663" name="Container" x="10" y="6" width="20" height="20">
+                <frame id="1:664" name="Icon" x="2" y="2" width="16" height="16" />
+              </frame>
+              <frame id="1:668" name="Container" x="30" y="4" width="90" height="24">
+                <text id="1:669" name="Маркетплейс" x="4" y="0" width="86" height="24" />
+              </frame>
+            </frame>
+            <frame id="1:670" name="Container" x="8" y="84" width="211" height="32">
+              <frame id="1:671" name="Container" x="10" y="6" width="20" height="20">
+                <frame id="1:672" name="Icon" x="2" y="2" width="16" height="16" />
+              </frame>
+              <frame id="1:674" name="Container" x="30" y="4" width="59" height="24">
+                <text id="1:675" name="Корзина" x="4" y="0" width="55" height="24" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="1:676" name="Container:align" x="0" y="1182" width="227" height="106">
+        <frame id="1:677" name="Container" x="0" y="34.666664123535156" width="227" height="71.33333587646484">
+          <frame id="1:678" name="Container" x="8" y="4" width="211" height="55.333335876464844">
+            <frame id="1:679" name="Container" x="8.666666984558105" y="8.666666984558105" width="193.6666717529297" height="20">
+              <frame id="1:680" name="Container" x="0" y="2" width="80" height="16">
+                <frame id="1:681" name="Icon" x="0" y="0" width="16" height="16" />
+                <frame id="1:684" name="Text" x="24" y="0" width="56" height="16">
+                  <text id="1:685" name="Обновить" x="0" y="0" width="56" height="16" />
+                </frame>
+              </frame>
+              <frame id="1:686" name="Icon" x="181.6666717529297" y="4" width="12" height="12" />
+            </frame>
+            <frame id="1:688" name="Container" x="8.666666984558105" y="30.666667938232422" width="193.6666717529297" height="16">
+              <text id="1:689" name="Для дополнительных функций" x="24" y="0" width="168" height="16" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:690" name="Container" x="480" y="338.16668701171875" width="0.00009999999747378752" height="0.00009999999747378752" />
+</frame>
