@@ -747,13 +747,14 @@
       "file": "1-8352-imgIcon.svg",
       "bytes": 399,
       "sha256": "eaa2e50ae8c25105a2fb6724f5f33db4498b0c7a19881b579937acde6acd6b81",
-      "runtimeUsed": false,
+      "runtimeUsed": true,
       "width": "10",
       "height": "15",
       "viewBox": "0 0 10 15",
       "sourceLayerIds": [
         "1:8357"
-      ]
+      ],
+      "runtimeFile": "framer-header-imgIcon.svg"
     },
     {
       "node": "1:8352",
@@ -775,13 +776,14 @@
       "file": "1-8352-imgGroup.svg",
       "bytes": 341,
       "sha256": "207bf02f985883a5d5ee7ad5c176a342412e6af30b89c4fd30e4b78f013f4f78",
-      "runtimeUsed": false,
+      "runtimeUsed": true,
       "width": "15.5",
       "height": "15.5",
       "viewBox": "0 0 15.5 15.5",
       "sourceLayerIds": [
         null
-      ]
+      ],
+      "runtimeFile": "framer-header-imgGroup.svg"
     },
     {
       "node": "1:8352",
@@ -789,13 +791,14 @@
       "file": "1-8352-imgIcon1.svg",
       "bytes": 1149,
       "sha256": "8233171767ad9c7e3cd9bb07824246ab35ec8de6985965103c73c7166c40e6a9",
-      "runtimeUsed": false,
+      "runtimeUsed": true,
       "width": "20",
       "height": "20",
       "viewBox": "0 0 20 20",
       "sourceLayerIds": [
         "1:8373"
-      ]
+      ],
+      "runtimeFile": "framer-header-imgIcon1.svg"
     },
     {
       "node": "1:8352",
@@ -803,13 +806,14 @@
       "file": "1-8352-imgGroup1.svg",
       "bytes": 990,
       "sha256": "2878748630783993ae1991c77b55f16de6d8510782731df963634f0dcde87924",
-      "runtimeUsed": false,
+      "runtimeUsed": true,
       "width": "15",
       "height": "14.5",
       "viewBox": "0 0 15 14.5",
       "sourceLayerIds": [
         "1:8379"
-      ]
+      ],
+      "runtimeFile": "framer-header-imgGroup1.svg"
     },
     {
       "node": "1:8352",
@@ -817,13 +821,14 @@
       "file": "1-8352-imgIcon2.svg",
       "bytes": 935,
       "sha256": "379ff2148969b4a3f682a8f65c95199c95004b1958665040bae063ef34879c61",
-      "runtimeUsed": false,
+      "runtimeUsed": true,
       "width": "20",
       "height": "20",
       "viewBox": "0 0 20 20",
       "sourceLayerIds": [
         "1:8384"
-      ]
+      ],
+      "runtimeFile": "framer-header-imgIcon2.svg"
     },
     {
       "node": "1:8352",
@@ -855,5 +860,7 @@
     }
   ],
   "uniqueHashes": 49,
-  "runtimeAssetsConnected": false
+  "runtimeAssetsConnected": true,
+  "runtimeConnectedCount": 5,
+  "runtimeScope": "Five header SVG assets, exact bytes. Other source assets are not connected."
 }
