@@ -192,13 +192,13 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/text-field/surface/focus` | Фон focus. | `surface/base` |
 | `$collections/components/$modes/Mode 1/text-field/surface/disabled` | Фон disabled. | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/text-field/surface/error` | Фон error. | `status/danger/container` |
-| `$collections/components/$modes/Mode 1/text-field/border/default` | Граница по умолчанию. | `border/default` |
-| `$collections/components/$modes/Mode 1/text-field/border/hover` | Граница hover. | `border/hover` |
+| `$collections/components/$modes/Mode 1/text-field/border/default` | Граница по умолчанию. | `border/control/default` |
+| `$collections/components/$modes/Mode 1/text-field/border/hover` | Граница hover. | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/text-field/border/focus` | Граница focus. | `border/focus` |
 | `$collections/components/$modes/Mode 1/text-field/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/text-field/border/disabled` | Граница disabled. | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/text-field/foreground/default` | Текст value. | `text/primary` |
-| `$collections/components/$modes/Mode 1/text-field/foreground/placeholder` | Placeholder. | `text/muted` |
+| `$collections/components/$modes/Mode 1/text-field/foreground/placeholder` | Placeholder. | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/text-field/foreground/disabled` | Текст disabled. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/text-field/label/default` | Label. | `text/secondary` |
 | `$collections/components/$modes/Mode 1/text-field/label/disabled` | Label disabled. | `status/disabled/text` |

@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "lab2": {
+      "passed": 55,
+      "failed": 0
+    },
+    "workspace": {
+      "passed": 21,
+      "failed": 0
+    },
+    "controls": {
+      "passed": 12,
+      "failed": 0
+    },
+    "recents": {
+      "passed": 9,
+      "failed": 0
+    },
+    "building": {
+      "browserPassed": 17,
+      "modelPassed": 5,
+      "failed": 0
+    },
+    "chat": {
+      "browserPassed": 12,
+      "modelPassed": 4,
+      "failed": 0
+    },
+    "sandbox": {
+      "browserPassed": 20,
+      "failed": 0,
+      "modelPassed": 19
+    },
+    "typography": {
+      "passed": 7,
+      "failed": 0
+    },
+    "spline": {
+      "passed": 10,
+      "failed": 0,
+      "modelPassed": 7
+    },
+    "splineRenderer": {
+      "passed": 5,
+      "failed": 0,
+      "scope": "isolated renderer; separate from application workflows"
+    }
+  },
+  "applicationBrowserGroups": 163,
+  "isolatedRendererGroups": 5,
+  "domainModelGroups": 35,
+  "contractFoundationTests": 120,
+  "packageGroups": 25,
+  "typescriptProjects": 3,
+  "build": "passed",
+  "visualAcceptance": false
+}

@@ -2,7 +2,7 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / web behavior verified
 > **Owner** · Kenymook
 > **Last reviewed** · 2026-05-29
 > **Figma** · [TextArea](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2187-3331)
@@ -161,18 +161,18 @@ Figma component set: `TextArea`. Variants: 40.
 | `$collections/components/$modes/Mode 1/text-area/surface/focus` | Component token | `surface/base` |
 | `$collections/components/$modes/Mode 1/text-area/surface/read-only` | Component token | `surface/subtle` |
 | `$collections/components/$modes/Mode 1/text-area/surface/loading` | Component token | `surface/base` |
-| `$collections/components/$modes/Mode 1/text-area/border/default` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/text-area/border/default` | Component token | `border/control/default` |
 | `$collections/components/$modes/Mode 1/text-area/border/focus` | Component token | `border/focus` |
 | `$collections/components/$modes/Mode 1/text-area/border/error` | Component token | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/text-area/border/warning` | Component token | `status/warning/border` |
 | `$collections/components/$modes/Mode 1/text-area/border/success` | Component token | `status/success/border` |
-| `$collections/components/$modes/Mode 1/text-area/border/hover` | Component token | `border/hover` |
+| `$collections/components/$modes/Mode 1/text-area/border/hover` | Component token | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/text-area/border/disabled` | Component token | `status/disabled/border` |
-| `$collections/components/$modes/Mode 1/text-area/border/active` | Component token | `border/strong` |
-| `$collections/components/$modes/Mode 1/text-area/border/read-only` | Component token | `border/subtle` |
-| `$collections/components/$modes/Mode 1/text-area/border/loading` | Component token | `border/default` |
+| `$collections/components/$modes/Mode 1/text-area/border/active` | Component token | `border/control/pressed` |
+| `$collections/components/$modes/Mode 1/text-area/border/read-only` | Component token | `border/control/default` |
+| `$collections/components/$modes/Mode 1/text-area/border/loading` | Component token | `border/control/default` |
 | `$collections/components/$modes/Mode 1/text-area/foreground/default` | Component token | `text/primary` |
-| `$collections/components/$modes/Mode 1/text-area/foreground/placeholder` | Component token | `text/muted` |
+| `$collections/components/$modes/Mode 1/text-area/foreground/placeholder` | Component token | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/text-area/foreground/disabled` | Component token | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/text-area/foreground/read-only` | Component token | `text/secondary` |
 | `$collections/components/$modes/Mode 1/text-area/label/default` | Component token | `text/secondary` |
@@ -269,3 +269,9 @@ Figma component set: `TextArea`. Variants: 40.
 - Прятать обязательный label, error или instruction в Tooltip.
 - Добавлять неподтвержденные variants, props или token paths.
 - Передавать handoff без keyboard и accessibility behavior.
+
+## Runtime implementation — 23 октября 2026
+
+Public `@seda-ai/ui` теперь содержит TextArea; [D30](../../packages/seda-contracts/TEXTAREA-CONTRACT.md) фиксирует API/ownership/layout и границы проверки. Source TypeScript, compiler contract и CSS используют существующую text-area ветку. Runtime additions: native rows; autoResize/maxRows; resize vertical/none; hideLabel; showCount; clearable/onClear. Default rows3, autoResize/hideLabel/showCount/clearable false; resize vertical; size наследуется от SedaProvider, standalone m. Это не подтверждение полного совпадения40 Figma variants. До фактического browser/visual review статус не ready.
+
+Runtime не принимает state/filled: hover/focus/active принадлежат native interaction, disabled/readOnly — native props, error — непустому errorText; filled и counter следуют текущему value. Проверенное web поведение и ограничения описаны в [review](../../docs/library/TEXTAREA-REVIEW.md).

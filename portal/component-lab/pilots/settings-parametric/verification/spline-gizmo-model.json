@@ -1,0 +1,43 @@
+{
+  "scope": "Spline application domain only; no renderer or UI acceptance",
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "name": "spline-document-roundtrip-source-transform",
+      "status": "passed"
+    },
+    {
+      "name": "spline-invalid-imports-rejected",
+      "status": "passed"
+    },
+    {
+      "name": "spline-transform-material-lock-and-immutable-input",
+      "status": "passed"
+    },
+    {
+      "name": "spline-number-drafts-reject-partial-and-nonfinite",
+      "status": "passed"
+    },
+    {
+      "name": "spline-history-preserves-view-and-branches",
+      "status": "passed"
+    },
+    {
+      "name": "spline-save-captures-snapshot-and-rejects-late-results",
+      "status": "passed"
+    },
+    {
+      "name": "spline-storage-failure-retains-dirty-and-allows-retry",
+      "status": "passed"
+    },
+    {
+      "name": "spline-transform-gesture-preview-is-one-owned-commit",
+      "status": "passed"
+    },
+    {
+      "name": "spline-transform-gesture-invalid-cancel-and-stale-owner",
+      "status": "passed"
+    }
+  ]
+}

@@ -194,3 +194,13 @@ test("same-valued roles retain separate references and independent resolution ch
   assert.notDeepEqual(gap.ref, radius.ref);
   assert.notDeepEqual(gap.chain, radius.chain);
 });
+test('an alias names a token leaf, not a same-named branch in another collection',()=>{
+ const resolver=createTokenResolver(source);
+ for(const theme of ['Light','Dark']){
+  const link=resolver.resolve(ref('components','link','default','foreground','default'),{theme});
+  assert.equal(link.value,resolver.resolve(ref('semantic','link','default'),{theme}).value);
+  assert.ok(link.chain.some(step=>step.collection==='semantic'));
+ }
+ const doc=empty();doc.$collections.semantic.$modes.Light.branch={child:color('#ffffff')};doc.$collections.components.$modes['Mode 1'].consumer=color('{branch}');
+ raises('TOKEN_BRANCH_AS_LEAF',()=>createTokenResolver(doc).resolve(ref('components','consumer')));
+});

@@ -1,0 +1,24 @@
+{
+  "version": 21,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adbdbfe9ddc81919bd56c45a0812d8b",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_f1f34ce41db88191b17b2ebbb4b1a7e9",
+  "status": "succeeded",
+  "siteSource": "e66e3c100c13bd08713e91ca33c72af8b79a383d",
+  "githubSource": "3a05c5777944288f14edbcc5fcac973a20ff250f",
+  "accessMode": "custom",
+  "revision": 1,
+  "owners": 1,
+  "externalVisitors": 0,
+  "groups": 0,
+  "production": {
+    "matchedSourceHashes": 591,
+    "sandboxBrowserGroups": 20,
+    "buildingFocusGroups": 2,
+    "failed": 0,
+    "structuralCommandsBeforeRaf": 7,
+    "initialCaptions": 12,
+    "javascriptErrors": 0,
+    "visualAcceptance": false
+  }
+}

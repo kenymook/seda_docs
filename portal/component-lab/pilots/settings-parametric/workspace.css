@@ -1,0 +1,595 @@
+/* Shared application workspace adapter. Lab configuration chrome is deliberately outside this scope. */
+.visual-consistency { display:grid; gap:24px; }
+.visual-consistency__sample { display:grid; gap:20px; }
+.visual-consistency__fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+.visual-consistency__actions { display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+.visual-consistency__uploads { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; gap:16px; }
+@media(max-width:1100px) { .visual-consistency__uploads { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:900px) { .visual-consistency__fields { grid-template-columns:minmax(0,1fr); } }
+[data-workspace] {
+  min-width: 0;
+  font-family: var(--seda-font-family);
+  color-scheme: light;
+  --text-primary: var(--seda-foreground-default);
+  --text-tertiary: var(--seda-helper-default);
+}
+body.dark [data-workspace] {
+  color-scheme: dark;
+}
+[data-workspace] .seda-field {
+  min-width: 0;
+  gap: var(--seda-label-gap, 6px);
+}
+[data-workspace] .seda-field__label,
+[data-workspace] .seda-choice__label,
+[data-workspace] .seda-toggle__label {
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+  color: var(--seda-label-default);
+  font-weight: 600;
+}
+[data-workspace] .seda-field__control {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--seda-control-height);
+  min-height: var(--seda-control-height);
+  border-width: var(--seda-control-border-width);
+  border-radius: var(--seda-control-radius);
+  padding-inline: var(--seda-control-padding-inline);
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+  background: var(--seda-surface-default);
+  border-color: var(--seda-border-default);
+  color: var(--seda-foreground-default);
+}
+[data-workspace] .seda-field__input,
+[data-workspace] .seda-field__select {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  max-width: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+[data-workspace] .seda-field[data-state="error"] .seda-field__control {
+  background: var(--seda-surface-error);
+  border-color: var(--seda-border-error);
+}
+[data-workspace] .seda-field__control:has(:focus-visible) {
+  outline: 2px solid var(--seda-focus-ring);
+  outline-offset: 2px;
+}
+[data-workspace] .seda-field[data-disabled="true"] {
+  opacity: 1;
+}
+[data-workspace] .seda-field[data-disabled="true"] .seda-field__control {
+  background: var(--seda-surface-disabled);
+  color: var(--seda-foreground-disabled);
+  border-color: var(--seda-border-disabled);
+}
+[data-workspace] .workspace-select .seda-field__control {
+  background: var(--seda-select-surface-default);
+  border-color: var(--seda-select-border-default);
+  color: var(--seda-select-foreground-default);
+}
+[data-workspace] .workspace-select .seda-field__label {
+  color: var(--seda-select-label-default);
+}
+[data-workspace] .workspace-select .seda-field__control:hover {
+  background: var(--seda-select-surface-hover);
+  border-color: var(--seda-select-border-hover);
+}
+[data-workspace]
+  .workspace-select
+  .seda-field__control:has(select:focus-visible) {
+  background: var(--seda-select-surface-focus);
+  border-color: var(--seda-select-border-focus);
+  outline-color: var(--seda-select-focus-ring);
+}
+[data-workspace] .workspace-select[data-state="error"] .seda-field__control {
+  background: var(--seda-select-surface-error);
+  border-color: var(--seda-select-border-error);
+}
+[data-workspace] .workspace-select[data-disabled="true"] .seda-field__control {
+  background: var(--seda-select-surface-disabled);
+  color: var(--seda-select-foreground-disabled);
+  border-color: var(--seda-select-border-disabled);
+}
+[data-workspace] option {
+  color: var(--seda-select-foreground-default);
+  background: var(--seda-select-surface-default);
+}
+[data-workspace] .seda-choice,
+[data-workspace] .seda-toggle {
+  box-sizing: border-box;
+  align-items: center;
+  min-height: var(--seda-control-height);
+  padding-block: var(--lab-padding-y);
+  gap: var(--lab-choice-gap);
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+}
+[data-workspace] .seda-choice__control {
+  appearance: none;
+  position: relative;
+  flex-shrink: 0;
+  width: var(--lab-choice-size);
+  height: var(--lab-choice-size);
+  margin: 0;
+  border: var(--seda-control-border-width) solid
+    var(--seda-checkbox-control-border-default);
+  border-radius: var(--lab-choice-radius);
+  background: var(--seda-checkbox-control-surface-default);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+[data-workspace] .seda-choice__control:checked,
+[data-workspace] .seda-choice__control[type="checkbox"]:indeterminate:not(:disabled) {
+  background: var(--seda-checkbox-control-surface-checked);
+  border-color: var(--seda-checkbox-control-border-checked);
+}
+[data-workspace] .seda-choice__control:checked::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 55%;
+  background: var(--seda-checkbox-control-icon-checked);
+  clip-path: polygon(0 50%, 18% 30%, 40% 55%, 85% 0, 100% 18%, 40% 100%);
+}
+[data-workspace] .seda-choice__control[type="checkbox"]:indeterminate::after {
+  content: "";
+  width: 60%;
+  height: 2px;
+  background: var(--seda-checkbox-control-icon-indeterminate);
+  clip-path: none;
+}
+[data-workspace] .seda-choice__control[type="checkbox"]:disabled {
+  background: var(--seda-checkbox-control-surface-disabled);
+  border-color: var(--seda-checkbox-control-border-disabled);
+  cursor: not-allowed;
+}
+[data-workspace] .workspace-radio .seda-choice__control {
+  border-radius: 50%;
+  background: var(--seda-radio-control-surface-default);
+  border-color: var(--seda-radio-control-border-default);
+}
+[data-workspace] .workspace-radio .seda-choice__control:checked {
+  background: var(--seda-radio-control-surface-selected);
+  border-color: var(--seda-radio-control-border-selected);
+}
+[data-workspace] .workspace-radio .seda-choice__control:checked::after {
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  clip-path: none;
+  background: var(--seda-radio-control-dot-selected);
+}
+[data-workspace] .seda-toggle__control {
+  border-color: var(--seda-toggle-border-default);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--lab-toggle-width);
+  height: var(--lab-toggle-height);
+  margin: 0;
+  border-radius: 999px;
+  background: var(--seda-toggle-track-off-default);
+}
+[data-workspace] .seda-toggle__control::after {
+  width: var(--lab-choice-size);
+  height: var(--lab-choice-size);
+  background: var(--seda-toggle-thumb-default);
+}
+[data-workspace] .seda-toggle__control:checked {
+  background: var(--seda-toggle-track-on-default);
+}
+[data-workspace] .seda-toggle__control:checked::after {
+  background: var(--seda-toggle-thumb-on);
+  transform: translateX(var(--lab-choice-size));
+}
+[data-workspace] .seda-choice__control:focus-visible {
+  outline-color: var(--seda-checkbox-focus-ring);
+}
+[data-workspace] .seda-toggle__control:focus-visible {
+  outline-color: var(--seda-toggle-focus-ring);
+}
+[data-workspace] .seda-choice[data-disabled="true"] .seda-choice__label {
+  color: var(--seda-checkbox-label-disabled);
+}
+.product-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #e2e7ef;
+  padding-bottom: 18px;
+  margin-bottom: 14px;
+}
+.product-masthead > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.product-masthead > div > div {
+  display: grid;
+  gap: 5px;
+}
+.product-masthead strong {
+  font-size: 15px;
+}
+.product-masthead span:not(.workspace-symbol) {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+.workspace-symbol {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #e1eafe;
+  color: #245cce;
+  font-weight: 700;
+}
+.product-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.product-nav [aria-current="page"] {
+  outline: 2px solid var(--seda-focus-ring);
+  background: var(--seda-surface-hover);
+}
+.workspace-page[hidden],
+#projects-page[hidden] {
+  display: none;
+}
+.workspace-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.workspace-form h2,
+.workspace-invite h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.form-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.form-section-heading span {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+.form-section-heading:not(:first-child) {
+  border-top: 1px solid #e1e7ef;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+.workspace-preferences {
+  display: grid;
+  gap: 10px;
+}
+.workspace-form-footer {
+  border-top: 1px solid #e1e7ef;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.workspace-form-footer p {
+  margin-bottom: 0;
+}
+.workspace-radio .seda-radio-group__items {
+  gap: 0;
+}
+.workspace-members-toolbar {
+  display: grid;
+  grid-template-columns: 1fr minmax(140px, 1fr);
+  align-items: end;
+}
+.workspace-table-scroll {
+  overflow: auto;
+  max-width: 100%;
+}
+.workspace-invite {
+  margin-top: 20px;
+}
+.workspace-invite > .seda-button {
+  margin-top: 20px;
+}
+[data-workspace] .workspace-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 14px;
+}
+.workspace-filters .searchwrap {
+  height: auto;
+  display: block;
+  min-width: 0;
+}
+.workspace-filters .searchwrap .seda-field__label {
+  position: static;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+.workspace-filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  grid-column: 1/-1;
+}
+.workspace-bulk,
+.workspace-pagination {
+  padding: 12px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #e1e7ef;
+}
+.workspace-bulk {
+  background: #eff4ff;
+  justify-content: flex-start;
+}
+.workspace-pagination .seda-field {
+  min-width: 120px;
+}
+.workspace-pagination > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.workspace-pagination p {
+  margin: 0;
+}
+.workspace-row-choice .seda-choice__label,
+.workspace-row-choice .seda-choice__content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.workspace-row-choice {
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+.workspace-row-choice .seda-choice__control {
+  margin: 0;
+}
+.workspace-sort-button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.workspace-caption {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #6f819a;
+  margin-top: 16px;
+}
+.workspace-caption strong {
+  font-weight: 600;
+}
+.workspace-tokens {
+  max-height: 320px;
+  overflow: auto;
+}
+.workspace-tokens code {
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.workspace-tokens > div {
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e7ef;
+  font-size: 11px;
+}
+.workspace-select {
+  min-width: 0;
+}
+.workspace-pagination span {
+  font-size: 12px;
+}
+body.dark .product-masthead,
+body.dark .workspace-form-footer,
+body.dark .form-section-heading,
+body.dark .workspace-pagination {
+  border-color: #344256;
+}
+body.dark .workspace-symbol,
+body.dark .workspace-bulk {
+  background: #253a58;
+  color: #c1d7ff;
+}
+body.dark .workspace-caption,
+body.dark .form-section-heading span {
+  color: #a2b3cd;
+}
+@media (min-width: 1600px) {
+  [data-workspace] .workspace-filters {
+    grid-template-columns: minmax(170px, 1.4fr) repeat(3, minmax(120px, 1fr));
+  }
+}
+@media (max-width: 780px) {
+  .workspace-form-grid,
+  .workspace-members-toolbar,
+  [data-workspace] .workspace-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .workspace-account {
+    display: none;
+  }
+  .workspace-form {
+    padding: 18px;
+  }
+  .product-nav .seda-button {
+    max-width: 100%;
+  }
+  .workspace-pagination {
+    align-items: stretch;
+  }
+  .workspace-pagination > div {
+    width: 100%;
+  }
+  .workspace-pagination .seda-field {
+    flex: 1;
+  }
+  .workspace-table-scroll table {
+    min-width: 600px;
+  }
+}
+[data-workspace] .view-switch .seda-button {
+  padding: 0 var(--lab-button-padding);
+  border-radius: var(--seda-control-radius);
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+  color: var(--seda-foreground-default);
+  background: var(--seda-surface-default);
+}
+[data-workspace] .view-switch .seda-button.active {
+  background: var(--seda-surface-hover);
+  box-shadow: inset 0 0 0 1px var(--seda-border-hover);
+}
+/* Application actions retain a stable control box in narrow panes; full accessible names remain available. */
+[data-workspace] .seda-button {
+  min-width: 0;
+  max-width: 100%;
+}
+[data-workspace] .seda-button__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-workspace] .view-switch {
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+[data-workspace] td {
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+  padding-block: calc(8px + var(--lab-padding-y));
+  padding-inline: var(--seda-control-padding-inline);
+}
+[data-workspace] th {
+  line-height: var(--seda-control-line-height);
+  padding-block: var(--lab-padding-y);
+  padding-inline: var(--seda-control-padding-inline);
+}
+[data-workspace] .workspace-checkbox .seda-choice__label {
+  color: var(--seda-checkbox-label-default);
+}
+[data-workspace] .workspace-radio .seda-choice__label {
+  color: var(--seda-radio-label-default);
+}
+[data-workspace] .workspace-toggle .seda-toggle__label {
+  color: var(--seda-toggle-label-default);
+}
+[data-workspace] .workspace-checkbox[data-disabled="true"] .seda-choice__label {
+  color: var(--seda-checkbox-label-disabled);
+}
+[data-workspace]
+  .workspace-checkbox
+  .seda-choice__control:not(:disabled):hover {
+  border-color: var(--seda-checkbox-control-border-hover);
+}
+[data-workspace] .workspace-radio .seda-choice__control:focus-visible {
+  outline-color: var(--seda-radio-focus-ring);
+}
+[data-workspace] .workspace-toggle[data-disabled="true"] .seda-toggle__control {
+  background: var(--seda-toggle-track-disabled);
+}
+[data-workspace] .workspace-toggle[data-disabled="true"] .seda-toggle__label {
+  color: var(--seda-toggle-label-disabled);
+}
+[data-workspace] .workspace-select .seda-field__message {
+  color: var(--seda-select-helper-default);
+}
+[data-workspace] .workspace-select .seda-field__message[data-tone="error"] {
+  color: var(--seda-select-helper-error);
+}
+/* Host chrome must not introduce a second inner focus ring. */
+[data-workspace] :is(.seda-field__input,.seda-field__select):focus-visible { outline: none; box-shadow: none; }
+[data-workspace] .seda-choice__control[type="checkbox"]:indeterminate:not(:disabled) { background: var(--seda-checkbox-control-surface-indeterminate); }
+[data-workspace] .seda-choice__control[type="checkbox"]:hover:not(:disabled):not(:checked):not(:indeterminate):not([aria-invalid="true"]) { background: var(--seda-checkbox-control-surface-hover); }
+[data-workspace] .seda-choice__control[aria-invalid="true"]:not(:disabled) { background: var(--seda-checkbox-control-surface-error); border-color: var(--seda-checkbox-control-border-error); }
+[data-workspace] .seda-choice__control[aria-invalid="true"]:is(:checked,:indeterminate):not(:disabled)::after { background: var(--seda-checkbox-control-icon-error); }
+[data-workspace] .workspace-radio:not([aria-invalid="true"]) .seda-choice__control:hover:not(:disabled):not(:checked) { background: var(--seda-radio-control-surface-hover); }
+[data-workspace] .workspace-radio[aria-invalid="true"] .seda-choice__control:not(:disabled) { background: var(--seda-radio-control-surface-error); border-color: var(--seda-radio-control-border-error); }
+[data-workspace] .workspace-radio[aria-invalid="true"] .seda-choice__control:checked:not(:disabled)::after { background: var(--seda-radio-control-dot-error); }
+[data-workspace] .workspace-radio .seda-choice__control:disabled { background: var(--seda-radio-control-surface-disabled); border-color: var(--seda-radio-control-border-disabled); }
+[data-workspace] .workspace-radio .seda-choice__control:disabled:checked::after { background: var(--seda-radio-control-dot-disabled); }
+[data-workspace] .workspace-radio .seda-choice[data-disabled="true"] .seda-choice__label { color: var(--seda-radio-label-disabled); }
+[data-workspace] .workspace-radio .seda-choice__control:focus-visible { outline-color: var(--seda-radio-focus-ring); }
+[data-workspace] .seda-toggle__control:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--seda-toggle-track-off-hover); }
+[data-workspace] .seda-toggle__control:checked:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--seda-toggle-track-on-hover); }
+[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"]) { background: var(--seda-toggle-track-disabled); cursor: not-allowed; }
+[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"]) { border-color: var(--seda-toggle-border-disabled); }
+[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"])::after { background: var(--seda-toggle-thumb-disabled); }
+[data-workspace] .seda-toggle[data-disabled="true"] .seda-toggle__label { color: var(--seda-toggle-label-disabled); }
+[data-workspace] .seda-field__control:has(select[multiple]) { height: auto; }
+[data-workspace] select[multiple] { min-height: calc(3 * var(--seda-control-line-height)); }
+[data-workspace] .workspace-select .seda-field__message { color: var(--seda-select-helper-default); }
+[data-workspace] .workspace-select .seda-field__message[data-tone="error"] { color: var(--seda-select-helper-error); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-choice__label { color: var(--seda-checkbox-label-default); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]:disabled) .seda-choice__label { color: var(--seda-checkbox-label-disabled); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-field__message { color: var(--seda-checkbox-helper-default); }
+[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-field__message[data-tone="error"] { color: var(--seda-checkbox-helper-error); }
+[data-workspace] .workspace-radio .seda-choice__label { color: var(--seda-radio-label-default); }
+[data-workspace] .workspace-radio .seda-field__message { color: var(--seda-radio-helper-default); }
+[data-workspace] .workspace-radio .seda-field__message[data-tone="error"] { color: var(--seda-radio-helper-error); }
+[data-workspace] .seda-toggle__label { color: var(--seda-toggle-label-default); }
+[data-workspace] .seda-toggle .seda-field__message { color: var(--seda-toggle-helper-default); }
+[data-workspace] .seda-toggle[data-disabled="true"] .seda-field__message { color: var(--seda-toggle-helper-disabled); }
+[data-workspace] .seda-choice__control:disabled:is(:checked,:indeterminate)::after { background: var(--seda-checkbox-control-icon-disabled); }
+/* TextField already owns its label margin; avoid adding the shared grid gap twice. */
+[data-workspace] .seda-field--text { gap: 0; }
+
+/* Composition spacing belongs to the settings content, not to Tabs token overrides. */
+.workspace-settings-panel { padding-block-start: 24px; }
+
+/* Experimental editor composition, built with shared SplitView and controls. */
+.editor-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-block-end:16px; }
+.editor-toolbar > span { color:var(--seda-foreground-default); }
+.editor-surface { height:520px; min-width:0; border:1px solid var(--border-subtle); border-radius:var(--seda-control-radius); overflow:hidden; }
+.editor-objects,.editor-properties,.editor-preview { padding:16px; min-height:100%; }
+.editor-objects,.editor-properties { display:flex; flex-direction:column; align-items:stretch; gap:16px; }
+.editor-objects h2,.editor-properties h2 { font-size:var(--seda-control-font-size); margin:0; }
+.editor-objects .seda-button { justify-content:flex-start; }
+.editor-objects [aria-pressed="true"] { outline:2px solid var(--focus-ring); outline-offset:-2px; }
+.editor-preview { background:var(--surface-base); overflow:auto; }
+.editor-artboard { border:1px solid var(--border-subtle); padding:20px; }
+.editor-artboard h2 { overflow-wrap:anywhere; }
+.editor-artboard .seda-button { max-width:100%; }
+
+.feedback-workspace { display:grid; gap:24px; }
+.feedback-workspace__controls { display:grid; grid-template-columns:minmax(180px,1fr) minmax(0,2fr); align-items:end; gap:20px; }
+.feedback-workspace__list { list-style:none; padding:0; margin:20px 0 0; }
+.feedback-workspace__list li { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding-block:12px; border-block-start:1px solid var(--border-default); }
+@media(max-width:1100px) { .feedback-workspace__controls { grid-template-columns:minmax(0,1fr); } }
+
+/* Composition rhythm uses the same compiled layout roles as forms/actions. */
+.feedback-workspace__queue { display:grid; gap:var(--seda-layout-actions-gap); }
+.feedback-workspace__queue > :is(h3,p) { margin:0; }

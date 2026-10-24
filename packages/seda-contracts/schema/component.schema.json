@@ -12,7 +12,15 @@
       "enum": [
         "Button",
         "IconButton",
-        "TextField"
+        "TextField",
+        "Select",
+        "Checkbox",
+        "Radio",
+        "Toggle",
+        "Tabs",
+        "DropdownMenu",
+        "Tree",
+        "TextArea"
       ]
     },
     "api": {
@@ -37,7 +45,11 @@
         "nativeElement": {
           "enum": [
             "button",
-            "input"
+            "input",
+            "select",
+            "fieldset",
+            "div",
+            "textarea"
           ]
         }
       },
@@ -125,7 +137,10 @@
           "items": {
             "enum": [
               "empty",
-              "filled"
+              "filled",
+              "checked",
+              "unchecked",
+              "indeterminate"
             ]
           },
           "minItems": 0,

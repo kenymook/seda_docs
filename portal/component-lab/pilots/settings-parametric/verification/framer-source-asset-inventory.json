@@ -1,0 +1,866 @@
+{
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "sourceNode": "1:7743",
+  "assets": [
+    {
+      "node": "1:7754",
+      "name": "imgVector",
+      "file": "1-7754-imgVector.svg",
+      "bytes": 965,
+      "sha256": "974bece4365eceed266adb84a3653aaec42b582865ee7d79604e60e112297f06",
+      "runtimeUsed": false,
+      "width": "9.58209",
+      "height": "10.9329",
+      "viewBox": "0 0 9.58209 10.9329",
+      "sourceLayerIds": [
+        null
+      ]
+    },
+    {
+      "node": "1:7754",
+      "name": "imgGroup",
+      "file": "1-7754-imgGroup.svg",
+      "bytes": 341,
+      "sha256": "389dc5d6a2594958856c7bf9ef8f12d7cb3006965733092dc24f6ae6c035eb0d",
+      "runtimeUsed": false,
+      "width": "11.5",
+      "height": "11.5",
+      "viewBox": "0 0 11.5 11.5",
+      "sourceLayerIds": [
+        null
+      ]
+    },
+    {
+      "node": "1:7797",
+      "name": "imgContainer",
+      "file": "1-7797-imgContainer.svg",
+      "bytes": 1683,
+      "sha256": "e5c0dbe909b518621a235ef44ecfcf3078be087553bcc2ec6a6acced926cba13",
+      "runtimeUsed": false,
+      "width": "570",
+      "height": "1",
+      "viewBox": "0 0 570 1",
+      "sourceLayerIds": [
+        "1:7800",
+        "1:7806"
+      ]
+    },
+    {
+      "node": "1:7797",
+      "name": "imgContainer1",
+      "file": "1-7797-imgContainer1.svg",
+      "bytes": 562,
+      "sha256": "55c54d25af67405caf097152d004d7d4a78e82e402bcfc3c9de9d09a41f544f1",
+      "runtimeUsed": false,
+      "width": "90",
+      "height": "1",
+      "viewBox": "0 0 90 1",
+      "sourceLayerIds": [
+        "1:7803",
+        "1:7809"
+      ]
+    },
+    {
+      "node": "1:7818",
+      "name": "imgImageSearch",
+      "file": "1-7818-imgImageSearch.svg",
+      "bytes": 2055,
+      "sha256": "f6b5c2bde1e77fd2fc859913adafe8c3165162d03df42cb356efddcdb20d1728",
+      "runtimeUsed": false,
+      "width": "12",
+      "height": "12",
+      "viewBox": "0 0 12 12",
+      "sourceLayerIds": [
+        "1:7830"
+      ]
+    },
+    {
+      "node": "1:7818",
+      "name": "imgIcon",
+      "file": "1-7818-imgIcon.svg",
+      "bytes": 1077,
+      "sha256": "6d1a1690d078c02c4b2c4f83aba05d37e89ca9a7713402bd304b39c45587afc5",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:7840",
+        "1:7848"
+      ]
+    },
+    {
+      "node": "1:7818",
+      "name": "imgContainer",
+      "file": "1-7818-imgContainer.svg",
+      "bytes": 1534,
+      "sha256": "82dcff85c9fb64764c87fc0cb319f9e67a2b2f0eaab656da4a321732d099055c",
+      "runtimeUsed": false,
+      "width": "12",
+      "height": "12",
+      "viewBox": "0 0 12 12",
+      "sourceLayerIds": [
+        "1:7857"
+      ]
+    },
+    {
+      "node": "1:7818",
+      "name": "imgContainer1",
+      "file": "1-7818-imgContainer1.svg",
+      "bytes": 1024,
+      "sha256": "dca4bb228598447b5b4859c6a66e26ec58d5fb472c3b5f1e32e3a0d527c0457c",
+      "runtimeUsed": false,
+      "width": "12",
+      "height": "12",
+      "viewBox": "0 0 12 12",
+      "sourceLayerIds": [
+        "1:7876"
+      ]
+    },
+    {
+      "node": "1:7818",
+      "name": "imgContainer2",
+      "file": "1-7818-imgContainer2.svg",
+      "bytes": 1030,
+      "sha256": "722aafc14e89787e57c583e9e278af8d7e9a3507a695307eab5192302064b3e0",
+      "runtimeUsed": false,
+      "width": "12",
+      "height": "12",
+      "viewBox": "0 0 12 12",
+      "sourceLayerIds": [
+        "1:7892",
+        "1:7908"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgVector",
+      "file": "1-7930-imgVector.svg",
+      "bytes": 321,
+      "sha256": "f3ac042c57db6205e3da2ab198352582701bca115db45bd28a55eb3ae8608627",
+      "runtimeUsed": false,
+      "width": "1",
+      "height": "16",
+      "viewBox": "0 0 1 16",
+      "sourceLayerIds": [
+        "1:7933",
+        "1:7950",
+        "1:7983",
+        "1:7984"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgClipPathGroup",
+      "file": "1-7930-imgClipPathGroup.svg",
+      "bytes": 704,
+      "sha256": "6678b7e4123ba4044a6b94748370d0f82c7e02a9fe0655795a6ba87652c27a41",
+      "runtimeUsed": false,
+      "width": "11",
+      "height": "6",
+      "viewBox": "0 0 11 6",
+      "sourceLayerIds": [
+        "1:7935",
+        "1:7952"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgVector1",
+      "file": "1-7930-imgVector1.svg",
+      "bytes": 268,
+      "sha256": "6509e62f8f4e35da9a36c9a7398dd7ddca30f752340b0dfc4636f890ad799b50",
+      "runtimeUsed": false,
+      "width": "1",
+      "height": "6",
+      "viewBox": "0 0 1 6",
+      "sourceLayerIds": [
+        "1:7941"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgVector2",
+      "file": "1-7930-imgVector2.svg",
+      "bytes": 266,
+      "sha256": "9dbd34c0773ee57fcf557b5590787103f28efca038dad693dedaa5d659c5b5f2",
+      "runtimeUsed": false,
+      "width": "1",
+      "height": "6",
+      "viewBox": "0 0 1 6",
+      "sourceLayerIds": [
+        "1:7942"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgClipPathGroup1",
+      "file": "1-7930-imgClipPathGroup1.svg",
+      "bytes": 708,
+      "sha256": "3bd1b2c0705962ca4c16328b3389d1da3e0e9cfb0b17a6571faf6199bd06ad7e",
+      "runtimeUsed": false,
+      "width": "13",
+      "height": "6",
+      "viewBox": "0 0 13 6",
+      "sourceLayerIds": [
+        "1:7944"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgVector3",
+      "file": "1-7930-imgVector3.svg",
+      "bytes": 321,
+      "sha256": "cab9a3778f4192f8fa539cc6883446daf3be578ae8cae784ad7c39fa8c71fdd0",
+      "runtimeUsed": false,
+      "width": "16",
+      "height": "1",
+      "viewBox": "0 0 16 1",
+      "sourceLayerIds": [
+        "1:7958",
+        "1:7975",
+        "1:7992",
+        "1:7993"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgClipPathGroup2",
+      "file": "1-7930-imgClipPathGroup2.svg",
+      "bytes": 704,
+      "sha256": "f4bab4df12bae2c5984065258e7e993fe6b919946e7d58af4d26064d147c0916",
+      "runtimeUsed": false,
+      "width": "6",
+      "height": "11",
+      "viewBox": "0 0 6 11",
+      "sourceLayerIds": [
+        "1:7960",
+        "1:7977"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgVector4",
+      "file": "1-7930-imgVector4.svg",
+      "bytes": 268,
+      "sha256": "e904a93a4acfae764e2e2fcfa571025d42368a462dac8f9185fe51076be23720",
+      "runtimeUsed": false,
+      "width": "6",
+      "height": "1",
+      "viewBox": "0 0 6 1",
+      "sourceLayerIds": [
+        "1:7966"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgVector5",
+      "file": "1-7930-imgVector5.svg",
+      "bytes": 266,
+      "sha256": "71ca98cc886ceba9731ad29d813d4669f94d8ecfd96dceebfa6e70802e371d26",
+      "runtimeUsed": false,
+      "width": "6",
+      "height": "1",
+      "viewBox": "0 0 6 1",
+      "sourceLayerIds": [
+        "1:7967"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgClipPathGroup3",
+      "file": "1-7930-imgClipPathGroup3.svg",
+      "bytes": 706,
+      "sha256": "e0119844c042dccfb54734c32081a4b4f22a98cbd4891cf7357f666725db123c",
+      "runtimeUsed": false,
+      "width": "6",
+      "height": "13",
+      "viewBox": "0 0 6 13",
+      "sourceLayerIds": [
+        "1:7969"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgClipPathGroup4",
+      "file": "1-7930-imgClipPathGroup4.svg",
+      "bytes": 698,
+      "sha256": "0732d305c019b086af1e99cbc990c48544b3e0da468596c2fcf381f86b2b1f6f",
+      "runtimeUsed": false,
+      "width": "6",
+      "height": "10",
+      "viewBox": "0 0 6 10",
+      "sourceLayerIds": [
+        "1:7986"
+      ]
+    },
+    {
+      "node": "1:7930",
+      "name": "imgClipPathGroup5",
+      "file": "1-7930-imgClipPathGroup5.svg",
+      "bytes": 700,
+      "sha256": "02089187e4727dd8219968abf66c225775a6e64abae4f2e94fff5c8f1bd7be6c",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "6",
+      "viewBox": "0 0 10 6",
+      "sourceLayerIds": [
+        "1:7995"
+      ]
+    },
+    {
+      "node": "1:7999",
+      "name": "imgIcon",
+      "file": "1-7999-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8005"
+      ]
+    },
+    {
+      "node": "1:8016",
+      "name": "imgContainer",
+      "file": "1-8016-imgContainer.svg",
+      "bytes": 413,
+      "sha256": "21d4ffc57d2a88ea10c671710023b0184ad9c928499697fb81ab59c1bce266f8",
+      "runtimeUsed": false,
+      "width": "8",
+      "height": "8",
+      "viewBox": "0 0 8 8",
+      "sourceLayerIds": [
+        "1:8032"
+      ]
+    },
+    {
+      "node": "1:8034",
+      "name": "imgIcon",
+      "file": "1-8034-imgIcon.svg",
+      "bytes": 1077,
+      "sha256": "204280ec59a7fbfca097ee8667a20bb55377a80e35237f37adcb18dc894f3847",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8040"
+      ]
+    },
+    {
+      "node": "1:8034",
+      "name": "imgContainer",
+      "file": "1-8034-imgContainer.svg",
+      "bytes": 413,
+      "sha256": "21d4ffc57d2a88ea10c671710023b0184ad9c928499697fb81ab59c1bce266f8",
+      "runtimeUsed": false,
+      "width": "8",
+      "height": "8",
+      "viewBox": "0 0 8 8",
+      "sourceLayerIds": [
+        "1:8057",
+        "1:8075"
+      ]
+    },
+    {
+      "node": "1:8034",
+      "name": "imgContainer1",
+      "file": "1-8034-imgContainer1.svg",
+      "bytes": 559,
+      "sha256": "aff55ae8bb0e65d5944f1d816af7a2b264c7f6ea742b812256ab1a0165bdc134",
+      "runtimeUsed": false,
+      "width": "16",
+      "height": "16",
+      "viewBox": "0 0 16 16",
+      "sourceLayerIds": [
+        "1:8088"
+      ]
+    },
+    {
+      "node": "1:8034",
+      "name": "imgContainer2",
+      "file": "1-8034-imgContainer2.svg",
+      "bytes": 561,
+      "sha256": "95f36c38ad802670f0145d33726656ff12c6d5585d0548391391c4c5086f766f",
+      "runtimeUsed": false,
+      "width": "16",
+      "height": "16",
+      "viewBox": "0 0 16 16",
+      "sourceLayerIds": [
+        "1:8091"
+      ]
+    },
+    {
+      "node": "1:8034",
+      "name": "imgContainer3",
+      "file": "1-8034-imgContainer3.svg",
+      "bytes": 1241,
+      "sha256": "ebf6e15fe6d0b93b4898d30844cab574099076f66ef50ad07e83e4badf205084",
+      "runtimeUsed": false,
+      "width": "12",
+      "height": "12",
+      "viewBox": "0 0 12 12",
+      "sourceLayerIds": [
+        "1:8094"
+      ]
+    },
+    {
+      "node": "1:8034",
+      "name": "imgGroup",
+      "file": "1-8034-imgGroup.svg",
+      "bytes": 1003,
+      "sha256": "cfd609d00a9de5dc80d50e3ef789b348b65e6f7e52f78175e87e97f5c6dc5697",
+      "runtimeUsed": false,
+      "width": "14.0858",
+      "height": "7.5",
+      "viewBox": "0 0 14.0858 7.5",
+      "sourceLayerIds": [
+        null
+      ]
+    },
+    {
+      "node": "1:8115",
+      "name": "imgIcon",
+      "file": "1-8115-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8120"
+      ]
+    },
+    {
+      "node": "1:8123",
+      "name": "imgIcon",
+      "file": "1-8123-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8128"
+      ]
+    },
+    {
+      "node": "1:8131",
+      "name": "imgIcon",
+      "file": "1-8131-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8136"
+      ]
+    },
+    {
+      "node": "1:8139",
+      "name": "imgIcon",
+      "file": "1-8139-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "fe8dd04a5c437a3afd2a97f996277a9ed2c409d52cec3f76d51f9a27d2c73f6e",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8145"
+      ]
+    },
+    {
+      "node": "1:8139",
+      "name": "imgContainer",
+      "file": "1-8139-imgContainer.svg",
+      "bytes": 668,
+      "sha256": "1df93c95a5c3bf788d5039ec5a2fe4ddc25486d6490350b1192afdadb1e20796",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8153",
+        "1:8165"
+      ]
+    },
+    {
+      "node": "1:8179",
+      "name": "imgIcon",
+      "file": "1-8179-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8184"
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgContainer1",
+      "file": "1-8187-imgContainer1.png",
+      "bytes": 151,
+      "sha256": "ecd78b7cd3a466a21d2b12ea8756160273659ecb6506b46252ac644c294cd7fa",
+      "runtimeUsed": false,
+      "sourceLayerIds": [
+        null
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgIcon",
+      "file": "1-8187-imgIcon.svg",
+      "bytes": 1077,
+      "sha256": "6d1a1690d078c02c4b2c4f83aba05d37e89ca9a7713402bd304b39c45587afc5",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8193"
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgGroup",
+      "file": "1-8187-imgGroup.svg",
+      "bytes": 407,
+      "sha256": "0ce1fcc4db068dadf16a4286345031b28d12baf3fc962b0558e7d219d81a8bab",
+      "runtimeUsed": false,
+      "width": "6.5",
+      "height": "6.5",
+      "viewBox": "0 0 6.5 6.5",
+      "sourceLayerIds": [
+        null
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgContainer",
+      "file": "1-8187-imgContainer.svg",
+      "bytes": 670,
+      "sha256": "54037ec77779f70a80db225584c5c38343e3ea292c96c2198591021f99025daa",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8218"
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgContainer2",
+      "file": "1-8187-imgContainer2.svg",
+      "bytes": 666,
+      "sha256": "08d88f118ce0a98bb6fff8c311e7eef9f471ca3e78e78e7495b8c897a8690e06",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8256"
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgContainer3",
+      "file": "1-8187-imgContainer3.svg",
+      "bytes": 672,
+      "sha256": "a6ccbfd8e79f29e78723069cce79dc9229439526214237ca7d005e661e234457",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8261"
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgContainer4",
+      "file": "1-8187-imgContainer4.svg",
+      "bytes": 678,
+      "sha256": "21aefd589cb2e484f5d6b55d7a09422a3d0347480288d754b3d09549daa7dc0e",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8266"
+      ]
+    },
+    {
+      "node": "1:8187",
+      "name": "imgContainer5",
+      "file": "1-8187-imgContainer5.svg",
+      "bytes": 678,
+      "sha256": "cb813ab24216de5e2a6f9c7083db2f4f2b7a4d9895855f943741045564936fd9",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8271"
+      ]
+    },
+    {
+      "node": "1:8290",
+      "name": "imgIcon",
+      "file": "1-8290-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8295"
+      ]
+    },
+    {
+      "node": "1:8298",
+      "name": "imgIcon",
+      "file": "1-8298-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "eb6bb15714bd35e257118a1ec71e0af8e4f1c74ea1a8774908d7fdfa61ed0551",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8304"
+      ]
+    },
+    {
+      "node": "1:8298",
+      "name": "imgContainer",
+      "file": "1-8298-imgContainer.svg",
+      "bytes": 413,
+      "sha256": "21d4ffc57d2a88ea10c671710023b0184ad9c928499697fb81ab59c1bce266f8",
+      "runtimeUsed": false,
+      "width": "8",
+      "height": "8",
+      "viewBox": "0 0 8 8",
+      "sourceLayerIds": [
+        "1:8317"
+      ]
+    },
+    {
+      "node": "1:8319",
+      "name": "imgIcon",
+      "file": "1-8319-imgIcon.svg",
+      "bytes": 1075,
+      "sha256": "3cc0fa464127a816a2a643a7f8923acb97dc2b1d9706ca5471750b75b2ca15da",
+      "runtimeUsed": false,
+      "width": "10",
+      "height": "10",
+      "viewBox": "0 0 10 10",
+      "sourceLayerIds": [
+        "1:8324"
+      ]
+    },
+    {
+      "node": "1:8330",
+      "name": "imgIcon",
+      "file": "1-8330-imgIcon.svg",
+      "bytes": 519,
+      "sha256": "0707eb394b4b80bfa0f95aaa3b19c57bfef83b1a401a988e9a37340be392c989",
+      "runtimeUsed": false,
+      "width": "30",
+      "height": "30",
+      "viewBox": "0 0 30 30",
+      "sourceLayerIds": [
+        "1:8333"
+      ]
+    },
+    {
+      "node": "1:8330",
+      "name": "imgIcon1",
+      "file": "1-8330-imgIcon1.svg",
+      "bytes": 1642,
+      "sha256": "ae58f91818fcf860a7bc5abff536c417d5152e7216efdde59b1faf3ea57ae561",
+      "runtimeUsed": false,
+      "width": "30",
+      "height": "30",
+      "viewBox": "0 0 30 30",
+      "sourceLayerIds": [
+        "1:8336"
+      ]
+    },
+    {
+      "node": "1:8330",
+      "name": "imgContainer",
+      "file": "1-8330-imgContainer.svg",
+      "bytes": 401,
+      "sha256": "9ff7a51464fa2aa238abe322fc9dc1d49f639b70063a07469879cc8a3fecc988",
+      "runtimeUsed": false,
+      "width": "30",
+      "height": "30",
+      "viewBox": "0 0 30 30",
+      "sourceLayerIds": [
+        "1:8339"
+      ]
+    },
+    {
+      "node": "1:8330",
+      "name": "imgIcon2",
+      "file": "1-8330-imgIcon2.svg",
+      "bytes": 1198,
+      "sha256": "8d07fffbc833fe9bc5a475af7190985879515fabe044389439e8551655cc3e87",
+      "runtimeUsed": false,
+      "width": "30",
+      "height": "30",
+      "viewBox": "0 0 30 30",
+      "sourceLayerIds": [
+        "1:8342"
+      ]
+    },
+    {
+      "node": "1:8330",
+      "name": "imgContainer1",
+      "file": "1-8330-imgContainer1.svg",
+      "bytes": 413,
+      "sha256": "21d4ffc57d2a88ea10c671710023b0184ad9c928499697fb81ab59c1bce266f8",
+      "runtimeUsed": false,
+      "width": "8",
+      "height": "8",
+      "viewBox": "0 0 8 8",
+      "sourceLayerIds": [
+        "1:8347"
+      ]
+    },
+    {
+      "node": "1:8352",
+      "name": "imgIcon",
+      "file": "1-8352-imgIcon.svg",
+      "bytes": 399,
+      "sha256": "eaa2e50ae8c25105a2fb6724f5f33db4498b0c7a19881b579937acde6acd6b81",
+      "runtimeUsed": true,
+      "width": "10",
+      "height": "15",
+      "viewBox": "0 0 10 15",
+      "sourceLayerIds": [
+        "1:8357"
+      ],
+      "runtimeFile": "framer-header-imgIcon.svg"
+    },
+    {
+      "node": "1:8352",
+      "name": "imgContainer",
+      "file": "1-8352-imgContainer.svg",
+      "bytes": 413,
+      "sha256": "21d4ffc57d2a88ea10c671710023b0184ad9c928499697fb81ab59c1bce266f8",
+      "runtimeUsed": false,
+      "width": "8",
+      "height": "8",
+      "viewBox": "0 0 8 8",
+      "sourceLayerIds": [
+        "1:8362"
+      ]
+    },
+    {
+      "node": "1:8352",
+      "name": "imgGroup",
+      "file": "1-8352-imgGroup.svg",
+      "bytes": 341,
+      "sha256": "207bf02f985883a5d5ee7ad5c176a342412e6af30b89c4fd30e4b78f013f4f78",
+      "runtimeUsed": true,
+      "width": "15.5",
+      "height": "15.5",
+      "viewBox": "0 0 15.5 15.5",
+      "sourceLayerIds": [
+        null
+      ],
+      "runtimeFile": "framer-header-imgGroup.svg"
+    },
+    {
+      "node": "1:8352",
+      "name": "imgIcon1",
+      "file": "1-8352-imgIcon1.svg",
+      "bytes": 1149,
+      "sha256": "8233171767ad9c7e3cd9bb07824246ab35ec8de6985965103c73c7166c40e6a9",
+      "runtimeUsed": true,
+      "width": "20",
+      "height": "20",
+      "viewBox": "0 0 20 20",
+      "sourceLayerIds": [
+        "1:8373"
+      ],
+      "runtimeFile": "framer-header-imgIcon1.svg"
+    },
+    {
+      "node": "1:8352",
+      "name": "imgGroup1",
+      "file": "1-8352-imgGroup1.svg",
+      "bytes": 990,
+      "sha256": "2878748630783993ae1991c77b55f16de6d8510782731df963634f0dcde87924",
+      "runtimeUsed": true,
+      "width": "15",
+      "height": "14.5",
+      "viewBox": "0 0 15 14.5",
+      "sourceLayerIds": [
+        "1:8379"
+      ],
+      "runtimeFile": "framer-header-imgGroup1.svg"
+    },
+    {
+      "node": "1:8352",
+      "name": "imgIcon2",
+      "file": "1-8352-imgIcon2.svg",
+      "bytes": 935,
+      "sha256": "379ff2148969b4a3f682a8f65c95199c95004b1958665040bae063ef34879c61",
+      "runtimeUsed": true,
+      "width": "20",
+      "height": "20",
+      "viewBox": "0 0 20 20",
+      "sourceLayerIds": [
+        "1:8384"
+      ],
+      "runtimeFile": "framer-header-imgIcon2.svg"
+    },
+    {
+      "node": "1:8352",
+      "name": "imgContainer1",
+      "file": "1-8352-imgContainer1.svg",
+      "bytes": 3376,
+      "sha256": "2f5298a4a3e353cd08283d16b19cfa1fd3c628bccf04ebad98a0b6662f096e3b",
+      "runtimeUsed": false,
+      "width": "12",
+      "height": "12",
+      "viewBox": "0 0 12 12",
+      "sourceLayerIds": [
+        "1:8400"
+      ]
+    },
+    {
+      "node": "1:8352",
+      "name": "imgIcon3",
+      "file": "1-8352-imgIcon3.svg",
+      "bytes": 926,
+      "sha256": "35821604534fbf43fc4a6c674b14cbb156f56a098ffa80a4fbe4f53e06cff03c",
+      "runtimeUsed": false,
+      "width": "18",
+      "height": "18",
+      "viewBox": "0 0 18 18",
+      "sourceLayerIds": [
+        "1:8413"
+      ]
+    }
+  ],
+  "uniqueHashes": 49,
+  "runtimeAssetsConnected": true,
+  "runtimeConnectedCount": 5,
+  "runtimeScope": "Five header SVG assets, exact bytes. Other source assets are not connected."
+}

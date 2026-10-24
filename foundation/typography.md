@@ -23,14 +23,14 @@ SEDA UI ориентирована на плотные B2B и AI-интерфе�
 
 | Токен | Значение | Назначение |
 |---|---|---|
-| `font/family` | `SF Pro Text` | Основной шрифт в текущих токенах |
-| `font/family/fallback` | `Inter`, `Segoe UI`, `Roboto`, `Arial`, `sans-serif` | Запасной стек для Web |
-| `font/family/mono` | `SFMono-Regular`, `Consolas`, `Liberation Mono`, `monospace` | Код, идентификаторы, технические значения |
+| `font/family` | `Inter` | Основной шрифт в текущих токенах |
+| Web fallback (CSS adapter) | `Inter`, `Segoe UI`, `Roboto`, `Arial`, `sans-serif` | Запасной стек для Web |
+| Mono stack (CSS adapter) | `SFMono-Regular`, `Consolas`, `Liberation Mono`, `monospace` | Код, идентификаторы, технические значения |
 
 Рекомендуемый CSS stack:
 
 ```css
-font-family: "SF Pro Text", Inter, "Segoe UI", Roboto, Arial, sans-serif;
+font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
 ```
 
 ---
@@ -53,12 +53,12 @@ font-family: "SF Pro Text", Inter, "Segoe UI", Roboto, Arial, sans-serif;
 
 | Токен | Базовый размер / строка | Strong | Emphasis | Основное назначение |
 |---|---:|---|---|---|
-| `font/titleLarge1` | 48 / 64 | Semibold | Light Italic | Очень крупный презентационный заголовок, редкие hero-сценарии |
-| `font/titleLarge2` | 40 / 56 | Semibold | Italic | Презентационные заголовки |
-| `font/titleLarge3` | 32 / 48 | Semibold | Italic | Крупные заголовки страниц |
-| `font/title1` | 24 / 40 | Semibold | Italic | Заголовок страницы или крупной секции |
-| `font/title2` | 20 / 32 | Semibold | Italic | Заголовок секции |
-| `font/title3` | 18 / 24 | Semibold | Italic | Заголовок панели, карточки или группы |
+| `font/title1` | 48 / 64 | Semibold | Light Italic | Очень крупный презентационный заголовок, редкие hero-сценарии |
+| `font/title2` | 40 / 56 | Semibold | Italic | Презентационные заголовки |
+| `font/title3` | 32 / 48 | Semibold | Italic | Крупные заголовки страниц |
+| `font/h1` | 24 / 40 | Semibold | Italic | Заголовок страницы или крупной секции |
+| `font/h2` | 20 / 32 | Semibold | Italic | Заголовок секции |
+| `font/h3` | 18 / 24 | Semibold | Italic | Заголовок панели, карточки или группы |
 | `font/headline` | 16 / 20 | Semibold | Italic | Компактный заголовок, подпись заголовка таблицы или панели |
 | `font/bodyExtraLarge` | 18 / 28 | Semibold | Italic | Крупный основной текст или текст онбординга |
 | `font/bodyLarge` | 16 / 24 | Semibold | Italic | Основной текст повышенной читаемости |
@@ -67,7 +67,7 @@ font-family: "SF Pro Text", Inter, "Segoe UI", Roboto, Arial, sans-serif;
 | `font/bodyExtraSmall` | 10 / 14 | Semibold | Italic | Микротекст, плотные метаданные |
 | `font/caption` | 8 / 10 | Semibold | Italic | Очень редкие технические подписи |
 
-> Примечание о текущем состоянии: `titleLarge1`, `titleLarge2`, `titleLarge3` и часть `title1` в `tokens.json` используют отрицательный letter-spacing. Для production UI используйте только значения из токена и не добавляйте отрицательный letter-spacing вручную. Для плотных интерфейсов предпочтительно держать letter-spacing `0`.
+> Примечание о текущем состоянии: `title1`, `title2`, `title3` и отдельные начертания `h1` в `tokens.json` используют отрицательный letter-spacing. Для production UI используйте только значения из токена и не добавляйте отрицательный letter-spacing вручную. Для плотных интерфейсов предпочтительно держать letter-spacing `0`.
 
 ---
 
@@ -79,9 +79,9 @@ font-family: "SF Pro Text", Inter, "Segoe UI", Roboto, Arial, sans-serif;
 
 | Роль | Токен | Использование |
 |---|---|---|
-| `type/display/large` | `font/titleLarge1/strong` | Редкий hero или презентационный экран |
-| `type/display/medium` | `font/titleLarge2/strong` | Крупная промо-страница, onboarding |
-| `type/display/small` | `font/titleLarge3/strong` | Крупный landing/page intro |
+| `type/display/large` | `font/title1/strong` | Редкий hero или презентационный экран |
+| `type/display/medium` | `font/title2/strong` | Крупная промо-страница, onboarding |
+| `type/display/small` | `font/title3/strong` | Крупный landing/page intro |
 
 Не использовать:
 - В плотных дашбордах.
@@ -92,9 +92,9 @@ font-family: "SF Pro Text", Inter, "Segoe UI", Roboto, Arial, sans-serif;
 
 | Роль | Токен | Использование |
 |---|---|---|
-| `type/heading/page` | `font/title1/strong` | Главный заголовок страницы |
-| `type/heading/section` | `font/title2/strong` | Заголовок крупной секции |
-| `type/heading/panel` | `font/title3/strong` | Панели, карточки, modal header |
+| `type/heading/page` | `font/h1/strong` | Главный заголовок страницы |
+| `type/heading/section` | `font/h2/strong` | Заголовок крупной секции |
+| `type/heading/panel` | `font/h3/strong` | Панели, карточки, modal header |
 | `type/heading/compact` | `font/headline/strong` | Компактные панели, тулбар таблицы, плотные заголовки |
 
 Правила:
@@ -158,8 +158,8 @@ font-family: "SF Pro Text", Inter, "Segoe UI", Roboto, Arial, sans-serif;
 
 | Роль | Токен | Использование |
 |---|---|---|
-| `type/metric/large` | `font/title2/strong` | Значение метрики в дашборде |
-| `type/metric/default` | `font/title3/strong` | Значение метрики в карточке |
+| `type/metric/large` | `font/h2/strong` | Значение метрики в дашборде |
+| `type/metric/default` | `font/h3/strong` | Значение метрики в карточке |
 | `type/metric/small` | `font/headline/strong` | Компактная метрика в таблице или панели |
 | `type/metric/label` | `font/bodySmall/base` | Подпись метрики |
 
@@ -286,3 +286,7 @@ font-variant-numeric: tabular-nums;
 - [ ] Проверена связь с размерами компонентов.
 - [ ] Проверен contrast для типичных поверхностей.
 - [ ] Добавление не создает дубликат существующей роли.
+
+## Исполняемая web-типографика
+
+Роли доступны через общий compiler и public [Text](../specs/data-display/text.md). `SedaProvider textScale` задаёт наследуемый абсолютный масштаб80–200%; размер контрола независим от роли текста. Token mapping исправлен по фактическому tokens.json: title1/2/3 —48/40/32px, h1/h2/h3 —24/20/18px. Значения tokens.json не изменялись. Каждое начертание имеет собственные letter-spacing/weight; нужно разрешать полный token branch, а не переносить tracking из base в strong. Моноширинный stack — документированный adapter: отдельного font/family/mono token в текущем документе нет.

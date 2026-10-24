@@ -1,0 +1,222 @@
+{
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "sourceNode": "1:84",
+  "purpose": "Original individual Figma assets; screen reference is QA only and is not rendered.",
+  "assets": [
+    {
+      "file": "building-imgGroup.svg",
+      "bytes": 265,
+      "sha256": "426dcc360552bd6c4aeab878425e5d3d6a15fa4d70b5ee32077bae5177bc18be"
+    },
+    {
+      "file": "building-imgGroup1.svg",
+      "bytes": 814,
+      "sha256": "b828fc32de0b185b68300ee06c73d0d6e8be629b4d42c6427e767d5c04308c97"
+    },
+    {
+      "file": "building-imgIcon.svg",
+      "bytes": 1232,
+      "sha256": "2331f452e62165eed39aea3b933848a7f45bb82e33167742472b214b2f772ab4"
+    },
+    {
+      "file": "building-imgIcon1.svg",
+      "bytes": 1010,
+      "sha256": "f9f59863b761f485435db401c0cc131a5f156edc29e681e93b057d77e96dbac1"
+    },
+    {
+      "file": "building-imgIcon10.svg",
+      "bytes": 629,
+      "sha256": "e5f11359b3e578162bf2e3361130b3080a003ecc09ad89ff3a1bfea57f94147b"
+    },
+    {
+      "file": "building-imgIcon11.svg",
+      "bytes": 1259,
+      "sha256": "32af2939952406cf3fa90820cada4965fe194821d331db0b871428def0aa20c1"
+    },
+    {
+      "file": "building-imgIcon12.svg",
+      "bytes": 1063,
+      "sha256": "7f27af3f2addd2f4f0525c781874b59cc7d781efc277042aaa8062d12636b2e7"
+    },
+    {
+      "file": "building-imgIcon13.svg",
+      "bytes": 967,
+      "sha256": "86a4bd572871e269df54af3f24105144e9cd74e0704d79736c9c09fdecaa39d5"
+    },
+    {
+      "file": "building-imgIcon14.png",
+      "bytes": 263,
+      "sha256": "953f28b040f9efad45050cc38c53fc08f4e655bf06a80e5a43a9f4a1a2c9721c"
+    },
+    {
+      "file": "building-imgIcon15.png",
+      "bytes": 391,
+      "sha256": "b9be7ceaa19c8c2d16a87e9724838a4d9ff28fd847b0673ec0f4ad733f0aa127"
+    },
+    {
+      "file": "building-imgIcon16.png",
+      "bytes": 363,
+      "sha256": "d2282bef8e0498d3fe6f9d1e5ff8c068e44a3737e0ad6915d99ef6e70ae72f8d"
+    },
+    {
+      "file": "building-imgIcon17.png",
+      "bytes": 482,
+      "sha256": "da086acb2cf499cb5ddab12c77eca50d79f0c2878448be8142ac9888871e7b09"
+    },
+    {
+      "file": "building-imgIcon18.png",
+      "bytes": 443,
+      "sha256": "dbd9d37b11b4d24e327068eab0c31f728205df3c9e47769a7c343d92fe957b9c"
+    },
+    {
+      "file": "building-imgIcon19.png",
+      "bytes": 545,
+      "sha256": "a24701a077eb4a7960675da99b405c41a58152751bf91bd1aef0fccad22f445c"
+    },
+    {
+      "file": "building-imgIcon2.svg",
+      "bytes": 718,
+      "sha256": "73b4f9c74411463e151d7e5362fa44ed39d3ee733190010be7a628c90b1be845"
+    },
+    {
+      "file": "building-imgIcon20.png",
+      "bytes": 247,
+      "sha256": "efb56f5b6e787e91b643ad20a0837178d688b622a752bc20a2eea663e8c8e90c"
+    },
+    {
+      "file": "building-imgIcon3.svg",
+      "bytes": 718,
+      "sha256": "653e88ec9a9ad779cd6b1332cf385d39654a1d3dd0bf612743c7cf2e008796ac"
+    },
+    {
+      "file": "building-imgIcon4.svg",
+      "bytes": 841,
+      "sha256": "b6c268d60b8dccf52ded3512f72a67a83e3756e913e6a69c522c85be9f681810"
+    },
+    {
+      "file": "building-imgIcon5.svg",
+      "bytes": 1232,
+      "sha256": "9f3ca7952e70e852e8dedb336dd73bae0ede6969e258d18d6f4285e27c1b92f4"
+    },
+    {
+      "file": "building-imgIcon6.svg",
+      "bytes": 845,
+      "sha256": "5fdf89b91d573ab64b0b7ac09d9eb0e05cf244bc9f2977ba98ecdbd26a134da1"
+    },
+    {
+      "file": "building-imgIcon7.svg",
+      "bytes": 1843,
+      "sha256": "5d12aecec7ed71fc6f173d6ceef75afc42ba2a832306a093180a4af37d8982b0"
+    },
+    {
+      "file": "building-imgIcon8.svg",
+      "bytes": 602,
+      "sha256": "503814e44cfccfd06fcef365579fe36c064daf8e1b89bca6363f5ca68841fe6f"
+    },
+    {
+      "file": "building-imgIcon9.svg",
+      "bytes": 905,
+      "sha256": "fab62658aea906fb7db206775c38735fb156fdc54f151733732c113f7c281348"
+    },
+    {
+      "file": "building-imgImageAnger.png",
+      "bytes": 8263,
+      "sha256": "288d2375c9e029421df92c9fd8c0445dcf5a3195bb1f43073bbe1eed7e198328"
+    },
+    {
+      "file": "building-imgImageBallotBoxWithCheck.png",
+      "bytes": 5034,
+      "sha256": "5b7d0b626052a1ca3ccbfb0fae9f194bfbefde3b0cccd904de0b4dc7bbe45a21"
+    },
+    {
+      "file": "building-imgImageBomb.png",
+      "bytes": 8862,
+      "sha256": "ad7ab1ac0b8c8eb690c4df342d1440aabdc6ce7c3b87a7bbe82bf6430b25c421"
+    },
+    {
+      "file": "building-imgImageBrain.png",
+      "bytes": 12722,
+      "sha256": "f73824e2440834e8991bece77967d98b129f7d14e782a8ac3b53c81d1284f2cd"
+    },
+    {
+      "file": "building-imgImageCactus.png",
+      "bytes": 12945,
+      "sha256": "97121dce069d8c548924790eec984d577c703b27378eaa1719ddd90b22de2c43"
+    },
+    {
+      "file": "building-imgImageConstruction.png",
+      "bytes": 6203,
+      "sha256": "97617bec6f36f31894d8c8b0d87e324d44a042a1baf5c16c9202a3ed0e7275d9"
+    },
+    {
+      "file": "building-imgImageConstruction1.png",
+      "bytes": 88,
+      "sha256": "8059d98804c941bff5bf2cb8ea82b60a20e8f7c6354210ded6046837cd437cd1"
+    },
+    {
+      "file": "building-imgImageDart.png",
+      "bytes": 11998,
+      "sha256": "2b7655f5037d84cf15e036b61882a6c72711e4520753760702b8d92d999955d8"
+    },
+    {
+      "file": "building-imgImageFaceWithMonocle.png",
+      "bytes": 23949,
+      "sha256": "a73654783cef71e2eaeaa32bf92172385a200255caab0b791f078a7c5e81fe86"
+    },
+    {
+      "file": "building-imgImageHeavyDollarSign.png",
+      "bytes": 8233,
+      "sha256": "1b74a7a00488ec1433f149a835f4ce56c4994fd0ea6983be956c539fc444b228"
+    },
+    {
+      "file": "building-imgImageKey.png",
+      "bytes": 8196,
+      "sha256": "9807cd8016c23f60eb89b14e21d9be2a37bd786a35bf47d1095edfa4bf63130e"
+    },
+    {
+      "file": "building-imgImageMaleMage.png",
+      "bytes": 16042,
+      "sha256": "00d340f1d4b6b342dcb14b8a7671afdfb1ff662268fe49feb699adb3a834afc7"
+    },
+    {
+      "file": "building-imgImageMuscle.png",
+      "bytes": 10274,
+      "sha256": "c5f8c7a990c34e792a130e9d3adf73a07c54f1ba95d06a12b870c580a04a97a1"
+    },
+    {
+      "file": "building-imgImageMushroom.png",
+      "bytes": 8313,
+      "sha256": "ba29ebb66436b62b56f4e228e96e453ae98e707fc8553d62bc0ed7c20f2c5b93"
+    },
+    {
+      "file": "building-imgImageRecycle.png",
+      "bytes": 9030,
+      "sha256": "e8bf11c073e5624d8ac10ea0a2aa83754e07b2d84a70ffb1ec4f9d26c7697b59"
+    },
+    {
+      "file": "building-imgImageServiceDog.png",
+      "bytes": 11999,
+      "sha256": "b6932483b9b69c9d9fa02ee7b1dd04f0e3fd5182e3f9c471ee47faf6f05fabd2"
+    },
+    {
+      "file": "building-imgImageStarStruckGrinningFaceWithStarEyes.png",
+      "bytes": 19553,
+      "sha256": "8e019166637e395aa3b28957f553d9c404c362116392fe1b47f9fd19fde53da4"
+    },
+    {
+      "file": "building-imgImageTheHornsSignOfTheHorns.png",
+      "bytes": 13163,
+      "sha256": "61f0b25f7a6a53935a4a91c93fec71fcbe8b00624a950bfb04377ea0bc632027"
+    },
+    {
+      "file": "building-imgImageTriangularFlagOnPost.png",
+      "bytes": 8124,
+      "sha256": "28bb9f732dca923e40cbac67922de966b5b2c4e083d14e3abbc385eeabed4e1b"
+    },
+    {
+      "file": "building-imgImageWomanWrestling.png",
+      "bytes": 17051,
+      "sha256": "83c9888418cda915eae1043787a02f75ac938aed5369f9c87583fe9c6b3ff36a"
+    }
+  ]
+}

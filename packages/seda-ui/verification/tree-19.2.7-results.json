@@ -1,0 +1,146 @@
+{
+  "sourceAlias": false,
+  "ssr": true,
+  "strictHydration": true,
+  "invalidInputsRejected": 11,
+  "combinations": 16,
+  "compilerSnapshots": 7,
+  "measurements": [
+    {
+      "theme": "light",
+      "controlSize": "s",
+      "width": 260,
+      "height": 24,
+      "font": "12px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "s",
+      "width": 720,
+      "height": 24,
+      "font": "12px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "m",
+      "width": 260,
+      "height": 32,
+      "font": "14px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "m",
+      "width": 720,
+      "height": 32,
+      "font": "14px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "l",
+      "width": 260,
+      "height": 40,
+      "font": "16px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "l",
+      "width": 720,
+      "height": 40,
+      "font": "16px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "xl",
+      "width": 260,
+      "height": 48,
+      "font": "18px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "light",
+      "controlSize": "xl",
+      "width": 720,
+      "height": 48,
+      "font": "18px",
+      "foreground": "rgb(10, 10, 11)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "s",
+      "width": 260,
+      "height": 24,
+      "font": "12px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "s",
+      "width": 720,
+      "height": 24,
+      "font": "12px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "m",
+      "width": 260,
+      "height": 32,
+      "font": "14px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "m",
+      "width": 720,
+      "height": 32,
+      "font": "14px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "l",
+      "width": 260,
+      "height": 40,
+      "font": "16px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "l",
+      "width": 720,
+      "height": 40,
+      "font": "16px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "xl",
+      "width": 260,
+      "height": 48,
+      "font": "18px",
+      "foreground": "rgb(255, 255, 255)"
+    },
+    {
+      "theme": "dark",
+      "controlSize": "xl",
+      "width": 720,
+      "height": 48,
+      "font": "18px",
+      "foreground": "rgb(255, 255, 255)"
+    }
+  ],
+  "keyboard": true,
+  "independentSelectionExpansion": true,
+  "multipleRange": true,
+  "controlledRejection": true,
+  "focusRepair": true,
+  "rtl": true,
+  "externalFocusRetained": true,
+  "errors": []
+}

@@ -1,13 +1,16 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
+import { Icon, type IconName } from "../Icon";
 import { cx } from "../../utils/classNames";
+import { hasMessage } from "../../utils/fieldMessage";
 import type { ToastIntent, ToastProps } from "./Toast.types";
 
-const defaultIcons: Record<ToastIntent, string> = {
-  neutral: "•",
-  info: "i",
-  success: "✓",
-  warning: "!",
-  error: "!",
+const defaultIcons: Record<ToastIntent, IconName> = {
+  neutral: "info",
+  info: "info",
+  success: "success",
+  warning: "warning",
+  error: "error",
 };
 
 function defaultRole(intent: ToastIntent) {
@@ -34,13 +37,14 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
       onDismiss,
       role,
       showIcon = true,
-      size = "m",
+      size: sizeProp,
       title,
       ...props
     },
     ref,
   ) => {
-    const resolvedIcon = icon ?? defaultIcons[intent];
+    const size = useSedaSize(sizeProp);
+    const resolvedIcon = icon ?? <Icon name={defaultIcons[intent]} />;
 
     return (
       <div
@@ -48,7 +52,8 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         aria-atomic={props["aria-atomic"] ?? true}
         aria-live={props["aria-live"] ?? defaultLive(intent)}
         className={cx("seda-toast", className)}
-        data-dismissible={dismissible ? "true" : undefined}
+        data-dismissible={dismissible || onDismiss ? "true" : "false"}
+        data-show-icon={showIcon ? "true" : "false"}
         data-duration={duration === null ? "persistent" : duration}
         data-intent={intent}
         data-size={size}
@@ -62,11 +67,11 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         ) : null}
         <div className="seda-toast__content">
           <div className="seda-toast__title">{title}</div>
-          {description ? <div className="seda-toast__description">{description}</div> : null}
-          {action || actionLabel ? (
+          {hasMessage(description) ? <div className="seda-toast__description">{description}</div> : null}
+          {action || hasMessage(actionLabel) ? (
             <div className="seda-toast__actions">
               {action ?? (
-                <button className="seda-toast__action" onClick={onAction} type="button">
+                <button className="seda-toast__action" disabled={!onAction} onClick={onAction} type="button">
                   {actionLabel}
                 </button>
               )}
@@ -77,10 +82,11 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
           <button
             aria-label={dismissLabel ?? "Dismiss notification"}
             className="seda-toast__dismiss"
+            disabled={!onDismiss}
             onClick={onDismiss}
             type="button"
           >
-            ×
+            <Icon name="close" />
           </button>
         ) : null}
       </div>

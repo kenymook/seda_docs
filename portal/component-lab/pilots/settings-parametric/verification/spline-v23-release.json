@@ -1,0 +1,33 @@
+{
+  "version": 23,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adbf0ccf6b08191a8a3d15219a59ddb",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_85cb32d29b948191ad72fe20d385ed64",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "siteSource": "999d67256b545cea4f42f95c2111493e76bf4a2b",
+  "githubSource": "04f3ab75f75a579fb37a8001441883f568f207b6",
+  "accessMode": "custom",
+  "revision": 1,
+  "owners": 1,
+  "externalVisitors": 0,
+  "groups": 0,
+  "production": {
+    "matchedSourceHashes": 608,
+    "splineCommonBrowserGroups": 10,
+    "pointerBrowserGroups": 11,
+    "commonNestedProfileSamples": 24,
+    "pointerNestedProfileSamples": 16,
+    "numericReadabilityChecked": true,
+    "loadingDeltaWidth": 0,
+    "loadingDeltaHeight": 0,
+    "javascriptErrors": 0,
+    "visualAcceptance": false
+  },
+  "limits": [
+    "Geometry/material/camera reconstruction differs from original source",
+    "Full source inspector, States/Events/Modifiers/Collision/Variables/import/collaboration/inference remain incomplete",
+    "OS/hardware cancel/blur, Escape after focus transfer during an active gesture, full AT and performance acceptance remain open",
+    "Three required reference screens and full four application classes remain incomplete"
+  ]
+}

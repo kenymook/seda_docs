@@ -1,0 +1,144 @@
+import React,{useEffect,useMemo,useRef,useState} from 'react';
+import {createRoot} from 'react-dom/client';
+import {SedaProvider,Button,IconButton,TextField,Select,Checkbox,Tabs,DropdownMenu} from '@seda-ai/ui';
+import type {MenuEntry} from '@seda-ai/ui';
+import '@seda-ai/ui/styles.css';
+import '@fontsource/inter/400.css';import '@fontsource/inter/600.css';import '@fontsource/inter/700.css';
+import {profiles} from 'seda:catalog';
+import {derive} from '../lab-model.mjs';
+import {createWorkspaceBindings} from '../workspace-bindings.mjs';
+import {initialFiles,defaults,readFiles,readPreferences,filterFiles,nameError,filesKey,preferencesKey} from './file-model';
+import type {WorkspaceFile,Preferences} from './file-model';
+import './recents.css';
+import {WorkspaceDialog} from './reference-dialog';
+
+const asset=(name:string)=>'./assets/'+name;
+const icon=(name:string,size=16)=><img src={asset(name)} alt="" width={size} height={size}/>;
+const projects=['💡 SDDS 2.0','💎 SDDS Base','🌀 Plasma SD Service (exB2C)','🟢 SDDS Service','🟢 SDDS Insol [deprecated]','🌀 Plasma Infra','🟦 Plasma Giga [deprecated]','🌀 Plasma SD HomeOS','🛠 SDDS All Your Base','🌀 Plasma Salute Service','🌀 Plasma Core','📁 SDDS Netology','🌀 Plasma SD Mid (exB2B)','🌀 Plasma StarDS','🌀 Plasma Playground','🌀 Plasma ASDK','🟢 SDDS SbShop [deprecated]','🔹 SDDS AI [deprecated]','🖼 SDDS × Caldera Online','🌀 Plasma Builder','📁 Тестируем коннектед проджекты','🌀 Plasma Source'];
+type Modal={kind:'create';type:string}|{kind:'rename'|'open';id:string}|{kind:'delete';ids:string[]}|{kind:'settings'|'news'|'notifications'|'help'|'reset'}|null;
+function routeSection(){const params=new URLSearchParams(location.search),section=params.get('section');return params.has('project')?'project:'+params.get('project')!.slice(0,160):section&&['recents','community','drafts','teams','trash'].includes(section)?section:'recents';}
+
+function RecentsWorkspace(){
+ const [files,setFiles]=useState<WorkspaceFile[]>([]),[preferences,setPreferences]=useState<Preferences>(defaults);
+ const [status,setStatus]=useState<'loading'|'ready'|'error'>('loading'),[error,setError]=useState(''),[notice,setNotice]=useState('');
+ const [query,setQuery]=useState(''),[section,setSection]=useState(routeSection),[tab,setTab]=useState('recent'),[organization,setOrganization]=useState('all'),[type,setType]=useState('all'),[folder,setFolder]=useState<string|null>(null);
+ const [selected,setSelected]=useState<string[]>([]),[modal,setModal]=useState<Modal>(null),[draft,setDraft]=useState(''),[dirty,setDirty]=useState(false),[busy,setBusy]=useState(false),[banner,setBanner]=useState(true),[starredOpen,setStarredOpen]=useState(true);
+ const operation=useRef(0),locked=useRef(false),mounted=useRef(true),lastTrigger=useRef<HTMLElement|null>(null);
+ useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;operation.current++;};},[]);
+ const configuration=profiles[(preferences.theme==='dark'?'Dark':'Light')+':'+preferences.size];
+ const parameters={scale:100,air:preferences.airY,airX:preferences.airX,radius:100,strict:true};
+ const derived=derive(configuration,parameters),bindings=createWorkspaceBindings(configuration,derived,parameters);
+ const style={...bindings.vars,'--reference-button-padding':derived.buttonPaddingX+'px'} as React.CSSProperties;
+
+ function load(){
+  if(locked.current)return;const request=++operation.current;setStatus('loading');setError('');
+  // Deferred local read permits a loading announcement. No simulated network/provider.
+  window.setTimeout(()=>{if(!mounted.current||request!==operation.current)return;
+   try{const next=readFiles(localStorage.getItem(filesKey));let prefs={...defaults};try{prefs=readPreferences(localStorage.getItem(preferencesKey));}catch{setError('Параметры интерфейса повреждены. Применены исходные; сохраните новые параметры через меню аккаунта.');}setFiles(next);setPreferences(prefs);setSelected([]);setStatus('ready');setNotice('Локальное рабочее пространство загружено');}
+   catch(e){setStatus('error');setError(e instanceof Error?e.message:'Не удалось прочитать локальные данные');}
+  },0);
+ }
+ useEffect(load,[]);
+ useEffect(()=>{const update=()=>{setSection(routeSection());setFolder(null);setSelected([]);setTab('recent');};window.addEventListener('popstate',update);return()=>window.removeEventListener('popstate',update);},[]);
+ async function save(next:WorkspaceFile[],message:string,after?:()=>void){
+  if(locked.current)return;locked.current=true;setBusy(true);setError('');const request=++operation.current;
+  try{await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));if(!mounted.current||request!==operation.current)return;
+   localStorage.setItem(filesKey,JSON.stringify({version:1,files:next}));setFiles(next);setNotice(message);setSelected(ids=>ids.filter(id=>next.some(file=>file.id===id&&file.trashed===(section==='trash'))));after?.();
+  }catch{if(mounted.current&&request===operation.current)setError('Не удалось сохранить изменения в этом браузере. Данные не изменены; повторите действие.');}
+  finally{locked.current=false;if(mounted.current)setBusy(false);}
+ }
+ function changePreferences(change:Partial<Preferences>){const next={...preferences,...change};setPreferences(next);try{localStorage.setItem(preferencesKey,JSON.stringify(next));setError('');}catch{setError('Параметры применены, но не сохранены в этом браузере');}}
+ function navigate(next:string){const url=new URL(location.href);url.search='';url.searchParams.set(next.startsWith('project:')?'project':'section',next.startsWith('project:')?next.slice(8):next);history.pushState(null,'',url);setSection(next);setFolder(null);setSelected([]);setTab('recent');}
+ function show(next:NonNullable<Modal>,trigger?:HTMLElement){const active=document.activeElement as HTMLElement,menu=active?.closest('[role=menu]'),menuTrigger=menu?.getAttribute('aria-labelledby');lastTrigger.current=trigger??(menuTrigger?document.getElementById(menuTrigger):null)??active;setError('');setDirty(false);setDraft(next.kind==='rename'||next.kind==='open'?files.find(file=>file.id===next.id)?.name??'':next.kind==='create'?'Untitled':'');setModal(next);}
+ function dismiss(){if(busy)return;if(dirty&&!window.confirm('Закрыть без сохранения названия?'))return;setModal(null);setDirty(false);requestAnimationFrame(()=>{const element=lastTrigger.current;if(element?.isConnected)element.focus();else document.getElementById('reference-search')?.focus();});}
+ function fileMenu(file:WorkspaceFile):MenuEntry[]{return [
+  {id:'open',label:'Открыть',onSelect:()=>show({kind:'open',id:file.id})},
+  {id:'rename',label:'Переименовать',onSelect:()=>show({kind:'rename',id:file.id})},
+  {id:'favorite',label:file.starred?'Убрать из избранного':'В избранное',onSelect:()=>void save(files.map(item=>item.id===file.id?{...item,starred:!item.starred}:item),'Избранное обновлено')},
+  {id:'duplicate',label:'Создать копию',onSelect:()=>{const copy={...file,id:crypto.randomUUID(),name:(file.name+' — копия').slice(0,160),trashed:false,updated:'Edited just now'};void save([copy,...files],'Копия создана');}},
+  {type:'separator',id:'separator'},
+  file.trashed?{id:'restore',label:'Восстановить',onSelect:()=>void save(files.map(item=>item.id===file.id?{...item,trashed:false}:item),'Файл восстановлен')}
+   :{id:'trash',label:'Переместить в корзину',danger:true,onSelect:()=>show({kind:'delete',ids:[file.id]})}
+ ];}
+ const filtered=useMemo(()=>filterFiles(files,{section,tab,query,organization,type,folder}),[files,section,tab,query,organization,type,folder]);
+ const teams=[...new Set(files.map(file=>file.team))];
+ const visibleSelection=selected.filter(id=>filtered.some(file=>file.id===id));
+ const heading=section==='recents'?'Recents':section==='drafts'?'Drafts':section==='trash'?'Trash':section==='community'?'Community':section==='teams'?'All teams':section.slice(8);
+ function selectFile(id:string,checked:boolean){setSelected(old=>checked?[...new Set([...old,id])]:old.filter(value=>value!==id));}
+ function saveDraft(){
+  if(nameError(draft)||!modal)return;
+  if(modal.kind==='create'){
+   const file:WorkspaceFile={id:crypto.randomUUID(),name:draft.trim(),type:modal.type,team:'Drafts',updated:'Edited just now',shared:false,folder:'Drafts',trashed:false,starred:false,viewed:Date.now()};
+   void save([file,...files],'Файл создан',()=>{navigate('recents');setQuery('');setType('all');setOrganization('all');setModal(null);setDirty(false);requestAnimationFrame(()=>lastTrigger.current?.focus());});
+  }else if(modal.kind==='rename'||modal.kind==='open')void save(files.map(file=>file.id===modal.id?{...file,name:draft.trim(),updated:'Edited just now'}:file),'Название сохранено',()=>{setModal(null);setDirty(false);requestAnimationFrame(()=>lastTrigger.current?.focus());});
+ }
+ function collection(){
+  if(status==='loading')return <div className="reference-empty" role="status">Загрузка локального рабочего пространства…</div>;
+  if(status==='error')return <div className="reference-empty"><h2>Не удалось загрузить рабочее пространство</h2><p>{error}</p><Button onClick={load}>Повторить загрузку</Button><Button variant="ghost" onClick={()=>show({kind:'reset'})}>Восстановить исходные файлы</Button></div>;
+  if(tab==='folders'||section==='teams')return <div className="reference-folder-grid">{[...new Set(filtered.map(file=>section==='teams'?file.team:file.folder))].map(name=><Button key={name} variant="secondary" onClick={()=>{if(section==='teams'){setOrganization(name);setSection('recents');}else setFolder(name);setTab('recent');}}>{name} · {filtered.filter(file=>(section==='teams'?file.team:file.folder)===name).length}</Button>)}{!filtered.length&&<p>Нет доступных папок для выбранных фильтров.</p>}</div>;
+  if(!filtered.length)return <div className="reference-empty"><h2>{section==='trash'?'Корзина пуста':'Файлы не найдены'}</h2><p>Измените запрос или сбросьте фильтры.</p><Button variant="secondary" onClick={()=>{setQuery('');setOrganization('all');setType('all');setFolder(null);}}>Сбросить фильтры</Button></div>;
+  return <div className={'reference-files reference-files--'+preferences.view} role="list" aria-label="Файлы рабочего пространства">
+   {filtered.map(file=><article role="listitem" className="reference-file" data-file-id={file.id} data-selected={selected.includes(file.id)||undefined} key={file.id}>
+    <button className="reference-file-open" onClick={event=>show({kind:'open',id:file.id},event.currentTarget)} aria-label={'Открыть '+file.name}>
+     <div className="reference-thumbnail">{file.thumbnail?<img src={asset(file.thumbnail)} alt="" loading="lazy" draggable={false} style={{padding:file.previewInset??0}}/>:<span className="reference-new-preview">{file.type.toUpperCase()}<strong>{file.name}</strong></span>}</div>
+     <div className="reference-file-summary">{file.icon?icon(file.icon):icon('recentsHeader-imgIcon.svg')}<div><h2>{file.name}</h2><p>{file.team!=='Drafts'?file.team+' · ':''}{file.updated}</p></div>{file.avatar&&<img className="reference-avatar" src={asset(file.avatar)} alt="" width="24" height="24"/>}</div>
+    </button>
+    <div className="reference-file-selection"><Checkbox label={'Выбрать '+file.name} checked={selected.includes(file.id)} onCheckedChange={checked=>selectFile(file.id,checked)}/></div>
+    <div className="reference-file-menu"><DropdownMenu triggerLabel={'Действия: '+file.name} triggerIcon="···" iconOnly items={fileMenu(file)} disabled={busy}/></div>
+   </article>)}
+  </div>;
+ }
+ const activeFile=modal&&(modal.kind==='open'||modal.kind==='rename')?files.find(file=>file.id===modal.id):undefined;
+ return <SedaProvider theme={preferences.theme} controlSize={preferences.size} style={style} className="reference-app" data-reference="recents" data-status={status}>
+  <a className="reference-skip" href="#reference-main">К файлам</a>
+  <aside className="reference-sidebar" aria-label="Навигация рабочего пространства">
+   <div className="reference-account"><DropdownMenu triggerLabel="Kenymook" triggerIcon={<img className="reference-avatar" src={asset('recentsSidebarTop-imgImage.png')} alt="" width="24" height="24"/>} items={[
+    {id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'reload',label:'Перезагрузить локальные файлы',disabled:busy,onSelect:load},{id:'documents',label:'Документы — Building',onSelect:()=>{location.href='./building.html';}},{id:'lab',label:'Открыть лабораторию',onSelect:()=>{location.href='../';}}]}/><IconButton variant="ghost" aria-label="Уведомления" icon={icon('recentsSidebarTop-imgIcon1.svg',24)} onClick={()=>show({kind:'notifications'})}/></div>
+   <TextField id="reference-search" className="reference-search" label="Поиск файлов" type="search" placeholder="Search" prefix={icon('recentsSidebarTop-imgIcon2.svg')} value={query} onChange={event=>{setQuery(event.target.value);setSelected([]);}}/>
+   <nav aria-label="Разделы файлов" className="reference-navigation">
+    {[['recents','Recents','recentsSidebarNav-imgIcon.svg'],['community','Community','recentsSidebarNav-imgIcon1.svg']].map(([id,label,img])=><a key={id} href={'?section='+id} aria-current={section===id?'page':undefined} onClick={event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();navigate(id);}}>{icon(img,24)}<span>{label}</span></a>)}
+    <div className="reference-team"><span aria-hidden="true">S</span><strong>SaluteDev</strong></div>
+    {[['drafts','Drafts','recentsDrafts-imgIcon.svg'],['teams','All teams','recentsTeamNav-imgIcon.svg'],['trash','Trash','recentsTeamNav-imgIcon1.svg']].map(([id,label,img])=><a key={id} href={'?section='+id} aria-current={section===id?'page':undefined} onClick={event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();navigate(id);}}>{icon(img,24)}<span>{label}</span></a>)}
+   </nav>
+   <div className="reference-projects"><Button variant="ghost" aria-expanded={starredOpen} onClick={()=>setStarredOpen(value=>!value)}>Starred {starredOpen?'⌄':'›'}</Button>
+    {starredOpen&&<nav aria-label="Избранные пространства">{projects.map(name=>{const clean=name.replace(/^[^\p{L}\p{N}]+/u,'').trim();return <a key={name} href={'?project='+encodeURIComponent(clean)} aria-current={section==='project:'+clean?'page':undefined} title={name} onClick={event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();navigate('project:'+clean);}}>{name}</a>;})}</nav>}
+   </div>
+   <div className="reference-local-note">Локальные данные · <a href="../">SEDA Lab</a></div>
+  </aside>
+  <main id="reference-main" className="reference-main" tabIndex={-1}>
+   <header className="reference-header"><h1>{folder??heading}</h1><div className="reference-create-actions">{[['design','Design','recentsHeader-imgIcon.svg'],['figjam','FigJam','recentsHeader-imgIcon1.svg'],['slides','Slides','recentsHeader-imgIcon2.svg'],['make','Make','recentsHeader-imgIcon3.svg']].map(([id,label,img])=><Button variant="secondary" key={id} iconLeft={<span className="reference-type-icon" data-kind={id}>{icon(img)}</span>} onClick={()=>show({kind:'create',type:id})} disabled={busy||status!=='ready'}>{label}</Button>)}<DropdownMenu triggerLabel="More" items={[{id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'help',label:'Справка и горячие клавиши',onSelect:()=>show({kind:'help'})}]}/></div></header>
+   {banner&&<section className="reference-banner" aria-label="Новости"><img src={asset('recentsTools-imgImage.svg')} alt="Config" width="152" height="30"/><p>Check out everything we launched at Config India</p><Button variant="secondary" onClick={()=>show({kind:'news'})}>Read more</Button><IconButton aria-label="Закрыть новости" variant="ghost" icon={icon('recentsTools-imgIcon.svg',24)} onClick={()=>setBanner(false)}/></section>}
+   <div className="reference-collection">
+    <div className="reference-filters" aria-label="Фильтры и вид файлов">
+     <Select id="reference-organization" label="Организация" value={organization} onValueChange={value=>{setOrganization(String(value));setSelected([]);}} options={[{value:'all',label:'All organizations'},...teams.map(team=>({value:team,label:team}))]}/>
+     <Select id="reference-type" label="Тип файла" value={type} onValueChange={value=>{setType(String(value));setSelected([]);}} options={[{value:'all',label:'All files'},...['design','published','figjam','slides','make','repo','prototype'].map(value=>({value,label:value}))]}/>
+     <div className="reference-view" role="group" aria-label="Вид файлов"><IconButton aria-label="Сетка" selected={preferences.view==='grid'} aria-pressed={preferences.view==='grid'} variant="ghost" icon={icon('recentsFilterContext-imgIcon1.svg',24)} onClick={()=>changePreferences({view:'grid'})}/><IconButton aria-label="Список" selected={preferences.view==='list'} aria-pressed={preferences.view==='list'} variant="ghost" icon={icon('recentsFilterContext-imgIcon2.svg',24)} onClick={()=>changePreferences({view:'list'})}/></div>
+    </div>
+    <Tabs label="Доступ к файлам" variant="pill" value={tab} onValueChange={value=>{setTab(value);setFolder(null);setSelected([]);}} className="reference-tabs" items={[
+     {value:'recent',label:'Recently viewed',content:tab==='recent'?collection():null},
+     {value:'shared',label:'Shared files',content:tab==='shared'?collection():null},
+     {value:'folders',label:'Shared folders',content:tab==='folders'?collection():null}]}/>
+   </div>
+   {visibleSelection.length>0&&<div className="reference-selection-bar" role="region" aria-label="Действия с выбранными файлами"><span>Выбрано: {visibleSelection.length}</span><Button variant="secondary" onClick={()=>setSelected([])}>Снять выбор</Button><Button variant="secondary" loading={busy} onClick={()=>section==='trash'?void save(files.map(file=>visibleSelection.includes(file.id)?{...file,trashed:false}:file),'Файлы восстановлены'):show({kind:'delete',ids:visibleSelection})}>{section==='trash'?'Восстановить':'В корзину'}</Button></div>}
+   <p className="reference-status" role="status" aria-live="polite">{busy?'Сохранение в этом браузере…':notice} · Файлов: {filtered.length}</p>
+   {error&&status!=='error'&&<p className="reference-error" role="alert">{error}</p>}
+  </main>
+  <div className="reference-help"><IconButton variant="secondary" aria-label="Справка" icon={icon('recentsHelp-imgIcon.svg',24)} onClick={()=>show({kind:'help'})}/></div>
+  {modal&&<WorkspaceDialog title={modal.kind==='create'?'Новый файл':modal.kind==='rename'?'Переименовать файл':modal.kind==='open'?activeFile?.name??'Файл':modal.kind==='delete'?'Переместить в корзину?':modal.kind==='settings'?'Параметры интерфейса':modal.kind==='reset'?'Восстановить исходные данные?':modal.kind==='notifications'?'Уведомления':modal.kind==='news'?'Новости рабочего пространства':'Справка'} onDismiss={dismiss}>
+   {['create','rename','open'].includes(modal.kind)&&<form onSubmit={event=>{event.preventDefault();saveDraft();}}>
+    {modal.kind==='open'&&activeFile?.thumbnail&&<img className="reference-open-preview" src={asset(activeFile.thumbnail)} alt={'Превью '+activeFile.name}/>}
+    <TextField id="reference-file-name" label="Название файла" value={draft} onChange={event=>{setDraft(event.target.value);setDirty(true);}} errorText={nameError(draft)} required maxLength={160} disabled={busy}/>
+    {activeFile&&<p>{activeFile.team} · {activeFile.type} · {activeFile.shared?'Shared':'Private'}</p>}
+    <div className="reference-dialog-actions"><Button type="submit" loading={busy} disabled={!!nameError(draft)}>Сохранить</Button><Button variant="secondary" disabled={busy} onClick={dismiss}>Отмена</Button></div>
+   </form>}
+   {modal.kind==='delete'&&<><p>{modal.ids.length} файл(а) будут перемещены в корзину. Их можно восстановить.</p><div className="reference-dialog-actions"><Button variant="destruction" loading={busy} onClick={()=>void save(files.map(file=>modal.ids.includes(file.id)?{...file,trashed:true}:file),'Файлы перемещены в корзину',()=>{setModal(null);setSelected([]);requestAnimationFrame(()=>document.getElementById('reference-search')?.focus());})}>Переместить</Button><Button variant="secondary" disabled={busy} onClick={dismiss}>Отмена</Button></div></>}
+   {modal.kind==='settings'&&<div className="reference-settings"><Select id="reference-theme" label="Тема" value={preferences.theme} onValueChange={value=>changePreferences({theme:value as Preferences['theme']})} options={[{value:'light',label:'Light'},{value:'dark',label:'Dark'}]}/><Select id="reference-size" label="Размер контролов" value={preferences.size} onValueChange={value=>changePreferences({size:value as Preferences['size']})} options={['s','m','l','xl'].map(value=>({value,label:value.toUpperCase()}))}/><TextField id="reference-x" label="Дополнительный отступ X, px" type="number" min={0} max={24} value={preferences.airX} onChange={event=>changePreferences({airX:Math.min(24,Math.max(0,Math.round(Number(event.target.value)||0)))})}/><TextField id="reference-y" label="Дополнительный отступ Y, px" type="number" min={0} max={12} value={preferences.airY} onChange={event=>changePreferences({airY:Math.min(12,Math.max(0,Math.round(Number(event.target.value)||0)))})}/><p>Параметры применяются ко всем контролам. IconButton остаётся квадратным.</p></div>}
+   {modal.kind==='reset'&&<><p>Все локальные изменения файлов будут заменены исходными 25 файлами. Это действие нельзя отменить.</p><Button variant="destruction" loading={busy} onClick={()=>void save(structuredClone(initialFiles),'Исходные файлы восстановлены',()=>{setStatus('ready');setModal(null);navigate('recents');})}>Восстановить</Button></>}
+   {modal.kind==='news'&&<><p>Файлы, команды и свойства собраны в одном рабочем пространстве.</p><ul><li>Поиск, папки и фильтры работают совместно.</li><li>Название и корзина сохраняются в этом браузере.</li><li>Тема, размер и отступы меняются в параметрах интерфейса.</li></ul></>}
+   {modal.kind==='notifications'&&<p>{notice||'Новых уведомлений нет.'}</p>}
+   {modal.kind==='help'&&<><p>Tab перемещает фокус; Enter открывает файл или действие. Выбирайте файлы через checkbox; выбранные файлы можно переместить в корзину и восстановить.</p><p>Вкладки и меню управляются стрелками, Home/End и Escape. Параметры интерфейса находятся в меню аккаунта.</p><p>Данные локальные и не отправляются на сервер. Shared — демонстрационные группы доступа, не реальные права других пользователей.</p><a href="../">Вернуться в SEDA Lab</a></>}
+   {error&&<p role="alert" className="reference-error">{error}</p>}
+  </WorkspaceDialog>}
+ </SedaProvider>;
+}
+createRoot(document.getElementById('root')!).render(<RecentsWorkspace/>);

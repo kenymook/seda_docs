@@ -1,0 +1,464 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "5e2a1ae4b30802c317dc3ed07380a9ec8055b5bc",
+  "siteSource": "812c5998a3878dacab353a1afb77438a2f94502f",
+  "version": 33,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "deploymentId": "appgdep_6adccaec82088191b527bccb73067b2c",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_0efd4e03fc248191ac1451b08c9d8aeb",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archiveSha256": "3218910fd8c1fe6cc795d341c966785a7bb479b039410b21422f849d0fa47a72",
+  "archiveBytes": 7548109,
+  "contractTestsPassed": 120,
+  "packageGroupsPassed": 31,
+  "packageGroupsFailed": 0,
+  "toastHostConsumers": {
+    "react-18.3.1-toast-host": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "strictMode": true,
+      "checks": [
+        "FIFO: queued time starts only on visible promotion",
+        "dedupe resets duration without changing ID; stale timer cannot close update",
+        "hover and focus pause independently; remaining time resumes",
+        "window inactivity event pauses timer (event fixture, not OS certification)",
+        "viewport unmount preserves remaining time and cleans old timers",
+        "arrival does not steal focus; Escape closes focused item and restores logical focus",
+        "empty region remains focusable when logical return target is disabled",
+        "action and error persistent defaults; action invokes real handler",
+        "bounded FIFO rejects newest overflow; dedupe remains usable at capacity",
+        "validation atomic, providers isolated, no internal metadata leaked to DOM"
+      ],
+      "errors": []
+    },
+    "react-19.2.7-toast-host": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "strictMode": true,
+      "checks": [
+        "FIFO: queued time starts only on visible promotion",
+        "dedupe resets duration without changing ID; stale timer cannot close update",
+        "hover and focus pause independently; remaining time resumes",
+        "window inactivity event pauses timer (event fixture, not OS certification)",
+        "viewport unmount preserves remaining time and cleans old timers",
+        "arrival does not steal focus; Escape closes focused item and restores logical focus",
+        "empty region remains focusable when logical return target is disabled",
+        "action and error persistent defaults; action invokes real handler",
+        "bounded FIFO rejects newest overflow; dedupe remains usable at capacity",
+        "validation atomic, providers isolated, no internal metadata leaked to DOM"
+      ],
+      "errors": []
+    }
+  },
+  "production": {
+    "scope": "Real SEDA feedback composition, filter/state actions and shared semantic palette",
+    "results": [
+      {
+        "name": "production-exact-source-provenance",
+        "status": "passed",
+        "evidence": {
+          "sourceHashes": 755
+        }
+      },
+      {
+        "name": "feedback-native-filter-count-toast-and-dismiss-focus",
+        "status": "passed",
+        "evidence": {
+          "nativeSpace": true,
+          "count2And4": true,
+          "independentDismiss": true,
+          "focusRestored": true
+        }
+      },
+      {
+        "name": "feedback-alert-dismiss-restore-and-explicit-urgency",
+        "status": "passed",
+        "evidence": {
+          "alert": true,
+          "assertive": true,
+          "persistentExplicit": true
+        }
+      },
+      {
+        "name": "feedback-shared-scale-shapes-and-semantic-composition-palette",
+        "status": "passed",
+        "evidence": {
+          "samples": [
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 80,
+              "font": 10,
+              "icon": 11
+            },
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 100,
+              "font": 12,
+              "icon": 14
+            },
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 150,
+              "font": 18,
+              "icon": 21
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 80,
+              "font": 11,
+              "icon": 13
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 100,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 150,
+              "font": 21,
+              "icon": 24
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 80,
+              "font": 13,
+              "icon": 14
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 100,
+              "font": 16,
+              "icon": 18
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 150,
+              "font": 24,
+              "icon": 27
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 80,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 100,
+              "font": 18,
+              "icon": 20
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 150,
+              "font": 27,
+              "icon": 30
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 80,
+              "font": 10,
+              "icon": 11
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 100,
+              "font": 12,
+              "icon": 14
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 150,
+              "font": 18,
+              "icon": 21
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 80,
+              "font": 11,
+              "icon": 13
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 100,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 150,
+              "font": 21,
+              "icon": 24
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 80,
+              "font": 13,
+              "icon": 14
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 100,
+              "font": 16,
+              "icon": 18
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 150,
+              "font": 24,
+              "icon": 27
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 80,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 100,
+              "font": 18,
+              "icon": 20
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 150,
+              "font": 27,
+              "icon": 30
+            }
+          ],
+          "semanticSurfaces": true,
+          "activeTextContrast": 4.5,
+          "pillShapesRetained": true
+        }
+      },
+      {
+        "name": "feedback-all-severities-and-real-project-tags",
+        "status": "passed",
+        "evidence": {
+          "fiveSeverities": true,
+          "libraryTagsInTableAndCards": true
+        }
+      },
+      {
+        "name": "feedback-target-viewports-themes-and-captures",
+        "status": "passed",
+        "evidence": {
+          "samples": [
+            {
+              "width": 1280,
+              "theme": "Light"
+            },
+            {
+              "width": 1280,
+              "theme": "Dark"
+            },
+            {
+              "width": 1920,
+              "theme": "Light"
+            },
+            {
+              "width": 1920,
+              "theme": "Dark"
+            }
+          ]
+        }
+      },
+      {
+        "name": "toast-host-real-queue-actions-and-clear",
+        "status": "passed",
+        "evidence": {
+          "threeVisibleTwoQueued": true,
+          "promoted": true,
+          "clear": true,
+          "dedupe": true,
+          "realAction": true
+        }
+      },
+      {
+        "name": "toast-host-inherits-parametric-scope-and-focus",
+        "status": "passed",
+        "evidence": {
+          "samples": [
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 80
+            },
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 100
+            },
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 150
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 80
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 100
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 150
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 80
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 100
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 150
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 80
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 100
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 150
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 80
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 100
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 150
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 80
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 100
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 150
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 80
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 100
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 150
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 80
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 100
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 150
+            }
+          ],
+          "focusRestored": true,
+          "noPortalScopeLoss": true
+        }
+      },
+      {
+        "name": "production-toast-queue-visual-captures",
+        "status": "passed",
+        "evidence": {
+          "captures": [
+            "Light",
+            "Dark"
+          ]
+        }
+      },
+      {
+        "name": "feedback-browser-errors",
+        "status": "passed"
+      }
+    ],
+    "errors": []
+  },
+  "limits": [
+    "No complete visual fidelity or target AT/OS acceptance",
+    "Feedback adapters lack executable instance contracts",
+    "No notification history, cross-window coordination or durable delivery",
+    "No automatic action close or async transport; application owns results"
+  ]
+}

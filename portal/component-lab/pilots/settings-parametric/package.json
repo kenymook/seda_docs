@@ -3,21 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "build": "node build.mjs",
     "serve": "node server.mjs",
-    "typecheck": "tsc --noEmit",
-    "verify": "node verify.mjs"
+    "typecheck": "tsc --noEmit && tsc --noEmit --project references/tsconfig.json",
+    "verify": "node verify-workspace-nontext.mjs && node verify-workspace-contrast.mjs && node verify-visual-consistency.mjs && node verify-feedback-workspace.mjs && node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs && node verify-building.mjs && node verify-chat.mjs && node verify-sandbox-model.mjs && node verify-sandbox.mjs && node verify-typography.mjs && node verify-spline-model.mjs && node verify-spline-renderer.mjs && node verify-spline.mjs && node verify-spline-manipulator.mjs && node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs && node verify-framer-model.mjs && node verify-framer-preview.mjs && node verify-framer.mjs && node verify-workflow-model.mjs && node verify-workflow.mjs",
+    "verify:building": "node verify-building.mjs",
+    "verify:workspace": "node verify-workspace.mjs",
+    "verify:controls": "node verify-controls.mjs",
+    "verify:chat": "node verify-chat.mjs",
+    "verify:sandbox": "node verify-sandbox-model.mjs && node verify-sandbox.mjs",
+    "verify:typography": "node verify-typography.mjs",
+    "verify:spline:engine": "node verify-spline-model.mjs && node verify-spline-renderer.mjs && node verify-spline.mjs && node verify-spline-manipulator.mjs",
+    "verify:webflow:domain": "node verify-webflow-model.mjs && node verify-webflow-preview.mjs",
+    "verify:webflow": "node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs",
+    "verify:framer:domain": "node verify-framer-model.mjs && node verify-framer-preview.mjs",
+    "verify:framer": "node verify-framer-model.mjs && node verify-framer-preview.mjs && node verify-framer.mjs",
+    "verify:workflow": "node verify-workflow-model.mjs && node verify-workflow.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",
+    "@seda-ai/ui": "file:../../../../packages/seda-ui",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@types/react": "18.3.24",
     "@types/react-dom": "18.3.7",
+    "@types/three": "0.186.0",
     "esbuild": "0.25.5",
     "playwright": "1.51.1",
     "typescript": "5.8.3"

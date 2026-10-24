@@ -1,0 +1,22 @@
+{
+  "runId": 40087768737,
+  "jobId": 120854084808,
+  "commit": "11479bcefae4ab4f0ec942fe15b4a6cbdab5a72d",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/kenymook/seda_docs/actions/runs/40087768737",
+  "evidence": "Decoded job logs inspected, including Framer application checks. Pull-request merge checkout; artifact head identifies11479bc.",
+  "contractsAndFoundation": 120,
+  "installedPackageGroups": 25,
+  "applicationBrowserGroups": 199,
+  "isolatedRendererGroups": 22,
+  "domainModelGroups": 59,
+  "typescriptProjects": 3,
+  "build": "PASS",
+  "artifact": {
+    "id": 12557948421,
+    "bytes": 13931531,
+    "digest": "sha256:820e61d60600d4440f0c2b3b7ec4ae38304e8d30ebdf00b6c105671dda6c2d3a"
+  },
+  "scope": "Published Framer27 functional source. Later Workflow source is not covered by this completed CI."
+}

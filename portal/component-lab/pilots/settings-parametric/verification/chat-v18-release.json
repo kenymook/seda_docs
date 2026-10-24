@@ -1,0 +1,13 @@
+{
+  "version": 18,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adbb7da68008191b17a1109b3d8d8a0",
+  "status": "succeeded",
+  "siteSource": "7816989772b4c336ff19ac268b18d81fb2ecfe92",
+  "githubSource": "ff02b5e8db3317cc591f2251e5cf21582ff7e0bb",
+  "accessMode": "custom",
+  "revision": 1,
+  "owners": 1,
+  "externalVisitors": 0,
+  "groups": 0
+}

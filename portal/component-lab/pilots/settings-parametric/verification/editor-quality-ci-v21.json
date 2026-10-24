@@ -1,0 +1,42 @@
+{
+  "commit": "3a05c5777944288f14edbcc5fcac973a20ff250f",
+  "runId": 40031537628,
+  "jobId": 120680708931,
+  "status": "completed",
+  "conclusion": "success",
+  "contractsAndFoundation": {
+    "passed": 120,
+    "failed": 0
+  },
+  "installedPackageGroups": {
+    "passed": 25,
+    "failed": 0,
+    "reactVersions": [
+      "18.3.1",
+      "19.2.7"
+    ]
+  },
+  "browserGroups": {
+    "lab": 55,
+    "workspace": 21,
+    "controls": 12,
+    "recents": 9,
+    "building": 17,
+    "chat": 12,
+    "sandbox": 20,
+    "typography": 7,
+    "total": 153,
+    "failed": 0
+  },
+  "domainModelGroups": {
+    "building": 5,
+    "chat": 4,
+    "sandbox": 19,
+    "total": 28,
+    "failed": 0
+  },
+  "typescript": true,
+  "build": true,
+  "artifactId": 12535696781,
+  "previousFailedRun": 40027185664
+}

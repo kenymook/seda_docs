@@ -2,10 +2,16 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-05-28
+> **Last reviewed** · 2026-10-24
 > **Figma** · [Alert](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=8-3867)
+
+## Runtime — 2026-10-24
+
+Alert использует общий preset font/line/icon/radius/gap и X/Y лаборатории с естественной многострочной высотой. Все пять intents, включая AI, имеют реальные component aliases. Иконки статусов/close — исходные SVG SEDA. Action/dismiss без callback недоступны. Числовой контент 0 сохраняется. Отсутствующие slots не оставляют grid tracks.
+
+[Точные aliases, SVG provenance и ограничения](../../docs/library/FEEDBACK-VISUAL-HANDOFF.md). Runtime адаптация не является executable instance contract или внешней визуальной/AT-приёмкой.
 
 ---
 
@@ -207,21 +213,21 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 
 | Component token | Роль | Semantic mapping |
 |---|---|---|
-| `alert/surface/info` | Info surface. | `status/info/surface` |
+| `alert/surface/info` | Info surface. | `status/info/container` |
 | `alert/border/info` | Info border. | `status/info/border` |
-| `alert/title/foreground/info` | Info title. | `status/info/text` |
+| `alert/title/foreground/info` | Info title. | `text/info` |
 | `alert/icon/info` | Info icon. | `status/info/icon` |
-| `alert/surface/success` | Success surface. | `status/success/surface` |
+| `alert/surface/success` | Success surface. | `status/success/container` |
 | `alert/border/success` | Success border. | `status/success/border` |
-| `alert/title/foreground/success` | Success title. | `status/success/text` |
+| `alert/title/foreground/success` | Success title. | `text/success` |
 | `alert/icon/success` | Success icon. | `status/success/icon` |
-| `alert/surface/warning` | Warning surface. | `status/warning/surface` |
+| `alert/surface/warning` | Warning surface. | `status/warning/container` |
 | `alert/border/warning` | Warning border. | `status/warning/border` |
-| `alert/title/foreground/warning` | Warning title. | `status/warning/text` |
+| `alert/title/foreground/warning` | Warning title. | `text/warning` |
 | `alert/icon/warning` | Warning icon. | `status/warning/icon` |
-| `alert/surface/danger` | Error surface. | `status/danger/surface` |
+| `alert/surface/danger` | Error surface. | `status/danger/container` |
 | `alert/border/danger` | Error border. | `status/danger/border` |
-| `alert/title/foreground/danger` | Error title. | `status/danger/text` |
+| `alert/title/foreground/danger` | Error title. | `text/danger` |
 | `alert/icon/danger` | Error icon. | `status/danger/icon` |
 | `alert/title/foreground/default` | Default title. | `text/primary` |
 
@@ -245,7 +251,7 @@ Alert должен следовать [foundation/accessibility.md](../../founda
 
 ### Token gaps
 
-- Figma содержит `variant=ai`, но в `tokens.json` пока нет отдельной AI-ветки для Alert. До появления component tokens AI Alert должен использовать documented fallback и быть помечен как token gap.
+- AI component aliases добавлены. Их точные связи и открытая Figma/AT-приёмка описаны в feedback handoff.
 - Size, padding, radius, gap, icon size, close button geometry и motion tokens пока описаны foundation rules и Figma variants, а не отдельными Alert component tokens.
 - Не придумывайте новые Alert token paths без обновления `tokens.json` и Figma bindings.
 
@@ -303,7 +309,7 @@ Handoff для Alert должен фиксировать:
 - [ ] Action label описывает конкретное действие.
 - [ ] AI Alert явно говорит, что AI сделал и что проверяет человек.
 - [ ] Используются реальные Alert component tokens из `tokens.json`.
-- [ ] `variant=ai` помечен как token gap до появления Alert AI tokens.
+- [ ] AI aliases проверены в обеих темах; внешняя visual/AT-приёмка остаётся открытой.
 
 ---
 

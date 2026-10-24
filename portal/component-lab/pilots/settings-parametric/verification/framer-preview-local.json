@@ -1,0 +1,226 @@
+{
+  "scope": "Isolated reconstructed Framer authored-document preview only. No SEDA editor chrome, full source fidelity, AT/performance or publication acceptance.",
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "name": "framer-three-real-iframes-source-selection-and-responsive-content",
+      "status": "passed",
+      "evidence": {
+        "desktop": {
+          "id": "teams-heading",
+          "x": 610,
+          "y": 268,
+          "width": 570,
+          "height": 135,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "tablet": {
+          "id": "teams-heading",
+          "x": 415,
+          "y": 268,
+          "width": 375,
+          "height": 180,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "portrait": {
+          "id": "teams-heading",
+          "x": 20,
+          "y": 268,
+          "width": 350,
+          "height": 225,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "framer-inter-glyphs-paint-in-the-owning-iframe-document",
+      "status": "passed",
+      "evidence": {
+        "glyphPaintChangesPixels": true,
+        "restoredPaintIdentical": true,
+        "fontsCreatedInIframeRealm": true
+      }
+    },
+    {
+      "name": "framer-fill-fr-weights-are-distributed-by-native-flex",
+      "status": "passed",
+      "evidence": {
+        "left": 380,
+        "right": 760,
+        "fillRatio": 2
+      }
+    },
+    {
+      "name": "framer-fixed-fill-and-fit-recalculate-real-content-height",
+      "status": "passed",
+      "evidence": {
+        "fixed": {
+          "id": "teams-heading",
+          "x": 240,
+          "y": 268,
+          "width": 940,
+          "height": 90,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "longer": {
+          "id": "teams-heading",
+          "x": 240,
+          "y": 268,
+          "width": 940,
+          "height": 270,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "fixedHeight": {
+          "id": "teams-heading",
+          "x": 240,
+          "y": 268,
+          "width": 940,
+          "height": 60,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "fit": {
+          "id": "teams-heading",
+          "x": 240,
+          "y": 268,
+          "width": 940,
+          "height": 270,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "framer-cross-axis-fit-overrides-stretch-without-erasing-width-fill",
+      "status": "passed",
+      "evidence": {
+        "stretched": {
+          "id": "teams-copy",
+          "x": 610,
+          "y": 268,
+          "width": 570,
+          "height": 132,
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "display": "flex",
+          "color": "rgb(255, 255, 255)"
+        },
+        "fit": {
+          "id": "teams-copy",
+          "x": 610,
+          "y": 268,
+          "width": 570,
+          "height": 135,
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "display": "flex",
+          "color": "rgb(255, 255, 255)"
+        },
+        "heading": {
+          "id": "teams-heading",
+          "x": 610,
+          "y": 268,
+          "width": 570,
+          "height": 135,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "framer-vertical-fill-and-width-fixed-own-independent-axes",
+      "status": "passed",
+      "evidence": {
+        "id": "teams-heading",
+        "x": 610,
+        "y": 268,
+        "width": 120,
+        "height": 300,
+        "fontSize": "40px",
+        "lineHeight": "45px",
+        "display": "block",
+        "color": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "name": "framer-source-threshold-at-1199-and-phone-overrides-do-not-leak",
+      "status": "passed",
+      "evidence": {
+        "tablet": {
+          "id": "teams-heading",
+          "x": 609.5,
+          "y": 268,
+          "width": 569.5,
+          "height": 90,
+          "fontSize": "24px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desktop": {
+          "id": "teams-heading",
+          "x": 610,
+          "y": 268,
+          "width": 570,
+          "height": 135,
+          "fontSize": "40px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        },
+        "phone": {
+          "id": "teams-heading",
+          "x": 20,
+          "y": 268,
+          "width": 350,
+          "height": 90,
+          "fontSize": "20px",
+          "lineHeight": "45px",
+          "display": "block",
+          "color": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "framer-page-switch-preserves-team-edit-and-does-not-invent-other-content",
+      "status": "passed",
+      "evidence": {
+        "otherPagesBlank": true,
+        "teamTextRetained": true
+      }
+    },
+    {
+      "name": "framer-shared-preview-selection-ui-scale-isolation-and-disposal",
+      "status": "passed",
+      "evidence": {
+        "authoredUnitsIndependent": true,
+        "selectionFrameOwned": true,
+        "disposedFrames": 3,
+        "javascriptErrors": 0
+      }
+    }
+  ],
+  "errors": []
+}

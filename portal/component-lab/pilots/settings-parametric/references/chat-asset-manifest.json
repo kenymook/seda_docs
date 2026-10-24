@@ -1,0 +1,217 @@
+{
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "sourceNode": "1:3894",
+  "purpose": "Individual source assets. QA screenshot is never rendered by the application.",
+  "assets": [
+    {
+      "file": "chat-activity-imgIcon.svg",
+      "bytes": 3743,
+      "sha256": "8bcd92834e4d9f89b7bea69d12f0a083790224a4ccfd71fecb8afd780f3bd2e1"
+    },
+    {
+      "file": "chat-activity-imgIcon1.svg",
+      "bytes": 2176,
+      "sha256": "94d5986e856b937af86d2c7dc9ed100d8ce729dbf557a63cc114f8059e17b110"
+    },
+    {
+      "file": "chat-activity-imgIcon2.svg",
+      "bytes": 1085,
+      "sha256": "2eb20c9c3b80849af8246784d71117f94eff37365e20259f6a287c0ae0e81333"
+    },
+    {
+      "file": "chat-activity-imgIcon3.svg",
+      "bytes": 1437,
+      "sha256": "9d5ed3179116095028a5a9066a3498558af4c39682a51302e3c591acd877c495"
+    },
+    {
+      "file": "chat-activity-imgIcon4.svg",
+      "bytes": 1655,
+      "sha256": "68ff520f1d61847578095d53e9aec53bfff10d1553dc33d92980577bd4ea9b91"
+    },
+    {
+      "file": "chat-answer-imgIcon.svg",
+      "bytes": 572,
+      "sha256": "3f470fc8dcd9012c28eabc0fd23897d17accb27134cdf122a25644c4903e71af"
+    },
+    {
+      "file": "chat-answer-imgIcon1.svg",
+      "bytes": 1287,
+      "sha256": "f9e7c5b56fcc13a7943167bf6e66dd1e583edc73b6ac871758a6d9b9ac659a5b"
+    },
+    {
+      "file": "chat-answer-imgIcon2.svg",
+      "bytes": 1756,
+      "sha256": "86f80482fb8e1a750af5823afb9ef1beaf5337f52a6894314937d7191c9f4bb8"
+    },
+    {
+      "file": "chat-answer-imgIcon3.svg",
+      "bytes": 639,
+      "sha256": "862e1540f445209c23466d76b53f902b523e753cd3a205f7cd6ef3aaf379de7e"
+    },
+    {
+      "file": "chat-answer-imgIcon4.svg",
+      "bytes": 1527,
+      "sha256": "cb3d1a24b59a7b05364bc13214befae655ce8893309aab2069757ea00958af1e"
+    },
+    {
+      "file": "chat-answer-imgIcon5.svg",
+      "bytes": 1759,
+      "sha256": "f4652e1613b7fa3ab649952bdfc5241a0031994e8b963c9fa6f650309e94f919"
+    },
+    {
+      "file": "chat-composer-imgIcon.svg",
+      "bytes": 1096,
+      "sha256": "ba578ee7dd7a4df684a59fa49bf098afd06366903e9d64d202e88323125ea739"
+    },
+    {
+      "file": "chat-composer-imgIcon1.svg",
+      "bytes": 892,
+      "sha256": "361532a2a48f5f743de7b41f5ada1cb5910f5f5dbb4c7ddfe077d8a37141bd56"
+    },
+    {
+      "file": "chat-composer-imgIcon2.svg",
+      "bytes": 2230,
+      "sha256": "50bdbb40d6729359b9d389a1c481154d09c0a1bbc766a73f165784662dafb435"
+    },
+    {
+      "file": "chat-composer-imgIcon3.svg",
+      "bytes": 1355,
+      "sha256": "79a67b00d3fbda6c8a8536c15a0c70a86fc7270cd0cb51d92a4ee7a12471904c"
+    },
+    {
+      "file": "chat-header-imgIcon.svg",
+      "bytes": 1115,
+      "sha256": "dd2cefdcc94267388c3e126c6f24768422ddfaf0fe7d3a7d4354cb56116ece94"
+    },
+    {
+      "file": "chat-header-imgIcon1.svg",
+      "bytes": 1900,
+      "sha256": "67fd816f7aff009227b7a6776077f869960f5a7340ad2a2d55f74c602b1f2435"
+    },
+    {
+      "file": "chat-header-imgIcon2.svg",
+      "bytes": 1786,
+      "sha256": "c6d54ce42445676b1e907c4b222c5af0f7eb175e676b8e0b9642e0b0d35519a6"
+    },
+    {
+      "file": "chat-header-imgIcon3.svg",
+      "bytes": 2892,
+      "sha256": "501577deb13c93875630a60860d241395ad315789fc689a26d9791a5e9b563e0"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon.svg",
+      "bytes": 4111,
+      "sha256": "0dba073150f5b0599295917ac6dc327dd862bad1bd822831d35ab47e931e7f05"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon1.svg",
+      "bytes": 4967,
+      "sha256": "3e5aabe509466389fa325fc4402d26de8a51e99ad2bf2bc55b1d6b5fd46bc2f4"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon2.svg",
+      "bytes": 1981,
+      "sha256": "51b7eeaea2e982e3663501e51f4617c0532ada9d7964b34d479e1db62b0a099c"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon3.svg",
+      "bytes": 1786,
+      "sha256": "1ce609f7484092d37ea7163fb3e722daf68807415ac150013eba4e1788acc508"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon4.svg",
+      "bytes": 2228,
+      "sha256": "f4c89fb1dd78b0991b3eb17e426a27ee680db3fda70fdf7d580fb5784a0dbdc9"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon5.svg",
+      "bytes": 1798,
+      "sha256": "4084999acb425cbfe75a602b0f62c93a34653d1d759d9628106c352f4cf2222c"
+    },
+    {
+      "file": "chat-previous-answer-imgIcon6.svg",
+      "bytes": 1817,
+      "sha256": "75998daffa522c0f5c6482e01c07301dfe6a08c01101afebfed1400339d8d543"
+    },
+    {
+      "file": "chat-rail-imgIcon.svg",
+      "bytes": 1572,
+      "sha256": "d6ceb4ee6a0e8b9ef5b4563e06af759f27e87ed7f97b0d52f6b86ad317dbfbe4"
+    },
+    {
+      "file": "chat-rail-imgIcon1.svg",
+      "bytes": 1526,
+      "sha256": "ede8cd165b4b32223297d2f4d529b7dfea4f389cb6b5aaea8abbba211c06866d"
+    },
+    {
+      "file": "chat-rail-imgIcon2.svg",
+      "bytes": 1570,
+      "sha256": "6f1c7b1bea4fdcce86c719b4e3dd48dfc25c5d87c6c18148f7cf75c4a8f80247"
+    },
+    {
+      "file": "chat-rail-imgIcon3.svg",
+      "bytes": 2250,
+      "sha256": "ff54bacb22449be2d979c95c3f249f9b131f942d74c5a799053932f8a2db8fcb"
+    },
+    {
+      "file": "chat-rail-imgIcon4.svg",
+      "bytes": 1900,
+      "sha256": "901bf5e6a9f3355bdd9d6ad5ffe7f3cedb2fd682aac270f21591d990c978e24d"
+    },
+    {
+      "file": "chat-rail-imgIcon5.svg",
+      "bytes": 2594,
+      "sha256": "c3e6404b452a76a0a08b9845aae5628d4a8e20f2decb563c4e56a75586ce0965"
+    },
+    {
+      "file": "chat-sidebar-imgIcon.svg",
+      "bytes": 1434,
+      "sha256": "da462f1ae1851521f3064d7b16859d4782e5bc7475f8feb11d0c8d559a8bc5f8"
+    },
+    {
+      "file": "chat-sidebar-imgIcon1.svg",
+      "bytes": 1282,
+      "sha256": "2da34e9425abb5e7d6708b670eb5639658daa4e240c4ccea8e383b321bde3518"
+    },
+    {
+      "file": "chat-sidebar-imgIcon2.svg",
+      "bytes": 1301,
+      "sha256": "1d73c946e13cd6e8343f62994dd9ac031ddb45a2106371f8644f3ebafe64ec15"
+    },
+    {
+      "file": "chat-sidebar-imgIcon3.svg",
+      "bytes": 1119,
+      "sha256": "7440ca7717b6997c1dfe6d7aa5d73b1c0473f36888e941797c55e109564a5326"
+    },
+    {
+      "file": "chat-sidebar-imgIcon4.svg",
+      "bytes": 1343,
+      "sha256": "ea700ac4b19e1a24cddc1af17b4530389cd5fccc7e4042ef6ce4f41095dd24a2"
+    },
+    {
+      "file": "chat-sidebar-imgIcon5.svg",
+      "bytes": 842,
+      "sha256": "7acdf1c7ff8a33665663bb6dac41ac719d07a0173f02f566898741df8b426842"
+    },
+    {
+      "file": "chat-sidebar-imgImage.svg",
+      "bytes": 5098,
+      "sha256": "e616f5dff5f8fdae3eca7b098fab71f92156966941b4868b07b2861c1d9884a5"
+    },
+    {
+      "file": "chat-sidebar-imgImage1.png",
+      "bytes": 28787,
+      "sha256": "1fb63f9027778c94995ca53cb048c35d2de26d9822c354a0d61e79beabeeef72"
+    },
+    {
+      "file": "chat-sidebar-imgVector.svg",
+      "bytes": 753,
+      "sha256": "4c25db2598467b56f4914074e7287d1c41770f017f5032f3f7155a4c4ee13775"
+    },
+    {
+      "file": "chat-sidebar-imgVector1.svg",
+      "bytes": 895,
+      "sha256": "1db7a8183e5b7d4eead303beae37d0b1af4cfb4bdb673b22af73f076411443f1"
+    }
+  ]
+}

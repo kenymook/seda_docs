@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Toggle",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Toggle/Toggle.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Toggle/Toggle.tsx",
+    "export": "ToggleProps",
+    "nativeElement": "input"
+  },
+  "anatomy": [
+    {
+      "name": "control",
+      "element": "input",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "ReactNode",
+      "prop": "label",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle",
+      "loading"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "checked",
+      "unchecked"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "toggle"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D25"
+    },
+    {
+      "id": "value",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Controlled checked requires a change handler and omits defaultChecked.",
+      "check": "checked-value",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "blocked",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "aria-disabled-activation",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "description-merge",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "description-merge",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "focus-visible",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "component-token-binding",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "control-geometry",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "loading",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "stable-loading-width",
+      "layer": "browser",
+      "decision": "D25"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "platform-assistive-technology",
+      "status": "not-checked",
+      "reason": "Chromium web evidence does not establish every OS popup, screen reader or native desktop shell."
+    }
+  ],
+  "evidence": {
+    "source": "specs/inputs/toggle.md",
+    "baseline": "portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "track",
+        "off",
+        "default"
+      ],
+      [
+        "track",
+        "off",
+        "hover"
+      ],
+      [
+        "track",
+        "on",
+        "default"
+      ],
+      [
+        "track",
+        "on",
+        "hover"
+      ],
+      [
+        "track",
+        "disabled"
+      ],
+      [
+        "thumb",
+        "default"
+      ],
+      [
+        "thumb",
+        "disabled"
+      ],
+      [
+        "label",
+        "default"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "helper",
+        "default"
+      ],
+      [
+        "helper",
+        "disabled"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "thumb",
+        "on"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "disabled"
+      ]
+    ]
+  }
+}

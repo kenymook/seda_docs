@@ -4,3 +4,12 @@ dist/
 .generated/
 test-results/
 playwright-report/
+.diagnostics-lab2/
+.diagnostics-workspace/
+
+.diagnostics-controls/
+.diagnostics-spline/
+
+.diagnostics-spline-manipulator/
+.diagnostics-webflow/
+.diagnostics-framer/

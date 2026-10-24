@@ -1,0 +1,15 @@
+{
+  "scope": "Full authored suite115 passed before final content-ownership guard; changed TextArea subset4 rerun after guard; not browser/AT",
+  "command": "node --test --test-isolation=none packages/seda-contracts/test/*.test.mjs",
+  "exitCode": 0,
+  "tests": 115,
+  "passed": 115,
+  "failed": 0,
+  "source": "Node test runner completion observed in this change",
+  "changedSubsetAfterContentOwnershipGuard": {
+    "tests": 4,
+    "passed": 4,
+    "failed": 0,
+    "exitCode": 0
+  }
+}

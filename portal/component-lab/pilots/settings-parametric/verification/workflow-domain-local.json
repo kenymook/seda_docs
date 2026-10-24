@@ -1,0 +1,71 @@
+{
+  "scope": "Workflow DAG/model/local runner only; no UI, provider inference, pixel analysis, billing, AT or source visual acceptance.",
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "name": "workflow-source-roundtrip-empty-iterator-and-selected-closure",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-strict-import-prototypes-image-signatures-and-bounds",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-typed-input-ownership-and-atomic-invalid-connections",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-cycle-detection-and-unrelated-invalid-node-isolation",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-immutable-node-edits-delete-edges-and-history-branch",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-batch-runs-broadcast-and-output-budgets",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-fixture-is-metadata-and-pass-through-with-real-input-provenance",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-duplicate-begin-and-execute-do-not-dispatch-twice",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-cancel-aborts-and-late-resolution-cannot-overwrite-retry",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-cancel-from-progress-does-not-dispatch-next-side-effect",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-run-snapshot-retains-current-edits-and-adapter-isolation",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-executor-error-retry-malformed-type-and-batch-guard",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-snapshot-save-duplicate-late-response-quota-and-dirty",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-numeric-drafts-reject-partials-nonfinite-and-out-of-bounds",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-pointer-transaction-one-owned-commit-cancel-and-stale-guard",
+      "status": "passed"
+    },
+    {
+      "name": "workflow-large-image-capable-history-has-bounded-retention",
+      "status": "passed"
+    }
+  ]
+}

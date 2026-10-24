@@ -1,0 +1,22 @@
+{
+  "scope": "Publication checkout version17",
+  "browserGroups": 113,
+  "modelGroups": 5,
+  "reports": {
+    "lab2": {},
+    "workspace": {},
+    "controls": {
+      "passed": 12,
+      "failed": 0
+    },
+    "recents": {
+      "passed": 9,
+      "failed": 0
+    },
+    "building": {
+      "modelPassed": 5,
+      "browserPassed": 16,
+      "failed": 0
+    }
+  }
+}

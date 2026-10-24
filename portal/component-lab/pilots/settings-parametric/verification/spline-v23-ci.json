@@ -1,0 +1,167 @@
+{
+  "repository": "kenymook/seda_docs",
+  "commit": "04f3ab75f75a579fb37a8001441883f568f207b6",
+  "runId": 40040574921,
+  "jobId": 120710427093,
+  "url": "https://github.com/kenymook/seda_docs/actions/runs/40040574921",
+  "status": "completed",
+  "conclusion": "success",
+  "contractFoundationTests": 120,
+  "installedPackageGroups": 25,
+  "applicationBrowserGroups": 174,
+  "isolatedRendererGroups": 5,
+  "domainModelGroups": 37,
+  "typescriptProjects": 3,
+  "artifact": {
+    "id": 12540000300,
+    "bytes": 13043841,
+    "sha256": "4808a802c597ce178e0a9a193f493d3a8c28701287a2334cf71f8a3683993b75"
+  },
+  "jobs": [
+    {
+      "id": 120710427093,
+      "name": "library",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40040574921,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run npx playwright install --with-deps chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Use one installed Chromium for both verifiers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run npm run verify:package",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Run npm run typecheck",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Run npm run build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Run npm run verify",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33
+        }
+      ]
+    }
+  ],
+  "logSummary": [
+    "2026-10-23T23:38:45.2263921Z {\"output\":\"/home/runner/work/seda_docs/seda_docs/packages/seda-ui/.diagnostics-package/2026-10-23T23-36-35-972Z\",\"passed\":25,\"failed\":0}",
+    "2026-10-23T23:39:43.2491446Z ℹ tests 120",
+    "2026-10-23T23:39:43.2492050Z ℹ pass 120",
+    "2026-10-23T23:39:43.2492342Z ℹ fail 0",
+    "2026-10-23T23:41:01.0754944Z {\"passed\":55,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-lab2\"}",
+    "2026-10-23T23:42:02.7634331Z {\"passed\":21,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-workspace\"}",
+    "2026-10-23T23:42:07.3172316Z {\"passed\":12,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-controls\"}",
+    "2026-10-23T23:42:18.4319506Z {\"passed\":9,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-recents\"}",
+    "2026-10-23T23:42:32.8804363Z {\"modelPassed\":5,\"browserPassed\":17,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-building\"}",
+    "2026-10-23T23:42:46.4532004Z {\"modelPassed\":4,\"browserPassed\":12,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-chat\"}",
+    "2026-10-23T23:42:46.5392883Z {\"modelPassed\":19,\"failed\":0}",
+    "2026-10-23T23:43:20.5158962Z {\"browserPassed\":20,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox\"}",
+    "2026-10-23T23:43:38.2716670Z {\"passed\":7,\"failed\":0}",
+    "2026-10-23T23:43:38.3996758Z {\"passed\":9,\"failed\":0}",
+    "2026-10-23T23:43:54.7047944Z {\"passed\":5,\"failed\":0}",
+    "2026-10-23T23:44:52.3246597Z {\"passed\":10,\"failed\":0}",
+    "2026-10-23T23:48:35.3726549Z {\"passed\":11,\"failed\":0}",
+    "2026-10-23T23:48:36.9601963Z Artifact seda-verification.zip successfully finalized. Artifact ID 12540000300",
+    "2026-10-23T23:48:36.9603667Z Artifact seda-verification has been successfully uploaded! Final size is 13043841 bytes. Artifact ID is 12540000300"
+  ]
+}

@@ -1,6 +1,8 @@
+import { componentNames } from './registry.mjs';
+import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
-const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant']);
+const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -16,13 +18,15 @@ function content(value) {
 
 /** Contract facts, not measurements of an existing DOM. Focus is an independent input. */
 export function deriveState(component, props, interaction = {}) {
-  if (!['Button', 'IconButton', 'TextField'].includes(component)) throw new TypeError(`Unknown component ${component}`);
+  if (!componentNames.includes(component)) throw new TypeError(`Unknown component ${component}`);
   for (const [key, value] of Object.entries(interaction)) {
     if (!['hovered', 'focused', 'active'].includes(key) || typeof value !== 'boolean') throw new TypeError(`Unknown interaction fact: ${key}`);
   }
-  const disabled = props.disabled === true;
+  const tabs = component === 'Tabs' ? deriveTabsSelection(props) : undefined;
+  const menu = component === 'DropdownMenu' ? deriveMenu(props) : undefined;
+  const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
-  const error = component === 'TextField' && content(props.errorText) !== 'empty';
+  const error = ['TextField','TextArea','Select','Checkbox','Radio'].includes(component) && content(props.errorText) !== 'empty';
   const focused = interaction.focused ?? false;
   const hovered = interaction.hovered ?? false;
   const active = interaction.active ?? false;
@@ -31,10 +35,55 @@ export function deriveState(component, props, interaction = {}) {
     activity: loading ? 'loading' : 'idle',
     validation: disabled ? 'none' : error ? 'error' : 'none',
     interaction: { hovered, focused, active },
-    data: component === 'TextField' ? (typeof props.value === 'string' && props.value.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : active ? (component === 'TextField' ? 'active' : 'pressed') : hovered ? 'hover' : 'default',
+    data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','TextArea','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : component==='TextArea'&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
+    ...(tabs ? { tabs } : {}),
+    ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
+    ...(component==='Tree'?{tree:deriveTree(props),data:props.items?.length?'filled':'empty'}:{}),
   };
+}
+
+const menuActions = items => Array.isArray(items) ? items.flatMap(item => item?.type === 'separator' ? [] : item?.type === 'group' ? Array.isArray(item.items) ? item.items : [] : item ? [item] : []) : [];
+function deriveMenu(props) {
+  const items = menuActions(props.items);
+  const unavailable = props.disabled === true || !items.length;
+  return { controlled: props.open !== undefined, requestedOpen: props.open ?? props.defaultOpen ?? false,
+    open: !unavailable && (props.open ?? props.defaultOpen ?? false), unavailable,
+    items: items.map(item => ({id:item.id, state:item.disabled ? 'disabled' : 'default', danger:item.danger === true})) };
+}
+
+/** Host handlers may be real functions or typed opaque bindings; neither is executed here. */
+function handler(value) {
+  return typeof value === 'function' || value && typeof value === 'object' && Object.keys(value).length === 1 && typeof value.$handler === 'string' && value.$handler.trim().length > 0;
+}
+function validMenuItems(items, provider) {
+  if (!Array.isArray(items)) return false;
+  const ids = new Set(), shortcuts = new Set();
+  const id = value => { if (typeof value !== 'string' || !value.trim() || ids.has(value)) return false; ids.add(value);return true; };
+  const text = value => typeof value === 'string' && value.trim().length > 0;
+  const action = item => {
+    if (!item || typeof item !== 'object' || !id(item.id) || item.type !== undefined && item.type !== 'action' || !text(item.label) || !handler(item.onSelect)) return false;
+    if (item.shortcut !== undefined) {
+      const s = item.shortcut;
+      if (!s || !text(s.key) || !text(s.label) || !Array.isArray(s.modifiers) || s.modifiers.some(m => !['Control','Meta','Alt','Shift'].includes(m)) || new Set(s.modifiers).size !== s.modifiers.length || provider && !s.modifiers.some(m => ['Control','Meta','Alt'].includes(m))) return false;
+      const signature = [...s.modifiers].sort().join('+') + ':' + s.key.toLocaleLowerCase();
+      if (shortcuts.has(signature)) return false;
+      shortcuts.add(signature);
+    }
+    return true;
+  };
+  return items.every(item => item && typeof item === 'object' && (item.type === 'separator' ? id(item.id) : item.type === 'group' ? id(item.id) && text(item.label) && Array.isArray(item.items) && item.items.every(action) : action(item)));
+}
+
+/** Authored selection snapshot; internal uncontrolled state/focus still needs browser evidence. */
+function deriveTabsSelection(props) {
+  const items = Array.isArray(props.items) ? props.items : [];
+  const enabled = items.filter(item => item && !item.disabled);
+  const requestedValue = props.value ?? props.defaultValue ?? null;
+  const value = enabled.some(item => item.value === requestedValue) ? requestedValue : enabled[0]?.value ?? null;
+  return { requestedValue, value, controlled: props.value !== undefined, activationMode: props.activationMode ?? 'automatic',
+    items: items.map(item => ({ value: item?.value, state: item?.disabled ? 'disabled' : item?.value === value ? 'selected' : 'default' })) };
 }
 
 /** Target ARIA composition; the existing TextField adapter is audited separately. */
@@ -70,6 +119,54 @@ export function evaluateRules(contract, props) {
       case 'slot-present':
         if (content(props[rule.prop]) === 'empty') violate(`A nonempty ${rule.prop} slot is required.`);
         break;
+      case 'selection-value': {
+        const options = Array.isArray(props.options) ? props.options : [];
+        if (!Array.isArray(options) || !options.length || options.some(o => !o || typeof o.value !== 'string' || !o.value.trim() || content(o.label) === 'empty') || new Set(options.map(o => o.value)).size !== options.length) violate('Options require unique nonempty values and labels.');
+        if (props.value !== undefined && props.defaultValue !== undefined) violate('value and defaultValue are mutually exclusive.');
+        if (props.value !== undefined && !props.onValueChange && !props.onChange) violate('A controlled selection requires a change handler.');
+        const value = props.value ?? props.defaultValue;
+        const multi = contract.id === 'Select' && props.selection === 'multi';
+        if (value !== undefined && (multi ? !Array.isArray(value) : typeof value !== 'string')) violate('Selection value shape must match single/multi mode.');
+        const values = Array.isArray(value) ? value : value === undefined || value === '' ? [] : [value];
+        if (new Set(values).size !== values.length || values.some(v => !options.some(o => o?.value === v))) violate('Every selected value must occur exactly once in options.');
+        break;
+      }
+      case 'checked-value':
+        if (props.checked !== undefined && props.defaultChecked !== undefined) violate('checked and defaultChecked are mutually exclusive.');
+        if (props.checked !== undefined && !props.onCheckedChange && !props.onChange && !props.readOnly) violate('Controlled checked requires a change handler or readOnly.');
+        break;
+      case 'tabs-items': {
+        const items = props.items;
+        if (!Array.isArray(items) || items.some(item => !item || typeof item !== 'object' || Array.isArray(item) || typeof item.value !== 'string' || !item.value.trim() || typeof item.label !== 'string' || !item.label.trim() || !own(item, 'content')) || new Set(items.map(item => item.value)).size !== items.length)
+          violate('Tabs items require unique nonempty string values/labels and a content field; an empty list is supported.');
+        break;
+      }
+      case 'tabs-selection':
+        if (props.value !== undefined && props.defaultValue !== undefined) violate('Tabs value and defaultValue are mutually exclusive.');
+        break;
+      case 'tree-items':
+        try{deriveTree(props);}catch(error){violate(error.message);}
+        break;
+      case 'tree-state':
+        if(!validateTreeState(props))violate('Tree controlled state requires its handler, excludes defaults, and single selection accepts at most one id.');
+        break;
+      case 'menu-items':
+        if (!validMenuItems(props.items, props.shortcutScope === 'provider')) violate('Menu items require unique IDs, text labels, action handlers and valid unique shortcuts.');
+        break;
+      case 'menu-open':
+        if (props.open !== undefined && (props.defaultOpen !== undefined || !handler(props.onOpenChange))) violate('Controlled menu requires onOpenChange and excludes defaultOpen.');
+        if (props.iconOnly && content(props.triggerIcon) === 'empty') violate('Icon-only menu trigger needs triggerIcon.');
+        break;
+      case 'textarea-value':
+        if(props.value!==undefined&&(typeof props.value!=='string'||props.defaultValue!==undefined||!handler(props.onChange)&&!props.readOnly&&!props.disabled))violate('Controlled TextArea requires string value and onChange or readOnly/disabled, without defaultValue.');
+        if(props.defaultValue!==undefined&&typeof props.defaultValue!=='string')violate('TextArea defaultValue must be a string.');
+        if(props.clearable&&props.value!==undefined&&!handler(props.onClear))violate('Controlled clearable TextArea requires onClear.');
+        break;
+      case 'textarea-layout': {
+        const rows=props.rows??3;
+        if(!Number.isInteger(rows)||rows<1||props.maxRows!==undefined&&(!props.autoResize||!Number.isInteger(props.maxRows)||props.maxRows<rows))violate('Positive integer rows; maxRows requires autoResize and must be >= rows.');
+        break;
+      }
       case 'controlled-value':
         if (typeof props.value !== 'string' || !props.onChange || own(props, 'defaultValue')) violate('The pilot field requires value:string and onChange, without defaultValue.');
         else if (own(props, 'filled') && props.filled !== (props.value.length > 0)) violate('filled must follow the raw current value length.');

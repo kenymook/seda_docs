@@ -1,7 +1,6 @@
-import "./styles.css";
-
 export * from "./components/Button";
 export * from "./components/IconButton";
+export * from "./components/Icon";
 export * from "./components/Link";
 export * from "./components/TextField";
 export * from "./components/Select";
@@ -13,3 +12,13 @@ export * from "./components/Tag";
 export * from "./components/Alert";
 export * from "./components/Toast";
 export * from "./components/FileUpload";
+export * from "./components/Tabs";
+export * from "./components/DropdownMenu";
+export * from "./components/SplitView";
+export * from "./components/Tree";
+
+export { SedaProvider, useSedaConfiguration } from "./foundation/SedaProvider";
+export type { SedaConfiguration, SedaProviderProps } from "./foundation/SedaProvider";
+
+export * from "./components/TextArea";
+export * from "./components/Text";

@@ -1,0 +1,35 @@
+{
+  "version": 24,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adc799dd52c8191adad6c244011f1da",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_4da7b7e94a08819199484f136883ed16",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "siteSource": "ada3454bde9f7a28044d8791b71502f1891d30eb",
+  "githubSource": "f7fee909e8c6a61286e73ec5d4967fbc35c17714",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "users": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "production": {
+    "canonicalSourceHashes": 695,
+    "applicationBrowserGroups": 13,
+    "sourceIntegrityChecks": 1,
+    "nestedAppearanceSamples": 16,
+    "javascriptErrors": 0,
+    "loadingDeltaWidth": 0,
+    "loadingDeltaHeight": 0
+  },
+  "knownVisualDefect": "Screenshot review after publication found Navigator title wrapping into multiple lines at large UI profiles; the original matrix did not assert title readability. A stronger regression and layout correction are in progress.",
+  "remaining": [
+    "Exact Figma source fidelity",
+    "Full keyboard/AT/OS/performance",
+    "CMS/Insights/Interactions/import/collaboration/external Webflow publishing",
+    "Framer1:7743 and graph1:8421",
+    "Complete Figma/Notion/ChatGPT/Claude Design maturity objective"
+  ]
+}

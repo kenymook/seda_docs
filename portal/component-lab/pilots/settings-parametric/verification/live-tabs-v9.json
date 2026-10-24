@@ -1,0 +1,50 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "title": "SEDA AI Lab 2.0",
+  "status": 200,
+  "workspaceNavigation": "projects/settings/members",
+  "memberRows": 4,
+  "tabs": {
+    "contract": true,
+    "crossPanelValidation": true,
+    "draftRetained": true,
+    "keyboard": true,
+    "tabGeometry": {
+      "height": 32,
+      "padding": 10
+    }
+  },
+  "contractCoverage": {
+    "contract": [
+      "Button",
+      "IconButton",
+      "TextField",
+      "Select",
+      "Checkbox",
+      "Radio",
+      "Toggle",
+      "Tabs"
+    ],
+    "libraryAdapter": [],
+    "composition": [
+      "Navigation",
+      "Table",
+      "Card",
+      "Dialog"
+    ]
+  },
+  "matchedSourceHashes": 90,
+  "styledNativePicker": true,
+  "singleFocusRing": true,
+  "selectPadding": 22,
+  "selectHeight": 60,
+  "xDuringRequest": 24,
+  "iconSquare": true,
+  "paddingAfter": 44,
+  "loadingDelta": {
+    "width": 0,
+    "height": 0
+  },
+  "pageErrors": 0,
+  "savedSnapshot": "Live verification"
+}

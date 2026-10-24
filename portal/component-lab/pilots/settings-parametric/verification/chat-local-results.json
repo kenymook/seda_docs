@@ -1,0 +1,559 @@
+{
+  "scope": "Chat reference 1:3894; local fixture transport",
+  "modelPassed": 4,
+  "browserPassed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "name": "chat-model-source-and-asset-integrity",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "threads": 24,
+        "messages": 5,
+        "sourceTable": true,
+        "orderedSteps": 10,
+        "assets": 42
+      }
+    },
+    {
+      "name": "chat-model-validation-recovery-and-branch",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "reloadStops": true,
+        "branchPreservesOriginal": true,
+        "clearPreservesBranch": true,
+        "sourceForgeryRejected": true,
+        "duplicateIdsRejected": true
+      }
+    },
+    {
+      "name": "chat-runner-duplicate-late-result-and-thread-isolation",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "duplicateGuard": true,
+        "lateChunkIgnored": true,
+        "lateErrorIgnored": true,
+        "newRunRetained": true,
+        "concurrentThreads": true,
+        "retryVersions": true
+      }
+    },
+    {
+      "name": "chat-runner-rejected-commit-and-errors",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "atomicRejectedSend": true,
+        "visibleTransportFailure": true
+      }
+    },
+    {
+      "name": "chat-source-layout-and-installed-components",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "metrics": {
+          "rail": {
+            "x": 0,
+            "y": 0,
+            "width": 52,
+            "height": 1288
+          },
+          "navigation": {
+            "x": 52,
+            "y": 0,
+            "width": 238,
+            "height": 1288
+          },
+          "header": {
+            "x": 290,
+            "y": 0,
+            "width": 1150,
+            "height": 52
+          },
+          "conversation": {
+            "x": 290,
+            "y": 52,
+            "width": 834,
+            "height": 1129
+          },
+          "composer": {
+            "x": 323,
+            "y": 1181,
+            "width": 768,
+            "height": 78
+          },
+          "overflow": 0,
+          "textarea": "seda-textarea__input",
+          "innerFrame": "none"
+        },
+        "sourceLists": true,
+        "sourceTable": true
+      }
+    },
+    {
+      "name": "chat-thread-drafts-url-back-and-reload",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "perThreadDrafts": true,
+        "url": true,
+        "backForward": true,
+        "reload": true
+      }
+    },
+    {
+      "name": "chat-composer-ime-newline-send-and-stop-retry",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "syntheticImeGuard": true,
+        "nativeShiftEnter": true,
+        "duplicateGuard": true,
+        "partialRetained": true,
+        "retryVersions": true,
+        "nextDraftRetained": true
+      }
+    },
+    {
+      "name": "chat-background-thread-and-error-retry",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "ownerThreadRetained": true,
+        "otherDraftRetained": true,
+        "error": true,
+        "retry": true
+      }
+    },
+    {
+      "name": "chat-text-attachments-and-invalid-file",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "textFileRead": true,
+        "replyUsesText": true,
+        "atomicSend": true,
+        "invalidTypeRejected": true
+      }
+    },
+    {
+      "name": "chat-message-branch-and-original-history",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "branchHasNewIds": true,
+        "originalPreserved": true,
+        "clearDoesNotDestroyBranch": true
+      }
+    },
+    {
+      "name": "chat-search-rename-pin-trash-share-and-focus",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "keyboardSearch": true,
+        "rename": true,
+        "pin": true,
+        "trashRestore": true,
+        "branchExportRoundtrip": true,
+        "localShare": true
+      }
+    },
+    {
+      "name": "chat-profile-matrix-draft-panels-and-active-run",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "samples": 24,
+        "measurements": [
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "s",
+            "select": 36,
+            "textarea": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "button": 36,
+            "buttonPaddingInline": 22,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "m",
+            "select": 44,
+            "textarea": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "button": 44,
+            "buttonPaddingInline": 26,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "l",
+            "select": 52,
+            "textarea": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "button": 52,
+            "buttonPaddingInline": 30,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "xl",
+            "select": 60,
+            "textarea": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "button": 60,
+            "buttonPaddingInline": 34,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "s",
+            "select": 36,
+            "textarea": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "button": 36,
+            "buttonPaddingInline": 22,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "m",
+            "select": 44,
+            "textarea": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "button": 44,
+            "buttonPaddingInline": 26,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "l",
+            "select": 52,
+            "textarea": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "button": 52,
+            "buttonPaddingInline": 30,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "xl",
+            "select": 60,
+            "textarea": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "button": 60,
+            "buttonPaddingInline": 34,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "select": 36,
+            "textarea": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "button": 36,
+            "buttonPaddingInline": 22,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "select": 44,
+            "textarea": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "button": 44,
+            "buttonPaddingInline": 26,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "select": 52,
+            "textarea": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "button": 52,
+            "buttonPaddingInline": 30,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "select": 60,
+            "textarea": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "button": 60,
+            "buttonPaddingInline": 34,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "select": 36,
+            "textarea": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "button": 36,
+            "buttonPaddingInline": 22,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "select": 44,
+            "textarea": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "button": 44,
+            "buttonPaddingInline": 26,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "select": 52,
+            "textarea": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "button": 52,
+            "buttonPaddingInline": 30,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "select": 60,
+            "textarea": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "button": 60,
+            "buttonPaddingInline": 34,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "s",
+            "select": 36,
+            "textarea": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "button": 36,
+            "buttonPaddingInline": 22,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "m",
+            "select": 44,
+            "textarea": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "button": 44,
+            "buttonPaddingInline": 26,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "l",
+            "select": 52,
+            "textarea": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "button": 52,
+            "buttonPaddingInline": 30,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "xl",
+            "select": 60,
+            "textarea": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "button": 60,
+            "buttonPaddingInline": 34,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "s",
+            "select": 36,
+            "textarea": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "button": 36,
+            "buttonPaddingInline": 22,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "m",
+            "select": 44,
+            "textarea": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "button": 44,
+            "buttonPaddingInline": 26,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "l",
+            "select": 52,
+            "textarea": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "button": 52,
+            "buttonPaddingInline": 30,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "xl",
+            "select": 60,
+            "textarea": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "button": 60,
+            "buttonPaddingInline": 34,
+            "paddingInline": 24,
+            "overflow": 0,
+            "visible": true
+          }
+        ],
+        "independentDraft": true,
+        "pendingRunAcrossProfiles": true,
+        "keyboardResize": true,
+        "activityToggle": true
+      }
+    },
+    {
+      "name": "chat-scroll-intent-and-streaming-reload",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "noForcedScroll": true,
+        "reloadStops": true,
+        "retryAfterReload": true
+      }
+    },
+    {
+      "name": "chat-storage-quota-and-explicit-recovery",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "quotaDraftRetained": true,
+        "retry": true,
+        "reload": true,
+        "corruptDataExplicitRecovery": true
+      }
+    },
+    {
+      "name": "chat-long-history-load-older-anchor",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "fixtureMessages": 180,
+        "initialRendered": 80,
+        "load80": true,
+        "anchorRetained": true,
+        "completeHistory": true
+      }
+    },
+    {
+      "name": "chat-javascript-errors",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

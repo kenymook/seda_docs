@@ -1,0 +1,240 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Checkbox",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Checkbox/Checkbox.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Checkbox/Checkbox.tsx",
+    "export": "CheckboxProps",
+    "nativeElement": "input"
+  },
+  "anatomy": [
+    {
+      "name": "control",
+      "element": "input",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "ReactNode",
+      "prop": "label",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none",
+      "error"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "checked",
+      "unchecked",
+      "indeterminate"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "checkbox"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D25"
+    },
+    {
+      "id": "value",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Controlled checked requires a change handler and omits defaultChecked.",
+      "check": "checked-value",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "error",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "error-message",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "description-merge",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "description-merge",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "focus-visible",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "component-token-binding",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "control-geometry",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "disabled-error-presentation",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "disabled-error-presentation",
+      "layer": "browser",
+      "decision": "D25"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "platform-assistive-technology",
+      "status": "not-checked",
+      "reason": "Chromium web evidence does not establish every OS popup, screen reader or native desktop shell."
+    }
+  ],
+  "evidence": {
+    "source": "specs/inputs/checkbox.md",
+    "baseline": "portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "control",
+        "surface",
+        "default"
+      ],
+      [
+        "control",
+        "surface",
+        "hover"
+      ],
+      [
+        "control",
+        "surface",
+        "checked"
+      ],
+      [
+        "control",
+        "surface",
+        "indeterminate"
+      ],
+      [
+        "control",
+        "surface",
+        "error"
+      ],
+      [
+        "control",
+        "surface",
+        "disabled"
+      ],
+      [
+        "control",
+        "border",
+        "default"
+      ],
+      [
+        "control",
+        "border",
+        "checked"
+      ],
+      [
+        "control",
+        "border",
+        "error"
+      ],
+      [
+        "control",
+        "border",
+        "disabled"
+      ],
+      [
+        "control",
+        "icon",
+        "checked"
+      ],
+      [
+        "control",
+        "icon",
+        "indeterminate"
+      ],
+      [
+        "label",
+        "default"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "helper",
+        "default"
+      ],
+      [
+        "helper",
+        "error"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "control",
+        "icon",
+        "disabled"
+      ],
+      [
+        "control",
+        "icon",
+        "error"
+      ]
+    ]
+  }
+}

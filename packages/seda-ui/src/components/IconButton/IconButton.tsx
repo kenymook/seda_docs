@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { IconButtonProps } from "./IconButton.types";
@@ -11,7 +12,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       loading = false,
       onClick,
       selected,
-      size = "m",
+      size: sizeProp,
       tooltip,
       type = "button",
       variant = "secondary",
@@ -19,6 +20,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const isBlocked = disabled || loading;
 
     return (

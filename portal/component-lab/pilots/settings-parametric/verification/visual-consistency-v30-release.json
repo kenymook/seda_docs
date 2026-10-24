@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "d691dd8dab15862111de2c0cb923d56213c0a6e7",
+  "siteSource": "0c076c9dccd03f04a959a8348cd00fb26c01eb44",
+  "version": 30,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "deploymentId": "appgdep_6adca6ca03088191baa7760eef5d9414",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "allowedOwners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "sourceHashesMatched": 730,
+  "typeScriptProjects": 3,
+  "contractTests": 120,
+  "installedPackageGroups": 25,
+  "fullPilotVerify": "passed",
+  "visualProduction": {
+    "scope": "shared icon scale, slot alignment, preset gaps, X padding, disabled/error and loading geometry",
+    "samples": [
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 80,
+        "icon": 11,
+        "buttonHeight": 29,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 100,
+        "icon": 14,
+        "buttonHeight": 32,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 150,
+        "icon": 21,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 80,
+        "icon": 13,
+        "buttonHeight": 36,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 100,
+        "icon": 16,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 150,
+        "icon": 24,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 80,
+        "icon": 14,
+        "buttonHeight": 43,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 100,
+        "icon": 18,
+        "buttonHeight": 48,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 150,
+        "icon": 27,
+        "buttonHeight": 60,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 80,
+        "icon": 16,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 100,
+        "icon": 20,
+        "buttonHeight": 56,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 150,
+        "icon": 30,
+        "buttonHeight": 70,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 80,
+        "icon": 11,
+        "buttonHeight": 29,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 100,
+        "icon": 14,
+        "buttonHeight": 32,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 150,
+        "icon": 21,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 80,
+        "icon": 13,
+        "buttonHeight": 36,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 100,
+        "icon": 16,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 150,
+        "icon": 24,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 80,
+        "icon": 14,
+        "buttonHeight": 43,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 100,
+        "icon": 18,
+        "buttonHeight": 48,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 150,
+        "icon": 27,
+        "buttonHeight": 60,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 80,
+        "icon": 16,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 100,
+        "icon": 20,
+        "buttonHeight": 56,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 150,
+        "icon": 30,
+        "buttonHeight": 70,
+        "loadingWidthDelta": 0
+      }
+    ],
+    "errors": []
+  },
+  "loading": {
+    "scenarios": 288,
+    "maxWidthDelta": 0,
+    "maxHeightDelta": 0
+  },
+  "archiveSha256": "96e07e464878708e18dc237b90b1c88e1757e73defc45ddadb724de46c9bb255",
+  "limitations": [
+    "Visual system remains unfinished",
+    "Initial 11 glyphs do not cover full application vocabulary",
+    "Composite icons need adapters",
+    "FileUpload and feedback components still need visual review",
+    "No pixel-parity, AT/WCAG, Firefox/WebKit or native-shell acceptance claim"
+  ]
+}
