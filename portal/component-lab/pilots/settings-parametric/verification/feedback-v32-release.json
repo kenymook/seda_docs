@@ -1,0 +1,368 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "0a66eab8f0a513e84abab5b80ce92eed002d3cb4",
+  "siteSource": "87b7090df1d752a4f3d3a11d0f25c8231ba353eb",
+  "version": 32,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "deploymentId": "appgdep_6adcc4d208b08191aec6f66dc3b4d737",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_8d6293ad84b481919a96358151579870",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archiveSha256": "9383e5fb150b98c3d69833c41593ddffec1108c5e4a647c3a37b4540f891dd09",
+  "archiveBytes": 7546027,
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 120,
+  "packageGroupsPassed": 29,
+  "packageGroupsFailed": 0,
+  "feedbackConsumers": {
+    "react-18.3.1-feedback": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "icons": 17,
+      "brandStates": [
+        {
+          "theme": "light",
+          "state": "default",
+          "contrast": 5.9049446616885115
+        },
+        {
+          "theme": "light",
+          "state": "hover",
+          "contrast": 8.592071695231319
+        },
+        {
+          "theme": "light",
+          "state": "pressed",
+          "contrast": 12.465289507622716
+        },
+        {
+          "theme": "dark",
+          "state": "default",
+          "contrast": 5.9049446616885115
+        },
+        {
+          "theme": "dark",
+          "state": "hover",
+          "contrast": 8.592071695231319
+        },
+        {
+          "theme": "dark",
+          "state": "pressed",
+          "contrast": 12.465289507622716
+        }
+      ],
+      "nativeSelectionOnce": true,
+      "dismissDoesNotSelect": true,
+      "noNestedButtons": true,
+      "disabledAndUnboundGuards": true,
+      "noPhantomSlots": true,
+      "zeroContent": true,
+      "forcedColors": true,
+      "errors": []
+    },
+    "react-19.2.7-feedback": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "icons": 17,
+      "brandStates": [
+        {
+          "theme": "light",
+          "state": "default",
+          "contrast": 5.9049446616885115
+        },
+        {
+          "theme": "light",
+          "state": "hover",
+          "contrast": 8.592071695231319
+        },
+        {
+          "theme": "light",
+          "state": "pressed",
+          "contrast": 12.465289507622716
+        },
+        {
+          "theme": "dark",
+          "state": "default",
+          "contrast": 5.9049446616885115
+        },
+        {
+          "theme": "dark",
+          "state": "hover",
+          "contrast": 8.592071695231319
+        },
+        {
+          "theme": "dark",
+          "state": "pressed",
+          "contrast": 12.465289507622716
+        }
+      ],
+      "nativeSelectionOnce": true,
+      "dismissDoesNotSelect": true,
+      "noNestedButtons": true,
+      "disabledAndUnboundGuards": true,
+      "noPhantomSlots": true,
+      "zeroContent": true,
+      "forcedColors": true,
+      "errors": []
+    }
+  },
+  "production": {
+    "scope": "Real SEDA feedback composition, filter/state actions and shared semantic palette",
+    "results": [
+      {
+        "name": "production-exact-source-provenance",
+        "status": "passed",
+        "evidence": {
+          "sourceHashes": 749
+        }
+      },
+      {
+        "name": "feedback-native-filter-count-toast-and-dismiss-focus",
+        "status": "passed",
+        "evidence": {
+          "nativeSpace": true,
+          "count2And4": true,
+          "independentDismiss": true,
+          "focusRestored": true
+        }
+      },
+      {
+        "name": "feedback-alert-dismiss-restore-and-explicit-urgency",
+        "status": "passed",
+        "evidence": {
+          "alert": true,
+          "assertive": true,
+          "persistentExplicit": true
+        }
+      },
+      {
+        "name": "feedback-shared-scale-shapes-and-semantic-composition-palette",
+        "status": "passed",
+        "evidence": {
+          "samples": [
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 80,
+              "font": 10,
+              "icon": 11
+            },
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 100,
+              "font": 12,
+              "icon": 14
+            },
+            {
+              "theme": "Light",
+              "size": "s",
+              "scale": 150,
+              "font": 18,
+              "icon": 21
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 80,
+              "font": 11,
+              "icon": 13
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 100,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Light",
+              "size": "m",
+              "scale": 150,
+              "font": 21,
+              "icon": 24
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 80,
+              "font": 13,
+              "icon": 14
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 100,
+              "font": 16,
+              "icon": 18
+            },
+            {
+              "theme": "Light",
+              "size": "l",
+              "scale": 150,
+              "font": 24,
+              "icon": 27
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 80,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 100,
+              "font": 18,
+              "icon": 20
+            },
+            {
+              "theme": "Light",
+              "size": "xl",
+              "scale": 150,
+              "font": 27,
+              "icon": 30
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 80,
+              "font": 10,
+              "icon": 11
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 100,
+              "font": 12,
+              "icon": 14
+            },
+            {
+              "theme": "Dark",
+              "size": "s",
+              "scale": 150,
+              "font": 18,
+              "icon": 21
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 80,
+              "font": 11,
+              "icon": 13
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 100,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Dark",
+              "size": "m",
+              "scale": 150,
+              "font": 21,
+              "icon": 24
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 80,
+              "font": 13,
+              "icon": 14
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 100,
+              "font": 16,
+              "icon": 18
+            },
+            {
+              "theme": "Dark",
+              "size": "l",
+              "scale": 150,
+              "font": 24,
+              "icon": 27
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 80,
+              "font": 14,
+              "icon": 16
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 100,
+              "font": 18,
+              "icon": 20
+            },
+            {
+              "theme": "Dark",
+              "size": "xl",
+              "scale": 150,
+              "font": 27,
+              "icon": 30
+            }
+          ],
+          "semanticSurfaces": true,
+          "activeTextContrast": 4.5,
+          "pillShapesRetained": true
+        }
+      },
+      {
+        "name": "feedback-all-severities-and-real-project-tags",
+        "status": "passed",
+        "evidence": {
+          "fiveSeverities": true,
+          "libraryTagsInTableAndCards": true
+        }
+      },
+      {
+        "name": "feedback-target-viewports-themes-and-captures",
+        "status": "passed",
+        "evidence": {
+          "samples": [
+            {
+              "width": 1280,
+              "theme": "Light"
+            },
+            {
+              "width": 1280,
+              "theme": "Dark"
+            },
+            {
+              "width": 1920,
+              "theme": "Light"
+            },
+            {
+              "width": 1920,
+              "theme": "Dark"
+            }
+          ]
+        }
+      },
+      {
+        "name": "feedback-browser-errors",
+        "status": "passed"
+      }
+    ],
+    "errors": []
+  },
+  "limits": [
+    "No complete visual fidelity or target AT/OS acceptance",
+    "Feedback adapters lack executable instance contracts",
+    "Toast presentation only: no timer/queue/pause/dedupe host",
+    "Workflow/chat provider fixtures remain local"
+  ]
+}
