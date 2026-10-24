@@ -30,4 +30,11 @@ User finding: matching heights and passing behavior tests did not establish a co
 - No claim of pixel parity with all Figma frames, full WCAG/AT acceptance, Firefox/WebKit or native desktop-shell validation.
 - `SedaProvider.textScale` scales Text roles; the Lab's control scale additionally derives control geometry. These are explicitly distinct APIs.
 
-Publication and production verification are recorded separately after deployment; this report alone does not claim a live version.
+## Publication and production verification
+
+- Same URL: https://seda-ai-pilot.kenymook.chatgpt.site/ — version 30, owner-private policy unchanged (custom/revision 1, one allowed owner, no visitors/groups).
+- GitHub implementation: `d691dd8dab15862111de2c0cb923d56213c0a6e7`; Site source: `0c076c9dccd03f04a959a8348cd00fb26c01eb44`.
+- Native deployment `appgdep_6adca6ca03088191baa7760eef5d9414` succeeded. Archive SHA-256: `96e07e464878708e18dc237b90b1c88e1757e73defc45ddadb724de46c9bb255`.
+- Authenticated production Chromium check: all 24 visual combinations PASS, direct IMG normalization PASS, 0 JavaScript errors. All 730 published source hashes matched the canonical checkout.
+- The first source-byte comparison correctly rejected CRLF/LF differences in the local checkout. Aligned clean committed files with exact Git blob bytes, refreshed the installed package and rebuilt local metadata; the source comparison then passed. No functional change or second deployment was needed.
+- This proves the tested correction is live; the remaining visual limitations above still apply.
