@@ -1,4 +1,9 @@
 /* Shared application workspace adapter. Lab configuration chrome is deliberately outside this scope. */
+.visual-consistency { display:grid; gap:24px; }
+.visual-consistency__sample { display:grid; gap:20px; }
+.visual-consistency__fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+.visual-consistency__actions { display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+@media(max-width:900px) { .visual-consistency__fields { grid-template-columns:minmax(0,1fr); } }
 [data-workspace] {
   min-width: 0;
   font-family: var(--seda-font-family);

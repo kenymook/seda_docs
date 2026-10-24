@@ -144,7 +144,7 @@ try {
                     }),
                 );
               for (const choice of choiceData) {
-                const mark = Math.max(d.preset.icon, d.font);
+                const mark = Math.max(d.icon, d.font);
                 near(
                   choice.height,
                   choice.kind === "toggle" ? mark + 4 : mark,

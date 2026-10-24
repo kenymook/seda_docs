@@ -14,21 +14,23 @@ export function createWorkspaceBindings(
     "--seda-control-radius": derived.radius + "px",
     "--seda-control-font-size": derived.font + "px",
     "--seda-control-line-height": derived.line + "px",
+    "--seda-control-icon-size": derived.icon + "px",
+    "--seda-control-gap": compiled.geometry.textFieldAffixGap.value + "px",
     "--seda-control-padding-inline": derived.fieldPaddingX + "px",
     "--lab-choice-gap":
       compiled.geometry.textFieldAffixGap.value + parameters.airX + "px",
     "--lab-button-padding": derived.buttonPaddingX + "px",
     "--lab-padding-y": derived.py + "px",
-    "--lab-choice-size": Math.max(derived.preset.icon, derived.font) + "px",
+    "--lab-choice-size": Math.max(derived.icon, derived.font) + "px",
     "--lab-choice-radius":
       Math.min(
         derived.radius,
-        Math.max(derived.preset.icon, derived.font) / 3,
+        Math.max(derived.icon, derived.font) / 3,
       ) + "px",
     "--lab-toggle-height":
-      Math.max(derived.preset.icon, derived.font) + 4 + "px",
+      Math.max(derived.icon, derived.font) + 4 + "px",
     "--lab-toggle-width":
-      Math.max(derived.preset.icon, derived.font) * 2 + 4 + "px",
+      Math.max(derived.icon, derived.font) * 2 + 4 + "px",
   };
   const evidence = web.layout.evidence.map(item=>({...item,component:'foundation'}));
   for (const [component, binding] of Object.entries(web.controls)) {
@@ -45,16 +47,17 @@ export function createWorkspaceBindings(
         value: compiled.geometry.textFieldAffixGap.value + parameters.airX,
       },
       choiceSize: {
-        icon: derived.preset.icon,
+        icon: derived.icon,
         font: derived.font,
-        value: Math.max(derived.preset.icon, derived.font),
+        value: Math.max(derived.icon, derived.font),
       },
     },
     geometry: {
       height: derived.height,
       paddingX: derived.fieldPaddingX,
       paddingY: derived.py,
-      choiceSize: Math.max(derived.preset.icon, derived.font),
+      iconSize: derived.icon,
+      choiceSize: Math.max(derived.icon, derived.font),
     },
     parameters,
     coverage: {

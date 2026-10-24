@@ -136,10 +136,10 @@ try {
         await fs.writeFile(
           path.join(cwd, "consumer.mjs"),
           `
-import React,{useState} from 'react';import {SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';
+import React,{useState} from 'react';import {SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';
 const h=React.createElement;
 export function Consumer(){const [text,setText]=useState('Atlas');const [selection,setSelection]=useState('a');const [checked,setChecked]=useState(false);const [on,setOn]=useState(true);const [pending,setPending]=useState(false);const [requests,setRequests]=useState(0);
-return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name',label:'Project',value:text,onChange:e=>setText(e.target.value)}),h(Select,{id:'select',label:'Team',value:selection,options:[{value:'a',label:'Core'},{value:'b',label:'Design'}],onValueChange:setSelection}),h(Checkbox,{id:'checkbox',label:'Digest',checked,disabled:!on,onCheckedChange:setChecked}),h(Radio,{name:'visibility',label:'Visibility',value:selection,options:[{value:'a',label:'Private'},{value:'b',label:'Team'}],onValueChange:setSelection}),h(Toggle,{id:'toggle',label:'Notifications',checked:on,onCheckedChange:setOn}),h(Button,{id:'save',loading:pending,onClick:()=>{setPending(true);setRequests(n=>n+1);}},text),h(IconButton,{id:'help','aria-label':'Help',icon:'?'}),h('button',{id:'resolve',onClick:()=>setPending(false)},'Resolve'),h('div',{style:{width:180}},h(Select,{id:'select-long',label:'Camera',helperText:'Choose a camera',defaultValue:'long',options:[{value:'long',label:'Personal Camera with a very long label'},{value:'short',label:'Other camera'}]})),h(Select,{id:'select-override',label:'Visible title','aria-label':'Custom accessible title',options:[{value:'a',label:'First choice'}]}),h('output',{id:'state'},JSON.stringify({text,selection,checked,on,pending,requests})));}
+return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name',label:'Project',value:text,onChange:e=>setText(e.target.value)}),h(Select,{id:'select',label:'Team',value:selection,options:[{value:'a',label:'Core'},{value:'b',label:'Design'}],onValueChange:setSelection}),h(Checkbox,{id:'checkbox',label:'Digest',checked,disabled:!on,onCheckedChange:setChecked}),h(Radio,{name:'visibility',label:'Visibility',value:selection,options:[{value:'a',label:'Private'},{value:'b',label:'Team'}],onValueChange:setSelection}),h(Toggle,{id:'toggle',label:'Notifications',checked:on,onCheckedChange:setOn}),h(Button,{id:'save',iconLeft:h(Icon,{name:'add'}),loading:pending,onClick:()=>{setPending(true);setRequests(n=>n+1);}},text),h(IconButton,{id:'help','aria-label':'Help',icon:'?'}),h('button',{id:'resolve',onClick:()=>setPending(false)},'Resolve'),h('div',{style:{width:180}},h(Select,{id:'select-long',label:'Camera',helperText:'Choose a camera',defaultValue:'long',options:[{value:'long',label:'Personal Camera with a very long label'},{value:'short',label:'Other camera'}]})),h(Select,{id:'select-override',label:'Visible title','aria-label':'Custom accessible title',options:[{value:'a',label:'First choice'}]}),h('output',{id:'state'},JSON.stringify({text,selection,checked,on,pending,requests})));}
 `,
         );
         const r = spawnSync(process.execPath, ["ssr.mjs"], {
@@ -150,7 +150,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 22);
+        assert.equal(result.exports.length, 23);
+        assert.ok(result.exports.includes("Icon"));
         assert.ok(result.exports.includes("Text"));
         assert.ok(result.exports.includes("textVariants"));
         assert.ok(result.exports.includes("TextArea"));
@@ -167,7 +168,10 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const icon=<Icon name="search"/>;
+// @ts-expect-error only original SEDA catalog names are accepted
+const inventedIcon=<Icon name="invented"/>;
 const typography=<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Heading</Text></SedaProvider>;
 // @ts-expect-error invented typography role
 const invalidTextRole=<Text variant="heading/hero"/>;
@@ -250,7 +254,7 @@ configuration.controlSize='s';return null;}`,
         { cwd, encoding: "utf8", windowsHide: true },
       );
       assert.equal(r.status, 0, r.stdout + r.stderr);
-      return { moduleResolution: "NodeNext", negativeTypeChecks: 19 };
+      return { moduleResolution: "NodeNext", negativeTypeChecks: 20 };
     });
     await check(
       "react-" + version + "-hydration-css-and-behavior",
@@ -306,6 +310,9 @@ configuration.controlSize='s';return null;}`,
           await page.waitForFunction(() => document.querySelector("#save"));
           assert.equal(await page.getByRole('combobox',{name:'Team',exact:true}).count(),1);
           assert.equal(await page.locator('#select').getAttribute('aria-labelledby'),'select-label');
+          const iconGeometry=await page.locator('#save .seda-icon').evaluate(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height,mask:getComputedStyle(el).maskImage,decorative:el.getAttribute('aria-hidden')}));
+          assert.equal(iconGeometry.width,16);assert.equal(iconGeometry.height,16);
+          assert.ok(iconGeometry.mask.includes('data:image/svg+xml'));assert.equal(iconGeometry.decorative,'true');
           await page.locator("#name").fill("Atlas edited");
           await page.locator("#select").selectOption("b");
           assert.equal(await page.getByRole('combobox',{name:'Team',exact:true}).count(),1);

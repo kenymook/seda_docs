@@ -1039,12 +1039,27 @@
 
 .seda-button {
   padding-inline: var(--seda-control-padding-inline, var(--seda-button-padding-x));
-  gap: var(--seda-control-gap, 8px);
+  gap: var(--seda-control-gap, var(--seda-preset-gap));
 }
 
 .seda-icon-button {
   width: var(--seda-control-height, var(--seda-preset-height));
   flex-shrink: 0;
+}
+
+.seda-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: var(--seda-control-icon-size, var(--seda-preset-icon-size, 1em));
+  height: var(--seda-control-icon-size, var(--seda-preset-icon-size, 1em));
+  background-color: currentColor;
+  mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 .seda-button__icon,
@@ -1067,11 +1082,12 @@
   width: 100%;
 }
 
-.seda-button__icon-content > svg,
-.seda-icon-button__icon > svg {
+.seda-button__icon-content > :is(svg, img, .seda-icon),
+.seda-icon-button__icon > :is(svg, img, .seda-icon) {
   display: block;
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 
 .seda-field--text .seda-field__affix {
@@ -1081,10 +1097,16 @@
   flex: 0 0 auto;
 }
 
-.seda-field--text .seda-field__affix > svg {
+.seda-field--text .seda-field__control {
+  gap: var(--seda-control-gap, var(--seda-preset-gap));
+}
+
+.seda-field--text .seda-field__affix > :is(svg, img, .seda-icon) {
   display: block;
   height: var(--seda-control-icon-size, var(--seda-preset-icon-size));
   width: var(--seda-control-icon-size, var(--seda-preset-icon-size));
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .seda-button__leading[data-empty="true"] {
@@ -1122,7 +1144,7 @@
   border-radius: var(--seda-control-radius, var(--seda-preset-radius));
   box-sizing: border-box;
   font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
-  gap: var(--seda-control-gap, 8px);
+  gap: var(--seda-control-gap, var(--seda-preset-gap));
   height: var(--seda-control-height, var(--seda-preset-height));
   line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
   min-height: var(--seda-control-height, var(--seda-preset-height));
@@ -1299,8 +1321,8 @@
 @supports (appearance: base-select) {
   .seda-field__select:not([multiple]),
   .seda-field__select:not([multiple])::picker(select) { appearance: base-select; }
-  .seda-field__select:not([multiple]) { display: block; position: relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-inline-end: 20px; }
-  .seda-field__select::picker-icon { content: ""; position: absolute; inset-inline-end: 4px; top: calc(50% - 5px); width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin: 0; transition: rotate .15s; }
+  .seda-field__select:not([multiple]) { display: flex; align-items: center; position: relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-inline-end: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) + var(--seda-control-gap, var(--seda-preset-gap))); }
+  .seda-field__select::picker-icon { content: ""; position: absolute; inset-inline-end: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) * .25); top: calc(50% - var(--seda-control-icon-size, var(--seda-preset-icon-size)) * .3125); width: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) * .375); height: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) * .375); border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin: 0; transition: rotate .15s; }
   .seda-field__select:open::picker-icon { rotate: 180deg; }
   .seda-field__select::picker(select) {
     box-sizing: border-box;

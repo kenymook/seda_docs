@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { SedaProvider, Text, Button, IconButton, TextField } from "@seda-ai/ui";
+import { SedaProvider, Text, Icon, Button, IconButton, TextField } from "@seda-ai/ui";
 import {
   createFormState,
   transitionForm,
@@ -133,6 +133,7 @@ function App() {
     "--seda-control-radius": d.radius + "px",
     "--seda-control-font-size": d.font + "px",
     "--seda-control-line-height": d.line + "px",
+    "--seda-control-icon-size": d.icon + "px",
   };
   const geometryFor = (role: string, preserveRequest = false) => ({
     ...geometryVars,
@@ -529,7 +530,7 @@ function App() {
               "control-" + index,
             h: el.getBoundingClientRect().height,
             expected: el.matches(".workspace-row-choice")
-              ? Math.max(d.preset.icon, d.font)
+              ? Math.max(d.icon, d.font)
               : el.id === "save" && form.saving
                 ? (pendingHeightRef.current ?? d.height)
                 : d.height,
@@ -840,17 +841,19 @@ function App() {
                   <Button
                     {...real("save")}
                     id="create"
+                    iconLeft={<Icon name="add" />}
                     size={configuration.controlSize}
                     variant="primary"
                     onClick={() => modal.current?.showModal()}
                   >
-                    + Создать проект
+                    Создать проект
                   </Button>
                 </div>
                 <div className="toolbar workspace-filters">
                   <div className="searchwrap" {...real("projectName")}>
                     <TextField
                       id="search"
+                      prefix={<Icon name="search" />}
                       label="Поиск проектов"
                       aria-label="Поиск проектов"
                       size={configuration.controlSize}

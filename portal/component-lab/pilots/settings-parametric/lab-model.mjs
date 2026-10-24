@@ -18,10 +18,11 @@ export function derive(compiled, opts) {
     fieldPaddingX: g.textFieldPaddingInline.value,
   };
   const line = Math.round((p.line * opts.scale) / 100),
-    font = Math.round((p.font * opts.scale) / 100);
+    font = Math.round((p.font * opts.scale) / 100),
+    icon = Math.round((p.icon * opts.scale) / 100);
   const basePad = (p.height - p.line - 2 * p.border) / 2,
     py = basePad + opts.air;
-  const raw = Math.max(line, p.icon) + 2 * py + 2 * p.border;
+  const raw = Math.max(line, icon) + 2 * py + 2 * p.border;
   const height = opts.strict ? Math.max(raw, p.height) : raw;
   const radius = Math.round(p.radius * opts.radius) / 100;
   return {
@@ -30,12 +31,13 @@ export function derive(compiled, opts) {
     fieldPaddingX: p.fieldPaddingX + (opts.airX ?? 0),
     line,
     font,
+    icon,
     basePad,
     py,
     raw,
     height,
     radius,
-    formula: `max(${line}, ${p.icon}) + 2 × ${fmt(py)} + 2 × ${p.border} = ${fmt(raw)} px`,
+    formula: `max(${line}, ${icon}) + 2 × ${fmt(py)} + 2 × ${p.border} = ${fmt(raw)} px`,
     constraint: opts.strict && raw < p.height,
   };
 }

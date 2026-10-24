@@ -3,6 +3,8 @@ import {
   Text,
   Button,
   TextField,
+  Icon,
+  IconButton,
 } from "@seda-ai/ui";
 
 import { Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
@@ -140,6 +142,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
           ["settings", "Настройки"],
           ["members", "Команда"],
           ["editor", "Редактор"],
+          ["components", "Компоненты"],
         ].map(([id, label]) => (
           <Button
             key={id}
@@ -321,6 +324,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
           <div className="toolbar workspace-members-toolbar">
             <TextField
               id="member-search"
+              prefix={<Icon name="search" />}
               label="Поиск участников"
               size={size}
               value={memberQuery}
@@ -440,6 +444,38 @@ export function ProductWorkspace({ size, action, children, typography, textScale
         </form>
       </section>
       <div id="editor-page" hidden={page!=="editor"}><EditorWorkspace size={size} action={action} typography={typography} textScale={textScale}/></div>
+      <section id="components-page" className="workspace-page" hidden={page!=="components"} aria-labelledby="components-title">
+        <Text as="h1" variant="heading/page" id="components-title">Согласованность компонентов</Text>
+        <Text as="p" variant="body/default">Сравните текст, иконки, края и интервалы при изменении общих параметров. Это рабочая проверка визуального слоя, а не отметка готовности библиотеки.</Text>
+        <VisualConsistency size={size} action={action} />
+      </section>
     </>
   );
+}
+
+function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
+  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState("");
+  const [enabled, setEnabled] = useState(true);
+  return <div className="visual-consistency">
+    <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
+    {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
+      <Text as="h2" variant="heading/section">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
+      <div className="visual-consistency__fields">
+        <TextField id={`visual-field-${state}`} label="Поиск" prefix={<Icon name="search" />} size={size} value={query} onChange={event=>setQuery(event.target.value)} disabled={state==="disabled"} errorText={state==="error"?"Уточните запрос":undefined} helperText="Иконка и текст используют общий масштаб" />
+        <Select id={`visual-select-${state}`} label="Период" size={size} disabled={state==="disabled"} errorText={state==="error"?"Выберите другой период":undefined} options={[{value:"week",label:"Эта неделя"},{value:"month",label:"Этот месяц"}]} />
+      </div>
+      <div className="visual-consistency__actions">
+        <Button {...action("save")} id={`visual-button-${state}`} size={size} variant="primary" iconLeft={<Icon name="add" />} disabled={state==="disabled"} loading={loading}>Создать проект</Button>
+        <Button {...action("cancel")} size={size} iconRight={<Icon name="arrow-right" />} disabled={state==="disabled"} loading={loading}>Продолжить</Button>
+        <IconButton id={`visual-icon-${state}`} size={size} aria-label="Информация" icon={<Icon name="info" />} disabled={state==="disabled"} loading={loading} />
+      </div>
+      <div className="visual-consistency__actions">
+        <Checkbox label="Включить в отчёт" size={size} defaultChecked disabled={state==="disabled"} />
+        <Toggle label="Уведомления" size={size} checked={enabled} onChange={event=>setEnabled(event.target.checked)} disabled={state==="disabled"} />
+      </div>
+      <Radio name={`visual-period-${state}`} label="Периодичность" options={[{value:"weekly",label:"Еженедельно"},{value:"monthly",label:"Ежемесячно"}]} size={size} defaultValue="weekly" disabled={state==="disabled"} />
+      <Tabs label={`Вкладки — ${state}`} size={size} items={[{value:"activity",label:"Активность",icon:<Icon name="clock" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Иконки в полях, действиях и навигации следуют одному размеру.</Text>},{value:"calendar",label:"Календарь",icon:<Icon name="calendar" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Состояние вкладки сохраняется при смене масштаба.</Text>}]} />
+    </div>)}
+  </div>;
 }

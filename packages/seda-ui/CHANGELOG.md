@@ -1,5 +1,12 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — согласованность иконок и контента
+
+- Общий Icon с 11 оригинальными SEDA glyphs, унаследованным foreground, типизированными именами и декоративной/смысловой семантикой.
+- Иконки Button, IconButton, TextField, Tabs, Tree и DropdownMenu учитывают общий размер, включая непосредственные IMG. Disclosure Tree также масштабируется. Button/TextField используют preset gap вместо фиксированных 8 px.
+- Progressive native Select центрирует выбранный текст вертикально и масштабирует место под стрелку. Native popup остаётся зависимым от поддержки браузера.
+- Lab масштабирует font/line/icon вместе и показывает реальные компоненты в отдельном разделе сравнения состояний. Это первый этап визуальной согласованности, не заявление зрелости всех компонентов.
+
 ## Unreleased — доступное имя Select
 
 - Native Select использует отдельную связь с label: options/helper/error больше не включаются в имя контрола. Required marker скрыт от имени; явные ARIA naming props потребителя сохранены. Длинное выбранное значение progressive native picker остаётся в одной строке с ellipsis и отдельной стрелкой. Installed React18/19 consumer проверяет точное имя до/после выбора, explicit ARIA override, узкий host и настоящий keyboard picker.

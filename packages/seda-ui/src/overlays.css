@@ -29,8 +29,8 @@
 .seda-dropdown-menu__item[aria-disabled="true"] {
   color: var(--dropdown-menu-item-foreground-disabled); background: var(--dropdown-menu-item-surface-disabled); cursor: not-allowed;
 }
-.seda-dropdown-menu__icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: var(--seda-preset-icon-size); height: var(--seda-preset-icon-size); color: var(--dropdown-menu-item-icon-default); }
-.seda-dropdown-menu__icon > svg { width: 100%; height: 100%; }
+.seda-dropdown-menu__icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: var(--seda-control-icon-size, var(--seda-preset-icon-size)); height: var(--seda-control-icon-size, var(--seda-preset-icon-size)); color: var(--dropdown-menu-item-icon-default); }
+.seda-dropdown-menu__icon > :is(svg, img, .seda-icon) { width: 100%; height: 100%; }
 .seda-dropdown-menu__item[aria-disabled="true"] .seda-dropdown-menu__icon { color: var(--dropdown-menu-item-icon-disabled); }
 .seda-dropdown-menu__text { display: grid; flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
 .seda-dropdown-menu__description { color: var(--dropdown-menu-item-description-foreground); }

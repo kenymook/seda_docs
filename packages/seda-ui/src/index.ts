@@ -1,5 +1,6 @@
 export * from "./components/Button";
 export * from "./components/IconButton";
+export * from "./components/Icon";
 export * from "./components/Link";
 export * from "./components/TextField";
 export * from "./components/Select";
