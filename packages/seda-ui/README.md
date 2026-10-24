@@ -56,6 +56,8 @@ import { Button, Icon, TextField } from '@seda-ai/ui';
 
 ## Общая тема и размер
 
+FileUpload также использует общий preset. Он сохраняет естественную многострочную высоту; `files` управляет отображаемым списком, а не native FileList. `disabled`/`state="disabled"` блокируют выбор и drop. `uploading` показывает busy/progress без сетевого запроса; валидация файлов, отправка и reset принадлежат приложению. Подробности: `specs/inputs/file-upload.md` и `docs/library/FILEUPLOAD-VISUAL-HANDOFF.md` в репозитории. Это ещё не executable instance contract.
+
 ```tsx
 import { SedaProvider, Button, TextField } from '@seda-ai/ui';
 import '@seda-ai/ui/styles.css';

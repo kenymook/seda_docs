@@ -1,5 +1,12 @@
 # Изменения @seda-ai/ui
 
+## Unreleased — FileUpload в общей геометрии
+
+- FileUpload наследует общий preset, размер иконки, шрифт, строку, gap и radius; multiline-контент растёт естественно. Lab применяет X/Y ко всем трём вариантам с сохранением их базовых отступов.
+- Исправлены реальная блокировка state=disabled, имя/description, пустые ошибки, finite/indeterminate progress и drag-over. `files` остаётся отображаемой коллекцией, transport и native reset принадлежат родителю.
+- Error/drag colors используют существующие theme-aware semantic aliases; новая surface/success отделяет фон от status accent. Все используемые FileUpload component tokens обязательны для сборки.
+- Installed consumer проверяет состояния, контраст с alpha compositing, keyboard chooser, реальные файлы/drop, длинные имена, reduced motion и forced colors. Figma/AT и executable instance contract остаются открытыми.
+
 ## Unreleased — согласованность иконок и контента
 
 - Общий Icon с 11 оригинальными SEDA glyphs, унаследованным foreground, типизированными именами и декоративной/смысловой семантикой.

@@ -266,6 +266,9 @@ export function buildThemeAssets(packageRoot, output) {
         !variables.has(match[1])
       )
         throw Error("Required public component token is missing: " + match[1]);
+    for (const property of usedProperties)
+      if (property.startsWith("--file-upload-") && !variables.has(property))
+        throw Error("Required public component token is missing: " + property);
     const primitives = {
       choiceRadius: resolver.resolve(
         {
@@ -346,7 +349,7 @@ export function buildThemeAssets(packageRoot, output) {
     );
   }
   const classes =
-    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface)";
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload)";
   for (const size of Object.keys(system.sizes)) {
     const mapping = {
       height: "height",
@@ -357,6 +360,7 @@ export function buildThemeAssets(packageRoot, output) {
       "border-width": "border-width",
       "field-padding": "text-field-padding-inline",
       gap: "text-field-affix-gap",
+      "button-gap": "button-content-gap",
     };
     const vars = Object.entries(mapping)
       .map(

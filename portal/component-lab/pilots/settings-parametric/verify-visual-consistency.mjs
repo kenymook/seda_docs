@@ -35,7 +35,8 @@ try {
       const slot=glyph.closest('.seda-button__icon');
       const tabGlyph=root.querySelector('.seda-tabs__icon .seda-icon');
       const fieldGlyph=surface.querySelector('.seda-icon');
-      return {compiled:window.sedaPilot.getCompiled().geometry,derived:window.sedaPilot.getLab().derived,
+      const uploads=Array.from(root.querySelectorAll('[data-visual-state="default"] .seda-file-upload')).map(el=>({variant:el.dataset.variant,font:parseFloat(getComputedStyle(el.querySelector('.seda-file-upload__label')).fontSize),icon:el.querySelector('.seda-icon').getBoundingClientRect().width,x:parseFloat(getComputedStyle(el).paddingInlineStart),y:parseFloat(getComputedStyle(el).paddingBlockStart),height:el.getBoundingClientRect().height,overflow:el.scrollWidth>el.clientWidth+1}));
+      return {uploads,compiled:window.sedaPilot.getCompiled().geometry,derived:window.sedaPilot.getLab().derived,
         button:rect(button),glyph:rect(glyph),slot:rect(slot),iconButton:rect(iconButton),iconGlyph:rect(iconButton.querySelector('.seda-icon')),
         field:rect(surface),fieldGlyph:rect(fieldGlyph),tabGlyph:rect(tabGlyph),
         padding:parseFloat(getComputedStyle(surface).paddingInlineStart),buttonPadding:parseFloat(getComputedStyle(button).paddingInlineStart),
@@ -55,6 +56,8 @@ try {
     near(sample.buttonPadding,sample.compiled.buttonPaddingInline.value+8,'button padding base + X');
     near(sample.gap,sample.compiled.textFieldAffixGap.value,'button preset gap');
     near(sample.fieldGap,sample.gap,'field/button common gap');
+    assert.equal(sample.uploads.length,3);
+    for(const upload of sample.uploads){near(upload.font,sample.derived.font,'upload shared font');near(upload.icon,icon,'upload shared icon');near(upload.y,sample.derived.py,'upload shared Y');near(upload.x,upload.variant==='inline'?8:upload.variant==='button'?sample.derived.buttonPaddingX:sample.derived.fieldPaddingX,'upload base + X');assert.equal(upload.overflow,false);}
     assert.equal(sample.decorative,'true');
     const disabled=page.locator('#visual-button-disabled');
     assert.equal(await disabled.isDisabled(),true);

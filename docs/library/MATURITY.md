@@ -32,14 +32,16 @@
 
 ## Текущие свидетельства и пробелы
 
+Визуальная зрелость остаётся открытой. FileUpload переведён на общие preset/scale/X/Y/radius, исправлены доступное имя, disabled и цвета error/drag/success. В установленном consumer проверены 168 сочетаний состояния/темы/размера/варианта на каждую React-версию, реальные файлы и контраст активного текста; это не добавляет двенадцатый executable instance contract. [Границы и Figma handoff](FILEUPLOAD-VISUAL-HANDOFF.md).
+
 | Область | Есть сейчас | Не доказано / нужно продолжить |
 |---|---|---|
-| Кодовый каталог | 19 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
+| Кодовый каталог | 20 component exports + provider/configuration API, включая experimental SplitView; добавлен SplitView spec | Полное покрытие согласованного каталога и сложных editor primitives |
 | Исполняемые контракты | 11 компонентов, 8 профилей, API/state/token validation; 120 unit/foundation checks с typography binding | Layout instance contract, остальные навигация/overlays, data и editor primitives; согласование с переносимым Contract Standard из product draft |
 | Реальное приложение | Lab: проекты/настройки/команда/experimental editor;8 reference entries охватывают9 исходных frames, включая два Spline-контекста. Workflow опубликован в version29 с явно локальным fixture | Полная visual/keyboard/AT/OS/performance приёмка девяти реконструкций и сценарии четырёх перечисленных классов сложных рабочих интерфейсов |
 | Поставка | Раньше npm pack не включал объявленные dist exports; добавлены build/prepack/files, отдельный consumer verifier | Public release/support policy и полный target-runtime matrix |
-| Реальный consumer | 25/25 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
-| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 25 package proof groups, включая Text/TextArea/Tree/Tabs/Menu/SplitView | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
+| Реальный consumer | 27/27 групп: установка tarball, React 18.3.1/19.2.7, Node ESM/SSR, declarations NodeNext, hydration, CSS, linked selection/loading, Tabs/Menu/SplitView | Остальные компоненты, browser engines и полная contract-матрица |
+| Foundation вне Lab | Публичный SedaProvider, Light/Dark × S/M/L/XL из общего system/resolver; nested scopes и explicit size; 27 package proof groups, включая Text/TextArea/Tree/Tabs/Menu/SplitView | Дальнейшая матрица остальных компонентов, полная accessibility и target runtime проверка |
 | Доступность | Native controls, description merge, keyboard/focus в проверенных сценариях | Screen reader, target ОС, forced colors, reduced motion, полная WCAG-проверка |
 | Инструменты | Закреплённые зависимости; npm audit новой library toolchain: 0 findings; удалённый CI40031537628 Ubuntu прошёл | Публичный выпуск артефакта и полная политика совместимости |
 

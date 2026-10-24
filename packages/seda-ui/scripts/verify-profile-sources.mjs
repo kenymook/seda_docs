@@ -122,6 +122,11 @@ export async function verifyProfileSources(root) {
       () => buildThemeAssets(pkg, output),
       /Required public component token is missing: --select-border-focus/,
     );
+    const uploadTokens = JSON.parse(await fs.readFile(path.join(repo, "tokens.json"), "utf8"));
+    delete uploadTokens.$collections.components.$modes["Mode 1"]["file-upload"].surface.success;
+    await fs.writeFile(path.join(temp, "tokens.json"), JSON.stringify(uploadTokens));
+    assert.throws(() => buildThemeAssets(pkg, output),
+      /Required public component token is missing: --file-upload-surface-success/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -132,5 +137,6 @@ export async function verifyProfileSources(root) {
     colourAndProvenanceBindingsMatched,
     sourceHashesMatched: true,
     missingStateRejected: true,
+    missingUploadStateRejected: true,
   };
 }

@@ -5,6 +5,7 @@ import {
   TextField,
   Icon,
   IconButton,
+  FileUpload,
 } from "@seda-ai/ui";
 
 import { Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
@@ -457,6 +458,7 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [enabled, setEnabled] = useState(true);
+  const [uploads, setUploads] = useState<Record<string, File[]>>({});
   return <div className="visual-consistency">
     <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
     {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
@@ -476,6 +478,16 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
       </div>
       <Radio name={`visual-period-${state}`} label="Периодичность" options={[{value:"weekly",label:"Еженедельно"},{value:"monthly",label:"Ежемесячно"}]} size={size} defaultValue="weekly" disabled={state==="disabled"} />
       <Tabs label={`Вкладки — ${state}`} size={size} items={[{value:"activity",label:"Активность",icon:<Icon name="clock" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Иконки в полях, действиях и навигации следуют одному размеру.</Text>},{value:"calendar",label:"Календарь",icon:<Icon name="calendar" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Состояние вкладки сохраняется при смене масштаба.</Text>}]} />
+      <div className="visual-consistency__uploads">
+        {(["dropzone","button","inline"] as const).map(variant=>{
+          const id=`visual-upload-${state}-${variant}`;
+          return <FileUpload key={variant} id={id} label={`Файлы — ${variant}`} variant={variant} size={size}
+            state={state==="disabled"?"disabled":loading?"uploading":"default"}
+            errorText={state==="error"?"Демонстрация ошибки выбора":undefined}
+            helperText="Локальный выбор файлов. Отправка не выполняется." actionLabel="Выбрать файлы" multiple
+            files={uploads[id]??[]} onFilesChange={files=>setUploads(previous=>({...previous,[id]:files}))} />;
+        })}
+      </div>
     </div>)}
   </div>;
 }

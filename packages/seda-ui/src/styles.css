@@ -823,16 +823,16 @@
 }
 
 .seda-file-upload {
-  --seda-file-upload-padding: 14px;
-  --seda-file-upload-radius: 10px;
-  --seda-file-upload-gap: 10px;
-  --seda-file-upload-title-size: 14px;
-  --seda-file-upload-title-line: 20px;
-  --seda-file-upload-message-size: 12px;
-  --seda-file-upload-message-line: 16px;
+  --seda-file-upload-padding-block: var(--seda-control-padding-block, max(0px, calc((var(--seda-preset-height) - var(--seda-preset-line-height) - var(--seda-preset-border-width) - var(--seda-preset-border-width)) / 2)));
+  --seda-file-upload-radius: var(--seda-control-radius, var(--seda-preset-radius));
+  --seda-file-upload-gap: var(--seda-control-gap, var(--seda-preset-gap));
+  --seda-file-upload-title-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  --seda-file-upload-title-line: var(--seda-control-line-height, var(--seda-preset-line-height));
+  --seda-file-upload-message-size: var(--seda-file-upload-title-size);
+  --seda-file-upload-message-line: var(--seda-file-upload-title-line);
   align-items: center;
   background: var(--file-upload-surface-default, var(--surface-base, #ffffff));
-  border: 1px dashed var(--file-upload-border-default, var(--border-default, #d1d5db));
+  border: var(--seda-control-border-width, var(--seda-preset-border-width)) dashed var(--file-upload-border-default, var(--border-default, #d1d5db));
   border-radius: var(--seda-file-upload-radius);
   color: var(--file-upload-foreground-default, var(--text-secondary, #374151));
   cursor: pointer;
@@ -840,47 +840,28 @@
   gap: var(--seda-file-upload-gap);
   grid-template-columns: auto minmax(0, 1fr);
   max-width: 100%;
-  min-height: 72px;
-  padding: var(--seda-file-upload-padding);
-}
-
-.seda-file-upload[data-size="s"] {
-  --seda-file-upload-padding: 10px;
-  --seda-file-upload-gap: 8px;
-  --seda-file-upload-title-size: 13px;
-  --seda-file-upload-title-line: 18px;
-}
-
-.seda-file-upload[data-size="l"] {
-  --seda-file-upload-padding: 18px;
-  --seda-file-upload-title-size: 16px;
-  --seda-file-upload-title-line: 24px;
-}
-
-.seda-file-upload[data-size="xl"] {
-  --seda-file-upload-padding: 22px;
-  --seda-file-upload-title-size: 18px;
-  --seda-file-upload-title-line: 28px;
+  min-height: var(--seda-control-height, var(--seda-preset-height));
+  padding-block: var(--seda-file-upload-padding-block);
+  padding-inline: var(--seda-control-field-padding-inline, var(--seda-control-padding-inline, var(--seda-preset-field-padding)));
 }
 
 .seda-file-upload[data-variant="button"],
 .seda-file-upload[data-variant="inline"] {
   border-style: solid;
-  min-height: auto;
 }
 
 .seda-file-upload[data-variant="button"] {
+  padding-inline: var(--seda-control-button-padding-inline, var(--seda-control-padding-inline, var(--seda-button-padding-x)));
   display: inline-flex;
 }
 
 .seda-file-upload[data-variant="inline"] {
   background: transparent;
   border-color: transparent;
-  padding-left: 0;
-  padding-right: 0;
+  padding-inline: var(--seda-control-extra-padding-inline, 0px);
 }
 
-.seda-file-upload:hover {
+.seda-file-upload:is(:hover,[data-state="hover"]):where(:not([data-disabled="true"])) {
   background: var(--file-upload-surface-hover, var(--container-neutral-hover, #f9fafb));
   border-color: var(--file-upload-border-hover, var(--border-hover, #9ca3af));
 }
@@ -897,7 +878,7 @@
 }
 
 .seda-file-upload[data-state="success"] {
-  background: var(--file-upload-status-success, var(--status-success-surface, #dcfce7));
+  background: var(--file-upload-surface-success, var(--status-success-container, #dcfce7));
 }
 
 .seda-file-upload[data-disabled="true"],
@@ -928,9 +909,10 @@
   display: inline-flex;
   font-size: var(--seda-file-upload-title-size);
   font-weight: 700;
-  height: var(--seda-file-upload-title-line);
+  height: var(--seda-control-icon-size, var(--seda-preset-icon-size));
   justify-content: center;
-  min-width: var(--seda-file-upload-title-line);
+  width: var(--seda-control-icon-size, var(--seda-preset-icon-size));
+  flex: 0 0 auto;
 }
 
 .seda-file-upload[data-state="error"] .seda-file-upload__icon {
@@ -947,21 +929,21 @@
 
 .seda-file-upload__content {
   display: grid;
-  gap: 4px;
+  gap: calc(var(--seda-file-upload-gap) / 2);
   min-width: 0;
 }
 
 .seda-file-upload__label {
   color: var(--file-upload-foreground-title, var(--text-primary, #111827));
   font-size: var(--seda-file-upload-title-size);
-  font-weight: 650;
+  font-weight: var(--seda-label-weight, 600);
   line-height: var(--seda-file-upload-title-line);
 }
 
 .seda-file-upload__action {
   color: var(--text-brand, #2563eb);
   font-size: var(--seda-file-upload-message-size);
-  font-weight: 650;
+  font-weight: var(--seda-label-weight, 600);
   line-height: var(--seda-file-upload-message-line);
 }
 
@@ -988,6 +970,19 @@
   background: var(--file-upload-progress-fill, var(--container-brand-default, #2563eb));
   display: block;
   height: 100%;
+}
+
+/* Multi-line content remains intrinsic; shared row metrics do not clip names/messages. */
+.seda-file-upload__label,.seda-file-upload__action,.seda-file-upload__message { overflow-wrap:anywhere; }
+.seda-file-upload__icon > :is(svg,img,.seda-icon) { display:block; width:100%; height:100%; object-fit:contain; }
+.seda-file-upload[data-state="drag-over"] :is(.seda-file-upload__label,.seda-file-upload__action,.seda-file-upload__message) { color:inherit; }
+.seda-file-upload[data-disabled="true"] :is(.seda-file-upload__label,.seda-file-upload__action,.seda-file-upload__message) { color:inherit; }
+.seda-file-upload__progress[data-indeterminate="true"] .seda-file-upload__progress-fill { animation:seda-upload-progress 1.2s ease-in-out infinite alternate; }
+@keyframes seda-upload-progress { to { transform:translateX(230%); } }
+@media(prefers-reduced-motion:reduce) { .seda-file-upload__progress[data-indeterminate="true"] .seda-file-upload__progress-fill { animation:none; } }
+@media(forced-colors:active) {
+  .seda-file-upload[data-disabled="true"],.seda-file-upload[data-disabled="true"] .seda-file-upload__icon { color:GrayText; border-color:GrayText; }
+  .seda-file-upload .seda-icon { forced-color-adjust:none; }
 }
 
 /* Exact control geometry and stable icon slots. Presets are standalone
@@ -1039,7 +1034,7 @@
 
 .seda-button {
   padding-inline: var(--seda-control-padding-inline, var(--seda-button-padding-x));
-  gap: var(--seda-control-gap, var(--seda-preset-gap));
+  gap: var(--seda-control-gap, var(--seda-preset-button-gap, var(--seda-preset-gap)));
 }
 
 .seda-icon-button {

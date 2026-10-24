@@ -2,14 +2,28 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-06-10
+> **Last reviewed** · 2026-10-24
 > **Figma** · [File Upload](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6661-46)
 
 ---
 
 ## 1. Key Principles
+
+### Проверяемая реализация React
+
+Геометрия использует общий скомпилированный preset S/M/L/XL: font, line-height, icon, radius, border и gap. Размер наследуется от SedaProvider; standalone fallback — M. Исторический Figma default S в таблице ниже не является React default. Dropzone и button сохраняют естественную многострочную высоту, не обрезают имя файла и пояснение ради совпадения с однострочным Button.
+
+В Lab масштаб применяется одновременно к тексту и иконке; Y прибавляется к базовому padding-block. X прибавляется к field padding у dropzone, button padding у button и нулевому базовому padding у inline. Это адаптация лаборатории, не новый executable instance contract FileUpload.
+
+`disabled` и `state="disabled"` блокируют native input, callbacks выбора и drop; disabled имеет приоритет над error и drag. Реальное перетаскивание файлов включает drag-over; пустой/text drop не очищает выбранные файлы. `uploading` выставляет aria-busy и progressbar, но не выполняет сетевой запрос и сам по себе не запрещает повторный выбор: политику задаёт родитель.
+
+Accessible name берётся из label; required marker, action и helper не включаются в имя. Явные aria-label/aria-labelledby сохраняются, aria-describedby объединяется с локальным сообщением без повторов. При ошибке используется содержательный errorText; пустые строки не создают ошибку. Progress ограничен 0–100; нечисловой/бесконечный progress при uploading означает indeterminate.
+
+`files` — отображаемая родителем коллекция, не управляемый native FileList. Проверка формата/размера, добавление/замена коллекции, отправка, отмена и очистка принадлежат родителю. `value` и `defaultValue` не входят в API. Повторный выбор того же файла подчиняется native input; явный reset выполняется через ref/form reset. Компонент не имитирует загрузку и не сбрасывает native input после каждого выбора.
+
+Цвета состояний исправлены через существующие semantic роли; новая component роль surface/success нужна, чтобы не использовать насыщенный status/success как фон текста. [Точный handoff для Figma](../../docs/library/FILEUPLOAD-VISUAL-HANDOFF.md). Статус review сохраняется до внешней визуальной/AT проверки; экземпляры не выдаются за сертифицированные контракты.
 
 ### Что это
 
@@ -153,20 +167,21 @@ Figma component set: `File Upload`. Variants: 44.
 | `$collections/components/$modes/Mode 1/file-upload/border/drag` | Component token | `status/info/border` |
 | `$collections/components/$modes/Mode 1/file-upload/border/error` | Component token | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/file-upload/border/disabled` | Component token | `status/disabled/border` |
-| `$collections/components/$modes/Mode 1/file-upload/surface/drag` | Component token | `status/info/surface` |
+| `$collections/components/$modes/Mode 1/file-upload/surface/drag` | Component token | `status/info/container` |
 | `$collections/components/$modes/Mode 1/file-upload/surface/default` | Component token | `surface/base` |
 | `$collections/components/$modes/Mode 1/file-upload/surface/hover` | Component token | `container/neutral/hover` |
-| `$collections/components/$modes/Mode 1/file-upload/surface/error` | Component token | `color/red/15` |
+| `$collections/components/$modes/Mode 1/file-upload/surface/error` | Component token | `status/danger/container` |
+| `$collections/components/$modes/Mode 1/file-upload/surface/success` | Component token | `status/success/container` |
 | `$collections/components/$modes/Mode 1/file-upload/surface/disabled` | Component token | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/file-upload/icon/default` | Component token | `icon/tertiary` |
-| `$collections/components/$modes/Mode 1/file-upload/icon/drag` | Component token | `icon/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/file-upload/icon/drag` | Component token | `status/info/icon` |
 | `$collections/components/$modes/Mode 1/file-upload/icon/error` | Component token | `status/danger/icon` |
 | `$collections/components/$modes/Mode 1/file-upload/icon/disabled` | Component token | `status/disabled/icon` |
 | `$collections/components/$modes/Mode 1/file-upload/foreground/default` | Component token | `text/secondary` |
 | `$collections/components/$modes/Mode 1/file-upload/foreground/title` | Component token | `text/primary` |
-| `$collections/components/$modes/Mode 1/file-upload/foreground/error` | Component token | `status/danger/text` |
+| `$collections/components/$modes/Mode 1/file-upload/foreground/error` | Component token | `text/danger` |
 | `$collections/components/$modes/Mode 1/file-upload/foreground/disabled` | Component token | `status/disabled/text` |
-| `$collections/components/$modes/Mode 1/file-upload/foreground/drag` | Component token | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/file-upload/foreground/drag` | Component token | `status/info/text` |
 | `$collections/components/$modes/Mode 1/file-upload/progress/fill` | Component token | `container/brand/default` |
 | `$collections/components/$modes/Mode 1/file-upload/progress/track` | Component token | `container/neutral/default` |
 | `$collections/components/$modes/Mode 1/file-upload/status/success` | Component token | `status/success/surface` |

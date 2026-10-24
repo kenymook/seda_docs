@@ -15,6 +15,10 @@ export function createWorkspaceBindings(
     "--seda-control-font-size": derived.font + "px",
     "--seda-control-line-height": derived.line + "px",
     "--seda-control-icon-size": derived.icon + "px",
+    "--seda-control-padding-block": derived.py + "px",
+    "--seda-control-field-padding-inline": derived.fieldPaddingX + "px",
+    "--seda-control-button-padding-inline": derived.buttonPaddingX + "px",
+    "--seda-control-extra-padding-inline": parameters.airX + "px",
     "--seda-control-gap": compiled.geometry.textFieldAffixGap.value + "px",
     "--seda-control-padding-inline": derived.fieldPaddingX + "px",
     "--lab-choice-gap":
@@ -62,7 +66,7 @@ export function createWorkspaceBindings(
     parameters,
     coverage: {
       contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"],
-      libraryAdapter: ["SplitView"],
+      libraryAdapter: ["SplitView", "FileUpload"],
       composition: ["Navigation", "Table", "Card", "Dialog", "Editor"],
     },
   };
