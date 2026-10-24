@@ -1,3 +1,4 @@
+.seda-tree.seda-provider { background:transparent; }
 .seda-tree { min-width:0; font-family:var(--seda-font-family,system-ui,sans-serif); }
 .seda-tree__item { outline:none; }
 .seda-tree__row { box-sizing:border-box; display:flex; align-items:center; min-height:var(--seda-control-height,var(--seda-preset-height)); gap:var(--seda-control-gap,var(--seda-preset-gap)); padding-inline-end:var(--seda-control-padding-inline,var(--seda-preset-field-padding)); border-radius:var(--seda-control-radius,var(--seda-preset-radius)); color:var(--tree-foreground-default); background:var(--tree-row-surface-default); font-size:var(--seda-control-font-size,var(--seda-preset-font-size)); line-height:var(--seda-control-line-height,var(--seda-preset-line-height)); cursor:default; user-select:none; }

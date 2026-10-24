@@ -54,3 +54,8 @@ Acceptance: installed tarball, React 18/19, SSR/Strict hydration; DOM parity с 
 Не поддержаны: virtualization/lazy loading/reorder/drag and drop/checkbox tree/inline edit/context menu. Их нельзя имитировать произвольными props. Для длинных деревьев нужны отдельные scale fixtures и performance evidence. [APG Tree View](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/) задаёт ориентир семантики и клавиатуры, но ссылка не доказывает соответствие реализации.
 
 AI может применять только этот документированный API, состояния и реальные tokens. Missing states/token mappings и accessibility gaps должны быть помечены Needs system review. Нельзя выдавать текущий experimental API за утверждённый Figma component или production-ready библиотеку. Человеческий design/accessibility review остаётся необходимым для приёмки.
+
+
+## Проверка поверхности 2026-10-25
+
+Root Tree — scope для размера/темы, он не рисует собственную surface. `tree/row/surface/default` уже ссылается на `color/transparent`; внутренний SedaProvider раньше добавлял непрозрачную base-подложку вопреки этому поведению. Исправление принадлежит общему Tree, не локальному override приложения. Hover/selected/disabled и foreground продолжают использовать исходные component tokens. На root нет новых props/variants/tokens. Проверяется вложение на neutral host в Light/Dark × 4 sizes × 2 widths, помимо прежних keyboard/selection/compiler checks. Полная Figma/AT приёмка Tree по-прежнему открыта.

@@ -44,34 +44,34 @@
       "sha256": "86a4bd572871e269df54af3f24105144e9cd74e0704d79736c9c09fdecaa39d5"
     },
     {
-      "file": "building-imgIcon14.png",
-      "bytes": 263,
-      "sha256": "953f28b040f9efad45050cc38c53fc08f4e655bf06a80e5a43a9f4a1a2c9721c"
+      "file": "building-imgIcon14.svg",
+      "bytes": 591,
+      "sha256": "44c75003ab24e15f794f48c086d9a30b1c1dc108f2b6e583bac43cc5145840f8"
     },
     {
-      "file": "building-imgIcon15.png",
-      "bytes": 391,
-      "sha256": "b9be7ceaa19c8c2d16a87e9724838a4d9ff28fd847b0673ec0f4ad733f0aa127"
+      "file": "building-imgIcon15.svg",
+      "bytes": 1297,
+      "sha256": "6b5cb8579041c29811c336b76eee76e068e32f498a6751eb04448e5f7d184412"
     },
     {
-      "file": "building-imgIcon16.png",
-      "bytes": 363,
-      "sha256": "d2282bef8e0498d3fe6f9d1e5ff8c068e44a3737e0ad6915d99ef6e70ae72f8d"
+      "file": "building-imgIcon16.svg",
+      "bytes": 974,
+      "sha256": "8ef8855452d9db5407e2ff9f58a2238daccdb2f4b4e41364f979269d0010b8ef"
     },
     {
-      "file": "building-imgIcon17.png",
-      "bytes": 482,
-      "sha256": "da086acb2cf499cb5ddab12c77eca50d79f0c2878448be8142ac9888871e7b09"
+      "file": "building-imgIcon17.svg",
+      "bytes": 2002,
+      "sha256": "148e749a9442ae77eb0710f057241e4c06bd176c734a46c3c63b9106cbaf3073"
     },
     {
-      "file": "building-imgIcon18.png",
-      "bytes": 443,
-      "sha256": "dbd9d37b11b4d24e327068eab0c31f728205df3c9e47769a7c343d92fe957b9c"
+      "file": "building-imgIcon18.svg",
+      "bytes": 1614,
+      "sha256": "8b48e9e8bf653d93e424fe0a14e5db3d51744a88229409296db3cef42250dece"
     },
     {
-      "file": "building-imgIcon19.png",
-      "bytes": 545,
-      "sha256": "a24701a077eb4a7960675da99b405c41a58152751bf91bd1aef0fccad22f445c"
+      "file": "building-imgIcon19.svg",
+      "bytes": 1202,
+      "sha256": "08611f48991ff912fcb05b915d006ee9056267b7a446494f6a947af6fd928833"
     },
     {
       "file": "building-imgIcon2.svg",
@@ -79,9 +79,9 @@
       "sha256": "73b4f9c74411463e151d7e5362fa44ed39d3ee733190010be7a628c90b1be845"
     },
     {
-      "file": "building-imgIcon20.png",
-      "bytes": 247,
-      "sha256": "efb56f5b6e787e91b643ad20a0837178d688b622a752bc20a2eea663e8c8e90c"
+      "file": "building-imgIcon20.svg",
+      "bytes": 602,
+      "sha256": "76c9eb5382ff1dc9cceeb4b3e7e7c5e60f6fc8858e2046a926fdec88ea1bb6f6"
     },
     {
       "file": "building-imgIcon3.svg",
@@ -218,5 +218,45 @@
       "bytes": 17051,
       "sha256": "83c9888418cda915eae1043787a02f75ac938aed5369f9c87583fe9c6b3ff36a"
     }
-  ]
+  ],
+  "reviewed": "2026-10-25",
+  "note": "Fresh Figma context: 36 existing exports byte-identical; 7 former raster glyphs replaced by exact provided SVGs. Original root dimensions and bytes preserved. No temporary URLs at runtime.",
+  "legacyAssets": [
+    {
+      "file": "building-imgIcon14.png",
+      "bytes": 263,
+      "sha256": "953f28b040f9efad45050cc38c53fc08f4e655bf06a80e5a43a9f4a1a2c9721c"
+    },
+    {
+      "file": "building-imgIcon15.png",
+      "bytes": 391,
+      "sha256": "b9be7ceaa19c8c2d16a87e9724838a4d9ff28fd847b0673ec0f4ad733f0aa127"
+    },
+    {
+      "file": "building-imgIcon16.png",
+      "bytes": 363,
+      "sha256": "d2282bef8e0498d3fe6f9d1e5ff8c068e44a3737e0ad6915d99ef6e70ae72f8d"
+    },
+    {
+      "file": "building-imgIcon17.png",
+      "bytes": 482,
+      "sha256": "da086acb2cf499cb5ddab12c77eca50d79f0c2878448be8142ac9888871e7b09"
+    },
+    {
+      "file": "building-imgIcon18.png",
+      "bytes": 443,
+      "sha256": "dbd9d37b11b4d24e327068eab0c31f728205df3c9e47769a7c343d92fe957b9c"
+    },
+    {
+      "file": "building-imgIcon19.png",
+      "bytes": 545,
+      "sha256": "a24701a077eb4a7960675da99b405c41a58152751bf91bd1aef0fccad22f445c"
+    },
+    {
+      "file": "building-imgIcon20.png",
+      "bytes": 247,
+      "sha256": "efb56f5b6e787e91b643ad20a0837178d688b622a752bc20a2eea663e8c8e90c"
+    }
+  ],
+  "legacyPurpose": "Preserve late asset requests from already open pre-v41 sessions. Current component callsites use the original SVG exports."
 }

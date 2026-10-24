@@ -14,7 +14,7 @@ import './building.css';
 const prefKey='seda.reference.building.preferences.v1',viewKey='seda.reference.building.view.v1';
 const kindNames:Record<BlockKind,string>={paragraph:'Текст',heading:'Заголовок',callout:'Выноска',number:'Нумерованный список',letter:'Буквенный список',bullet:'Маркированный список',todo:'Задача',code:'Код'};
 const image=(name:string,size=16)=><img className={name.endsWith('.svg')?'building-chrome-icon':undefined} src={'./assets/'+name} alt="" width={size} height={size}/>;
-const glyph=(name:string,size=18)=>image('building-'+name+(Number(name.replace('imgIcon',''))>=14?'.png':'.svg'),size);
+const glyph=(name:string,size=18)=>image('building-'+name+'.svg',size);
 type Modal='settings'|'search'|'share'|'comments'|'trash-page'|'reset'|'help'|null;
 type HistoryEntry={before:DocModel;after:DocModel;pageId:string;beforePageId?:string;blockId?:string;mergeKey?:string;time:number};
 function route(){const params=new URLSearchParams(location.search);return{page:params.get('page')??'description',trash:params.get('trash')==='1'};}

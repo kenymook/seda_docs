@@ -68,9 +68,10 @@ console.log(JSON.stringify({html:renderToString(React.createElement(TreeConsumer
   let combinations=0;const measurements=[];
   for(const theme of ['light','dark'])for(const controlSize of ['s','m','l','xl'])for(const width of [260,720]) {
    await page.locator('#outside').focus();await configure({theme,controlSize,width});assert.equal(await focusId(),'outside');
+   const transparent=await page.getByRole('tree').evaluate(node=>{node.parentElement.style.background='var(--container-neutral-default)';return getComputedStyle(node).backgroundColor;});assert.equal(transparent,'rgba(0, 0, 0, 0)','Tree scope must not paint a base-surface rectangle on its host');
    const actual=await row('a').evaluate(el=>({height:el.getBoundingClientRect().height,font:getComputedStyle(el).fontSize,foreground:getComputedStyle(el).color}));
    assert.equal(actual.height,profiles.profiles[theme+':'+controlSize].geometry.height.value);
-   assert.notEqual(actual.foreground,'rgba(0, 0, 0, 0)');measurements.push({theme,controlSize,width,...actual});combinations++;
+   assert.notEqual(actual.foreground,'rgba(0, 0, 0, 0)');measurements.push({theme,controlSize,width,transparent,...actual});combinations++;
   }
   await configure({theme:'dark',width:480});await page.screenshot({path:path.join(cwd,'tree-dark.png'),animations:'disabled'});await configure({theme:'light'});await page.screenshot({path:path.join(cwd,'tree-light.png'),animations:'disabled'});
   await item('a').focus();await configure({disabled:true});assert.equal(await focusId(),'tree');assert.equal(await page.locator('[role=treeitem][tabindex="0"]').count(),0);

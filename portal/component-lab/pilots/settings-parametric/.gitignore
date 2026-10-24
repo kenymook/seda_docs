@@ -15,3 +15,5 @@ playwright-report/
 .diagnostics-framer/
 
 .diagnostics-tooltip-workspace/
+
+.diagnostics-building-layout/
