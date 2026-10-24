@@ -1,0 +1,62 @@
+{
+  "version": 25,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adc7bba5f808191a3a5f5344b15813b",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_36a100bab99481918bbe7473dfe47a3a",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "route": "https://seda-ai-pilot.kenymook.chatgpt.site/references/webflow.html",
+  "siteSource": "bbb17879be6a61b540aa891c43e38185aaf71d09",
+  "githubFunctionalSource": "c919ff8ba052925d497bde2a97cf481336c243dc",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "users": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "production": {
+    "canonicalSourceHashes": 695,
+    "applicationBrowserGroups": 13,
+    "sourceIntegrityChecks": 1,
+    "nestedAppearanceSamples": 16,
+    "navigatorTitleSingleLineAsserted": true,
+    "javascriptErrors": 0,
+    "saveLoadingDeltaWidth": 0,
+    "saveLoadingDeltaHeight": 0
+  },
+  "publicationChecks": {
+    "typescriptProjects": 3,
+    "build": "PASS",
+    "webflowApplicationGroups": 13
+  },
+  "ci": {
+    "currentRun": 40082351255,
+    "currentJob": 120838317053,
+    "currentCommit": "c919ff8ba052925d497bde2a97cf481336c243dc",
+    "statusAtPublication": "in_progress",
+    "lastCompletedFullSuite": {
+      "run": 40045628730,
+      "commit": "f7fee909e8c6a61286e73ec5d4967fbc35c17714",
+      "contracts": 120,
+      "installedPackageGroups": 25,
+      "applicationGroups": 187,
+      "isolatedRendererGroups": 13,
+      "domainGroups": 49
+    },
+    "note": "Do not attribute the preceding full CI to the later CSS/readability regression change. Current publication has its own 3 TypeScript/build/13 browser and production proofs."
+  },
+  "remaining": [
+    "Exact source artwork/layout fidelity and full feature parity",
+    "Full OS/AT/keyboard/performance acceptance",
+    "Framer1:7743 and graph1:8421",
+    "CMS/Insights/Interactions/import/collaboration/external Webflow publishing",
+    "Complete Figma/Notion/ChatGPT/Claude Design maturity objective"
+  ],
+  "archive": {
+    "name": "seda-webflow-v25-deploy.tar.gz",
+    "bytes": 6962120,
+    "sha256": "68231d196ad753aae1e782d6463e5e36479deb92107f8719fc76db906aba2be1"
+  }
+}

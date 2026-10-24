@@ -39,3 +39,8 @@ Browser verification первоначально выбирал центр treeit
 ## Дополнительный visual review после version24
 
 Production version24 прошла13 сценариев и сверку695 source hashes, но screenshot XL/150% выявил перенос Navigator по буквам рядом с Collapse. Старые проверки ширины viewport и отсутствия document overflow этого не обнаружили. Новая проверка высоты однострочного заголовка сначала воспроизвела FAIL (72px при line-height36px), затем прошла после переноса Collapse на следующую строку без уменьшения шрифта/отступов SEDA.16 samples теперь включают реальную высоту/line-height Navigator. Version24 reports сохранены отдельно и не выдаются за проверку исправления.
+
+
+## Production version25
+
+Navigator correction опубликована на том же owner-private Site.695 source hashes совпали;13 application groups и1 integrity check прошли, включая16 nested appearance samples с новой проверкой Navigator; JS errors0, Save loading delta0px. Доступ: revision1, один owner, visitors0/groups0. [Release evidence](../../portal/component-lab/pilots/settings-parametric/verification/webflow-v25-release.json) отдельно фиксирует source commit, deployment и область CI. Общая visual/AT/performance приёмка этим не закрыта.
