@@ -1,0 +1,22 @@
+{
+  "runId": 40085925017,
+  "jobId": 120848724045,
+  "commit": "b69940d5b93cc8e4f8c3214396c5bd1547b283e5",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/kenymook/seda_docs/actions/runs/40085925017",
+  "evidence": "Decoded job logs inspected. Pull-request merge checkout; artifact workflow head identifies b69940d. Includes owning-iframe glyph paint and native Framer Fill/Fit checks.",
+  "contractsAndFoundation": 120,
+  "installedPackageGroups": 25,
+  "applicationBrowserGroups": 187,
+  "isolatedRendererGroups": 22,
+  "domainModelGroups": 59,
+  "typescriptProjects": 3,
+  "build": "PASS",
+  "artifact": {
+    "id": 12557815056,
+    "bytes": 13580136,
+    "digest": "sha256:694183b23afc1b5794e2d5fe80c86931b7f88448e61b1a355fb4518482be1243"
+  },
+  "scope": "Iframe font paint fix, existing reference applications, Framer domain and isolated native preview. Framer application chrome not implemented."
+}

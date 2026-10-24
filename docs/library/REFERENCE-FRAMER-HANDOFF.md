@@ -52,3 +52,8 @@ Framer и workflow graph1:8421 остаются незавершёнными э�
 ## Найденный renderer defect
 
 Parent-created FontFace давал Inter в computed style и корректный статус loaded, но в другом document текст не рисовался. Это обнаружено просмотром screenshot после зелёных geometry tests. Native FontFace теперь создаётся в window самого iframe без allow-scripts. Visible/hidden pixel comparison проверяет фактический paint. Исторические before/after и числа сохранены в `verification/iframe-fontface-paint-local.json`; прежний ложный geometry-only результат не переобозначается как визуальная приёмка.
+
+
+## Publication26: реальный paint текста
+
+Исправление FontFace realm опубликовано на прежнем owner-private Site. Production Webflow: 13 application groups +1 integrity check, 696 совпавших source hashes; actual Inter glyph paint подтверждён visible/hidden screenshot comparison и просмотром screenshot. 16 nested appearance samples, JS errors0, Save loading delta0px. Exact b69940d CI run40085925017/job120848724045 completed/success: 120 contracts/foundation,25 installed-package,187 application groups,22 isolated renderer/preview,59 model groups;3 TypeScript/build. Framer application chrome отсутствует; native preview/model проверки не заменяют его. Source H1 height90 и inferred actual135 остаются несоответствием. Evidence: `verification/iframe-v26-release.json`, `iframe-v26-ci.json`, `iframe-live-v26-results.json`; исторические version25 отчёты сохранены.

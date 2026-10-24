@@ -1,0 +1,49 @@
+{
+  "version": 26,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adc89ccc75c819195508c2a76a6314f",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_3c06874428188191ac481ef8320b4c4a",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "route": "https://seda-ai-pilot.kenymook.chatgpt.site/references/webflow.html",
+  "siteSource": "da481279c705c1955bf06379f67b0632b9bc0541",
+  "githubFunctionalSource": "b69940d5b93cc8e4f8c3214396c5bd1547b283e5",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "users": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "production": {
+    "canonicalSourceHashes": 696,
+    "applicationBrowserGroups": 13,
+    "sourceIntegrityChecks": 1,
+    "nestedAppearanceSamples": 16,
+    "actualInterGlyphPaint": true,
+    "navigatorTitleSingleLineAsserted": true,
+    "javascriptErrors": 0,
+    "saveLoadingDeltaWidth": 0,
+    "saveLoadingDeltaHeight": 0
+  },
+  "publicationChecks": {
+    "typescriptProjects": 3,
+    "build": "PASS",
+    "applicationBrowserGroups": 187,
+    "isolatedRendererGroups": 22,
+    "domainModelGroups": 59
+  },
+  "ciEvidence": "iframe-v26-ci.json",
+  "archive": {
+    "name": "seda-iframe-paint-v26-deploy.tar.gz",
+    "bytes": 6962295,
+    "sha256": "acac82330f7bd30fe6fd4d548aa0487c50e6ace10593bd19eecb5dfd82d2dc34"
+  },
+  "remaining": [
+    "Framer React application chrome and source visual fidelity; inferred heading height135 differs from source90",
+    "Workflow graph1:8421",
+    "Full visual/keyboard/AT/OS/performance acceptance",
+    "Complete Figma/Notion/ChatGPT/Claude Design maturity objective"
+  ]
+}
