@@ -2,6 +2,8 @@
 
 React-компоненты SEDA для веб-приложений и веб-интерфейсов в desktop shell. Пакет пока private/experimental: production-ready статус всей библиотеки не заявляется.
 
+`NotificationCenter` — общий experimental центр уведомлений: snapshot items, точный unread count, all/mentions/unread Tabs, локализованные labels и явные владельцы mark-read/retry/settings. Loading/error/read states используют общие Text/Button/Badge/Icon и существующие notification-center tokens. Panel интегрирован с историей реальных локальных операций Files. `placement=overlay` требует host-owned non-modal surface; самостоятельный overlay host не предоставляется. API, fallback geometry и открытая Figma/AT-приёмка: specs/overlays-layout/notification-center.md.
+
 ## Сборка и подключение
 
 ```sh

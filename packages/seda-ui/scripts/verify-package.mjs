@@ -5,6 +5,7 @@ import {verifyChatBubble} from './verify-chat-bubble.mjs';
 import {verifyTopBar} from './verify-top-bar.mjs';
 import {verifySidebar} from './verify-sidebar.mjs';
 import {verifyAccordion} from './verify-accordion.mjs';
+import {verifyNotificationCenter} from './verify-notification-center.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -166,7 +167,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 36);
+        assert.equal(result.exports.length, 37);
+        assert.ok(result.exports.includes('NotificationCenter'));
         assert.ok(result.exports.includes('TopBar'));
         assert.ok(result.exports.includes('Sidebar'));
         assert.ok(result.exports.includes('Accordion'));
@@ -193,7 +195,15 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const notificationModel={title:"Notifications",items:[],labels:{all:"All",mentions:"Mentions",unread:"Unread",markAllRead:"Mark all",markRead:"Mark read",empty:"No events",noResults:"Choose All",loading:"Loading",retry:"Retry",settings:"Settings",unreadCount:(n:number)=>n+" unread"},onMarkRead:(id:string)=>{},onMarkAllRead:(ids:readonly string[])=>{}};
+const notifications=<NotificationCenter {...notificationModel} state="error" errorText="Storage unavailable" onRetry={()=>{}}/>;
+// @ts-expect-error error requires explicit recovery policy
+const inaccessibleNotifications=<NotificationCenter {...notificationModel} state="error" errorText="Failed"/>;
+// @ts-expect-error controlled filter requires an owner
+const ownerlessNotifications=<NotificationCenter {...notificationModel} activeFilter="unread"/>;
+// @ts-expect-error derived states cannot contradict snapshot
+const contradictoryNotifications=<NotificationCenter {...notificationModel} state="has-unread"/>;
 const disclosures=<Accordion label="Properties" type="multiple" items={[{id:"size",title:"Size",content:<TextField label="Width"/>}]} defaultValue={["size"]}/>;
 const requiredDisclosure=<Accordion label="Page" type="single" collapsible={false} value="size" onValueChange={()=>{}} items={[{id:"size",title:"Size",content:"Content"}]}/>;
 // @ts-expect-error controlled disclosure requires an owner
@@ -512,6 +522,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-top-bar",()=>verifyTopBar({cwd,browser}));
     await check("react-"+version+"-sidebar",()=>verifySidebar({cwd,browser}));
     await check("react-"+version+"-accordion",()=>verifyAccordion({cwd,browser}));
+    await check("react-"+version+"-notification-center",()=>verifyNotificationCenter({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

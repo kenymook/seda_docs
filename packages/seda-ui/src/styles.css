@@ -132,6 +132,26 @@
   }
 }
 
+/* NotificationCenter: component color roles; surface geometry uses documented foundation fallbacks. */
+.seda-notification-center{box-sizing:border-box;min-width:0;max-width:100%;background:var(--notification-center-surface-default);color:var(--notification-center-header-foreground);border:1px solid var(--notification-center-header-border);border-radius:var(--seda-control-radius,var(--seda-preset-radius,8px));overflow:clip;font-family:var(--seda-font-family,Inter,system-ui,sans-serif)}
+.seda-notification-center__header{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:calc(16px + var(--seda-control-extra-padding-block,0px)) calc(16px + var(--seda-control-extra-padding-inline,0px));border-block-end:1px solid var(--notification-center-header-border);min-width:0}
+.seda-notification-center__header>.seda-text{min-width:0;overflow-wrap:anywhere}.seda-notification-center__actions{display:flex;flex-wrap:wrap;gap:4px;min-width:0;margin-inline-start:auto;max-width:100%}
+.seda-notification-center__actions .seda-button{max-width:100%;height:auto;white-space:normal}.seda-notification-center__actions .seda-button__label{white-space:normal;overflow-wrap:anywhere}
+.seda-notification-center .seda-button{transition:none}
+.seda-notification-center>.seda-tabs>.seda-tabs__list{padding-inline:16px}.seda-notification-center .seda-tabs__panel{min-width:0;padding:0}
+.seda-notification-center__list{list-style:none;margin:0;padding:0;min-width:0}.seda-notification-center__item{display:flex;align-items:flex-start;min-width:0;gap:var(--seda-control-gap,var(--seda-preset-gap,8px));padding:calc(12px + var(--seda-control-extra-padding-block,0px)) calc(16px + var(--seda-control-extra-padding-inline,0px));border-block-end:1px solid var(--notification-center-item-border-default);background:var(--notification-center-item-surface-read);color:var(--notification-center-item-foreground-read)}
+.seda-notification-center__item:last-child{border-block-end:0}.seda-notification-center__item[data-unread=true]{background:var(--notification-center-item-surface-unread);color:var(--notification-center-item-foreground-unread)}
+.seda-notification-center__content{min-width:0;flex:1;display:flex;flex-direction:column;gap:4px;overflow-wrap:anywhere}.seda-notification-center__content>.seda-text{margin:0;color:inherit}.seda-notification-center__content>.seda-button{align-self:flex-start;max-width:100%;height:auto;white-space:normal}.seda-notification-center__content .seda-button__label{white-space:normal;overflow-wrap:anywhere}
+.seda-notification-center__content>.seda-notification-center__metadata{color:var(--notification-center-item-timestamp-foreground)}
+.seda-notification-center__icon{display:inline-flex;flex:none;width:var(--seda-control-icon-size,var(--seda-preset-icon-size,16px));height:var(--seda-control-icon-size,var(--seda-preset-icon-size,16px));align-items:center;justify-content:center;color:var(--notification-center-item-icon-read)}.seda-notification-center__item[data-unread=true]>.seda-notification-center__icon{color:var(--notification-center-item-icon-unread)}
+.seda-notification-center__unread{flex:none;width:8px;height:8px;border-radius:50%;margin-block-start:6px;background:var(--notification-center-item-icon-unread)}
+.seda-notification-center__status{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:calc(16px + var(--seda-control-extra-padding-block,0px)) calc(16px + var(--seda-control-extra-padding-inline,0px));margin:0;color:var(--notification-center-empty-foreground);min-width:0;overflow-wrap:anywhere}.seda-notification-center__status>.seda-text{margin:0;width:100%;overflow-wrap:anywhere}
+.seda-notification-center__action-status{margin:0;padding:8px 16px;border-block-start:1px solid var(--notification-center-header-border);color:var(--notification-center-empty-foreground);overflow-wrap:anywhere}
+.seda-notification-center__spinner{box-sizing:border-box;flex:none;width:var(--seda-control-icon-size,var(--seda-preset-icon-size,16px));height:var(--seda-control-icon-size,var(--seda-preset-icon-size,16px));border:2px solid currentColor;border-inline-end-color:transparent;border-radius:50%;animation:seda-spin .8s linear infinite}
+.seda-notification-center:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.seda-notification-center__spinner{animation:none}}
+@media(forced-colors:active){.seda-notification-center,.seda-notification-center__item{border-color:CanvasText}.seda-notification-center__unread{background:Highlight;forced-color-adjust:none}}
+
 .seda-icon-button {
   align-items: center;
   background: var(--icon-button-neutral-surface-default, var(--surface-base, #ffffff));

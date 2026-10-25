@@ -33,3 +33,4 @@ export * from './components/ChatBubble';
 export * from './components/TopBar';
 export * from './components/Sidebar';
 export * from './components/Accordion';
+export * from './components/NotificationCenter';

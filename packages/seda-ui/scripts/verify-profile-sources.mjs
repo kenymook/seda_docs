@@ -87,6 +87,9 @@ export async function verifyProfileSources(root) {
         ['--accordion-trigger-foreground-expanded',['accordion','trigger','foreground','expanded']],
         ['--accordion-panel-surface-default',['accordion','panel','surface','default']],
         ['--accordion-focus-ring',['accordion','focus','ring']],
+        ['--notification-center-surface-default',['notification-center','surface','default']],
+        ['--notification-center-item-foreground-unread',['notification-center','item','foreground','unread']],
+        ['--notification-center-item-timestamp-foreground',['notification-center','item','timestamp','foreground']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -177,6 +180,10 @@ export async function verifyProfileSources(root) {
     delete accordionTokens.$collections.components.$modes['Mode 1'].accordion.trigger.foreground.expanded;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(accordionTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --accordion-trigger-foreground-expanded/);
+    const notificationTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete notificationTokens.$collections.components.$modes['Mode 1']['notification-center'].item.foreground.unread;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(notificationTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --notification-center-item-foreground-unread/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -195,5 +202,6 @@ export async function verifyProfileSources(root) {
     missingTopBarSelectedForegroundRejected: true,
     missingSidebarSelectedForegroundRejected: true,
     missingAccordionExpandedForegroundRejected: true,
+    missingNotificationUnreadForegroundRejected: true,
   };
 }

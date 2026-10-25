@@ -1,3 +1,8 @@
+## Unreleased — NotificationCenter
+
+- Experimental NotificationCenter: owned snapshot/read actions, all/mentions/unread filters, readable loading/error recovery, localized copy, native list/time and common controls/typography/icons.
+- Files uses a real bounded local operation log, with independent history storage/retry. No remote service or multi-tab merge is simulated. Fresh Figma/AT and overlay-host acceptance remain open.
+
 ## Unreleased — shared message component
 
 - Public experimental ChatBubble: explicit author/source, six content models, native media retry, owned actions and status-only streaming. Provider typography/density and existing message tokens; error requires recovery.

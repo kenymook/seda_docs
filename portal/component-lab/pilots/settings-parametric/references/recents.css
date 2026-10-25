@@ -77,3 +77,4 @@
 .reference-filters>.seda-field:nth-child(2){width:max(112px,calc(var(--seda-control-font-size,14px) * 7 + var(--seda-control-field-padding-inline,12px) * 2 + var(--seda-control-icon-size,16px) + 8px))}
 
 .reference-sidebar.seda-sidebar{overflow:hidden}.reference-sidebar .seda-sidebar__header{padding:0}.reference-sidebar .reference-search{max-width:calc(100% - 16px)}.reference-team-mark{display:grid;place-items:center;border-radius:50%;width:16px;height:16px;background:var(--container-warning-default);color:var(--text-on-warning-primary)}
+.reference-notifications{padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}.reference-notifications>.seda-notification-center{width:100%}
