@@ -1,0 +1,59 @@
+{
+  "version": 51,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deployment": {
+    "id": "appgdep_6ade23c3a48481918ed47e72d269d7c9",
+    "status": "succeeded",
+    "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_30f710e119dc81918c3d07b82c8c925d"
+  },
+  "siteSourceCommit": "784ad1acaf7f16738fb051e54a314b1785ad8ba0",
+  "runtimeGitHubCommit": "e4e67817ce13682e4a96f8e7700d40e2d7ec71ab",
+  "implementationCommit": "b56963460cdc8461e003f9cb94ef42b193fe3164",
+  "verificationOnlyCommit": "e4e67817ce13682e4a96f8e7700d40e2d7ec71ab",
+  "archiveStorage": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_00000000dc248230958195f5997b9693",
+    "content_hash": "sha256:1be35b9122ce73674d0970df016a161a4fecb14a2f159912c2346957a0ba3de5",
+    "size_bytes": 31006720,
+    "file_count": 534
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "productionChecks": {
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0,
+    "searchNativeOwnerBrowser": "passed",
+    "searchProductionAutomation": "incomplete: Sites bypass header on native new tab"
+  },
+  "provenance": {
+    "sourceHashesMatched": 888,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 671,
+    "installedArtifacts": 217,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "e4e67817ce13682e4a96f8e7700d40e2d7ec71ab",
+    "siteSourceCommit": "784ad1acaf7f16738fb051e54a314b1785ad8ba0",
+    "archiveBytes": 7985500,
+    "archiveSHA256": "1f916f9284f840115750aacbf84a1697c7e0261152fc3f6d17148cfe2798196b",
+    "searchComponentsBundled": {
+      "recents": [
+        "Search"
+      ],
+      "chat": [
+        "Search"
+      ]
+    }
+  }
+}

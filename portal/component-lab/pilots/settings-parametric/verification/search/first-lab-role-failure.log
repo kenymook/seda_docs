@@ -1,0 +1,39 @@
+{"partition":"lab","verifier":"verify-card-avatar-workspace.mjs"}
+{"samples":60,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-card-avatar-workspace"}
+{"partition":"lab","verifier":"verify-table-workspace.mjs"}
+{"samples":60,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-table-workspace"}
+{"partition":"lab","verifier":"verify-inspector-consistency.mjs"}
+{"inspectorRoute":"recents","samples":20}
+{"inspectorRoute":"building","samples":40}
+{"inspectorRoute":"chat","samples":60}
+{"inspectorRoute":"sandbox","samples":80}
+{"inspectorRoute":"spline","samples":100}
+{"inspectorRoute":"webflow","samples":120}
+{"inspectorRoute":"framer","samples":140}
+{"inspectorRoute":"workflow","samples":160}
+{"samples":160,"hashed":293,"used":95,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-inspector-consistency"}
+{"partition":"lab","verifier":"verify-workspace-rhythm.mjs"}
+{"samples":16,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-workspace-rhythm"}
+{"partition":"lab","verifier":"verify-dense-workspace.mjs"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'rgba(24, 25, 27, 0.6)'
+- 'rgb(10, 10, 11)'
+      ^
+
+    at verifyDenseWorkspace (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-dense-workspace.mjs:11:178)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-dense-workspace.mjs:21:19 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'rgba(24, 25, 27, 0.6)',
+  expected: 'rgb(10, 10, 11)',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

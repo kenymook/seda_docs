@@ -1,0 +1,44 @@
+{
+  "mainPath": "/references/chat",
+  "sameContext": true,
+  "path": "/references/chat",
+  "title": "Требуется вход",
+  "chatInputs": 0,
+  "headings": [
+    "Войдите, чтобы получить доступ"
+  ],
+  "frames": [
+    "/references/chat",
+    "blank"
+  ],
+  "events": [
+    {
+      "kind": "request",
+      "path": "/references/chat.html",
+      "hasAuth": false,
+      "redirected": false
+    },
+    {
+      "kind": "route",
+      "origin": "https://seda-ai-pilot.kenymook.chatgpt.site",
+      "path": "/references/chat.html",
+      "authorized": true
+    },
+    {
+      "kind": "response",
+      "path": "/references/chat.html",
+      "status": 307
+    },
+    {
+      "kind": "request",
+      "path": "/references/chat",
+      "hasAuth": true,
+      "redirected": true
+    },
+    {
+      "kind": "response",
+      "path": "/references/chat",
+      "status": 200
+    }
+  ]
+}
