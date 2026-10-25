@@ -1,0 +1,27 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Compiled values passed to a field must reach the border/control, not only its input text
++ actual - expected
+
+  {
++   border: 'rgba(255, 255, 255, 0.4)',
++   font: 18,
++   height: 48
+-   border: 'rgb(176, 0, 32)',
+-   font: 21,
+-   height: 58
+  }
+
+    at verifyNumberField (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-number-field.mjs:43:302)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/run-number-field.mjs:3:117 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: { font: 18, height: 48, border: 'rgba(255, 255, 255, 0.4)' },
+  expected: { font: 21, height: 58, border: 'rgb(176, 0, 32)' },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
