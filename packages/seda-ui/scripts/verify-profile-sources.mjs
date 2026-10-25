@@ -81,6 +81,9 @@ export async function verifyProfileSources(root) {
         ['--top-bar-surface-default',['top-bar','surface','default']],
         ['--top-bar-item-foreground-selected',['top-bar','item','foreground','selected']],
         ['--top-bar-focus-ring',['top-bar','focus','ring']],
+        ['--sidebar-surface-default',['sidebar','surface','default']],
+        ['--sidebar-item-foreground-selected',['sidebar','item','foreground','selected']],
+        ['--sidebar-focus-ring',['sidebar','focus','ring']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -163,6 +166,10 @@ export async function verifyProfileSources(root) {
     delete barTokens.$collections.components.$modes['Mode 1']['top-bar'].item.foreground.selected;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(barTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --top-bar-item-foreground-selected/);
+    const sidebarTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete sidebarTokens.$collections.components.$modes['Mode 1'].sidebar.item.foreground.selected;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(sidebarTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --sidebar-item-foreground-selected/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -179,5 +186,6 @@ export async function verifyProfileSources(root) {
     missingCardTitleRejected: true,
     missingMessageAIForegroundRejected: true,
     missingTopBarSelectedForegroundRejected: true,
+    missingSidebarSelectedForegroundRejected: true,
   };
 }

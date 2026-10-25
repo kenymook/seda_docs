@@ -167,3 +167,8 @@
 - Общий public TopBar: owned slots, provider density/theme, existing token roles, native Link navigation и explicit Modal collapse. Files/Building/Chat подключены к installed package; локальные header paddings удалены, длинные Building breadcrumbs переносятся.
 - Icon отклоняет неизвестные имена вместо пустого mask; оригинальный каталог25 SVG сохранён.
 - 27 component entry modules /34 runtime exports — поверхность experimental, а не число принятых контрактов. Реестр executable instance contracts остаётся11. Figma quota не позволила свежую визуальную сверку.
+## 2026-10-25 — Sidebar (experimental)
+
+- Public Sidebar и types: native routes/actions, sections, current route, full/collapsed Tooltip, controlled disclosure, loading, local scroll и focus repair. Files/Chat подключены к installed package, локальная анатомия navigation удалена.
+- Общий Tooltip распознаёт trigger, сфокусированный родителем до подключения listener.
+-28 component entry modules/35 runtime exports;11 executable instance contracts. Нового token mapping нет, geometry остаётся foundation fallback; Figma/AT review открыт.

@@ -2,9 +2,9 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / needs-review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-05-29
+> **Last reviewed** · 2026-10-25 (React runtime; fresh Figma review pending)
 > **Figma** · [Sidebar](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=933-8891)
 
 ---
@@ -270,3 +270,22 @@ Figma component set: `Sidebar`. Node id: `933:8891`.
 - Удалять labels в collapsed mode из accessibility tree.
 - Смешивать navigation items и unrelated actions без группировки.
 - Добавлять custom item colors или nesting без system review.
+
+## React runtime — experimental, 25.10.2026
+
+`Sidebar`, `SidebarProps`, `SidebarSection`, `SidebarItem` экспортируются из установленного @seda-ai/ui. Реальные Files и Chat используют общий компонент вместо собственных ссылок/отступов/selected styles. Header/footer остаются слотами существующих account/search/new/chat/trash controls; ширина и показ всей панели принадлежат host layout. Мобильный Drawer не подразумевается.
+
+Required `label`, ordered `sections`; optional `selectedKey`, `full` (default true), `size` (provider или M вне него), header/footer и native aside attributes. Section: unique id, optional visible label/icon, ordered items; пустая группа требует emptyText. Группы — semantic sections внутри named nav; это не ARIA menu/tree. Deep nesting выполняется отдельным Tree, не неявными уровнями Sidebar. Динамические groups заменяют Figma category1/category2 toggles, сохраняя порядок IA.
+
+Item: globally unique id, string label, optional original icon, annotation, disabled, description. Discriminant kind=link требует реальный href, optional native anchor onClick/target(_self|_blank); kind=action требует handler настоящего Button и исключает href/target. selectedKey может указывать только на доступную ссылку. Route, permission, persistence, async ownership остаются приложению. Новые kind/annotation/description нужны, чтобы не выдавать команды создания проекта за route и сохранить существующий pending-reply индикатор. Не поддерживаются произвольные item colors/styles.
+
+`full=false` сохраняет labels в accessibility tree, требует icon у каждого item и использует настоящий Tooltip. Item frame остаётся квадратным по общей высоте; X не растягивает его, Y/size изменяют высоту по provider, как IconButton. Секция сохраняет программный label. Host передаёт подходящие compact header/footer, не скрытые библиотекой controls. Полный режим переносит длинные labels, не делает побуквенное скрытое ellipsis; native title содержит полный label/description. Annotation не заменяет название.
+
+Collapsible section требует label, expanded, onExpandedChange и локализованные expandLabel/collapseLabel. Это controlled расширение существующего поведения групп; section items остаются mounted с hidden. Выбор/scroll сохраняются при сворачивании. Если фокус оказался в скрытом/удалённом пункте, он возвращается к доступному disclosure/current/первому пункту своей навигации; внешний фокус не перехватывается. Нет roving tabindex или самодельной обработки стрелок: Tab следует нативному порядку.
+
+`loading=true` требует loadingLabel: named status вне busy nav, пункты и disclosure недоступны; previous rows/scroll остаются, current marker до завершения не рисуется. Header/footer actions принадлежат владельцам и не блокируются неявно. Нет фиктивной задержки или запроса внутри компонента.
+
+Геометрия использует foundation4/8 spacing и общую control height/radius/font/icon. Full item X=8+extraX, Y=4+extraY; minimum — common control height, текст может увеличить строку. Root не навязывает ширину. Scrollable header/footer ограничены40% панели каждый, центральная navigation имеет min32px и собственную прокрутку. Это experimental foundation fallback; отдельный instance contract/width token ещё не введён. Colors — существующие sidebar surface/item/text/icon/accent/section-title/border/focus tokens без changes tokens.json; states и forced colors не заменяются локальными цветами приложения.
+
+Свежая Figma сверка933:8891 пока недоступна из-за уже полученного service quota. Никакая архивная ready/score100 запись не подтверждает текущую React fidelity/AT/desktop приёмку. Runtime и реальные consumers требуют отдельных результатов SSR/Strict hydration/keyboard/routes/scroll/theme/density/визуального review; полный результат фиксируется отчётом текущего этапа.
+Закрытая группа с текущим маршрутом показывает selected group cue; disclosure получает aria-current=location и описание названием текущего route. Скрытая ссылка сохраняет свой page marker и выбор, при раскрытии group cue исчезает. Это не выбор action как страницы.

@@ -1,19 +1,13 @@
 *{box-sizing:border-box}html,body,#root{margin:0;min-width:760px;height:100%;font-family:Inter,system-ui,sans-serif}body{overflow:hidden}
 .reference-app.seda-provider{display:grid;grid-template-columns:241px minmax(0,1fr);height:100dvh;overflow:hidden;color:var(--text-primary);font-size:var(--seda-control-font-size,var(--seda-preset-font-size));background:var(--surface-base)}
 .reference-app .seda-button{--seda-control-padding-inline:var(--reference-button-padding)}
-.reference-sidebar{display:flex;flex-direction:column;min-height:0;overflow:auto;overscroll-behavior:contain;border-inline-end:1px solid var(--border-subtle);background:var(--container-neutral-default)}
+.reference-sidebar{min-height:0}
 .reference-account{display:flex;align-items:center;justify-content:space-between;padding:8px;gap:4px;min-height:48px;flex-wrap:wrap}
 .reference-account>.seda-dropdown-menu{min-width:0;max-width:100%}.reference-account .seda-dropdown-menu__trigger{max-width:100%}
 .reference-avatar{border-radius:50%;object-fit:cover;flex:none}
 .reference-search{margin:0 8px 8px;flex:none;min-width:0}
 .reference-search .seda-field__label,.reference-filters .seda-field__label,.reference-file-selection .seda-choice__label{position:absolute;width:1px;height:1px;padding:0;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
-.reference-navigation{padding-bottom:8px;border-bottom:1px solid var(--border-subtle)}
-.reference-navigation a,.reference-projects nav a{display:flex;align-items:center;gap:8px;min-height:var(--seda-control-height);margin:0 8px;padding:4px 8px;text-decoration:none;color:var(--text-primary);border-radius:var(--seda-control-radius);line-height:var(--seda-control-line-height)}
-.reference-navigation a:hover,.reference-projects nav a:hover{background:var(--container-neutral-hover)}
-.reference-navigation a[aria-current=page],.reference-projects a[aria-current=page]{background:var(--reference-nav-selected);box-shadow:inset 3px 0 var(--reference-nav-accent)}
-.reference-team{display:flex;align-items:center;gap:12px;min-height:52px;padding:16px;border-top:1px solid var(--border-subtle);margin-top:8px}.reference-team>span{display:grid;place-items:center;border-radius:50%;width:16px;height:16px;font-size:11px;background:var(--container-warning-default);color:var(--text-on-warning-primary)}
-.reference-projects{padding-top:16px}.reference-projects>.seda-button{margin:0 8px}.reference-projects nav a{font-size:var(--seda-control-font-size,var(--seda-preset-font-size));overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;line-height:var(--seda-control-line-height)}
-.reference-local-note.seda-text{padding:16px;margin-top:auto;color:var(--text-secondary)}.reference-app a{color:inherit}.reference-app a:focus-visible,.reference-file-open:focus-visible{outline:2px solid var(--focus-ring);outline-offset:-2px}
+.reference-local-note.seda-text{padding:0;color:var(--text-secondary)}.reference-app a{color:inherit}.reference-app a:focus-visible,.reference-file-open:focus-visible{outline:2px solid var(--focus-ring);outline-offset:-2px}
 .reference-main{min-width:0;overflow:auto;overscroll-behavior:contain;position:relative;container-type:inline-size;background:var(--container-neutral-default);outline:none}
 .reference-header{position:sticky;top:0;z-index:4}
 .reference-header h1{margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reference-create-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
@@ -53,13 +47,9 @@
 .reference-type-icon>img{width:100%;height:100%}
 
 /* Dense workspace reference: shared baselines, grid-owned filters, quiet surfaces. */
-.reference-sidebar{background:var(--surface-base)}
+.reference-sidebar{min-height:0}
 .reference-banner{padding-inline:24px}
 .reference-account{min-height:49px;flex:none;border-bottom:1px solid var(--border-subtle)}
-.reference-team{gap:8px;padding:16px;min-height:48px}
-.reference-navigation a,.reference-projects nav a{gap:8px;padding-inline:8px}
-.reference-navigation a>.reference-glyph{flex:none}
-.reference-navigation a>span:not(.reference-glyph){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .reference-projects nav a{display:flex;align-items:center}
 .reference-collection{display:flex;flex-wrap:wrap;column-gap:16px;padding:16px 24px 0}
 .reference-filters{position:static;inset:auto;top:auto;order:2;flex:1 1 max-content;align-self:start;max-width:100%;flex-wrap:wrap;padding:0;margin:0 0 16px}
@@ -85,3 +75,5 @@
 .reference-app.seda-provider{grid-template-columns:min(max(241px,calc(var(--seda-control-font-size,14px) * 9 + var(--seda-control-height,32px) + 32px)),max(241px,calc(100vw - 680px))) minmax(0,1fr)}
 .reference-filters>.seda-field{width:max(180px,calc(var(--seda-control-font-size,14px) * 12 + var(--seda-control-field-padding-inline,12px) * 2 + var(--seda-control-icon-size,16px) + 8px));max-width:100%}
 .reference-filters>.seda-field:nth-child(2){width:max(112px,calc(var(--seda-control-font-size,14px) * 7 + var(--seda-control-field-padding-inline,12px) * 2 + var(--seda-control-icon-size,16px) + 8px))}
+
+.reference-sidebar.seda-sidebar{overflow:hidden}.reference-sidebar .seda-sidebar__header{padding:0}.reference-sidebar .reference-search{max-width:calc(100% - 16px)}.reference-team-mark{display:grid;place-items:center;border-radius:50%;width:16px;height:16px;background:var(--container-warning-default);color:var(--text-on-warning-primary)}

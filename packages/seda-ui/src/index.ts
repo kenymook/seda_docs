@@ -31,3 +31,4 @@ export * from './components/Avatar';
 export * from './components/Card';
 export * from './components/ChatBubble';
 export * from './components/TopBar';
+export * from './components/Sidebar';

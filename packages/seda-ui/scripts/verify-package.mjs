@@ -3,6 +3,7 @@ import {verifyTable} from './verify-table.mjs';
 import {verifyCardAvatar} from './verify-card-avatar.mjs';
 import {verifyChatBubble} from './verify-chat-bubble.mjs';
 import {verifyTopBar} from './verify-top-bar.mjs';
+import {verifySidebar} from './verify-sidebar.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -164,8 +165,9 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 34);
+        assert.equal(result.exports.length, 35);
         assert.ok(result.exports.includes('TopBar'));
+        assert.ok(result.exports.includes('Sidebar'));
         assert.ok(result.exports.includes('ChatBubble'));
         for(const name of ["Avatar","AvatarGroup","Card"])assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Table"));
@@ -189,7 +191,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const navigation=<Sidebar label="Sections" sections={[{id:"main",items:[{id:"files",label:"Files",kind:"link",href:"/files"},{id:"new",label:"New",kind:"action",onClick:()=>{}}]}]}/>;
+// @ts-expect-error owned actions cannot impersonate native destinations
+const mixedNavigation=<Sidebar label="Sections" sections={[{id:"main",items:[{id:"new",label:"New",kind:"action",href:"/new",onClick:()=>{}}]}]}/>;
+// @ts-expect-error collapsed groups require owned state and labels
+const ownerlessSection=<Sidebar label="Sections" sections={[{id:"main",label:"Main",collapsible:true,items:[]}]}/>;
+// @ts-expect-error loading navigation requires status text
+const silentNavigation=<Sidebar label="Sections" sections={[{id:"main",items:[]}]} loading/>;
 const bar=<TopBar label="Workspace" variant="application" items={[{id:"files",label:"Files",href:"/files",selected:true}]} navigationLabel="Product sections"/>;
 // @ts-expect-error app-bar excludes primary navigation
 const wrongBar=<TopBar label="App" title="App" items={[{id:"files",label:"Files",href:"/files"}]} navigationLabel="Sections"/>;
@@ -491,6 +500,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-card-avatar",()=>verifyCardAvatar({cwd,browser}));
     await check("react-"+version+"-chat-bubble",()=>verifyChatBubble({cwd,browser}));
     await check("react-"+version+"-top-bar",()=>verifyTopBar({cwd,browser}));
+    await check("react-"+version+"-sidebar",()=>verifySidebar({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

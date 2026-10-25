@@ -55,6 +55,8 @@ export function useTooltip({content,variant='default',placement='top',disabled=f
     const focus=()=>enter('focus'),blur=()=>{state.current.focus=false;leave();};
     anchor.addEventListener('pointerenter',enterPointer);anchor.addEventListener('pointerleave',leavePointer);
     anchor.addEventListener('focus',focus);anchor.addEventListener('blur',blur);anchor.addEventListener('pointerdown',dismiss);anchor.addEventListener('click',dismiss);
+    // A parent can restore focus before this newly mounted trigger attaches its listeners.
+    if(anchor.ownerDocument.activeElement===anchor)enter('focus');
     return ()=>{cancel();anchor.removeEventListener('pointerenter',enterPointer);anchor.removeEventListener('pointerleave',leavePointer);anchor.removeEventListener('focus',focus);anchor.removeEventListener('blur',blur);anchor.removeEventListener('pointerdown',dismiss);anchor.removeEventListener('click',dismiss);state.current={hover:false,focus:false,surface:false,suppressed:false,timer:0};};
   },[anchor]);
   useBrowserLayoutEffect(()=>{if(disabled||!content.trim())dismiss();else{state.current.suppressed=false;state.current.focus=anchor?.matches(':focus')??false;if(state.current.focus)enter('focus');}},[disabled]);
