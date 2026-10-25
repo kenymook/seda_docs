@@ -10,6 +10,8 @@
 
 ### Added
 
+- Общая experimental композиция EditorDock для Sandbox, Spline, Webflow и Framer: инспектор переходит под canvas по доступной ширине и применённой типографике. Области остаются mounted; горизонтальная ширина и вертикальная высота независимы, reflow не присваивает себе историю или сохранение документа.
+
 - Experimental NumberField:13-й исполняемый контракт, общий raw numeric core, реальные Sandbox/Spline consumers с прежними владельцами истории/сохранения. TextField передаёт CSS variables всем слотам; Projects pagination actions выровнены снизу. Новые design tokens и Figma/OS/AT approval не заявлены.
 
 - Добавлен `foundation/governance.md` с lifecycle, versioning, deprecation policy и readiness checklist.
