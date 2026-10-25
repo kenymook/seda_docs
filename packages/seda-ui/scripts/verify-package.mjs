@@ -281,6 +281,7 @@ const arbitraryModal=<Modal open={false} onOpenChange={()=>{}} title="Workspace"
 // @ts-expect-error size is a named surface width
 const invalidModalSize=<Modal open={false} onOpenChange={()=>{}} title="Workspace" size="wide"/>;
 const icon=<Icon name="search"/>;
+const leftIcon=<Icon name="arrow-left"/>;
 // @ts-expect-error only original SEDA catalog names are accepted
 const inventedIcon=<Icon name="invented"/>;
 const typography=<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Heading</Text></SedaProvider>;

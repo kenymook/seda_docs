@@ -20,6 +20,16 @@
       "file": "arrow-right.svg"
     },
     {
+      "name": "arrow-left",
+      "style": "line",
+      "figmaNodeId": "787:63",
+      "figmaName": "Icon/Line/arrowRight",
+      "file": "arrow-right.svg",
+      "derivedFrom": "arrow-right",
+      "rotation": 180,
+      "sha256": "bec107c98992ba1a1453ba151ae28b616578b60e0d565af29049389f4cd81581"
+    },
+    {
       "name": "arrow-down",
       "style": "line",
       "figmaNodeId": "787:62",

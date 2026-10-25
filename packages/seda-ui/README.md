@@ -64,7 +64,7 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 ## Иконки и геометрия контрола
 
-`Icon` использует 25 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
+`Icon` предоставляет 26 имён на основе 25 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
 
 ```tsx
 import { Button, Icon, TextField } from '@seda-ai/ui';
@@ -72,7 +72,7 @@ import { Button, Icon, TextField } from '@seda-ai/ui';
 <TextField label="Поиск" prefix={<Icon name="search" />} />
 ```
 
-`undo`, `redo`, `more`, `copy`, `trash`, `settings`, `circle`, `monitor` дополняют исходный набор. `data-seda-icon` показывает имя фактически отрисованного glyph. Геометрия оригинальных SVG не перерисовывается; каталог содержит source node IDs и SHA-256.
+`undo`, `redo`, `more`, `copy`, `trash`, `settings`, `circle`, `monitor` дополняют исходный набор. `data-seda-icon` показывает имя фактически отрисованного glyph. Геометрия оригинальных SVG не перерисовывается; каталог содержит source node IDs и SHA-256. `arrow-left` использует тот же `arrow-right.svg` с CSS-поворотом 180°; `derivedFrom`/`rotation` явно показывают происхождение. Это дополнительное публичное имя, не новый Figma SVG. Направление физической команды задаёт приложение; автоматического RTL-переворота здесь нет.
 
 Иконка наследует цвет и размер слота. По умолчанию она декоративна; самостоятельной смысловой иконке передайте `label`. IconButton должен иметь собственный `aria-label`. SVG и IMG в непосредственном слоте нормализуются по его размерам; составные пользовательские обёртки с абсолютной геометрией требуют собственного адаптера.
 

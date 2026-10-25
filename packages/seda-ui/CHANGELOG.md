@@ -1,3 +1,9 @@
+## Unreleased — Explicit icon orientation
+
+- Add arrow-left as an attributed180° CSS rotation of the existing arrow-right SVG; preserve all25 original source files and expose derivedFrom/rotation in icons.json. Reject unsupported rotations, missing origins, alias chains and conflicting source descriptors.
+- Spline uses public Icon for Undo/Redo and physical camera directions instead of font symbols; tooltips distinguish history from camera commands.
+- Installed-package raster checks and actual editor workflows verify orientation, scale, inherited foreground and action ownership. No new Figma original or instance contract is claimed.
+
 ## Unreleased — NumberField and field bindings
 
 - Add controlled raw-string NumberField and executable D32 contract/shared numeric core; use actual TextField without a new palette, slot or border.

@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | Исполняемый пакет | `packages/seda-ui/src/index.ts`: 34 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
 | Контракты | 13 executable control contracts и 8 общих профилей | Проверяемое ядро, включая Slider и NumberField; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
-| Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
+| Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 26 публичных имён /25 исходных SVG; arrow-left явно производная от arrow-right с поворотом180°. Полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
 | Визуальная согласованность | Текущие доказательства: `verification/inspectors-v43/release.json` и предыдущий `verification/dense-v42/` в pilot | Общие glyph slots/foreground/optical bounds и inspector recipe перенесены на reference apps; 160 selected samples и 32 визуальных кадра. Полная приёмка всех states/surfaces/Figma/OS/AT открыта |
 | Modal | Public native dialog + common WorkspaceDialog in 8 reference apps | Реальный React-компонент; 32 production route/theme/density samples и package React18/19 PASS; surface geometry experimental, Figma fidelity и surface-family executable contract открыты |

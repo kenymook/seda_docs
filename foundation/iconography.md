@@ -37,7 +37,7 @@ Iconography описывает роли, размеры, стиль и accessibi
 
 ## Исполняемый каталог веб-библиотеки
 
-`assets/icons/seda/icons.json` связывает публичное имя с исходным Figma node и неизменённым SVG. `packages/seda-ui/scripts/icon-assets.mjs` проверяет bytes/hash и генерирует модуль для `Icon`; public `@seda-ai/ui/icons.json` включает SHA-256. В каталоге 25 glyphs; это не полный набор для всех редакторов.
+`assets/icons/seda/icons.json` связывает публичное имя с исходным Figma node и неизменённым SVG. `packages/seda-ui/scripts/icon-assets.mjs` проверяет bytes/hash и генерирует модуль для `Icon`; public `@seda-ai/ui/icons.json` включает SHA-256. В каталоге 26 публичных имён и 25 исходных SVG; это не полный набор для всех редакторов. `arrow-left` — производное имя: тот же неизменённый `arrow-right.svg`, повёрнутый на 180° средствами CSS. `derivedFrom` и `rotation` сохраняются в публичном каталоге; Figma node ID указывает на правую исходную стрелку, а не на вымышленный новый оригинал. Генератор отклоняет неатрибутированные повороты, неизвестные источники, цепочки aliases и несовпадающие source descriptors.
 
 | Публичное имя | Оригинал SEDA | Роль в приложении |
 | --- | --- | --- |
