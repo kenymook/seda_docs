@@ -1,0 +1,3789 @@
+{
+  "scope": "Installed SEDA Table in Projects and Team, shared compiler font/padding/row floor, selected parameter cases and both themes; not full Figma/AT acceptance",
+  "samples": [
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 226,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 221,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 113,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 124,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 216,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 243,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 108,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 118,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 42,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 211,
+          "wordWidth": 50.8798828125
+        },
+        {
+          "label": "Статус",
+          "available": 241,
+          "wordWidth": 48.439453125
+        },
+        {
+          "label": "Команда",
+          "available": 108,
+          "wordWidth": 62.6376953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 118,
+          "wordWidth": 69.453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 50,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 143,
+          "wordWidth": 65.4169921875
+        },
+        {
+          "label": "Статус",
+          "available": 209,
+          "wordWidth": 62.279296875
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 80.5341796875
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 89.296875
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 71,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 144,
+          "wordWidth": 98.12548828125
+        },
+        {
+          "label": "Статус",
+          "available": 310,
+          "wordWidth": 93.4189453125
+        },
+        {
+          "label": "Команда",
+          "available": 121,
+          "wordWidth": 120.80126953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 134,
+          "wordWidth": 133.9453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 103,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 1264.921875,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 226,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 221,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 113,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 124,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 216,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 243,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 108,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 118,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 42,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 211,
+          "wordWidth": 50.8798828125
+        },
+        {
+          "label": "Статус",
+          "available": 241,
+          "wordWidth": 48.439453125
+        },
+        {
+          "label": "Команда",
+          "available": 108,
+          "wordWidth": 62.6376953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 118,
+          "wordWidth": 69.453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 50,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 143,
+          "wordWidth": 65.4169921875
+        },
+        {
+          "label": "Статус",
+          "available": 209,
+          "wordWidth": 62.279296875
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 80.5341796875
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 89.296875
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 71,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 144,
+          "wordWidth": 98.12548828125
+        },
+        {
+          "label": "Статус",
+          "available": 310,
+          "wordWidth": 93.4189453125
+        },
+        {
+          "label": "Команда",
+          "available": 121,
+          "wordWidth": 120.80126953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 134,
+          "wordWidth": 133.9453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 103,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 1264.921875,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 174,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 170,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 85,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 93,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 166,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 187,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 80,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 88,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 42,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 162,
+          "wordWidth": 50.8798828125
+        },
+        {
+          "label": "Статус",
+          "available": 185,
+          "wordWidth": 48.439453125
+        },
+        {
+          "label": "Команда",
+          "available": 80,
+          "wordWidth": 62.6376953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 69.453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 50,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 108,
+          "wordWidth": 65.4169921875
+        },
+        {
+          "label": "Статус",
+          "available": 209,
+          "wordWidth": 62.279296875
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 80.5341796875
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 89.296875
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 71,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 847.609375,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 144,
+          "wordWidth": 98.12548828125
+        },
+        {
+          "label": "Статус",
+          "available": 310,
+          "wordWidth": 93.4189453125
+        },
+        {
+          "label": "Команда",
+          "available": 121,
+          "wordWidth": 120.80126953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 134,
+          "wordWidth": 133.9453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 103,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 1264.921875,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 174,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 170,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 85,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 93,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 166,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 187,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 80,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 88,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 42,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 162,
+          "wordWidth": 50.8798828125
+        },
+        {
+          "label": "Статус",
+          "available": 185,
+          "wordWidth": 48.439453125
+        },
+        {
+          "label": "Команда",
+          "available": 80,
+          "wordWidth": 62.6376953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 69.453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 50,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 108,
+          "wordWidth": 65.4169921875
+        },
+        {
+          "label": "Статус",
+          "available": 209,
+          "wordWidth": 62.279296875
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 80.5341796875
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 89.296875
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 71,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 847.609375,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 144,
+          "wordWidth": 98.12548828125
+        },
+        {
+          "label": "Статус",
+          "available": 310,
+          "wordWidth": 93.4189453125
+        },
+        {
+          "label": "Команда",
+          "available": 121,
+          "wordWidth": 120.80126953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 134,
+          "wordWidth": 133.9453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 103,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 1264.921875,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 167,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 163,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 680,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 159,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 179,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 77,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 85,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 42,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 680,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 155,
+          "wordWidth": 50.8798828125
+        },
+        {
+          "label": "Статус",
+          "available": 178,
+          "wordWidth": 48.439453125
+        },
+        {
+          "label": "Команда",
+          "available": 77,
+          "wordWidth": 62.6376953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 85,
+          "wordWidth": 69.453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 50,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 680,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 108,
+          "wordWidth": 65.4169921875
+        },
+        {
+          "label": "Статус",
+          "available": 209,
+          "wordWidth": 62.279296875
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 80.5341796875
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 89.296875
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 71,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 847.609375,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 144,
+          "wordWidth": 98.12548828125
+        },
+        {
+          "label": "Статус",
+          "available": 310,
+          "wordWidth": 93.4189453125
+        },
+        {
+          "label": "Команда",
+          "available": 121,
+          "wordWidth": 120.80126953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 134,
+          "wordWidth": 133.9453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 103,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 1264.921875,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 167,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 163,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 680,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 159,
+          "wordWidth": 43.611328125
+        },
+        {
+          "label": "Статус",
+          "available": 179,
+          "wordWidth": 41.51953125
+        },
+        {
+          "label": "Команда",
+          "available": 77,
+          "wordWidth": 53.689453125
+        },
+        {
+          "label": "Обновлён",
+          "available": 85,
+          "wordWidth": 59.53125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 42,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 680,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 155,
+          "wordWidth": 50.8798828125
+        },
+        {
+          "label": "Статус",
+          "available": 178,
+          "wordWidth": 48.439453125
+        },
+        {
+          "label": "Команда",
+          "available": 77,
+          "wordWidth": 62.6376953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 85,
+          "wordWidth": 69.453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 50,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 680,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 108,
+          "wordWidth": 65.4169921875
+        },
+        {
+          "label": "Статус",
+          "available": 209,
+          "wordWidth": 62.279296875
+        },
+        {
+          "label": "Команда",
+          "available": 81,
+          "wordWidth": 80.5341796875
+        },
+        {
+          "label": "Обновлён",
+          "available": 89,
+          "wordWidth": 89.296875
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 71,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 847.609375,
+      "token": "#ffffff"
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Проект",
+          "available": 144,
+          "wordWidth": 98.12548828125
+        },
+        {
+          "label": "Статус",
+          "available": 310,
+          "wordWidth": 93.4189453125
+        },
+        {
+          "label": "Команда",
+          "available": 121,
+          "wordWidth": 120.80126953125
+        },
+        {
+          "label": "Обновлён",
+          "available": 134,
+          "wordWidth": 133.9453125
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 103,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 1264.921875,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 262,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 330,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 230,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 262,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 330,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 230,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 262,
+          "wordWidth": 65.3857421875
+        },
+        {
+          "label": "Email",
+          "available": 332,
+          "wordWidth": 36.44921875
+        },
+        {
+          "label": "Роль",
+          "available": 229,
+          "wordWidth": 33.87890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 40,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 239,
+          "wordWidth": 84.0673828125
+        },
+        {
+          "label": "Email",
+          "available": 302,
+          "wordWidth": 46.86328125
+        },
+        {
+          "label": "Роль",
+          "available": 209,
+          "wordWidth": 43.55859375
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 64,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 215,
+          "wordWidth": 126.10107421875
+        },
+        {
+          "label": "Email",
+          "available": 278,
+          "wordWidth": 70.294921875
+        },
+        {
+          "label": "Роль",
+          "available": 185,
+          "wordWidth": 65.337890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 94,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 262,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 330,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 230,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 262,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 330,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 230,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 262,
+          "wordWidth": 65.3857421875
+        },
+        {
+          "label": "Email",
+          "available": 332,
+          "wordWidth": 36.44921875
+        },
+        {
+          "label": "Роль",
+          "available": 229,
+          "wordWidth": 33.87890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 40,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 239,
+          "wordWidth": 84.0673828125
+        },
+        {
+          "label": "Email",
+          "available": 302,
+          "wordWidth": 46.86328125
+        },
+        {
+          "label": "Роль",
+          "available": 209,
+          "wordWidth": 43.55859375
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 64,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 215,
+          "wordWidth": 126.10107421875
+        },
+        {
+          "label": "Email",
+          "available": 278,
+          "wordWidth": 70.294921875
+        },
+        {
+          "label": "Роль",
+          "available": 185,
+          "wordWidth": 65.337890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 94,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 882,
+      "tableWidth": 882,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 205,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 259,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 179,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 205,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 259,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 179,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 204,
+          "wordWidth": 65.3857421875
+        },
+        {
+          "label": "Email",
+          "available": 260,
+          "wordWidth": 36.44921875
+        },
+        {
+          "label": "Роль",
+          "available": 178,
+          "wordWidth": 33.87890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 40,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 181,
+          "wordWidth": 84.0673828125
+        },
+        {
+          "label": "Email",
+          "available": 232,
+          "wordWidth": 46.86328125
+        },
+        {
+          "label": "Роль",
+          "available": 158,
+          "wordWidth": 43.55859375
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 64,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 164,
+          "wordWidth": 126.10107421875
+        },
+        {
+          "label": "Email",
+          "available": 270,
+          "wordWidth": 70.294921875
+        },
+        {
+          "label": "Роль",
+          "available": 180,
+          "wordWidth": 65.337890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 94,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 818.296875,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 205,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 259,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 179,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 205,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 259,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 179,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 204,
+          "wordWidth": 65.3857421875
+        },
+        {
+          "label": "Email",
+          "available": 260,
+          "wordWidth": 36.44921875
+        },
+        {
+          "label": "Роль",
+          "available": 178,
+          "wordWidth": 33.87890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 40,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 181,
+          "wordWidth": 84.0673828125
+        },
+        {
+          "label": "Email",
+          "available": 232,
+          "wordWidth": 46.86328125
+        },
+        {
+          "label": "Роль",
+          "available": 158,
+          "wordWidth": 43.55859375
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 64,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 703,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 164,
+          "wordWidth": 126.10107421875
+        },
+        {
+          "label": "Email",
+          "available": 270,
+          "wordWidth": 70.294921875
+        },
+        {
+          "label": "Роль",
+          "available": 180,
+          "wordWidth": 65.337890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 94,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 703,
+      "tableWidth": 818.296875,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 159,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 203,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 139,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 159,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 203,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 139,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 159,
+          "wordWidth": 65.3857421875
+        },
+        {
+          "label": "Email",
+          "available": 203,
+          "wordWidth": 36.44921875
+        },
+        {
+          "label": "Роль",
+          "available": 138,
+          "wordWidth": 33.87890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 40,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 128,
+          "wordWidth": 84.0673828125
+        },
+        {
+          "label": "Email",
+          "available": 180,
+          "wordWidth": 46.86328125
+        },
+        {
+          "label": "Роль",
+          "available": 120,
+          "wordWidth": 43.55859375
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 65,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 164,
+          "wordWidth": 126.10107421875
+        },
+        {
+          "label": "Email",
+          "available": 270,
+          "wordWidth": 70.294921875
+        },
+        {
+          "label": "Роль",
+          "available": 180,
+          "wordWidth": 65.337890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 94,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(10, 10, 11)",
+      "headerInk": "rgba(24, 25, 27, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 818.296875,
+      "token": "#0a0a0b"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 159,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 203,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 139,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 13,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 159,
+          "wordWidth": 56.044921875
+        },
+        {
+          "label": "Email",
+          "available": 203,
+          "wordWidth": 31.2421875
+        },
+        {
+          "label": "Роль",
+          "available": 139,
+          "wordWidth": 29.0390625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 12
+        }
+      ],
+      "row": 40,
+      "font": 12,
+      "padding": 10,
+      "line": 16,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "air": 0,
+      "airX": 0,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 159,
+          "wordWidth": 65.3857421875
+        },
+        {
+          "label": "Email",
+          "available": 203,
+          "wordWidth": 36.44921875
+        },
+        {
+          "label": "Роль",
+          "available": 138,
+          "wordWidth": 33.87890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        },
+        {
+          "padding": 10,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 14
+        }
+      ],
+      "row": 40,
+      "font": 14,
+      "padding": 10,
+      "line": 20,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "air": 6,
+      "airX": 12,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 128,
+          "wordWidth": 84.0673828125
+        },
+        {
+          "label": "Email",
+          "available": 180,
+          "wordWidth": 46.86328125
+        },
+        {
+          "label": "Роль",
+          "available": 120,
+          "wordWidth": 43.55859375
+        }
+      ],
+      "cells": [
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        },
+        {
+          "padding": 22,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 18
+        }
+      ],
+      "row": 65,
+      "font": 18,
+      "padding": 22,
+      "line": 28,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 560,
+      "token": "#ffffff"
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "air": 12,
+      "airX": 24,
+      "headers": [
+        {
+          "label": "Участник",
+          "available": 164,
+          "wordWidth": 126.10107421875
+        },
+        {
+          "label": "Email",
+          "available": 270,
+          "wordWidth": 70.294921875
+        },
+        {
+          "label": "Роль",
+          "available": 180,
+          "wordWidth": 65.337890625
+        }
+      ],
+      "cells": [
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        },
+        {
+          "padding": 34,
+          "background": "rgba(0, 0, 0, 0)",
+          "font": 27
+        }
+      ],
+      "row": 94,
+      "font": 27,
+      "padding": 34,
+      "line": 42,
+      "ink": "rgb(255, 255, 255)",
+      "headerInk": "rgba(255, 255, 255, 0.85)",
+      "overflow": 0,
+      "viewportWidth": 358,
+      "tableWidth": 818.296875,
+      "token": "#ffffff"
+    }
+  ],
+  "controlledSorting": true,
+  "selectionSurvivesFilter": true,
+  "independentInstances": true,
+  "errors": []
+}

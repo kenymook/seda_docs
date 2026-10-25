@@ -1,0 +1,2794 @@
+{
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "name": "control-states-Light-s",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Light-m",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Light-l",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Light-xl",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Dark-s",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 24
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 14,
+                "height": 14,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 112
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 32,
+                "height": 18,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Dark-m",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 30
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 16,
+                "height": 16,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 140
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 36,
+                "height": 20,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Dark-l",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 38
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 18,
+                "height": 18,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 168
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 40,
+                "height": 22,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-states-Dark-xl",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "loading": false,
+              "indeterminate": false
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "error": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "error",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "error",
+                "data": "filled",
+                "disabled": false,
+                "invalid": "true",
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": true,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "disabled": false,
+              "error": false,
+              "indeterminate": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "indeterminate",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": true
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          },
+          {
+            "state": {
+              "indeterminate": false,
+              "loading": true
+            },
+            "controls": [
+              {
+                "name": "Select",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-select-message"
+                ],
+                "width": 1473,
+                "height": 46
+              },
+              {
+                "name": "Checkbox",
+                "activity": "idle",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-checkbox-message"
+                ],
+                "width": 20,
+                "height": 20,
+                "indeterminate": false
+              },
+              {
+                "name": "Radio",
+                "activity": "idle",
+                "validation": "none",
+                "data": "filled",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-radio-message"
+                ],
+                "width": 1495,
+                "height": 196
+              },
+              {
+                "name": "Toggle",
+                "activity": "loading",
+                "validation": "none",
+                "data": "unchecked",
+                "disabled": false,
+                "invalid": null,
+                "descriptions": [
+                  "control-external",
+                  "control-toggle-message"
+                ],
+                "width": 44,
+                "height": 24,
+                "indeterminate": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "control-keyboard-multi-and-disabled-options",
+      "status": "passed",
+      "evidence": {
+        "multi": [
+          "a",
+          "b"
+        ],
+        "radioSkippedDisabled": true
+      }
+    },
+    {
+      "name": "control-loading-and-disabled-guards",
+      "status": "passed",
+      "evidence": {
+        "loadingWidthDelta": 0,
+        "loadingHeightDelta": 0,
+        "callbacksWhileBlocked": 0
+      }
+    },
+    {
+      "name": "field-single-focus-ring-and-picker",
+      "status": "passed",
+      "evidence": {
+        "input": {
+          "inner": "none",
+          "outer": "solid",
+          "outlineWidth": "2px"
+        },
+        "select": {
+          "inner": "none",
+          "outer": "solid",
+          "outlineWidth": "2px"
+        },
+        "labelTops": [
+          359,
+          359
+        ],
+        "styledNativePicker": true
+      }
+    },
+    {
+      "name": "errors-and-real-library-source",
+      "status": "passed",
+      "evidence": {
+        "errors": [],
+        "components": [
+          "node_modules/@seda-ai/ui/dist/components/Button/Button.js",
+          "node_modules/@seda-ai/ui/dist/components/IconButton/IconButton.js",
+          "node_modules/@seda-ai/ui/dist/components/Tooltip/Tooltip.js",
+          "node_modules/@seda-ai/ui/dist/components/Text/Text.js",
+          "node_modules/@seda-ai/ui/dist/components/Icon/index.js",
+          "node_modules/@seda-ai/ui/dist/components/Icon/seda-icon-assets.js",
+          "node_modules/@seda-ai/ui/dist/components/TextField/TextField.js",
+          "node_modules/@seda-ai/ui/dist/components/Select/Select.js",
+          "node_modules/@seda-ai/ui/dist/components/Checkbox/Checkbox.js",
+          "node_modules/@seda-ai/ui/dist/components/Radio/Radio.js",
+          "node_modules/@seda-ai/ui/dist/components/Toggle/Toggle.js",
+          "node_modules/@seda-ai/ui/dist/components/Badge/Badge.js",
+          "node_modules/@seda-ai/ui/dist/components/Tag/Tag.js",
+          "node_modules/@seda-ai/ui/dist/components/Alert/Alert.js",
+          "node_modules/@seda-ai/ui/dist/components/Toast/Toast.js",
+          "node_modules/@seda-ai/ui/dist/components/Toast/ToastProvider.js",
+          "node_modules/@seda-ai/ui/dist/components/Toast/toast-store.js",
+          "node_modules/@seda-ai/ui/dist/components/FileUpload/FileUpload.js",
+          "node_modules/@seda-ai/ui/dist/components/Tabs/Tabs.js",
+          "node_modules/@seda-ai/ui/dist/components/DropdownMenu/DropdownMenu.js",
+          "node_modules/@seda-ai/ui/dist/components/DropdownMenu/menuModel.js",
+          "node_modules/@seda-ai/ui/dist/components/SplitView/SplitView.js",
+          "node_modules/@seda-ai/ui/dist/components/SplitView/splitModel.js",
+          "node_modules/@seda-ai/ui/dist/components/Tree/Tree.js",
+          "node_modules/@seda-ai/ui/dist/components/Tree/treeModel.js",
+          "node_modules/@seda-ai/ui/dist/components/Table/Table.js"
+        ]
+      }
+    }
+  ]
+}

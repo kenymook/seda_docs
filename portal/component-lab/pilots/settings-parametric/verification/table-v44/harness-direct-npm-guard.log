@@ -1,0 +1,15 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Run through npm run verify:package to select npm safely
+    at file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-package.mjs:37:8 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

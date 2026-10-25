@@ -1,0 +1,3493 @@
+{
+  "scope": "Real SEDA Text roles in project subtitle, count, headings, metadata, native Table headers through compiler geometry, pagination and cards",
+  "samples": [
+    {
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            },
+            {
+              "font": 12,
+              "line": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            },
+            {
+              "font": 18,
+              "line": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            },
+            {
+              "font": 12,
+              "line": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            },
+            {
+              "font": 14,
+              "line": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            },
+            {
+              "font": 21,
+              "line": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            },
+            {
+              "font": 13,
+              "line": 19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            },
+            {
+              "font": 16,
+              "line": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            },
+            {
+              "font": 24,
+              "line": 36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 80,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 14.4,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 14.4,
+              "line": 19.2,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 12,
+              "line": 17.1429,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            },
+            {
+              "font": 14,
+              "line": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 100,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 18,
+              "line": 24,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 14,
+              "line": 20,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 14,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 14,
+              "line": 20,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 12,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 12,
+              "line": 16,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            },
+            {
+              "font": 18,
+              "line": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "measurements": [
+        {
+          "selector": "#projects-subtitle",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#count",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-panel-title",
+          "role": "heading/panel",
+          "expectedSize": 27,
+          "values": [
+            {
+              "role": "heading/panel",
+              "font": 27,
+              "line": 36,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": "#projects-description",
+          "role": "body/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "body/default",
+              "font": 21,
+              "line": 30,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-pagination>p",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead strong",
+          "role": "label/default",
+          "expectedSize": 21,
+          "values": [
+            {
+              "role": "label/default",
+              "font": 21,
+              "line": 30,
+              "weight": 600
+            }
+          ]
+        },
+        {
+          "selector": ".product-masthead>div>div>span",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": ".workspace-account",
+          "role": "caption/default",
+          "expectedSize": 18,
+          "values": [
+            {
+              "role": "caption/default",
+              "font": 18,
+              "line": 24,
+              "weight": 400
+            }
+          ]
+        },
+        {
+          "selector": "#projects-table thead th/.seda-table__sort",
+          "source": "compiled control typography with Table readability floor",
+          "values": [
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            },
+            {
+              "font": 27,
+              "line": 42
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filterCounts": [
+    1,
+    0,
+    4
+  ],
+  "cardsScale": true,
+  "servicePanelIsolated": true,
+  "errors": []
+}
