@@ -32,6 +32,7 @@ export async function verifyEditorDock(page,origin,output){
      }else{assert.equal(sample.orientation,'horizontal');assert.ok(inspector.x>=canvas.right-1);assert.equal(await separator.getAttribute('aria-orientation'),'vertical');}
      for(const panel of sample.panels){assert.ok(panel.x>=sample.host.x-1&&panel.right<=sample.host.right+1);assert.ok(panel.y>=sample.host.y-1&&panel.bottom<=sample.host.bottom+1);}
      if(route==='framer'){
+      sample.canvasViewport=await page.locator('.fr-stage').boundingBox();assert.ok(sample.canvasViewport.height>=350,'Actual canvas keeps its previous350px minimum: '+JSON.stringify(sample.canvasViewport));
       sample.zoom=await page.locator('.fr-canvas-tools select').evaluate(node=>{const style=getComputedStyle(node),ctx=document.createElement('canvas').getContext('2d');ctx.font=style.font;return{label:node.selectedOptions[0].label,text:ctx.measureText(node.selectedOptions[0].label).width,available:node.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight)};});
       assert.ok(sample.zoom.available>=sample.zoom.text+1,'Zoom text must fit before its picker icon: '+JSON.stringify(sample.zoom));
      }
@@ -61,7 +62,10 @@ export async function verifyEditorDock(page,origin,output){
    const height=await split.locator(':scope > .seda-split-view__panel').first().evaluate(node=>node.getBoundingClientRect().height);
    await page.setViewportSize({width:1702,height:1244});await settle(page);await page.setViewportSize({width:1024,height:1244});await settle(page);
    const restored=await split.locator(':scope > .seda-split-view__panel').first().evaluate(node=>node.getBoundingClientRect().height);assert.ok(Math.abs(restored-height)<=1,'Vertical size survives reflow independently of widths');
-   transitions.push({route,theme,inputNodePreserved:true,previewSurfacesPreserved:surfaces,draftAndCaretPreserved:true,cancel:true,wideResizeDoesNotReflow:true,keyboardResize:true,height,restored});
+   let bottomWidth=1024,sideWidth=1702;
+   while(sideWidth-bottomWidth>1){const width=Math.floor((bottomWidth+sideWidth)/2);await page.setViewportSize({width,height:1244});await settle(page);if(await dock.getAttribute('data-editor-dock')==='bottom')bottomWidth=width;else sideWidth=width;}
+   for(const[width,mode]of[[bottomWidth,'bottom'],[sideWidth,'side']]){await page.setViewportSize({width,height:1244});await settle(page);assert.equal(await dock.getAttribute('data-editor-dock'),mode);assert.equal(await split.getAttribute('data-overconstrained'),null,'No one-pixel overconstraint at the actual reflow boundary');}
+   transitions.push({route,theme,inputNodePreserved:true,previewSurfacesPreserved:surfaces,draftAndCaretPreserved:true,cancel:true,wideResizeDoesNotReflow:true,keyboardResize:true,height,restored,boundary:{bottomWidth,sideWidth}});
   }
   assert.deepEqual(errors,[]);const result={scope:'Four actual editor compositions, selected dimensions and themes; persistent drafts/caret and independent dock height. No Figma or platform certification.',samples,transitions,errors};await fs.writeFile(path.join(output,'results.json'),JSON.stringify(result,null,2)+'\n');return result;
  }catch(error){await page.screenshot({path:path.join(output,'failure.png')});throw error;}finally{page.off('pageerror',listener);}
