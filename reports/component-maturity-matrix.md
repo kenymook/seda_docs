@@ -6,7 +6,7 @@
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 28 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 29 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
 | Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
@@ -18,6 +18,7 @@
 | Card / Avatar / AvatarGroup | Public native entity surfaces and identity fallback; Projects/Team use installed package | Experimental: controlled Card/Table selection, independent actions, real group overflow, image/transition guards; [v45 report](2026-10-25-entity-surfaces.md):49 package groups,48 samples per React18/19 and60 production workspace cases. Full variants, instance contracts, Figma and target OS/AT acceptance remain open |
 | ChatBubble / TopBar | Public message models and shared Files/Building/Chat headers; installed package and production proofs v46/v47 | Experimental: content/action/request ownership retained, TopBar72/inspector160/glyph95 production cases. Instance contracts/Figma/AT review open |
 | Sidebar | Общий installed export в Files/Chat вместо локальной навигации; native links/actions, named groups, controlled collapse и local scroll | Experimental; current local verification/report: [Sidebar](2026-10-25-sidebar.md). Нового instance contract нет, Figma/AT/OS review открыт |
+| Accordion | Public installed component в Framer/Webflow/Spline; disclosure state, native semantics, form retention и focus repair | Experimental; [текущий отчёт](2026-10-25-accordion.md). Новый instance contract/Figma/AT/OS review открыт |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 

@@ -233,3 +233,6 @@ Card использует общие Text roles и existing Card tokens; X/Y у�
 ### Sidebar (experimental)
 
 `Sidebar` объединяет persistent navigation Files/Chat: ordered sections, native link/action items, selectedKey, full/collapsed, provider size/theme/X/Y, controlled group collapse и loading status. Header/footer и ширина остаются host-owned. Свёрнутые items требуют исходную Icon и сохраняют label/Tooltip; keyboard сохраняет native Tab order. Explicit link/action types защищают route semantics. Полный API, причины дополнительных props и ограничения — specs/navigation/sidebar.md, React runtime. Нового registry contract нет.
+### Accordion (experimental)
+
+`Accordion` объединяет inspector disclosure sections Framer/Webflow/Spline: required single/multiple mode, explicit controlled owner, required-open policy, native triggers/headings, optional roving keyboard и focus repair. Hidden panels остаются mounted по умолчанию и сохраняют invalid draft/validation; forceMount=false разрешает reset. Surface density compact/medium/large отделена от provider S/M/L/XL controls. API, token roles и fallback geometry: specs/data-display/accordion.md, React runtime. Loading/error остаются содержимым приложения; registry instance contract ещё не введён.

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button,Text,Select,Toggle,Tabs} from '@seda-ai/ui';
+import {Accordion,Button,Text,Select,Toggle,Tabs} from '@seda-ai/ui';
 import {DraftProperty} from './sandbox-property';
 import * as m from './webflow-model';
 import type {NodeMeasurement} from './webflow-preview';
@@ -28,9 +28,9 @@ export function AuthorInspector({document,page,node,bp,measurement,locked,onPend
  }
  const style=<>
   <section className="wf-selector"><Text as="p" variant="caption/default">Style selector · {bp}</Text><Select id="wf-class" label="CSS class" value={node.className} disabled={locked} options={Object.keys(document.rules).map(value=>({value,label:value}))} onValueChange={className=>{if(typeof className==='string')command(m.updateNode(document,page.id,node.id,{className}));}}/><Text as="p" variant="caption/default">{document.pages.flatMap(p=>p.nodes).filter(n=>n.className===node.className).length} element(s) share this class</Text></section>
-  {groups.map(([title,fields])=><details key={title} open className="wf-inspector-section"><summary><Text as="span" variant="label/default">{title}</Text></summary><div className="wf-fields">{fields.map(([key,label])=>field(key,label))}</div></details>)}
+  <Accordion type="multiple" label="Свойства CSS элемента" variant="compact" size="compact" headingLevel={3} forceMount defaultValue={groups.map(([title])=>title)} items={groups.map(([title,fields])=>({id:title,title,content:<div className="wf-fields">{fields.map(([key,label])=>field(key,label))}</div>}))}/>
   <section className="wf-computed"><Text as="h3" variant="heading/panel">Computed · browser</Text>{measurement?<><Text as="p" variant="code/small" id="wf-computed-size">{measurement.width.toFixed(2)} × {measurement.height.toFixed(2)} px</Text><Text as="p" variant="code/small" id="wf-computed-type">font {measurement.fontSize} / {measurement.lineHeight}</Text></>:<Text as="p" variant="caption/default">No rendered element</Text>}<Text as="p" variant="caption/default">Размеры в CSS px до canvas zoom. Панель редактирует реконструированный документ, а не токены SEDA.</Text></section>
-  <details className="wf-inspector-section"><summary>Typography provenance</summary><pre id="wf-type-provenance">{JSON.stringify(m.resolveProperty(document,page,node.id,'fontSize',bp).chain,null,2)}</pre></details>
+  <Accordion type="multiple" label="Происхождение типографики" variant="compact" size="compact" headingLevel={3} forceMount defaultValue={[]} items={[{id:"section-0",title:"Typography provenance",content:<><pre id="wf-type-provenance">{JSON.stringify(m.resolveProperty(document,page,node.id,'fontSize',bp).chain,null,2)}</pre></>}]}/>
  </>;
  const settings=<section className="wf-node-settings">
   <DraftProperty id="wf-node-name" label="Element name" value={node.name} mixed={false} identity={identity} disabled={locked} onPending={onPending} onCommit={name=>command(m.updateNode(document,page.id,node.id,{name}))}/>

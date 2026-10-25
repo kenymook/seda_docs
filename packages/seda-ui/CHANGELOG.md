@@ -172,3 +172,8 @@
 - Public Sidebar и types: native routes/actions, sections, current route, full/collapsed Tooltip, controlled disclosure, loading, local scroll и focus repair. Files/Chat подключены к installed package, локальная анатомия navigation удалена.
 - Общий Tooltip распознаёт trigger, сфокусированный родителем до подключения listener.
 -28 component entry modules/35 runtime exports;11 executable instance contracts. Нового token mapping нет, geometry остаётся foundation fallback; Figma/AT review открыт.
+## 2026-10-25 — Accordion (experimental)
+
+- Public Accordion с native Button/Icon/Badge, single/multiple ownership, disabled/required-open, mounted hidden panels, optional roving и focus repair. Framer/Webflow/Spline используют installed export, старые details paddings удалены.
+- Shared preset/Accordion token provenance и missing-role guards добавлены. Цвета trigger переключаются сразу, устраняя transient contrast failure; chevron motion уважает reduced motion.
+- 29 component entry modules/36 runtime exports;11 executable instance contracts. Figma/AT/OS и surface contract review остаются открытыми.

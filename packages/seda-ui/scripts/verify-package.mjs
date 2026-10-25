@@ -4,6 +4,7 @@ import {verifyCardAvatar} from './verify-card-avatar.mjs';
 import {verifyChatBubble} from './verify-chat-bubble.mjs';
 import {verifyTopBar} from './verify-top-bar.mjs';
 import {verifySidebar} from './verify-sidebar.mjs';
+import {verifyAccordion} from './verify-accordion.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -165,9 +166,10 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 35);
+        assert.equal(result.exports.length, 36);
         assert.ok(result.exports.includes('TopBar'));
         assert.ok(result.exports.includes('Sidebar'));
+        assert.ok(result.exports.includes('Accordion'));
         assert.ok(result.exports.includes('ChatBubble'));
         for(const name of ["Avatar","AvatarGroup","Card"])assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Table"));
@@ -191,7 +193,15 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const disclosures=<Accordion label="Properties" type="multiple" items={[{id:"size",title:"Size",content:<TextField label="Width"/>}]} defaultValue={["size"]}/>;
+const requiredDisclosure=<Accordion label="Page" type="single" collapsible={false} value="size" onValueChange={()=>{}} items={[{id:"size",title:"Size",content:"Content"}]}/>;
+// @ts-expect-error controlled disclosure requires an owner
+const ownerlessDisclosure=<Accordion label="Properties" type="multiple" value={["size"]} items={[{id:"size",title:"Size",content:"Content"}]}/>;
+// @ts-expect-error single mode needs an explicit collapse policy
+const ambiguousDisclosure=<Accordion label="Properties" type="single" items={[{id:"size",title:"Size",content:"Content"}]}/>;
+// @ts-expect-error surface density uses canonical names
+const invalidDisclosureSize=<Accordion label="Properties" type="multiple" size="m" items={[{id:"size",title:"Size",content:"Content"}]}/>;
 const navigation=<Sidebar label="Sections" sections={[{id:"main",items:[{id:"files",label:"Files",kind:"link",href:"/files"},{id:"new",label:"New",kind:"action",onClick:()=>{}}]}]}/>;
 // @ts-expect-error owned actions cannot impersonate native destinations
 const mixedNavigation=<Sidebar label="Sections" sections={[{id:"main",items:[{id:"new",label:"New",kind:"action",href:"/new",onClick:()=>{}}]}]}/>;
@@ -501,6 +511,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-chat-bubble",()=>verifyChatBubble({cwd,browser}));
     await check("react-"+version+"-top-bar",()=>verifyTopBar({cwd,browser}));
     await check("react-"+version+"-sidebar",()=>verifySidebar({cwd,browser}));
+    await check("react-"+version+"-accordion",()=>verifyAccordion({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

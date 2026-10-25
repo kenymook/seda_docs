@@ -84,6 +84,9 @@ export async function verifyProfileSources(root) {
         ['--sidebar-surface-default',['sidebar','surface','default']],
         ['--sidebar-item-foreground-selected',['sidebar','item','foreground','selected']],
         ['--sidebar-focus-ring',['sidebar','focus','ring']],
+        ['--accordion-trigger-foreground-expanded',['accordion','trigger','foreground','expanded']],
+        ['--accordion-panel-surface-default',['accordion','panel','surface','default']],
+        ['--accordion-focus-ring',['accordion','focus','ring']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -170,6 +173,10 @@ export async function verifyProfileSources(root) {
     delete sidebarTokens.$collections.components.$modes['Mode 1'].sidebar.item.foreground.selected;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(sidebarTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --sidebar-item-foreground-selected/);
+    const accordionTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete accordionTokens.$collections.components.$modes['Mode 1'].accordion.trigger.foreground.expanded;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(accordionTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --accordion-trigger-foreground-expanded/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -187,5 +194,6 @@ export async function verifyProfileSources(root) {
     missingMessageAIForegroundRejected: true,
     missingTopBarSelectedForegroundRejected: true,
     missingSidebarSelectedForegroundRejected: true,
+    missingAccordionExpandedForegroundRejected: true,
   };
 }
