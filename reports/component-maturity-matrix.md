@@ -163,4 +163,6 @@ Continue with **Wave 2 package growth while Code Connect access is blocked**. `p
 
 ## 25.10 — native Table и поставка пакета
 
+Текущий следующий шаг — [общий ChatBubble](2026-10-25-chat-bubble.md): public experimental API, реальный Chat consumer и shared Table/Card вместо локальных message compositions.26 entry modules не означают26 готовых specs. Source/contracts всё ещё требуют Figma/AT/OS review; registry остаётся11 control contracts. Подтверждённая публикация — приватная v46, а не завершение общей цели.
+
 Добавлен реальный public Table вместо локальных HTML tables в Projects/Team. Весь корневой Lab переведён с source alias на installed ESM; metadata проверяет отсутствие source imports и реальные bytesInOutput компонентов. Table использует существующие component color tokens и compiler typography/geometry fallbacks; новый registry instance contract не объявлен. Advanced data grid (virtualization, cell editing/navigation, pin/resize/reorder), public Card/Avatar и полный review по исходным Figma и целевым platform/AT всё ещё необходимы для общей цели.

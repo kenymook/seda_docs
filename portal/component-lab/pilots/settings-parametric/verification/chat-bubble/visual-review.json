@@ -17,5 +17,12 @@
     "Figma library quota prevents full fidelity review",
     "No target AT/OS/Firefox/WebKit acceptance",
     "Existing shell minimum viewport960px"
-  ]
+  ],
+  "productionVersion": 46,
+  "productionReviewed": [
+    "Chat Light/Dark",
+    "Webflow Light/Dark",
+    "Workflow Light/Dark"
+  ],
+  "sourceAndArtifactMatch": "841 sources /532 artifacts;654 canonical Git blobs; installedPackage=true, sourceAlias=false"
 }
