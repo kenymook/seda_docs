@@ -1,4 +1,4 @@
-import {Table} from "@seda-ai/ui";
+import {Table, Card, Avatar, Tooltip} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -572,7 +572,7 @@ function App() {
       workspace: workspaceBinding,
       provenance,
       scope:
-        "Custom geometry is a laboratory derivation; Table is an experimental public SEDA component without an instance contract; Card/Dialog are compositions.",
+        "Custom geometry is a laboratory derivation; Table, Card and Avatar are experimental public SEDA components without instance contracts; Dialog is a composition.",
     };
     const url = URL.createObjectURL(
       new Blob([JSON.stringify(payload, null, 2)], {
@@ -973,7 +973,7 @@ function App() {
                     onSortChange={next=>setSort(!next?'original':next.direction==='ascending'?'name-asc':'name-desc')}
                     emptyState="Проекты не найдены"
                     columns={[
-                      {key:'name',header:'Проект',type:'text',sortable:true,render:p=><span className="workspace-project-name"><span className="avatar" aria-hidden="true">{p.name.slice(0,1)}</span>{p.name}</span>},
+                      {key:'name',header:'Проект',type:'text',sortable:true,render:p=><span className="workspace-project-name"><Avatar name={p.name} variant="brand" alt=""/>{p.name}</span>},
                       {key:'status',header:'Статус',type:'status',render:p=><Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"}/>}>{statusLabels[p.status]}</Tag>},
                       {key:'team',header:'Команда',type:'text',render:p=>p.team},
                       {key:'updated',header:'Обновлён',type:'date',render:p=>p.updated},
@@ -1001,23 +1001,13 @@ function App() {
                 </div>
                 <div className="cards" id="cardsView" hidden={view !== "cards"}>
                   {items.map((p) => (
-                    <article className="productcard" key={p.name}>
-                      <header>
-                        <Text as="strong" variant="label/default">{p.name}</Text>
-                        <Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"} />}>{statusLabels[p.status]}</Tag>
-                      </header>
-                      <div>
-                        <Text as="p" variant="body/small">Команда: {p.team}</Text>
-                        <Text as="p" variant="body/small">Обновлён: {p.updated}</Text>
-                      </div>
-                      <Button
-                        {...real("cancel")}
-                        size={configuration.controlSize}
-                        onClick={() => chooseProject(p.name)}
-                      >
-                        Подробнее
-                      </Button>
-                    </article>
+                    <Card className="productcard" key={p.name} variant="selectable" interactiveStrategy="selectable"
+                      selected={selectedProjects.includes(p.name)} onSelectedChange={checked=>setSelectedProjects(previous=>checked?Array.from(new Set([...previous,p.name])):previous.filter(name=>name!==p.name))}
+                      title={<span className="workspace-project-name"><Avatar name={p.name} variant="brand" alt=""/>{p.name}</span>}
+                      status={<Tooltip content={statusLabels[p.status] ?? p.status}>{trigger=><Tag {...trigger} tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"}/>}>{statusLabels[p.status]}</Tag>}</Tooltip>}
+                      metadata={<><Text as="p" variant="body/small">Команда: {p.team}</Text><Text as="p" variant="body/small">Обновлён: {p.updated}</Text></>}
+                      actions={<Button {...real("cancel")} size={configuration.controlSize} onClick={()=>chooseProject(p.name)}>Подробнее</Button>}
+                    />
                   ))}
                   {!items.length && <Text as="p" variant="body/default">Проекты не найдены</Text>}
                 </div>
@@ -1290,7 +1280,7 @@ function App() {
                 лаборатории отделена.
               </p>
               <p>
-                Контракты: {workspaceBinding.coverage.contract.join(", ")}. Table — публичный SEDA-компонент с экспериментальной геометрией; формы и карточки — композиции.
+                Контракты: {workspaceBinding.coverage.contract.join(", ")}. Table, Card и Avatar — публичные SEDA-компоненты с экспериментальной геометрией; формы — композиции.
               </p>
               <details className="workspace-tokens">
                 <summary>Источники дополнительных контролов</summary>
@@ -1386,7 +1376,7 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table — публичный SEDA-компонент; его геометрия experimental. Card · Dialog — композиции.
+                {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table · Card · Avatar — публичные SEDA-компоненты; их геометрия experimental. Dialog — композиция.
                 SplitView — общий experimental layout; размеры панелей управляются отдельно.
                 Badge/Tag/Alert/Toast и FileUpload — библиотечные адаптеры общей геометрии;
                 их instance contracts ещё не введены. Многострочная высота feedback не входит в проверку однострочных контролов.

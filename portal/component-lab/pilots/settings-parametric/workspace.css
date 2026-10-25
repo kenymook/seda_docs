@@ -221,18 +221,8 @@ body.dark [data-workspace] {
 .product-masthead strong {
   font-size: 15px;
 }
-.product-masthead span:not(.workspace-symbol) {
+.product-masthead>div>div>span.seda-text {
   color: var(--text-tertiary);
-}
-.workspace-symbol {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: #e1eafe;
-  color: #245cce;
-  font-weight: 700;
 }
 .product-nav {
   display: flex;
@@ -414,7 +404,6 @@ body.dark .form-section-heading,
 body.dark .workspace-pagination {
   border-color: #344256;
 }
-body.dark .workspace-symbol,
 body.dark .workspace-bulk {
   background: #253a58;
   color: #c1d7ff;
@@ -598,4 +587,4 @@ body.dark .form-section-heading span {
 .workspace-table-host{min-width:0;max-width:100%}
 .workspace-project-name{display:flex;align-items:center;gap:8px;min-width:0}
 
-.workspace-project-name>.avatar{margin-inline:0;flex:none}
+.workspace-project-name>.seda-avatar{flex:none}

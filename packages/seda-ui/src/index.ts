@@ -26,3 +26,6 @@ export * from "./components/Modal";
 
 export * from './components/Tooltip';
 export * from './components/Table';
+
+export * from './components/Avatar';
+export * from './components/Card';

@@ -33,6 +33,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const inputId = id ?? generatedId;
     const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
+    const hasLabel = hasMessage(label);
     const hasError = !disabled && hasMessage(errorText);
     const message = hasError
       ? errorText
@@ -57,11 +58,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       <label
         className={cx("seda-choice", className)}
         data-disabled={disabled ? "true" : undefined}
+        data-content={hasLabel || message != null ? undefined : "none"}
         data-size={size}
       >
         <input
           {...props}
-          aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] ? undefined : labelId)}
+          aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] || !hasLabel ? undefined : labelId)}
           aria-checked={indeterminate ? "mixed" : checked}
           aria-describedby={mergeDescriptionIds(
             externalDescriptions,
@@ -87,11 +89,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           required={required}
           type="checkbox"
         />
-        <span className="seda-choice__content">
-          <span className="seda-choice__label" id={labelId}>
+        {(hasLabel || message != null) && <span className="seda-choice__content">
+          {hasLabel && <span className="seda-choice__label" id={labelId}>
             {label}
             {required ? " *" : null}
-          </span>
+          </span>}
           {message != null ? (
             <span
               className="seda-field__message"
@@ -101,7 +103,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               {message}
             </span>
           ) : null}
-        </span>
+        </span>}
       </label>
     );
   },

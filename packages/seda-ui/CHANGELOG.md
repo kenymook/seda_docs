@@ -150,3 +150,8 @@
 ## 2026-10-25 — Table (experimental)
 
 Добавлен generic native Table: controlled sort/selection/expansion/pagination, data states/retry, fixed header, density и native scroll. Использует существующие Table tokens и compiler typography; geometry fallback явно документирован. Приложения Projects/Team переиспользуют этот export. Полная Figma/AT/OS, virtualization/grid/inline-editing и instance contract не объявляются готовыми.
+
+
+## 2026-10-25 — Card / Avatar / AvatarGroup (experimental)
+
+Добавлены entity surfaces и identity components с native actions/selection, image fallback и committed-source guard (включая transition/Suspense), именованными диаметрами и настоящим group overflow. Projects/Team используют exports установленного пакета, Card/Table разделяют selection owner. CSS-алиасы Avatar onBrand/onAi сохраняют исходные token paths и provenance. Build требует используемые Card/Avatar color roles. Checkbox без подписи/message больше не оставляет пустой slot/grid gap. Table loading центрируется и в RTL. Geometry/полная Figma/OS/AT приёмка и surface instance contracts остаются открытыми.

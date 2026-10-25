@@ -2,6 +2,8 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   Text,
   Table,
+  Avatar,
+  AvatarGroup,
   Button,
   TextField,
   Icon,
@@ -138,9 +140,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
     <>
       <div className="product-masthead">
         <div>
-          <span className="workspace-symbol" aria-hidden="true">
-            A
-          </span>
+          <Avatar name="Atlas workspace" initials="A" variant="brand" alt=""/>
           <div>
             <Text as="strong" variant="label/default">Atlas workspace</Text>
             <Text variant="caption/default">Рабочее пространство · локальная демонстрация</Text>
@@ -332,6 +332,8 @@ export function ProductWorkspace({ size, action, children, typography, textScale
             <Text as="h1" variant="heading/page" id="workspace-members-title">Команда</Text>
             <Text as="p" variant="body/default">Поиск, роли и добавление участника в локальную демонстрацию.</Text>
           </div>
+          <AvatarGroup label="Участники команды" items={members.map(m=>({id:String(m.id),name:m.name}))} maxVisible={2}
+            overflowLabel="Показать всех участников в таблице" onOverflow={()=>{setMemberQuery('');setMemberRole('all');requestAnimationFrame(()=>{const region=document.querySelector<HTMLElement>('#members-table .seda-table__scroll');region?.scrollIntoView({block:'nearest'});region?.focus({preventScroll:true});});}}/>
         </div>
         <div className="preview">
           <div className="toolbar workspace-members-toolbar">
@@ -356,7 +358,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
           <Table minWidth={560} id="members-table" label="Таблица участников" data={orderedMembers} rowKey={m=>String(m.id)}
             sort={memberSort} onSortChange={setMemberSort} emptyState="Участники не найдены"
             columns={[
-              {key:'name',header:'Участник',type:'text',sortable:true,render:m=>m.name},
+              {key:'name',header:'Участник',type:'text',sortable:true,render:m=><span className="workspace-project-name"><Avatar name={m.name} alt=""/>{m.name}</span>},
               {key:'email',header:'Email',type:'text',render:m=>m.email},
               {key:'role',header:'Роль',type:'text',render:m=>roleOptions.find(o=>o.value===m.role)?.label},
             ]}/>

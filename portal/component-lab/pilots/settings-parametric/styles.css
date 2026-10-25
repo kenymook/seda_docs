@@ -383,17 +383,6 @@ td:first-child {
   color: #25344b;
   font-weight: 700;
 }
-.avatar {
-  display: inline-grid;
-  place-items: center;
-  width: 29px;
-  height: 29px;
-  border-radius: 8px;
-  background: var(--status-info-container);
-  color: var(--text-info);
-  margin-right: 9px;
-  font-size: 11px;
-}
 .pill {
   display: inline-flex;
   align-items: center;
@@ -435,24 +424,6 @@ td:first-child {
 .cards[hidden],
 #tableView[hidden] {
   display: none;
-}
-.productcard {
-  border: 1px solid #e6eaf0;
-  border-radius: 11px;
-  padding: 16px;
-  display: grid;
-  gap: 13px;
-}
-.productcard header {
-  display: flex;
-  justify-content: space-between;
-  gap: 9px;
-}
-.productcard b {
-  font-size: 14px;
-}
-.productcard p {
-  margin: 2px 0 0;
 }
 .secondaryGrid {
   display: grid;
@@ -751,7 +722,6 @@ body.dark .inspector,
 body.dark .preview,
 body.dark .pane,
 body.dark .inspectcard,
-body.dark .productcard,
 body.dark .node,
 body.dark .secondary,
 body.dark .fieldrow input:not(.seda-field__input),
@@ -973,15 +943,9 @@ details {
   .pane {
     padding: 18px;
   }
-  .cards .productcard header {
-    flex-wrap: wrap;
-  }
 }
 
 .pane,
-.productcard {
-  min-width: 0;
-}
 .seda-button {
   flex-shrink: 0;
 }
@@ -1008,7 +972,7 @@ details {
 /* Composition surfaces use the same semantic palette as the installed controls.
    This scope does not override the internals of SEDA components. */
 #lab-scope .shell { background:var(--surface-subtle); color:var(--text-primary); }
-#lab-scope :is(.top,.rail,.inspector,.preview,.pane,.inspectcard,.productcard,.modalBody,dialog[data-workspace]) { background:var(--surface-base); color:var(--text-primary); border-color:var(--border-default); }
+#lab-scope :is(.top,.rail,.inspector,.preview,.pane,.inspectcard,.modalBody,dialog[data-workspace]) { background:var(--surface-base); color:var(--text-primary); border-color:var(--border-default); }
 #lab-scope :is(.top,.panelhead,.metricrow) { border-color:var(--border-default); }
 #lab-scope :is(.hint,.count,.brand small,.topmeta) { color:var(--text-secondary); }
 #lab-scope :is(.view-switch,.compare > div,.equation,.inspector .graph) { background:var(--surface-subtle); color:var(--text-secondary); }

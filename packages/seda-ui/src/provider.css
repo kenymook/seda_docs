@@ -136,6 +136,10 @@
   align-self: first baseline;
   gap: var(--seda-message-gap, 6px);
 }
+.seda-choice[data-content="none"] {
+  grid-template-columns: auto;
+  gap: 0;
+}
 :is(.seda-choice__label, .seda-toggle__label) {
   display: block;
   box-sizing: border-box;

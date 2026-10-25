@@ -196,3 +196,20 @@ const columns: TableColumn<Project>[] = [
 ```
 
 Приложение само сортирует/фильтрует data либо делает запрос. Table сохраняет off-page keys при выборе текущей страницы; disabled rows не меняются. Refresh с сохранёнными data удерживает body; empty/error используют последнюю высоту как minimum и сохраняют ширины колонок. Feedback растёт по содержимому, если minimum недостаточен. `rowActions(row, {disabled,loading})` и custom render отвечают за доступность вложенных controls. Типы `TableColumn`, `TableSort`, `TablePagination`, `TableCellContext`, `TableProps` экспортируются. Native table/scroll, controlled pagination/expansion; grid navigation, virtualization и inline editing отсутствуют. Полный текущий API и границы — `specs/data-display/table.md`, секция15. Component geometry не является новым executable registry contract; fresh Figma/AT/OS review открыт.
+
+
+### Avatar / AvatarGroup / Card (experimental)
+
+```tsx
+<Avatar name="Анна Смирнова" src="/anna.png" status="online" statusLabel="В сети" />
+<AvatarGroup label="Участники команды" items={members} maxVisible={3}
+  overflowLabel="Показать всех участников" onOverflow={showMembers}/>
+<Card title="Atlas workspace" variant="selectable" interactiveStrategy="selectable"
+  selected={selected} onSelectedChange={setSelected}
+  description="Документы, задачи и обсуждения команды"
+  metadata="Core · обновлено сегодня" actions={<Button onClick={openProject}>Подробнее</Button>}/>
+```
+
+Avatar сохраняет named diameter/circle: image→initials→original glyph, late load/error guard, доступные status и native actions. alt="" устраняет дублирование соседнего имени. AvatarGroup overflow требует настоящего действия и сохраняет порядок владельца; group sizes s/m/l/xl. X/Y/textScale не растягивают identity frame.
+
+Card использует общие Text roles и existing Card tokens; X/Y увеличивают foundation padding. Content/actions-only, explicit Checkbox selection и text-only native whole-card action разделены типами. Нет elevated и смешанного whole-card/rich interactive content. Loading сохраняет содержимое/геометрию с progress line/status; вложенные actions владелец блокирует сам. Реальные Projects/Team используют эти exports и общий selection Table. Surface geometry/Avatar dimensions остаются experimental, instance contracts ещё не введены. Полный текущий API и ограничения: specs/data-display/card.md и avatar.md, section15; fresh Figma/OS/AT review открыт.

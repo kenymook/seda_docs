@@ -117,6 +117,14 @@ export function buildThemeAssets(packageRoot, output) {
     }
     for(const collection of ["semantic","components"])
       visit(tokens.$collections[collection].$modes[collection === "semantic" ? theme : "Mode 1"],[],collection);
+    // Existing importer paths use camelCase leaves. Public CSS names are explicit
+    // aliases, not token renames; provenance retains the original source path.
+    for (const [property,name] of [
+      ['--avatar-foreground-on-brand','onBrand'],
+      ['--avatar-foreground-on-ai','onAi'],
+    ]) if (usedProperties.has(property)) {
+      add(property,resolver.resolve({collection:'components',path:['avatar','foreground',name],expectedType:'color'},{theme}));
+    }
     const actionMappings = {
       Button: {
         primary: ["button", "primary", "solid"],
@@ -256,7 +264,7 @@ export function buildThemeAssets(packageRoot, output) {
       )
         throw Error("Required public component token is missing: " + match[1]);
     for (const property of usedProperties)
-      if (["--file-upload-","--alert-","--toast-","--badge-","--tag-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
+      if (["--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
         throw Error("Required public component token is missing: " + property);
     const primitives = {
       choiceRadius: resolver.resolve(

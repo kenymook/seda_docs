@@ -239,7 +239,7 @@ try {
       ),
     );
     assert.equal(metadata.installedPackage,true);assert.equal(metadata.sourceAlias,false);
-    for (const name of ["Select", "Checkbox", "Radio", "Toggle", "TextField", "Table"])
+    for (const name of ["Select", "Checkbox", "Radio", "Toggle", "TextField", "Table", "Card", "Avatar"])
       assert.ok(
         metadata.bundledComponents.some((f) =>
           f.endsWith(`/${name}/${name}.js`),

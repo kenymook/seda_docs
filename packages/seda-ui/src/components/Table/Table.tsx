@@ -67,6 +67,7 @@ export function Table<Row>({label,columns,data,rowKey,rowLabel,density='medium',
   };
   return <div {...props} ref={root} onFocusCapture={event=>{if(root.current?.contains(event.target as Node)){ownedFocus.current=true;lastFocus.current=event.target as HTMLElement;}onFocusCapture?.(event);}} onBlurCapture={event=>{const target=event.target as HTMLElement,next=event.relatedTarget;const unavailable=!target.isConnected||target.matches(':disabled')||!target.getClientRects().length;if(!(next instanceof Node&&root.current?.contains(next))&&(next!==null||!unavailable))ownedFocus.current=false;onBlurCapture?.(event);}} id={id} className={cx('seda-table',className)} data-density={density} data-striped={striped||undefined} data-bordered={bordered||undefined} data-fixed-header={fixedHeader||undefined} data-state={state??(loading?'refreshing':'loaded')} style={style}>
     {toolbar&&<div className="seda-table__toolbar">{toolbar}</div>}
+    <div className="seda-table__viewport">
     <div ref={scroll} className="seda-table__scroll" role="region" aria-label={label} tabIndex={0} style={{maxHeight}}>
       <table className="seda-table__element" style={{minWidth,tableLayout:frozen?'fixed':undefined}} aria-label={label} aria-busy={loading||undefined}>
         <colgroup>{headerKeys.map((key,i)=><col key={key} style={{width:frozen?reservedColumns.current.get(key):headerWidths[i]}}/>)}</colgroup>
@@ -93,6 +94,7 @@ export function Table<Row>({label,columns,data,rowKey,rowLabel,density='medium',
           })}
         </tbody>
       </table>
+    </div>
       <div className={cx("seda-table__announcement",loading&&data.length>0&&!hasError?"seda-table__loading":"seda-table__sr")} role="status">{loading?loadingLabel:null}</div>
     </div>
     {(footer||pagination)&&<div className="seda-table__footer">{footer}{pagination&&<nav aria-label={'Страницы: '+label} className="seda-table__pagination">

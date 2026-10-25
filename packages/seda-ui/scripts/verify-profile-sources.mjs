@@ -5,6 +5,7 @@ import crypto from "node:crypto";
 import assert from "node:assert/strict";
 import { buildThemeAssets } from "./theme-assets.mjs";
 import { createContractEngine } from "../../seda-contracts/src/index.mjs";
+import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
 export async function verifyProfileSources(root) {
   const repo = path.resolve(root, "../..");
   const metadata = JSON.parse(
@@ -19,6 +20,7 @@ export async function verifyProfileSources(root) {
       digest,
     );
   const engine = createContractEngine({ repoRoot: repo });
+  const tokenResolver = createTokenResolver(JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8')));
   let colourAndProvenanceBindingsMatched = 0;
   for (const theme of ["Light", "Dark"])
     for (const controlSize of ["s", "m", "l", "xl"]) {
@@ -67,6 +69,12 @@ export async function verifyProfileSources(root) {
       bindings.push(['--surface-base',compiled.foundationTokens.surface],['--border-subtle',compiled.foundationTokens.separator],['--focus-ring',compiled.foundationTokens.focus]);
       for(const path of [['surface','default'],['surface','error'],['surface','disabled'],['surface','read-only'],['border','active'],['focus','ring'],['counter','default'],['label','read-only']])bindings.push(['--text-area-'+path.join('-'),path.reduce((node,key)=>node[key],compiled.controls.TextArea.tokenBranch.children)]);
       bindings.push(['--tree-row-surface-selected',compiled.controls.Tree.tokenBranch.children.row.surface.selected],['--tree-focus-ring',compiled.controls.Tree.tokenBranch.children.focus.ring]);
+      for (const [property,sourcePath] of [
+        ['--avatar-foreground-on-brand',['avatar','foreground','onBrand']],
+        ['--avatar-foreground-on-ai',['avatar','foreground','onAi']],
+        ['--card-title-foreground',['card','title','foreground']],
+        ['--card-metadata-foreground',['card','metadata','foreground']],
+      ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
         assert.ok(actual, property);
@@ -132,6 +140,14 @@ export async function verifyProfileSources(root) {
     await fs.writeFile(path.join(temp, "tokens.json"), JSON.stringify(nestedTokens));
     assert.throws(() => buildThemeAssets(pkg, output),
       /Required public component token is missing: --alert-description-foreground-info/);
+    const avatarTokens = JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete avatarTokens.$collections.components.$modes['Mode 1'].avatar.foreground.onBrand;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(avatarTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/avatar\/foreground\/onBrand/);
+    const cardTokens = JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete cardTokens.$collections.components.$modes['Mode 1'].card.title.foreground;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(cardTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --card-title-foreground/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -144,5 +160,7 @@ export async function verifyProfileSources(root) {
     missingStateRejected: true,
     missingUploadStateRejected: true,
     missingNestedFeedbackRoleRejected: true,
+    missingAvatarAliasRejected: true,
+    missingCardTitleRejected: true,
   };
 }

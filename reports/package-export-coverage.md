@@ -8,9 +8,9 @@ This report tracks code-export coverage across all 52 production component specs
 
 ## Current runtime summary
 
-`packages/seda-ui/src/index.ts` has23 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not23/52 complete production specs: those inventories are not one-to-one. Current partial maturity and acceptance gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
+`packages/seda-ui/src/index.ts` has25 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not25/52 complete production specs: those inventories are not one-to-one. Current partial maturity and acceptance gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
 
-The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip and now experimental Table were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`.
+The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip, experimental Table, Card and Avatar/AvatarGroup were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`. Card and Avatar/AvatarGroup now have installed-package APIs and Projects/Team consumers; their full spec variants, instance contracts and Figma/OS/AT approval remain incomplete.
 
 ## Historical coverage baseline — 2026-06-12
 
