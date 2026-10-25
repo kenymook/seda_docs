@@ -4,11 +4,14 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {createServer} from 'node:http';
 import {build} from 'esbuild';
+import {spawnSync} from 'node:child_process';
 
 export async function verifyIconCatalog({cwd,browser}) {
   const catalog=JSON.parse(await fs.readFile(path.join(cwd,'node_modules/@seda-ai/ui/dist/icon-catalog.json'),'utf8'));
   assert.equal(catalog.icons.length,25);
   assert.equal(new Set(catalog.icons.map(icon=>icon.name)).size,catalog.icons.length);
+  await fs.writeFile(path.join(cwd,'icon-invalid-ssr.mjs'),`import React from'react';import{renderToString}from'react-dom/server';import{Icon}from'@seda-ai/ui';for(const name of ['file','invented','__proto__','constructor',undefined]){let rejected=false;try{renderToString(React.createElement(Icon,{name}));}catch(error){if(error instanceof TypeError)rejected=true;else throw error;}if(!rejected)throw Error('Unknown icon must reject: '+name);}console.log('Unknown icon rejection passed');`);
+  const rejection=spawnSync(process.execPath,['icon-invalid-ssr.mjs'],{cwd,encoding:'utf8',windowsHide:true});assert.equal(rejection.status,0,rejection.stderr);
   await fs.writeFile(path.join(cwd,'icon-catalog-entry.mjs'),`
     import React from 'react';import {createRoot} from 'react-dom/client';
     import {SedaProvider,Button,IconButton,Icon,DropdownMenu} from '@seda-ai/ui';import '@seda-ai/ui/styles.css';

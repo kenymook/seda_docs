@@ -1,3 +1,4 @@
+import {TopBar} from '@seda-ai/ui';
 import {ReferenceGlyph} from './reference-glyph';
 import {ReferenceTextScale} from './reference-text-scale';
 import React,{useEffect,useMemo,useRef,useState} from 'react';
@@ -21,6 +22,7 @@ type Modal={kind:'create';type:string}|{kind:'rename'|'open';id:string}|{kind:'d
 function routeSection(){const params=new URLSearchParams(location.search),section=params.get('section');return params.has('project')?'project:'+params.get('project')!.slice(0,160):section&&['recents','community','drafts','teams','trash'].includes(section)?section:'recents';}
 
 function RecentsWorkspace(){
+ const [headerScrolled,setHeaderScrolled]=useState(false);
  const [files,setFiles]=useState<WorkspaceFile[]>([]),[preferences,setPreferences]=useState<Preferences>(defaults);
  const [status,setStatus]=useState<'loading'|'ready'|'error'>('loading'),[error,setError]=useState(''),[notice,setNotice]=useState('');
  const [query,setQuery]=useState(''),[section,setSection]=useState(routeSection),[tab,setTab]=useState('recent'),[organization,setOrganization]=useState('all'),[type,setType]=useState('all'),[folder,setFolder]=useState<string|null>(null);
@@ -107,8 +109,8 @@ function RecentsWorkspace(){
    </div>
    <Text as="div" variant="caption/default" className="reference-local-note">Локальные данные · <a href="../">SEDA Lab</a></Text>
   </aside>
-  <main id="reference-main" className="reference-main" tabIndex={-1}>
-   <header className="reference-header"><Text as="h1" variant="label/default">{folder??heading}</Text><div className="reference-create-actions" data-workspace-actions>{[['design','Design','recentsHeader-imgIcon.svg'],['figjam','FigJam','recentsHeader-imgIcon1.svg'],['slides','Slides','recentsHeader-imgIcon2.svg'],['make','Make','recentsHeader-imgIcon3.svg']].map(([id,label,img])=><Button variant="secondary" key={id} iconLeft={<span className="reference-type-icon" data-kind={id}>{icon(img)}</span>} onClick={()=>show({kind:'create',type:id})} disabled={busy||status!=='ready'}>{label}</Button>)}<DropdownMenu triggerLabel="More" items={[{id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'help',label:'Справка и горячие клавиши',onSelect:()=>show({kind:'help'})}]}/></div></header>
+  <main id="reference-main" className="reference-main" tabIndex={-1} onScroll={event=>setHeaderScrolled(event.currentTarget.scrollTop>0)}>
+   <TopBar label="Файлы" variant="page-header" state={headerScrolled?'scrolled':'default'} gutter="wide" className="reference-header" title={<Text as="h1" variant="label/default">{folder??heading}</Text>} actions={<div className="reference-create-actions" data-workspace-actions>{[['design','Design','recentsHeader-imgIcon.svg'],['figjam','FigJam','recentsHeader-imgIcon1.svg'],['slides','Slides','recentsHeader-imgIcon2.svg'],['make','Make','recentsHeader-imgIcon3.svg']].map(([id,label,img])=><Button variant="secondary" key={id} iconLeft={<span className="reference-type-icon" data-kind={id}>{icon(img)}</span>} onClick={()=>show({kind:'create',type:id})} disabled={busy||status!=='ready'}>{label}</Button>)}<DropdownMenu triggerLabel="More" items={[{id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'help',label:'Справка и горячие клавиши',onSelect:()=>show({kind:'help'})}]}/></div>}/>
    {banner&&<section className="reference-banner" aria-label="Новости"><img src={asset('recentsTools-imgImage.svg')} alt="Config" width="152" height="30"/><Text as="p" variant="body/default">Check out everything we launched at Config India</Text><Button variant="secondary" onClick={()=>show({kind:'news'})}>Read more</Button><IconButton aria-label="Закрыть новости" tooltip="Закрыть новости" variant="ghost" icon={<Icon name="close"/>} onClick={()=>setBanner(false)}/></section>}
    <div className="reference-collection">
     <div className="reference-filters" data-workspace-actions aria-label="Фильтры и вид файлов">

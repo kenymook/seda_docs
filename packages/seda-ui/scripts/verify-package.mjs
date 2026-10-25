@@ -2,6 +2,7 @@ import {verifyTooltip} from './verify-tooltip.mjs';
 import {verifyTable} from './verify-table.mjs';
 import {verifyCardAvatar} from './verify-card-avatar.mjs';
 import {verifyChatBubble} from './verify-chat-bubble.mjs';
+import {verifyTopBar} from './verify-top-bar.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -163,7 +164,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 33);
+        assert.equal(result.exports.length, 34);
+        assert.ok(result.exports.includes('TopBar'));
         assert.ok(result.exports.includes('ChatBubble'));
         for(const name of ["Avatar","AvatarGroup","Card"])assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Table"));
@@ -187,7 +189,12 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const bar=<TopBar label="Workspace" variant="application" items={[{id:"files",label:"Files",href:"/files",selected:true}]} navigationLabel="Product sections"/>;
+// @ts-expect-error app-bar excludes primary navigation
+const wrongBar=<TopBar label="App" title="App" items={[{id:"files",label:"Files",href:"/files"}]} navigationLabel="Sections"/>;
+// @ts-expect-error collapsed navigation requires opening/closing labels
+const unnamedBarMenu=<TopBar label="App" variant="application" items={[{id:"files",label:"Files",href:"/files"}]} navigationLabel="Sections" navigationPresentation="dialog"/>;
 const message=<ChatBubble sender="ai" author="Assistant" aiLabel="AI" contentType="text" content="Response"/>;
 // @ts-expect-error AI requires explicit source
 const unlabelledAI=<ChatBubble sender="ai" author="Assistant" contentType="text" content="Response"/>;
@@ -483,6 +490,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-table",()=>verifyTable({cwd,browser}));
     await check("react-"+version+"-card-avatar",()=>verifyCardAvatar({cwd,browser}));
     await check("react-"+version+"-chat-bubble",()=>verifyChatBubble({cwd,browser}));
+    await check("react-"+version+"-top-bar",()=>verifyTopBar({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

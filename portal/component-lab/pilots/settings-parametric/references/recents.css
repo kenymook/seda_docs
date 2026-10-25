@@ -15,8 +15,8 @@
 .reference-projects{padding-top:16px}.reference-projects>.seda-button{margin:0 8px}.reference-projects nav a{font-size:var(--seda-control-font-size,var(--seda-preset-font-size));overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;line-height:var(--seda-control-line-height)}
 .reference-local-note.seda-text{padding:16px;margin-top:auto;color:var(--text-secondary)}.reference-app a{color:inherit}.reference-app a:focus-visible,.reference-file-open:focus-visible{outline:2px solid var(--focus-ring);outline-offset:-2px}
 .reference-main{min-width:0;overflow:auto;overscroll-behavior:contain;position:relative;container-type:inline-size;background:var(--container-neutral-default);outline:none}
-.reference-header{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:8px 32px;border-bottom:1px solid var(--border-subtle);background:var(--surface-base)}
-.reference-header h1{margin:0;flex:none;max-width:30%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reference-create-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.reference-header{position:sticky;top:0;z-index:4}
+.reference-header h1{margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reference-create-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .reference-banner{min-height:48px;display:flex;align-items:center;gap:16px;padding:8px 32px;background:var(--surface-base)}.reference-banner>img{width:152px;height:30px;object-fit:contain;flex:none}.reference-banner p{flex:1;margin:0}.reference-banner>.seda-icon-button{flex:none}
 .reference-app[data-seda-theme=light] .reference-banner>img,.reference-app[data-seda-theme=light] .reference-view img,.reference-app[data-seda-theme=light] .reference-navigation img,.reference-app[data-seda-theme=light] .reference-search img{filter:invert(1)}
 .reference-collection{position:relative;min-width:0}.reference-filters{position:absolute;z-index:2;top:16px;inset-inline-end:34px;display:flex;align-items:center;gap:8px;max-width:52%}.reference-filters>.seda-field{min-width:0;width:180px}.reference-filters>.seda-field:nth-child(2){width:112px}.reference-view{display:flex;gap:2px;flex:none}
@@ -39,7 +39,7 @@
 .reference-help{position:fixed;inset-inline-end:24px;bottom:20px;z-index:5}.reference-open-preview{max-width:100%;max-height:340px;object-fit:contain;background:var(--container-neutral-default)}
 .reference-skip{position:fixed;top:-100px;left:8px;z-index:50;background:var(--surface-base);padding:8px}.reference-skip:focus{top:8px}
 @container(width < 1050px){.reference-filters{position:relative;top:auto;inset-inline-end:auto;max-width:none;flex-wrap:wrap;padding:16px 34px 0}.reference-tabs>.seda-tabs__list{padding-inline-end:34px}.reference-files{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@container(width < 700px){.reference-files{grid-template-columns:minmax(240px,1fr);padding-inline:24px}.reference-header{align-items:flex-start;flex-direction:column;padding-inline:24px}.reference-header h1{max-width:100%}.reference-create-actions{justify-content:flex-start}.reference-banner{flex-wrap:wrap;padding-inline:24px}.reference-filters{padding-inline:24px}}
+@container(width < 700px){.reference-files{grid-template-columns:minmax(240px,1fr);padding-inline:24px}.reference-header{align-items:flex-start;flex-direction:column}.reference-header h1{max-width:100%}.reference-create-actions{justify-content:flex-start}.reference-banner{flex-wrap:wrap;padding-inline:24px}.reference-filters{padding-inline:24px}}
 @media(prefers-reduced-motion:reduce){.reference-file-selection,.reference-file-menu{transition:none}}
 @media(forced-colors:active){.reference-file[data-selected]{outline:2px solid Highlight}.reference-navigation a[aria-current=page]{outline:1px solid Highlight}}
 
@@ -54,7 +54,7 @@
 
 /* Dense workspace reference: shared baselines, grid-owned filters, quiet surfaces. */
 .reference-sidebar{background:var(--surface-base)}
-.reference-header,.reference-banner{padding-inline:24px}
+.reference-banner{padding-inline:24px}
 .reference-account{min-height:49px;flex:none;border-bottom:1px solid var(--border-subtle)}
 .reference-team{gap:8px;padding:16px;min-height:48px}
 .reference-navigation a,.reference-projects nav a{gap:8px;padding-inline:8px}
@@ -78,7 +78,7 @@
 .reference-file-selection .seda-choice{padding:0;gap:0}
 .reference-status{padding-inline:24px}
 @container(width < 1050px){.reference-filters{grid-column:1/-1;grid-row:2;padding:0}.reference-tabs>.seda-tabs__list{grid-column:1/-1;grid-row:1;padding:0}.reference-tabs>.seda-tabs__panel{grid-row:3}}
-@container(width < 700px){.reference-collection{padding-inline:16px}.reference-files{padding-inline:0}.reference-filters{padding-inline:0}.reference-header,.reference-banner{padding-inline:16px}}
+@container(width < 700px){.reference-collection{padding-inline:16px}.reference-files{padding-inline:0}.reference-filters{padding-inline:0}.reference-banner{padding-inline:16px}}
 
 .reference-files--list{gap:8px}
 

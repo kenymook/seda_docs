@@ -10,6 +10,7 @@ export interface IconProps extends Omit<HTMLAttributes<HTMLSpanElement>, "childr
 
 /** Original SEDA glyphs; geometry and foreground inherit from the owning slot. */
 export function Icon({ name, label, className, style, ...props }: IconProps) {
+  if(typeof name!=='string'||!Object.prototype.hasOwnProperty.call(sedaIconAssets,name))throw new TypeError('Unknown SEDA icon: use an original catalog name');
   const mask = `url("${sedaIconAssets[name]}")`;
   return <span {...props} data-seda-icon={name} className={["seda-icon", className].filter(Boolean).join(" ")}
     role={label ? "img" : undefined} aria-label={label || undefined}

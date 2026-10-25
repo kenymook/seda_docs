@@ -2,9 +2,9 @@
 
 > **Category** · Navigation
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / needs-review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-06-10
+> **Last reviewed** · 2026-10-25 (runtime; fresh Figma review pending)
 > **Figma** · [Top Bar](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7061-410)
 
 ---
@@ -263,3 +263,19 @@ Figma component set: `Top Bar`. Node id: `7061:410`.
 - Перегружать панель actions разных уровней.
 - Убирать navigation items на mobile без доступного overflow.
 - Добавлять custom background, blur, shadow или item colors без system review.
+
+## React runtime — experimental, 25.10.2026
+
+Public `TopBar`, `TopBarProps`, `TopBarItem` from installed `@seda-ai/ui`. Actual consumers: Files page-header (wide gutter), Building page-header and Chat app-bar. Existing action handlers, content and save/request ownership stay with each application. No new token or compiler registry entry; the eleven executable instance contracts remain separate from this foundation-backed runtime.
+
+API: required accessible `label`; `as=header|div` (header default); variants app-bar (default), application, page-header, transparent; state default/scrolled. Size inherits SedaProvider (M outside provider), or explicit S/M/L/XL. This inheritance intentionally differs from the historical Figma XL default. Named slots: brand, title, leading, breadcrumbs, search, actions, userMenu. String title uses public Text; `titleAs=span|h1|h2|h3`; rich title owns its heading semantics. Empty context is rejected. Search is a slot for a real owned TextField, not an unimplemented Search export.
+
+Additive `gutter=compact|regular|wide` uses foundation12/16/24 px, default regular: Files needs alignment with its24 px content, while document/chat use16 px. Root X adds the common extra inline padding. Base min-height S/M/L/XL is44/52/60/68 px (page-header40/48/56/64), base Y6/8/10/12 px (page-header5.5/7.5/9.5/11.5). Root Y adds common extra block padding. The half-pixel optical inset preserves the existing48 px document header with32 px controls and a1 px border. These fallback surface dimensions are experimental, not a new certified profile. Controls retain their own provider contracts. No nested arbitrary color/radius override API.
+
+Application requires nonempty `items` and `navigationLabel`; transparent optionally accepts them. App-bar/page-header exclude primary items. Each item requires unique id, visible label and real href; optional original Icon, selected, disabled, target `_self|_blank` and native anchor onClick. One current route, never disabled. Link uses an approved TopBar token view; standalone Link remains unchanged. Modified clicks/native destination behavior survive; application owns SPA interception/business guards.
+
+Inline navigation scrolls locally and reveals keyboard focus in LTR/RTL, including density and direction changes. Explicit `navigationPresentation=dialog` requires opening/closing labels and uses real Button + Modal. Initial focus is current/first available item; Escape and closing restore focus. Normal selection closes; modified click preserves native behavior. Switching dialog→inline closes and repairs removed focus, without stealing focus from outside the component. Owner chooses responsive presentation; actions are never silently hidden/cloned into a menu. Long dialog labels wrap. Slots wrap at constrained widths.
+
+State `scrolled` is supplied by the owner of the actual scrolling region; no window listener. Files binds its own main scroll and sticky header. Surface/border/title/navigation/focus/icon roles come from existing Top Bar tokens; transparent default retains the real backdrop and scrolled uses the elevated surface role. No invented shadow/blur. Forced colors receive visible borders/current-route outlines. Focus/contrast and browser tests supplement, but do not replace screen-reader/native desktop review.
+
+Figma context7061:410 was requested on25.10.2026; service rejected it due Starter quota. No fresh Figma pixel/variant acceptance is claimed. Installed React18/19 consumer and actual-workspace evidence are recorded in reports/2026-10-25-top-bar.md, including selected matrix bounds and remaining limitations.

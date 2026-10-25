@@ -78,6 +78,9 @@ export async function verifyProfileSources(root) {
         ['--chat-bubble-outgoing-surface-default',['chat-bubble','outgoing','surface','default']],
         ['--chat-bubble-incoming-foreground-default',['chat-bubble','incoming','foreground','default']],
         ['--chat-bubble-timestamp-foreground',['chat-bubble','timestamp','foreground']],
+        ['--top-bar-surface-default',['top-bar','surface','default']],
+        ['--top-bar-item-foreground-selected',['top-bar','item','foreground','selected']],
+        ['--top-bar-focus-ring',['top-bar','focus','ring']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -156,6 +159,10 @@ export async function verifyProfileSources(root) {
     delete messageTokens.$collections.components.$modes['Mode 1']['chat-bubble'].ai.foreground;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(messageTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --chat-bubble-ai-foreground/);
+    const barTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete barTokens.$collections.components.$modes['Mode 1']['top-bar'].item.foreground.selected;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(barTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --top-bar-item-foreground-selected/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -171,5 +178,6 @@ export async function verifyProfileSources(root) {
     missingAvatarAliasRejected: true,
     missingCardTitleRejected: true,
     missingMessageAIForegroundRejected: true,
+    missingTopBarSelectedForegroundRejected: true,
   };
 }

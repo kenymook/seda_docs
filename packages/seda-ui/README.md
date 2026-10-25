@@ -224,3 +224,9 @@ Text/rich/code/file/image/audio используют явные content models, 
 Avatar сохраняет named diameter/circle: image→initials→original glyph, late load/error guard, доступные status и native actions. alt="" устраняет дублирование соседнего имени. AvatarGroup overflow требует настоящего действия и сохраняет порядок владельца; group sizes s/m/l/xl. X/Y/textScale не растягивают identity frame.
 
 Card использует общие Text roles и existing Card tokens; X/Y увеличивают foundation padding. Content/actions-only, explicit Checkbox selection и text-only native whole-card action разделены типами. Нет elevated и смешанного whole-card/rich interactive content. Loading сохраняет содержимое/геометрию с progress line/status; вложенные actions владелец блокирует сам. Реальные Projects/Team используют эти exports и общий selection Table. Surface geometry/Avatar dimensions остаются experimental, instance contracts ещё не введены. Полный текущий API и ограничения: specs/data-display/card.md и avatar.md, section15; fresh Figma/OS/AT review открыт.
+
+### TopBar (experimental)
+
+`TopBar` — общий заголовок приложения: app-bar/application/page-header/transparent, provider size/theme/X/Y и существующие Top Bar token roles. Files, Building и Chat используют установленный export. Named slots сохраняют владельцев действий и поиска; `gutter=compact|regular|wide` задаёт foundation12/16/24 px. Application navigation использует native Link и явный inline/dialog режим с настоящим Modal, keyboard/RTL и focus return. Владелец scroll передаёт state=scrolled. API и fallback geometry: specs/navigation/top-bar.md, React runtime. Нового executable registry contract нет; Figma/AT review открыт.
+
+`Icon` теперь отклоняет неизвестные имена и prototype keys в JavaScript runtime; TypeScript по-прежнему ограничивает имена исходным каталогом25 glyphs. Пустой mask вместо изображения больше не возникает молча.

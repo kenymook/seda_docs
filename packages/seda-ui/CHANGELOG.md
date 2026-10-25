@@ -161,3 +161,9 @@
 ## 2026-10-25 — Card / Avatar / AvatarGroup (experimental)
 
 Добавлены entity surfaces и identity components с native actions/selection, image fallback и committed-source guard (включая transition/Suspense), именованными диаметрами и настоящим group overflow. Projects/Team используют exports установленного пакета, Card/Table разделяют selection owner. CSS-алиасы Avatar onBrand/onAi сохраняют исходные token paths и provenance. Build требует используемые Card/Avatar color roles. Checkbox без подписи/message больше не оставляет пустой slot/grid gap. Table loading центрируется и в RTL. Geometry/полная Figma/OS/AT приёмка и surface instance contracts остаются открытыми.
+
+## 2026-10-25 — TopBar (experimental)
+
+- Общий public TopBar: owned slots, provider density/theme, existing token roles, native Link navigation и explicit Modal collapse. Files/Building/Chat подключены к installed package; локальные header paddings удалены, длинные Building breadcrumbs переносятся.
+- Icon отклоняет неизвестные имена вместо пустого mask; оригинальный каталог25 SVG сохранён.
+- 27 component entry modules /34 runtime exports — поверхность experimental, а не число принятых контрактов. Реестр executable instance contracts остаётся11. Figma quota не позволила свежую визуальную сверку.
