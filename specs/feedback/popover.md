@@ -2,7 +2,7 @@
 
 > **Category** · Feedback
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / needs-review
 > **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Popover](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1617-8952)
@@ -339,3 +339,33 @@ Popover следует [foundation/accessibility.md](../foundation/accessibility
 - Терять несохраненные изменения при outside click.
 - Не возвращать focus после закрытия.
 - Добавлять произвольные shadows, borders, colors или widths вне documented tokens.
+
+
+## React runtime — 25.10.2026
+
+Реальный public export `Popover` находится в packages/seda-ui/src/components/Popover. Это controlled nonmodal host, не готовые emoji/profile/color-picker приложения. Исторические Figma variant names сохранены; свежая сверка node1617:8952 недоступна из-за service quota. Исполняемый registry instance contract пока не введён. Общая цель зрелости библиотеки остаётся открытой.
+
+### Публичный API и причины
+
+- `open` и `onOpenChange(next,{reason})` обязательны: владелец принимает либо отклоняет intent и владеет dirty drafts. Reasons: trigger, close-button, escape, outside, focus-out, unavailable, native. `defaultOpen` текущая React-реализация не предоставляет; существующим app owners нужен единый controlled state.
+- `trigger(bindings)` обязателен и возвращает реальный Button/IconButton со spread bindings: ref, onClick, onKeyDown, disabled, aria-haspopup=dialog, aria-expanded, aria-controls. Нет дополнительного wrapper-button или клонирования child props. Trigger должен быть native button; accessible name остаётся ответственностью его владельца.
+- `title`, локализованный `closeLabel`, `children` обязательны; `description` — необязательный непустой текст, `footer` — собственные actions. Header, description и close — настоящие Text/IconButton/Icon. Controls сохраняют свои контракты.
+- `size=s|m|l|xl` задаёт ширину поверхности независимо от provider controlSize; `variant=default|avatar|checkbox|emoji|icon|custom` помечает композицию. Dedicated emoji/grid/profile selection, их keyboard и domain state принадлежат children, не симулируются Popover.
+- `side=top|bottom|left|right`, `align=start|center|end` задают предпочтение; фактическая сторона доступна как data-side после collision flip. Start/end логические, учитывают RTL. Нет произвольного width/arrow/shadow API.
+- `disabled` запрещает открытие и выдаёт close intent при изменении; `initialFocusRef` выбирает meaningful child, иначе фокусируется heading. `returnFocusRef` задаёт логическую точку возврата, особенно при удалении trigger. Forwarded ref — реальная поверхность, null в закрытом состоянии.
+
+При закрытии children размонтируются: durable/dirty draft хранится у владельца в controlled fields; uncontrolled input может сброситься при новом открытии. Нет скрытого forceMount или автоматического сохранения.
+
+При Escape/close focus возвращается на trigger либо указанный return target. Outside pointer и focus-out сохраняют внешний target. Tab не запирается: из последнего control идёт к следующему элементу после trigger; Shift+Tab из первого — к trigger, Tab с trigger возвращает внутрь открытой панели. Удалённый focused child заменяется heading без захвата внешнего фокуса. Portal остаётся в owner Document и внутри owning native Modal при наличии; Menu/Tooltip сохраняют общий overlayStack, Escape закрывает только верхнюю поверхность. Вложенный Popover запрещён. Новый Modal flow рендерится владельцем рядом с Popover, не внутри уничтожаемого children.
+
+Visibility/layout: manual native Popover top layer при доступности; fixed portal fallback без API. Нет hover-only открытия, scrim или focus trap. Resize/scroll/visualViewport, ancestor style/direction и удаление trigger пересчитывают позицию. Clipped/hidden/inert/disabled anchor скрывает и обездвиживает surface и выдаёт unavailable intent; он не становится невидимым tab target. Native hide не переписывает controlled owner. Приложение не должно перезаписывать visibility/placement через style или передавать hidden/popover attributes.
+
+### Реальные токены и явные geometry gaps
+
+Проверены существующие десять color roles popover в tokens.json: surface.default; border.default/separator; title.foreground; description.foreground; close.icon.default/hover; close.surface.hover/active; focus.ring. CSS generator требует эти роли и отвергает отсутствующий focus.ring. Никаких новых tokens.json значений не добавлено. Portal переносит inherited compiler variables и направление с trigger; nested controls меняются через общий SEDA compiler/provider.
+
+Width fallback240/320/400/480px; viewport margin8px и anchor gap8px; header/body/footer spacing16px, related fields8px и title-description4px. Border1px; radius от inherited control/preset radius; elevation0 8px 32px #0003. Это документированный experimental geometry adapter при отсутствующих width/padding/radius/elevation tokens, не точные значения из свежего Figma. Длинное содержимое прокручивается внутри ограниченной поверхности; изменение размера surface не растягивает контролы. Если окно физически меньше отдельного контрола или сценарий требует длинной формы/обязательного решения, владелец использует другой flow, а не бесконечно уплотняет Popover.
+
+Files показывает короткие новости от Read more; Chat — локальную ссылку и существующий JSON export от Поделиться. Document/save/request/clipboard owners сохранены. Поиск Chat остаётся command palette в Modal. Отдельная installed-package композиция Search variant=overlay внутри Popover проверяет reusable anchored host; это не новый remote search service.
+
+SSR/Strict hydration, token provenance, close ownership, native/fallback, focus traversal/repair, nested Menu/Modal, selected collision/density matrix, real Files/Chat model isolation и обе темы проверяются отдельными verifiers. Результаты полного release run фиксируются в reports/2026-10-25-popover.md; наличие экспорта не является full Figma/AT/OS acceptance. Native OS/AT, Firefox/WebKit и transformed/animated host edge cases требуют отдельной приёмки.

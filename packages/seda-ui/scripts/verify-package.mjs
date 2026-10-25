@@ -1,3 +1,4 @@
+import {verifyPopover} from './verify-popover.mjs';
 import {verifyTooltip} from './verify-tooltip.mjs';
 import {verifyTable} from './verify-table.mjs';
 import {verifyCardAvatar} from './verify-card-avatar.mjs';
@@ -168,7 +169,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 38);
+        assert.equal(result.exports.length, 39);
+        assert.ok(result.exports.includes('Popover'));
         assert.ok(result.exports.includes('Search'));
         assert.ok(result.exports.includes('NotificationCenter'));
         assert.ok(result.exports.includes('TopBar'));
@@ -197,7 +199,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Popover,Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const anchored=<Popover open={false} onOpenChange={()=>{}} title="Details" closeLabel="Close" trigger={binding=><Button {...binding}>Details</Button>}><TextField label="Name"/></Popover>;
+// @ts-expect-error controlled visibility requires owner callback
+const unownedPopover=<Popover open title="Details" closeLabel="Close" trigger={binding=><Button {...binding}>Details</Button>}/>;
+// @ts-expect-error a real trigger binding is mandatory
+const triggerlessPopover=<Popover open={false} onOpenChange={()=>{}} title="Details" closeLabel="Close"/>;
+// @ts-expect-error no arbitrary surface width API
+const customPopoverWidth=<Popover open={false} onOpenChange={()=>{}} title="Details" closeLabel="Close" width={999} trigger={binding=><Button {...binding}>Details</Button>}/>;
 const searchLabels={clear:"Clear",empty:"Enter query",typing:"Waiting",loading:"Searching",noResults:"Change query",retry:"Retry",resultCount:(n:number)=>"Found "+n};
 const queryFilter=<Search label="Files" labels={searchLabels} mode="filter" query="" onQueryChange={()=>{}} resultsId="files" resultCount={4}/>;
 const resultSearch=<Search label="Commands" labels={searchLabels} query="a" onQueryChange={()=>{}} queryKey="intent-1" data={{status:"ready",resultsFor:"a",queryKey:"intent-1",results:[{id:"create",title:"Create",kind:"command"}]}} onSelectResult={()=>{}}/>;
@@ -534,6 +543,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-sidebar",()=>verifySidebar({cwd,browser}));
     await check("react-"+version+"-accordion",()=>verifyAccordion({cwd,browser}));
     await check("react-"+version+"-notification-center",()=>verifyNotificationCenter({cwd,browser}));
+    await check("react-"+version+"-popover",()=>verifyPopover({cwd,browser}));
     await check("react-"+version+"-search",()=>verifySearch({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }

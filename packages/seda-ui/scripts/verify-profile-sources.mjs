@@ -93,6 +93,9 @@ export async function verifyProfileSources(root) {
         ['--search-input-border-focus',['search','input','border','focus']],
         ['--search-result-surface-selected',['search','result','surface','selected']],
         ['--search-focus-ring',['search','focus','ring']],
+        ['--popover-surface-default',['popover','surface','default']],
+        ['--popover-title-foreground',['popover','title','foreground']],
+        ['--popover-focus-ring',['popover','focus','ring']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -191,6 +194,10 @@ export async function verifyProfileSources(root) {
     delete searchTokens.$collections.components.$modes['Mode 1'].search.focus.ring;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(searchTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --search-focus-ring/);
+    const popoverTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete popoverTokens.$collections.components.$modes['Mode 1'].popover.focus.ring;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(popoverTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --popover-focus-ring/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -211,5 +218,6 @@ export async function verifyProfileSources(root) {
     missingAccordionExpandedForegroundRejected: true,
     missingNotificationUnreadForegroundRejected: true,
     missingSearchFocusRingRejected: true,
+    missingPopoverFocusRingRejected: true,
   };
 }

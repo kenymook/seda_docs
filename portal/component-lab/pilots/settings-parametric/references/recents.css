@@ -80,3 +80,6 @@
 .reference-notifications{padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0}.reference-notifications>.seda-notification-center{width:100%}
 
 .reference-collection[hidden]{display:none}
+
+/* In a short desktop window a wrapped toolbar must scroll away instead of covering the workspace. */
+@media(max-height:640px){.reference-header{position:relative;top:auto}}

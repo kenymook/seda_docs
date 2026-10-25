@@ -1,3 +1,9 @@
+## Unreleased — Popover
+
+- Experimental controlled nonmodal anchored surface with real trigger bindings, named content, explicit focus ownership, logical placement/collision and inherited compiler styles.
+- Files news and Chat local-share use the installed component while retaining document/export/clipboard owners. Nested Menu/Modal interaction and a Search overlay host composition have dedicated tests.
+- Existing Popover color tokens are required by the CSS generator; surface geometry remains documented experimental fallback. No instance contract or fresh Figma/AT/OS certification claimed.
+
 ## Unreleased — Search
 
 - Experimental Search composes canonical TextField, IconButton, Button/Link, Text and original icons. External local filter and structured result modes, exact snapshot identity, localized lifecycle, keyboard/IME event guards and native navigation semantics.

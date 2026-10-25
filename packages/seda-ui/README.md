@@ -240,3 +240,7 @@ Card использует общие Text roles и existing Card tokens; X/Y у�
 ### Accordion (experimental)
 
 `Accordion` объединяет inspector disclosure sections Framer/Webflow/Spline: required single/multiple mode, explicit controlled owner, required-open policy, native triggers/headings, optional roving keyboard и focus repair. Hidden panels остаются mounted по умолчанию и сохраняют invalid draft/validation; forceMount=false разрешает reset. Surface density compact/medium/large отделена от provider S/M/L/XL controls. API, token roles и fallback geometry: specs/data-display/accordion.md, React runtime. Loading/error остаются содержимым приложения; registry instance contract ещё не введён.
+
+### Popover (experimental)
+
+Controlled nonmodal anchored host: обязательные open/onOpenChange, title, closeLabel и render-prop trigger с реальными Button/IconButton bindings. Компактный content/footer, safe outside-focus dismissal, Tab без trap, explicit focus targets, Menu/Modal hierarchy, logical alignment/collision, inherited compiler styles и native top layer/fixed fallback. Files news и Chat share используют installed export без смены document/save/request owners. Nested Popover запрещён; dirty content остаётся у owner. Geometry/token gaps и весь API: specs/feedback/popover.md, React runtime. Новый registry instance contract, Figma/AT/OS approval не заявлены.

@@ -6,7 +6,7 @@
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 31 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 32 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
 | Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
@@ -21,6 +21,7 @@
 | Accordion | Public installed component в Framer/Webflow/Spline; disclosure state, native semantics, form retention и focus repair | Experimental; [текущий отчёт](2026-10-25-accordion.md). Новый instance contract/Figma/AT/OS review открыт |
 | NotificationCenter | Общий компонент и реальная локальная история операций Files; фильтры/read ownership, loading/error/retry, независимое от файлов storage | Experimental; [приватная v50 и production proof](2026-10-25-notification-center.md). CI head5e687fd success во всех4 группах. Новый instance contract, fresh Figma/AT и overlay host acceptance открыты |
 | Search | Общий query/results pattern с snapshot identity, реальными Files filter и Chat Modal consumers | Experimental; [текущий проход](2026-10-25-search.md). Приватная v51;61 package groups,45 scripts и runtime Linux CI пройдены. Production inspectors160/glyph95, реальные owner-browser переходы проверены; полный production Search runner ограничен приватной авторизацией новой вкладки. Instance contract/Figma/AT/OS и standalone anchored overlay открыты |
+| Popover | Controlled nonmodal host, installed Files news / Chat share; source tokens, native/fallback, focus ownership and Search overlay composition | Experimental; [текущий проход](2026-10-25-popover.md). React18 preflight192 / invalid14; полный пакет, приложения и новая публикация ещё проверяются. Instance contract/Figma/AT/OS approval открыты |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 
