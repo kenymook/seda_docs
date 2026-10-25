@@ -39,3 +39,7 @@ Authored fixtures Webflow/Framer и процедурная Spline-сцена о�
 ## Повтор на текущей приватной версии51
 
 Общие inspector recipes и optical glyph adapters сохранены при подключении Sidebar/TopBar/Accordion/NotificationCenter/Search. После полного локального прогона45 scripts и success4 runtime CI groups опубликована версия51. На production повторены все160 inspector cases восьми приложений и95 raster glyph checks; JavaScript errors0. Все532 опубликованных артефакта совпали со сборкой. Текущий визуальный проход охватил8 локальных M100 экранов в Light/Dark и выбранные extreme cases; на публикации дополнительно просмотрены Sandbox, Spline, Webflow и Files/Chat в обеих темах. [Proof и границы](2026-10-25-search.md). Search использует собственную semantic icon role вместо ошибочного сравнения с основным текстом поля. Все состояния/variants всей библиотеки и fresh Figma/AT/OS review по-прежнему не объявлены завершёнными.
+
+## Повтор на приватной версии52
+
+После подключения общего Popover повторён полный прогон46 scripts. На production снова прошли160 inspector cases восьми приложений и95 painted glyph checks, JavaScript errors0. Light/Dark визуально просмотрены на обычной и выбранной крайней плотности; authored documents и canvas geometry сохраняются. [Точные результаты и оставшиеся границы](2026-10-25-popover.md).

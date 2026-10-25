@@ -1,0 +1,81 @@
+Bounded diagnostic excerpt; original lines: 979
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
++   origin: null,
+    threads: [
+      {
+        attachments: [],
+        draft: '',
+        id: 'design',
+...
+      },
+-     {
+-       attachments: [],
+-       draft: '',
+-       id: 'source-thread-1-4607',
+-       messages: [],
+-       pinned: false,
+-       project: null,
+-       title: 'Идеи для нового проекта',
+-       trashed: false,
+-       updated: 0
+-     },
+-     {
+-       attachments: [],
+-       draft: '',
+-       id: 'source-thread-1-4617',
+-       messages: [],
+-       pinned: false,
+-       project: null,
+-       title: 'Заметки на каждый день',
+-       trashed: false,
+-       updated: 0
+-     },
+-     {
+-       attachments: [],
+-       draft: '',
+-       id: 'source-thread-1-4627',
+-       messages: [],
+-       pinned: false,
+-       project: null,
+-       title: 'Подборка полезных материалов',
+-       trashed: false,
+-       updated: 0
+-     },
+-     {
+-       attachments: [],
+-       draft: '',
+-       id: 'source-thread-1-4637',
+-       messages: [],
+-       pinned: false,
+-       project: null,
+-       title: 'Планы на следующую неделю',
+-       trashed: false,
+-       updated: 0
+-     },
+-     {
+-       attachments: [],
+-       draft: '',
+-       id: 'source-thread-1-4647',
+-       messages: [],
+-       pinned: false,
+-       project: null,
+-       title: 'Вдохновение для работы',
+-       trashed: false,
+-       updated: 0
+-     },
+-     {
+-       attachments: [],
+-       draft: '',
+-       id: 'source-thread-1-4656',
+-       messages: [],
+-       pinned: false,
+-       project: null,
+-       title: 'Новый черновик',
