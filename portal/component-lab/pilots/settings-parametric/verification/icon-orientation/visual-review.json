@@ -1,0 +1,20 @@
+{
+  "scope": "Selected real Chromium renders in Light/Dark; no fresh Figma or OS/AT acceptance",
+  "reviewed": [
+    "Actual Spline toolbar in normal M100 and extreme XL150 settings",
+    "Actual full object/scene screens in Light/Dark",
+    "Public installed icon gallery and rendered left/right source orientation",
+    "Selected production object screens in both themes"
+  ],
+  "observed": [
+    "Undo/Redo use matching original SEDA glyphs and centered square slots",
+    "Camera directions use physical left/right arrows with distinct tooltip meaning",
+    "Large parameters grow the icons together with text and can wrap the command bar; this is not an optimized working density"
+  ],
+  "limits": [
+    "The original25 SVG files are unchanged; one attributed rotated name does not complete the catalog",
+    "Reference artwork families outside these four controls are not promoted to the public catalog",
+    "Figma MCP quota prevented fresh source reads; no new original is claimed",
+    "Chromium/software WebGL evidence does not certify Firefox/WebKit, OS, native desktop, AT or all surfaces/states"
+  ]
+}

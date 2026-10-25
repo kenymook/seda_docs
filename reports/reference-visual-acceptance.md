@@ -42,3 +42,7 @@
 ## 26.10 — размещение инспекторов
 
 [EditorDock, private v56](2026-10-26-editor-dock.md): четыре редактора используют общую композицию установленного SplitView. При нехватке читаемой ширины inspector переходит под canvas без remount полей иpreview. Проверены32 selected cases и8 transitions, соседние размеры на границе reflow, draft/focus/caret, независимые width/height иactual canvas minimum. Framer сохранил прежний порог350px; исходная регрессия308px и её исправление записаны в proof. Визуально просмотрены обе темы и выбранные обычные/крупные параметры. Это намеренная адаптация композиции для большой типографики; fresh fidelity/signoff девяти исходных Figma frames, все states иtarget OS/AT остаются открыты.
+
+## 26.10 — реальные иконки истории и камеры
+
+[Private v57: Spline](2026-10-26-icon-orientation.md): 4 font symbols заменены public SEDA Icon с разной семантикой истории/камеры. 26 имён /25 прежних SVG, производный поворот явно атрибутирован. Просмотрены Light/Dark, выбранные normal/extreme параметры иproduction;48 selected cases, actual undo/redo/camera workflow и raster orientation proof не заменяют полную приёмку всех reference frames и target OS/AT.

@@ -1,0 +1,238 @@
+{
+  "contracts.log": {
+    "bytes": 12610,
+    "sha256": "7b7eadaac191b866d2436ae648a39b6ff710e865b569e10688e3d2038cc18126"
+  },
+  "initial-catalog-count-failure.log": {
+    "bytes": 786,
+    "sha256": "e5207cc485335b50fece48670c5b1055fe0500aeb26e7e0ac3c08a4c47e6c2d2"
+  },
+  "lab.log": {
+    "bytes": 10172,
+    "sha256": "7d247cd17697f202f0b8645f8981e26349807426f3f18a9b2096b054778ffb9c"
+  },
+  "local-camera-before.png": {
+    "bytes": 291039,
+    "sha256": "3f65bf3d66bbe65abb2c0e15900a6478fea1471a7220f9b7a6bdf562bf4c6c84"
+  },
+  "local-camera-left.png": {
+    "bytes": 287303,
+    "sha256": "dc96655ac30b86977e8fb6863eaeac54195d563c70b663c11f8adf30e124b074"
+  },
+  "local-camera-return.png": {
+    "bytes": 291039,
+    "sha256": "3f65bf3d66bbe65abb2c0e15900a6478fea1471a7220f9b7a6bdf562bf4c6c84"
+  },
+  "local-spline-icons-object-dark-m-100.png": {
+    "bytes": 404122,
+    "sha256": "c1ebcafe008c43c81f6f1bbac3a50e0cb1fbb91c4e857a9fe8e5a0f8ed0dbdfd"
+  },
+  "local-spline-icons-object-dark-xl-150.png": {
+    "bytes": 358019,
+    "sha256": "5d6b6a75ba3125103c0db3055723959d4ac325a819a21304f6720c1886383bc8"
+  },
+  "local-spline-icons-object-light-m-100.png": {
+    "bytes": 402995,
+    "sha256": "22e20e11832add11cca952da0d4d57784e84114ed2961cdde49c9fd51b40718e"
+  },
+  "local-spline-icons-object-light-xl-150.png": {
+    "bytes": 359909,
+    "sha256": "844845c96357fac7f269faeeb4a5202075fc8e8adbe3b1d640ebfb2c4b47209b"
+  },
+  "local-spline-icons-scene-dark-m-100.png": {
+    "bytes": 408921,
+    "sha256": "fc35dfbc56ca66bf4223535d1390be6dc2e03e9056946a80b0c34f0e70cddf22"
+  },
+  "local-spline-icons-scene-dark-xl-150.png": {
+    "bytes": 389959,
+    "sha256": "44c6c357e3f967f069473bce339775abd576013ee836fbf3ebeb4b1b134379b1"
+  },
+  "local-spline-icons-scene-light-m-100.png": {
+    "bytes": 408184,
+    "sha256": "19ebaa63e1fd39c169c7035bf707c009d152c7d282830b76e0ab935c906e5ca8"
+  },
+  "local-spline-icons-scene-light-xl-150.png": {
+    "bytes": 391286,
+    "sha256": "7b9417137036011ea94ce64fae0a5b088234bd939f1ae7d11e561f047807b206"
+  },
+  "local-spline-results.json": {
+    "bytes": 94808,
+    "sha256": "c257cff1190923ba72cc4865926aa6c3aa80dcb5d296f7ba773907f6e23cff38"
+  },
+  "local-spline-toolbar-object-dark-m-100.png": {
+    "bytes": 7704,
+    "sha256": "ccd549359f4cf91339aacb2f5be85881f44af78f2eeb58ffb34641a7896741e8"
+  },
+  "local-spline-toolbar-object-dark-xl-150.png": {
+    "bytes": 14992,
+    "sha256": "919c149cc77c5f390db0d4e576e14ca3e2760485bcdadeabce4de08bf6a4c108"
+  },
+  "local-spline-toolbar-object-light-m-100.png": {
+    "bytes": 7587,
+    "sha256": "75f566dad9d2b5241fec090cd24aa255b4488510d5ca0fa6cbc29cd891ea669e"
+  },
+  "local-spline-toolbar-object-light-xl-150.png": {
+    "bytes": 14956,
+    "sha256": "7a8d7a0de7e4d11960ed3ce693a87ee93ca1b6ef984b93cae0e0759f6307506e"
+  },
+  "local-spline-toolbar-scene-dark-m-100.png": {
+    "bytes": 7704,
+    "sha256": "ccd549359f4cf91339aacb2f5be85881f44af78f2eeb58ffb34641a7896741e8"
+  },
+  "local-spline-toolbar-scene-dark-xl-150.png": {
+    "bytes": 14992,
+    "sha256": "919c149cc77c5f390db0d4e576e14ca3e2760485bcdadeabce4de08bf6a4c108"
+  },
+  "local-spline-toolbar-scene-light-m-100.png": {
+    "bytes": 7587,
+    "sha256": "75f566dad9d2b5241fec090cd24aa255b4488510d5ca0fa6cbc29cd891ea669e"
+  },
+  "local-spline-toolbar-scene-light-xl-150.png": {
+    "bytes": 14956,
+    "sha256": "7a8d7a0de7e4d11960ed3ce693a87ee93ca1b6ef984b93cae0e0759f6307506e"
+  },
+  "package-results.json": {
+    "bytes": 5795,
+    "sha256": "3c160091fa7bc496b81c568c022880c1216c44f13037c1e9cf04814ac7bacf35"
+  },
+  "package.log": {
+    "bytes": 2289,
+    "sha256": "3dcd2503e47214c450d625ef9fd3cd0b111431e0a7ec2d0ca3382553afe22533"
+  },
+  "production-camera-before.png": {
+    "bytes": 291039,
+    "sha256": "3f65bf3d66bbe65abb2c0e15900a6478fea1471a7220f9b7a6bdf562bf4c6c84"
+  },
+  "production-camera-left.png": {
+    "bytes": 287303,
+    "sha256": "dc96655ac30b86977e8fb6863eaeac54195d563c70b663c11f8adf30e124b074"
+  },
+  "production-camera-return.png": {
+    "bytes": 291039,
+    "sha256": "3f65bf3d66bbe65abb2c0e15900a6478fea1471a7220f9b7a6bdf562bf4c6c84"
+  },
+  "production-results.json": {
+    "bytes": 852076,
+    "sha256": "952d85cd0860822f5bb1adc44d13d3eb710acdbe17c85548df9ca615003fd65a"
+  },
+  "production-spline-icons-object-dark-m-100.png": {
+    "bytes": 404122,
+    "sha256": "c1ebcafe008c43c81f6f1bbac3a50e0cb1fbb91c4e857a9fe8e5a0f8ed0dbdfd"
+  },
+  "production-spline-icons-object-dark-xl-150.png": {
+    "bytes": 358019,
+    "sha256": "5d6b6a75ba3125103c0db3055723959d4ac325a819a21304f6720c1886383bc8"
+  },
+  "production-spline-icons-object-light-m-100.png": {
+    "bytes": 402995,
+    "sha256": "22e20e11832add11cca952da0d4d57784e84114ed2961cdde49c9fd51b40718e"
+  },
+  "production-spline-icons-object-light-xl-150.png": {
+    "bytes": 359909,
+    "sha256": "844845c96357fac7f269faeeb4a5202075fc8e8adbe3b1d640ebfb2c4b47209b"
+  },
+  "production-spline-icons-scene-dark-m-100.png": {
+    "bytes": 408921,
+    "sha256": "fc35dfbc56ca66bf4223535d1390be6dc2e03e9056946a80b0c34f0e70cddf22"
+  },
+  "production-spline-icons-scene-dark-xl-150.png": {
+    "bytes": 389959,
+    "sha256": "44c6c357e3f967f069473bce339775abd576013ee836fbf3ebeb4b1b134379b1"
+  },
+  "production-spline-icons-scene-light-m-100.png": {
+    "bytes": 408184,
+    "sha256": "19ebaa63e1fd39c169c7035bf707c009d152c7d282830b76e0ab935c906e5ca8"
+  },
+  "production-spline-icons-scene-light-xl-150.png": {
+    "bytes": 391286,
+    "sha256": "7b9417137036011ea94ce64fae0a5b088234bd939f1ae7d11e561f047807b206"
+  },
+  "production-spline-toolbar-object-dark-m-100.png": {
+    "bytes": 7704,
+    "sha256": "ccd549359f4cf91339aacb2f5be85881f44af78f2eeb58ffb34641a7896741e8"
+  },
+  "production-spline-toolbar-object-dark-xl-150.png": {
+    "bytes": 14992,
+    "sha256": "919c149cc77c5f390db0d4e576e14ca3e2760485bcdadeabce4de08bf6a4c108"
+  },
+  "production-spline-toolbar-object-light-m-100.png": {
+    "bytes": 7587,
+    "sha256": "75f566dad9d2b5241fec090cd24aa255b4488510d5ca0fa6cbc29cd891ea669e"
+  },
+  "production-spline-toolbar-object-light-xl-150.png": {
+    "bytes": 14956,
+    "sha256": "7a8d7a0de7e4d11960ed3ce693a87ee93ca1b6ef984b93cae0e0759f6307506e"
+  },
+  "production-spline-toolbar-scene-dark-m-100.png": {
+    "bytes": 7704,
+    "sha256": "ccd549359f4cf91339aacb2f5be85881f44af78f2eeb58ffb34641a7896741e8"
+  },
+  "production-spline-toolbar-scene-dark-xl-150.png": {
+    "bytes": 14992,
+    "sha256": "919c149cc77c5f390db0d4e576e14ca3e2760485bcdadeabce4de08bf6a4c108"
+  },
+  "production-spline-toolbar-scene-light-m-100.png": {
+    "bytes": 7587,
+    "sha256": "75f566dad9d2b5241fec090cd24aa255b4488510d5ca0fa6cbc29cd891ea669e"
+  },
+  "production-spline-toolbar-scene-light-xl-150.png": {
+    "bytes": 14956,
+    "sha256": "7a8d7a0de7e4d11960ed3ce693a87ee93ca1b6ef984b93cae0e0759f6307506e"
+  },
+  "provenance.json": {
+    "bytes": 554,
+    "sha256": "3fbfd410d142945341e1f0cbe0af30a2312cb474ea09d0520f295475132ae46f"
+  },
+  "react-18.3.1-icon-arrow-left.png": {
+    "bytes": 666,
+    "sha256": "a6581d0866fd6e09911d1ef2c4b354a84484ec46246851a8f5d8368b8d4ed5a9"
+  },
+  "react-18.3.1-icon-arrow-right.png": {
+    "bytes": 651,
+    "sha256": "45fa69c73ae41e41959094d4769efaa3322b6225eb0b505cc7ca59934e693d74"
+  },
+  "react-18.3.1-icon-catalog-dark.png": {
+    "bytes": 43379,
+    "sha256": "b21ada6f9b61a226cd3c6a12ade1357a84d964ab6a2f4eea974ce96f043013d5"
+  },
+  "react-18.3.1-icon-catalog-light.png": {
+    "bytes": 37514,
+    "sha256": "6e04de31ad40019f210bf03701c98441039fc9ee36a19f992b53fba433cba347"
+  },
+  "react-18.3.1-icons.json": {
+    "bytes": 124505,
+    "sha256": "bf781e2ce28ae38c3aeccb14f6fd9eea9e4d866c53996d9a08821e1e252c3d91"
+  },
+  "react-19.2.7-icon-arrow-left.png": {
+    "bytes": 666,
+    "sha256": "a6581d0866fd6e09911d1ef2c4b354a84484ec46246851a8f5d8368b8d4ed5a9"
+  },
+  "react-19.2.7-icon-arrow-right.png": {
+    "bytes": 651,
+    "sha256": "45fa69c73ae41e41959094d4769efaa3322b6225eb0b505cc7ca59934e693d74"
+  },
+  "react-19.2.7-icon-catalog-dark.png": {
+    "bytes": 42630,
+    "sha256": "478f1f2f22069975b2931af81d0a97e3c544afa06b8463359d67812711c21d0a"
+  },
+  "react-19.2.7-icon-catalog-light.png": {
+    "bytes": 37514,
+    "sha256": "6e04de31ad40019f210bf03701c98441039fc9ee36a19f992b53fba433cba347"
+  },
+  "react-19.2.7-icons.json": {
+    "bytes": 124505,
+    "sha256": "34c481fb8d9f31acd8735fea23cf69db8804e9b74e40270ab830d7cd71f76759"
+  },
+  "references.log": {
+    "bytes": 18060,
+    "sha256": "c45f277cd76f7bc3d2da9e8f2ada666adbef44543fe7266fe5c4a4170a00e5ca"
+  },
+  "release.json": {
+    "bytes": 13806,
+    "sha256": "bbafc69706b3513095f3e8d6befeaf9c9d408ea821f92e9dcb0a900cabbb3815"
+  },
+  "visual-review.json": {
+    "bytes": 1115,
+    "sha256": "069bec5ced5ec8473c7e69b13c70e819d1d8f36fc14f34263b824085c75aa679"
+  }
+}

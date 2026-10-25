@@ -57,7 +57,7 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 ## Границы зрелости
 
-21 component exports и foundation API не означают готовность всей библиотеки. Одиннадцать компонентов имеют исполняемые контракты в соседнем `seda-contracts`; Button/TextField/Select/Checkbox/Radio/Toggle/IconButton/Tabs/DropdownMenu/Tree/TextArea проверяются в Lab. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
+34 component entry modules и foundation API не означают готовность всей библиотеки. Тринадцать контролов имеют исполняемые контракты в соседнем `seda-contracts`: Button/TextField/Select/Checkbox/Radio/Toggle/IconButton/Tabs/DropdownMenu/Tree/TextArea/Slider/NumberField. Публичный `SedaProvider` подключает темы и наследуемый размер к установленному пакету; проверка выполняется без CSS лаборатории. Явный size компонента приоритетнее общего.
 
 Следующие обязательные направления: полная матрица взаимодействий и доступности, навигация/overlays/data-компоненты, документация и политика совместимости. WCAG-сертификация, Firefox/WebKit, screen readers и native desktop shell этими тестами не подтверждаются.
 
