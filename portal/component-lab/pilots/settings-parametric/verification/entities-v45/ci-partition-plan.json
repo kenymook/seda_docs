@@ -13,6 +13,21 @@
     "unknown"
   ],
   "requiredAggregate": "library requires all matrix parts",
-  "localPartitionRuns": "started; final status in PR",
-  "runtimeChanged": false
+  "localPartitionRuns": {
+    "lab": {
+      "scripts": 21,
+      "exitCode": 0
+    },
+    "references": {
+      "scripts": 18,
+      "exitCode": 0
+    }
+  },
+  "runtimeChanged": false,
+  "linuxApplicationPartitions": {
+    "head": "8736d37",
+    "lab21": "success",
+    "references18": "success",
+    "package": "failed Tooltip fixture readiness; fix verified locally49/49"
+  }
 }

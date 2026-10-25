@@ -1,0 +1,324 @@
+{
+  "sourceAlias": false,
+  "ssr": true,
+  "strictHydration": true,
+  "invalid": 6,
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 115,
+      "width": 233.90625,
+      "height": 46,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 83,
+      "width": 304,
+      "height": 78,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 119,
+      "width": 233.90625,
+      "height": 50,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 91,
+      "width": 304,
+      "height": 78,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 126,
+      "width": 233.90625,
+      "height": 54,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 100,
+      "width": 304,
+      "height": 80,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 134,
+      "width": 233.90625,
+      "height": 58,
+      "children": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(255, 255, 255)",
+      "background": "rgb(38, 38, 39)",
+      "x": 8,
+      "y": 106,
+      "width": 304,
+      "height": 86,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 115,
+      "width": 233.90625,
+      "height": 46,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 83,
+      "width": 304,
+      "height": 78,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 119,
+      "width": 233.90625,
+      "height": 50,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 91,
+      "width": 304,
+      "height": 78,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 126,
+      "width": 233.90625,
+      "height": 54,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 100,
+      "width": 304,
+      "height": 80,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "font": 12,
+      "line": 16,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 134,
+      "width": 233.90625,
+      "height": 58,
+      "children": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "font": 18,
+      "line": 24,
+      "text": "rgb(10, 10, 11)",
+      "background": "rgb(255, 255, 255)",
+      "x": 8,
+      "y": 106,
+      "width": 304,
+      "height": 86,
+      "children": 0
+    }
+  ],
+  "placementSamples": [
+    {
+      "cycle": 0,
+      "placement": "top",
+      "anchor": {
+        "x": 400,
+        "y": 300,
+        "width": 80.46875,
+        "height": 21
+      },
+      "surface": {
+        "x": 319.875,
+        "y": 242,
+        "width": 240.703125,
+        "height": 58
+      }
+    },
+    {
+      "cycle": 0,
+      "placement": "bottom",
+      "anchor": {
+        "x": 400,
+        "y": 300,
+        "width": 80.46875,
+        "height": 21
+      },
+      "surface": {
+        "x": 319.875,
+        "y": 321,
+        "width": 240.703125,
+        "height": 58
+      }
+    },
+    {
+      "cycle": 0,
+      "placement": "left",
+      "anchor": {
+        "x": 400,
+        "y": 300,
+        "width": 80.46875,
+        "height": 21
+      },
+      "surface": {
+        "x": 159.296875,
+        "y": 281.5,
+        "width": 240.703125,
+        "height": 58
+      }
+    },
+    {
+      "cycle": 0,
+      "placement": "right",
+      "anchor": {
+        "x": 400,
+        "y": 300,
+        "width": 80.46875,
+        "height": 21
+      },
+      "surface": {
+        "x": 480.46875,
+        "y": 281.5,
+        "width": 240.703125,
+        "height": 58
+      }
+    }
+  ],
+  "committedConfiguration": true,
+  "controlledAnchor": true,
+  "workflows": [
+    "focus-descriptions-scale-stable-geometry",
+    "escape-keeps-focus-suppresses-reopen",
+    "forwarded-ref-original-handlers",
+    "delayed-hover",
+    "hover-surface-persists",
+    "pointer-leave",
+    "activation-not-blocked",
+    "keyboard-activation-not-blocked",
+    "viewport-flip-shift",
+    "variants-and-contrast",
+    "all-four-placements",
+    "offscreen-anchor-closes",
+    "unavailable-closes",
+    "live-content",
+    "native-dialog-top-layer",
+    "escape-layer-order",
+    "menu-coexistence",
+    "forced-colors-no-motion",
+    "callback-ref-cleanup",
+    "unmount-cleanup",
+    "non-popover-fallback"
+  ],
+  "errors": []
+}

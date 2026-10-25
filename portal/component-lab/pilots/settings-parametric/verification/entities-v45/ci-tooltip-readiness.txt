@@ -1,0 +1,24 @@
+Head8736d37 package job: https://github.com/kenymook/seda_docs/actions/runs/40163116898/job/121078628022
+Observed left while the placement workflow requested right. No Tooltip runtime change was made. The consumer fixture now exposes committed configuration, controls anchor coordinates through React, waits for closed surfaces, and retains exact side/geometry assertions. Targeted100 placements per React18/19 passed; full49 rerun follows. These fixtures do not certify all positioning/AT environments.
+2026-10-25T04:47:39.0633792Z PASS react-18.3.1-native-esm-and-ssr
+2026-10-25T04:47:40.0856736Z PASS react-18.3.1-declarations
+2026-10-25T04:47:40.8866435Z PASS react-18.3.1-hydration-css-and-behavior
+2026-10-25T04:47:54.1587625Z PASS react-18.3.1-provider-profiles
+2026-10-25T04:47:58.8190140Z PASS react-18.3.1-tabs-navigation
+2026-10-25T04:48:06.6647913Z PASS react-18.3.1-menu-overlays
+2026-10-25T04:48:10.6821873Z PASS react-18.3.1-split-view
+2026-10-25T04:48:13.8013231Z PASS react-18.3.1-tree
+2026-10-25T04:48:19.1989940Z PASS react-18.3.1-textarea
+2026-10-25T04:48:38.8393024Z PASS react-18.3.1-typography
+2026-10-25T04:48:39.9888474Z PASS react-18.3.1-link-variants
+2026-10-25T04:48:47.6736653Z PASS react-18.3.1-file-upload
+2026-10-25T04:48:56.0867092Z PASS react-18.3.1-feedback
+2026-10-25T04:49:10.0271037Z PASS react-18.3.1-toast-host
+2026-10-25T04:49:13.1947212Z PASS react-18.3.1-field-contrast
+2026-10-25T04:49:42.0667187Z PASS react-18.3.1-control-contrast
+2026-10-25T04:49:45.2705807Z PASS react-18.3.1-choice-layout
+2026-10-25T04:49:46.4159647Z PASS react-18.3.1-icon-catalog
+2026-10-25T04:49:52.5762900Z PASS react-18.3.1-modal
+2026-10-25T04:49:56.5092450Z Expected values to be strictly equal:
+2026-10-25T04:49:56.5098433Z 'left' !== 'right'
+2026-10-25T04:49:56.5858871Z {"output":"/home/runner/work/seda_docs/seda_docs/packages/seda-ui/.diagnostics-package/2026-10-25T04-47-26-152Z","passed":22,"failed":1}

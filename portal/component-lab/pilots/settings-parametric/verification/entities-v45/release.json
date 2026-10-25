@@ -75,7 +75,23 @@
       "coverageGuard": "complete-disjoint39, rejects additional/omitted/duplicate/unknown",
       "requiredAggregate": "library",
       "reason": "observed20 minute monolithic job timeout",
-      "terminalStatus": "See PR checks/description"
+      "terminalStatus": "See PR checks/description",
+      "linuxApplicationPartitions": {
+        "head": "8736d37",
+        "lab21": "success",
+        "references18": "success"
+      }
+    },
+    "tooltipFixture": {
+      "committedConfiguration": true,
+      "controlledAnchor": true,
+      "exactSideAndGeometryAssertionsRetained": true,
+      "targetedPlacementsPerReact": 100,
+      "packageRerun": {
+        "passed": 49,
+        "failed": 0,
+        "exitCode": 0
+      }
     }
   },
   "limits": [
@@ -142,14 +158,29 @@
       "bytes": 546
     },
     {
+      "path": "ci-application-partitions.json",
+      "sha256": "a93a316adf730a767cecdc52beecadcf759aa8b99c98fc7954383b0802433a06",
+      "bytes": 1097
+    },
+    {
       "path": "ci-font-failure.txt",
       "sha256": "ad386cab11c4d90730d2d7f501f90b0b3b3856017f0ffccadc955d9d176366fc",
       "bytes": 701
     },
     {
+      "path": "ci-partition-lab.log",
+      "sha256": "67166a2f506550daed3fe4e2933fc20e766c88e6572e7cc49a845f3700944007",
+      "bytes": 9924
+    },
+    {
       "path": "ci-partition-plan.json",
-      "sha256": "d363d60894da088213e30c78aaf7df373ccf49e6e4018465c2d568bff2257248",
-      "bytes": 384
+      "sha256": "c1023d6be4f0870c0e640bb3b38dfd6a20527f45d4c3078c49f17c280c01809c",
+      "bytes": 682
+    },
+    {
+      "path": "ci-partition-references.log",
+      "sha256": "b4b0851cd660e078b38cd37b9bc6b8bb59d264db59b84dd0abaad42117359309",
+      "bytes": 14709
     },
     {
       "path": "ci-timeout-progress.txt",
@@ -160,6 +191,11 @@
       "path": "ci-timeout.json",
       "sha256": "669bdbde99e0e201d608963b39242e5528bf0a3a46d7d983e29f1d98068c3edd",
       "bytes": 1854
+    },
+    {
+      "path": "ci-tooltip-readiness.txt",
+      "sha256": "d5ca5b12d3b86b319f8d7929e7ddad357d65af2085992eaad63344c0b5680a54",
+      "bytes": 1932
     },
     {
       "path": "inspector-building-dark-1440-m.png",
@@ -637,6 +673,11 @@
       "bytes": 1779
     },
     {
+      "path": "surfaces-package-tooltip-state.log",
+      "sha256": "61564036a2b71915460cba3a5916e19468509b9ff1cb93cf6f14399c4862fc6c",
+      "bytes": 1779
+    },
+    {
       "path": "surfaces-pilot-canonical.log",
       "sha256": "2c0b5e5222f8f7b97b8f528b38b304415dc158fb1d483c7325230b98d37d53df",
       "bytes": 23175
@@ -680,6 +721,31 @@
       "path": "table-react-19.2.7.json",
       "sha256": "661e502cccd23e27fdfe3335f530395c09c696572d781a0154dcd4b4f8051eef",
       "bytes": 21873
+    },
+    {
+      "path": "tooltip-package-react-18.3.1.json",
+      "sha256": "74b425b5a0526b13ac3910e0a27d855245f0510114e5e0a6b044cb18ccd34411",
+      "bytes": 6480
+    },
+    {
+      "path": "tooltip-package-react-19.2.7.json",
+      "sha256": "74b425b5a0526b13ac3910e0a27d855245f0510114e5e0a6b044cb18ccd34411",
+      "bytes": 6480
+    },
+    {
+      "path": "tooltip-state-react-18.3.1.json",
+      "sha256": "d452df801c465eebe694622b3ae3e068a3c4fca892bb34bd0b5b471478f3e694",
+      "bytes": 34261
+    },
+    {
+      "path": "tooltip-state-react-19.2.7.json",
+      "sha256": "d452df801c465eebe694622b3ae3e068a3c4fca892bb34bd0b5b471478f3e694",
+      "bytes": 34261
+    },
+    {
+      "path": "tooltip-state-stress.log",
+      "sha256": "a72f7ff8066605130c323dbb34862cf368670ed64c4759a567ad48c5fed63212",
+      "bytes": 152
     },
     {
       "path": "verification-history.json",
