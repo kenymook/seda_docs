@@ -2,6 +2,7 @@
 
 - Experimental controlled nonmodal anchored surface with real trigger bindings, named content, explicit focus ownership, logical placement/collision and inherited compiler styles.
 - Files news and Chat local-share use the installed component while retaining document/export/clipboard owners. Nested Menu/Modal interaction and a Search overlay host composition have dedicated tests.
+- Shared overlayStack gives an open native Select its first Escape and suppresses repeated Escape from peeling parent layers; actual picker/choice/Modal regressions cover the interaction.
 - Existing Popover color tokens are required by the CSS generator; surface geometry remains documented experimental fallback. No instance contract or fresh Figma/AT/OS certification claimed.
 
 ## Unreleased — Search

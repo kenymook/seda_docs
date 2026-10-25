@@ -20,9 +20,16 @@ export function registerOverlay(entry: OverlayEntry): () => void {
     const keydown = (event: KeyboardEvent) => {
       const current = top();
       if (event.key === "Escape" && !event.defaultPrevented && current) {
+        // The native Select picker sits above our surface. Let its own first
+        // Escape close the picker before handling a later, separate intent.
+        const nativePicker = event.composedPath().some(node => {
+          if (!(node instanceof document.defaultView!.HTMLSelectElement)) return false;
+          try { return node.matches(":open"); } catch { return false; }
+        });
+        if (nativePicker) return;
         event.preventDefault();
         event.stopPropagation();
-        current.dismiss("escape");
+        if (!event.repeat) current.dismiss("escape");
       }
     };
     const pointerdown = (event: PointerEvent) => {
