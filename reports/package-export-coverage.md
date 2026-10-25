@@ -1,18 +1,18 @@
 # Package Export Coverage
 
-Last updated: 2026-06-12  
+Last updated: 2026-10-25
 Owner: Kenymook  
 Package: `@seda-ai/ui` at `packages/seda-ui`
 
-This report tracks code-export coverage across all 52 production component specs. Figma and docs are green; this file answers a different question: which components already have canonical production exports and which still exist only as documentation/Figma assets.
+This report tracks code-export coverage across all 52 production component specs. The historical spec status is not a runtime or fresh Figma acceptance certificate; this file answers a different question: which components already have canonical production exports and which still exist only as documentation/Figma assets.
 
-## Summary
+## Current runtime summary
 
-| Metric | Count |
-|---|---:|
-| Production component specs | 52 |
-| `packages/seda-ui` exports ready | 13 |
-| Remaining exports | 39 |
+`packages/seda-ui/src/index.ts` has23 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not23/52 complete production specs: those inventories are not one-to-one. Current partial maturity and acceptance gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
+
+The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip and now experimental Table were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`.
+
+## Historical coverage baseline — 2026-06-12
 
 ## Exported Components
 

@@ -488,13 +488,13 @@ body.dark .form-section-heading span {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-[data-workspace] td {
+[data-workspace] table:not(.seda-table__element) td {
   font-size: var(--seda-control-font-size);
   line-height: var(--seda-control-line-height);
   padding-block: calc(8px + var(--lab-padding-y));
   padding-inline: var(--seda-control-padding-inline);
 }
-[data-workspace] th {
+[data-workspace] table:not(.seda-table__element) th {
   line-height: var(--seda-control-line-height);
   padding-block: var(--lab-padding-y);
   padding-inline: var(--seda-control-padding-inline);
@@ -594,3 +594,8 @@ body.dark .form-section-heading span {
 /* Composition rhythm uses the same compiled layout roles as forms/actions. */
 .feedback-workspace__queue { display:grid; gap:var(--seda-layout-actions-gap); }
 .feedback-workspace__queue > :is(h3,p) { margin:0; }
+
+.workspace-table-host{min-width:0;max-width:100%}
+.workspace-project-name{display:flex;align-items:center;gap:8px;min-width:0}
+
+.workspace-project-name>.avatar{margin-inline:0;flex:none}

@@ -238,10 +238,11 @@ try {
         "utf8",
       ),
     );
-    for (const name of ["Select", "Checkbox", "Radio", "Toggle", "TextField"])
+    assert.equal(metadata.installedPackage,true);assert.equal(metadata.sourceAlias,false);
+    for (const name of ["Select", "Checkbox", "Radio", "Toggle", "TextField", "Table"])
       assert.ok(
         metadata.bundledComponents.some((f) =>
-          f.endsWith(`/${name}/${name}.tsx`),
+          f.endsWith(`/${name}/${name}.js`),
         ),
         name,
       );

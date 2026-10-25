@@ -519,10 +519,10 @@ try {
   });
   await check("projects-filter-cards-dialog-keyboard", async () => {
     await page.locator("#search").fill("Atlas");
-    assert.equal(await page.locator("#tbody tr").count(), 1);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 1);
     await page.locator("#search").fill("");
     await page.locator("#filter").selectOption("draft");
-    assert.equal(await page.locator("#tbody tr").count(), 1);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 1);
     await page.locator('[data-view="cards"]').click();
     assert.equal(await page.locator("#cardsView .productcard").count(), 1);
     assert.equal(await page.locator("#tableView").isVisible(), false);

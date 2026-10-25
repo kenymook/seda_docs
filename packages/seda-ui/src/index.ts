@@ -25,3 +25,4 @@ export * from "./components/Text";
 export * from "./components/Modal";
 
 export * from './components/Tooltip';
+export * from './components/Table';

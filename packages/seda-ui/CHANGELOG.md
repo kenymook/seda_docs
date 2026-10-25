@@ -146,3 +146,7 @@
 
 
 - Add public text-only Tooltip and connect IconButton.tooltip to shared hover/focus/escape runtime instead of native title. Preserve description IDs, refs and button metrics; scope portals to owning native dialog. Experimental surface geometry, existing colors and Text role, no new tokens.
+
+## 2026-10-25 — Table (experimental)
+
+Добавлен generic native Table: controlled sort/selection/expansion/pagination, data states/retry, fixed header, density и native scroll. Использует существующие Table tokens и compiler typography; geometry fallback явно документирован. Приложения Projects/Team переиспользуют этот export. Полная Figma/AT/OS, virtualization/grid/inline-editing и instance contract не объявляются готовыми.

@@ -178,3 +178,21 @@ DropdownMenu ограничивает текстовый trigger доступн�
 `appearance="outlined"` — прежнее поведение по умолчанию. `appearance="plain"` нужен для composer внутри общей поверхности: убирает только собственную заливку и видимую рамку default/hover/active/focus/readOnly. Геометрия, X/Y, autoResize, accessible label и focus ring сохраняются; error и disabled используют прежние component tokens. Forced colors сохраняет видимую границу. Оболочка приложения отвечает за общую поверхность и layout, не меняет внутренние элементы TextArea. Причина нового API: прежний TextArea нельзя было встроить в единую поверхность без произвольных вложенных CSS overrides. Это документированное расширение runtime, не новый Figma variant и не доказательство визуального совпадения всей библиотеки.
 
 Текстовый trigger DropdownMenu содержит trailing chevron из каталога SEDA; iconOnly не получает вторую иконку. Это общий признак раскрытия во всех приложениях; имя действия и keyboard policy сохраняются.
+
+
+### Table (experimental)
+
+```tsx
+const columns: TableColumn<Project>[] = [
+  {key:'name', header:'Проект', type:'text', sortable:true, render:row=>row.name},
+  {key:'budget', header:'Бюджет', type:'numeric', render:row=>formatCurrency(row.budget)},
+];
+<Table label="Проекты" columns={columns} data={visibleProjects}
+  rowKey={row=>row.id} rowLabel={row=>row.name}
+  sort={sort} onSortChange={setSort}
+  selectedRowKeys={selection} onSelectionChange={setSelection}
+  loading={pending} errorState={error} onRetry={reload}
+  density="medium" fixedHeader maxHeight={480} minWidth={720}/>
+```
+
+Приложение само сортирует/фильтрует data либо делает запрос. Table сохраняет off-page keys при выборе текущей страницы; disabled rows не меняются. Refresh с сохранёнными data удерживает body; empty/error используют последнюю высоту как minimum и сохраняют ширины колонок. Feedback растёт по содержимому, если minimum недостаточен. `rowActions(row, {disabled,loading})` и custom render отвечают за доступность вложенных controls. Типы `TableColumn`, `TableSort`, `TablePagination`, `TableCellContext`, `TableProps` экспортируются. Native table/scroll, controlled pagination/expansion; grid navigation, virtualization и inline editing отсутствуют. Полный текущий API и границы — `specs/data-display/table.md`, секция15. Component geometry не является новым executable registry contract; fresh Figma/AT/OS review открыт.

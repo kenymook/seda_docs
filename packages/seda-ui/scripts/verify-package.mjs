@@ -1,4 +1,5 @@
 import {verifyTooltip} from './verify-tooltip.mjs';
+import {verifyTable} from './verify-table.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -160,7 +161,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 28);
+        assert.equal(result.exports.length, 29);
+        assert.ok(result.exports.includes("Table"));
         assert.ok(result.exports.includes("Tooltip"));
         assert.ok(result.exports.includes("Modal"));
         for (const name of ["ToastProvider", "ToastViewport", "useToast"]) assert.ok(result.exports.includes(name));
@@ -235,6 +237,17 @@ const badMenuVariant=<DropdownMenu triggerLabel="Actions" items={[]} variant="in
 const badShortcut=<DropdownMenu triggerLabel="Actions" items={[{id:'open',label:'Open',onSelect:()=>{},shortcut:{key:'o',label:'Alt+O',modifiers:['Option']}}]}/>;
 // @ts-expect-error unknown Button variant must not become any
 const badVariant=<Button variant="invented">Save</Button>;
+import {Table,type TableColumn} from '@seda-ai/ui';
+const tableColumns:TableColumn<{id:string;amount:number}>[]=[{key:'amount',header:'Amount',type:'numeric',render:row=>row.amount.toFixed(2)}];
+const goodTable=<Table label="Invoices" columns={tableColumns} data={[{id:'one',amount:12}]} rowKey={row=>row.id} density="compact"/>;
+// @ts-expect-error rowKey must remain a stable string
+const badTableKey=<Table label="Invoices" columns={tableColumns} data={[]} rowKey={row=>row.amount}/>;
+// @ts-expect-error column type is required
+const badTableColumn:TableColumn<{id:string}>={key:'id',header:'ID',render:row=>row.id};
+// @ts-expect-error only documented densities are public
+const badTableDensity=<Table label="Invoices" columns={tableColumns} data={[]} rowKey={row=>row.id} density="tiny"/>;
+// @ts-expect-error virtualization is not implemented
+const inventedTableGrid=<Table label="Invoices" columns={tableColumns} data={[]} rowKey={row=>row.id} virtualized/>;
 const goodTabs=<Tabs label="Panels" items={[{value:'a',label:'A',content:'Panel'}]} activationMode="manual"/>;
 // @ts-expect-error no invented orientation in the public horizontal Tabs API
 const badTabs=<Tabs label="Panels" items={[]} orientation="vertical"/>;
@@ -430,6 +443,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-icon-catalog",()=>verifyIconCatalog({cwd,browser}));
     await check("react-"+version+"-modal",()=>verifyModal({cwd,browser}));
     await check("react-"+version+"-tooltip",()=>verifyTooltip({cwd,browser}));
+    await check("react-"+version+"-table",()=>verifyTable({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

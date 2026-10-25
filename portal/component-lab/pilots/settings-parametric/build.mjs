@@ -107,7 +107,7 @@ export async function buildPilot({
       'react': path.join(pilotRoot, 'node_modules/react'),
       'react-dom': path.join(pilotRoot, 'node_modules/react-dom'),
       '@seda-ai/ui/styles.css': path.join(pilotRoot, 'node_modules/@seda-ai/ui/dist/styles.css'),
-      '@seda-ai/ui': path.join(repoRoot, 'packages/seda-ui/src/index.ts'),
+      '@seda-ai/ui': path.join(pilotRoot, 'node_modules/@seda-ai/ui/dist/index.js'),
     },
     plugins: [{
       name: 'seda-contract-catalog',
@@ -166,6 +166,11 @@ export async function buildPilot({
     const bytes = await fs.readFile(file);
     artifacts.push({ path: relative, bytes: bytes.length, sha256: sha256(bytes) });
   }
+  const mainInputs=Object.keys(result.metafile.inputs);
+  const mainUsesInstalledPackage=mainInputs.some(file=>file.endsWith('node_modules/@seda-ai/ui/dist/index.js'));
+  const sourceAlias=mainInputs.some(file=>/packages[\\/]seda-ui[\\/]src[\\/]/.test(file));
+  if(!mainUsesInstalledPackage||sourceAlias)throw new Error('The main Lab must use installed @seda-ai/ui, without source aliases.');
+  const mainBundle=Object.values(result.metafile.outputs).find(output=>output.entryPoint?.endsWith('app.tsx'));
   const metadata = {
     kind: 'seda-parametric-build',
     builtAt: new Date().toISOString(),
@@ -174,7 +179,8 @@ export async function buildPilot({
     artifacts: artifacts.sort((a, b) => a.path.localeCompare(b.path)),
     validation: { valid: validation.valid, planned: validation.planned },
     sourceAudit: { valid: audit.valid },
-    bundledComponents: Object.keys(result.metafile.inputs).filter(file => /seda-ui[\\/]src[\\/]components[\\/]/.test(file)),
+    installedPackage:mainUsesInstalledPackage,sourceAlias,
+    bundledComponents: Object.entries(mainBundle?.inputs??{}).filter(([file,info])=>info.bytesInOutput>0&&file.includes('node_modules/@seda-ai/ui/dist/components/')).map(([file])=>file),
     references:Object.fromEntries([['recents','1:691'],['building','1:84'],['chat','1:3894'],['sandbox','1:1875'],['spline','1:4844'],['webflow','1:5922'],['framer','1:7743'],['workflow','1:8421']].map(([name,sourceNode])=>{
       const output=Object.entries(referenceBuild.metafile.outputs).find(([file])=>file.endsWith('/'+name+'.js'))?.[1];
       return [name,{route:'/references/'+name+'.html',sourceNode,...(name==='spline'?{contexts:{scene:'1:4844',object:'1:5441'},proceduralGeometry:true}:{}),sourceAlias:false,installedPackage:true,...(['recents','chat','sandbox'].includes(name)?{navigationProvenance}:{}),bundledComponents:Object.entries(output?.inputs??{}).filter(([file,info])=>info.bytesInOutput>0&&file.includes('node_modules/@seda-ai/ui/dist/components/')).map(([file])=>file)}];

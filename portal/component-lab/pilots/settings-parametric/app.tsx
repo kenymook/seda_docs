@@ -1,3 +1,4 @@
+import {Table} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -16,9 +17,6 @@ import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
-import "../../../../packages/seda-ui/src/navigation.css";
-import "../../../../packages/seda-ui/src/overlays.css";
-import "../../../../packages/seda-ui/src/layout.css";
 import "./styles.css";
 import { Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
@@ -574,7 +572,7 @@ function App() {
       workspace: workspaceBinding,
       provenance,
       scope:
-        "Custom geometry is a laboratory derivation; Table/Card/Dialog are demo compositions.",
+        "Custom geometry is a laboratory derivation; Table is an experimental public SEDA component without an instance contract; Card/Dialog are compositions.",
     };
     const url = URL.createObjectURL(
       new Blob([JSON.stringify(payload, null, 2)], {
@@ -966,84 +964,21 @@ function App() {
                 )}
                 <div
                   id="tableView"
-                  className="workspace-table-scroll"
-                  tabIndex={0}
-                  aria-label="Таблица проектов"
+                  className="workspace-table-host"
                   hidden={view !== "table"}
                 >
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>
-                          <Checkbox
-                            className="workspace-checkbox workspace-row-choice"
-                            id="select-all-projects"
-                            size={configuration.controlSize}
-                            label="Выбрать видимые проекты"
-                            checked={
-                              items.length > 0 &&
-                              selectedVisible.length === items.length
-                            }
-                            indeterminate={
-                              selectedVisible.length > 0 &&
-                              selectedVisible.length < items.length
-                            }
-                            disabled={!items.length}
-                            onCheckedChange={(checked) =>
-                              setSelectedProjects((previous) =>
-                                checked
-                                  ? Array.from(
-                                      new Set([
-                                        ...previous,
-                                        ...items.map((p) => p.name),
-                                      ]),
-                                    )
-                                  : previous.filter(
-                                      (name) =>
-                                        !items.some((p) => p.name === name),
-                                    ),
-                              )
-                            }
-                          />
-                        </th>
-                        <th><Text variant="label/xsmall">ПРОЕКТ</Text></th>
-                        <th><Text variant="label/xsmall">СТАТУС</Text></th>
-                        <th><Text variant="label/xsmall">КОМАНДА</Text></th>
-                        <th><Text variant="label/xsmall">ОБНОВЛЁН</Text></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbody">
-                      {items.map((p) => (
-                        <tr key={p.name}>
-                          <td>
-                            <Checkbox
-                              className="workspace-checkbox workspace-row-choice"
-                              size={configuration.controlSize}
-                              label={"Выбрать " + p.name}
-                              checked={selectedProjects.includes(p.name)}
-                              onCheckedChange={(checked) =>
-                                setSelectedProjects((previous) =>
-                                  checked
-                                    ? [...previous, p.name]
-                                    : previous.filter(
-                                        (name) => name !== p.name,
-                                      ),
-                                )
-                              }
-                            />
-                          </td>
-                          <td>
-                            <span className="avatar">{p.name.slice(0, 1)}</span>
-                            {p.name}
-                          </td>
-                          <td>
-                            <Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"} />}>{statusLabels[p.status]}</Tag>
-                          </td>
-                          <td>{p.team}</td>
-                          <td>{p.updated}</td>
-                          <td>
-                            <DropdownMenu
+                  <Table minWidth={680} id="projects-table" label="Таблица проектов" data={items} rowKey={p=>p.name} rowLabel={p=>p.name}
+                    selectedRowKeys={selectedProjects} onSelectionChange={setSelectedProjects} selectionLabel="Выбрать видимые проекты"
+                    sort={sort==='name-asc'?{key:'name',direction:'ascending'}:sort==='name-desc'?{key:'name',direction:'descending'}:null}
+                    onSortChange={next=>setSort(!next?'original':next.direction==='ascending'?'name-asc':'name-desc')}
+                    emptyState="Проекты не найдены"
+                    columns={[
+                      {key:'name',header:'Проект',type:'text',sortable:true,render:p=><span className="workspace-project-name"><span className="avatar" aria-hidden="true">{p.name.slice(0,1)}</span>{p.name}</span>},
+                      {key:'status',header:'Статус',type:'status',render:p=><Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"}/>}>{statusLabels[p.status]}</Tag>},
+                      {key:'team',header:'Команда',type:'text',render:p=>p.team},
+                      {key:'updated',header:'Обновлён',type:'date',render:p=>p.updated},
+                    ]}
+                    rowActions={p=><DropdownMenu
                               style={real("help").style}
                               size={configuration.controlSize}
                               triggerLabel={"Действия проекта " + p.name}
@@ -1061,17 +996,8 @@ function App() {
                                   setDeleteProject(p.name);deleteDialog.current?.showModal();
                                 }},
                               ]}
-                            />
-                          </td>
-                        </tr>
-                      ))}
-                      {!items.length && (
-                        <tr>
-                          <td colSpan={6}>Проекты не найдены</td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
+                            />}
+                  />
                 </div>
                 <div className="cards" id="cardsView" hidden={view !== "cards"}>
                   {items.map((p) => (
@@ -1364,8 +1290,7 @@ function App() {
                 лаборатории отделена.
               </p>
               <p>
-                Контракты: {workspaceBinding.coverage.contract.join(", ")}. Формы и таблицы —
-                композиции.
+                Контракты: {workspaceBinding.coverage.contract.join(", ")}. Table — публичный SEDA-компонент с экспериментальной геометрией; формы и карточки — композиции.
               </p>
               <details className="workspace-tokens">
                 <summary>Источники дополнительных контролов</summary>
@@ -1461,7 +1386,7 @@ function App() {
                 </div>
               </div>
               <p className="small">
-                {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table · Card · Dialog — композиции.
+                {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table — публичный SEDA-компонент; его геометрия experimental. Card · Dialog — композиции.
                 SplitView — общий experimental layout; размеры панелей управляются отдельно.
                 Badge/Tag/Alert/Toast и FileUpload — библиотечные адаптеры общей геометрии;
                 их instance contracts ещё не введены. Многострочная высота feedback не входит в проверку однострочных контролов.

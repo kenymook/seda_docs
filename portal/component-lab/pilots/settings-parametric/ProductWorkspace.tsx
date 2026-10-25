@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   Text,
+  Table,
   Button,
   TextField,
   Icon,
@@ -72,6 +73,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
     { id: 3, name: "Елена Ким", email: "elena@atlas.example", role: "viewer" },
   ]);
   const [memberQuery, setMemberQuery] = useState("");
+  const [memberSort, setMemberSort] = useState<import("@seda-ai/ui").TableSort|null>(null);
   const [memberRole, setMemberRole] = useState("all");
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState("editor");
@@ -89,6 +91,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
         .includes(memberQuery.toLowerCase()) &&
       (memberRole === "all" || m.role === memberRole),
   );
+  const orderedMembers=[...visibleMembers].sort((a,b)=>!memberSort?0:(memberSort.direction==='ascending'?1:-1)*a.name.localeCompare(b.name,'ru'));
   const field = (
     key: keyof typeof settings,
     label: string,
@@ -350,37 +353,14 @@ export function ProductWorkspace({ size, action, children, typography, textScale
               options={[{ value: "all", label: "Все роли" }, ...roleOptions]}
             />
           </div>
-          <div
-            className="workspace-table-scroll"
-            tabIndex={0}
-            aria-label="Таблица участников"
-          >
-            <table>
-              <thead>
-                <tr>
-                  <th>УЧАСТНИК</th>
-                  <th>EMAIL</th>
-                  <th>РОЛЬ</th>
-                </tr>
-              </thead>
-              <tbody>
-                {visibleMembers.map((m) => (
-                  <tr key={m.id}>
-                    <td>{m.name}</td>
-                    <td>{m.email}</td>
-                    <td>
-                      {roleOptions.find((o) => o.value === m.role)?.label}
-                    </td>
-                  </tr>
-                ))}
-                {!visibleMembers.length && (
-                  <tr>
-                    <td colSpan={3}>Участники не найдены</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          <Table minWidth={560} id="members-table" label="Таблица участников" data={orderedMembers} rowKey={m=>String(m.id)}
+            sort={memberSort} onSortChange={setMemberSort} emptyState="Участники не найдены"
+            columns={[
+              {key:'name',header:'Участник',type:'text',sortable:true,render:m=>m.name},
+              {key:'email',header:'Email',type:'text',render:m=>m.email},
+              {key:'role',header:'Роль',type:'text',render:m=>roleOptions.find(o=>o.value===m.role)?.label},
+            ]}/>
+
         </div>
         <form
           className="pane workspace-invite"

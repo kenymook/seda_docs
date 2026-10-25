@@ -206,7 +206,7 @@ try {
         ),
         name + " has resolver chain",
       );
-    assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast"]);
+    assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast", "Table"]);
     assert.ok(evidence.evidence.some(e=>e.component==='foundation'&&e.property==='--border-subtle'&&e.chain.length>0));
     assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"]);
     const token = evidence.evidence.find(
@@ -267,35 +267,30 @@ try {
   await check("workspace-projects-coupled-table", async () => {
     await fresh();
     await page.locator("#filter").selectOption("active");
-    assert.equal(await page.locator("#tbody tr").count(), 2);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 2);
     await page.locator("#team-filter").selectOption("Core");
-    assert.equal(await page.locator("#tbody tr").count(), 1);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 1);
     await page.locator("#reset-filters").click();
     await page.locator("#only-active").check();
-    await page.locator("#select-all-projects").check();
+    await page.locator("#projects-table-select-all").check();
     assert.equal(
-      await page.locator('#tbody input[type="checkbox"]:checked').count(),
+      await page.locator('#projects-table-body input[type="checkbox"]:checked').count(),
       2,
     );
     await page.locator("#bulk-pause").click();
     assert.match(
-      await page.locator("#tbody").textContent(),
+      await page.locator("#projects-table-body").textContent(),
       /Проекты не найдены/,
     );
     await page.locator("#reset-filters").click();
-    assert.equal(await page.locator("#tbody tr").count(), 4);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 4);
     await page.locator("#project-sort").selectOption("name-desc");
-    const names = await page
-      .locator("#tbody tr td:nth-child(2)")
-      .allTextContents();
-    assert.deepEqual(
-      names.map((s) => s.trim()[0]),
-      ["O", "N", "H", "A"],
-    );
+    const names=["Orbit Studio","Nova Console","Horizon App","Atlas Platform"];
+    for(const [index,name]of names.entries())assert.equal(await page.locator('#projects-table-body > tr[data-row-key]').nth(index).getByRole('rowheader',{name,exact:true}).count(),1);
     await page.locator("#page-size").selectOption("3");
-    assert.equal(await page.locator("#tbody tr").count(), 3);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 3);
     await page.locator("#next-page").click();
-    assert.equal(await page.locator("#tbody tr").count(), 1);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 1);
     assert.equal(await page.locator("#next-page").isDisabled(), true);
     await page.locator("#search").fill("missing");
     assert.equal(await page.locator("#next-page").isDisabled(), true);
@@ -307,7 +302,7 @@ try {
     await page.locator("#modalName").fill("New desktop project");
     await page.locator("#modalName").press("Enter");
     assert.equal(await page.locator("#filter").inputValue(), "all");
-    assert.equal(await page.locator("#tbody tr").count(), 5);
+    assert.equal(await page.locator("#projects-table-body > tr[data-row-key]").count(), 5);
     return {
       filters: "intersection",
       bulk: "2 active → paused",
@@ -496,13 +491,13 @@ try {
     assert.equal(await page.locator('#project').inputValue(),'Atlas Platform');assert.equal(await page.locator('#project').evaluate(el=>document.activeElement===el),true);
     await trigger.click();await page.getByRole('menuitem',{name:'Создать копию',exact:true}).click();
     assert.equal(await page.getByRole('menu').count(),0);assert.equal(await page.locator('#modalName').inputValue(),'Atlas Platform — копия');assert.equal(await page.locator('#modalName').evaluate(el=>document.activeElement===el),true);
-    await page.locator('#modalName').press('Enter');assert.equal(await page.locator('#tbody tr').count(),5);
+    await page.locator('#modalName').press('Enter');assert.equal(await page.locator('#projects-table-body > tr[data-row-key]').count(),5);
     await page.locator('#project').fill('Несохранённый draft');
     await trigger.click();await page.getByRole('menuitem',{name:'Удалить проект',exact:true}).click();
-    assert.equal(await page.locator('#tbody tr').count(),5);assert.equal(await page.locator('#delete-project-dialog').evaluate(el=>el.open),true);
-    await page.keyboard.press('Escape');await settle();assert.equal(await page.locator('#tbody tr').count(),5);assert.equal(await trigger.evaluate(el=>document.activeElement===el),true);
+    assert.equal(await page.locator('#projects-table-body > tr[data-row-key]').count(),5);assert.equal(await page.locator('#delete-project-dialog').evaluate(el=>el.open),true);
+    await page.keyboard.press('Escape');await settle();assert.equal(await page.locator('#projects-table-body > tr[data-row-key]').count(),5);assert.equal(await trigger.evaluate(el=>document.activeElement===el),true);
     await trigger.click();await page.getByRole('menuitem',{name:'Удалить проект',exact:true}).click();await page.locator('#confirmDeleteProject').click();await settle();
-    assert.equal(await page.locator('#tbody tr').count(),4);assert.equal(await trigger.count(),0);assert.equal(await page.locator('#search').evaluate(el=>document.activeElement===el),true);assert.equal(await page.locator('#project').inputValue(),'Несохранённый draft');
+    assert.equal(await page.locator('#projects-table-body > tr[data-row-key]').count(),4);assert.equal(await trigger.count(),0);assert.equal(await page.locator('#search').evaluate(el=>document.activeElement===el),true);assert.equal(await page.locator('#project').inputValue(),'Несохранённый draft');
     return {details:true,copyDialog:true,deleteConfirmation:true,cancelRetained:true,removedTriggerFocusFallback:true,formDraftRetained:true};
   });
   await check("workspace-dialog-field-theme-isolation", async () => {

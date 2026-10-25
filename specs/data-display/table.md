@@ -5,6 +5,7 @@
 > **Status** · ready
 > **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
+> **React runtime** · experimental / needs-review, 2026-10-25. Исторический статус ready выше не подтверждает полную приёмку текущего runtime.
 > **Figma** · [Table](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7318-412)
 
 ---
@@ -484,3 +485,35 @@ AI не должен:
 - Использовать произвольные colors вместо documented Table component tokens.
 - Добавлять columns без правил formatting, sorting и responsive behavior.
 - Показывать loading как layout shift.
+
+
+## 15. Исполняемый React-контракт — 25.10.2026 (experimental)
+
+`Table` экспортируется из установленного `@seda-ai/ui`. Источник: `packages/seda-ui/src/components/Table/`. Native `<table>`, header `scope=col`, первая data cell `scope=row`; это не ARIA grid. Существующая спецификация выше шире текущего runtime. Использовать можно только API ниже и типы из пакета.
+
+| API | Исполняемое правило |
+| --- | --- |
+| `label`, `columns`, `data`, `rowKey` | Обязательны. Row key — уникальная непустая строка. `columns` не пуст; key/header/type/render обязательны. |
+| `columns[].render(row, context)` | Приложение форматирует значение, единицы, валюту, timezone и link semantics. `context.disabled/loading` передаются вложенным действиям. |
+| `columns[].align/width/sortable` | start/center/end; numeric по умолчанию end. Width — preferred native column width. Actions column последняя и не сортируется. |
+| `sort`, `onSortChange` | Controlled: null → ascending → descending → null. Table сообщает запрос, но не переставляет data. Клиент или сервер принадлежит приложению. |
+| `selectedRowKeys`, `onSelectionChange`, `rowLabel` | Все три нужны при selection. Header меняет только доступные rows текущего data; off-page и disabled keys сохраняются. Row click сам ничего не выбирает. |
+| `isRowDisabled` | Запрещает selection/expansion. Для custom cell/rowActions приложение передаёт context.disabled собственным controls. |
+| `expandedRowKeys`, `onExpandedChange`, `renderExpanded`, `rowLabel` | Controlled disclosure, native button с aria-expanded/controls. Expanded content не меняет selection. |
+| `density` | compact/medium/comfortable; foundation floors32/40/48 и gutters0/4/8. Реальная row растёт до inherited control height + gutters или до содержимого. |
+| `striped`, `bordered`, `fixedHeader` | Независимые boolean modifiers. Sticky headers принадлежат внутреннему scroll region. |
+| `maxHeight`, `minWidth` | Одобренные layout constraints внутреннего viewport/table. Широкие данные доступны через native горизонтальную прокрутку, не прячутся. |
+| `loading`, `loadingLabel` | Сохраняет rows при refresh, если приложение оставляет их в data (внутреннего кэша записей нет); aria-busy у table и видимый status. Собственные sort/selection/expansion не изменяют state. Cold loading показывает отдельный status. |
+| `emptyState`, `errorState`, `onRetry`, `retryLabel` | Empty и error различаются. Retry реальный callback владельца данных. После loaded сохраняются измеренный minimum body height и column widths (feedback может вырасти по содержимому); первое cold state использует foundation fallback. |
+| `toolbar`, `footer`, `rowActions` | Композиционные slots. Search/filter/permissions/request ownership остаются у приложения. |
+| `pagination` | Controlled page/pageSize/total/onPageChange. Table не запрашивает данные и не меняет страницу скрыто; empty/error/loading блокируют навигацию. |
+
+SedaProvider задаёт controlSize и абсолютный textScale. Typography fallback использует `--seda-type-body-default-*` из общего compiler, минимум12px. В существующем Lab принимаются рассчитанные `--seda-control-*`; X расширяет padding cell, Y увеличивает inherited control/row minimum. Вложенные Checkbox/Button/Tag остаются настоящими компонентами SEDA. Geometry остаётся experimental: отдельного Table executable instance contract в registry пока нет, специальные geometry tokens по-прежнему отсутствуют; fallback не выдан за новые tokens.
+
+Tab/Shift+Tab работают нативно; Enter/Space активируют button/checkbox; sort выражен aria-sort. Loading не убирает сортировку из focus order. Pagination использует aria-disabled с guarded callbacks: фокус остаётся на кнопке при достижении границы страницы; Enter/Space не меняют страницу, если действие недоступно. Selection не передаётся только цветом. Table не реализует cell arrow navigation, virtualization, inline editing, column resize/pin/reorder, multi-sort или auto cards/list mobile mode. Их нельзя включить выдуманными props. Поддерживается только native scroll. Callback владельца обязан защищать remote request ownership/late results; Table не выполняет запросы.
+
+Labels pagination/retry/selection сейчас русские по умолчанию; видимые заголовки и state slots задаёт приложение. Полная i18n/RTL и target AT/OS acceptance открыты. Figma MCP 25.10 отклонил свежий context по node7318:412 из-за лимита Starter plan: текущая реализация проверяется по repository spec/tokens, но не объявляется fresh Figma pixel match.
+
+Acceptance для этого runtime: installed-tarball React18/19, SSR/Strict hydration, keyboard sort/selection/disclosure, cross-page/disabled selection, two independent instances, refresh/error/empty geometry, retry, density/theme/textScale, narrow native scroll, contrast и browser review. Итоговые результаты сохраняются отдельно от спецификации; наличие пункта здесь не является заявлением о прошедшей проверке.
+
+При исчезновении сфокусированной строки Table возвращает принадлежащий ей фокус в именованную scroll region; внешние поля и переключения страниц не перехватываются. Reorder по стабильным keys сохраняет фокус. Escape на disclosure trigger закрывает раскрытую строку. Error/empty сбрасывают внутренний scroll наверх и показывают feedback в видимой части viewport, сохраняя последний body budget и измеренные ширины header cells. Наблюдение геометрии включает header cells и refresh с сохранёнными данными. Cold loading объявляется отдельным status вне aria-busy table.

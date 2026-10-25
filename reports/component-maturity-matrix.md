@@ -6,7 +6,7 @@
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 22 основных component exports плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 23 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
 | Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
@@ -14,6 +14,7 @@
 | Modal | Public native dialog + common WorkspaceDialog in 8 reference apps | Реальный React-компонент; 32 production route/theme/density samples и package React18/19 PASS; surface geometry experimental, Figma fidelity и surface-family executable contract открыты |
 | Tooltip | Public text-only Tooltip and IconButton.tooltip in 4 reference apps | 45 package groups before final keyboard listener; final Tooltip21 workflows and 16 matrix samples per React18/19, plus production Tooltip64/Modal32/text24, source hashes783. Experimental geometry; no surface instance contract or AT/Figma acceptance |
 | Visual reference: Building | Fresh Figma context/metadata/render 2026-10-25, node1:84 | Authored36 text boxes: X0/Y≤0.167px;3 guides and3 action bindings checked. Shared Tree host paint fixed. Full-screen chrome/other8 frames remain unaccepted |
+| Table | Public generic native Table, Projects/Team use installed package; source aliases removed from main Lab | Experimental: controlled sort/selection/expansion/pagination, data states, density/scroll; separate instance contract, advanced grid and fresh Figma/AT/OS acceptance remain open |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 
@@ -158,3 +159,7 @@ Continue with **Wave 2 package growth while Code Connect access is blocked**. `p
 ## 25.10 — продолжение: glyphs и инспекторы
 
 [Текущий проход](2026-10-25-inspector-icon-consistency.md) переносит optical/theme/source-alpha adapter на остальные7 reference apps и общий section16/field8/label4 recipe на существующие inspector families. Проверены160 selected parameter/theme/width samples и95 painted glyph variants; просмотрены32 снимка. Это закрывает ограниченный объём согласованности показанных панелей, сохраняя открытыми все variants/states, полноту public icon catalog, Figma fidelity и target OS/AT. Исторические замечания выше к иконкам/плотности уточнены этим объёмом, а не превращены в утверждение о готовности всей библиотеки.
+
+## 25.10 — native Table и поставка пакета
+
+Добавлен реальный public Table вместо локальных HTML tables в Projects/Team. Весь корневой Lab переведён с source alias на installed ESM; metadata проверяет отсутствие source imports и реальные bytesInOutput компонентов. Table использует существующие component color tokens и compiler typography/geometry fallbacks; новый registry instance contract не объявлен. Advanced data grid (virtualization, cell editing/navigation, pin/resize/reorder), public Card/Avatar и полный review по исходным Figma и целевым platform/AT всё ещё необходимы для общей цели.

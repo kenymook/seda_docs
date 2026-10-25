@@ -769,24 +769,24 @@ body.dark .panelhead {
 }
 body.dark .hint,
 body.dark .count,
-body.dark td {
+body.dark table:not(.seda-table__element) td {
   color: #9bacc4;
 }
 body.dark .searchwrap input:not(.seda-field__input) {
   color: #fff;
 }
-body.dark th,
+body.dark table:not(.seda-table__element) th,
 body.dark .view-switch,
 body.dark .compare > div,
 body.dark .equation,
 body.dark .inspector .graph {
   background: #253345;
 }
-body.dark td,
+body.dark table:not(.seda-table__element) td,
 body.dark .metricrow {
   border-color: #344256;
 }
-body.dark td:first-child,
+body.dark table:not(.seda-table__element) td:first-child,
 body.dark .metricrow b {
   color: #ecf2fb;
 }
@@ -1009,10 +1009,10 @@ details {
    This scope does not override the internals of SEDA components. */
 #lab-scope .shell { background:var(--surface-subtle); color:var(--text-primary); }
 #lab-scope :is(.top,.rail,.inspector,.preview,.pane,.inspectcard,.productcard,.modalBody,dialog[data-workspace]) { background:var(--surface-base); color:var(--text-primary); border-color:var(--border-default); }
-#lab-scope :is(.top,.panelhead,.metricrow,td) { border-color:var(--border-default); }
+#lab-scope :is(.top,.panelhead,.metricrow) { border-color:var(--border-default); }
 #lab-scope :is(.hint,.count,.brand small,.topmeta) { color:var(--text-secondary); }
-#lab-scope :is(th,.view-switch,.compare > div,.equation,.inspector .graph) { background:var(--surface-subtle); color:var(--text-secondary); }
-#lab-scope :is(td:first-child,.metricrow b,.equation) { color:var(--text-primary); }
+#lab-scope :is(.view-switch,.compare > div,.equation,.inspector .graph) { background:var(--surface-subtle); color:var(--text-secondary); }
+#lab-scope :is(.metricrow b,.equation) { color:var(--text-primary); }
 #lab-scope :is(.view-switch .active,.node.chosen,.mark) { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
 #lab-scope .node { background:var(--surface-base); color:var(--text-brand); border-color:var(--border-default); }
 #lab-scope .node.chosen { background:var(--container-brand-default); color:var(--text-on-brand-primary); }

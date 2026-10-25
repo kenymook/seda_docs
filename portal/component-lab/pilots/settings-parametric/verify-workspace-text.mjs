@@ -9,7 +9,6 @@ const subjects=[
   ['#projects-subtitle','caption/default'],['#count','caption/default'],['#projects-panel-title','heading/panel'],
   ['#projects-description','body/default'],['.workspace-pagination>p','caption/default'],
   ['.product-masthead strong','label/default'],['.product-masthead>div>div>span','caption/default'],['.workspace-account','caption/default'],
-  ['#preview th [data-seda-text]','label/xsmall'],
 ];
 const settle=page=>page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
 const near=(actual,expected)=>assert.ok(Math.abs(actual-expected)<.05,JSON.stringify({actual,expected}));
@@ -29,6 +28,10 @@ export async function verifyWorkspaceText(page,origin,output) {
         for(const value of values){assert.equal(value.role,role);near(value.font,expected.size);near(value.line,expected.lineHeight);near(value.weight,expected.weight);}
         measurements.push({selector,role,expectedSize:expected.size,values});
       }
+      const tableGeometry=await page.evaluate(()=>window.sedaPilot.getLab().derived);
+      const tableHeaders=await page.locator('#projects-table thead th,#projects-table .seda-table__sort').evaluateAll(nodes=>nodes.map(n=>({font:parseFloat(getComputedStyle(n).fontSize),line:parseFloat(getComputedStyle(n).lineHeight)})));
+      assert.ok(tableHeaders.length>=4);for(const value of tableHeaders){near(value.font,Math.max(12,tableGeometry.font));near(value.line,tableGeometry.line);}
+      measurements.push({selector:'#projects-table thead th/.seda-table__sort',source:'compiled control typography with Table readability floor',values:tableHeaders});
       assert.equal(await page.locator('.inspector>.eyebrow').evaluate(el=>getComputedStyle(el).fontSize),serviceSize,'Lab service panel remains separate');
       const viewLabels=await page.locator('.view-switch .seda-button__label').evaluateAll(labels=>labels.map(label=>({text:label.textContent,width:label.clientWidth,scroll:label.scrollWidth})));
       for(const label of viewLabels)assert.ok(label.scroll<=label.width+1,'Short view label must remain visible: '+label.text);
@@ -48,7 +51,7 @@ export async function verifyWorkspaceText(page,origin,output) {
     const overflow=await page.locator('#cardsView .productcard').evaluateAll(cards=>cards.map(card=>card.scrollWidth>card.clientWidth+1));assert.ok(overflow.every(value=>!value));
   }
   await page.screenshot({path:path.join(output,'cards-text-150.png'),fullPage:true});
-  return {scope:'Real SEDA Text roles in project subtitle, count, headings, metadata, table headers, pagination and cards',samples,filterCounts:[1,0,4],cardsScale:true,servicePanelIsolated:true};
+  return {scope:'Real SEDA Text roles in project subtitle, count, headings, metadata, native Table headers through compiler geometry, pagination and cards',samples,filterCounts:[1,0,4],cardsScale:true,servicePanelIsolated:true};
 }
 
 if(process.argv[1]===import.meta.filename){
