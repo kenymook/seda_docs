@@ -157,7 +157,11 @@ export const Modal=forwardRef<HTMLDialogElement,ModalProps>(({
     aria-labelledby={props['aria-labelledby']??(props['aria-label']?undefined:titleId)}
     aria-describedby={mergeDescriptionIds(externalDescriptions,hasDescription?descriptionId:undefined)}
     onKeyDown={event=>{
-      onKeyDown?.(event);if(event.defaultPrevented||event.key!=='Tab')return;
+      onKeyDown?.(event);if(event.defaultPrevented)return;
+      // A child overlay may have consumed the initial Escape and unmounted.
+      // Do not let its held-key repeats cancel this owning native dialog.
+      if(event.key==='Escape'&&event.repeat){event.preventDefault();event.stopPropagation();return;}
+      if(event.key!=='Tab')return;
       const dialog=event.currentTarget,items=tabbables(dialog),active=dialog.ownerDocument.activeElement;
       if(!items.length){event.preventDefault();heading.current?.focus({preventScroll:true});return;}
       if(event.shiftKey&&(active===items[0]||active===heading.current)||!event.shiftKey&&active===items[items.length-1]){

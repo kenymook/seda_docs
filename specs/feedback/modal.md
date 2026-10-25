@@ -358,3 +358,7 @@ Surface size отделён от control density. Одиннадцать сущ�
 - Использовать Modal как контейнер для длинной страницы.
 - Передавать статус, риск или destructive смысл только цветом.
 - Создавать локальные scrim, shadow, radius или width значения без token mapping.
+
+### Held Escape после дочернего слоя — React runtime
+
+Если Menu или Popover обработал первое нажатие Escape и размонтировался, Modal не обрабатывает repeat keydown того же удержания как новый cancel. Для закрытия owning native dialog требуется следующее отдельное нажатие. Это не меняет controlled closeOnEscape или callback owners; путь native Select→Popover→Modal имеет отдельную регрессионную проверку установленного пакета.
