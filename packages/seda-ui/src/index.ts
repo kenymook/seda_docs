@@ -34,3 +34,4 @@ export * from './components/TopBar';
 export * from './components/Sidebar';
 export * from './components/Accordion';
 export * from './components/NotificationCenter';
+export * from './components/Search';

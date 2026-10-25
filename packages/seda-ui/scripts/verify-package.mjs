@@ -6,6 +6,7 @@ import {verifyTopBar} from './verify-top-bar.mjs';
 import {verifySidebar} from './verify-sidebar.mjs';
 import {verifyAccordion} from './verify-accordion.mjs';
 import {verifyNotificationCenter} from './verify-notification-center.mjs';
+import {verifySearch} from './verify-search.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -167,7 +168,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 37);
+        assert.equal(result.exports.length, 38);
+        assert.ok(result.exports.includes('Search'));
         assert.ok(result.exports.includes('NotificationCenter'));
         assert.ok(result.exports.includes('TopBar'));
         assert.ok(result.exports.includes('Sidebar'));
@@ -195,7 +197,16 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const searchLabels={clear:"Clear",empty:"Enter query",typing:"Waiting",loading:"Searching",noResults:"Change query",retry:"Retry",resultCount:(n:number)=>"Found "+n};
+const queryFilter=<Search label="Files" labels={searchLabels} mode="filter" query="" onQueryChange={()=>{}} resultsId="files" resultCount={4}/>;
+const resultSearch=<Search label="Commands" labels={searchLabels} query="a" onQueryChange={()=>{}} queryKey="intent-1" data={{status:"ready",resultsFor:"a",queryKey:"intent-1",results:[{id:"create",title:"Create",kind:"command"}]}} onSelectResult={()=>{}}/>;
+// @ts-expect-error external filters cannot also own a result list
+const ambiguousSearch=<Search label="Files" labels={searchLabels} mode="filter" query="" onQueryChange={()=>{}} resultsId="files" resultCount={4} data={{status:"ready",resultsFor:"",queryKey:"r1",results:[]}}/>;
+// @ts-expect-error ready results require a matching-intent identity field
+const unownedSearch=<Search label="Commands" labels={searchLabels} query="a" onQueryChange={()=>{}} data={{status:"ready",resultsFor:"a",queryKey:"r1",results:[]}} onSelectResult={()=>{}}/>;
+// @ts-expect-error overlay content requires a dismiss owner
+const strandedSearch=<Search label="Commands" labels={searchLabels} variant="overlay" query="a" onQueryChange={()=>{}} queryKey="r1" data={{status:"idle",resultsFor:"a",queryKey:"r1"}} onSelectResult={()=>{}}/>;
 const notificationModel={title:"Notifications",items:[],labels:{all:"All",mentions:"Mentions",unread:"Unread",markAllRead:"Mark all",markRead:"Mark read",empty:"No events",noResults:"Choose All",loading:"Loading",retry:"Retry",settings:"Settings",unreadCount:(n:number)=>n+" unread"},onMarkRead:(id:string)=>{},onMarkAllRead:(ids:readonly string[])=>{}};
 const notifications=<NotificationCenter {...notificationModel} state="error" errorText="Storage unavailable" onRetry={()=>{}}/>;
 // @ts-expect-error error requires explicit recovery policy
@@ -523,6 +534,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-sidebar",()=>verifySidebar({cwd,browser}));
     await check("react-"+version+"-accordion",()=>verifyAccordion({cwd,browser}));
     await check("react-"+version+"-notification-center",()=>verifyNotificationCenter({cwd,browser}));
+    await check("react-"+version+"-search",()=>verifySearch({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

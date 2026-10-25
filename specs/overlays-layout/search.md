@@ -2,9 +2,9 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / needs-review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-05-29
+> **Last reviewed** · 2026-10-25 (React runtime; fresh Figma review unavailable)
 > **Figma** · [Search](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6739-599)
 
 ---
@@ -249,6 +249,26 @@ Contract rules:
 ---
 
 ## 10. Handoff notes
+
+### React runtime — 25.10.2026
+
+Public `Search` из установленного `@seda-ai/ui` использует настоящий TextField, IconButton очистки, Button/Link результатов, Text и исходные Icon. Clear — sibling поля в общей grid-ячейке, а не интерактивный потомок HTML label. Фактические размеры IconButton сохраняются квадратными; поле сохраняет границы при появлении clear/loading. Цвета берутся из существующих `search` roles. Геометрия, радиус, icon/text scale и X/Y наследуются из общего compiler/provider; собственных пресетов Search нет. Surface gap: list inset4px, row Y8px+extraY, inner X равен полю минус list inset, subtitle gap4px, result max-height min(55vh,400px). Это foundation fallbacks, не свежая pixel-приёмка.
+
+Два контекста данных явно разделены, потому что существующий Files фильтрует внешнюю коллекцию, а Chat выбирает отдельный результат:
+
+- `mode=filter`, только inline: `resultsId` ссылается на реальную внешнюю область; `resultCount` и его локализованное объявление принадлежат локальному фильтру приложения. Компонент не подменяет коллекцию своей копией. В Files сохранены Search ID, источник, фильтры и selection. При вводе из страницы уведомлений открывается область файлов без потери фокуса.
+- `mode=results`: `queryKey` обозначает текущий search intent. `data` всегда содержит `resultsFor` (точная исходная строка) и свой `queryKey`. Контент, loading и error показываются только при совпадении обоих значений. Для remote owner ключ обязан быть новым при каждом новом запросе/retry, включая A→B→A. `resultsFor` одного текста недостаточно для защиты от позднего ответа. Сеть, debounce, abort и отсечение ответа в data layer принадлежат владельцу; компонент дополнительно не позволяет выбрать несоответствующий snapshot.
+- `data.status=ready` требует `results`. Idle/typing/loading не принимают скрытый stale results array. Error требует `errorText` и retry callback либо `unrecoverableReason`. Ошибка источника не делает сам текст query `aria-invalid`. Error/recovery и disabled results — code-level compositions, **Needs system review** относительно Figma metadata, где такого отдельного state нет.
+- `query` требует `onQueryChange`; uncontrolled использует `defaultQuery` с тем же callback. Оба режима одновременно запрещены. Callback сообщает reason input/clear и composing. Во время IME нет автоматического выбора результата; финальный composition commit не должен дублировать следующий input event. Query не отправляется в analytics и не сохраняется библиотекой.
+- `SearchLabels`: clear, empty, typing, loading, noResults, retry, resultCount(n). Рейтинг, перевод, лимиты, подсказки и форматирование результатов не выводятся из макета автоматически.
+- `SearchResult`: уникальный id, title, kind=command/navigation; optional subtitle/section/icon. Navigation требует безопасный href и сохраняет native modified-click/target/rel. `onSelectResult(result,event)` владеет командой или SPA-переходом; обычная ссылка остаётся нативной, пока callback не отменил default. Disabled result требует readable reason. Даже недоступное действие сохраняет читаемые данные результата, без дополнительного opacity на содержимом.
+- Optional `matches` — упорядоченные непересекающиеся UTF-16 диапазоны исходного title; нельзя выходить за строку или разрывать surrogate pair. Владелец отвечает за locale/grapheme-aware подбор диапазонов. Это React mark со string slices, без HTML injection и без переписывания исходного текста. Если в списке есть иконки, заголовки строк с и без иконки занимают одну колонку; вторая фиктивная иконка не создаётся.
+
+Keyboard: input ArrowDown/Up переводит фокус к первому/последнему доступному результату; result ArrowDown/Up/Home/End двигает его, пропуская disabled. Up с первого результата возвращает input. Enter в input активирует первый доступный результат через его native action; repeat не повторяет команду. Tab остаётся native для links/buttons, а не имитацией listbox. Активность означает реальный фокус, `aria-selected` не выдумывается. Escape в inline очищает query/возвращает input; в overlay/command-palette требует `onDismiss`. Удаление сфокусированного результата/смена snapshot локально возвращает input; внешний фокус не перехватывается.
+
+`variant=overlay|command-palette` задаёт содержимое поверхности и требует dismiss owner. Сам Search не создаёт второй portal/dialog и не регистрирует глобальный shortcut. Chat использует настоящий Modal host и `initialFocusRef` к публичному input ref. Ctrl/Cmd+K и Ctrl/Cmd+S зарегистрированы владельцем Chat на window, с защитой composition/repeat/modal/menu и без перехвата Alt/Shift-комбинаций. История, сохранение, фоновые ответы и request ownership чата не перенесены в UI-компонент. Overlay без host, clipping/position и outside-dismiss требует отдельной composition acceptance; самостоятельный anchored Popover Search не заявлен готовым.
+
+Acceptance: установленный пакет React18/19, SSR/Strict hydration, типы/invalid models, все темы/размеры, длинные строки и смешанные иконки, контраст, поля/clear без скачка высоты, keyboard/RTL/native navigation, IME event guards, A→B→A и stale error/loading, duplicate same-cycle intent/retry, сохранение authored documents. Источники и ранжирование Files/Chat реальные локальные; remote Search engine не симулируется. Fresh Figma6739:599 недоступна из-за service quota; screen readers/native OS IME/Firefox/WebKit/performance и отдельный executable instance contract остаются открытыми. Experimental export не означает завершение общей цели зрелости.
 
 Handoff для Search должен включать:
 

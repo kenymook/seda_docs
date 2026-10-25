@@ -1,3 +1,9 @@
+## Unreleased — Search
+
+- Experimental Search composes canonical TextField, IconButton, Button/Link, Text and original icons. External local filter and structured result modes, exact snapshot identity, localized lifecycle, keyboard/IME event guards and native navigation semantics.
+- Files and Chat use installed Search while retaining their sources, data/save/request owners and routes. Chat window shortcuts now work before focus enters the application, preserving Alt/Shift/browser/menu/modal boundaries.
+- Mixed-icon result rows share a text column; unavailable actions retain readable data and explanation. Geometry and colors use shared bindings and existing search roles. Figma/AT/OS and standalone anchored overlay host acceptance remain open.
+
 ## Unreleased — NotificationCenter
 
 - Experimental NotificationCenter: owned snapshot/read actions, all/mentions/unread filters, readable loading/error recovery, localized copy, native list/time and common controls/typography/icons.

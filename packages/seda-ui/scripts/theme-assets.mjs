@@ -264,7 +264,7 @@ export function buildThemeAssets(packageRoot, output) {
       )
         throw Error("Required public component token is missing: " + match[1]);
     for (const property of usedProperties)
-      if (["--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
+      if (["--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
         throw Error("Required public component token is missing: " + property);
     const primitives = {
       choiceRadius: resolver.resolve(
@@ -346,7 +346,7 @@ export function buildThemeAssets(packageRoot, output) {
     );
   }
   const classes =
-    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload,.seda-badge,.seda-tag,.seda-alert,.seda-toast,.seda-sidebar,.seda-accordion,.seda-notification-center)";
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload,.seda-badge,.seda-tag,.seda-alert,.seda-toast,.seda-sidebar,.seda-accordion,.seda-notification-center,.seda-search)";
   for (const size of Object.keys(system.sizes)) {
     const mapping = {
       height: "height",

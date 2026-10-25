@@ -8,7 +8,7 @@ This report tracks code-export coverage across all 52 production component specs
 
 ## Current runtime summary
 
-`packages/seda-ui/src/index.ts` has30 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not30/52 complete production specs: those inventories are not one-to-one. ChatBubble, TopBar, Sidebar, Accordion and NotificationCenter have experimental exports and real consumers. NotificationCenter is published in private version50 with real operation/storage/browser proof; a verifier-only React render wait fix is undergoing repeat CI. Full Figma/AT/OS acceptance and surface instance contracts remain open. Current evidence and acceptance gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
+`packages/seda-ui/src/index.ts` has31 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not31/52 complete production specs: those inventories are not one-to-one. Search now has an experimental export and real Files/Chat consumers; final full verification/publication are pending in the current branch. Published runtime remains private version50, whose evidence head5e687fd passed all four CI groups. Full Figma/AT/OS acceptance and surface instance contracts remain open. Current evidence and gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
 
 The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip, experimental Table, Card and Avatar/AvatarGroup were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`. Card and Avatar/AvatarGroup now have installed-package APIs and Projects/Team consumers; their full spec variants, instance contracts and Figma/OS/AT approval remain incomplete.
 
@@ -60,9 +60,9 @@ The next work should deliberately broaden coverage instead of returning to the s
 
 Do the next batch as a breadth pass:
 
-1. Confirm repeat CI for NotificationCenter after the verifier-only React render wait fix; its real Files consumer replaces a last-message placeholder and is published in version50.
+1. Finish exact-source package/application/visual/release proof for Search. NotificationCenter version50 CI is now complete.
 2. Complete remaining public/instance contracts and fresh visual/platform acceptance for the components above; an export is not a maturity certificate.
-3. `Search` still needs a public lifecycle/result API and real consumer; current filtering remains owned TextField composition.
+3. Search is no longer a missing source export. Its remaining gaps include a standalone anchored overlay host, full platform/AT/Figma review and executable instance contract.
 4. TopBar, Sidebar, Accordion and DropdownMenu already have exports. Their remaining review gaps must not be described as missing source components.
 
 This gives the package coverage for the app shell and AI conversation surfaces, not just form primitives.
