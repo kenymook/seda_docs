@@ -34,3 +34,7 @@
 ## 25.10 — согласованность компонентов
 
 [Files visual pass](2026-10-25-dense-visual-consistency.md): общие menu/action rhythm перенесены на8 apps;16 route/theme screenshots просмотрены. Files получил собственный verified optical/theme glyph adapter, flow filters,24px rhythm и card radius из compiled geometry; source34/32px композиция намеренно адаптирована. Это не fresh pixel fidelity approval всех9 frames. Для остальных source icon families оптическая приёмка открыта.
+
+## 25.10 — продолжение: glyphs и инспекторы
+
+[Текущий проход](2026-10-25-inspector-icon-consistency.md) переносит optical/theme/source-alpha adapter на остальные7 reference apps и общий section16/field8/label4 recipe на существующие inspector families. Проверены160 selected parameter/theme/width samples и95 painted glyph variants; просмотрены32 снимка. Это закрывает ограниченный объём согласованности показанных панелей, сохраняя открытыми все variants/states, полноту public icon catalog, Figma fidelity и target OS/AT. Исторические замечания выше к иконкам/плотности уточнены этим объёмом, а не превращены в утверждение о готовности всей библиотеки.

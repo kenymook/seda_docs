@@ -10,7 +10,7 @@
 | Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
-| Визуальная согласованность | Последние доказательства: `verification/application-v39-release.json`, `verification/modal-v38-release.json` и `verification/visual-v37-release.json` в pilot | Добавлены shared scale в Files/Documents/Chat, Text roles в4 apps, constrained Button/Menu, Tabs focus reveal и границы панелей/dock. Зрелость всего визуального слоя не подтверждена |
+| Визуальная согласованность | Текущие доказательства: `verification/inspectors-v43/release.json` и предыдущий `verification/dense-v42/` в pilot | Общие glyph slots/foreground/optical bounds и inspector recipe перенесены на reference apps; 160 selected samples и 32 визуальных кадра. Полная приёмка всех states/surfaces/Figma/OS/AT открыта |
 | Modal | Public native dialog + common WorkspaceDialog in 8 reference apps | Реальный React-компонент; 32 production route/theme/density samples и package React18/19 PASS; surface geometry experimental, Figma fidelity и surface-family executable contract открыты |
 | Tooltip | Public text-only Tooltip and IconButton.tooltip in 4 reference apps | 45 package groups before final keyboard listener; final Tooltip21 workflows and 16 matrix samples per React18/19, plus production Tooltip64/Modal32/text24, source hashes783. Experimental geometry; no surface instance contract or AT/Figma acceptance |
 | Visual reference: Building | Fresh Figma context/metadata/render 2026-10-25, node1:84 | Authored36 text boxes: X0/Y≤0.167px;3 guides and3 action bindings checked. Shared Tree host paint fixed. Full-screen chrome/other8 frames remain unaccepted |
@@ -19,7 +19,7 @@
 
 Обязательные условия готовности: реальные SEDA-компоненты вместо макета, управляемые общими параметрами контроли и типографика, согласованные icon/text/padding/состояния, рабочие сложные экраны, проверенные keyboard/focus/persistence/async сценарии, сопоставление с исходными Figma frames и целевыми browser/OS/AT. Каждый пункт требует соответствующего по объёму доказательства. Ни один частный зелёный тест не заменяет приёмку всей библиотеки.
 
-Открыты плотность сложных редакторов, полнота и оптическое качество иконок, все component variants/backgrounds/popups, полный RTL, системная accessibility и performance. Текущая библиотека не объявляется Level 3 или production-ready на основании архивного Figma health score.
+Открыты оставшиеся состояния и поверхности сложных редакторов, полнота public icon catalog, все component variants/backgrounds/popups, полный RTL, системная accessibility и performance. Текущая библиотека не объявляется Level 3 или production-ready на основании архивного Figma health score.
 
 ## Визуальный проход Files и перенос правил — 25.10
 
@@ -154,3 +154,7 @@ Continue with **Wave 2 package growth while Code Connect access is blocked**. `p
 2. Continue the breadth batch from `reports/package-export-coverage.md`: TopBar, NotificationCenter, Search, and DropdownMenu.
 3. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
 4. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.
+
+## 25.10 — продолжение: glyphs и инспекторы
+
+[Текущий проход](2026-10-25-inspector-icon-consistency.md) переносит optical/theme/source-alpha adapter на остальные7 reference apps и общий section16/field8/label4 recipe на существующие inspector families. Проверены160 selected parameter/theme/width samples и95 painted glyph variants; просмотрены32 снимка. Это закрывает ограниченный объём согласованности показанных панелей, сохраняя открытыми все variants/states, полноту public icon catalog, Figma fidelity и target OS/AT. Исторические замечания выше к иконкам/плотности уточнены этим объёмом, а не превращены в утверждение о готовности всей библиотеки.

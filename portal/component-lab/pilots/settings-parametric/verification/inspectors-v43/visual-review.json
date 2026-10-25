@@ -1,0 +1,66 @@
+{
+  "scope": "Agent visual review, not independent designer signoff or Figma pixel certification",
+  "baselineGitHubCommit": "688784ce6d022e8f9a48665076bf6a6b0922e3de",
+  "baselineSiteVersion": 42,
+  "runtimeGitHubCommit": "8312277dcfbfa1339317312341b6af76c53f6a99",
+  "screenshots": [
+    "building-dark-1024-xl.png",
+    "building-dark-1440-m.png",
+    "building-light-1024-xl.png",
+    "building-light-1440-m.png",
+    "chat-dark-1024-xl.png",
+    "chat-dark-1440-m.png",
+    "chat-light-1024-xl.png",
+    "chat-light-1440-m.png",
+    "framer-dark-1024-xl.png",
+    "framer-dark-1440-m.png",
+    "framer-light-1024-xl.png",
+    "framer-light-1440-m.png",
+    "recents-dark-1024-xl.png",
+    "recents-dark-1440-m.png",
+    "recents-light-1024-xl.png",
+    "recents-light-1440-m.png",
+    "sandbox-dark-1024-xl.png",
+    "sandbox-dark-1440-m.png",
+    "sandbox-light-1024-xl.png",
+    "sandbox-light-1440-m.png",
+    "spline-dark-1024-xl.png",
+    "spline-dark-1440-m.png",
+    "spline-light-1024-xl.png",
+    "spline-light-1440-m.png",
+    "webflow-dark-1024-xl.png",
+    "webflow-dark-1440-m.png",
+    "webflow-light-1024-xl.png",
+    "webflow-light-1440-m.png",
+    "workflow-dark-1024-xl.png",
+    "workflow-dark-1440-m.png",
+    "workflow-light-1024-xl.png",
+    "workflow-light-1440-m.png"
+  ],
+  "routes": {
+    "recents": "Files remains the comparison screen: icon/text size, theme foreground, grid filters and card radius remain consistent.",
+    "building": "Service icon sizes and foreground now follow controls; original dollar artwork, identities and document geometry are retained. No inspector exists on this screen.",
+    "chat": "Sidebar/header/composer glyphs scale together. Activity metadata adopts section16/row8 spacing; identity images and the document remain independent.",
+    "sandbox": "Section titles use label/default; align icons now have consistent optical bounds and source alpha. Fields remain aligned; extreme groups wrap and inspector scrolls.",
+    "spline": "Object Transform inspector uses section16/axis8 spacing; at extreme density it stacks below the viewport. Material thumbnails and procedural scene remain independent.",
+    "webflow": "Original composite glyph hierarchy is retained with normalized whole-silhouette bounds/alpha and currentColor. Inspector section16/property4/grid8; extreme header wraps.",
+    "framer": "Inspector detail headings use label/default instead of oversized panel role; section16/property4 spacing. Header glyphs scale with SEDA slots; authored iframes remain independent.",
+    "workflow": "Node/context glyphs follow control slots and theme; consistent inspector sections and headings. At extreme density panels scroll and toolbar overflow remains local."
+  },
+  "limitations": [
+    "Chromium on Windows only",
+    "95 initial-state glyph variants painted; other source variants are measured/hashed but not all interaction states raster-certified",
+    "Original source stroke style retained; this does not turn all source families into a single new icon catalog",
+    "Extreme XL/150/X24/Y12 is a stress scenario requiring local scrolling, not the recommended default application density"
+  ],
+  "productionReview": {
+    "siteVersion": 43,
+    "screenshots": [
+      "production-sandbox-light.png",
+      "production-sandbox-dark.png",
+      "production-webflow-light.png",
+      "production-webflow-dark.png"
+    ],
+    "result": "Live Sandbox/Webflow visually reviewed in both themes; same glyph contrast/geometry and inspector rhythm as local. No tooltip overlays in final frames."
+  }
+}
