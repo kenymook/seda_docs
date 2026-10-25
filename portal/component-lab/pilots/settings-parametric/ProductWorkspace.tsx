@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   Text,
   Table,
+  Slider,
   Avatar,
   AvatarGroup,
   Button,
@@ -514,11 +515,18 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [enabled, setEnabled] = useState(true);
+  const [sliderValue,setSliderValue]=useState(40);
+  const [sliderRange,setSliderRange]=useState<[number,number]>([20,80]);
   const [uploads, setUploads] = useState<Record<string, File[]>>({});
   return <div className="visual-consistency">
     <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
+    <Text as="p" variant="caption/default">Slider — экспериментальный установленный компонент. Его single/range поведение проверяется отдельно; нового instance contract пока нет.</Text>
     {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
       <Text as="h2" variant="heading/section">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
+      <div className="visual-consistency__fields">
+        <Slider id={`visual-slider-${state}`} label="Значение" size={size} value={sliderValue} onValueChange={setSliderValue} disabled={state==='disabled'} errorText={state==='error'?'Демонстрация ошибки значения':undefined}/>
+        <Slider id={`visual-range-${state}`} mode="range" label="Диапазон" thumbLabels={['От','До']} size={size} value={sliderRange} onValueChange={setSliderRange} disabled={state==='disabled'} errorText={state==='error'?'Демонстрация ошибки диапазона':undefined}/>
+      </div>
       <div className="visual-consistency__fields">
         <TextField id={`visual-field-${state}`} label="Поиск" prefix={<Icon name="search" />} size={size} value={query} onChange={event=>setQuery(event.target.value)} disabled={state==="disabled"} errorText={state==="error"?"Уточните запрос":undefined} helperText="Иконка и текст используют общий масштаб" />
         <Select id={`visual-select-${state}`} label="Период" size={size} disabled={state==="disabled"} errorText={state==="error"?"Выберите другой период":undefined} options={[{value:"week",label:"Эта неделя"},{value:"month",label:"Этот месяц"}]} />

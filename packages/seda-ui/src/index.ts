@@ -37,3 +37,4 @@ export * from './components/NotificationCenter';
 export * from './components/Search';
 
 export * from './components/Popover';
+export * from './components/Slider';

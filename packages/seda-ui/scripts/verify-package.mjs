@@ -1,3 +1,4 @@
+import {verifySlider} from './verify-slider.mjs';
 import {verifyPopover} from './verify-popover.mjs';
 import {verifyTooltip} from './verify-tooltip.mjs';
 import {verifyTable} from './verify-table.mjs';
@@ -169,7 +170,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 39);
+        assert.equal(result.exports.length, 40);
+        assert.ok(result.exports.includes('Slider'));
         assert.ok(result.exports.includes('Popover'));
         assert.ok(result.exports.includes('Search'));
         assert.ok(result.exports.includes('NotificationCenter'));
@@ -199,7 +201,13 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Popover,Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {Slider,Popover,Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const scalar=<Slider label="Scale" value={50} onValueChange={value=>value.toFixed(1)}/>;
+const interval=<Slider mode="range" label="Budget" value={[20,80]} thumbLabels={["From","To"]} onValueChange={value=>value[0].toFixed(1)}/>;
+// @ts-expect-error range needs a pair and explicit thumb labels
+const invalidSlider=<Slider mode="range" label="Budget" value={50} onValueChange={()=>{}}/>;
+// @ts-expect-error controlled numeric value requires an owner
+const unownedSlider=<Slider label="Scale" value={50}/>;
 const anchored=<Popover open={false} onOpenChange={()=>{}} title="Details" closeLabel="Close" trigger={binding=><Button {...binding}>Details</Button>}><TextField label="Name"/></Popover>;
 // @ts-expect-error controlled visibility requires owner callback
 const unownedPopover=<Popover open title="Details" closeLabel="Close" trigger={binding=><Button {...binding}>Details</Button>}/>;
@@ -544,6 +552,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-accordion",()=>verifyAccordion({cwd,browser}));
     await check("react-"+version+"-notification-center",()=>verifyNotificationCenter({cwd,browser}));
     await check("react-"+version+"-popover",()=>verifyPopover({cwd,browser}));
+    await check("react-"+version+"-slider",()=>verifySlider({cwd,browser}));
     await check("react-"+version+"-search",()=>verifySearch({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }

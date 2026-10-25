@@ -1,4 +1,4 @@
-import {Table, Card, Avatar, Tooltip} from "@seda-ai/ui";
+import {Table, Card, Avatar, Tooltip, Slider} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -683,66 +683,21 @@ function App() {
               </select>
             </label>
             <div className="control">
-              <div className="between">
-                <label htmlFor="scale">Масштаб текста</label>
-                <output id="scaleValue">{parameters.scale}%</output>
-              </div>
-              <input
-                id="scale"
-                type="range"
-                min="80"
-                max="150"
-                step="5"
-                value={parameters.scale}
-                onChange={(e) =>
-                  setParameters((p) => ({
-                    ...p,
-                    scale: Number(e.target.value),
-                  }))
-                }
-              />
+              <Slider id="scale" label="Масштаб текста" size="s" min={80} max={150} step={5} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
               <div className="ends">
                 <span>80%</span>
                 <span>150%</span>
               </div>
             </div>
             <div className="control">
-              <div className="between">
-                <label htmlFor="air">Дополнительный отступ по Y</label>
-                <output id="airValue">+{parameters.air} px</output>
-              </div>
-              <input
-                id="air"
-                type="range"
-                min="0"
-                max="12"
-                step="1"
-                value={parameters.air}
-                onChange={(e) =>
-                  setParameters((p) => ({ ...p, air: Number(e.target.value) }))
-                }
-              />
+              <Slider id="air" label="Дополнительный отступ по Y" size="s" min={0} max={12} step={1} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
               <div className="ends">
                 <span>0</span>
                 <span>12px</span>
               </div>
             </div>
             <div className="control">
-              <div className="between">
-                <label htmlFor="airX">Дополнительный отступ по X</label>
-                <output id="airXValue">+{parameters.airX} px</output>
-              </div>
-              <input
-                id="airX"
-                type="range"
-                min="0"
-                max="24"
-                step="1"
-                value={parameters.airX}
-                onChange={(e) =>
-                  setParameters((p) => ({ ...p, airX: Number(e.target.value) }))
-                }
-              />
+              <Slider id="airX" label="Дополнительный отступ по X" size="s" min={0} max={24} step={1} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
               <div className="ends">
                 <span>0</span>
                 <span>24px</span>
@@ -753,26 +708,7 @@ function App() {
               </p>
             </div>
             <div className="control">
-              <div className="between">
-                <label htmlFor="radius">Множитель радиуса</label>
-                <output id="radiusValue">
-                  {(parameters.radius / 100).toFixed(2)}×
-                </output>
-              </div>
-              <input
-                id="radius"
-                type="range"
-                min="50"
-                max="175"
-                step="5"
-                value={parameters.radius}
-                onChange={(e) =>
-                  setParameters((p) => ({
-                    ...p,
-                    radius: Number(e.target.value),
-                  }))
-                }
-              />
+              <Slider id="radius" label="Множитель радиуса" size="s" min={50} max={175} step={5} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
               <div className="ends">
                 <span>0.5×</span>
                 <span>1.75×</span>

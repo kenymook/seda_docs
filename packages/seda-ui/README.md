@@ -244,3 +244,7 @@ Card использует общие Text roles и existing Card tokens; X/Y у�
 ### Popover (experimental)
 
 Controlled nonmodal anchored host: обязательные open/onOpenChange, title, closeLabel и render-prop trigger с реальными Button/IconButton bindings. Компактный content/footer, safe outside-focus dismissal, Tab без trap, explicit focus targets, Menu/Modal hierarchy, logical alignment/collision, inherited compiler styles и native top layer/fixed fallback. Files news и Chat share используют installed export без смены document/save/request owners. Nested Popover запрещён; dirty content остаётся у owner. Geometry/token gaps и весь API: specs/feedback/popover.md, React runtime. Новый registry instance contract, Figma/AT/OS approval не заявлены.
+
+### Slider (experimental)
+
+Controlled horizontal `mode=single|range`, required numeric value/owner and visible label. Range requires two thumbLabels and an ordered pair; native inputs preserve form semantics and Tab order. Existing color tokens, profile sizes, compiler font/icon/height/extra-X inheritance, nearest-thumb rail gesture, keyboard/RTL, bounds and parent fieldset disabled are supported. Four Lab parameters use the installed export; range/state examples stay explicitly experimental. No defaultValue, vertical mode or new registry instance contract. API, numeric grid restrictions, geometry gaps and AT limits: specs/inputs/slider.md.

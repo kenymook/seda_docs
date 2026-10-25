@@ -8,11 +8,13 @@ This report tracks code-export coverage across all 52 production component specs
 
 ## Current runtime summary
 
-`packages/seda-ui/src/index.ts` has32 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not32/52 complete production specs: those inventories are not one-to-one. Search now has an experimental export and real Files/Chat consumers; full local verification and independent runtime CI passed. Private version52 is published; production inspectors pass and native owner-browser Search navigation was checked separately from the incomplete production bypass-header runner. Full Figma/AT/OS acceptance and surface instance contracts remain open. Current evidence and gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
+`packages/seda-ui/src/index.ts` has33 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not33/52 complete production specs: those inventories are not one-to-one. Search now has an experimental export and real Files/Chat consumers; full local verification and independent runtime CI passed. Private version52 is published; production inspectors pass and native owner-browser Search navigation was checked separately from the incomplete production bypass-header runner. Full Figma/AT/OS acceptance and surface instance contracts remain open. Current evidence and gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
 
 The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip, experimental Table, Card and Avatar/AvatarGroup were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`. Card and Avatar/AvatarGroup now have installed-package APIs and Projects/Team consumers; their full spec variants, instance contracts and Figma/OS/AT approval remain incomplete.
 
 Popover now has an experimental controlled nonmodal source export and Files/Chat consumers. Private version52 has passed63 package groups,46 application scripts and production Popover/inspector checks; it remains experimental and is not a production maturity certificate. See [Popover](2026-10-25-popover.md).
+
+Slider now has an experimental controlled native single/range export and installed Lab consumers. Release checks are pending; no new instance contract or platform acceptance is claimed.
 
 ## Historical coverage baseline — 2026-06-12
 

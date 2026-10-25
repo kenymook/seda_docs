@@ -1,3 +1,9 @@
+## Unreleased — Slider
+
+- Add controlled native single/range Slider with visible values, semantic thumb names, stable order, noncrossing bounds, nearest-thumb rail gestures, native forms/fieldset and RTL.
+- Use existing slider component tokens and shared compiler geometry. Migrate four Lab parameter controls to the installed package; add explicitly experimental range examples.
+- Numeric grid validation, installed-package and application tests; geometry gaps and target OS/AT/Figma review remain explicit. No new instance contract claimed.
+
 ## Unreleased — Popover
 
 - Experimental controlled nonmodal anchored surface with real trigger bindings, named content, explicit focus ownership, logical placement/collision and inherited compiler styles.

@@ -96,6 +96,9 @@ export async function verifyProfileSources(root) {
         ['--popover-surface-default',['popover','surface','default']],
         ['--popover-title-foreground',['popover','title','foreground']],
         ['--popover-focus-ring',['popover','focus','ring']],
+        ['--slider-track-fill',['slider','track','fill']],
+        ['--slider-thumb-border',['slider','thumb','border']],
+        ['--slider-focus-ring',['slider','focus','ring']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -198,6 +201,10 @@ export async function verifyProfileSources(root) {
     delete popoverTokens.$collections.components.$modes['Mode 1'].popover.focus.ring;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(popoverTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --popover-focus-ring/);
+    const sliderTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete sliderTokens.$collections.components.$modes['Mode 1'].slider.focus.ring;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(sliderTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --slider-focus-ring/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
