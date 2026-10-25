@@ -1,0 +1,28 @@
+{
+  "reviewedThemes": [
+    "light",
+    "dark"
+  ],
+  "reviewed": [
+    "NotificationCenter installed gallery",
+    "Files real notification page"
+  ],
+  "observations": [
+    "Common icon/text/control geometry and wrapping long messages",
+    "Exact unread count; read state persists after reload",
+    "Nonblocking page; corrupt history and failed writes leave files available"
+  ],
+  "fixed": [
+    "Colour interpolation on disabled/loading/ready actions removed before final runs"
+  ],
+  "limitations": [
+    "Fresh Figma/AT/target OS/Firefox/WebKit review unavailable",
+    "Overlay host not supplied by NotificationCenter",
+    "Bounded local operation log is not a server or multi-tab audit ledger"
+  ],
+  "productionVersion": 50,
+  "productionReviewed": [
+    "Files notifications Light",
+    "Files notifications Dark"
+  ]
+}

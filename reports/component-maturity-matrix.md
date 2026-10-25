@@ -19,7 +19,7 @@
 | ChatBubble / TopBar | Public message models and shared Files/Building/Chat headers; installed package and production proofs v46/v47 | Experimental: content/action/request ownership retained, TopBar72/inspector160/glyph95 production cases. Instance contracts/Figma/AT review open |
 | Sidebar | Общий installed export в Files/Chat вместо локальной навигации; native links/actions, named groups, controlled collapse и local scroll | Experimental; current local verification/report: [Sidebar](2026-10-25-sidebar.md). Нового instance contract нет, Figma/AT/OS review открыт |
 | Accordion | Public installed component в Framer/Webflow/Spline; disclosure state, native semantics, form retention и focus repair | Experimental; [текущий отчёт](2026-10-25-accordion.md). Новый instance contract/Figma/AT/OS review открыт |
-| NotificationCenter | Общий компонент и реальная локальная история операций Files; фильтры/read ownership, loading/error/retry, независимое от файлов storage | Experimental; реализация и целевые проверки идут в текущей ветке, production пока v49. Новый instance contract, fresh Figma/AT и overlay host acceptance открыты |
+| NotificationCenter | Общий компонент и реальная локальная история операций Files; фильтры/read ownership, loading/error/retry, независимое от файлов storage | Experimental; [приватная v50 и production proof](2026-10-25-notification-center.md). Новый instance contract, fresh Figma/AT, overlay host acceptance и завершение повторного CI открыты |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 
