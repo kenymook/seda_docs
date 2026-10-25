@@ -1,0 +1,350 @@
+{
+  "adaptive-chat-jump-1280.png": {
+    "width": 1280,
+    "height": 1000
+  },
+  "adaptive-chat-jump-1440.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "adaptive-chat-jump-960.png": {
+    "width": 960,
+    "height": 1000
+  },
+  "adaptive-sandbox-panels-1280.png": {
+    "width": 1280,
+    "height": 1000
+  },
+  "adaptive-sandbox-panels-1440.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "adaptive-sandbox-panels-960.png": {
+    "width": 960,
+    "height": 1000
+  },
+  "editor-dock-zoom-before-dark.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "editor-dock-zoom-before-light.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "initial-canvas-height-regression.png": {
+    "width": 1024,
+    "height": 1100
+  },
+  "local-framer-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-framer-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-framer-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-framer-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-sandbox-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-sandbox-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-sandbox-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-sandbox-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-spline-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-spline-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-spline-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-spline-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-webflow-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-webflow-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "local-webflow-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1244
+  },
+  "local-webflow-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-building-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-building-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-building-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-building-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-chat-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-chat-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-chat-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-chat-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-dock-framer-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-framer-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-sandbox-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-sandbox-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-spline-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-spline-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-webflow-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-dock-webflow-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-framer-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-framer-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-framer-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-framer-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-framer-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-framer-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-number-field-dark-m-default.png": {
+    "width": 997,
+    "height": 58
+  },
+  "production-number-field-dark-m-disabled.png": {
+    "width": 997,
+    "height": 58
+  },
+  "production-number-field-dark-m-error.png": {
+    "width": 997,
+    "height": 80
+  },
+  "production-number-field-dark-xl-default.png": {
+    "width": 659,
+    "height": 134
+  },
+  "production-number-field-dark-xl-disabled.png": {
+    "width": 659,
+    "height": 134
+  },
+  "production-number-field-dark-xl-error.png": {
+    "width": 659,
+    "height": 156
+  },
+  "production-number-field-light-m-default.png": {
+    "width": 997,
+    "height": 58
+  },
+  "production-number-field-light-m-disabled.png": {
+    "width": 997,
+    "height": 58
+  },
+  "production-number-field-light-m-error.png": {
+    "width": 997,
+    "height": 80
+  },
+  "production-number-field-light-xl-default.png": {
+    "width": 659,
+    "height": 134
+  },
+  "production-number-field-light-xl-disabled.png": {
+    "width": 659,
+    "height": 134
+  },
+  "production-number-field-light-xl-error.png": {
+    "width": 659,
+    "height": 156
+  },
+  "production-number-field-sandbox.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-number-field-spline.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-recents-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-recents-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-recents-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-recents-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-sandbox-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-sandbox-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-sandbox-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-sandbox-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-sandbox-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-sandbox-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-spline-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-spline-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-spline-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-spline-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-spline-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-spline-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-webflow-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-webflow-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-webflow-dark-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-webflow-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-webflow-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-webflow-light-1702-xl.png": {
+    "width": 1702,
+    "height": 1244
+  },
+  "production-workflow-dark-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-workflow-dark-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  },
+  "production-workflow-light-1024-xl.png": {
+    "width": 1024,
+    "height": 1000
+  },
+  "production-workflow-light-1440-m.png": {
+    "width": 1440,
+    "height": 1000
+  }
+}

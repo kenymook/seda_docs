@@ -38,3 +38,7 @@
 ## 25.10 — продолжение: glyphs и инспекторы
 
 [Текущий проход](2026-10-25-inspector-icon-consistency.md) переносит optical/theme/source-alpha adapter на остальные7 reference apps и общий section16/field8/label4 recipe на существующие inspector families. Проверены160 selected parameter/theme/width samples и95 painted glyph variants; просмотрены32 снимка. Это закрывает ограниченный объём согласованности показанных панелей, сохраняя открытыми все variants/states, полноту public icon catalog, Figma fidelity и target OS/AT. Исторические замечания выше к иконкам/плотности уточнены этим объёмом, а не превращены в утверждение о готовности всей библиотеки.
+
+## 26.10 — размещение инспекторов
+
+[EditorDock, private v56](2026-10-26-editor-dock.md): четыре редактора используют общую композицию установленного SplitView. При нехватке читаемой ширины inspector переходит под canvas без remount полей иpreview. Проверены32 selected cases и8 transitions, соседние размеры на границе reflow, draft/focus/caret, независимые width/height иactual canvas minimum. Framer сохранил прежний порог350px; исходная регрессия308px и её исправление записаны в proof. Визуально просмотрены обе темы и выбранные обычные/крупные параметры. Это намеренная адаптация композиции для большой типографики; fresh fidelity/signoff девяти исходных Figma frames, все states иtarget OS/AT остаются открыты.

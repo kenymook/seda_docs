@@ -1,6 +1,6 @@
 # Component Maturity Matrix
 
-Актуальная оценка: 2026-10-25. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
+Актуальная оценка: 2026-10-26. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
 
 ## Текущее состояние React-реализации
 
@@ -24,6 +24,7 @@
 | Popover | Controlled nonmodal host, installed Files news / Chat share; source tokens, native/fallback, focus ownership and Search overlay composition | Experimental; [текущий проход](2026-10-25-popover.md). Приватная v52;63 package groups,46 scripts, production Popover48+4 / inspector160 / glyph95. Полные результаты и границы в отчёте. Instance contract/Figma/AT/OS approval открыты |
 | Slider | Controlled native single/range export; four actual compiler parameters and explicit range/state examples | Experimental private v54; D31 executable contract/shared numeric model/provenance. Contracts128, package65, application47 across recorded cohorts, production Slider16 + inspector160/glyph95. [D31 proof and limits](2026-10-25-slider-contract.md). Figma/OS/AT acceptance open |
 | NumberField | Actual TextField composition, raw numeric buffer and shared D32 compiler model; Sandbox/Spline preserve document owners | Experimental; private v55, contracts132/package67/scripts48; production NumberField16 +2 editor flows, Table60/Inspector160. [Proof and limits](2026-10-25-number-field.md). Figma/locales/pointer/OS/AT acceptance open |
+| Композиция EditorDock | Shared installed SplitView recipe in four editors; side/bottom by readable minima, persistent DOM and separate width/height | Experimental private v56;49 application scripts, production32 cases/8 transitions. [Proof and limits](2026-10-26-editor-dock.md); full docking/Figma/OS/AT acceptance open |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 

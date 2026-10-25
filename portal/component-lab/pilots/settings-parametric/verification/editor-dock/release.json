@@ -1,0 +1,148 @@
+{
+  "version": 56,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "runtimeGitHubCommit": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+  "siteSourceCommit": "b705998d7fce71560f5324b533c042e70174994e",
+  "deployment": {
+    "id": "appgdep_6ade7c6df79481918874564b06bd6596",
+    "project_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "title": "SEDA AI — параметрическая форма",
+    "version_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_bd9b5cbda5ec81918cd8cd7a87c3e1b0",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-25T22:02:40.675483+00:00"
+  },
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_bd9b5cbda5ec81918cd8cd7a87c3e1b0",
+  "archiveStorage": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_00000000063c82469b55f3695cf2c362",
+    "content_hash": "sha256:b5caeba6844735773f0600391a535fc7a97ea008a3553e2262fb4b10d303bf09",
+    "size_bytes": 33617920,
+    "file_count": 534
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "allowedOwnerCount": 1,
+    "allowedUserCount": 1,
+    "groupCount": 0,
+    "externalVisitorCount": 0
+  },
+  "ci": {
+    "headRevision": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+    "checks": [
+      {
+        "id": 121303689564,
+        "name": "library",
+        "head_sha": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40237011756/job/121303689564",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 1
+        }
+      },
+      {
+        "id": 121300616730,
+        "name": "Verify / package",
+        "head_sha": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40237011756/job/121300616730",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2
+        }
+      },
+      {
+        "id": 121300616684,
+        "name": "Verify / lab",
+        "head_sha": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40237011756/job/121300616684",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2
+        }
+      },
+      {
+        "id": 121300616446,
+        "name": "Verify / references",
+        "head_sha": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40237011756/job/121300616446",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2
+        }
+      }
+    ],
+    "statuses": [],
+    "annotations": [],
+    "hasMore": false,
+    "job": null,
+    "jobs": [],
+    "log": null,
+    "logTruncated": false
+  },
+  "checks": {
+    "typescript": [
+      "pilot",
+      "references"
+    ],
+    "applicationScripts": {
+      "lab": 22,
+      "references": 27
+    },
+    "editorDock": {
+      "selectedCases": 32,
+      "transitions": 8
+    },
+    "production": {
+      "editorDock": 32,
+      "transitions": 8,
+      "numberField": 16,
+      "editorFlows": 2,
+      "inspectors": 160,
+      "glyphPaints": 95,
+      "javaScriptErrors": 0
+    }
+  },
+  "provenance": {
+    "sourceHashesMatched": 926,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 687,
+    "installedArtifacts": 239,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "positiveInstalledConsumers": [
+      "Lab NumberField",
+      "Sandbox NumberField",
+      "Spline NumberField"
+    ],
+    "numericCoreBytesMatched": true,
+    "tokensUnchanged": true,
+    "runtimeGitHubCommit": "2d3fa9fe1279172cba1f211101e6a077a9200bc2",
+    "siteSourceCommit": "b705998d7fce71560f5324b533c042e70174994e",
+    "archiveBytes": 8218730,
+    "archiveSHA256": "b2cfa378cd5d49de92bbae1ec680001c6d821121f8fe13085bb2c9fdf5dd465d"
+  }
+}
