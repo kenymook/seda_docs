@@ -1545,3 +1545,37 @@
 @keyframes seda-card-pending{to{background-position:200% 0}}
 @media(prefers-reduced-motion:reduce){.seda-card[data-loading=true]::after{animation:none}}
 @media(forced-colors:active){.seda-avatar[data-selected=true]{outline:2px solid Highlight}.seda-avatar__status{outline:1px solid CanvasText}.seda-card{border-color:CanvasText}.seda-card[data-selected=true]{outline:2px solid Highlight}}
+
+/* Message density uses foundation spacing; text retains its semantic reading role. */
+.seda-chat-bubble{--seda-message-x:16px;--seda-message-y:10px;--seda-message-max:640px;display:flex;align-items:flex-start;gap:8px;box-sizing:border-box;min-width:0;max-width:100%;font-family:var(--seda-font-family,Inter,system-ui,sans-serif);color:var(--chat-bubble-incoming-foreground-default)}
+.seda-chat-bubble[data-size=s]{--seda-message-x:12px;--seda-message-y:6px;--seda-message-max:480px}
+.seda-chat-bubble[data-size=l]{--seda-message-x:20px;--seda-message-y:12px;--seda-message-max:704px}
+.seda-chat-bubble[data-size=xl]{--seda-message-x:24px;--seda-message-y:16px;--seda-message-max:768px}
+.seda-chat-bubble[data-sender=outgoing]{justify-content:flex-end}
+.seda-chat-bubble__main{display:grid;gap:8px;min-width:0;max-width:min(100%,var(--seda-message-max));flex:0 1 auto}
+.seda-chat-bubble__avatar{flex:none}
+.seda-chat-bubble__identity{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;color:var(--chat-bubble-incoming-foreground-default)}
+.seda-chat-bubble__source{color:var(--text-secondary)}
+.seda-chat-bubble__surface{display:grid;gap:8px;min-width:0;padding:calc(var(--seda-message-y) + var(--seda-control-extra-padding-block,0px)) calc(var(--seda-message-x) + var(--seda-control-extra-padding-inline,0px));border:1px solid transparent;border-radius:var(--seda-control-radius,var(--seda-preset-radius,8px));background:var(--chat-bubble-incoming-surface-default);color:var(--chat-bubble-incoming-foreground-default);overflow-wrap:anywhere}
+.seda-chat-bubble[data-sender=outgoing][data-appearance=bubble] .seda-chat-bubble__surface{background:var(--chat-bubble-outgoing-surface-default);color:var(--chat-bubble-outgoing-foreground-default)}
+.seda-chat-bubble[data-sender=ai][data-appearance=bubble] .seda-chat-bubble__surface{background:var(--chat-bubble-ai-surface);color:var(--chat-bubble-ai-foreground);border-color:var(--chat-bubble-ai-border)}
+.seda-chat-bubble[data-appearance=neutral] .seda-chat-bubble__surface{background:var(--container-neutral-default);border-color:var(--border-subtle)}
+.seda-chat-bubble[data-appearance=plain] .seda-chat-bubble__surface{padding:0;border:0;background:transparent}
+.seda-chat-bubble[data-appearance=plain] .seda-chat-bubble__main{max-width:100%;flex:1}
+.seda-chat-bubble__body{min-width:0}
+.seda-chat-bubble__text{white-space:pre-wrap;overflow-wrap:anywhere}
+.seda-chat-bubble__metadata{display:flex;align-items:center;gap:4px 8px;flex-wrap:wrap;color:var(--chat-bubble-timestamp-foreground)}
+.seda-chat-bubble__metadata>.seda-button{color:var(--button-secondary-foreground-default)}
+.seda-chat-bubble__actions,.seda-chat-bubble__reactions,.seda-chat-bubble__row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0}
+.seda-chat-bubble__code,.seda-chat-bubble__file,.seda-chat-bubble__media{display:grid;gap:8px;min-width:0}
+.seda-chat-bubble__media :is(p,pre),.seda-chat-bubble__file p{margin:0}
+.seda-chat-bubble__code pre{margin:0;overflow:auto;max-width:100%;white-space:pre;tab-size:2}
+.seda-chat-bubble__code .seda-chat-bubble__row{justify-content:space-between}
+.seda-chat-bubble__file>.seda-button,.seda-chat-bubble__media>.seda-button{justify-self:start}
+.seda-chat-bubble__image-frame{position:relative;min-width:0;width:100%;overflow:hidden}
+.seda-chat-bubble__image-frame img{display:block;width:100%;height:100%;object-fit:contain}
+.seda-chat-bubble__media-pending{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.seda-chat-bubble__media audio{display:block;max-width:100%;width:100%}
+.seda-chat-bubble__media summary{cursor:pointer}
+.seda-chat-bubble__media :is(summary,img,audio):focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+@media(forced-colors:active){.seda-chat-bubble__surface{border-color:CanvasText}}

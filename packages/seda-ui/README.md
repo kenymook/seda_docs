@@ -198,6 +198,17 @@ const columns: TableColumn<Project>[] = [
 Приложение само сортирует/фильтрует data либо делает запрос. Table сохраняет off-page keys при выборе текущей страницы; disabled rows не меняются. Refresh с сохранёнными data удерживает body; empty/error используют последнюю высоту как minimum и сохраняют ширины колонок. Feedback растёт по содержимому, если minimum недостаточен. `rowActions(row, {disabled,loading})` и custom render отвечают за доступность вложенных controls. Типы `TableColumn`, `TableSort`, `TablePagination`, `TableCellContext`, `TableProps` экспортируются. Native table/scroll, controlled pagination/expansion; grid navigation, virtualization и inline editing отсутствуют. Полный текущий API и границы — `specs/data-display/table.md`, секция15. Component geometry не является новым executable registry contract; fresh Figma/AT/OS review открыт.
 
 
+### ChatBubble (experimental)
+
+```tsx
+<ChatBubble sender="ai" author="SEDA Assistant" aiLabel="AI · сгенерированный ответ"
+  appearance="plain" contentType="text" content={response || 'Ожидание ответа…'}
+  streaming announcementPolicy="status-only" statusLabel="Ответ формируется"
+  actions={<Button onClick={copyWithSource}>Копировать ответ</Button>}/>
+```
+
+Text/rich/code/file/image/audio используют явные content models, native media и реальные вложенные actions. Автор и AI label, error/recovery, streaming policy и empty-content guards обязательны. Theme/Text/radius/X/Y общие; plain view не создаёт поверхность. Компонент не запускает запрос и не владеет thread/scroll/clipboard. Полный API и границы: `specs/data-display/chat-bubble.md#react-runtime`; instance contract/Figma/AT review ещё открыт.
+
 ### Avatar / AvatarGroup / Card (experimental)
 
 ```tsx

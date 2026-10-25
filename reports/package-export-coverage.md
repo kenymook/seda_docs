@@ -8,7 +8,7 @@ This report tracks code-export coverage across all 52 production component specs
 
 ## Current runtime summary
 
-`packages/seda-ui/src/index.ts` has25 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not25/52 complete production specs: those inventories are not one-to-one. Current partial maturity and acceptance gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
+`packages/seda-ui/src/index.ts` has26 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not26/52 complete production specs: those inventories are not one-to-one. Experimental ChatBubble is now an installed-package export and a real Chat consumer; its full Figma/AT/OS acceptance and executable instance contract remain open. [Message runtime and evidence](2026-10-25-chat-bubble.md). Current partial maturity and acceptance gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
 
 The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip, experimental Table, Card and Avatar/AvatarGroup were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`. Card and Avatar/AvatarGroup now have installed-package APIs and Projects/Team consumers; their full spec variants, instance contracts and Figma/OS/AT approval remain incomplete.
 
@@ -60,7 +60,7 @@ The next work should deliberately broaden coverage instead of returning to the s
 
 Do the next batch as a breadth pass:
 
-1. `ChatBubble`
+1. Complete experimental ChatBubble review; its source export and Chat integration now exist.
 2. `TopBar`
 3. `NotificationCenter`
 4. `Search`

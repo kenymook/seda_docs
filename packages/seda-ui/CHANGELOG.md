@@ -1,3 +1,9 @@
+## Unreleased — shared message component
+
+- Public experimental ChatBubble: explicit author/source, six content models, native media retry, owned actions and status-only streaming. Provider typography/density and existing message tokens; error requires recovery.
+- Chat uses installed ChatBubble, Table and Card; copy preserves historical AI source, text attachments open a real escaped preview. Request/storage ownership is unchanged.
+- Corrected two ChatBubble AI ink token aliases; missing message-role build guards and installed React18/19 consumer verification added.
+
 ## Unreleased — consistent dense workspace
 
 - Text DropdownMenu trigger includes the original SEDA chevron; icon-only triggers retain their existing anatomy. Accessible name and ownership remain unchanged.

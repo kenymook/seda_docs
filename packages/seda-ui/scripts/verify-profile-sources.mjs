@@ -74,6 +74,10 @@ export async function verifyProfileSources(root) {
         ['--avatar-foreground-on-ai',['avatar','foreground','onAi']],
         ['--card-title-foreground',['card','title','foreground']],
         ['--card-metadata-foreground',['card','metadata','foreground']],
+        ['--chat-bubble-ai-foreground',['chat-bubble','ai','foreground']],
+        ['--chat-bubble-outgoing-surface-default',['chat-bubble','outgoing','surface','default']],
+        ['--chat-bubble-incoming-foreground-default',['chat-bubble','incoming','foreground','default']],
+        ['--chat-bubble-timestamp-foreground',['chat-bubble','timestamp','foreground']],
       ]) bindings.push([property,tokenResolver.resolve({collection:'components',path:sourcePath,expectedType:'color'},{theme})]);
       for (const [property, expected] of bindings) {
         const actual = palette.find((e) => e.property === property);
@@ -148,6 +152,10 @@ export async function verifyProfileSources(root) {
     delete cardTokens.$collections.components.$modes['Mode 1'].card.title.foreground;
     await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(cardTokens));
     assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --card-title-foreground/);
+    const messageTokens=JSON.parse(await fs.readFile(path.join(repo,'tokens.json'),'utf8'));
+    delete messageTokens.$collections.components.$modes['Mode 1']['chat-bubble'].ai.foreground;
+    await fs.writeFile(path.join(temp,'tokens.json'),JSON.stringify(messageTokens));
+    assert.throws(()=>buildThemeAssets(pkg,output),/Required public component token is missing: --chat-bubble-ai-foreground/);
   } finally {
     assert.equal(path.dirname(temp), path.resolve(os.tmpdir()));
     assert.ok(path.basename(temp).startsWith("seda-public-profile-"));
@@ -162,5 +170,6 @@ export async function verifyProfileSources(root) {
     missingNestedFeedbackRoleRejected: true,
     missingAvatarAliasRejected: true,
     missingCardTitleRejected: true,
+    missingMessageAIForegroundRejected: true,
   };
 }

@@ -1,6 +1,7 @@
 import {verifyTooltip} from './verify-tooltip.mjs';
 import {verifyTable} from './verify-table.mjs';
 import {verifyCardAvatar} from './verify-card-avatar.mjs';
+import {verifyChatBubble} from './verify-chat-bubble.mjs';
 import { verifyProfileSources } from "./verify-profile-sources.mjs";
 import { verifyProfiles } from "./verify-profiles.mjs";
 import { verifyTabs } from "./verify-tabs.mjs";
@@ -162,7 +163,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 32);
+        assert.equal(result.exports.length, 33);
+        assert.ok(result.exports.includes('ChatBubble'));
         for(const name of ["Avatar","AvatarGroup","Card"])assert.ok(result.exports.includes(name));
         assert.ok(result.exports.includes("Table"));
         assert.ok(result.exports.includes("Tooltip"));
@@ -185,7 +187,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const message=<ChatBubble sender="ai" author="Assistant" aiLabel="AI" contentType="text" content="Response"/>;
+// @ts-expect-error AI requires explicit source
+const unlabelledAI=<ChatBubble sender="ai" author="Assistant" contentType="text" content="Response"/>;
+// @ts-expect-error streaming requires an announcement policy
+const noisyMessage=<ChatBubble sender="incoming" author="Anna" contentType="text" content="Response" streaming statusLabel="Busy"/>;
+// @ts-expect-error failed messages require recovery
+const deadEnd=<ChatBubble sender="outgoing" author="Anna" contentType="text" content="Response" deliveryStatus="error" statusLabel="Error"/>;
 const tooltip=<Tooltip content="Help">{trigger=><button {...trigger}>Own name</button>}</Tooltip>;
 // @ts-expect-error Tooltip content cannot contain controls
 const interactiveTooltip=<Tooltip content={<button>Action</button>}>{trigger=><button {...trigger}>Name</button>}</Tooltip>;
@@ -473,6 +482,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-tooltip",()=>verifyTooltip({cwd,browser}));
     await check("react-"+version+"-table",()=>verifyTable({cwd,browser}));
     await check("react-"+version+"-card-avatar",()=>verifyCardAvatar({cwd,browser}));
+    await check("react-"+version+"-chat-bubble",()=>verifyChatBubble({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }
 } catch (error) {

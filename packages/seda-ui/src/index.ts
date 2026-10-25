@@ -29,3 +29,4 @@ export * from './components/Table';
 
 export * from './components/Avatar';
 export * from './components/Card';
+export * from './components/ChatBubble';

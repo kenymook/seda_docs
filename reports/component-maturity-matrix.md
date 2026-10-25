@@ -6,7 +6,7 @@
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 25 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 26 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
 | Контракты | 11 executable control contracts и 8 общих профилей | Проверяемое ядро; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
@@ -152,7 +152,7 @@ Legend:
 
 Continue with **Wave 2 package growth while Code Connect access is blocked**. `packages/seda-ui` TypeScript validation passes through the local Node command; Figma-side Code Connect remains blocked by required Developer seat / Organization or Enterprise access.
 
-1. Add the next Wave 2 source export, recommended `ChatBubble`.
+1. Review the new experimental ChatBubble export/real consumer; continue Wave2 app-shell coverage without calling partial runtime full Figma acceptance.
 2. Continue the breadth batch from `reports/package-export-coverage.md`: TopBar, NotificationCenter, Search, and DropdownMenu.
 3. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
 4. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.

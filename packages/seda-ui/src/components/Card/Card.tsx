@@ -1,19 +1,11 @@
-import {forwardRef, useId, Fragment, isValidElement} from 'react';
-import type {CSSProperties, ReactNode} from 'react';
+import {forwardRef, useId} from 'react';
+import type {CSSProperties} from 'react';
 import {cx} from '../../utils/classNames';
 import {hasMessage} from '../../utils/fieldMessage';
 import {Checkbox} from '../Checkbox';
 import {Text} from '../Text';
 import type {CardProps} from './Card.types';
-
-// Ignore known empty slots without inspecting opaque custom components or media elements.
-function slotPresent(value:ReactNode):boolean {
-  if(value==null||typeof value==='boolean')return false;
-  if(typeof value==='string')return !!value.trim();
-  if(Array.isArray(value))return value.some(slotPresent);
-  if(isValidElement<{children?:ReactNode}>(value)&&value.type===Fragment)return slotPresent(value.props.children);
-  return true;
-}
+import {hasSlotContent as slotPresent} from '../../utils/hasSlotContent';
 
 /** One entity, explicit interaction, native semantics. Data and action ownership stay outside. */
 export const Card = forwardRef<HTMLElement, CardProps>(function Card({

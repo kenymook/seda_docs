@@ -1,0 +1,211 @@
+{
+  "passed": 51,
+  "failed": 0,
+  "fullResultSHA256": "54150b4de1bb360f9115963271318b5e1b8efc6dce58b9e8c97e671d4a8c54f2",
+  "checks": [
+    {
+      "name": "tarball-export-files-and-allowlist",
+      "status": "passed"
+    },
+    {
+      "name": "deterministic-build",
+      "status": "passed"
+    },
+    {
+      "name": "public-profile-sources-and-missing-state",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-native-esm-and-ssr",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-declarations",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-hydration-css-and-behavior",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-provider-profiles",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-tabs-navigation",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-menu-overlays",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-split-view",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-tree",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-textarea",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-typography",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-link-variants",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-file-upload",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-feedback",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-toast-host",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-field-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-control-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-choice-layout",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-icon-catalog",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-modal",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-tooltip",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-table",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-card-avatar",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-chat-bubble",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-constrained-actions",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-native-esm-and-ssr",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-declarations",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-hydration-css-and-behavior",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-provider-profiles",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-tabs-navigation",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-menu-overlays",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-split-view",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-tree",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-textarea",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-typography",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-link-variants",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-file-upload",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-feedback",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-toast-host",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-field-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-control-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-choice-layout",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-icon-catalog",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-modal",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-tooltip",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-table",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-card-avatar",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-chat-bubble",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-constrained-actions",
+      "status": "passed"
+    }
+  ]
+}
