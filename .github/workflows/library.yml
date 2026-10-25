@@ -2,11 +2,19 @@ name: SEDA library and contracts
 on:
   pull_request:
   push:
-    branches: [master, main, 'codex/**']
+    branches: [master, main]
 permissions:
   contents: read
+concurrency:
+  group: seda-library-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
-  library:
+  verify:
+    name: Verify / ${{ matrix.part }}
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [package, lab, references]
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -32,21 +40,31 @@ jobs:
       - name: Use one installed Chromium for both verifiers
         run: node -e 'const fs=require("node:fs");const {chromium}=require("./packages/seda-ui/node_modules/playwright");fs.appendFileSync(process.env.GITHUB_ENV,"SEDA_BROWSER_EXECUTABLE="+chromium.executablePath()+"\n");'
       - run: npm run typecheck
+        if: matrix.part == 'package'
         working-directory: packages/seda-ui
       - run: npm run verify:package
+        if: matrix.part == 'package'
         working-directory: packages/seda-ui
       - run: npm test
+        if: matrix.part == 'package'
         working-directory: packages/seda-contracts
       - run: npm run typecheck
+        if: matrix.part != 'package'
         working-directory: portal/component-lab/pilots/settings-parametric
       - run: npm run build
+        if: matrix.part != 'package'
         working-directory: portal/component-lab/pilots/settings-parametric
-      - run: npm run verify
+      - name: Validate complete disjoint pilot coverage
+        run: node verify-ci.mjs --check
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - name: Verify pilot partition
+        if: matrix.part != 'package'
+        run: node verify-ci.mjs ${{ matrix.part }}
         working-directory: portal/component-lab/pilots/settings-parametric
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: seda-verification
+          name: seda-verification-${{ matrix.part }}
           include-hidden-files: true
           path: |
             packages/seda-ui/.diagnostics-package/*/results.json
@@ -90,3 +108,13 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.png
             portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.png
+
+  library:
+    name: library
+    needs: verify
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require every verification partition
+        run: test '${{ needs.verify.result }}' = 'success'

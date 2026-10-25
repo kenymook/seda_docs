@@ -65,6 +65,17 @@
       "portableInterFlow": "verified36 text boxes, no overlaps/content loss",
       "linuxFidelity": "not verified when source font unavailable",
       "runtimeChanged": false
+    },
+    "ciOrchestration": {
+      "groups": [
+        "package/contracts",
+        "lab21",
+        "references18"
+      ],
+      "coverageGuard": "complete-disjoint39, rejects additional/omitted/duplicate/unknown",
+      "requiredAggregate": "library",
+      "reason": "observed20 minute monolithic job timeout",
+      "terminalStatus": "See PR checks/description"
     }
   },
   "limits": [
@@ -134,6 +145,21 @@
       "path": "ci-font-failure.txt",
       "sha256": "ad386cab11c4d90730d2d7f501f90b0b3b3856017f0ffccadc955d9d176366fc",
       "bytes": 701
+    },
+    {
+      "path": "ci-partition-plan.json",
+      "sha256": "d363d60894da088213e30c78aaf7df373ccf49e6e4018465c2d568bff2257248",
+      "bytes": 384
+    },
+    {
+      "path": "ci-timeout-progress.txt",
+      "sha256": "2971169d6477ffcc0f52765e7f24f9a705d2a63549b58cbc8b0bc74bb430d7dd",
+      "bytes": 6008
+    },
+    {
+      "path": "ci-timeout.json",
+      "sha256": "669bdbde99e0e201d608963b39242e5528bf0a3a46d7d983e29f1d98068c3edd",
+      "bytes": 1854
     },
     {
       "path": "inspector-building-dark-1440-m.png",

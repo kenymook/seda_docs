@@ -1,0 +1,18 @@
+{
+  "authoritative": "npm run verify",
+  "coverage": "complete-disjoint",
+  "total": 39,
+  "groups": {
+    "lab": 21,
+    "references": 18
+  },
+  "negativeGuardsPassed": [
+    "additional",
+    "omitted",
+    "duplicate",
+    "unknown"
+  ],
+  "requiredAggregate": "library requires all matrix parts",
+  "localPartitionRuns": "started; final status in PR",
+  "runtimeChanged": false
+}
