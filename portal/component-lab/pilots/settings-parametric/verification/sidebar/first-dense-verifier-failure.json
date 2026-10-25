@@ -1,0 +1,8 @@
+{
+  "source": "captured diagnostic from first Lab run, not a raw command log",
+  "verifier": "verify-dense-workspace.mjs",
+  "actualGlyph": "rgba(24, 25, 27, 0.6)",
+  "legacyExpectedTextInk": "rgba(24, 25, 27, 0.85)",
+  "reason": "Sidebar has separate explicit component icon/text roles; legacy verifier assumed equal ink",
+  "correction": "Resolve Sidebar glyph expectation from --sidebar-item-icon-default/hover/selected/disabled, with package provenance checks; non-Sidebar glyph assertions unchanged"
+}

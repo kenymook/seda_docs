@@ -1,0 +1,122 @@
+{
+  "18.3.1-sidebar-dark-collapsed.png": {
+    "sha256": "1cddb71b1fafdce57003196adea2819c5ced19f8601bcded43710d1c1a9a4fd8",
+    "bytes": 7526
+  },
+  "18.3.1-sidebar-dark-full.png": {
+    "sha256": "5c90859f26d7bd1e8ceb5c01ad006dc5495552a02dee4811f1454ca1437edbed",
+    "bytes": 21875
+  },
+  "18.3.1-sidebar-light-collapsed.png": {
+    "sha256": "4b45d2d03e2fbe2ab0760df78b748ae8124f002323e9a146c02972ba6cae3f43",
+    "bytes": 7530
+  },
+  "18.3.1-sidebar-light-full.png": {
+    "sha256": "05365cc5ab3a64eaea966e00c5fa5beaaa402061598ac3b3226b570144b1b16a",
+    "bytes": 22200
+  },
+  "18.3.1-sidebar-results.json": {
+    "sha256": "08584014daa5ab08ae21034fcbd48a5fb3af0a2cf339add18a57720a0dbd06ae",
+    "bytes": 1274147
+  },
+  "19.2.7-sidebar-dark-collapsed.png": {
+    "sha256": "1cddb71b1fafdce57003196adea2819c5ced19f8601bcded43710d1c1a9a4fd8",
+    "bytes": 7526
+  },
+  "19.2.7-sidebar-dark-full.png": {
+    "sha256": "5c90859f26d7bd1e8ceb5c01ad006dc5495552a02dee4811f1454ca1437edbed",
+    "bytes": 21875
+  },
+  "19.2.7-sidebar-light-collapsed.png": {
+    "sha256": "4b45d2d03e2fbe2ab0760df78b748ae8124f002323e9a146c02972ba6cae3f43",
+    "bytes": 7530
+  },
+  "19.2.7-sidebar-light-full.png": {
+    "sha256": "05365cc5ab3a64eaea966e00c5fa5beaaa402061598ac3b3226b570144b1b16a",
+    "bytes": 22200
+  },
+  "19.2.7-sidebar-results.json": {
+    "sha256": "08584014daa5ab08ae21034fcbd48a5fb3af0a2cf339add18a57720a0dbd06ae",
+    "bytes": 1274147
+  },
+  "chat-dark.png": {
+    "sha256": "735e6904952ef94f0164c74fce19d23401d62a140f799a1ed188f7d005becc5e",
+    "bytes": 234295
+  },
+  "chat-light.png": {
+    "sha256": "e9235d8142d2af5292c7b930d6d7f15f45ca283dc35c9e2cb4ea6e2c0aaa5174",
+    "bytes": 231041
+  },
+  "contracts.log": {
+    "sha256": "91264057111cd3527e37fb1e48b4c32d3601b9dffa7441ac48142075b72de7fe",
+    "bytes": 11529
+  },
+  "first-dense-verifier-failure.json": {
+    "sha256": "4ca3e8126bf7571d34f7f210907ff5c601d30b42cd627195e2052c2b9969738a",
+    "bytes": 507
+  },
+  "inspectors-results.json": {
+    "sha256": "1dd500f640c7cae3577dc059dbbaf8d846feec0956424bb8f7a219c60abfa6c1",
+    "bytes": 655890
+  },
+  "lab.log": {
+    "sha256": "67166a2f506550daed3fe4e2933fc20e766c88e6572e7cc49a845f3700944007",
+    "bytes": 9924
+  },
+  "package-summary.json": {
+    "sha256": "42d82117a371104a9ee210de3ab95494c8d5a729e9564b354729f61a14f9948d",
+    "bytes": 4505
+  },
+  "package.log": {
+    "sha256": "a393776c887828dbb79ac0a7d368f1daf183a154f334d523149b231ed459b5d2",
+    "bytes": 1943
+  },
+  "production-chat-dark.png": {
+    "sha256": "735e6904952ef94f0164c74fce19d23401d62a140f799a1ed188f7d005becc5e",
+    "bytes": 234295
+  },
+  "production-chat-light.png": {
+    "sha256": "e9235d8142d2af5292c7b930d6d7f15f45ca283dc35c9e2cb4ea6e2c0aaa5174",
+    "bytes": 231041
+  },
+  "production-recents-dark.png": {
+    "sha256": "56702c39c92fad7734268c0c66efff9ac65b9b7b128ffd85fc44dda7581f359e",
+    "bytes": 405732
+  },
+  "production-recents-light.png": {
+    "sha256": "5c353fbf841930c1e01e8159512ce32894efc4d5263bc0e2ef2cbc8acbc564ec",
+    "bytes": 388952
+  },
+  "production-results.json": {
+    "sha256": "4139dc19f725718a89ebf037d1a2e690cc16dd865baa78176330facf61d99e73",
+    "bytes": 1061635
+  },
+  "provenance.json": {
+    "sha256": "08e484be0efb4ed5edaa9bec1af1b84a4e708c2dbe594a491a18d4d982efea06",
+    "bytes": 622
+  },
+  "recents-dark.png": {
+    "sha256": "b6af0ad3e9b475dba17a0b1a05a73baebe5f8ee514f30e1c28b13874d3fa5e89",
+    "bytes": 405743
+  },
+  "recents-light.png": {
+    "sha256": "418ab824aa0df92fe9ba887b238c218103fc30bdc3eb7006149d8ff26d95e1d9",
+    "bytes": 388965
+  },
+  "references.log": {
+    "sha256": "8b33d1adfdd3efc7ba42259c343c778197737d1592c175b1004e60a47f309992",
+    "bytes": 15488
+  },
+  "release.json": {
+    "sha256": "d1c67cefcedc7f3e4b95a20d0314d4d69e2a271715fd745aaba5b005fe19d964",
+    "bytes": 1961
+  },
+  "visual-review.json": {
+    "sha256": "c11e32b3aec642875d6cb868a1f02437da155f83030a54c54b690e6014d18501",
+    "bytes": 745
+  },
+  "workspace-results.json": {
+    "sha256": "ca434b265163f4d604294be715ee7ebb9587d40053b905aa2c52dd38e1786b65",
+    "bytes": 319687
+  }
+}

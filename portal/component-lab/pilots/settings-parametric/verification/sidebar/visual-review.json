@@ -1,0 +1,26 @@
+{
+  "reviewedThemes": [
+    "light",
+    "dark"
+  ],
+  "reviewed": [
+    "Files/Chat normal density",
+    "installed Sidebar full/collapsed",
+    "navigation current markers and footer search separation"
+  ],
+  "foundAndFixed": [
+    "Header/footer flex shrink clipped search/settings",
+    "Tooltip missed focus restored before anchor listener attachment",
+    "Fallback size mismatch between link/action corrected with shared Sidebar preset binding"
+  ],
+  "remaining": [
+    "Fresh Figma/AT/native desktop review",
+    "Long full labels wrap and need local navigation scroll",
+    "Collapsed header/footer content is owner-defined"
+  ],
+  "productionVersion": 48,
+  "productionReviewed": [
+    "Files Light/Dark",
+    "Chat Light/Dark"
+  ]
+}

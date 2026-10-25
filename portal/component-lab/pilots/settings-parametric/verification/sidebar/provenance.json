@@ -1,0 +1,25 @@
+{
+  "sourceHashesMatched": 859,
+  "artifactHashesMatched": 532,
+  "canonicalGitBlobsMatched": 660,
+  "installedArtifacts": 199,
+  "installedPackage": true,
+  "sourceAlias": false,
+  "messageComponentsBundled": [
+    "ChatBubble",
+    "Table",
+    "Card"
+  ],
+  "runtimeGitHubCommit": "aa425d4f57e658cb2dd69c2ddbcccffa00bcf086",
+  "siteSourceCommit": "472bdfe057a721d776ba962f8d588c8df89b7a38",
+  "archiveBytes": 7935395,
+  "archiveSHA256": "d82d74df216a55315e3a9d0d1d75f760b6dd1cf4a7d16177cbd8c62d080df950",
+  "sidebarComponentsBundled": {
+    "recents": [
+      "Sidebar"
+    ],
+    "chat": [
+      "Sidebar"
+    ]
+  }
+}
