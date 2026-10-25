@@ -1,0 +1,38 @@
+{
+  "head": "8063979543c517e11811978777b4a5d35853bf52",
+  "job": {
+    "id": 121145284296,
+    "head_sha": "8063979543c517e11811978777b4a5d35853bf52",
+    "name": "Verify / references",
+    "status": "completed",
+    "conclusion": "failure"
+  },
+  "url": "https://github.com/kenymook/seda_docs/actions/runs/40185491439/job/121145284296",
+  "logTruncated": false,
+  "evidence": [
+    "2026-10-25T10:37:48.9833998Z PASS document-model-source-roundtrip",
+    "2026-10-25T10:37:48.9837973Z PASS document-model-restore-boundaries",
+    "2026-10-25T10:37:48.9845535Z PASS document-model-split-join-lossless",
+    "2026-10-25T10:37:48.9847674Z PASS document-model-order-and-nesting",
+    "2026-10-25T10:37:48.9849436Z PASS document-model-page-hierarchy",
+    "2026-10-25T10:37:50.0975912Z PASS document-reference-structure-installed-package",
+    "2026-10-25T10:37:50.1119222Z PASS document-content-typography-and-control-isolation",
+    "2026-10-25T10:37:50.5035668Z PASS document-edit-caret-history-and-navigation",
+    "2026-10-25T10:37:50.7466199Z PASS document-split-join-slash-and-safe-paste",
+    "2026-10-25T10:37:51.0635223Z PASS document-keyboard-move-nest-copy-delete",
+    "2026-10-25T10:37:51.1797751Z PASS document-structural-focus-without-animation-frame",
+    "2026-10-25T10:37:51.2530088Z PASS document-cross-block-edit-guard",
+    "2026-10-25T10:37:52.6983596Z PASS document-pages-comments-trash-and-reload",
+    "2026-10-25T10:37:52.8505178Z PASS document-save-snapshot-duplicate-guard-loading",
+    "2026-10-25T10:37:52.9838614Z PASS document-quota-error-retains-draft",
+    "2026-10-25T10:37:56.6700771Z FAIL document-profiles-panels-and-independent-scroll: Expected \"actual\" to be strictly unequal to:",
+    "2026-10-25T10:37:56.6701118Z '220 px'",
+    "2026-10-25T10:37:57.7487825Z PASS document-textarea-profile-draft-and-comment-save",
+    "2026-10-25T10:37:58.2854171Z PASS document-search-cover-and-shortcuts",
+    "2026-10-25T10:37:59.0530496Z PASS document-corrupt-data-visible-recovery",
+    "2026-10-25T10:37:59.3757050Z PASS document-rejected-edit-restores-visible-text",
+    "2026-10-25T10:38:00.9005401Z PASS document-page-depth-rejection-is-atomic",
+    "2026-10-25T10:38:00.9005886Z PASS document-browser-errors",
+    "2026-10-25T10:38:00.9727644Z {\"modelPassed\":5,\"browserPassed\":16,\"failed\":1,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-building\"}"
+  ]
+}

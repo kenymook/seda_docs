@@ -24,12 +24,24 @@
     "bytes": 20141
   },
   "application-text.json": {
-    "sha256": "55a201b17b2df6877d3730a006bc0d80b8a34234e51e1a09b8e7f41bffd2582f",
-    "bytes": 615584
+    "sha256": "074fb6bbdf98bfbfdfb35f9bb369a87da2a5d7e1901a9db13ab1ec3a0c853573",
+    "bytes": 615585
+  },
+  "building-keyboard-committed.json": {
+    "sha256": "94789c53147d6213a9825864843a7f20a3272cc64add5811db7d0bba5f4e083f",
+    "bytes": 13181
+  },
+  "building-keyboard-committed.log": {
+    "sha256": "87956bdd06325c2f91b220e775eb6ab36b114bbfdbcadd78b6ddb187fafd797f",
+    "bytes": 1181
   },
   "chat-regression.json": {
     "sha256": "146d626b23fa64535f9867d2ebf5e04e8df212ccf81e7e63d9df94a4deed2bdd",
     "bytes": 15585
+  },
+  "ci-building-keyboard-failure.json": {
+    "sha256": "59c9462966ec81fb36b84547237b7796d34667bc8a9c42c73f5b50748e67fc93",
+    "bytes": 2463
   },
   "contracts.log": {
     "sha256": "2bb26214ab4ef8f035813cbe40a2283cfe604b743fc1554b8851754dfeb6a0f4",
@@ -88,8 +100,8 @@
     "bytes": 2278
   },
   "typecheck.log": {
-    "sha256": "e328d0dbb10759f16ee66038d8906142a3be6bf5563bcecbf84d9a538506d64a",
-    "bytes": 117
+    "sha256": "0e374671e9662aa2a1cdcfff1957298ffa768fd034641d09de4ebd805e3c4aa8",
+    "bytes": 116
   },
   "visual-review.json": {
     "sha256": "903906a600f6c6c40251338a5104b3ba778875c84518a17307d7f84552924723",
