@@ -1,0 +1,19 @@
+{
+  "runtimeGitHub": "a76cc375f9a7ed7254d04eca433bf737ef9d353f",
+  "contracts": 128,
+  "installedPackageGroups": 65,
+  "applicationScripts": {
+    "lab": 22,
+    "references": 25
+  },
+  "sliderSelectedPairsPerReact": 32,
+  "invalidSliderModelsPerReact": 20,
+  "compiledProfilesPerReact": 8,
+  "contractMutationDOMPx": 52,
+  "limits": [
+    "No new public export; 40 exports,33 component modules,12 executable contracts,8 profiles",
+    "Node browser checks remain not-checked; String formatter default is an explicit unchecked expression",
+    "Geometry gaps and fresh Figma/OS/AT acceptance remain open",
+    "Counts are selected scenarios, not maturity certification"
+  ]
+}

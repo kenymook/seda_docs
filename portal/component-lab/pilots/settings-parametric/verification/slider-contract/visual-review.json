@@ -1,0 +1,87 @@
+{
+  "runtimeGitHub": "a76cc375f9a7ed7254d04eca433bf737ef9d353f",
+  "reviewer": "agent visual inspection; no independent designer signoff",
+  "localReviewed": {
+    "normal1440m": {
+      "routes": [
+        "recents",
+        "building",
+        "chat",
+        "sandbox",
+        "spline",
+        "webflow",
+        "framer",
+        "workflow"
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "frames": 16
+    },
+    "extreme1024xl150x24y12": {
+      "routes": [
+        "sandbox",
+        "spline",
+        "webflow",
+        "framer"
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "frames": 8
+    },
+    "actualLabSlider": {
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "frames": 2
+    },
+    "installedReact19Slider": {
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "frames": 2
+    }
+  },
+  "observations": {
+    "sandbox": "Inspector section boundaries, paired inputs and alignment glyphs share the existing rhythm; artwork remains authored. Extreme controls stack or truncate within narrow columns.",
+    "spline": "Transform labels and numeric controls align; source materials are retained. At the extreme case the inspector moves below the scene.",
+    "webflow": "Style controls share common field height, text and section padding; canvas remains authored. Extreme toolbar wraps and local sections require scrolling.",
+    "framer": "Position and Size sections share the existing Accordion/field rhythm in both themes. Extreme column widths leave little canvas space; this is not certified as comfortable UX.",
+    "workflow": "Node inspector field boundaries and spacing agree with other panels; executor remains an explicitly local fixture.",
+    "chat": "Metadata panel, result icons and composer retain common slots/foreground; the transcript is source content, not a connected AI response.",
+    "building": "Document/editor controls and source artwork are retained; no new inspector invented.",
+    "recents": "Files baseline retains shared control/icon rhythm; colored thumbnails/logos are not converted into monochrome glyphs.",
+    "slider": "Single/range rails, values and native focus rings are coherent with actual neighboring SEDA controls in both themes. Numeric core extraction does not change painted JS/CSS output."
+  },
+  "limits": [
+    "Extreme simultaneous XL/150%/X24/Y12 settings are visually crowded; local scrolling, stacked controls and ellipsis remain necessary.",
+    "Geometry PASS is not proof of comfortable UX at all combinations.",
+    "No fresh Figma fidelity, target OS/AT/touch screen reader, Firefox/WebKit or native desktop certification.",
+    "Authored document/canvas typography is not replaced by application density parameters."
+  ],
+  "productionVersion": 54,
+  "productionReviewed": {
+    "inspectors": {
+      "routes": [
+        "sandbox",
+        "framer"
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "frames": 4
+    },
+    "sliderRows": [
+      "light-m-default",
+      "dark-m-default",
+      "light-xl-focus",
+      "dark-xl-focus"
+    ]
+  }
+}

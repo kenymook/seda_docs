@@ -1,0 +1,37 @@
+{
+  "implementationCommit": "a76cc375f9a7ed7254d04eca433bf737ef9d353f",
+  "verifierFixCommit": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+  "firstBatchCompleted": [
+    "verify-slider-workspace.mjs",
+    "verify-card-avatar-workspace.mjs",
+    "verify-table-workspace.mjs",
+    "verify-inspector-consistency.mjs",
+    "verify-workspace-rhythm.mjs",
+    "verify-dense-workspace.mjs",
+    "verify-chat-composer.mjs",
+    "verify-building-layout.mjs",
+    "verify-tooltip-workspace.mjs",
+    "verify-application-text.mjs",
+    "verify-adaptive-panels.mjs",
+    "verify-reference-modal.mjs",
+    "verify-workspace-text.mjs",
+    "verify-icon-workspace.mjs",
+    "verify-choice-workspace.mjs",
+    "verify-workspace-nontext.mjs",
+    "verify-workspace-contrast.mjs",
+    "verify-visual-consistency.mjs",
+    "verify-feedback-workspace.mjs",
+    "verify-lab2.mjs"
+  ],
+  "initialFailure": {
+    "verifier": "verify-workspace.mjs",
+    "reason": "Exact contract inventory expected10; actual coverage includes TextArea/Slider12"
+  },
+  "successfulRecheck": [
+    "verify-workspace.mjs",
+    "verify-controls.mjs"
+  ],
+  "completedDistinctScripts": 22,
+  "runtimeArtifactsChangedByTestFix": false,
+  "notClaimed": "No uninterrupted full Lab exit0; 20 passing scripts plus targeted completion2"
+}

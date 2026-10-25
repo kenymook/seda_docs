@@ -1,0 +1,5514 @@
+{
+  "scope": "Four actual compiler parameter Sliders plus owned range fixture; selected Lab viewport/theme/density profiles, not all native platforms",
+  "samples": [
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "contract": {
+        "height": {
+          "value": 24,
+          "type": "number",
+          "cssValue": "24px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "s"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 6,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "s"
+              ]
+            }
+          ],
+          "cssValue": "6px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "iconSize": {
+          "value": 14,
+          "type": "number",
+          "cssValue": "14px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 12,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 32,
+          "type": "number",
+          "cssValue": "32px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 14,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "14px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "iconSize": {
+          "value": 16,
+          "type": "number",
+          "cssValue": "16px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 16,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 40,
+          "type": "number",
+          "cssValue": "40px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 24,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "24px"
+        },
+        "iconSize": {
+          "value": 18,
+          "type": "number",
+          "cssValue": "18px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "2xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "2xl"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 56,
+        "thumbSize": 21,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 48,
+          "type": "number",
+          "cssValue": "48px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 18,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "18px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 28,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "28px"
+        },
+        "iconSize": {
+          "value": 20,
+          "type": "number",
+          "cssValue": "20px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "3xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "3xl"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 86,
+        "thumbSize": 30,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "contract": {
+        "height": {
+          "value": 24,
+          "type": "number",
+          "cssValue": "24px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "s"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 6,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "s"
+              ]
+            }
+          ],
+          "cssValue": "6px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "iconSize": {
+          "value": 14,
+          "type": "number",
+          "cssValue": "14px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 12,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 32,
+          "type": "number",
+          "cssValue": "32px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 14,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "14px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "iconSize": {
+          "value": 16,
+          "type": "number",
+          "cssValue": "16px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 16,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 40,
+          "type": "number",
+          "cssValue": "40px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 24,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "24px"
+        },
+        "iconSize": {
+          "value": 18,
+          "type": "number",
+          "cssValue": "18px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "2xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "2xl"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 56,
+        "thumbSize": 21,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 48,
+          "type": "number",
+          "cssValue": "48px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 18,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "18px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 28,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "28px"
+        },
+        "iconSize": {
+          "value": 20,
+          "type": "number",
+          "cssValue": "20px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "3xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "3xl"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 86,
+        "thumbSize": 30,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "contract": {
+        "height": {
+          "value": 24,
+          "type": "number",
+          "cssValue": "24px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "s"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 6,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "s"
+              ]
+            }
+          ],
+          "cssValue": "6px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "iconSize": {
+          "value": 14,
+          "type": "number",
+          "cssValue": "14px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 12,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 32,
+          "type": "number",
+          "cssValue": "32px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 14,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "14px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "iconSize": {
+          "value": 16,
+          "type": "number",
+          "cssValue": "16px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 16,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 40,
+          "type": "number",
+          "cssValue": "40px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 24,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "24px"
+        },
+        "iconSize": {
+          "value": 18,
+          "type": "number",
+          "cssValue": "18px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "2xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "2xl"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 56,
+        "thumbSize": 21,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 48,
+          "type": "number",
+          "cssValue": "48px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 18,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "18px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 28,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "28px"
+        },
+        "iconSize": {
+          "value": 20,
+          "type": "number",
+          "cssValue": "20px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "3xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "3xl"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 86,
+        "thumbSize": 30,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "contract": {
+        "height": {
+          "value": 24,
+          "type": "number",
+          "cssValue": "24px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "s"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 6,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "s"
+              ]
+            }
+          ],
+          "cssValue": "6px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodySmall",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodySmall",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "iconSize": {
+          "value": 14,
+          "type": "number",
+          "cssValue": "14px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 12,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 32,
+          "type": "number",
+          "cssValue": "32px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 14,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "14px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "body",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "body",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "iconSize": {
+          "value": 16,
+          "type": "number",
+          "cssValue": "16px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 44,
+        "thumbSize": 16,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 40,
+          "type": "number",
+          "cssValue": "40px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 24,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "24px"
+        },
+        "iconSize": {
+          "value": 18,
+          "type": "number",
+          "cssValue": "18px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "2xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 16,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "2xl"
+              ]
+            }
+          ],
+          "cssValue": "16px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 56,
+        "thumbSize": 21,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "contract": {
+        "height": {
+          "value": 48,
+          "type": "number",
+          "cssValue": "48px",
+          "source": "foundation/spacing-sizing.md#размеры-компонентов",
+          "unit": "px",
+          "chain": []
+        },
+        "radius": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "radius",
+              "xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 12,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "radius",
+                "xl"
+              ]
+            }
+          ],
+          "cssValue": "12px"
+        },
+        "fontSize": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "size"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 18,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "size"
+              ]
+            }
+          ],
+          "cssValue": "18px"
+        },
+        "lineHeight": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "font",
+              "bodyExtraLarge",
+              "base",
+              "lineHeight"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 28,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "font",
+                "bodyExtraLarge",
+                "base",
+                "lineHeight"
+              ]
+            }
+          ],
+          "cssValue": "28px"
+        },
+        "iconSize": {
+          "value": 20,
+          "type": "number",
+          "cssValue": "20px",
+          "source": "specs/actions/icon-button.md#4-sizes--размеры",
+          "unit": "px",
+          "chain": []
+        },
+        "buttonPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "3xl"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 20,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "3xl"
+              ]
+            }
+          ],
+          "cssValue": "20px"
+        },
+        "borderWidth": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "border",
+              "width",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 1,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "border",
+                "width",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "1px"
+        },
+        "buttonContentGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "textFieldPaddingInline": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "l"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 10,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "l"
+              ]
+            }
+          ],
+          "cssValue": "10px"
+        },
+        "textFieldAffixGap": {
+          "ref": {
+            "collection": "foundation",
+            "path": [
+              "space",
+              "m"
+            ],
+            "expectedType": "number",
+            "unit": "px"
+          },
+          "value": 8,
+          "type": "number",
+          "chain": [
+            {
+              "collection": "foundation",
+              "mode": "Mode 1",
+              "path": [
+                "space",
+                "m"
+              ]
+            }
+          ],
+          "cssValue": "8px"
+        },
+        "boxSizing": "border-box",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "minThumbSize": {
+          "value": 12,
+          "type": "number",
+          "cssValue": "12px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "thumbBorderWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusWidth": {
+          "value": 2,
+          "type": "number",
+          "cssValue": "2px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "focusOffset": {
+          "value": 3,
+          "type": "number",
+          "cssValue": "3px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "headerGap": {
+          "value": 8,
+          "type": "number",
+          "cssValue": "8px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        }
+      },
+      "derivation": {
+        "source": "compiled.controls.Slider.geometry + shared slider.mjs",
+        "minRailHeight": {
+          "value": 44,
+          "type": "number",
+          "cssValue": "44px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "railHeight": 86,
+        "thumbSize": 30,
+        "trackHeight": {
+          "value": 4,
+          "type": "number",
+          "cssValue": "4px",
+          "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry",
+          "unit": "px",
+          "chain": []
+        },
+        "instanceContract": true,
+        "runtimeConformance": "requires-browser-evidence"
+      },
+      "marker": "Slider",
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    }
+  ],
+  "installedPackage": true,
+  "sourceAlias": false,
+  "rangeStateRetained": true,
+  "compiledContract": true,
+  "errors": []
+}

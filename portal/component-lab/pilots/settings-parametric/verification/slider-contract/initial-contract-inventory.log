@@ -1,0 +1,226 @@
+
+> @seda-ai/contracts@0.1.0 test
+> node --test --test-isolation=none test/*.test.mjs
+
+✔ metadata comes from public TypeScript interfaces with inherited native props (9.1066ms)
+✔ forwardRef attributes come from React types and the actual element generic (271.5828ms)
+✔ valid button HTML/ARIA attributes remain available (56.8239ms)
+✔ valid TextField native props and own ReactNode prefix remain available (92.7651ms)
+✔ wrong native primitives and enum values fail at their actual property paths (339.6355ms)
+✔ Omit and own overrides are respected (161.6629ms)
+✔ invented own props and ARIA typos are rejected rather than accepted by a broad allowlist (316.3758ms)
+✔ required interface properties are enforced separately from their ReactNode values (211.8448ms)
+✔ opaque handlers and slots only bind to compatible semantic TypeScript positions (329.021ms)
+✔ binding descriptors require exactly one meaningful identifier (177.2039ms)
+✔ native nested style and array props use TypeScript assignability (228.3813ms)
+✔ data attributes have scalar values and are not confused with arbitrary props (170.4635ms)
+✔ type validation does not claim rendered visibility or accessible-name completeness (165.5135ms)
+✔ unserializable object trees are explicitly not checked (171.8476ms)
+✔ fixed implementation defaults are read from source and pass the real type audit (560.5897ms)
+✔ a regression to the old neutral source default is still detected (1386.726ms)
+✔ metadata is defensive and unknown components fail clearly (1.7187ms)
+✔ binding validation checks whole domains against the actual TypeScript props (492.1259ms)
+✔ undefined initial sample cannot hide an incompatible later binding value (153.9746ms)
+✔ binding domains are closed and native data attributes remain bindable (0.3836ms)
+✔ contextual size defaults retain explicit standalone provenance (7.2784ms)
+✔ context fallback drift and unsupported helper rewrites cannot pass source audit (1206.7872ms)
+✖ C01/R07: valid contracts retire implemented D16 while keeping browser evidence separate (1192.1789ms)
+✔ C01: malformed roots and unknown nested fields produce structured errors (11.8032ms)
+✔ C01: rule mutation cannot become a silent no-op (4361.9572ms)
+✔ C01/C02: source provenance and contract identity are enforced (2140.2626ms)
+✖ C02/R06: observed defaults now agree with types and target contracts (3757.338ms)
+✔ C03: missing token paths and missing recipe branches fail before compilation (3239.0607ms)
+✔ C03: branch validity does not conceal a missing required state leaf (1791.5371ms)
+✔ C03/C06: theme and size updates produce derived values with provenance (10888.9272ms)
+✔ C04: error plus focus is valid and independent of preview state (109.6116ms)
+✔ C04: disabled preview and aria-disabled cannot pretend to block interaction (262.8987ms)
+✔ C04: label/error content and active/selection semantics remain distinct (314.9824ms)
+✔ C04/C06: public but uncovered capabilities do not become a green visual claim (1225.527ms)
+✔ C06: wiring detects duplicate authoring and valid-typed wrong owners (5494.4444ms)
+✔ C05/C06: compiled pending state binds all roles and preserves newer input on profile update (1184.4529ms)
+✔ C06: invalid configuration throws addressable violations before output (2.5785ms)
+✔ Select placeholder role is required by validation and the web bridge (3216.3949ms)
+✔ Control boundary and error marker roles cannot be omitted before rendering (8384.5307ms)
+✔ Select: actual public API, defaults and compileControl share source and tokens (558.5611ms)
+✔ Select: independent focus, disabled precedence and controlled conflicts (234.2263ms)
+✔ Checkbox: actual public API, defaults and compileControl share source and tokens (465.0263ms)
+✔ Checkbox: independent focus, disabled precedence and controlled conflicts (198.5316ms)
+✔ Radio: actual public API, defaults and compileControl share source and tokens (534.886ms)
+✔ Radio: independent focus, disabled precedence and controlled conflicts (196.7845ms)
+✔ Toggle: actual public API, defaults and compileControl share source and tokens (550.4539ms)
+✔ Toggle: independent focus, disabled precedence and controlled conflicts (208.3963ms)
+✔ Select/Radio: option integrity, single/multi value shape and blank error (1269.5423ms)
+✔ Choice states: checked, indeterminate, selected and loading are derived independently (252.3235ms)
+✔ New contract registry rejects missing required rules, invalid sources and missing token roles (5092.9763ms)
+✖ All eight common compiled profiles contain selection and navigation contracts with provenance (1331.0049ms)
+✔ Shared web bridge binds four compiled branches and rejects missing state leaves (1307.8315ms)
+✔ F01: raw editing before validation does not normalize or show an error (9.2266ms)
+✔ F02: blur distinguishes nonempty raw data from whitespace validation (0.2584ms)
+✔ F03: invalid submit preserves input, shows error, and emits focus without save (0.293ms)
+✔ F04: once shown, errors revalidate on every input even after being cleared (0.151ms)
+✔ F05: valid submit emits a raw snapshot and monotonically identified save (0.2336ms)
+✔ F06: the form guard blocks every submit route during saving (0.2046ms)
+✔ F07: success for A keeps newer B editable and dirty (0.2146ms)
+✔ F08: failure stays a form error and retry captures current B with a new ID (0.3255ms)
+✔ F09: wrong, duplicate, and inactive response IDs have no effects (0.2465ms)
+✔ F10: idle cancel restores saved data and clears errors without reusing IDs (0.265ms)
+✔ F11: cancel while saving does not reset data or invent a transport abort (0.1532ms)
+✔ F12: profile changes preserve the whole state identity during a pending request (0.3614ms)
+✔ F13: help toggles without moving focus or setting selection state (0.1656ms)
+✔ F14: invalid and unknown events fail before any ignored-event shortcut (0.7664ms)
+✔ F15: unknown or incomplete policy semantics never pass silently (0.9731ms)
+✔ F16: transitions are pure with frozen input state, request, event, and policy (0.438ms)
+✔ F17: corrupt state is rejected instead of producing contradictory transitions (0.802ms)
+✔ form event metadata references actual model checks and covers every event (0.761ms)
+✔ DropdownMenu: actual source API/defaults and five variants across eight profiles (2237.5085ms)
+✔ DropdownMenu: malformed/duplicate/nested items and fake shortcut actions are rejected (1314.2373ms)
+✔ DropdownMenu: controlled ownership, icon trigger and nested opaque types are enforced (659.4866ms)
+✔ DropdownMenu: authored open/unavailability and item snapshots match documented ownership (446.1325ms)
+✔ DropdownMenu: required rules and actual used color roles cannot be removed (3932.8772ms)
+✔ DropdownMenu: browser-safe web binding checks geometry/colors/semantic adapter provenance (4109.2226ms)
+✔ Slider: actual discriminated API preserves mode/value/thumb names and typed formatter ownership (878.9396ms)
+✔ Slider: shared numeric grid rejects invalid models and preserves decimal/large steps without mutation (580.0538ms)
+✔ Slider: state facts include peer bounds, disabled precedence and explicit unchecked runtime gates (121.566ms)
+✔ Slider: all profiles export own tokens, documented dimensions and semantic gap provenance (4374.1345ms)
+✔ Slider: missing roles/measurements and collisions cannot silently fall back to static CSS (6129.9339ms)
+✔ Tabs: actual API/defaults, eight profiles and two variants compile opaque panel slots (889.0267ms)
+✔ Tabs: invalid items, labels, public props and ambiguous controlled input are rejected (1479.3878ms)
+✔ Tabs: fallback, empty/all-disabled and per-item states are explicit authored facts (414.4948ms)
+✔ Tabs: nested descriptors preserve actual enclosing TypeScript types (418.5803ms)
+✔ Tabs: required instance rules, defaults and actual used state leaves cannot be weakened (5186.4082ms)
+✔ Tabs: web binding uses resolved geometry/colors with provenance and rejects broken compiler data (65.1401ms)
+✔ Tabs: compiled common profiles expose shared navigation contracts without claiming runtime PASS (3939.8724ms)
+✔ TextArea: native uncontrolled, controlled, readOnly ownership and clear contract (634.596ms)
+✔ TextArea: row bounds and ownership reject ignored/ambiguous geometry (391.6217ms)
+✔ TextArea: disabled precedence, readOnly and focus are independent facts (139.361ms)
+✔ TextArea: all themes/sizes use own canonical tokens and geometry, profile includes adapter (4410.1129ms)
+✔ TextArea: plain appearance is explicit and geometry is invariant (854.6179ms)
+✔ real component aliases resolve through semantic and foundation in both themes (0.4618ms)
+✔ all pilot component branches resolve in Light and Dark with leaf provenance (1.6741ms)
+✔ unit conversion is explicit and does not change numeric values (0.4418ms)
+✔ missing paths and wrong leaf/branch use are distinct errors (0.439ms)
+✔ missing selected semantic mode is not replaced with Light (3.991ms)
+✔ unknown collection, malformed path and unsupported expected type fail (0.6285ms)
+✔ aliases report absent targets and invalid syntax (0.6101ms)
+✔ alias lookup refuses collection ambiguity (0.4114ms)
+✔ cyclic aliases terminate with a typed error (0.3012ms)
+✔ alias type mismatch and invalid values do not pass resolution (0.8978ms)
+✔ an absent planned token stays absent while its semantic target resolves in each theme (3.8061ms)
+✔ D16 disabled border now resolves through the actual semantic alias in both themes (0.2542ms)
+✔ a now-existing planned token is flagged for reconsideration (2.2882ms)
+✔ planned alias/target disagreement and missing target are rejected (0.3863ms)
+✔ same-valued roles retain separate references and independent resolution chains (0.2263ms)
+✔ an alias names a token leaf, not a same-named branch in another collection (1.1339ms)
+✔ Tree: shared compiler audits actual defaults, geometry and canonical theme roles (1778.9192ms)
+✔ Tree: hierarchy, stale ids, hidden selection and inherited availability are explicit (172.4619ms)
+✔ Tree: malformed hierarchy, unsupported API and ambiguous ownership are rejected (664.7747ms)
+✔ Tree: missing required theme leaf and tampered web binding are rejected (796.7937ms)
+✔ typography semantic roles resolve real h1/h2/h3 and title1/2/3 tokens, not obsolete documentation names (1.1179ms)
+✔ shared compiler and web bindings expose all typography role provenance without depending on control size (11243.1257ms)
+✔ typography scale preserves fractional metrics, tracking and line-height ratio; important text respects its readable minimum (0.9654ms)
+✔ typography rejects unsupported scale, role, absent token and malformed metrics (9.793ms)
+✔ typography compilation follows token mutations in both metrics and provenance instead of duplicating presets (2.706ms)
+✔ Shared layout foundation: canonical semantic colors reach CSS with provenance and cannot be omitted (2620.268ms)
+✔ R01/R02/R10: eight profiles map geometry, tokens and provenance to actual CSS assignments (10545.0048ms)
+✔ R01: changing actual component leaves reaches only the corresponding web roles (3357.6233ms)
+✔ R07: deleting the implemented disabled border fails validation before rendering (2876.4397ms)
+✔ R01/R03: every field state role consumed by CSS is required before rendering (16007.3101ms)
+✔ R01: incomplete or wrong-typed compiled values cannot silently fall back in the bridge (8466.6801ms)
+✔ R02: dimensions rejected by CSS fail the bridge while signed letter spacing stays valid (1424.0174ms)
+✔ R08: recipes cannot silently override attributes owned by the web host (8126.9284ms)
+✔ R08/R09: host binding preserves typed state and executes only explicitly registered adapters (0.7727ms)
+✔ R08/R09: absent adapters, unknown binding owners and duplicate authoring fail with paths (0.3675ms)
+ℹ tests 128
+ℹ suites 0
+ℹ pass 125
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 181804.7159
+
+✖ failing tests:
+
+test at test\contracts.test.mjs:11:1
+✖ C01/R07: valid contracts retire implemented D16 while keeping browser evidence separate (1192.1789ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  60 !== 54
+  
+      at TestContext.<anonymous> (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-contracts/test/contracts.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 60,
+    expected: 54,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test\contracts.test.mjs:57:1
+✖ C02/R06: observed defaults now agree with types and target contracts (3757.338ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   {
+  +     code: 'API_DEFAULT_UNCHECKED',
+  +     component: 'Slider',
+  +     message: 'Default expression requires execution: String',
+  +     path: '/props/formatValue',
+  +     severity: 'warning',
+  +     status: 'not-checked'
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-contracts/test/contracts.test.mjs:61:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test\controls.test.mjs:209:1
+✖ All eight common compiled profiles contain selection and navigation contracts with provenance (1331.0049ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      'Select',
+      'Checkbox',
+      'Radio',
+      'Toggle',
+  ...
+      'TextArea',
+  +   'Slider'
+    ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-contracts/test/controls.test.mjs:215:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [Array],
+    expected: [Array],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

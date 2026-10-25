@@ -1,0 +1,136 @@
+{
+  "version": 54,
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_758f766f213481919f18250ad686e2d5",
+  "siteProjectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "implementationCommit": "a76cc375f9a7ed7254d04eca433bf737ef9d353f",
+  "verificationCommit": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+  "siteSourceCommit": "9da8ed0e8efc88a9fe8511e3dddd9dbc310c5c9b",
+  "deployment": {
+    "id": "appgdep_6ade5c8b1d748191b67e83e0d4451937",
+    "project_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "title": "SEDA AI \u2014 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0444\u043e\u0440\u043c\u0430",
+    "version_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_758f766f213481919f18250ad686e2d5",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-25T19:46:41.234798+00:00"
+  },
+  "backendArchive": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_000000007500824680777c14087d0aa5",
+    "content_hash": "sha256:8a4373000cfbb13f3372fc731ff7064b1dd317ed51b8926f9a352f74e5759066",
+    "size_bytes": 32061440,
+    "file_count": 534
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "allowedUsers": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "runtimeCISnapshot": {
+    "headRevision": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+    "checks": [
+      {
+        "id": 121274961579,
+        "name": "library",
+        "head_sha": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40227475795/job/121274961579",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 1
+        }
+      },
+      {
+        "id": 121271821272,
+        "name": "Verify / package",
+        "head_sha": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40227475795/job/121271821272",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2
+        }
+      },
+      {
+        "id": 121271821260,
+        "name": "Verify / references",
+        "head_sha": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40227475795/job/121271821260",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2
+        }
+      },
+      {
+        "id": 121271821091,
+        "name": "Verify / lab",
+        "head_sha": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/kenymook/seda_docs/actions/runs/40227475795/job/121271821091",
+        "output": {
+          "title": null,
+          "summary": null,
+          "text": null,
+          "annotations_count": 2
+        }
+      }
+    ],
+    "statuses": [],
+    "annotations": [],
+    "hasMore": false,
+    "job": null,
+    "jobs": [],
+    "log": null,
+    "logTruncated": false
+  },
+  "limits": [
+    "This release remains experimental; no complete design system maturity signoff",
+    "Extreme XL/150/X24/Y12 panels remain crowded; local scrolling/truncation needed",
+    "No fresh Figma/OS/AT/touch screen-reader/Firefox/WebKit/native desktop certification",
+    "Production Search new-tab runner authorization limit from v51 remains separate"
+  ],
+  "productionChecks": {
+    "sliderProfiles": 16,
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0
+  },
+  "provenance": {
+    "sourceHashesMatched": 911,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 680,
+    "installedArtifacts": 231,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "1fac82228a89fcd5a2a724f5c2d89e5d57f0938b",
+    "siteSourceCommit": "9da8ed0e8efc88a9fe8511e3dddd9dbc310c5c9b",
+    "archiveBytes": 8098438,
+    "archiveSHA256": "e28c5ad46fe24cf91286fc4a324ee53ae12d593c32fcd4f1b3081ef219d95ff1"
+  }
+}

@@ -1,0 +1,11 @@
+
+> @seda-ai/ui@0.1.0 verify:package
+> node scripts/verify-package.mjs
+
+PASS tarball-export-files-and-allowlist
+PASS deterministic-build
+The input did not match the regular expression /Required public component token is missing: --select-border-focus/. Input:
+
+"Error: ENOENT: no such file or directory, open 'C:\\Users\\kauta\\AppData\\Local\\Temp\\seda-public-profile-jFBabf\\packages\\seda-contracts\\contracts\\Slider.json'"
+
+{"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\packages\\seda-ui\\.diagnostics-package\\2026-10-25T19-27-19-074Z","passed":2,"failed":1}
