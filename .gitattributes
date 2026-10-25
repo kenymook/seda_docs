@@ -5,3 +5,8 @@ packages/seda-ui/src/components/Icon/seda-icon-assets.ts text eol=lf
 
 # Reference SVG exports are also byte-verified against Figma asset manifests.
 portal/component-lab/pilots/settings-parametric/references/assets/*.svg -text
+
+# Runtime provenance must hash the same source bytes on Windows and CI.
+packages/seda-contracts/** text eol=lf
+packages/seda-ui/src/** text eol=lf
+portal/component-lab/pilots/settings-parametric/*.html text eol=lf

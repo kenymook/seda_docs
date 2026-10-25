@@ -14,6 +14,8 @@ Rich message table и historical file card используют public Table/Car
 
 Token diff — только два AI alias leaves. Purple-on-purple foreground заменён существующим text.on-brand.primary, icon — icon.on-brand.primary; namespace/importer не менялись. Theme build проверяет обязательные message roles и отказывает при удалённом AI foreground.
 
+Дополнительная сверка с Git blobs выявила44 старых CRLF runtime files: локальная и Site сборки совпадали между собой, но raw hashes этих файлов отличались от canonical commit. Исправлены только переводы строк; scoped .gitattributes закрепляет LF для contracts/UI source/pilot HTML, исходные byte-verified SVG остаются -text. До публикации сборки и проверки повторяются на canonical bytes. Архив, подготовленный до этой сверки, не публикуется.
+
 ## Проверка
 
 Первый targeted consumer остановился из-за унаследованного tsconfig source alias и второй копии React. Исправлен harness: tsconfig aliases выключены, metafile требует installed @seda-ai/ui/dist и запрещает seda-ui/src. Source aliases не использовались как способ добиться прохождения теста.
