@@ -1,3 +1,4 @@
+import {ReferenceCompositeGlyph} from './reference-composite-glyph';
 import React,{useEffect,useRef,useState} from 'react';import {createRoot} from 'react-dom/client';
 import {SedaProvider,Button,IconButton,Text,TextField,Select,Tree,SplitView} from '@seda-ai/ui';
 import type {TreeNode} from '@seda-ai/ui';
@@ -9,7 +10,7 @@ import {previewFonts} from './webflow-fonts';import icons from './webflow-icons.
 
 interface SourceIcon {style:React.CSSProperties;src?:string;children?:SourceIcon[]}
 function SourcePart({part}:{part:SourceIcon}){return part.src?<img src={'./assets/'+part.src} alt="" style={part.style}/>:<div style={part.style}>{part.children?.map((child,index)=><SourcePart key={index} part={child}/>)}</div>;}
-const icon=(id:string)=><span className="wf-source-icon" aria-hidden="true"><SourcePart part={(icons as Record<string,SourceIcon>)[id]}/></span>;
+const icon=(id:string)=><ReferenceCompositeGlyph sourceId={id}><SourcePart part={(icons as Record<string,SourceIcon>)[id]}/></ReferenceCompositeGlyph>;
 const editing=(target:EventTarget|null)=>target instanceof Element&&!!target.closest('input,textarea,select,[contenteditable=true],[role=menu]');
 function restore(){try{const raw=localStorage.getItem(m.documentKey);return{document:raw?m.readDocument(raw):m.initialDocument(),notice:raw?'Восстановлен локальный документ':'Реконструированный исходный документ · ещё не сохранён'};}catch{return{document:m.initialDocument(),notice:'Не удалось восстановить документ. Открыта исходная реконструкция.'};}}
 type Appearance={theme:'light'|'dark';size:'s'|'m'|'l'|'xl';scale:number;x:number;y:number};

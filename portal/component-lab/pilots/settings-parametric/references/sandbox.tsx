@@ -1,8 +1,9 @@
+import {ReferenceGlyph} from './reference-glyph';
 import React,{useCallback,useEffect,useRef,useState}from'react';import{createRoot}from'react-dom/client';
 import{Text,SedaProvider,Icon,Button,IconButton,TextField,Select,Tabs,DropdownMenu,SplitView,Tree,Link,FileUpload}from'@seda-ai/ui';import type{TreeNode}from'@seda-ai/ui';import'@seda-ai/ui/styles.css';import'@fontsource/inter/400.css';import'@fontsource/inter/600.css';import'@fontsource/inter/700.css';
 import{profiles}from'seda:catalog';import{derive}from'../lab-model.mjs';import{createWorkspaceBindings}from'../workspace-bindings.mjs';import{defaultSandboxPreferences,readSandboxPreferences}from'./sandbox-preferences';import type{SandboxPreferences}from'./sandbox-preferences';import{WorkspaceDialog}from'./reference-dialog';import{SandboxCanvas}from'./sandbox-canvas';import type{CanvasTool}from'./sandbox-canvas';import{SandboxInspector}from'./sandbox-inspector';import*as m from'./sandbox-model';import{ScenePreview}from'./sandbox-artwork';import'./sandbox.css';
 const prefsKey='seda.reference.sandbox.preferences.v1',panelsKey='seda.reference.sandbox.panels.v1';
-const icon=(part:string,name='imgIcon',size=16)=><img src={'./assets/sandbox-'+part+'-'+name+'.svg'} width={size} height={size} alt="" className="sandbox-chrome-icon"/>;
+const icon=(part:string,name='imgIcon',size=16)=><ReferenceGlyph file={'sandbox-'+part+'-'+name+'.svg'}/>;
 type Modal='settings'|'help'|'share'|'search'|'assets'|'rename-page'|'remove-page'|'reset'|'import'|'preview'|null;
 const editing=(target:EventTarget|null)=>target instanceof Element&&!!target.closest('input,textarea,select,[contenteditable=true],[role=menu]');
 function revealToolbarAction(event:React.FocusEvent<HTMLDivElement>){
@@ -87,7 +88,7 @@ function Sandbox(){
    </section><footer><Text as="div" variant="caption/default" className="sandbox-footer-links"><Link href="/references/chat.html">Чат</Link><Link href="/references/building.html">Документы</Link></Text></footer>
   </nav>}
   secondary={<SplitView primaryLabel="Холст" secondaryLabel="Инспектор" separatorLabel="Ширина холста" disabled={gesture} primarySize={canvasWidth} onSizeChange={setCanvasWidth} onResizeEnd={value=>panels(sidebar,value)} minSize={320} secondaryMinSize={300}
-   primary={canvas} secondary={<aside className="sandbox-inspector"><header><Button variant="ghost" onClick={()=>show('help')}>K</Button><div className="sandbox-header-spacer"/><IconButton aria-label="Предпросмотр документа" tooltip="Предпросмотр документа" variant="ghost" icon={<Icon name="monitor" />} disabled={!enabled||!page.nodes.some(node=>node.kind==='frame'&&node.parentId===null)} onClick={()=>show('preview')}/><Button variant="primary" onClick={()=>show('share')} disabled={status!=='ready'}>Share</Button><DropdownMenu triggerLabel={Math.round(camera.zoom*100)+'%'} items={[
+   primary={canvas} secondary={<aside className="sandbox-inspector" data-workspace-inspector><header><Button variant="ghost" onClick={()=>show('help')}>K</Button><div className="sandbox-header-spacer"/><IconButton aria-label="Предпросмотр документа" tooltip="Предпросмотр документа" variant="ghost" icon={<Icon name="monitor" />} disabled={!enabled||!page.nodes.some(node=>node.kind==='frame'&&node.parentId===null)} onClick={()=>show('preview')}/><Button variant="primary" onClick={()=>show('share')} disabled={status!=='ready'}>Share</Button><DropdownMenu triggerLabel={Math.round(camera.zoom*100)+'%'} items={[
      {id:'in',label:'Приблизить',onSelect:()=>zoom(1.25)},{id:'out',label:'Отдалить',onSelect:()=>zoom(.8)},
      {id:'fit',label:'Показать всё',onSelect:()=>fit()},{id:'selection',label:'По выделению',disabled:!selection.length,onSelect:()=>fit(true)},
      {id:'100',label:'100%',onSelect:()=>{const s=stateRef.current,c=m.cameraFor(s),el=document.getElementById('sandbox-canvas')!;view({...s,cameras:{...s.cameras,[s.pageId]:m.zoomAt(c,1,{x:el.clientWidth/2,y:el.clientHeight/2})}});}}

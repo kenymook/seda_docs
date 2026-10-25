@@ -11,10 +11,10 @@ export async function verifyChatComposer(page,origin,output){
  const input=page.locator('#chat-input');await input.waitFor();await page.evaluate(()=>document.fonts.ready);await input.fill('');
  const assets=[];
  for(const[name,alias,nodeId]of slots){
-  const button=page.locator('.chat-composer').getByRole('button',{name,exact:true}),img=button.locator('img');
-  await img.evaluate(el=>el.decode());assert.equal(await img.getAttribute('src'),'./assets/chat-composer-'+alias+'.svg');
-  const geometry=await img.evaluate(el=>{const r=el.getBoundingClientRect();return{width:r.width,height:r.height,naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight};});
-  assert.ok(geometry.naturalWidth>0&&geometry.naturalHeight>0);assert.ok(geometry.width>0&&geometry.height>0);assert.ok(Math.abs(geometry.width/geometry.height-geometry.naturalWidth/geometry.naturalHeight)<.01);
+  const button=page.locator('.chat-composer').getByRole('button',{name,exact:true}),glyph=button.locator('[data-reference-glyph]');
+  assert.equal(await glyph.getAttribute('data-reference-glyph'),'chat-composer-'+alias+'.svg');
+  const geometry=await glyph.evaluate(async el=>{const r=el.getBoundingClientRect(),image=new Image();image.src='./assets/'+el.dataset.referenceGlyph;await image.decode();return{width:r.width,height:r.height,naturalWidth:image.naturalWidth,naturalHeight:image.naturalHeight,mask:getComputedStyle(el.querySelector('.reference-glyph__ink')||el).maskImage};});
+  assert.ok(geometry.mask.includes('chat-composer-'+alias+'.svg'));assert.ok(geometry.naturalWidth>0&&geometry.naturalHeight>0);assert.ok(geometry.width>0&&geometry.height>0);assert.ok(Math.abs(geometry.width-geometry.height)<1);
   assets.push({name,alias,nodeId,...geometry});
  }
  assert.equal(await page.locator('.chat-composer').getByRole('button',{name:'Medium',exact:true}).locator('[data-seda-icon=arrow-chevron-down]').count(),1,'One shared menu disclosure replaces the source-only chevron');

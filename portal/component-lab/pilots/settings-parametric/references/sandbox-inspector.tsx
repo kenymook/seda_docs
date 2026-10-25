@@ -1,8 +1,9 @@
+import {ReferenceGlyph} from './reference-glyph';
 import {Icon,Text,Button, IconButton, Select, Checkbox, DropdownMenu} from '@seda-ai/ui';
 import {NumberProperty, DraftProperty} from './sandbox-property';
 import * as m from './sandbox-model';
 
-const icon=(part:string,name='imgIcon')=><img src={'./assets/sandbox-'+part+'-'+name+'.svg'} width={16} height={16} alt="" className="sandbox-chrome-icon"/>;
+const icon=(part:string,name='imgIcon')=><ReferenceGlyph file={'sandbox-'+part+'-'+name+'.svg'}/>;
 interface Props {
  state:m.SceneState; enabled:boolean; getState:()=>m.SceneState;
  commit:(next:m.SceneState)=>boolean; command:(change:(state:m.SceneState)=>m.SceneState)=>boolean;
@@ -39,27 +40,27 @@ export function SandboxInspector({state,enabled,getState,commit,command,onPendin
    ]}/>
   </header>
   {selection.length?<>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Position</Text><div className="sandbox-align-tools">
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Position</Text><div className="sandbox-align-tools">
     {(['left','center-x','right','top','center-y','bottom'] as const).map((alignment,index)=><IconButton key={alignment} aria-label={'Выровнять '+alignment} title={alignment} variant="ghost" icon={icon('inspector-position',index?'imgIcon'+index:'imgIcon')} disabled={!enabled||roots.length<2} onClick={()=>command(s=>m.alignSelection(s,alignment))}/>)}
    </div><div className="sandbox-property-grid">{number('x','X · локальная')}{number('y','Y · локальная')}{number('rotation','Угол, °')}
     <Button variant="ghost" disabled={!canEdit} iconLeft={icon('inspector-position','imgIcon8')} onClick={()=>command(s=>{let next=s;for(const id of s.selection){const node=m.activePage(s).nodes.find(n=>n.id===id)!;next=m.setProperties(next,{rotation:node.rotation+90},[id]);}return next;})}>+90°</Button>
    </div></section>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Layout</Text><div className="sandbox-property-grid">{number('width','W · ширина')}{number('height','H · высота')}</div><div className="sandbox-command-row">
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Layout</Text><div className="sandbox-property-grid">{number('width','W · ширина')}{number('height','H · высота')}</div><div className="sandbox-command-row">
     <Button fullWidth title="Распределить X" variant="ghost" disabled={!enabled||roots.length<3} onClick={()=>command(s=>m.distributeSelection(s,'x'))}>Распределить X</Button><Button fullWidth title="Распределить Y" variant="ghost" disabled={!enabled||roots.length<3} onClick={()=>command(s=>m.distributeSelection(s,'y'))}>Распределить Y</Button>
    </div><Checkbox id="sandbox-clip" label="Clip content" checked={!!clip.value} indeterminate={clip.mixed} disabled={!enabled||!frames.length||!frames.some(id=>m.available(page,id))} onCheckedChange={clip=>command(s=>m.setProperties(s,{clip},frames))}/></section>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Appearance</Text><div className="sandbox-property-grid">{number('opacity','Непрозрачность, %',selection,100)}{number('radius','Радиус',nodes.filter(node=>['frame','rect'].includes(node.kind)).map(node=>node.id))}</div></section>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Typography</Text>{textIds.length?<>
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Appearance</Text><div className="sandbox-property-grid">{number('opacity','Непрозрачность, %',selection,100)}{number('radius','Радиус',nodes.filter(node=>['frame','rect'].includes(node.kind)).map(node=>node.id))}</div></section>
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Typography</Text>{textIds.length?<>
     <Select id="sandbox-font-family" label="Семейство" value={font.mixed?'':font.value} disabled={!canEdit} options={[{value:'',label:'Mixed',disabled:true},...['Inter','Georgia','monospace'].map(value=>({value,label:value}))]} onValueChange={value=>command(s=>m.setProperties(s,{fontFamily:value as m.SceneNode['fontFamily']},textIds))}/>
     <div className="sandbox-property-grid"><Select id="sandbox-font-weight" label="Начертание" value={weight.mixed?'':String(weight.value)} disabled={!canEdit} options={[{value:'',label:'Mixed',disabled:true},{value:'400',label:'Regular'},{value:'600',label:'Semibold'},{value:'700',label:'Bold'}]} onValueChange={value=>command(s=>m.setProperties(s,{fontWeight:Number(value) as 400|600|700},textIds))}/>{number('fontSize','Размер текста',textIds)}{number('lineHeight','Межстрочный, px',textIds)}</div>
     <div className="sandbox-command-row">{(['left','center','right'] as const).map((align,index)=><IconButton key={align} aria-label={'Текст '+align} selected={textIds.every(id=>page.nodes.find(n=>n.id===id)?.align===align)} aria-pressed={textIds.every(id=>page.nodes.find(n=>n.id===id)?.align===align)} variant="ghost" icon={icon('inspector-typography','imgIcon'+(5+index))} disabled={!canEdit} onClick={()=>command(s=>m.setProperties(s,{align},textIds))}/>)}</div><details><summary><Text variant="label/small">Редактировать текст</Text></summary>{draft('text','Текст',textIds,true)}</details>
    </>:<Text as="p" variant="body/small">Выберите текстовый слой.</Text>}</section>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Fill</Text>{draft('fill','Цвет HEX')}<div className="sandbox-color-proof" aria-label="Применённые цвета">{[...new Set(nodes.map(node=>node.fill))].map(color=><span key={color} style={{backgroundColor:color}} title={color}/>)}</div></section>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Stroke</Text>{draft('stroke','Цвет обводки',shapeIds)}{number('strokeWidth','Толщина обводки',shapeIds)}</section>
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Fill</Text>{draft('fill','Цвет HEX')}<div className="sandbox-color-proof" aria-label="Применённые цвета">{[...new Set(nodes.map(node=>node.fill))].map(color=><span key={color} style={{backgroundColor:color}} title={color}/>)}</div></section>
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Stroke</Text>{draft('stroke','Цвет обводки',shapeIds)}{number('strokeWidth','Толщина обводки',shapeIds)}</section>
    <section className="sandbox-properties-section">{draft('name','Имя слоя')}<div className="sandbox-choice-row">
     <Checkbox id="sandbox-visible" label="Видимый" checked={!!visible.value} indeterminate={visible.mixed} disabled={!canEdit} onCheckedChange={visible=>command(s=>m.setProperties(s,{visible}))}/>
     <Checkbox id="sandbox-locked" label="Заблокирован" checked={!!locked.value} indeterminate={locked.mixed} disabled={!enabled} onCheckedChange={locked=>command(s=>m.setProperties(s,{locked}))}/>
    </div></section>
-   <section className="sandbox-properties-section"><Text as="h2" variant="label/small">Export</Text><Button fullWidth title="JSON документа" disabled={!enabled} onClick={onExport}>JSON документа</Button></section>
+   <section className="sandbox-properties-section"><Text as="h2" variant="label/default">Export</Text><Button fullWidth title="JSON документа" disabled={!enabled} onClick={onExport}>JSON документа</Button></section>
   </>:<section className="sandbox-properties-section"><Text as="p" variant="body/small">Выберите слой в дереве или на холсте. Все свойства берутся из реальной модели.</Text><Button onClick={onFit}>Показать все объекты</Button></section>}
  </div>;
 }

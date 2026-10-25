@@ -1,5 +1,6 @@
+import {ReferenceGlyph} from './reference-glyph';
 import{useRef}from'react';import{Icon,Text,TextArea,Button,IconButton,DropdownMenu}from'@seda-ai/ui';import type{Attachment,Effort}from'./chat-model';
-const image=(name:string)=><img src={'./assets/chat-composer-'+name+'.svg'} alt="" width={18} height={18} className={name==='imgIcon3'?'chat-chrome-icon chat-voice-icon':'chat-chrome-icon'}/>;
+const image=(name:string)=><ReferenceGlyph file={'chat-composer-'+name+'.svg'}/>;
 /** Application composition over installed SEDA controls; transport/state belong to its owner. */
 export function ChatComposer({value,files,pending,disabled,effort,onChange,onSend,onStop,onAttach,onRemove,onEffort,onVoiceUnavailable}:{value:string;files:Attachment[];pending:boolean;disabled:boolean;effort:Effort;onChange:(value:string)=>void;onSend:()=>boolean;onStop:()=>void;onAttach:()=>void;onRemove:(id:string)=>void;onEffort:(value:Effort)=>void;onVoiceUnavailable:()=>void}){
  const composing=useRef(false);const send=()=>{if(!disabled&&!pending&&(value.trim()||files.length))onSend();};
