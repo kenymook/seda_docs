@@ -1,0 +1,72 @@
+{
+  "version": 47,
+  "deployment": {
+    "id": "appgdep_6addebbdfff08191ba338a0029a2d5ee",
+    "status": "succeeded",
+    "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+    "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_65fe325acc388191a87be326d1d0244d"
+  },
+  "sourceCommit": "e73ebfa5371d7a9fe7708b7f12689f813ac2ec43",
+  "runtimeGitHubCommit": "e374f74899d4c514352ea4a86501db2255769928",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "ownerCount": 1,
+    "groups": 0,
+    "external": 0
+  },
+  "storageArchive": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_00000000b0a88243824d0c2853049385",
+    "content_hash": "sha256:9d8d1cfc26b974198e8b87e9a44d114d1e3481a787ea570298491f7bc68abe2f",
+    "size_bytes": 30658560,
+    "file_count": 534
+  },
+  "localChecks": {
+    "packageGroups": 53,
+    "contracts": 123,
+    "pilotScripts": 41,
+    "labScripts": 21,
+    "referenceScripts": 20,
+    "typeScript": "passed"
+  },
+  "ci": {
+    "headRevision": "e374f74899d4c514352ea4a86501db2255769928",
+    "run": "https://github.com/kenymook/seda_docs/actions/runs/40189838878",
+    "status": "in_progress"
+  },
+  "productionChecks": {
+    "headers": 72,
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0
+  },
+  "provenance": {
+    "sourceHashesMatched": 850,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 657,
+    "installedArtifacts": 193,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "e374f74899d4c514352ea4a86501db2255769928",
+    "siteSourceCommit": "e73ebfa5371d7a9fe7708b7f12689f813ac2ec43",
+    "archiveBytes": 7916881,
+    "archiveSHA256": "1d851bab6497d4337bf16a2d54068eb0ee3b286f9c57656045eee2ab4f731424",
+    "headerComponentsBundled": {
+      "recents": [
+        "TopBar"
+      ],
+      "building": [
+        "TopBar"
+      ],
+      "chat": [
+        "TopBar"
+      ]
+    }
+  }
+}
