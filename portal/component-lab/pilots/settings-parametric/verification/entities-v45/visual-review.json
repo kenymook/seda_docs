@@ -1,0 +1,48 @@
+{
+  "reviewedAt": "2026-10-25T03:48:29.894231+00:00",
+  "themes": [
+    "Light",
+    "Dark"
+  ],
+  "surfaces": [
+    "Projects Cards",
+    "Team",
+    "package loaded/loading",
+    "RTL",
+    "stress full status tooltip"
+  ],
+  "observations": [
+    "Compared private v44 before frames with current installed SEDA renders.",
+    "Checkbox no longer reserves empty text grid track: measured selection/title gap8px.",
+    "Card padding/radius/typographic roles follow shared compiler settings; brand/AI Avatar ink uses explicit original-token aliases.",
+    "Avatar uses identity diameter, not stretched X/Y control geometry.",
+    "Extreme XL150/X24/Y12 intentionally truncates long status pill; actual Tooltip shows full text in bounds.",
+    "Team uses inner native table scrolling when content exceeds viewport."
+  ],
+  "limitations": [
+    "Selected screenshot review is not complete Figma acceptance.",
+    "Card/Avatar experimental geometry; registry still11 controls.",
+    "No Firefox/WebKit/native shell/target screen reader acceptance."
+  ],
+  "inspectorReview": {
+    "routes": [
+      "recents",
+      "building",
+      "chat",
+      "sandbox",
+      "spline",
+      "webflow",
+      "framer",
+      "workflow"
+    ],
+    "selectedScreenshots": "M100/1440 Light and Dark for each route",
+    "recipe": "section16 related8 label4; optical glyph slot and inherited foreground",
+    "exclusions": "authored canvas/media, full Figma/AT, missing source fixture content"
+  },
+  "productionReview": [
+    "Projects Cards Light/Dark M100",
+    "Team Light/Dark M100",
+    "Webflow inspector Light/Dark M100 after actual SVG decode"
+  ],
+  "sourceAndArtifactMatch": "826 source hashes and532 artifact hashes matched live v45"
+}

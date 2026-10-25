@@ -31,6 +31,9 @@ export async function verifyInspectorConsistency(page,origin,output){
   if(route==='spline'){await page.getByRole('button',{name:'Scene menu',exact:true}).click();await page.getByRole('menuitem',{name:'Source context: Object · 1:5441',exact:true}).click();await page.locator('#spline-object-name').waitFor();}
   for(const width of [1440,1024])for(const theme of ['light','dark'])for(const c of cases){
    await page.setViewportSize({width,height:1000});await configureAppearance(page,route,{theme,...c});
+   // React may mount a composite after the navigation load event. Measure its
+   // actual decoded images; missing/broken assets still reject with their URL.
+   await page.locator('[data-reference-composite] img').evaluateAll(images=>Promise.all(images.map(async image=>{try{await image.decode();}catch{throw new Error('Composite image decode failed: '+image.src);}})));
    const m=await page.evaluate(sections=>{const rect=n=>{const r=n.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom,w:r.width,h:r.height};};
     const glyphs=[...document.querySelectorAll('[data-reference-glyph]')].map(n=>{const s=getComputedStyle(n);return{file:n.dataset.referenceGlyph,...rect(n),slot:parseFloat(s.getPropertyValue('--seda-control-icon-size')||s.getPropertyValue('--seda-preset-icon-size')),color:getComputedStyle(n.querySelector('.reference-glyph__ink')||n).backgroundColor,foreground:s.color,mask:getComputedStyle(n.querySelector('.reference-glyph__ink')||n).maskImage,filter:s.filter,alphaSlope:n.querySelector('feFuncA')?.getAttribute('slope')};});
     const compounds=[...document.querySelectorAll('[data-reference-composite]')].map(n=>{const s=getComputedStyle(n);return{id:n.dataset.referenceComposite,...rect(n),foreground:s.color,flood:getComputedStyle(n.querySelector('feFlood')).floodColor,slope:Number(n.querySelector('feFuncA').getAttribute('slope')),loaded:[...n.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth>0)};});
@@ -38,7 +41,7 @@ export async function verifyInspectorConsistency(page,origin,output){
     return{glyphs,compounds,panels,overflow:document.documentElement.scrollWidth-innerWidth};},sections);
    assert.equal(m.overflow,0,route+' root overflow '+JSON.stringify({width,theme,c}));
    for(const g of m.glyphs){const metric=catalog.glyphs[g.file];assert.ok(metric&&metric.extent>0,'Measured nonempty source: '+g.file);assert.ok(Math.abs(g.w-g.slot)<=1&&Math.abs(g.h-g.slot)<=1,JSON.stringify({route,g,c}));assert.equal(g.color,g.foreground);assert.ok(g.mask.includes(g.file));if(metric.peakAlpha<.98)assert.ok(Math.abs(Number(g.alphaSlope)-1/metric.peakAlpha)<.001);used.add(g.file);}
-   for(const g of m.compounds){assert.equal(g.foreground,g.flood);assert.ok(g.loaded&&g.w>0&&g.h>0);assert.ok(Math.abs(g.slope-1/composites.glyphs[g.id].peakAlpha)<.001);used.add('composite:'+g.id);}
+   for(const g of m.compounds){assert.equal(g.foreground,g.flood);assert.ok(g.loaded&&g.w>0&&g.h>0,JSON.stringify({route,width,theme,c,g}));assert.ok(Math.abs(g.slope-1/composites.glyphs[g.id].peakAlpha)<.001);used.add('composite:'+g.id);}
    for(const p of m.panels){for(const s of p.sections)assert.equal(s.padding,'16px',JSON.stringify({route,s}));for(const grid of p.grids)assert.equal(grid.gap,'8px',JSON.stringify({route,grid}));for(const f of p.fields)assert.ok(f.x>=p.bounds.x-1&&f.right<=p.bounds.right+1,JSON.stringify({route,c,width,f,panel:p.bounds}));}
    if(!['recents','building'].includes(route))assert.ok(m.panels.length,route+' inspector scope');
    samples.push({route,width,theme,...c,glyphs:m.glyphs.length,composites:m.compounds.length,panels:m.panels});

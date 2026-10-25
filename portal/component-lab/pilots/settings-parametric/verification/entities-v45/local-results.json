@@ -1,0 +1,4573 @@
+{
+  "scope": "Installed Card/Avatar in Projects and Team; selected parameters, native semantics, shared table selection and actual overflow navigation; not full Figma/AT approval",
+  "samples": [
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 12,
+          "titleLine": 17.1429,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 6,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 16,
+          "y": 16,
+          "radius": 8,
+          "overflow": 0,
+          "titleSize": 14,
+          "titleLine": 20,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 28,
+          "y": 22,
+          "radius": 10,
+          "overflow": 0,
+          "titleSize": 16.1,
+          "titleLine": 23,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "projects",
+      "width": 390,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        },
+        {
+          "x": 40,
+          "y": 28,
+          "radius": 12,
+          "overflow": 0,
+          "titleSize": 21,
+          "titleLine": 30,
+          "selectionGap": 8,
+          "emptySlot": false,
+          "role": "ARTICLE"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1543,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 1024,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "s",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 24,
+          "h": 24,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "avatars": [
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 32,
+          "h": 32,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "avatars": [
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 40,
+          "h": 40,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    },
+    {
+      "section": "members",
+      "width": 390,
+      "theme": "Dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "avatars": [
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Анна Смирнова",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": "Марк Орлов",
+          "hidden": null
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        },
+        {
+          "w": 48,
+          "h": 48,
+          "radius": "50%",
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)",
+          "label": null,
+          "hidden": "true"
+        }
+      ],
+      "cards": [],
+      "overflow": 0
+    }
+  ],
+  "sharedSelection": true,
+  "independentDetailsAction": true,
+  "selectionSurvivesFilter": true,
+  "overflowRevealsMembers": true,
+  "emptyCheckboxSlotRemoved": true,
+  "unicodeProjectIdentity": true,
+  "fullStatusTooltip": true,
+  "errors": []
+}

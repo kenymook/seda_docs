@@ -1,0 +1,5787 @@
+{
+  "installedPackage": true,
+  "sourceAlias": false,
+  "ssr": true,
+  "strictHydration": true,
+  "rejectedInputs": 13,
+  "imageFallback": true,
+  "lateImageIgnored": true,
+  "concurrentImageSourceGuard": true,
+  "unicodeInitials": true,
+  "decorativeIdentity": true,
+  "statusText": true,
+  "keyboardAvatar": true,
+  "realOverflow": true,
+  "sharedCardTableSelection": true,
+  "independentCardActions": true,
+  "wholeCardKeyboard": true,
+  "loadingGeometry": true,
+  "loadingDelta": 0,
+  "mediaFrameDelta": 0,
+  "knownEmptySlotsOmitted": true,
+  "expandedSmallTarget": true,
+  "rtl": true,
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(10, 10, 11)",
+      "metadataInk": "rgba(24, 25, 27, 0.6)",
+      "surface": "rgb(255, 255, 255)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(141, 77, 200)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(24, 25, 27, 0.85)",
+          "surface": "rgba(24, 25, 27, 0.06)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 12,
+      "paddingY": 12,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 16,
+      "paddingY": 16,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 24,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "density": "compact",
+      "selectionGap": 8,
+      "paddingX": 24,
+      "paddingY": 18,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "density": "medium",
+      "selectionGap": 8,
+      "paddingX": 28,
+      "paddingY": 22,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "density": "large",
+      "selectionGap": 8,
+      "paddingX": 36,
+      "paddingY": 30,
+      "titleInk": "rgb(255, 255, 255)",
+      "metadataInk": "rgba(255, 255, 255, 0.6)",
+      "surface": "rgb(23, 23, 24)",
+      "avatar": [
+        {
+          "id": "image-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xxs",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xs",
+          "w": 20,
+          "h": 20,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-s",
+          "w": 24,
+          "h": 24,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-m",
+          "w": 32,
+          "h": 32,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-l",
+          "w": 40,
+          "h": 40,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "size-xl",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "decorative-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "icon-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "brand-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(25, 100, 184)"
+        },
+        {
+          "id": "ai-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgb(255, 255, 255)",
+          "surface": "rgb(113, 59, 163)"
+        },
+        {
+          "id": "status-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "action-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "tiny-action-avatar",
+          "w": 16,
+          "h": 16,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        },
+        {
+          "id": "link-avatar",
+          "w": 48,
+          "h": 48,
+          "ink": "rgba(255, 255, 255, 0.85)",
+          "surface": "rgba(255, 255, 255, 0.11)"
+        }
+      ],
+      "overflow": 0
+    }
+  ],
+  "errors": []
+}

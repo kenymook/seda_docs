@@ -1,0 +1,12 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForFunction: Timeout 3000ms exceeded.
+    at verifyCardAvatar (C:\Users\kauta\Desktop\Vibecoding\SEDA AI\.integration-lab2\packages\seda-ui\scripts\verify-card-avatar.mjs:100:458)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/surfaces-smoke-run.mjs:2:937 {
+  log: [],
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0
