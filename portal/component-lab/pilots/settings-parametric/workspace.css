@@ -341,7 +341,7 @@ body.dark [data-workspace] {
 .workspace-pagination > div {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
 }
 .workspace-pagination p {

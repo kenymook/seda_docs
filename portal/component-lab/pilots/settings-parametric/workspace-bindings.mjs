@@ -79,7 +79,7 @@ export function createWorkspaceBindings(
     },
     parameters,
     coverage: {
-      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree", "TextArea", "Slider"],
+      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree", "TextArea", "Slider", "NumberField"],
       libraryAdapter: ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast", "Table", "Card", "Avatar", "AvatarGroup"],
       composition: ["Navigation", "Dialog", "Editor"],
     },

@@ -15,6 +15,8 @@
 
 Text Field — однострочный текстовый ввод для коротких значений: имя, email, пароль, номер, поисковый запрос, код, URL или другое значение, которое пользователь может ввести и проверить в рамках одного поля.
 
+React implementation: CSS custom properties из native `style` наследуются всем составом поля — label/control/affix/message; обычные CSS properties остаются стилями самого input. Это необходимо, чтобы вычисленные geometry/color bindings меняли рамку и связанные слоты вместе с текстом. NumberField использует этот же TextField без второй границы или слота.
+
 В SEDA AI Text Field описан как часть AI-ready design system framework: спецификация связывает Figma variants, props contract, design tokens, accessibility, validation и handoff. AI может ускорять аудит, черновики microcopy, acceptance criteria и проверку соответствия rules, но не принимает финальные решения за дизайнера и разработчика.
 
 ### Когда использовать

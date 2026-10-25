@@ -8,7 +8,7 @@ import { createContractEngine } from "../../seda-contracts/src/index.mjs";
 import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
 export async function verifyProfileSources(root) {
   const repo = path.resolve(root, "../..");
-  for(const file of ['slider.mjs','slider.d.mts'])assert.deepEqual(await fs.readFile(path.join(root,'dist/internal',file)),await fs.readFile(path.join(repo,'packages/seda-contracts/src',file)),'Installed Slider core must equal canonical contract source');
+  for(const file of ['slider.mjs','slider.d.mts','number-field.mjs','number-field.d.mts'])assert.deepEqual(await fs.readFile(path.join(root,'dist/internal',file)),await fs.readFile(path.join(repo,'packages/seda-contracts/src',file)),'Installed numeric core must equal canonical contract source');
   const metadata = JSON.parse(
     await fs.readFile(path.join(root, "dist/profiles.json"), "utf8"),
   );
@@ -70,6 +70,7 @@ export async function verifyProfileSources(root) {
       bindings.push(['--surface-base',compiled.foundationTokens.surface],['--border-subtle',compiled.foundationTokens.separator],['--focus-ring',compiled.foundationTokens.focus]);
       for(const path of [['surface','default'],['surface','error'],['surface','disabled'],['surface','read-only'],['border','active'],['focus','ring'],['counter','default'],['label','read-only']])bindings.push(['--text-area-'+path.join('-'),path.reduce((node,key)=>node[key],compiled.controls.TextArea.tokenBranch.children)]);
       bindings.push(['--tree-row-surface-selected',compiled.controls.Tree.tokenBranch.children.row.surface.selected],['--tree-focus-ring',compiled.controls.Tree.tokenBranch.children.focus.ring]);
+      bindings.push(['--text-field-border-default',compiled.controls.NumberField.tokenBranch.children.border.default],['--text-field-border-focus',compiled.controls.NumberField.tokenBranch.children.border.focus],['--text-field-foreground-default',compiled.controls.NumberField.tokenBranch.children.foreground.default]);
       for (const [property,sourcePath] of [
         ['--avatar-foreground-on-brand',['avatar','foreground','onBrand']],
         ['--avatar-foreground-on-ai',['avatar','foreground','onAi']],
@@ -127,8 +128,8 @@ export async function verifyProfileSources(root) {
     await fs.mkdir(path.join(temp, "packages/seda-contracts/contracts"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/src"));
     await fs.copyFile(path.join(repo,'packages/seda-contracts/src/typography.mjs'),path.join(temp,'packages/seda-contracts/src/typography.mjs'));
-    for(const file of ['slider.mjs','slider.d.mts'])await fs.copyFile(path.join(repo,'packages/seda-contracts/src',file),path.join(temp,'packages/seda-contracts/src',file));
-    for (const name of ["Button", "IconButton", "TextArea", "Slider"])
+    for(const file of ['slider.mjs','slider.d.mts','number-field.mjs','number-field.d.mts'])await fs.copyFile(path.join(repo,'packages/seda-contracts/src',file),path.join(temp,'packages/seda-contracts/src',file));
+    for (const name of ["Button", "IconButton", "TextArea", "Slider", "NumberField"])
       await fs.copyFile(
         path.join(repo, "packages/seda-contracts/contracts", name + ".json"),
         path.join(temp, "packages/seda-contracts/contracts", name + ".json"),

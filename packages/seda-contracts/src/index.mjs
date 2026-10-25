@@ -10,6 +10,7 @@ import { deriveState, evaluateRules, validateRuleDefinition, mergeDescriptionIds
 import { validateWebProfile } from './web.mjs';
 import { compileTypography } from './typography.mjs';
 export {createSliderModel,snapSliderValue} from './slider.mjs';
+export {createNumberFieldModel,stepNumberFieldValue} from './number-field.mjs';
 export { compileTypography, deriveTypography, createTypographyBindings, typographyRoles, validateTypographyScale } from './typography.mjs';
 
 export { createApiInspector, createTokenResolver, createFormState, transitionForm, formEvents, deriveState, mergeDescriptionIds };
@@ -38,6 +39,7 @@ const requiredChecks = {
   Tree: [['text-content','label'],['tree-items'],['tree-state']],
   TextArea: [['text-content','label'],['textarea-value'],['textarea-layout'],['error-message'],['native-disabled']],
   Slider: [['text-content','label'],['slider-model'],['error-message'],['native-disabled']],
+  NumberField: [['text-content','label'],['number-field-model'],['error-message'],['native-disabled']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {

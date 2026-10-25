@@ -1,8 +1,10 @@
 # SEDA AI — исполняемые контракты пилота
 
-Пакет проверяет 12 контрактов: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu, Tree, TextArea и Slider. Он разрешает зависимости токенов и компилирует профиль формы настроек в данные для React-адаптера. Версия модели — `0.1.0`.
+Пакет проверяет 13 контрактов: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu, Tree, TextArea, Slider и NumberField. Он разрешает зависимости токенов и компилирует профиль формы настроек в данные для React-адаптера. Версия модели — `0.1.0`.
 
 Проверка данных контракта, аудит текущих исходников и соответствие браузерного интерфейса имеют отдельные результаты. На третьем этапе добавлен [реальный React-пилот](../../portal/component-lab/pilots/settings-parametric/README.md), модуль web-привязок и браузерный verifier. Текущие исправления компонентов, D16 и результаты проверки описаны в [phase-3.md](../../ai-readiness/pilots/settings-form/phase-3.md).
+
+[NumberField D32](NUMBER-FIELD-CONTRACT.md) использует controlled raw string и один numeric core в compiler/React. Его visual alias — настоящий TextField; документ, подтверждение и история остаются у host. Неизвестные/промежуточные значения не становятся нулём. Node не удостоверяет keyboard/IME/FormData или OS/AT по одному валидному JSON.
 
 ## Запуск
 

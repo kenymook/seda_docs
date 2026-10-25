@@ -10,7 +10,8 @@
     ".": "./src/index.mjs",
     "./web": "./src/web.mjs",
     "./form": "./src/form.mjs",
-    "./slider": "./src/slider.mjs"
+    "./slider": "./src/slider.mjs",
+    "./number-field": "./src/number-field.mjs"
   },
   "scripts": {
     "validate": "node src/cli.mjs validate",

@@ -19,7 +19,7 @@ import {
   type AlertVariant,
 } from "@seda-ai/ui";
 
-import { Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
+import { NumberField, Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
 import {EditorWorkspace} from "./EditorWorkspace";
 
 type Props = {
@@ -514,6 +514,7 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [enabled, setEnabled] = useState(true);
+  const [numberValue,setNumberValue]=useState("320"),[mixedNumber,setMixedNumber]=useState("");
   const [sliderValue,setSliderValue]=useState(40);
   const [sliderRange,setSliderRange]=useState<[number,number]>([20,80]);
   const [uploads, setUploads] = useState<Record<string, File[]>>({});
@@ -529,6 +530,10 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
       <div className="visual-consistency__fields">
         <TextField id={`visual-field-${state}`} label="Поиск" prefix={<Icon name="search" />} size={size} value={query} onChange={event=>setQuery(event.target.value)} disabled={state==="disabled"} errorText={state==="error"?"Уточните запрос":undefined} helperText="Иконка и текст используют общий масштаб" />
         <Select id={`visual-select-${state}`} label="Период" size={size} disabled={state==="disabled"} errorText={state==="error"?"Выберите другой период":undefined} options={[{value:"week",label:"Эта неделя"},{value:"month",label:"Этот месяц"}]} />
+      </div>
+      <div className="visual-consistency__fields">
+        <NumberField id={`visual-number-${state}`} label="Ширина" size={size} value={numberValue} onValueChange={setNumberValue} min={1} max={4096} suffix="px" disabled={state==="disabled"} errorText={state==="error"?"Уточните ширину":undefined}/>
+        <NumberField id={`visual-number-mixed-${state}`} label="Координата" size={size} value={mixedNumber} onValueChange={setMixedNumber} min={-100000} max={100000} mixed mixedLabel="Разные" suffix="px" disabled={state==="disabled"} errorText={state==="error"?"Задайте общее значение":undefined}/>
       </div>
       <div className="visual-consistency__actions">
         <Button {...action("save")} id={`visual-button-${state}`} size={size} variant="primary" iconLeft={<Icon name="add" />} disabled={state==="disabled"} loading={loading}>Создать проект</Button>

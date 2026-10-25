@@ -1,4 +1,5 @@
 import {verifySlider} from './verify-slider.mjs';
+import {verifyNumberField} from './verify-number-field.mjs';
 import {verifyPopover} from './verify-popover.mjs';
 import {verifyTooltip} from './verify-tooltip.mjs';
 import {verifyTable} from './verify-table.mjs';
@@ -170,7 +171,8 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 40);
+        assert.equal(result.exports.length, 41);
+        assert.ok(result.exports.includes('NumberField'));
         assert.ok(result.exports.includes('Slider'));
         assert.ok(result.exports.includes('Popover'));
         assert.ok(result.exports.includes('Search'));
@@ -201,7 +203,14 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
     await check("react-" + version + "-declarations", async () => {
       await fs.writeFile(
         path.join(cwd, "types.tsx"),
-        `import {Slider,Popover,Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+        `import {NumberField,Slider,Popover,Search,NotificationCenter,Accordion,Sidebar,TopBar,ChatBubble,Tooltip,Modal,Text,TextArea,Tree,DropdownMenu,Tabs,SedaProvider,useSedaConfiguration,Icon,Button,TextField,Select,Checkbox,Radio,Toggle,IconButton} from '@seda-ai/ui';const sample=<><Button variant="primary">Save</Button><TextField label="Name"/><Select label="Team" options={[{value:'a',label:'Core'}]}/><Checkbox label="Digest"/><Radio label="Scope" options={[{value:'a',label:'Private'}]}/><Toggle label="On"/><IconButton aria-label="Help" icon="?"/></>;
+const numberBuffer=<NumberField label="Width" value="12.5" min={0} max={100} step={.1} onValueChange={raw=>raw.trim()}/>;
+// @ts-expect-error preserves partial string input instead of coercing it to number
+const coercedNumber=<NumberField label="Width" value={12} onValueChange={()=>{}}/>;
+// @ts-expect-error controlled raw buffer requires its owner
+const unownedNumber=<NumberField label="Width" value="12"/>;
+// @ts-expect-error native number mode would discard incomplete raw input
+const nativeNumber=<NumberField label="Width" value="12" onValueChange={()=>{}} type="number"/>;
 const scalar=<Slider label="Scale" value={50} onValueChange={value=>value.toFixed(1)}/>;
 const interval=<Slider mode="range" label="Budget" value={[20,80]} thumbLabels={["From","To"]} onValueChange={value=>value[0].toFixed(1)}/>;
 // @ts-expect-error range needs a pair and explicit thumb labels
@@ -553,6 +562,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-notification-center",()=>verifyNotificationCenter({cwd,browser}));
     await check("react-"+version+"-popover",()=>verifyPopover({cwd,browser}));
     await check("react-"+version+"-slider",()=>verifySlider({cwd,browser}));
+    await check("react-"+version+"-number-field",()=>verifyNumberField({cwd,browser}));
     await check("react-"+version+"-search",()=>verifySearch({cwd,browser}));
     await check("react-"+version+"-constrained-actions",()=>verifyConstrainedActions({cwd,browser}));
   }

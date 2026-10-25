@@ -10,6 +10,8 @@
 
 ### Added
 
+- Experimental NumberField:13-й исполняемый контракт, общий raw numeric core, реальные Sandbox/Spline consumers с прежними владельцами истории/сохранения. TextField передаёт CSS variables всем слотам; Projects pagination actions выровнены снизу. Новые design tokens и Figma/OS/AT approval не заявлены.
+
 - Добавлен `foundation/governance.md` с lifecycle, versioning, deprecation policy и readiness checklist.
 - Добавлен `foundation/token-pipeline.md` с правилами поставки токенов из `tokens.json` в CSS, docs и Figma variables.
 - Добавлен `tools/check-token-refs.ps1`, `reports/token-reference-audit.md` и `reports/token-normalization-plan.md` для первичного аудита token references в specs.

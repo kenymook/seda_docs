@@ -1342,6 +1342,7 @@
 .seda-button[data-loading="true"] { min-width: 0; flex-shrink: 0; }
 
 /* Multiline control: first-row height follows the shared profile; extra rows add line-height. */
+.seda-number-field .seda-field__input{font-variant-numeric:tabular-nums}
 .seda-field.seda-textarea{gap:0;min-width:0;--seda-textarea-line:var(--seda-control-line-height,var(--seda-preset-line-height));--seda-textarea-border:var(--seda-control-border-width,var(--seda-preset-border-width));--seda-textarea-base:var(--seda-control-height,var(--seda-preset-height));--seda-textarea-padding-y:max(0px,calc((var(--seda-textarea-base) - var(--seda-textarea-line) - 2 * var(--seda-textarea-border)) / 2));--seda-textarea-padding-x:var(--seda-control-padding-inline,var(--seda-preset-field-padding));}
 .seda-field.seda-textarea>.seda-field__label{color:var(--text-area-label-default);margin-block-end:var(--seda-label-gap,6px)}
 .seda-field.seda-textarea>.seda-visually-hidden{margin:0}

@@ -6,8 +6,8 @@
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 33 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
-| Контракты | 12 executable control contracts и 8 общих профилей | Проверяемое ядро, включая Slider; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 34 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Контракты | 13 executable control contracts и 8 общих профилей | Проверяемое ядро, включая Slider и NumberField; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 25 исходных glyphs; полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
 | Визуальная согласованность | Текущие доказательства: `verification/inspectors-v43/release.json` и предыдущий `verification/dense-v42/` в pilot | Общие glyph slots/foreground/optical bounds и inspector recipe перенесены на reference apps; 160 selected samples и 32 визуальных кадра. Полная приёмка всех states/surfaces/Figma/OS/AT открыта |
@@ -23,6 +23,7 @@
 | Search | Общий query/results pattern с snapshot identity, реальными Files filter и Chat Modal consumers | Experimental; [текущий проход](2026-10-25-search.md). Приватная v51;61 package groups,45 scripts и runtime Linux CI пройдены. Production inspectors160/glyph95, реальные owner-browser переходы проверены; полный production Search runner ограничен приватной авторизацией новой вкладки. Instance contract/Figma/AT/OS и standalone anchored overlay открыты |
 | Popover | Controlled nonmodal host, installed Files news / Chat share; source tokens, native/fallback, focus ownership and Search overlay composition | Experimental; [текущий проход](2026-10-25-popover.md). Приватная v52;63 package groups,46 scripts, production Popover48+4 / inspector160 / glyph95. Полные результаты и границы в отчёте. Instance contract/Figma/AT/OS approval открыты |
 | Slider | Controlled native single/range export; four actual compiler parameters and explicit range/state examples | Experimental private v54; D31 executable contract/shared numeric model/provenance. Contracts128, package65, application47 across recorded cohorts, production Slider16 + inspector160/glyph95. [D31 proof and limits](2026-10-25-slider-contract.md). Figma/OS/AT acceptance open |
+| NumberField | Actual TextField composition, raw numeric buffer and shared D32 compiler model; Sandbox/Spline preserve document owners | Local implementation in progress:4 focused contract tests,32 installed React18 pairs and16 Lab profiles +2 editor workflows passed. Full cohort/release pending; [report](2026-10-25-number-field.md). Figma/locales/pointer/OS/AT acceptance open |
 | Browser/OS/AT | Chromium package и application checks | Firefox/WebKit, screen readers и native desktop shell не сертифицированы |
 | Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
 

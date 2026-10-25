@@ -1,5 +1,6 @@
 import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
+import type { CSSProperties } from "react";
 import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
 import type { TextFieldProps } from "./TextField.types";
@@ -18,6 +19,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       required,
       size: sizeProp,
       state = "default",
+      style,
       suffix,
       value,
       ...props
@@ -34,9 +36,12 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const resolvedState = disabled ? "disabled" : hasError ? "error" : state === "error" || state === "disabled" ? "default" : state;
     const isFilled = filled ?? (value != null && String(value).length > 0);
     const externalDescriptions = props["aria-describedby"]?.split(/\s+/).filter(id => id && (message != null || id !== messageId)).join(" ");
+    // Component variables must reach the border, affixes and message as well as
+    // the input. Ordinary native input styles retain their original target.
+    const rootVariables = style ? Object.fromEntries(Object.entries(style).filter(([key]) => key.startsWith("--"))) as CSSProperties : undefined;
 
     return (
-      <label className={cx("seda-field", "seda-field--text", className)} data-disabled={disabled ? "true" : undefined} data-size={size} data-state={resolvedState} htmlFor={inputId}>
+      <label className={cx("seda-field", "seda-field--text", className)} style={rootVariables} data-disabled={disabled ? "true" : undefined} data-size={size} data-state={resolvedState} htmlFor={inputId}>
         <span className="seda-field__label" id={labelId}>
           {label}
           {required ? <span aria-hidden="true"> *</span> : null}
@@ -52,6 +57,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             disabled={disabled}
             id={inputId}
             ref={ref}
+            style={style}
             required={required}
             value={value}
           />

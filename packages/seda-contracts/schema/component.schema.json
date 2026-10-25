@@ -21,7 +21,8 @@
         "DropdownMenu",
         "Tree",
         "TextArea",
-        "Slider"
+        "Slider",
+        "NumberField"
       ]
     },
     "api": {
@@ -93,7 +94,8 @@
           "items": {
             "enum": [
               "enabled",
-              "disabled"
+              "disabled",
+              "read-only"
             ]
           },
           "minItems": 1,

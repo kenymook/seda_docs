@@ -1,8 +1,15 @@
+## Unreleased — NumberField and field bindings
+
+- Add controlled raw-string NumberField and executable D32 contract/shared numeric core; use actual TextField without a new palette, slot or border.
+- Migrate Sandbox/Spline numeric properties while keeping commit/cancel/history/save owners. Preserve Mixed/partial buffers, decimal/large steps, IME and native availability.
+- Propagate field CSS custom properties to all TextField slots while retaining ordinary native input styles. Fix bottom alignment of Projects pagination actions.
+- Experimental implementation; separate Figma/locales/pointer affordance/target OS/AT acceptance remains open.
+
 ## Unreleased — Slider
 
 - Add controlled native single/range Slider with visible values, semantic thumb names, stable order, noncrossing bounds, nearest-thumb rail gestures, native forms/fieldset and RTL.
 - Use existing slider component tokens and shared compiler geometry. Migrate four Lab parameter controls to the installed package; add explicitly experimental range examples.
-- Numeric grid validation, installed-package and application tests; geometry gaps and target OS/AT/Figma review remain explicit. No new instance contract claimed.
+- Numeric grid validation, installed-package and application tests; geometry gaps and target OS/AT/Figma review remain explicit. D31 adds an executable registry contract; browser evidence remains separate.
 
 ## Unreleased — Popover
 

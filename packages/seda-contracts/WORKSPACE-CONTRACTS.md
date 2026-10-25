@@ -59,3 +59,9 @@ Compiled profile теперь содержит foundationTokens: surface/base, b
 После TextArea двенадцатый контракт — Slider. Node compiler и installed React используют один browser-safe numeric core: single/range, min/max/step, peer bounds и nonempty thumbLabels. Actual TypeScript union сохраняет связь mode/value/thumbLabels; formatter остаётся непрозрачным callback. Browser checks формы, focus, pointer, клавиатуры и aria-valuetext явно not-checked на этапе Node.
 
 Семь собственных измерений с provenance проходят через compileControl/compile, createSliderWebBindings и CSS package. Нельзя заменить ими общую height/font/icon или удалить обязательный цвет/размер. Проверка Lab измеряет Slider rail отдельно от высоты Button. Подробные границы и geometry gaps: [D31](SLIDER-CONTRACT.md).
+
+## D32 — NumberField числовых свойств
+
+Тринадцатый контракт использует actual raw-string API и browser-safe numeric model в Node/React. NumericState отделяет число, пустоту, Mixed и промежуточный/ошибочный ввод; границы и шаг проверяются без исполнения owner. Состояние read-only соответствует foundation и native input. Visual alias text-field указан явно; новых token family/geometry нет.
+
+Общий TextField теперь распространяет CSS custom properties из style на label/control/affix/message, сохраняя обычные native input styles. Это устраняет расхождение рамки и текста при непосредственной передаче compiled variables. Sandbox/Spline по-прежнему владеют draft identity, Enter/blur, Escape, commit/history/save. Клавиатурные факты, FormData, IME и owner refusal требуют browser evidence. См. [D32](NUMBER-FIELD-CONTRACT.md).

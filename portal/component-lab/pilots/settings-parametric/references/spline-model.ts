@@ -37,9 +37,10 @@ export function initialDocument():SplineDocument{
   position:[109.33+(index%3-1)*320,534.92-Math.floor(index/3)*320,index===1?-.33:0],rotation:[0,0,0],scale:[1,1,1],material:materials[index],visible:true,locked:false}))};
 }
 export function initialView(context:'scene'|'object'='scene'):SplineView{return{selection:context==='object'?'carabiner':null,tab:context==='object'?'Assets':'Agent',target:[70,214.92,0],eye:[70,214.92,1500],zoom:2,projection:'orthographic'};}
+export function numericBounds(kind:'position'|'rotation'|'scale'):readonly [number,number]{return kind==='scale'?[.01,100]:kind==='rotation'?[-36000,36000]:[-100000,100000];}
 export function numericValue(text:string,kind:'position'|'rotation'|'scale'){
  if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(text.trim()))throw Error('Введите конечное число');
- const value=Number(text),bounds=kind==='scale'?[.01,100]:kind==='rotation'?[-36000,36000]:[-100000,100000];
+ const value=Number(text),bounds=numericBounds(kind);
  if(!Number.isFinite(value)||value<bounds[0]||value>bounds[1])throw Error('Значение вне допустимого диапазона');return value;
 }
 type ObjectChange=Partial<Pick<SceneObject,'name'|'position'|'rotation'|'scale'|'material'|'visible'|'locked'>>;

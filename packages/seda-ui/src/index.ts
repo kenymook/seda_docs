@@ -38,3 +38,4 @@ export * from './components/Search';
 
 export * from './components/Popover';
 export * from './components/Slider';
+export * from './components/NumberField';

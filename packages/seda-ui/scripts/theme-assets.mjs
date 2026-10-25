@@ -49,6 +49,7 @@ export function buildThemeAssets(packageRoot, output) {
     sources: {
       "tokens.json": hash(tokensBytes),
       ...Object.fromEntries(['contracts/Slider.json','src/slider.mjs','src/slider.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
+      ...Object.fromEntries(['contracts/NumberField.json','src/number-field.mjs','src/number-field.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       "packages/seda-contracts/src/typography.mjs":hash(fs.readFileSync(path.join(repo,'packages/seda-contracts/src/typography.mjs'))),
       "packages/seda-contracts/contracts/TextArea.json":hash(fs.readFileSync(path.join(repo,"packages/seda-contracts/contracts/TextArea.json"))),
       "packages/seda-contracts/system.json": hash(systemBytes),
