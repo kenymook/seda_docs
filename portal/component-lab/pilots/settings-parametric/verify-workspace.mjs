@@ -208,7 +208,7 @@ try {
       );
     assert.deepEqual(evidence.coverage.libraryAdapter, ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast", "Table", "Card", "Avatar", "AvatarGroup"]);
     assert.ok(evidence.evidence.some(e=>e.component==='foundation'&&e.property==='--border-subtle'&&e.chain.length>0));
-    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"]);
+    assert.deepEqual(evidence.coverage.contract, ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree", "TextArea", "Slider"]);
     const token = evidence.evidence.find(
       (e) => e.property === "--seda-select-surface-default",
     );
