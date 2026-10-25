@@ -1,0 +1,1051 @@
+{
+  "source": {
+    "file": "31SUMzWpWJ52bT9fBeKIau",
+    "node": "1:84",
+    "captured": "2026-10-25"
+  },
+  "typography": {
+    "family": "\"Segoe UI\", system-ui, sans-serif",
+    "sourceFont": "Segoe UI",
+    "available": true,
+    "probe": {
+      "mono": 388.1484375,
+      "serif": 388.1484375
+    }
+  },
+  "fidelity": "source-font-coordinates-verified",
+  "portableFlow": {
+    "bundledFont": "Inter",
+    "textBoxes": 36,
+    "overlaps": 0,
+    "sourceContentPreserved": true
+  },
+  "landmarks": [
+    {
+      "selector": ".building-header",
+      "x": 228,
+      "y": 0,
+      "width": 1212,
+      "height": 48
+    },
+    {
+      "selector": ".building-document",
+      "x": 480,
+      "y": 48,
+      "width": 708,
+      "height": 2440
+    }
+  ],
+  "text": [
+    {
+      "id": "doc-page-title",
+      "text": "SDDS описание",
+      "x": 480,
+      "y": 254,
+      "width": 708,
+      "height": 64,
+      "fontSize": "40px",
+      "lineHeight": "64px"
+    },
+    {
+      "id": "doc-block-block-165",
+      "text": "SDDS — корпоративная дизайн‑система для внутренних команд разработки Сбера. Продукт обеспечивает единые UI/UX‑паттерны, ускоряет разработку, повышает качество интерфейсов и снижает операционные издержки на поддержку визуальной консистентности.",
+      "x": 482,
+      "y": 343,
+      "width": 704,
+      "height": 78,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-169",
+      "text": "SDDS — это стратегическая платформа, которая ускоряет time-to-market продуктовых команд, снижает операционные затраты и обеспечивает визуальную консистентность компании.",
+      "x": 482,
+      "y": 467,
+      "width": 704,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-172",
+      "text": "Модели поставки и бизнес‑следствия",
+      "x": 482,
+      "y": 565,
+      "width": 704,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-178",
+      "text": "Эталонная (reference) дизайн‑система",
+      "x": 506,
+      "y": 601,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-185",
+      "text": "Описание: команда SDDS развивает и поддерживает одну «эталонную» версию, определяет roadmap и стандарты.",
+      "x": 530,
+      "y": 636,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-190",
+      "text": "Бизнес‑выгоды: обеспечивает максимальную консистентность по всей компании, упрощает масштабирование, снижает дублирование усилий.",
+      "x": 530,
+      "y": 697,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-195",
+      "text": "Управление: централизованное принятие решений, долгосрочная поддержка, ответственность команды SDDS за совместимость и обновления.",
+      "x": 530,
+      "y": 758,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-200",
+      "text": "Коммерческая модель: internal shared service / бюджетная статья поддержки; можно вводить приоритизацию запросов по SLA.",
+      "x": 530,
+      "y": 819,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-206",
+      "text": "Форк + дизайн и код от Plasma (полный сервис)",
+      "x": 506,
+      "y": 881,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-213",
+      "text": "Описание: Plasma производит форк дизайн‑системы и по запросу клиента делает полный цикл — дизайн и реализацию компонентов.",
+      "x": 530,
+      "y": 916,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-218",
+      "text": "Бизнес‑выгоды: кастомизация под конкретный продукт/команду при сохранении качества и стандартов; сокращение времени вывода на рынок.",
+      "x": 530,
+      "y": 977,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-223",
+      "text": "Управление: SDDS отвечает за реализацию и поддержку форка; клиент получает продукт «под ключ».",
+      "x": 530,
+      "y": 1038,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-228",
+      "text": "Коммерческая модель: проектные контракты/платные услуги; можно предлагать сопровождение по подписке.",
+      "x": 530,
+      "y": 1099,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-234",
+      "text": "Форк + дизайн со стороны клиента, код — от SDDS (кодовая реализация)",
+      "x": 506,
+      "y": 1161,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-241",
+      "text": "Описание: клиент сохраняет дизайн‑ответственность, SDDS реализует код по предоставленному дизайну; при этом SDDS оказывает консультации по дизайну.",
+      "x": 530,
+      "y": 1196,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-246",
+      "text": "Бизнес‑выгоды: позволяет продуктовым командам сохранять уникальность визуала, снижая при этом нагрузку на разработку; SDDS обеспечивает качественную реализацию и соответствие стандартам.",
+      "x": 530,
+      "y": 1257,
+      "width": 656,
+      "height": 78,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-251",
+      "text": "Управление: чёткое разделение ответственности (дизайн — клиент, реализация/интеграция — SDDS); важны входные требования и критерии приёмки.",
+      "x": 530,
+      "y": 1344,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-256",
+      "text": "Коммерческая модель: ставка за реализацию/интеграцию + консультации; возможны SLA и support‑пакеты.",
+      "x": 530,
+      "y": 1405,
+      "width": 656,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-258",
+      "text": "Продукт DS Builder — бизнес‑эффект и возможности монетизации",
+      "x": 482,
+      "y": 1467,
+      "width": 704,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-264",
+      "text": "Описание: самостоятельный продукт команды — инструмент для создания и кастомизации дизайн‑систем (токены цвета, скругления, типографика и т. п.).",
+      "x": 506,
+      "y": 1503,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-270",
+      "text": "Бизнес‑выгоды: снижает число оперативных запросов к SDDS, ускоряет внесение изменений у клиентов, повышает автономность продуктовых команд и сокращает time‑to‑market.",
+      "x": 506,
+      "y": 1565,
+      "width": 680,
+      "height": 78,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-276",
+      "text": "Риски/управление: нужны guardrails и валидация, чтобы кастомизации не приводили к фрагментации стандартов.",
+      "x": 506,
+      "y": 1653,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-282",
+      "text": "Коммерческая модель: подписка/лимит доступа, платные модули (экспорт, CI/CD интеграция, enterprise‑функции), внутренний chargeback.",
+      "x": 506,
+      "y": 1715,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-284",
+      "text": "Операционные рекомендации и контрактные моменты",
+      "x": 482,
+      "y": 1777,
+      "width": 704,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-290",
+      "text": "SLA и поддержка: определить уровни поддержки для каждой модели (реакция, решение, баг‑фикс).",
+      "x": 506,
+      "y": 1813,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-296",
+      "text": "Владелец roadmaps: для эталонной версии — SDDS; для форков — договорные соглашения о правах на обновления и совместимость.",
+      "x": 506,
+      "y": 1875,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-302",
+      "text": "Обновления и миграции: предусмотреть механизм передачи критичных обновлений из эталона в форки и модель их внедрения.",
+      "x": 506,
+      "y": 1937,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-308",
+      "text": "Качество и приёмка: чек‑листы, критерии соответствия и тестовые сценарии для кода/дизайна.",
+      "x": 506,
+      "y": 1999,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-314",
+      "text": "Безопасность и соответствие: учесть нормативные/корпоративные требования к интерфейсам и компонентам.",
+      "x": 506,
+      "y": 2061,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-316",
+      "text": "KPI и метрики успеха",
+      "x": 482,
+      "y": 2123,
+      "width": 704,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-322",
+      "text": "Время от запроса до релиза компонента.",
+      "x": 506,
+      "y": 2159,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-328",
+      "text": "Количество обращений к SDDS по поддержке/кастомизации.",
+      "x": 506,
+      "y": 2195,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-334",
+      "text": "Доля команд, использующих эталонную систему vs форки.",
+      "x": 506,
+      "y": 2231,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-340",
+      "text": "Снижение дублирования компонентов и общего объёма багов UI.",
+      "x": 506,
+      "y": 2267,
+      "width": 680,
+      "height": 26,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    },
+    {
+      "id": "doc-block-block-346",
+      "text": "Скорость внедрения изменений через DS Builder (время от изменения токена до его применения).",
+      "x": 506,
+      "y": 2303,
+      "width": 680,
+      "height": 52,
+      "fontSize": "16px",
+      "lineHeight": "26px"
+    }
+  ],
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 45
+      },
+      "save": 45
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 48
+      },
+      "save": 48
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 56
+      },
+      "save": 56
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 52
+      },
+      "save": 52
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 56
+      },
+      "save": 56
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 66
+      },
+      "save": 66
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 59
+      },
+      "save": 59
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 64
+      },
+      "save": 64
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 76
+      },
+      "save": 76
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 66
+      },
+      "save": 66
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 72
+      },
+      "save": 72
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 86
+      },
+      "save": 86
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 45
+      },
+      "save": 45
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 48
+      },
+      "save": 48
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 56
+      },
+      "save": 56
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 52
+      },
+      "save": 52
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 56
+      },
+      "save": 56
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 66
+      },
+      "save": 66
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 59
+      },
+      "save": 59
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 64
+      },
+      "save": 64
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 76
+      },
+      "save": 76
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 80,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 66
+      },
+      "save": 66
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 72
+      },
+      "save": 72
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "tree": {
+        "background": "rgba(0, 0, 0, 0)",
+        "row": 86
+      },
+      "save": 86
+    }
+  ],
+  "guides": [
+    {
+      "x": 492,
+      "y": 632,
+      "width": 1,
+      "height": 243
+    },
+    {
+      "x": 492,
+      "y": 912,
+      "width": 1,
+      "height": 243
+    },
+    {
+      "x": 492,
+      "y": 1192,
+      "width": 1,
+      "height": 269
+    }
+  ],
+  "assets": [
+    {
+      "src": "./assets/building-imgImageBallotBoxWithCheck.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42.203125,
+        178,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageServiceDog.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        44.078125,
+        214,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageConstruction.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        428,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageBallotBoxWithCheck.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        66,
+        460,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageBrain.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        66,
+        492,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageTriangularFlagOnPost.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        66,
+        556,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageHeavyDollarSign.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        588,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageBomb.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        620,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageMushroom.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        652,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageRecycle.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        684,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageMaleMage.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        716,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageWomanWrestling.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        748,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageKey.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        90,
+        812,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageMuscle.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        844,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageDart.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        876,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageAnger.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        908,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageCactus.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        940,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageFaceWithMonocle.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        972,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageTheHornsSignOfTheHorns.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        1004,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageStarStruckGrinningFaceWithStarEyes.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        42,
+        1036,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageConstruction.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        257,
+        15.5,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageTriangularFlagOnPost.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        419.90625,
+        15.5,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageHeavyDollarSign.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        582.625,
+        15.5,
+        16,
+        16
+      ]
+    },
+    {
+      "src": "./assets/building-imgImageHeavyDollarSign.png",
+      "complete": true,
+      "width": 150,
+      "height": 150,
+      "rendered": [
+        480,
+        144,
+        78,
+        78
+      ]
+    }
+  ],
+  "glyphs": [
+    {
+      "file": "building-imgIcon9.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon9.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon10.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon10.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon7.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon7.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon14.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon14.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon15.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon15.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon15.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon15.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon15.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon15.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon15.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon15.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon18.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon18.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon3.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon3.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon4.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon4.svg\")",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "building-imgIcon5.svg",
+      "mask": "url(\"http://127.0.0.1:55132/references/assets/building-imgIcon5.svg\")",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "actionAssets": [
+    {
+      "name": "Главная страница",
+      "file": "building-imgIcon9.svg"
+    },
+    {
+      "name": "Поиск страниц",
+      "file": "building-imgIcon10.svg"
+    },
+    {
+      "name": "Справка",
+      "file": "building-imgIcon7.svg"
+    }
+  ],
+  "errors": [],
+  "maxX": 0,
+  "maxY": 0.16700000000003,
+  "scope": "Source font coordinates only when Segoe UI is installed; portable text flow, parameter isolation and Tree transparency on every host. No whole-screen pixel fidelity or AT acceptance."
+}

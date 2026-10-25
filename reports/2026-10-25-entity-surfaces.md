@@ -45,3 +45,11 @@ Loading delta и media frame delta в измеренных package-сценар�
 Card/Avatar geometry и reference glyph adapters experimental; registry остаётся11 control contracts, не14. Именованные Avatar diameters и Card spacing — documented foundation fallback, не новые geometry tokens. Card elevated, rich whole-card media/actions, полный Avatar Block/Add Button, surface instance contracts, полная i18n, OS/AT и все states ещё не приняты. Fresh Figma acceptance не сделана: ранее MCP запросы context/screenshot ограничены Starter quota. Нового pixel match с Figma этим проходом не заявляется.
 
 25 component entry modules не означают25/52 готовых specs: AvatarGroup входит в Avatar entry, provider/host APIs считаются отдельно. Main Lab Dialog остаётся явной композицией, а не выдан за public Modal; reference applications уже используют public Modal. Backend/AI/collaboration и отправка приглашений в локальном pilot не добавлялись. Общая цель остаётся активной.
+
+## Граница проверки шрифтов и GitHub CI
+
+CI Ubuntu для runtime9522781 прошёл package49, contracts123 и TypeScript, но остановился на Building: source-reference Segoe UI дал бы78px для первого абзаца, fallback дал104px. Windows с установленным Segoe UI сохраняет исходные36 text boxes; подстановка bundled Inter меняет36 измерений и поэтому не принята как незаметная замена. Координаты и screenshot baselines не обновлялись.
+
+Building verifier теперь отдельно фиксирует доступность исходного шрифта. При наличии Segoe UI сохраняются строгие x/y/height и guide assertions относительно исходной Figma. Без исходного шрифта fidelity явно not-verified-source-font-unavailable; проверяются source content, x/landmarks, переносы без наложений, границы, guides и неизменность authored typography при24 combinations темы/размера/масштаба. Дополнительный bundled Inter fixture проверяет portable flow на каждом host, включая Windows. Это не исправляет поставку исходного шрифта и не объявляет Linux точным Figma match. Runtime и опубликованная v45 не менялись. [Windows source/font + portable flow](../portal/component-lab/pilots/settings-parametric/verification/entities-v45/building-platform-font.json), [падение Linux CI](../portal/component-lab/pilots/settings-parametric/verification/entities-v45/ci-font-failure.txt).
+
+Новый CI запускается после изменения harness; его terminal статус записывается отдельно.

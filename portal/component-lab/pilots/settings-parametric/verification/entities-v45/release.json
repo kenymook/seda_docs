@@ -58,13 +58,21 @@
       "exitCode": 0,
       "installedPackage": true,
       "sourceAlias": false
+    },
+    "buildingTypography": {
+      "sourceFont": "Segoe UI",
+      "windowsSourceCoordinates": "verified36 text boxes; maxX0/maxY<=0.167px",
+      "portableInterFlow": "verified36 text boxes, no overlaps/content loss",
+      "linuxFidelity": "not verified when source font unavailable",
+      "runtimeChanged": false
     }
   },
   "limits": [
     "Selected Chromium matrices and agent visual review; not full Figma/OS/AT acceptance.",
     "Card/Avatar/Table geometry experimental; registry still11 control contracts.",
     "Reference glyph adapters are not new public icon catalog exports.",
-    "Local fixtures are not real backend/AI/collaboration."
+    "Local fixtures are not real backend/AI/collaboration.",
+    "Authored Building exact Figma geometry depends on installed Segoe UI; portable fallback flow is checked separately."
   ],
   "archive": {
     "sourceHashesMatched": 826,
@@ -111,6 +119,21 @@
       "path": "build-metadata.json",
       "sha256": "5716c93f553ee2b76ec5a0b1636154615d7c76860ccee9d4b6b393d86743225d",
       "bytes": 259091
+    },
+    {
+      "path": "building-platform-font.json",
+      "sha256": "fff67f7492a0d8a811da2ca92c85825374488e2eb89fcd931e714ba8d2f5e1c0",
+      "bytes": 26798
+    },
+    {
+      "path": "building-platform-font.log",
+      "sha256": "98bf0290d06d6e14d1169b6e60d897a57ad88c2ea436e06630c70058723be0bc",
+      "bytes": 546
+    },
+    {
+      "path": "ci-font-failure.txt",
+      "sha256": "ad386cab11c4d90730d2d7f501f90b0b3b3856017f0ffccadc955d9d176366fc",
+      "bytes": 701
     },
     {
       "path": "inspector-building-dark-1440-m.png",
