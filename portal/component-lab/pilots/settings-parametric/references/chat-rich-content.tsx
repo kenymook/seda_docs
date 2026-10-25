@@ -13,7 +13,7 @@ export function RichContent({blocks,onFile}:{blocks:RichBlock[];onFile:()=>void}
    return block.ordered?<ol key={key}>{items}</ol>:<ul key={key}>{items}</ul>;
   }
   if(block.kind==='table')return <Table key={key} label="Таблица исходного сообщения" density="medium" bordered minWidth={320}
-   columns={(block.rows[0]??[]).map((text,i)=>({key:String(i),header:text||'Колонка '+(i+1),type:'text' as const,render:(row:{cells:string[]})=><SourceText text={row.cells[i]??''}/>}))}
+   columns={(block.rows[0]??[]).map((text,i)=>({key:String(i),header:text||'Колонка '+(i+1),type:'text' as const,render:(row:{cells:string[]})=><Text variant="body/default"><SourceText text={row.cells[i]??''}/></Text>}))}
    data={block.rows.slice(1).map((cells,i)=>({id:String(i),cells}))} rowKey={row=>row.id}/>;
   if(block.kind==='excerpt')return <section key={key} className="chat-source-excerpt" aria-label="Текст исходного примера"><header><Text variant="caption/default">Текст · исторический пример</Text></header><RichContent blocks={block.blocks} onFile={onFile}/></section>;
   if(block.kind==='file')return <Card key={key} className="chat-source-file" variant="clickable" interactiveStrategy="whole-card" title={block.text} description="4 файла · HTML, CSS, JavaScript · сведения об исходном примере" onClick={onFile}/>;

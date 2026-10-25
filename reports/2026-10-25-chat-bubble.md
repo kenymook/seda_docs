@@ -10,6 +10,8 @@ Body остаётся aria-live=off, streaming требует явной policy 
 
 Rich message table и historical file card используют public Table/Card. Удалены локальные table paddings и стили, перезаписывавшие анатомию этих компонентов. Known-empty slot detection переиспользуется Card и ChatBubble.
 
+Общий application-text verifier выявил реальный дефект миграции: render ячеек Table потерял SEDA Text wrapper. Восстановлен body/default внутри cells; assertion на semantic role/scale сохранён. Первая остановка полного прогона не объявляется успехом и не скрывается заменой selector/baseline. После исправления сборка и проверки повторяются.
+
 Token diff — только два AI alias leaves. Purple-on-purple foreground заменён существующим text.on-brand.primary, icon — icon.on-brand.primary; namespace/importer не менялись. Theme build проверяет обязательные message roles и отказывает при удалённом AI foreground.
 
 ## Проверка
