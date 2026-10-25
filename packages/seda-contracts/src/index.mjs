@@ -9,6 +9,7 @@ import { createFormState, transitionForm, formEvents } from './form.mjs';
 import { deriveState, evaluateRules, validateRuleDefinition, mergeDescriptionIds } from './rules.mjs';
 import { validateWebProfile } from './web.mjs';
 import { compileTypography } from './typography.mjs';
+export {createSliderModel,snapSliderValue} from './slider.mjs';
 export { compileTypography, deriveTypography, createTypographyBindings, typographyRoles, validateTypographyScale } from './typography.mjs';
 
 export { createApiInspector, createTokenResolver, createFormState, transitionForm, formEvents, deriveState, mergeDescriptionIds };
@@ -36,6 +37,7 @@ const requiredChecks = {
   DropdownMenu: [['text-content', 'triggerLabel'], ['menu-items'], ['menu-open']],
   Tree: [['text-content','label'],['tree-items'],['tree-state']],
   TextArea: [['text-content','label'],['textarea-value'],['textarea-layout'],['error-message'],['native-disabled']],
+  Slider: [['text-content','label'],['slider-model'],['error-message'],['native-disabled']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {
@@ -76,6 +78,20 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
   function resolveMeasurement(value, theme) {
     if (own(value, 'collection')) return resolver.resolve(value, { theme });
     return { value: value.value, type: 'number', cssValue: `${value.value}px`, source: value.source, unit: 'px', chain: [] };
+  }
+
+  function sliderGeometryIssues(contract, at, themes) {
+    if(contract?.id!=='Slider')return [];
+    const problems=[];
+    for(const key of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap']) {
+      const measurement=contract.geometry?.[key], location=at+'/geometry/'+key;
+      if(!measurement){problems.push(issue('SLIDER_GEOMETRY_MISSING',location,'Slider requires an explicit documented measurement.'));continue;}
+      for(const theme of themes)try{
+        const resolved=resolveMeasurement(measurement,theme);
+        if(!Number.isFinite(resolved.value)||resolved.value<0||key!=='focusOffset'&&resolved.value===0)problems.push(issue('SLIDER_GEOMETRY_INVALID',location,'Slider dimensions must be positive; focusOffset may be zero.'));
+      }catch(error){problems.push(issue(error.code??'TOKEN_INVALID',location,error.message));}
+    }
+    return problems;
   }
 
   function bindRecipe(recipe, configuration, form) {
@@ -119,6 +135,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
   function validateInstance(name, props, { interaction = {}, contract = bundle.contracts.find(item => item.id === name) } = {}) {
     if (!contract) return { valid: false, issues: [issue('COMPONENT_UNKNOWN', '/', `Unknown component ${name}`)], checks: [] };
     const invalidContract = schemaIssues('component', contract, '/contract');
+    if(!invalidContract.length)invalidContract.push(...sliderGeometryIssues(contract,'/contract',bundle.system.supportedThemes));
     if (invalidContract.length) return { valid: false, issues: invalidContract, checks: [] };
     if (contract.id !== name) return { valid: false, issues: [issue('COMPONENT_ID_MISMATCH', '/contract/id', `Requested ${name}, received ${contract.id}.`)], checks: [] };
     const actual = api.get(name);
@@ -128,6 +145,8 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     for (const [check, prop] of requiredChecks[name]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === 'instance')) invalidContract.push(issue('REQUIRED_RULE_MISSING', '/contract/rules', `Required ${check} check is missing.`));
     if (invalidContract.length) return { valid: false, issues: invalidContract, checks: [] };
     if (!props || typeof props !== 'object' || Array.isArray(props)) return { valid: false, issues: [issue('API_PROPS_OBJECT', '/props', 'Props must be a plain object.')], checks: [] };
+    const commonGeometryKeys=new Set([...Object.keys(bundle.system.sizes.m),...Object.keys(bundle.system.geometry),'boxSizing']);
+    for(const key of Object.keys(contract.geometry??{}))if(commonGeometryKeys.has(key))return {valid:false,issues:[issue('COMPONENT_GEOMETRY_COLLISION','/contract/geometry/'+key,'Component geometry must not replace a shared preset.')],checks:[]};
     const effective = { ...props };
     const appliedDefaults = {};
     for (const [key, value] of Object.entries(api.get(name).observedDefaults)) if (effective[key] === undefined && (value === null || typeof value !== 'object')) { effective[key] = value; appliedDefaults[key] = value; }
@@ -158,6 +177,8 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const at = `/contracts/${contract.id}`;
       const actual = api.get(contract.id);
       const expected = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${contract.id}Props`, nativeElement: nativeElements[contract.id] };
+      for(const key of Object.keys(contract.geometry??{}))if(key in candidate.system.sizes.m||key in candidate.system.geometry||key==='boxSizing')result.push(issue('COMPONENT_GEOMETRY_COLLISION',at+'/geometry/'+key,'Component geometry must not replace a shared preset.'));
+      result.push(...sliderGeometryIssues(contract,at,candidate.system.supportedThemes));
       for (const [key, value] of Object.entries(expected)) if (contract.api[key] !== value) result.push(issue('API_SOURCE_MISMATCH', `${at}/api/${key}`, `Expected ${value}, based on the actual component source.`));
       if (JSON.stringify([...(actual.props.size.enumValues ?? [])].sort()) !== JSON.stringify(Object.keys(candidate.system.sizes).sort())) result.push(issue('API_SIZE_DRIFT', `${at}/api/size`, 'Source size union and system presets differ.'));
       for (const problem of api.validate(contract.id, contract.targetDefaults, { requireRequired: false })) result.push({ ...problem, path: `${at}/targetDefaults${problem.path.replace('/props', '')}` });
@@ -186,6 +207,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const attempt = (at, fn) => { try { return fn(); } catch (error) { result.push(issue(error.code ?? 'TOKEN_INVALID', at, error.message)); } };
       for (const [size, values] of Object.entries(candidate.system.sizes)) for (const [key, value] of Object.entries(values)) attempt(`/system/sizes/${size}/${key}`, () => resolveMeasurement(value, theme));
       for (const [key, value] of Object.entries(candidate.system.geometry)) attempt(`/system/geometry/${key}`, () => resolveMeasurement(value, theme));
+      for(const contract of candidate.contracts)for(const[key,value]of Object.entries(contract.geometry??{}))attempt(`/contracts/${contract.id}/geometry/${key}`,()=>resolveMeasurement(value,theme));
       for (const [key, value] of Object.entries(candidate.profile.layout)) if (value && typeof value === 'object') attempt(`/profile/layout/${key}`, () => resolveMeasurement(value, theme));
       for (const [key, ref] of Object.entries(candidate.system.typography)) {
         const value = attempt(`/system/typography/${key}`, () => key === 'message' ? resolver.resolveBranch(ref, { theme }) : resolver.resolve(ref, { theme }));
@@ -233,6 +255,8 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     return { ...resolveMap(bundle.system.sizes[controlSize]), ...resolveMap(bundle.system.geometry), boxSizing: bundle.system.boxSizing };
   }
 
+  function componentGeometry(name,size,theme){const common=controlGeometry(size,theme),contract=bundle.contracts.find(c=>c.id===name);return{...common,...Object.fromEntries(Object.entries(contract?.geometry??{}).map(([key,value])=>{if(key in common)throw new ContractValidationError([issue('COMPONENT_GEOMETRY_COLLISION','/contracts/'+name+'/geometry/'+key,'Component geometry must not replace a shared preset.')]);return[key,resolveMeasurement(value,theme)];}))};}
+
   function compileControl(name, props, { theme = bundle.profile.configuration.theme, interaction = {} } = {}) {
     const contract = bundle.contracts.find(item => item.id === name);
     const checked = validateInstance(name, props, { interaction });
@@ -247,10 +271,12 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       try { resolver.resolve({ collection: branch.collection, path: [...branch.path, ...suffix], expectedType: 'color' }, {theme}); }
       catch (error) { throw new ContractValidationError([issue(error.code ?? 'TOKEN_INVALID', `/contracts/${name}/tokenRequirements/${effective.variant ?? 'default'}/${suffix.join('/')}`, error.message)]); }
     }
-    return { component: name, geometry: controlGeometry(effective.size, theme), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}), runtimeConformance: 'not-checked' };
+    return { component: name, geometry: componentGeometry(name,effective.size,theme), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(name==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}), runtimeConformance: 'not-checked' };
   }
 
   // Explicit temporary adapters for documented component token gaps; resolved with provenance.
+  function sliderSemantics(theme){return{'--status-danger-text':resolver.resolve({collection:'semantic',path:['status','danger','text'],expectedType:'color'},{theme})};}
+
   function menuSemantics(theme) {
     return Object.fromEntries([['--focus-ring',['focus','ring']], ['--status-danger-text',['status','danger','text']], ['--status-danger-container',['status','danger','container']]].map(([property,path]) => [property, resolver.resolve({collection:'semantic',path,expectedType:'color'}, {theme})]));
   }
@@ -277,7 +303,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const auxiliaryTokens = contract.tokenBranches.focus ? { focus: resolver.resolveBranch(contract.tokenBranches.focus, { theme }) } : {};
       instances[role] = { component: recipe.component, props, state: checked.state, tokenBranch: resolver.resolveBranch(branch, { theme }), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry, tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}) }]));
+    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
     const foundationTokens = Object.fromEntries([['surface',['surface','base']],['separator',['border','subtle']],['focus',['focus','ring']]].map(([key,path])=>[key,resolver.resolve({collection:'semantic',path,expectedType:'color'},{theme})]));
     return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry, typography: { roles: compileTypography(resolver,{theme}), family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }

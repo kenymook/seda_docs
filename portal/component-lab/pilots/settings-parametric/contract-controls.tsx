@@ -1,6 +1,7 @@
 import React, { createContext, forwardRef, useContext } from "react";
 import {
   Select as SedaSelect,
+  Slider as SedaSlider,
   Checkbox as SedaCheckbox,
   Radio as SedaRadio,
   Toggle as SedaToggle,
@@ -91,4 +92,8 @@ export const Tabs = forwardRef<HTMLDivElement, React.ComponentProps<typeof SedaT
 ));
 export const DropdownMenu = forwardRef<HTMLDivElement, React.ComponentProps<typeof SedaDropdownMenu>>((props, ref) => (
   <SedaDropdownMenu {...props} {...checkedAttributes("DropdownMenu", props, useContext(Catalog))} ref={ref} />
+));
+
+export const Slider = forwardRef<HTMLDivElement, React.ComponentProps<typeof SedaSlider>>((props, ref) => (
+  <SedaSlider {...props} {...checkedAttributes("Slider", props, useContext(Catalog))} ref={ref} />
 ));

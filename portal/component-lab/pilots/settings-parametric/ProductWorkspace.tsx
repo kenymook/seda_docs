@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import {
   Text,
   Table,
-  Slider,
   Avatar,
   AvatarGroup,
   Button,
@@ -20,7 +19,7 @@ import {
   type AlertVariant,
 } from "@seda-ai/ui";
 
-import { Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
+import { Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
 import {EditorWorkspace} from "./EditorWorkspace";
 
 type Props = {
@@ -520,7 +519,7 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
   const [uploads, setUploads] = useState<Record<string, File[]>>({});
   return <div className="visual-consistency">
     <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
-    <Text as="p" variant="caption/default">Slider — экспериментальный установленный компонент. Его single/range поведение проверяется отдельно; нового instance contract пока нет.</Text>
+    <Text as="p" variant="caption/default">Slider использует исполняемый контракт SEDA. Нативное поведение и геометрия проверяются отдельно; Figma/OS/AT приёмка остаётся открытой.</Text>
     {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
       <Text as="h2" variant="heading/section">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
       <div className="visual-consistency__fields">

@@ -117,6 +117,15 @@ export function createTabsWebBindings(control) {
   return { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } };
 }
 
+export function createSliderWebBindings(control){
+ const at='/controls/Slider';if(control?.component!=='Slider'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled Slider geometry and required roles.');
+ const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['slider'],at+'/tokenBranch','--');
+ for(const[key,name]of Object.entries({height:'height',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:true}),at+'/geometry/'+key);
+ for(const key of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap'])target.add('--seda-slider-'+kebab(key),px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='focusOffset'}),at+'/geometry/'+key);
+ const error=control.semanticAdapters?.['--status-danger-text'];target.add('--status-danger-text',leaf(error,at+'/semanticAdapters/error','color'),at+'/semanticAdapters/error');
+ return{vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Slider'}};
+}
+
 export function createTextAreaWebBindings(control){
  const at='/controls/TextArea';if(control?.component!=='TextArea'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled TextArea with required roles.');
  const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['text-area'],at+'/tokenBranch','--');
@@ -234,7 +243,7 @@ export function createWebBindings(compiled) {
       evidence: target.evidence,
     };
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), TextArea:createTextAreaWebBindings(compiled.controls?.TextArea), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
+  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), Slider:createSliderWebBindings(compiled.controls?.Slider), TextArea:createTextAreaWebBindings(compiled.controls?.TextArea), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

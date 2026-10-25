@@ -8,6 +8,7 @@ import { createContractEngine } from "../../seda-contracts/src/index.mjs";
 import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
 export async function verifyProfileSources(root) {
   const repo = path.resolve(root, "../..");
+  for(const file of ['slider.mjs','slider.d.mts'])assert.deepEqual(await fs.readFile(path.join(root,'dist/internal',file)),await fs.readFile(path.join(repo,'packages/seda-contracts/src',file)),'Installed Slider core must equal canonical contract source');
   const metadata = JSON.parse(
     await fs.readFile(path.join(root, "dist/profiles.json"), "utf8"),
   );
@@ -126,7 +127,8 @@ export async function verifyProfileSources(root) {
     await fs.mkdir(path.join(temp, "packages/seda-contracts/contracts"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/src"));
     await fs.copyFile(path.join(repo,'packages/seda-contracts/src/typography.mjs'),path.join(temp,'packages/seda-contracts/src/typography.mjs'));
-    for (const name of ["Button", "IconButton", "TextArea"])
+    for(const file of ['slider.mjs','slider.d.mts'])await fs.copyFile(path.join(repo,'packages/seda-contracts/src',file),path.join(temp,'packages/seda-contracts/src',file));
+    for (const name of ["Button", "IconButton", "TextArea", "Slider"])
       await fs.copyFile(
         path.join(repo, "packages/seda-contracts/contracts", name + ".json"),
         path.join(temp, "packages/seda-contracts/contracts", name + ".json"),

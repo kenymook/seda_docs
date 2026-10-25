@@ -26,6 +26,7 @@ export function buildThemeAssets(packageRoot, output) {
       ),
     ]),
   );
+  const sliderContract=JSON.parse(fs.readFileSync(path.join(repo,'packages/seda-contracts/contracts/Slider.json'),'utf8'));
   const textAreaContract=JSON.parse(fs.readFileSync(path.join(repo,'packages/seda-contracts/contracts/TextArea.json'),'utf8'));
   const stylesBytes = fs.readFileSync(path.join(packageRoot, "src/styles.css"));
   const providerBytes = fs.readFileSync(
@@ -47,6 +48,7 @@ export function buildThemeAssets(packageRoot, output) {
     schemaVersion: "0.1.0",
     sources: {
       "tokens.json": hash(tokensBytes),
+      ...Object.fromEntries(['contracts/Slider.json','src/slider.mjs','src/slider.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       "packages/seda-contracts/src/typography.mjs":hash(fs.readFileSync(path.join(repo,'packages/seda-contracts/src/typography.mjs'))),
       "packages/seda-contracts/contracts/TextArea.json":hash(fs.readFileSync(path.join(repo,"packages/seda-contracts/contracts/TextArea.json"))),
       "packages/seda-contracts/system.json": hash(systemBytes),
@@ -266,6 +268,13 @@ export function buildThemeAssets(packageRoot, output) {
     for (const property of usedProperties)
       if (["--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-","--popover-","--slider-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
         throw Error("Required public component token is missing: " + property);
+    report.sliderGeometry??={};report.sliderGeometry[key]={};
+    for(const name of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap']){
+      const ref=sliderContract.geometry?.[name];if(!ref)throw Error('Required Slider geometry is missing: '+name);
+      const raw=dimension(ref,theme),leaf=raw.type?raw:{...raw,type:'number',chain:[]};if(!Number.isFinite(leaf.value)||(name==='focusOffset'?leaf.value<0:leaf.value<=0))throw Error('Invalid Slider geometry: '+name);
+      report.sliderGeometry[key][name]=leaf;add('--seda-slider-'+name.replace(/[A-Z]/g,c=>'-'+c.toLowerCase()),leaf);
+    }
+    if(theme===system.supportedThemes[0])css.push(':root{'+Object.entries(report.sliderGeometry[key]).map(([name,leaf])=>'--seda-slider-'+name.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())+':'+leaf.cssValue+';').join('')+'}');
     const primitives = {
       choiceRadius: resolver.resolve(
         {

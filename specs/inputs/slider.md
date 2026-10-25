@@ -11,7 +11,7 @@
 
 ## React runtime — experimental
 
-Публичный `Slider` из установленного `@seda-ai/ui` реализует horizontal single/range. Это расширение React-библиотеки по существующей spec, а не новая Figma приёмка: свежая service-сверка, instance contract, target OS/AT/Firefox/WebKit и touch screen-reader review остаются открытыми. Для точного свободного числового ввода сохраняется TextField с владельцем черновика; Slider не парсит выражения, единицы CSS или Mixed.
+Публичный `Slider` из установленного `@seda-ai/ui` реализует horizontal single/range. [D31](../../packages/seda-contracts/SLIDER-CONTRACT.md) подключает исполняемый instance contract к общему компилятору и использует один числовой модуль в React/Node. Это расширение React-библиотеки по существующей spec; свежая Figma-сверка, target OS/AT/Firefox/WebKit и touch screen-reader review остаются открытыми. Для точного свободного числового ввода сохраняется TextField с владельцем черновика; Slider не парсит выражения, единицы CSS или Mixed.
 
 ### Исполняемый API
 
@@ -39,7 +39,7 @@
 - Up/Down, Home/End и Page Up/Down работают нативно. В RTL шкала отражена, Left увеличивает значение, Right уменьшает; вертикальные стрелки сохраняют числовое направление.
 - На границе и при declined intent DOM не уходит от controlled value. Drag/keyboard публикуют непрерывные намерения; отдельного сетевого save/undo transaction API здесь нет. Группировка изменений документа и commit/cancel принадлежат приложению.
 - Pointer cancel прекращает жест, уже принятые owner значения сохраняются. Native fieldset disabled запрещает также клики по общему rail. Unmount освобождает capture нативно.
-- Params scale/X/Y/radius лаборатории используют этот export и прежний compiler. Range на странице «Компоненты» — интерактивный пример, не фильтр вымышленных данных и не компонент с новым registry instance contract.
+- Params scale/X/Y/radius лаборатории используют этот export и общий compiler. Range на странице «Компоненты» проходит тот же instance contract; его значения принадлежат примеру и не фильтруют вымышленные данные. Проверка геометрии измеряет rail с минимумом44px, а не выдаёт его за кнопку32px.
 
 ### Геометрия и tokens
 

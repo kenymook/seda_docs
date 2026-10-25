@@ -7,6 +7,7 @@ import { verifyIconAssets } from "./icon-assets.mjs";
 import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const source = path.join(root, "src");
+const sliderCore=path.resolve(root,'../seda-contracts/src/slider.mjs');
 const iconCatalog = verifyIconAssets(root);
 const output = path.join(root, "dist");
 const staging = path.join(root, `.build-dist-${process.pid}`);
@@ -59,6 +60,10 @@ function esmSpecifier(context) {
       ) {
         const value = node.moduleSpecifier.text;
         if (value.startsWith(".")) {
+          if(path.resolve(path.dirname(file.fileName),value)===sliderCore){
+            const specifier=ts.factory.createStringLiteral('../../internal/slider.mjs');
+            return ts.isImportDeclaration(node)?ts.factory.updateImportDeclaration(node,node.modifiers,node.importClause,specifier,node.attributes):ts.factory.updateExportDeclaration(node,node.modifiers,node.isTypeOnly,node.exportClause,specifier,node.attributes);
+          }
           const resolved = ts.resolveModuleName(
             value,
             file.fileName,
@@ -117,6 +122,9 @@ try {
     afterDeclarations: [esmSpecifier],
   });
   if (result.emitSkipped) throw new Error("TypeScript skipped package output");
+  fs.mkdirSync(path.join(staging,'internal'),{recursive:true});
+  fs.copyFileSync(sliderCore,path.join(staging,'internal/slider.mjs'));
+  fs.copyFileSync(sliderCore.replace(/\.mjs$/,'.d.mts'),path.join(staging,'internal/slider.d.mts'));
   fs.copyFileSync(
     path.join(source, "styles.css"),
     path.join(staging, "styles.css"),

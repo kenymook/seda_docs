@@ -1,2 +1,2 @@
-export const componentNames = ['Button', 'IconButton', 'TextField', 'Select', 'Checkbox', 'Radio', 'Toggle', 'Tabs', 'DropdownMenu', 'Tree', 'TextArea'];
-export const nativeElements = { Button: 'button', IconButton: 'button', TextField: 'input', Select: 'select', Checkbox: 'input', Radio: 'fieldset', Toggle: 'input', Tabs: 'div', DropdownMenu: 'div', Tree:'div', TextArea:'textarea' };
+export const componentNames = ['Button', 'IconButton', 'TextField', 'Select', 'Checkbox', 'Radio', 'Toggle', 'Tabs', 'DropdownMenu', 'Tree', 'TextArea', 'Slider'];
+export const nativeElements = { Button: 'button', IconButton: 'button', TextField: 'input', Select: 'select', Checkbox: 'input', Radio: 'fieldset', Toggle: 'input', Tabs: 'div', DropdownMenu: 'div', Tree:'div', TextArea:'textarea',Slider:'div' };

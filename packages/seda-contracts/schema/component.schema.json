@@ -20,7 +20,8 @@
         "Tabs",
         "DropdownMenu",
         "Tree",
-        "TextArea"
+        "TextArea",
+        "Slider"
       ]
     },
     "api": {
@@ -223,6 +224,13 @@
             "minLength": 1
           }
         }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
       }
     }
   },

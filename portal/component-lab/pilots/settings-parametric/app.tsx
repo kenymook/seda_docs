@@ -1,4 +1,4 @@
-import {Table, Card, Avatar, Tooltip, Slider} from "@seda-ai/ui";
+import {Table, Card, Avatar, Tooltip} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -18,7 +18,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 import "@seda-ai/ui/styles.css";
 import "./styles.css";
-import { Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
+import { Slider, Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
 import { createWorkspaceBindings } from "./workspace-bindings.mjs";
 import "./workspace.css";
@@ -517,7 +517,7 @@ function App() {
       setMeasurements(
         Array.from(
           document.querySelectorAll(
-            "[data-workspace] .seda-button,[data-workspace] .seda-icon-button,[data-workspace] .seda-field__control,[data-workspace] .seda-choice,[data-workspace] .seda-toggle,[data-workspace] .seda-tabs__tab",
+            "[data-workspace] .seda-button,[data-workspace] .seda-icon-button,[data-workspace] .seda-field__control,[data-workspace] .seda-choice,[data-workspace] .seda-toggle,[data-workspace] .seda-tabs__tab,[data-workspace] .seda-slider__rail",
           ),
         )
           .filter((el) => el.getBoundingClientRect().height > 0)
@@ -527,7 +527,7 @@ function App() {
               el.querySelector("input,select")?.id ||
               "control-" + index,
             h: el.getBoundingClientRect().height,
-            expected: el.matches(".workspace-row-choice")
+            expected: el.matches(".seda-slider__rail") ? Math.max(compiled.controls.Slider.geometry.minRailHeight.value,d.height) : el.matches(".workspace-row-choice")
               ? Math.max(d.icon, d.font)
               : el.id === "save" && form.saving
                 ? (pendingHeightRef.current ?? d.height)

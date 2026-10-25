@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Slider",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Slider/Slider.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Slider/Slider.tsx",
+    "export": "SliderProps",
+    "nativeElement": "div"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "div",
+      "required": true
+    },
+    {
+      "name": "control",
+      "element": "input",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "label",
+      "prop": "label",
+      "required": true
+    },
+    {
+      "name": "value",
+      "element": "output",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "mode": "single",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "disabled": false
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none",
+      "error"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "filled"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "slider"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Visible nonempty plain label agrees with actual API.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D31"
+    },
+    {
+      "id": "model",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Controlled single/range values use the shared finite grid and require an owner.",
+      "check": "slider-model",
+      "layer": "instance",
+      "decision": "D31"
+    },
+    {
+      "id": "error",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "A supplied error contains meaningful text.",
+      "check": "error-message",
+      "layer": "instance",
+      "decision": "D31"
+    },
+    {
+      "id": "disabled",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Native disabled is real; ancestor fieldset still needs browser evidence.",
+      "check": "native-disabled",
+      "layer": "instance",
+      "decision": "D31"
+    },
+    {
+      "id": "geometry",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "DOM rail/thumb/text follow compiled values and shared profile overrides.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D31"
+    },
+    {
+      "id": "focus",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Native focus remains visible and thumb Tab order stays stable.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D31"
+    },
+    {
+      "id": "keys",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Native keys respect effective bounds and RTL; owner refusal preserves DOM.",
+      "check": "slider-keyboard",
+      "layer": "browser",
+      "decision": "D31"
+    },
+    {
+      "id": "pointer",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Actual native and rail gestures cannot cross thumbs.",
+      "check": "slider-pointer",
+      "layer": "browser",
+      "decision": "D31"
+    },
+    {
+      "id": "form",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Native FormData, owner reset and fieldset semantics agree with the host.",
+      "check": "slider-form",
+      "layer": "browser",
+      "decision": "D31"
+    },
+    {
+      "id": "text",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md",
+      "condition": "Supported Slider instance",
+      "expected": "Visible and accessible value text agrees with the actual formatter without executing it in the compiler.",
+      "check": "slider-value-text",
+      "layer": "browser",
+      "decision": "D31"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "native-single-range",
+      "status": "supported",
+      "reason": "Shared numeric facts and typed source API; runtime evidence is separate."
+    },
+    {
+      "id": "fresh-figma-os-at",
+      "status": "not-checked",
+      "reason": "Instance validation cannot certify Figma fidelity, native platform or assistive technology."
+    }
+  ],
+  "evidence": {
+    "source": "specs/inputs/slider.md",
+    "baseline": "packages/seda-ui/src/components/Slider/Slider.tsx",
+    "runtimeStatus": "not-checked"
+  },
+  "geometry": {
+    "minRailHeight": {
+      "value": 44,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    },
+    "minThumbSize": {
+      "value": 12,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    },
+    "trackHeight": {
+      "value": 4,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    },
+    "thumbBorderWidth": {
+      "value": 2,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    },
+    "focusWidth": {
+      "value": 2,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    },
+    "focusOffset": {
+      "value": 3,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    },
+    "headerGap": {
+      "value": 8,
+      "unit": "px",
+      "source": "packages/seda-contracts/SLIDER-CONTRACT.md#geometry"
+    }
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "track",
+        "fill"
+      ],
+      [
+        "track",
+        "background"
+      ],
+      [
+        "track",
+        "hover"
+      ],
+      [
+        "thumb",
+        "surface"
+      ],
+      [
+        "thumb",
+        "border"
+      ],
+      [
+        "thumb",
+        "hover"
+      ],
+      [
+        "thumb",
+        "active"
+      ],
+      [
+        "thumb",
+        "disabled"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "disabled",
+        "track"
+      ],
+      [
+        "disabled",
+        "thumb"
+      ],
+      [
+        "label",
+        "foreground"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "value",
+        "foreground"
+      ],
+      [
+        "value",
+        "disabled"
+      ]
+    ]
+  }
+}

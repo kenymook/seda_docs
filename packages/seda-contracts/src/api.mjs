@@ -131,9 +131,16 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
   const metadata = new Map();
   for (const name of COMPONENTS) {
     const source = program.getSourceFile(files[name].types);
-    const declaration = source.statements.find(node => ts.isInterfaceDeclaration(node) && node.name.text === `${name}Props`);
-    if (!declaration) throw new Error(`API_SOURCE_UNSUPPORTED: missing ${name}Props interface`);
-    const ownNames = new Set(declaration.members.map(member => member.name?.text).filter(Boolean));
+    const declaration = source.statements.find(node => (ts.isInterfaceDeclaration(node)||ts.isTypeAliasDeclaration(node)) && node.name.text === `${name}Props`);
+    if (!declaration) throw new Error(`API_SOURCE_UNSUPPORTED: missing ${name}Props declaration`);
+    const ownNames=new Set(),seen=new Set();
+    const collect=node=>{
+      if(!node||seen.has(node))return;seen.add(node);
+      if(ts.isInterfaceDeclaration(node)||ts.isTypeLiteralNode(node)){for(const member of node.members)if(ts.isPropertySignature(member)&&member.name)ownNames.add(member.name.getText(source).replace(/^['"]|['"]$/g,''));for(const clause of node.heritageClauses??[])for(const base of clause.types){const name=base.expression.getText(source);collect(source.statements.find(n=>(ts.isInterfaceDeclaration(n)||ts.isTypeAliasDeclaration(n))&&n.name.text===name));}}
+      else if(ts.isTypeAliasDeclaration(node)||ts.isParenthesizedTypeNode(node))collect(node.type);
+      else if(ts.isUnionTypeNode(node)||ts.isIntersectionTypeNode(node))node.types.forEach(collect);
+      else if(ts.isTypeReferenceNode(node)&&ts.isIdentifier(node.typeName))collect(source.statements.find(n=>(ts.isInterfaceDeclaration(n)||ts.isTypeAliasDeclaration(n))&&n.name.text===node.typeName.text));
+    };collect(declaration);
     const publicDeclaration = program.getSourceFile(probeFile).statements.find(node => ts.isTypeAliasDeclaration(node) && node.name.text === `__${name}PublicProps`);
     const type = checker.getTypeAtLocation(publicDeclaration);
     const props = {};
@@ -147,6 +154,7 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
         ...(values ? { enumValues: values } : {}),
         origin: ownNames.has(symbol.name) ? 'own' : ['ref', 'key'].includes(symbol.name) ? 'react' : 'native',
         acceptsHandler: members.some(member => checker.getSignaturesOfType(member, ts.SignatureKind.Call).length > 0),
+        ...(members.flatMap(member=>checker.getSignaturesOfType(member,ts.SignatureKind.Call)).length>0&&members.flatMap(member=>checker.getSignaturesOfType(member,ts.SignatureKind.Call)).every(signature=>!!(checker.getReturnTypeOfSignature(signature).flags&ts.TypeFlags.StringLike))?{handlerReturnsString:true}:{}),
         acceptsSlot: checker.isTypeAssignableTo(slotType, propertyType),
       };
     }
@@ -154,6 +162,7 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
       name, sourcePath: path.relative(repoRoot, files[name].types).split(path.sep).join('/'),
       implementationPath: path.relative(repoRoot, files[name].implementation).split(path.sep).join('/'),
       props, refElement: implementations[name].elementType, observedDefaults: implementations[name].defaults, defaultSources: implementations[name].defaultSources,
+      ...(type.isUnion()?{discriminatedUnion:true}:{}),
     });
   }
 
@@ -192,14 +201,14 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
             issues.push(issue('API_BINDING_TYPE', key, `${descriptor} is not assignable to ${name}.${key}: ${prop.type}`));
             continue;
           }
-          expression = descriptor === '$handler' ? '(...__args: any[]): void => {}' : '(null as unknown as __SedaSlot)';
+          expression = descriptor === '$handler' ? prop.handlerReturnsString?'(...__args: any[]): string => ""':'(...__args: any[]): void => {}' : '(null as unknown as __SedaSlot)';
         } else expression = serialize(value, new Set());
         entries.push({ key, expression });
       } catch (error) {
         issues.push(issue(error.code ?? 'API_VALUE_UNCHECKED', key, error.message, error.code ? 'violated' : 'not-checked'));
       }
     }
-    return [...issues, ...checkExpressions(name, entries, 'API_PROP_TYPE')];
+    return [...issues, ...checkExpressions(name, entries, 'API_PROP_TYPE', {complete:requireRequired&&api.discriminatedUnion})];
   }
 
   /** Check a binding's whole value domain, rather than one current sample. */
@@ -234,14 +243,14 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
     return [...issues, ...checkExpressions(name, entries, 'BINDING_TYPE_MISMATCH')];
   }
 
-  function checkExpressions(name, entries, code) {
+  function checkExpressions(name, entries, code, {complete=false}={}) {
     if (!entries.length) return [];
     const issues = [];
     // Presence is checked above; Pick preserves each provided property's actual
     // requiredness/type. Partial would incorrectly admit undefined for a
     // required string such as IconButton's aria-label.
     const providedKeys = entries.map(entry => JSON.stringify(entry.key)).join(' | ');
-    probeText = `${header}\nconst __props = {\n${entries.map(entry => `  ${JSON.stringify(entry.key)}: ${entry.expression},`).join('\n')}\n} satisfies Pick<__${name}PublicProps, ${providedKeys}>;\n`;
+    probeText = `${header}\ntype __DistributivePick<T,K extends keyof T>=T extends unknown?Pick<T,K>:never;\nconst __props = {\n${entries.map(entry => `  ${JSON.stringify(entry.key)}: ${entry.expression},`).join('\n')}\n} satisfies ${complete?`__${name}PublicProps`:`__DistributivePick<__${name}PublicProps, ${providedKeys}>`};\n`;
     probeSource = undefined;
     program = ts.createProgram(program.getRootFileNames(), options, host, program);
     const source = program.getSourceFile(probeFile);

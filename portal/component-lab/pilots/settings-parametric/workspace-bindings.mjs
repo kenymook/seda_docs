@@ -46,6 +46,7 @@ export function createWorkspaceBindings(
     vars,
     evidence,
     derivations: {
+      slider:{source:'compiled.controls.Slider.geometry + shared slider.mjs',minRailHeight:compiled.controls.Slider.geometry.minRailHeight,railHeight:Math.max(compiled.controls.Slider.geometry.minRailHeight.value,derived.height),thumbSize:Math.max(compiled.controls.Slider.geometry.minThumbSize.value,derived.icon),trackHeight:compiled.controls.Slider.geometry.trackHeight,instanceContract:true,runtimeConformance:'requires-browser-evidence'},
       choiceGap: {
         base: compiled.geometry.textFieldAffixGap,
         parameter: parameters.airX,
@@ -78,7 +79,7 @@ export function createWorkspaceBindings(
     },
     parameters,
     coverage: {
-      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree"],
+      contract: ["Button", "IconButton", "TextField", "Select", "Checkbox", "Radio", "Toggle", "Tabs", "DropdownMenu", "Tree", "TextArea", "Slider"],
       libraryAdapter: ["SplitView", "FileUpload", "Badge", "Tag", "Alert", "Toast", "Table", "Card", "Avatar", "AvatarGroup"],
       composition: ["Navigation", "Dialog", "Editor"],
     },

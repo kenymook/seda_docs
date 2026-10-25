@@ -52,4 +52,10 @@ Compiled profile теперь содержит foundationTokens: surface/base, b
 
 Десятый executable component: actual TreeProps/defaults, unique hierarchy/depth, controlled ownership, disabled inheritance, independent selected/expanded ids и serializable state snapshot. Canonical components/tree имеет 11 color leaves с provenance; createTreeWebBindings потребляет resolved roles и общий geometry. Static browser declarations остаются not-checked. Installed React 18/19 сравнивает семь DOM snapshots на runtime (14 суммарно), а отдельные действия проверяют keyboard/range/focus/RTL. Пример editor сохраняет selected object и expanded branches вместе с model/panels; старые version1 saves без tree fields поддержаны.
 
-Текущий compiler registry содержит десять компонентов. SplitView остаётся library adapter без instance contract. Virtual/lazy/reorder/checkbox tree и AT/native desktop пока не проверены.
+Исторически D29 расширил registry до десяти компонентов. SplitView остаётся library adapter без instance contract. Virtual/lazy/reorder/checkbox tree и AT/native desktop пока не проверены.
+
+## D31 — Slider: общая числовая модель и собственная геометрия
+
+После TextArea двенадцатый контракт — Slider. Node compiler и installed React используют один browser-safe numeric core: single/range, min/max/step, peer bounds и nonempty thumbLabels. Actual TypeScript union сохраняет связь mode/value/thumbLabels; formatter остаётся непрозрачным callback. Browser checks формы, focus, pointer, клавиатуры и aria-valuetext явно not-checked на этапе Node.
+
+Семь собственных измерений с provenance проходят через compileControl/compile, createSliderWebBindings и CSS package. Нельзя заменить ими общую height/font/icon или удалить обязательный цвет/размер. Проверка Lab измеряет Slider rail отдельно от высоты Button. Подробные границы и geometry gaps: [D31](SLIDER-CONTRACT.md).
