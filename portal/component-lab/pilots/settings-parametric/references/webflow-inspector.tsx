@@ -26,9 +26,21 @@ export function AuthorInspector({document,page,node,bp,measurement,locked,onPend
    <div className="wf-property-origin"><Text as="span" variant="caption/tiny" title={source.path?.join('/')}>{own?bp:source.kind==='inherit'?'Inherited':source.kind==='recipe'?'Recipe':source.kind==='rule'?'Cascaded':'Default'}</Text><Button variant="ghost" disabled={!own||locked} aria-label={'Reset '+label} onClick={()=>command(m.setStyle(document,node.className,bp,key,undefined))}>Reset</Button></div>
   </div>;
  }
+ function spacingDiagram(fields:[m.StyleKey,string][]){
+  return <div className="wf-spacing-editor">
+   <Text as="p" variant="caption/tiny">Margin · Padding</Text>
+   <div className="wf-spacing-editor__diagram" aria-label="Margin and padding values">
+    {fields.map(([key,label])=><div key={key} className={'wf-spacing-editor__cell wf-spacing-editor__cell--'+key}>{field(key,label)}</div>)}
+   </div>
+   <details className="wf-spacing-editor__sources"><summary>Sources and reset</summary><div>{fields.map(([key,label])=>{
+    const resolved=m.resolveProperty(document,page,node.id,key,bp),source=resolved.chain.at(-1)!,own=Object.hasOwn(rule,key);
+    return <div key={key} className="wf-spacing-editor__source" data-source-property={key}><Text as="span" variant="caption/tiny" title={source.path?.join('/')}>{label}: {own?bp:source.kind==='inherit'?'Inherited':source.kind==='recipe'?'Recipe':source.kind==='rule'?'Cascaded':'Default'}</Text><Button variant="ghost" disabled={!own||locked} aria-label={'Reset '+label} onClick={()=>command(m.setStyle(document,node.className,bp,key,undefined))}>Reset</Button></div>;
+   })}</div></details>
+  </div>;
+ }
  const style=<>
   <section className="wf-selector"><Text as="p" variant="caption/default">Style selector · {bp}</Text><Select id="wf-class" label="CSS class" value={node.className} disabled={locked} options={Object.keys(document.rules).map(value=>({value,label:value}))} onValueChange={className=>{if(typeof className==='string')command(m.updateNode(document,page.id,node.id,{className}));}}/><Text as="p" variant="caption/default">{document.pages.flatMap(p=>p.nodes).filter(n=>n.className===node.className).length} element(s) share this class</Text></section>
-  <Accordion type="multiple" label="Свойства CSS элемента" variant="compact" size="compact" headingLevel={3} forceMount defaultValue={groups.map(([title])=>title)} items={groups.map(([title,fields])=>({id:title,title,content:<div className="wf-fields">{fields.map(([key,label])=>field(key,label))}</div>}))}/>
+  <Accordion type="multiple" label="Свойства CSS элемента" variant="compact" size="compact" headingLevel={3} forceMount defaultValue={groups.map(([title])=>title)} items={groups.map(([title,fields])=>({id:title,title,content:title==='Spacing'?spacingDiagram(fields):<div className="wf-fields">{fields.map(([key,label])=>field(key,label))}</div>}))}/>
   <section className="wf-computed"><Text as="h3" variant="heading/panel">Computed · browser</Text>{measurement?<><Text as="p" variant="code/small" id="wf-computed-size">{measurement.width.toFixed(2)} × {measurement.height.toFixed(2)} px</Text><Text as="p" variant="code/small" id="wf-computed-type">font {measurement.fontSize} / {measurement.lineHeight}</Text></>:<Text as="p" variant="caption/default">No rendered element</Text>}<Text as="p" variant="caption/default">Размеры в CSS px до canvas zoom. Панель редактирует реконструированный документ, а не токены SEDA.</Text></section>
   <Accordion type="multiple" label="Происхождение типографики" variant="compact" size="compact" headingLevel={3} forceMount defaultValue={[]} items={[{id:"section-0",title:"Typography provenance",content:<><pre id="wf-type-provenance">{JSON.stringify(m.resolveProperty(document,page,node.id,'fontSize',bp).chain,null,2)}</pre></>}]}/>
  </>;

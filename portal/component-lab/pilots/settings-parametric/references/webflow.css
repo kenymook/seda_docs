@@ -25,3 +25,24 @@
 .wf-app[data-seda-size=xl] .wf-header__left .seda-button:nth-of-type(n+3),.wf-app[data-seda-size=xl] .wf-header__right .wf-share,.wf-app[data-seda-size=xl] .wf-header__right .seda-icon-button[disabled]{display:none}
 .wf-app[data-seda-size=xl] .wf-breakpoint-icons{display:none}
 .wf-app[data-seda-size=xl] .wf-toolbar{flex-wrap:nowrap}
+
+.wf-inspector [role=tablist]{position:static;background:var(--container-neutral-default)}
+.wf-spacing-editor{min-width:0}
+.wf-spacing-editor>p{margin:0 0 6px;color:var(--text-secondary)}
+.wf-spacing-editor__diagram{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,var(--seda-control-height,var(--seda-preset-height,28px)));gap:4px;padding:8px;min-width:0;border:1px solid var(--border-subtle);border-radius:var(--seda-control-radius,var(--seda-preset-radius,4px));background:var(--container-neutral-default)}
+.wf-spacing-editor__cell{position:relative;z-index:1;min-width:0}
+.wf-spacing-editor__cell--marginTop{grid-area:1/2}.wf-spacing-editor__cell--marginRight{grid-area:2/4}.wf-spacing-editor__cell--marginBottom{grid-area:3/2}.wf-spacing-editor__cell--marginLeft{grid-area:2/1}
+.wf-spacing-editor__cell--paddingTop{grid-area:1/3}.wf-spacing-editor__cell--paddingRight{grid-area:2/3}.wf-spacing-editor__cell--paddingBottom{grid-area:3/3}.wf-spacing-editor__cell--paddingLeft{grid-area:2/2}
+.wf-spacing-editor__cell .wf-property,.wf-spacing-editor__cell .seda-field{width:100%;min-width:0}
+.wf-spacing-editor__cell .seda-field__label{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.wf-spacing-editor__cell .seda-field__control{width:100%;min-width:0}
+.wf-spacing-editor__cell .seda-field__input{text-align:center;text-overflow:clip}
+.wf-spacing-editor__cell .wf-property-origin{display:none}
+.wf-spacing-editor__sources{margin-top:8px}
+.wf-spacing-editor__sources summary{cursor:pointer;color:var(--text-secondary)}
+.wf-spacing-editor__sources>div{padding-top:6px}
+.wf-spacing-editor__source{display:flex;align-items:center;justify-content:space-between;gap:4px;min-width:0}
+.wf-spacing-editor__source>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wf-app[data-spacing-layout=stacked] .wf-spacing-editor__diagram{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:10px;background:transparent}
+.wf-app[data-spacing-layout=stacked] .wf-spacing-editor__cell{grid-area:auto}
+.wf-app[data-spacing-layout=stacked] .wf-spacing-editor__cell .seda-field__label{position:static;width:auto;height:auto;clip:auto;white-space:normal;overflow:visible}
