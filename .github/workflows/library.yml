@@ -137,9 +137,12 @@ jobs:
           cache: npm
           cache-dependency-path: |
             packages/seda-ui/package-lock.json
+            packages/seda-contracts/package-lock.json
             portal/component-lab/pilots/settings-parametric/package-lock.json
       - run: npm ci
         working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: packages/seda-contracts
       - run: npm run build
         working-directory: packages/seda-ui
       - run: npm ci
