@@ -108,7 +108,7 @@ Webflow version24: визуальный просмотр XL/150% обнаруж�
 
 ## Framer — плотные панели и границы окружения
 
-React editor на installed SEDA связывает три native canvas и inspector. Screenshot XL/150% выявил перенос title и потерю площади холста, затем overlap title с toolbar. Исправлена раскладка без уменьшения SEDA scale/X/Y;16 appearance samples проверяют title height, соседние bounds и canvas≥350px при window height1100. При больших профилях toolbars прокручиваются в своих границах. Полноценная overflow-menu модель ещё нужна. Source H1 height90 vs actual inferred135 не подгоняется.
+React editor на installed SEDA связывает три native canvas и inspector. Screenshot XL/150% выявил перенос title и потерю площади холста, затем overlap title с toolbar. Исправлена раскладка без уменьшения SEDA scale/X/Y;16 appearance samples проверяют title height, соседние bounds и canvas≥350px при window height1100. В последующем этапе Framer header получил адаптивное меню действий на SEDA DropdownMenu: Canvas, Insert text, Save и Publish остаются видимыми при XL/150%/X24/Y12, остальные команды доступны с клавиатуры. Внутренние frame/canvas toolbars пока прокручиваются в своих границах. Source H1 height90 vs actual inferred135 не подгоняется.
 
 Добавление Framer в Lab header вызвало51px overflow на1024:8 workspace groups FAIL, исправление границ header вернуло21/21 PASS. Production environment имеет дополнительный iframe; первый count-all assertion получил4 вместо3, после уточнения ownership13 production checks PASS. Исходный report сохранён. Это исправление области теста, не удаление iframe или ослабление native geometry/paint требований.
 
