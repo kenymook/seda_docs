@@ -76,9 +76,10 @@ export async function verifyControlSurfaces(page,origin,output){
  const labRail=[];
  for(const theme of ['light','dark']){
   await page.locator('#theme').selectOption(theme);
-  const background=await page.locator('#theme').evaluate(node=>getComputedStyle(node).backgroundColor);
-  assert.equal(background,theme==='dark'?'rgba(255, 255, 255, 0.07)':'rgb(255, 255, 255)');
-  labRail.push({theme,background});
+  const surface=await page.locator('#theme').evaluate(node=>({field:getComputedStyle(node.parentElement).backgroundColor,select:getComputedStyle(node).backgroundColor}));
+  assert.equal(surface.field,theme==='dark'?'rgba(255, 255, 255, 0.07)':'rgb(255, 255, 255)');
+  assert.equal(surface.select,'rgba(0, 0, 0, 0)','SEDA Select native element stays transparent over its control surface');
+  labRail.push({theme,...surface});
  }
  assert.ok(samples.filter(x=>x.theme==='dark').reduce((sum,x)=>sum+x.layeredFields,0)>=100);
  assert.deepEqual(errors,[]);
