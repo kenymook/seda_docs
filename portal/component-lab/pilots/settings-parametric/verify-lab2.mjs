@@ -2,14 +2,17 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
-import { chromium } from "playwright";
+import { chromium, firefox, webkit } from "playwright";
 import { createPilotServer } from "./server.mjs";
 import { derive } from "./lab-model.mjs";
-const output = path.join(import.meta.dirname, ".diagnostics-lab2");
+const engineName = process.env.SEDA_BROWSER_ENGINE || "chromium";
+const engines = { chromium, firefox, webkit };
+if (!Object.hasOwn(engines, engineName)) throw new Error(`Unsupported browser engine: ${engineName}`);
+const output = path.join(import.meta.dirname, engineName === "chromium" ? ".diagnostics-lab2" : `.diagnostics-lab2-${engineName}`);
 await fs.mkdir(output, { recursive: true });
 const server = await createPilotServer({ port: 0 });
 const url = `http://127.0.0.1:${server.address().port}/?review=1`;
-const browser = await chromium.launch({
+const browser = await engines[engineName].launch({
   headless: true,
   ...(process.env.SEDA_BROWSER_EXECUTABLE
     ? { executablePath: process.env.SEDA_BROWSER_EXECUTABLE }

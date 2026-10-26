@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {chromium} from 'playwright';
+import {chromium,firefox,webkit} from 'playwright';
 import {createPilotServer} from './server.mjs';
-const output=path.join(import.meta.dirname,'.diagnostics-recents');await fs.mkdir(output,{recursive:true});
+const engineName=process.env.SEDA_BROWSER_ENGINE||'chromium',engines={chromium,firefox,webkit};if(!Object.hasOwn(engines,engineName))throw Error('Unsupported browser engine: '+engineName);
+const output=path.join(import.meta.dirname,engineName==='chromium'?'.diagnostics-recents':'.diagnostics-recents-'+engineName);await fs.mkdir(output,{recursive:true});
 const server=await createPilotServer({port:0}),base='http://127.0.0.1:'+server.address().port+'/references/recents.html';
-const browser=await chromium.launch({headless:true,...(process.env.SEDA_BROWSER_EXECUTABLE?{executablePath:process.env.SEDA_BROWSER_EXECUTABLE}:{})});
+const browser=await engines[engineName].launch({headless:true,...(process.env.SEDA_BROWSER_EXECUTABLE?{executablePath:process.env.SEDA_BROWSER_EXECUTABLE}:{})});
 const page=await browser.newPage({viewport:{width:1440,height:1288}}),errors=[],results=[];page.setDefaultTimeout(8000);
 page.on('pageerror',error=>errors.push(error.message));
 const list=()=>page.locator('[role=listitem][data-file-id]'),file=id=>page.locator('[data-file-id="'+id+'"]');

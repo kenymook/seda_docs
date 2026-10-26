@@ -3,10 +3,11 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';
-import {chromium} from 'playwright';
+import {chromium,firefox,webkit} from 'playwright';
 import {createPilotServer} from './server.mjs';
 
-const root=import.meta.dirname,output=path.join(root,'.diagnostics-building-marks');
+const engineName=process.env.SEDA_BROWSER_ENGINE||'chromium',engines={chromium,firefox,webkit};if(!Object.hasOwn(engines,engineName))throw Error('Unsupported browser engine: '+engineName);
+const root=import.meta.dirname,output=path.join(root,engineName==='chromium'?'.diagnostics-building-marks':'.diagnostics-building-marks-'+engineName);
 await fs.mkdir(output,{recursive:true});
 await build({absWorkingDir:root,entryPoints:['references/document-marks.ts','references/document-model.ts'],outdir:output,bundle:true,format:'esm',platform:'node',outExtension:{'.js':'.mjs'}});
 const marks=await import(pathToFileURL(path.join(output,'document-marks.mjs'))),model=await import(pathToFileURL(path.join(output,'document-model.mjs')));
@@ -32,7 +33,7 @@ await check('marks-range-toggle-edit-and-structure',()=>{
 });
 
 const server=await createPilotServer({port:0}),url='http://127.0.0.1:'+server.address().port+'/references/building.html';
-const browser=await chromium.launch({headless:true,...(process.env.SEDA_BROWSER_EXECUTABLE?{executablePath:process.env.SEDA_BROWSER_EXECUTABLE}:{})});
+const browser=await engines[engineName].launch({headless:true,...(process.env.SEDA_BROWSER_EXECUTABLE?{executablePath:process.env.SEDA_BROWSER_EXECUTABLE}:{})});
 const page=await browser.newPage({viewport:{width:1440,height:1000}});page.setDefaultTimeout(8000);const errors=[];page.on('pageerror',error=>errors.push(error.message));
 const field=()=>page.locator('#doc-block-block-165'),toolbar=()=>page.getByRole('toolbar',{name:'Форматирование выделенного текста'});
 async function select(start,end){await field().evaluate((element,{start,end})=>{element.focus();const point=offset=>{const walk=document.createTreeWalker(element,NodeFilter.SHOW_TEXT);let text=walk.nextNode(),count=0;while(text){const length=text.textContent?.length??0;if(offset<=count+length)return{text,offset:offset-count};count+=length;text=walk.nextNode();}throw Error('Selection outside text');};const a=point(start),b=point(end),range=document.createRange();range.setStart(a.text,a.offset);range.setEnd(b.text,b.offset);const selection=getSelection();selection.removeAllRanges();selection.addRange(range);element.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));},{start,end});if(end>start)await toolbar().waitFor();}

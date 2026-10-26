@@ -95,6 +95,7 @@ function App() {
   ]);
   const [modalName, setModalName] = useState("");
   const modal = useRef<HTMLDialogElement>(null);
+  const modalReturnFocus = useRef<HTMLElement | null>(null);
   const [measurements, setMeasurements] = useState<
     { id: string; h: number; expected: number; flexible?: boolean }[]
   >([]);
@@ -752,7 +753,10 @@ function App() {
                     iconLeft={<Icon name="add" />}
                     size={configuration.controlSize}
                     variant="primary"
-                    onClick={() => modal.current?.showModal()}
+                    onClick={(event) => {
+                      modalReturnFocus.current = event.currentTarget;
+                      modal.current?.showModal();
+                    }}
                   >
                     Создать проект
                   </Button>
@@ -893,7 +897,7 @@ function App() {
                               items={[
                                 {type:"group",id:"project",label:p.name,items:[
                                   {id:"open",label:"Открыть сведения",icon:<Icon name="info" />,onSelect:()=>chooseProject(p.name)},
-                                  {id:"duplicate",label:"Создать копию",icon:<Icon name="copy" />,onSelect:()=>{setModalName(p.name+" — копия");modal.current?.showModal();}},
+                                  {id:"duplicate",label:"Создать копию",icon:<Icon name="copy" />,onSelect:()=>{modalReturnFocus.current=document.activeElement as HTMLElement;setModalName(p.name+" — копия");modal.current?.showModal();}},
                                 ]},
                                 {type:"separator",id:"danger-separator"},
                                 {id:"delete",label:"Удалить проект",icon:<Icon name="trash" />,danger:true,onSelect:()=>{
@@ -1279,6 +1283,10 @@ function App() {
         ref={modal}
         aria-labelledby="modal-title"
         style={workspaceStyle}
+        onClose={() => requestAnimationFrame(() => {
+          if (modalReturnFocus.current?.isConnected) modalReturnFocus.current.focus();
+          else document.getElementById("create")?.focus();
+        })}
       >
         <form
           className="modalBody"
