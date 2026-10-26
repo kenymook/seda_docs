@@ -1,4 +1,4 @@
-import {Table, Card, Avatar, Tooltip, Alert} from "@seda-ai/ui";
+import {Table, Card, Avatar, Tooltip, Alert, Accordion} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -1140,8 +1140,8 @@ function App() {
               <Text as="p" variant="body/small">
                 Контракты: {workspaceBinding.coverage.contract.join(", ")}. Table, Card и Avatar — публичные SEDA-компоненты с экспериментальной геометрией; формы — композиции.
               </Text>
-              <details className="workspace-tokens">
-                <summary>Источники дополнительных контролов</summary>
+              <Accordion id="workspace-token-sources" label="Источники дополнительных контролов" type="single" collapsible variant="compact" size="compact" items={[{
+                id: "sources", title: "Источники", content: <div className="workspace-tokens">
                 {workspaceBinding.evidence.map((item: any) => (
                   <div key={`${item.component}:${item.property}:${item.path}`}>
                     <code>
@@ -1157,7 +1157,8 @@ function App() {
                     </small>
                   </div>
                 ))}
-              </details>
+                </div>
+              }]} />
             </Card>
             <Card as="section" title="Активный узел" variant="compact" className="inspectcard" status={<code id="lab-active-node">{selected}</code>}>
               <div className="result" id="nodeResult">
@@ -1226,8 +1227,8 @@ function App() {
                 Дополнительная геометрия — экспериментальный режим библиотеки, не сертифицированный
                 профиль.
               </Text>
-              <details>
-                <summary>Источники применённых значений</summary>
+              <Accordion id="applied-value-sources" label="Источники применённых значений" type="single" collapsible variant="compact" size="compact" items={[{
+                id: "sources", title: "Источники", content: <div className="applied-value-sources">
                 <Select
                   id="source-component"
                   label="Источник компонента"
@@ -1265,7 +1266,8 @@ function App() {
                   </div>
                 ))}
                 <code>tokens SHA256: {provenance.tokensSha256}</code>
-              </details>
+                </div>
+              }]} />
             </Card>
           </aside>
         </div>

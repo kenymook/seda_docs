@@ -87,12 +87,13 @@ try {
     assert.equal(await left.locator('[data-seda-contract="Slider"]').count(), 4);
     assert.equal(await left.locator('input[data-seda-contract="Checkbox"]').count(), 1);
     assert.equal(await right.locator(".seda-card.inspectcard").count(), 5);
+    assert.equal(await right.locator(".seda-accordion").count(), 2);
     assert.equal(await left.locator(".seda-alert").count(), 1);
     assert.equal(await right.locator("#conformance.seda-alert").count(), 1);
     assert.equal(await right.locator("button.seda-button[data-node]").count(), 7);
     await right.locator('[data-node="airX"]').click();
     assert.equal(await right.locator("#lab-active-node").textContent(), "airX");
-    await right.locator("details").last().locator("summary").click();
+    await right.locator("#applied-value-sources .seda-accordion__trigger").click();
     assert.equal(await right.locator('select#source-component[data-seda-contract="Select"]').count(), 1);
     await right.locator("#source-component").selectOption("save");
     assert.match(await right.locator(".source").first().textContent(), /seda|Lab|tokens|control/i);
@@ -102,7 +103,7 @@ try {
     await settle();
     assert.equal((await page.evaluate(() => window.sedaPilot.getCompiled())).configuration.controlSize, "l");
     assert.equal((await page.evaluate(() => window.sedaPilot.getLab())).parameters.strict, false);
-    await right.locator("details").last().locator("summary").click();
+    await right.locator("#applied-value-sources .seda-accordion__trigger").click();
     await page.setViewportSize({width:1440,height:900});
     await page.evaluate(() => window.scrollTo(0,0));
     await page.screenshot({path:path.join(output,"service-panels-dark.png")});
