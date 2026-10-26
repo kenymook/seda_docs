@@ -1283,6 +1283,12 @@ function App() {
         ref={modal}
         aria-labelledby="modal-title"
         style={workspaceStyle}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            modal.current?.close();
+          }
+        }}
         onClose={() => requestAnimationFrame(() => {
           if (modalReturnFocus.current?.isConnected) modalReturnFocus.current.focus();
           else document.getElementById("create")?.focus();

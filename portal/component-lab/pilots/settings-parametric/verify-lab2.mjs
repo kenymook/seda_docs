@@ -569,11 +569,14 @@ try {
     assert.ok(await page.locator("#modal").evaluate((el) => el.open));
     await page.locator("#modalName").fill("New Project");
     await page.locator("#modalName").press("Enter");
+    await page.waitForFunction(() => !document.getElementById("modal").open);
     assert.equal(await page.locator("#modal").evaluate((el) => el.open), false);
     assert.equal(await page.locator("#cardsView .productcard").count(), 5);
     await page.locator("#create").click();
     await page.keyboard.press("Escape");
+    await page.waitForFunction(() => !document.getElementById("modal").open);
     assert.equal(await page.locator("#modal").evaluate((el) => el.open), false);
+    await page.waitForFunction(() => document.activeElement?.id === "create");
     assert.equal(
       await page
         .locator("#create")
