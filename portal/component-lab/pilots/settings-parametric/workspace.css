@@ -99,10 +99,16 @@ body.dark [data-workspace] {
 .workspace-radio .seda-radio-group__items {
   gap: 0;
 }
-.workspace-members-toolbar {
+[data-workspace] :is(.workspace-filters, .workspace-members-toolbar) {
+  /* Same text/padding/icon capacity recipe as Files. These are composition
+     inputs, not another set of control presets or a change to control geometry. */
+  --workspace-filter-gap: 14px;
+  --workspace-filter-max-columns: 2;
+  --workspace-filter-min: max(170px, calc(var(--seda-control-font-size) * 12 + var(--seda-control-field-padding-inline) * 2 + var(--seda-control-icon-size) + var(--seda-control-gap)));
   display: grid;
-  grid-template-columns: 1fr minmax(140px, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(var(--workspace-filter-min), calc((100% - (var(--workspace-filter-max-columns) - 1) * var(--workspace-filter-gap)) / var(--workspace-filter-max-columns)))), 1fr));
   align-items: end;
+  gap: var(--workspace-filter-gap);
 }
 .workspace-table-scroll {
   overflow: auto;
@@ -113,12 +119,6 @@ body.dark [data-workspace] {
 }
 .workspace-invite > .seda-button {
   margin-top: 20px;
-}
-[data-workspace] .workspace-filters {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: end;
-  gap: 14px;
 }
 .workspace-filters .searchwrap {
   height: auto;
@@ -232,14 +232,15 @@ body.dark .form-section-heading span {
 }
 @media (min-width: 1600px) {
   [data-workspace] .workspace-filters {
-    grid-template-columns: minmax(170px, 1.4fr) repeat(3, minmax(120px, 1fr));
+    --workspace-filter-max-columns: 4;
   }
 }
 @media (max-width: 780px) {
-  .workspace-form-grid,
-  .workspace-members-toolbar,
-  [data-workspace] .workspace-filters {
+  .workspace-form-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+  [data-workspace] :is(.workspace-filters, .workspace-members-toolbar) {
+    --workspace-filter-max-columns: 1;
   }
   .workspace-account {
     display: none;

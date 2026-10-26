@@ -16,7 +16,13 @@ npm --prefix portal/component-lab/pilots/settings-parametric run verify
 npm --prefix portal/component-lab/pilots/settings-parametric run serve
 ```
 
-`verify` последовательно выполняет `verify-lab2.mjs`, `verify-workspace.mjs`, `verify-controls.mjs`, `verify-recents.mjs`, `verify-building.mjs`, `verify-chat.mjs`, `verify-sandbox-model.mjs` и `verify-sandbox.mjs`. Они поднимают собственные loopback-серверы на свободных портах и закрывают их после проверки. Для установленного Chromium можно задать `SEDA_BROWSER_EXECUTABLE`. Превью: http://127.0.0.1:5184/ . Проверочные fixtures библиотеки доступны при `?review=1`.
+`verify` запускает полный список проверок из `package.json`; `verify-ci.mjs` проверяет полноту и разделяет его между группами Lab и references. Browser runners поднимают собственные loopback-серверы на свободных портах и закрывают их после проверки. Для установленного Chromium можно задать `SEDA_BROWSER_EXECUTABLE`. Превью: http://127.0.0.1:5184/ . Проверочные fixtures библиотеки доступны при `?review=1`.
+
+### Вместимость фильтров
+
+Фильтры проектов и участников используют общий рецепт вместимости, уже применённый в «Файлах»: ширина зависит от текущих font, padding X, icon и gap. При увеличении параметров сетка сокращает число колонок, сохраняя геометрию самих SEDA-контролов. Верхний предел проектов — две колонки, четыре при окне от 1600 px; участников — две; при окне до 780 px — одна. Даже в широком окне крупным контролам могут потребоваться две строки.
+
+`npm --prefix portal/component-lab/pilots/settings-parametric run verify:filters` проверяет фактическую ширину самого длинного значения Select и placeholder с загруженным шрифтом, обе темы, S–XL, три набора параметров и пять ширин окна. Проверяются также совместные фильтры, reset и сохранение DOM-фокуса, курсора и значения при перестроении. В физически узкой области длинное значение может сокращаться; проверка не означает поддержку произвольной локализации или сертификацию OS/AT.
 
 ## Что реализовано
 
