@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
 import {compileTypography,createTypographyBindings,typographyRoles} from '../../seda-contracts/src/typography.mjs';
+import {controlGeometryDeclarations,controlParameterMetadata} from '../../seda-contracts/src/control-geometry.mjs';
 /** Build-time only: the consumer receives self-contained CSS and provenance JSON. */
 export function buildThemeAssets(packageRoot, output) {
   const repo = path.resolve(packageRoot, "../..");
@@ -46,8 +47,10 @@ export function buildThemeAssets(packageRoot, output) {
   const report = {
     kind: "seda-ui-profiles",
     schemaVersion: "0.1.0",
+    controlParameters:controlParameterMetadata(),
     sources: {
       "tokens.json": hash(tokensBytes),
+      ...Object.fromEntries(['src/control-geometry.mjs','src/control-geometry.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       ...Object.fromEntries(['contracts/Slider.json','src/slider.mjs','src/slider.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       ...Object.fromEntries(['contracts/NumberField.json','src/number-field.mjs','src/number-field.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       "packages/seda-contracts/src/typography.mjs":hash(fs.readFileSync(path.join(repo,'packages/seda-contracts/src/typography.mjs'))),
@@ -368,6 +371,7 @@ export function buildThemeAssets(packageRoot, output) {
       "field-padding": "text-field-padding-inline",
       gap: "text-field-affix-gap",
       "button-gap": "button-content-gap",
+      "button-padding": "button-padding-inline",
     };
     const vars = Object.entries(mapping)
       .map(
@@ -425,7 +429,11 @@ export function buildThemeAssets(packageRoot, output) {
         size +
         "-line-height);}",
     );
+    css.push('.seda-provider[data-seda-control-parameters][data-seda-size="'+size+'"]{'+vars+'}');
   }
+  css.push('.seda-provider[data-seda-control-parameters],.seda-provider[data-seda-control-parameters] '+classes+'{'+controlGeometryDeclarations()+'}');
+  css.push('.seda-provider[data-seda-control-parameters]{font-size:var(--seda-control-font-size);line-height:var(--seda-control-line-height);}');
+  css.push('.seda-provider[data-seda-control-parameters] :is(.seda-choice,.seda-toggle){--seda-control-gap:calc(var(--seda-preset-gap) + var(--seda-parameter-extra-inline));}');
   fs.writeFileSync(
     path.join(output, "profiles.json"),
     JSON.stringify(report, null, 2) + "\n",

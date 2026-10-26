@@ -319,7 +319,7 @@ p {
   font-size: 23px;
   line-height: 1;
 }
-.searchwrap input {
+.searchwrap input:not(.seda-field__input) {
   min-width: 0;
   border: 0;
   width: 100%;
@@ -330,7 +330,7 @@ p {
   outline: none;
   font-size: var(--control-font, 14px);
 }
-.toolbar select {
+.toolbar select:not(.seda-field__select) {
   height: var(--control-height, 32px);
   border: 1px solid #dce2ea;
   background: white;
@@ -433,8 +433,8 @@ td:first-child {
   display: flex;
   gap: 8px;
 }
-.fieldrow input,
-.modalBody input {
+.fieldrow input:not(.seda-field__input),
+.modalBody input:not(.seda-field__input) {
   width: 100%;
   min-width: 0;
   height: var(--control-height, 32px);
@@ -445,7 +445,7 @@ td:first-child {
   background: white;
   color: #263248;
 }
-.fieldrow input[aria-invalid="true"] {
+.fieldrow input:not(.seda-field__input)[aria-invalid="true"] {
   border-color: #d95858;
 }
 .msg {
@@ -865,14 +865,6 @@ body.dark dialog {
 }
 .fieldrow {
   align-items: flex-end;
-}
-.fieldrow .seda-field__input,
-.modalBody .seda-field__input {
-  height: 100%;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background: transparent;
 }
 .actions {
   flex-wrap: wrap;

@@ -1,3 +1,4 @@
+import{installSedaPixelReader}from'./css-value-probe.mjs';
 import assert from 'node:assert/strict';import fs from 'node:fs/promises';import path from 'node:path';import {pathToFileURL} from 'node:url';
 import {build} from 'esbuild';import {chromium} from 'playwright';import {createPilotServer} from './server.mjs';
 import {createContractEngine,deriveTypography} from '../../../../packages/seda-contracts/src/index.mjs';
@@ -18,6 +19,7 @@ export {settings as openReferenceAppearance};
 const authored=async(page,route)=>route==='building'?page.locator('.building-document>h1,.building-block h2,.building-block .building-editable').evaluateAll(nodes=>nodes.map(node=>({id:node.id,text:node.textContent,font:getComputedStyle(node).fontSize,line:getComputedStyle(node).lineHeight,family:getComputedStyle(node).fontFamily}))):route==='sandbox'?page.locator('[data-scene-node]').evaluateAll(nodes=>nodes.map(node=>({id:node.dataset.sceneNode,transform:node.getAttribute('transform'),graphics:Array.from(node.querySelectorAll('rect,ellipse,path,text')).map(shape=>Object.fromEntries(['x','y','width','height','rx','ry','cx','cy','d','font-size','transform'].map(name=>[name,shape.getAttribute(name)])))}))):null;
 
 export async function verifyApplicationText(page,origin,output){
+ await installSedaPixelReader(page);
  const engine=createContractEngine(),typography=Object.fromEntries(['light','dark'].map(theme=>[theme,engine.compile(engine.bundle.profile,{overrides:{theme:theme==='light'?'Light':'Dark',controlSize:'m'}}).typography.roles]));
  const errors=[],samples=[],reload=[],isolation=[];const error=event=>errors.push(event.message);page.on('pageerror',error);
  page.setDefaultTimeout(12000);
@@ -38,7 +40,7 @@ export async function verifyApplicationText(page,origin,output){
      for(const row of rows){assert.ok(row.role,route+' '+selector+' requires actual SEDA Text');const expected=deriveTypography(typography[theme],row.role,scale);for(const[actual,value]of [[row.size,expected.size],[row.line,expected.lineHeight],[row.weight,expected.weight],[row.spacing,expected.letterSpacing]])assert.ok(Math.abs(actual-value)<.05,JSON.stringify({route,theme,size,scale,selector,row,expected:{size:expected.size,line:expected.lineHeight,weight:expected.weight,spacing:expected.letterSpacing}}));}
      text.push({selector,rows});
     }
-    const icons=await page.locator(config.icon).evaluateAll(nodes=>nodes.map(node=>{const r=node.getBoundingClientRect();return{width:r.width,height:r.height,expected:parseFloat(getComputedStyle(node).getPropertyValue('--seda-control-icon-size'))};}));
+    const icons=await page.locator(config.icon).evaluateAll(nodes=>nodes.map(node=>{const r=node.getBoundingClientRect();return{width:r.width,height:r.height,expected:window.__sedaReadPixel(node,'--seda-control-icon-size')};}));
     assert.ok(icons.length,route+' standalone chrome icon');for(const icon of icons){assert.ok(Math.abs(icon.width-icon.expected)<=.05);assert.ok(Math.abs(icon.height-icon.expected)<=.05);}
     assert.deepEqual(await authored(page,route),original,'Appearance must not change authored typography or scene: '+route);
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);assert.equal(overflow,0,route+' document horizontal overflow');

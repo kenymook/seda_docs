@@ -967,6 +967,10 @@
 
 /* Exact control geometry and stable icon slots. Presets are standalone
    fallbacks; a validated contract supplies the --seda-control-* values. */
+.seda-field--text {
+  /* Label/helper margins own their spacing; a grid gap would add it twice. */
+  gap: 0;
+}
 .seda-button,
 .seda-icon-button,
 .seda-field--text {
@@ -1013,7 +1017,7 @@
 }
 
 .seda-button {
-  padding-inline: var(--seda-control-padding-inline, var(--seda-button-padding-x));
+  padding-inline: var(--seda-control-button-padding-inline, var(--seda-control-padding-inline, var(--seda-button-padding-x)));
   gap: var(--seda-control-gap, var(--seda-preset-button-gap, var(--seda-preset-gap)));
 }
 
@@ -1289,6 +1293,13 @@
 .seda-button[data-loading="true"] > :not(.seda-button__loading-center) { opacity: 0; }
 .seda-button__loading-center { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
 .seda-button__loading-center > .seda-button__spinner { width: var(--seda-control-icon-size, var(--seda-preset-icon-size)); height: var(--seda-control-icon-size, var(--seda-preset-icon-size)); }
+@supports (container-type: size) and (width: 1cqi) and (height: 1cqb) {
+  .seda-button__loading-center { container-type: size; min-width: 0; min-height: 0; }
+  .seda-button__loading-center > .seda-button__spinner {
+    width: min(var(--seda-control-icon-size, var(--seda-preset-icon-size)), calc(100cqi - 4px), calc(100cqb - 4px));
+    height: min(var(--seda-control-icon-size, var(--seda-preset-icon-size)), calc(100cqi - 4px), calc(100cqb - 4px));
+  }
+}
 /* Focus belongs to the entire field surface, including affixes and picker icon. */
 .seda-field__input:focus-visible,
 .seda-field__select:focus-visible { outline: none; box-shadow: none; }

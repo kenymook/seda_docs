@@ -17,189 +17,7 @@
 body.dark [data-workspace] {
   color-scheme: dark;
 }
-[data-workspace] .seda-field {
-  min-width: 0;
-  gap: var(--seda-label-gap, 6px);
-}
-[data-workspace] .seda-field__label,
-[data-workspace] .seda-choice__label,
-[data-workspace] .seda-toggle__label {
-  font-size: var(--seda-control-font-size);
-  line-height: var(--seda-control-line-height);
-  color: var(--seda-label-default);
-  font-weight: 600;
-}
-[data-workspace] .seda-field__control {
-  box-sizing: border-box;
-  width: 100%;
-  height: var(--seda-control-height);
-  min-height: var(--seda-control-height);
-  border-width: var(--seda-control-border-width);
-  border-radius: var(--seda-control-radius);
-  padding-inline: var(--seda-control-padding-inline);
-  font-size: var(--seda-control-font-size);
-  line-height: var(--seda-control-line-height);
-  background: var(--seda-surface-default);
-  border-color: var(--seda-border-default);
-  color: var(--seda-foreground-default);
-}
-[data-workspace] .seda-field__input,
-[data-workspace] .seda-field__select {
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  max-width: none;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-}
-[data-workspace] .seda-field[data-state="error"] .seda-field__control {
-  background: var(--seda-surface-error);
-  border-color: var(--seda-border-error);
-}
-[data-workspace] .seda-field__control:has(:focus-visible) {
-  outline: 2px solid var(--seda-focus-ring);
-  outline-offset: 2px;
-}
-[data-workspace] .seda-field[data-disabled="true"] {
-  opacity: 1;
-}
-[data-workspace] .seda-field[data-disabled="true"] .seda-field__control {
-  background: var(--seda-surface-disabled);
-  color: var(--seda-foreground-disabled);
-  border-color: var(--seda-border-disabled);
-}
-[data-workspace] .workspace-select .seda-field__control {
-  background: var(--seda-select-surface-default);
-  border-color: var(--seda-select-border-default);
-  color: var(--seda-select-foreground-default);
-}
-[data-workspace] .workspace-select .seda-field__label {
-  color: var(--seda-select-label-default);
-}
-[data-workspace] .workspace-select .seda-field__control:hover {
-  background: var(--seda-select-surface-hover);
-  border-color: var(--seda-select-border-hover);
-}
-[data-workspace]
-  .workspace-select
-  .seda-field__control:has(select:focus-visible) {
-  background: var(--seda-select-surface-focus);
-  border-color: var(--seda-select-border-focus);
-  outline-color: var(--seda-select-focus-ring);
-}
-[data-workspace] .workspace-select[data-state="error"] .seda-field__control {
-  background: var(--seda-select-surface-error);
-  border-color: var(--seda-select-border-error);
-}
-[data-workspace] .workspace-select[data-disabled="true"] .seda-field__control {
-  background: var(--seda-select-surface-disabled);
-  color: var(--seda-select-foreground-disabled);
-  border-color: var(--seda-select-border-disabled);
-}
-[data-workspace] option {
-  color: var(--seda-select-foreground-default);
-  background: var(--seda-select-surface-default);
-}
-[data-workspace] .seda-choice,
-[data-workspace] .seda-toggle {
-  --seda-choice-mark-size: var(--lab-choice-size);
-  box-sizing: border-box;
-  min-height: var(--seda-control-height);
-  gap: var(--lab-choice-gap);
-  font-size: var(--seda-control-font-size);
-  line-height: var(--seda-control-line-height);
-}
-[data-workspace] .seda-choice__control {
-  appearance: none;
-  position: relative;
-  flex-shrink: 0;
-  width: var(--lab-choice-size);
-  height: var(--lab-choice-size);
-  margin: 0;
-  border: var(--seda-control-border-width) solid
-    var(--seda-checkbox-control-border-default);
-  border-radius: var(--lab-choice-radius);
-  background: var(--seda-checkbox-control-surface-default);
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-}
-[data-workspace] .seda-choice__control:checked,
-[data-workspace] .seda-choice__control[type="checkbox"]:indeterminate:not(:disabled) {
-  background: var(--seda-checkbox-control-surface-checked);
-  border-color: var(--seda-checkbox-control-border-checked);
-}
-[data-workspace] .seda-choice__control:checked::after {
-  content: "";
-  display: block;
-  width: 55%;
-  height: 55%;
-  background: var(--seda-checkbox-control-icon-checked);
-  clip-path: polygon(0 50%, 18% 30%, 40% 55%, 85% 0, 100% 18%, 40% 100%);
-}
-[data-workspace] .seda-choice__control[type="checkbox"]:indeterminate::after {
-  content: "";
-  width: 60%;
-  height: 2px;
-  background: var(--seda-checkbox-control-icon-indeterminate);
-  clip-path: none;
-}
-[data-workspace] .seda-choice__control[type="checkbox"]:disabled {
-  background: var(--seda-checkbox-control-surface-disabled);
-  border-color: var(--seda-checkbox-control-border-disabled);
-  cursor: not-allowed;
-}
-[data-workspace] .workspace-radio .seda-choice__control {
-  border-radius: 50%;
-  background: var(--seda-radio-control-surface-default);
-  border-color: var(--seda-radio-control-border-default);
-}
-[data-workspace] .workspace-radio .seda-choice__control:checked {
-  background: var(--seda-radio-control-surface-selected);
-  border-color: var(--seda-radio-control-border-selected);
-}
-[data-workspace] .workspace-radio .seda-choice__control:checked::after {
-  width: 45%;
-  height: 45%;
-  border-radius: 50%;
-  clip-path: none;
-  background: var(--seda-radio-control-dot-selected);
-}
-[data-workspace] .seda-toggle__control {
-  border-color: var(--seda-toggle-border-default);
-  flex-shrink: 0;
-  box-sizing: border-box;
-  width: var(--lab-toggle-width);
-  height: var(--lab-toggle-height);
-  margin: 0;
-  border-radius: 999px;
-  background: var(--seda-toggle-track-off-default);
-}
-[data-workspace] .seda-toggle__control::after {
-  width: var(--lab-choice-size);
-  height: var(--lab-choice-size);
-  background: var(--seda-toggle-thumb-default);
-}
-[data-workspace] .seda-toggle__control:checked {
-  background: var(--seda-toggle-track-on-default);
-}
-[data-workspace] .seda-toggle__control:checked::after {
-  background: var(--seda-toggle-thumb-on);
-  transform: translateX(var(--lab-choice-size));
-}
-[data-workspace] .seda-choice__control:focus-visible {
-  outline-color: var(--seda-checkbox-focus-ring);
-}
-[data-workspace] .seda-toggle__control:focus-visible {
-  outline-color: var(--seda-toggle-focus-ring);
-}
-[data-workspace] .seda-choice[data-disabled="true"] .seda-choice__label {
-  color: var(--seda-checkbox-label-disabled);
-}
+/* Public SEDA owns control geometry, paint and states. */
 .product-masthead {
   display: flex;
   align-items: center;
@@ -356,7 +174,7 @@ body.dark [data-workspace] {
   overflow: hidden;
 }
 .workspace-row-choice {
-  --seda-choice-head: var(--lab-choice-size);
+  --seda-choice-head: var(--seda-control-choice-size);
   grid-template-columns: auto;
   column-gap: 0;
   padding: 0 !important;
@@ -446,7 +264,7 @@ body.dark .form-section-heading span {
   }
 }
 [data-workspace] .view-switch .seda-button {
-  padding: 0 var(--lab-button-padding);
+  padding: 0 var(--seda-control-button-padding-inline);
   border-radius: var(--seda-control-radius);
   font-size: var(--seda-control-font-size);
   line-height: var(--seda-control-line-height);
@@ -480,83 +298,14 @@ body.dark .form-section-heading span {
 [data-workspace] table:not(.seda-table__element) td {
   font-size: var(--seda-control-font-size);
   line-height: var(--seda-control-line-height);
-  padding-block: calc(8px + var(--lab-padding-y));
+  padding-block: calc(8px + var(--seda-control-padding-block));
   padding-inline: var(--seda-control-padding-inline);
 }
 [data-workspace] table:not(.seda-table__element) th {
   line-height: var(--seda-control-line-height);
-  padding-block: var(--lab-padding-y);
+  padding-block: var(--seda-control-padding-block);
   padding-inline: var(--seda-control-padding-inline);
 }
-[data-workspace] .workspace-checkbox .seda-choice__label {
-  color: var(--seda-checkbox-label-default);
-}
-[data-workspace] .workspace-radio .seda-choice__label {
-  color: var(--seda-radio-label-default);
-}
-[data-workspace] .workspace-toggle .seda-toggle__label {
-  color: var(--seda-toggle-label-default);
-}
-[data-workspace] .workspace-checkbox[data-disabled="true"] .seda-choice__label {
-  color: var(--seda-checkbox-label-disabled);
-}
-[data-workspace]
-  .workspace-checkbox
-  .seda-choice__control:not(:disabled):hover {
-  border-color: var(--seda-checkbox-control-border-hover);
-}
-[data-workspace] .workspace-radio .seda-choice__control:focus-visible {
-  outline-color: var(--seda-radio-focus-ring);
-}
-[data-workspace] .workspace-toggle[data-disabled="true"] .seda-toggle__control {
-  background: var(--seda-toggle-track-disabled);
-}
-[data-workspace] .workspace-toggle[data-disabled="true"] .seda-toggle__label {
-  color: var(--seda-toggle-label-disabled);
-}
-[data-workspace] .workspace-select .seda-field__message {
-  color: var(--seda-select-helper-default);
-}
-[data-workspace] .workspace-select .seda-field__message[data-tone="error"] {
-  color: var(--seda-select-helper-error);
-}
-/* Host chrome must not introduce a second inner focus ring. */
-[data-workspace] :is(.seda-field__input,.seda-field__select):focus-visible { outline: none; box-shadow: none; }
-[data-workspace] .seda-choice__control[type="checkbox"]:indeterminate:not(:disabled) { background: var(--seda-checkbox-control-surface-indeterminate); }
-[data-workspace] .seda-choice__control[type="checkbox"]:hover:not(:disabled):not(:checked):not(:indeterminate):not([aria-invalid="true"]) { background: var(--seda-checkbox-control-surface-hover); }
-[data-workspace] .seda-choice__control[aria-invalid="true"]:not(:disabled) { background: var(--seda-checkbox-control-surface-error); border-color: var(--seda-checkbox-control-border-error); }
-[data-workspace] .seda-choice__control[aria-invalid="true"]:is(:checked,:indeterminate):not(:disabled)::after { background: var(--seda-checkbox-control-icon-error); }
-[data-workspace] .workspace-radio:not([aria-invalid="true"]) .seda-choice__control:hover:not(:disabled):not(:checked) { background: var(--seda-radio-control-surface-hover); }
-[data-workspace] .workspace-radio[aria-invalid="true"] .seda-choice__control:not(:disabled) { background: var(--seda-radio-control-surface-error); border-color: var(--seda-radio-control-border-error); }
-[data-workspace] .workspace-radio[aria-invalid="true"] .seda-choice__control:checked:not(:disabled)::after { background: var(--seda-radio-control-dot-error); }
-[data-workspace] .workspace-radio .seda-choice__control:disabled { background: var(--seda-radio-control-surface-disabled); border-color: var(--seda-radio-control-border-disabled); }
-[data-workspace] .workspace-radio .seda-choice__control:disabled:checked::after { background: var(--seda-radio-control-dot-disabled); }
-[data-workspace] .workspace-radio .seda-choice[data-disabled="true"] .seda-choice__label { color: var(--seda-radio-label-disabled); }
-[data-workspace] .workspace-radio .seda-choice__control:focus-visible { outline-color: var(--seda-radio-focus-ring); }
-[data-workspace] .seda-toggle__control:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--seda-toggle-track-off-hover); }
-[data-workspace] .seda-toggle__control:checked:hover:not(:disabled):not([aria-disabled="true"]) { background: var(--seda-toggle-track-on-hover); }
-[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"]) { background: var(--seda-toggle-track-disabled); cursor: not-allowed; }
-[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"]) { border-color: var(--seda-toggle-border-disabled); }
-[data-workspace] .seda-toggle__control:is(:disabled,[aria-disabled="true"])::after { background: var(--seda-toggle-thumb-disabled); }
-[data-workspace] .seda-toggle[data-disabled="true"] .seda-toggle__label { color: var(--seda-toggle-label-disabled); }
-[data-workspace] .seda-field__control:has(select[multiple]) { height: auto; }
-[data-workspace] select[multiple] { min-height: calc(3 * var(--seda-control-line-height)); }
-[data-workspace] .workspace-select .seda-field__message { color: var(--seda-select-helper-default); }
-[data-workspace] .workspace-select .seda-field__message[data-tone="error"] { color: var(--seda-select-helper-error); }
-[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-choice__label { color: var(--seda-checkbox-label-default); }
-[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]:disabled) .seda-choice__label { color: var(--seda-checkbox-label-disabled); }
-[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-field__message { color: var(--seda-checkbox-helper-default); }
-[data-workspace] .seda-choice:has(>input[data-seda-contract="Checkbox"]) .seda-field__message[data-tone="error"] { color: var(--seda-checkbox-helper-error); }
-[data-workspace] .workspace-radio .seda-choice__label { color: var(--seda-radio-label-default); }
-[data-workspace] .workspace-radio .seda-field__message { color: var(--seda-radio-helper-default); }
-[data-workspace] .workspace-radio .seda-field__message[data-tone="error"] { color: var(--seda-radio-helper-error); }
-[data-workspace] .seda-toggle__label { color: var(--seda-toggle-label-default); }
-[data-workspace] .seda-toggle .seda-field__message { color: var(--seda-toggle-helper-default); }
-[data-workspace] .seda-toggle[data-disabled="true"] .seda-field__message { color: var(--seda-toggle-helper-disabled); }
-[data-workspace] .seda-choice__control:disabled:is(:checked,:indeterminate)::after { background: var(--seda-checkbox-control-icon-disabled); }
-/* TextField already owns its label margin; avoid adding the shared grid gap twice. */
-[data-workspace] .seda-field--text { gap: 0; }
-
 /* Composition spacing belongs to the settings content, not to Tabs token overrides. */
 .workspace-settings-panel { padding-block-start: 24px; }
 

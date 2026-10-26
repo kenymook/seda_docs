@@ -1,4 +1,5 @@
 import { createWebBindings } from "../../../../packages/seda-contracts/src/web.mjs";
+import {normalizeControlParameters} from '../../../../packages/seda-contracts/src/control-geometry.mjs';
 /** Web geometry experiment over token branches validated by the shared compiler. */
 export function createWorkspaceBindings(
   compiled,
@@ -10,40 +11,25 @@ export function createWorkspaceBindings(
     "--seda-text-scale":parameters.scale/100,
     ...web.layout.vars,
     ...web.recipes.projectName.vars,
-    "--seda-control-height": derived.height + "px",
-    "--seda-control-radius": derived.radius + "px",
-    "--seda-control-font-size": derived.font + "px",
-    "--seda-control-line-height": derived.line + "px",
-    "--seda-control-icon-size": derived.icon + "px",
-    "--seda-control-padding-block": derived.py + "px",
-    "--seda-control-field-padding-inline": derived.fieldPaddingX + "px",
-    "--seda-control-button-padding-inline": derived.buttonPaddingX + "px",
-    "--seda-control-extra-padding-inline": parameters.airX + "px",
-    "--seda-control-extra-padding-block": parameters.air + "px",
-    "--seda-control-gap": compiled.geometry.textFieldAffixGap.value + "px",
-    "--seda-control-padding-inline": derived.fieldPaddingX + "px",
-    "--lab-choice-gap":
-      compiled.geometry.textFieldAffixGap.value + parameters.airX + "px",
-    "--lab-button-padding": derived.buttonPaddingX + "px",
-    "--lab-padding-y": derived.py + "px",
-    "--lab-choice-size": Math.max(derived.icon, derived.font) + "px",
-    "--lab-choice-radius":
-      Math.min(
-        derived.radius,
-        Math.max(derived.icon, derived.font) / 3,
-      ) + "px",
-    "--lab-toggle-height":
-      Math.max(derived.icon, derived.font) + 4 + "px",
-    "--lab-toggle-width":
-      Math.max(derived.icon, derived.font) * 2 + 4 + "px",
+
   };
   const evidence = web.layout.evidence.map(item=>({...item,component:'foundation'}));
+  // Pass resolved base inputs through the public size slots. Public CSS owns all
+  // derived geometry, while compiler/token edits still reach the real controls.
+  for (const [role, suffix] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'text-field-padding-inline',textFieldAffixGap:'text-field-affix-gap',buttonContentGap:'button-content-gap',buttonPaddingInline:'button-padding-inline'})) {
+    const value=compiled.geometry[role], property='--seda-size-'+compiled.configuration.controlSize+'-'+suffix;
+    vars[property]=value.cssValue;
+    evidence.push({...value,property,cssValue:value.cssValue,component:'foundation',adapter:'compiled-preset-input'});
+  }
   for (const [component, binding] of Object.entries(web.controls)) {
     Object.assign(vars, binding.vars);
     evidence.push(...binding.evidence.map(item => ({ ...item, component: component.toLowerCase() })));
   }
+  const controlParameters=normalizeControlParameters({scale:parameters.scale,extraPaddingInline:parameters.airX??0,extraPaddingBlock:parameters.air,radiusScale:parameters.radius/100,preserveMinimumHeight:parameters.strict});
   return {
-    vars,
+    // Geometry belongs to the public Provider; this adapter retains colors, typography evidence and host layout.
+    vars:Object.fromEntries(Object.entries(vars).filter(([name])=>!name.startsWith('--seda-control-')&&!name.startsWith('--lab-'))),
+    controlParameters,
     evidence,
     derivations: {
       slider:{source:'compiled.controls.Slider.geometry + shared slider.mjs',minRailHeight:compiled.controls.Slider.geometry.minRailHeight,railHeight:Math.max(compiled.controls.Slider.geometry.minRailHeight.value,derived.height),thumbSize:Math.max(compiled.controls.Slider.geometry.minThumbSize.value,derived.icon),trackHeight:compiled.controls.Slider.geometry.trackHeight,instanceContract:true,runtimeConformance:'requires-browser-evidence'},

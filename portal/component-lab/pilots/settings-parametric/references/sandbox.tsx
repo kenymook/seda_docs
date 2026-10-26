@@ -53,7 +53,7 @@ function Sandbox(){
  </div>;
  const canvas=<div className="sandbox-stage"><SandboxCanvas key={state.pageId} state={display} getState={()=>stateRef.current} beforeInteraction={guardDraft} tool={tool} disabled={status!=='ready'} onView={view} onPreview={setPreview} onCommit={commit} onGesture={setGesture} onTool={setTool} onEditText={()=>requestAnimationFrame(()=>document.getElementById('sandbox-text')?.focus())} onNotice={setNotice}/>{toolbar}</div>;
 
- return <SedaProvider className="sandbox-app" theme={prefs.theme} controlSize={prefs.size} textScale={prefs.scale} style={bindings.vars as React.CSSProperties} onKeyDownCapture={event=>{
+ return <SedaProvider controlParameters={bindings.controlParameters} className="sandbox-app" theme={prefs.theme} controlSize={prefs.size} textScale={prefs.scale} style={bindings.vars as React.CSSProperties} onKeyDownCapture={event=>{
   if(event.nativeEvent.isComposing)return;const modifier=event.ctrlKey||event.metaKey;if(modifier&&event.key.toLowerCase()==='s'){event.preventDefault();if(modal)setError('Закройте панель перед сохранением документа.');else void save();return;}if(modal||editing(event.target))return;
   if(modifier&&event.key.toLowerCase()==='z'){event.preventDefault();undo(event.shiftKey);return;}if(modifier&&event.key.toLowerCase()==='d'){event.preventDefault();command(m.duplicateSelection);return;}if(modifier&&event.key.toLowerCase()==='k'){event.preventDefault();show('search');return;}
   if(['Delete','Backspace'].includes(event.key)&&enabled){event.preventDefault();command(m.deleteSelection);return;}

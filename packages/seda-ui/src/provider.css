@@ -34,7 +34,7 @@
   min-width: 0;
 }
 .seda-field__select[multiple] {
-  min-height: calc(3 * var(--seda-preset-line-height));
+  min-height: calc(3 * var(--seda-control-line-height, var(--seda-preset-line-height)));
 }
 .seda-field__control:has(select[multiple]) {
   height: auto;
@@ -114,7 +114,7 @@
 }
 :is(.seda-choice, .seda-toggle) {
   /* Anchor the mark and neighbouring controls to the primary line, never the helper block. */
-  --seda-choice-mark-size: var(--seda-preset-icon-size, 16px);
+  --seda-choice-mark-size: var(--seda-control-choice-size, var(--seda-preset-icon-size, 16px));
   --seda-choice-line: var(--seda-control-line-height, var(--seda-preset-line-height, 20px));
   --seda-choice-head: max(var(--seda-choice-line), calc(var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset, 2px)));
   box-sizing: border-box;
@@ -163,14 +163,14 @@
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  height: var(--seda-preset-icon-size);
-  width: var(--seda-preset-icon-size);
+  height: var(--seda-choice-mark-size);
+  width: var(--seda-choice-mark-size);
   margin: 0;
   border: var(--seda-preset-border-width) solid
     var(--checkbox-control-border-default);
   border-radius: min(
-    var(--seda-preset-radius),
-    var(--seda-primitive-choice-radius)
+    var(--seda-control-radius, var(--seda-preset-radius)),
+    calc(var(--seda-primitive-choice-radius) * var(--seda-parameter-radius, 1))
   );
   background: var(--checkbox-control-surface-default);
 }
@@ -284,10 +284,10 @@
   box-sizing: border-box;
   border: var(--seda-preset-border-width) solid var(--toggle-border-default);
   height: calc(
-    var(--seda-preset-icon-size) + 2 * var(--seda-primitive-toggle-inset)
+    var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset)
   );
   width: calc(
-    2 * var(--seda-preset-icon-size) + 2 * var(--seda-primitive-toggle-inset)
+    2 * var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset)
   );
   flex: 0 0 auto;
   margin: 0;
@@ -295,12 +295,12 @@
 .seda-toggle__control::after {
   left: calc(var(--seda-primitive-toggle-inset) - var(--seda-preset-border-width));
   top: calc(var(--seda-primitive-toggle-inset) - var(--seda-preset-border-width));
-  height: var(--seda-preset-icon-size);
-  width: var(--seda-preset-icon-size);
+  height: var(--seda-choice-mark-size);
+  width: var(--seda-choice-mark-size);
 }
 .seda-toggle__control:checked::after {
   background: var(--toggle-thumb-on);
-  transform: translateX(var(--seda-preset-icon-size));
+  transform: translateX(var(--seda-choice-mark-size));
 }
 .seda-provider .seda-toggle__control:hover:not(:checked):not(:disabled) {
   background: var(--toggle-track-off-hover);

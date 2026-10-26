@@ -164,7 +164,7 @@ function App() {
                   baseCssValue: item.cssValue,
                   cssValue: calculated,
                   derivation: {
-                    source: "lab-model.mjs#derive",
+                    source: "packages/seda-contracts/src/control-geometry.mjs",
                     parameters:
                       role === "save" &&
                       form.saving &&
@@ -185,12 +185,9 @@ function App() {
       ]),
     ),
   };
-  const real = (role: string, preserveRequest = false) => ({
+  const real = (role: string, _preserveRequest = false) => ({
     ...bindings.recipes[role].attributes,
-    style: {
-      ...bindings.recipes[role].vars,
-      ...geometryFor(role, preserveRequest),
-    } as React.CSSProperties,
+    style: Object.fromEntries(Object.entries(bindings.recipes[role].vars).filter(([name])=>!name.startsWith('--seda-control-'))) as React.CSSProperties,
   });
 
   const workspaceBinding = createWorkspaceBindings(
@@ -513,6 +510,12 @@ function App() {
   );
   useEffect(() => {
     let frame = 0;
+    const geometryBySize = new Map<string, typeof d>([[configuration.controlSize, d]]);
+    const geometryOf = (el: Element) => {
+      const size = el.closest('[data-size]')?.getAttribute('data-size') ?? configuration.controlSize;
+      if (!geometryBySize.has(size)) geometryBySize.set(size, derive(profiles[`${configuration.theme}:${size}`], parameters));
+      return geometryBySize.get(size)!;
+    };
     const measure = () =>
       setMeasurements(
         Array.from(
@@ -521,19 +524,21 @@ function App() {
           ),
         )
           .filter((el) => el.getBoundingClientRect().height > 0)
-          .map((el, index) => ({
+          .map((el, index) => {
+            const own = geometryOf(el);
+            return {
             id:
               el.id ||
               el.querySelector("input,select")?.id ||
               "control-" + index,
             h: el.getBoundingClientRect().height,
-            expected: el.matches(".seda-slider__rail") ? Math.max(compiled.controls.Slider.geometry.minRailHeight.value,d.height) : el.matches(".workspace-row-choice")
-              ? Math.max(d.icon, d.font)
+            expected: el.matches(".seda-slider__rail") ? Math.max(compiled.controls.Slider.geometry.minRailHeight.value,own.height) : el.matches(".workspace-row-choice")
+              ? Math.max(own.icon, own.font)
               : el.id === "save" && form.saving
-                ? (pendingHeightRef.current ?? d.height)
-                : d.height,
+                ? (pendingHeightRef.current ?? own.height)
+                : own.height,
             flexible: el.matches(".seda-choice,.seda-toggle"),
-          })),
+          };}),
       );
     const schedule = () => {
       cancelAnimationFrame(frame);
@@ -545,7 +550,7 @@ function App() {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ["hidden", "style", "data-state", "data-loading"],
+      attributeFilter: ["hidden", "style", "data-state", "data-loading", "data-size"],
     });
     const resize = new ResizeObserver(schedule);
     resize.observe(target);
@@ -733,11 +738,11 @@ function App() {
             </p>
             <div className="note">
               Исходные S / M / L / XL — фиксированные пресеты. Формула
-              применяется только к дополнительным настройкам лаборатории.
+              служит общим ядром параметров SEDA и доступна через SedaProvider.
             </div>
           </aside>
           <main className="canvas" data-workspace style={workspaceStyle}>
-            <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} style={{display:'contents'}}>
+            <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
             <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale}>
               <div className="section-top">
                 <div>
@@ -1068,9 +1073,9 @@ function App() {
                     />
                     <div className="transportActions">
                       <Button
-                        {...real("cancel")}
                         id="success"
                         size="s"
+                        variant="secondary"
                         disabled={!form.saving}
                         onClick={() =>
                           form.activeRequest &&
@@ -1080,9 +1085,9 @@ function App() {
                         Ответ: успех
                       </Button>
                       <Button
-                        {...real("cancel")}
                         id="failure"
                         size="s"
+                        variant="secondary"
                         disabled={!form.saving}
                         onClick={() =>
                           form.activeRequest &&
@@ -1316,7 +1321,7 @@ function App() {
                 SplitView — общий experimental layout; размеры панелей управляются отдельно.
                 Badge/Tag/Alert/Toast и FileUpload — библиотечные адаптеры общей геометрии;
                 их instance contracts ещё не введены. Многострочная высота feedback не входит в проверку однострочных контролов.
-                Дополнительная геометрия — эксперимент Lab, не сертифицированный
+                Дополнительная геометрия — экспериментальный режим библиотеки, не сертифицированный
                 профиль.
               </p>
               <details>
@@ -1365,6 +1370,7 @@ function App() {
           </aside>
         </div>
       </div>
+      <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
       <dialog
         id="modal"
         data-workspace
@@ -1443,6 +1449,7 @@ function App() {
           actionVars={bindings.recipes.save.vars as React.CSSProperties}
         />
       )}
+      </SedaProvider>
     </ControlContractProvider>
     </SedaProvider>
   );

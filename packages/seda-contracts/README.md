@@ -54,6 +54,8 @@ npm run context -- --output .generated/context.md
 
 ## Что компилируется
 
+D33 добавляет runtime-опцию `controlParameters` к `compile()` и `compileControl()`. Исходная `geometry` сохраняет token provenance; отдельная `parametric` содержит производные значения и реальные inputs. Web bindings повторно проверяют граф и возвращают согласованные значения и параметры для публичного `SedaProvider`. Режим experimental, opt-in; восемь базовых профилей и 13 instance contracts остаются прежними. [Правила и границы](CONTROL-PARAMETERS.md).
+
 Дополнение [D25](WORKSPACE-CONTRACTS.md): `compile()` включает `controls` для Select/Checkbox/Radio/Toggle, с общими geometry и разрешёнными token branches; `compileControl(name, props, {theme, interaction})` проверяет отдельный экземпляр по настоящему API и возвращает его состояния и токены.
 
 Результат содержит конфигурацию, layout и геометрию, типографику, четыре экземпляра компонентов с привязанными props, разрешённые ветки токенов, состояние и события формы, ограничения и отложенные проверки. Разрешённые значения сохраняют исходную ссылку и цепочку aliases.

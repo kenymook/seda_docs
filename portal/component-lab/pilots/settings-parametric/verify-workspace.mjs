@@ -3,6 +3,16 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 import { createPilotServer } from "./server.mjs";
+import {createContractEngine} from '../../../../packages/seda-contracts/src/index.mjs';
+const engine=createContractEngine(),localPresets=new Map();
+// Independent numeric oracle over resolved profile inputs; never read expected
+// dimensions from the rendered CSS or copy the Provider's expression graph.
+function localGeometry(theme,size,params){
+  const key=theme+':'+size;
+  if(!localPresets.has(key))localPresets.set(key,engine.compile(undefined,{overrides:{theme,controlSize:size}}).geometry);
+  const g=localPresets.get(key),factor=params.scale/100,font=Math.round(g.fontSize.value*factor),line=Math.round(g.lineHeight.value*factor),icon=Math.round(g.iconSize.value*factor),border=g.borderWidth.value;
+  return{height:Math.max(g.height.value,Math.max(line,icon)+g.height.value-g.lineHeight.value+2*params.air),font,line,radius:Number((g.radius.value*params.radius/100).toFixed(2)),fieldPaddingX:g.textFieldPaddingInline.value+params.airX,buttonPaddingX:g.buttonPaddingInline.value+params.airX};
+}
 const output = path.join(import.meta.dirname, ".diagnostics-workspace");
 await fs.mkdir(output, { recursive: true });
 const server = await createPilotServer({ port: 0 });
@@ -66,6 +76,8 @@ try {
           { scale: 150, air: 12, airX: 24, radius: 175 },
         ]) {
           await configure(theme, size, params);
+          const ownership=await page.locator('main[data-workspace] > .seda-provider').evaluate(n=>({enabled:n.hasAttribute('data-seda-control-parameters'),scale:Number(n.style.getPropertyValue('--seda-parameter-scale')),privateGeometry:Array.from(n.style).filter(name=>name.startsWith('--seda-control-')),serviceScoped:document.getElementById('lab-scope').hasAttribute('data-seda-control-parameters')}));
+          assert.ok(ownership.enabled);assert.equal(ownership.scale,params.scale/100);assert.deepEqual(ownership.privateGeometry,[]);assert.equal(ownership.serviceScoped,false);
           const d = await page.evaluate(
             () => window.sedaPilot.getLab().derived,
           );
@@ -88,6 +100,7 @@ try {
                         b = el.getBoundingClientRect();
                       const inner=el.querySelector('.seda-field__input,.seda-field__select');
                       return {
+                        size:el.closest('[data-size]')?.getAttribute('data-size'),
                         id:
                           el.id ||
                           el.querySelector("input,select")?.id ||
@@ -108,15 +121,16 @@ try {
                     }),
                 );
               for (const v of data) {
+                const expected=v.size&&v.size!==size?localGeometry(theme,v.size,params):d;
                 if(v.innerBackground!==undefined){assert.equal(v.innerBackground,'rgba(0, 0, 0, 0)',v.id+' inner field must let the compiled surface show through');assert.equal(v.innerColor,v.wrapperColor,v.id+' inherits compiled foreground');}
-                near(v.height, d.height, v.id + " height");
-                if (v.kind !== "tab") near(v.radius, d.radius, v.id + " radius");
-                near(v.font, d.font, v.id + " font");
-                near(v.line, d.line, v.id + " line");
+                near(v.height, expected.height, v.id + " height");
+                if (v.kind !== "tab") near(v.radius, expected.radius, v.id + " radius");
+                near(v.font, expected.font, v.id + " font");
+                near(v.line, expected.line, v.id + " line");
                 if (v.kind === "field" || v.kind === "tab")
-                  near(v.padding, d.fieldPaddingX, v.id + " field X");
+                  near(v.padding, expected.fieldPaddingX, v.id + " field X");
                 if (v.kind === "button")
-                  near(v.padding, d.buttonPaddingX, v.id + " button X");
+                  near(v.padding, expected.buttonPaddingX, v.id + " button X");
                 if (v.kind === "icon")
                   near(v.width, v.height, v.id + " square");
               }

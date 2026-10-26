@@ -13,9 +13,6 @@
 
 
 .chat-message code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.94em}.chat-message strong{font-weight:600}
-
-/* Geometry bindings retain distinct compiled Button and field base padding. */
-.chat-app .seda-button{--seda-control-padding-inline:var(--lab-button-padding)}
 .chat-activity>.seda-button{min-width:0}
 
 .chat-project>img{width:var(--seda-control-icon-size,var(--seda-preset-icon-size));height:var(--seda-control-icon-size,var(--seda-preset-icon-size));flex:none}

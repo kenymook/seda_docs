@@ -1,3 +1,10 @@
+## Unreleased — Public control parameters
+
+- Add opt-in SedaProvider.controlParameters over actual shared presets, with per-field inheritance and explicit local size priority. Reuse one expression graph for numeric compiler output and CSS; publish defaults/ranges/source in profiles.json.
+- Move Lab and eight reference applications to public geometry; remove private field/choice paint and geometry and per-application button padding overrides. Preserve Text-role scale and authored-document ownership.
+- Keep canonical profiles without opt-in. CSS round() and size container units are required by the experimental mode; target browser/OS/AT and full visual acceptance remain separate.
+- Limit the loading spinner to the frozen Button box when parameters grow during a request. Let TextField label/helper margins own their gaps once, matching Select and NumberField in installed consumers.
+
 ## Unreleased — Explicit icon orientation
 
 - Add arrow-left as an attributed180° CSS rotation of the existing arrow-right SVG; preserve all25 original source files and expose derivedFrom/rotation in icons.json. Reject unsupported rotations, missing origins, alias chains and conflicting source descriptors.

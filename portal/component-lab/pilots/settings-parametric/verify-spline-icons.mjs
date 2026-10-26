@@ -1,3 +1,4 @@
+import{installSedaPixelReader}from'./css-value-probe.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -13,6 +14,7 @@ async function configure(page,{theme,size,scale}){
   await page.getByRole('button',{name:'Закрыть диалог',exact:true}).click();await settle(page);
 }
 export async function verifySplineIcons(page,origin,output){
+ await installSedaPixelReader(page);
   const samples=[];page.on('dialog',dialog=>dialog.accept());
   for(const context of ['scene','object']){
     await page.goto(origin+'/references/spline.html?context='+context);
@@ -22,7 +24,7 @@ export async function verifySplineIcons(page,origin,output){
       await configure(page,{theme,size,scale});const rows=[];
       for(const[label,name]of actions){
         const button=page.getByRole('button',{name:label,exact:true});assert.equal(await button.locator('[data-seda-icon]').count(),1);
-        const row=await button.evaluate(el=>{const icon=el.querySelector('[data-seda-icon]'),r=icon.getBoundingClientRect(),b=el.getBoundingClientRect(),s=getComputedStyle(icon),owner=getComputedStyle(el);return{name:icon.dataset.sedaIcon,hidden:icon.getAttribute('aria-hidden'),rotation:s.rotate,width:r.width,height:r.height,expected:parseFloat(owner.getPropertyValue('--seda-control-icon-size')),centerX:Math.abs(r.x+r.width/2-b.x-b.width/2),centerY:Math.abs(r.y+r.height/2-b.y-b.height/2),controlWidth:b.width,controlHeight:b.height,color:s.backgroundColor,ownerColor:owner.color,disabled:el.disabled,text:el.textContent};});
+        const row=await button.evaluate(el=>{const icon=el.querySelector('[data-seda-icon]'),r=icon.getBoundingClientRect(),b=el.getBoundingClientRect(),s=getComputedStyle(icon),owner=getComputedStyle(el);return{name:icon.dataset.sedaIcon,hidden:icon.getAttribute('aria-hidden'),rotation:s.rotate,width:r.width,height:r.height,expected:window.__sedaReadPixel(el,'--seda-control-icon-size'),centerX:Math.abs(r.x+r.width/2-b.x-b.width/2),centerY:Math.abs(r.y+r.height/2-b.y-b.height/2),controlWidth:b.width,controlHeight:b.height,color:s.backgroundColor,ownerColor:owner.color,disabled:el.disabled,text:el.textContent};});
         assert.equal(row.name,name);assert.equal(row.hidden,'true');assert.equal(row.rotation,name==='arrow-left'?'180deg':'none');
         assert.equal(row.width,row.expected);assert.equal(row.height,row.expected);assert.ok(row.centerX<=1&&row.centerY<=1,JSON.stringify(row));assert.ok(Math.abs(row.controlWidth-row.controlHeight)<=1,JSON.stringify(row));assert.equal(row.color,row.ownerColor);assert.ok(!/[↶↷]/.test(row.text));rows.push({label,...row});
       }

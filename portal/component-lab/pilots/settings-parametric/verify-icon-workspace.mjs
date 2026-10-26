@@ -1,3 +1,4 @@
+import{installSedaPixelReader}from'./css-value-probe.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -8,7 +9,7 @@ const settle=page=>page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(
 async function readIcons(locator) {
   return locator.locator('[data-seda-icon]').evaluateAll(icons=>icons.map(icon=>{
     const owner=icon.closest('button,[role=menuitem]'),r=icon.getBoundingClientRect(),b=owner.getBoundingClientRect(),style=getComputedStyle(icon);
-    return {name:icon.dataset.sedaIcon,width:r.width,height:r.height,expected:parseFloat(getComputedStyle(owner).getPropertyValue('--seda-control-icon-size')||getComputedStyle(owner).getPropertyValue('--seda-preset-icon-size')),delta:Math.abs(r.top+r.height/2-b.top-b.height/2),color:style.backgroundColor,ownerColor:getComputedStyle(owner).color};
+    return {name:icon.dataset.sedaIcon,width:r.width,height:r.height,expected:window.__sedaReadPixel(owner,'--seda-control-icon-size','--seda-preset-icon-size'),delta:Math.abs(r.top+r.height/2-b.top-b.height/2),color:style.backgroundColor,ownerColor:getComputedStyle(owner).color};
   }));
 }
 function aligned(rows) {
@@ -18,6 +19,7 @@ function aligned(rows) {
 const sceneGeometry=page=>page.locator('[data-scene-node]').evaluateAll(nodes=>nodes.map(node=>({id:node.dataset.sceneNode,transform:node.getAttribute('transform'),graphics:Array.from(node.querySelectorAll('rect,ellipse,path,text')).map(shape=>Object.fromEntries(['x','y','width','height','rx','ry','cx','cy','d','font-size','transform'].map(name=>[name,shape.getAttribute(name)])))})));
 
 export async function verifyApplicationIcons(page,origin,output) {
+ await installSedaPixelReader(page);
   const samples=[];
   await page.goto(origin+'/');await page.waitForFunction(()=>window.sedaPilot);await page.evaluate(()=>document.fonts.ready);
   for(const theme of ['Light','Dark'])for(const size of ['s','m','l','xl'])for(const scale of [80,100,150])for(const spacing of [0,12]){

@@ -9,6 +9,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const source = path.join(root, "src");
 const sliderCore=path.resolve(root,'../seda-contracts/src/slider.mjs');
 const numericCore=path.resolve(root,'../seda-contracts/src/number-field.mjs');
+const controlGeometryCore=path.resolve(root,'../seda-contracts/src/control-geometry.mjs');
 const iconCatalog = verifyIconAssets(root);
 const output = path.join(root, "dist");
 const staging = path.join(root, `.build-dist-${process.pid}`);
@@ -61,8 +62,9 @@ function esmSpecifier(context) {
       ) {
         const value = node.moduleSpecifier.text;
         if (value.startsWith(".")) {
-          if([sliderCore,numericCore].includes(path.resolve(path.dirname(file.fileName),value))){
-            const specifier=ts.factory.createStringLiteral('../../internal/'+path.basename(value));
+          if([sliderCore,numericCore,controlGeometryCore].includes(path.resolve(path.dirname(file.fileName),value))){
+            let relative=path.relative(path.dirname(file.fileName),path.join(source,'internal',path.basename(value))).split(path.sep).join('/');if(!relative.startsWith('.'))relative='./'+relative;
+            const specifier=ts.factory.createStringLiteral(relative);
             return ts.isImportDeclaration(node)?ts.factory.updateImportDeclaration(node,node.modifiers,node.importClause,specifier,node.attributes):ts.factory.updateExportDeclaration(node,node.modifiers,node.isTypeOnly,node.exportClause,specifier,node.attributes);
           }
           const resolved = ts.resolveModuleName(
@@ -128,6 +130,8 @@ try {
   fs.copyFileSync(sliderCore.replace(/\.mjs$/,'.d.mts'),path.join(staging,'internal/slider.d.mts'));
   fs.copyFileSync(numericCore,path.join(staging,'internal/number-field.mjs'));
   fs.copyFileSync(numericCore.replace(/\.mjs$/,'.d.mts'),path.join(staging,'internal/number-field.d.mts'));
+  fs.copyFileSync(controlGeometryCore,path.join(staging,'internal/control-geometry.mjs'));
+  fs.copyFileSync(controlGeometryCore.replace(/\.mjs$/,'.d.mts'),path.join(staging,'internal/control-geometry.d.mts'));
   fs.copyFileSync(
     path.join(source, "styles.css"),
     path.join(staging, "styles.css"),

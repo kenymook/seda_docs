@@ -1,4 +1,5 @@
 // @ts-check
+import {deriveControlGeometry} from '../../../../packages/seda-contracts/src/control-geometry.mjs';
 /** Lab 2 formula port. All base dimensions come from the compiled profile. */
 /** @param {number} n */
 export const fmt = (n) =>
@@ -17,18 +18,12 @@ export function derive(compiled, opts) {
     buttonPaddingX: g.buttonPaddingInline.value,
     fieldPaddingX: g.textFieldPaddingInline.value,
   };
-  const line = Math.round((p.line * opts.scale) / 100),
-    font = Math.round((p.font * opts.scale) / 100),
-    icon = Math.round((p.icon * opts.scale) / 100);
-  const basePad = (p.height - p.line - 2 * p.border) / 2,
-    py = basePad + opts.air;
-  const raw = Math.max(line, icon) + 2 * py + 2 * p.border;
-  const height = opts.strict ? Math.max(raw, p.height) : raw;
-  const radius = Math.round(p.radius * opts.radius) / 100;
+  const result=deriveControlGeometry(p,{scale:opts.scale,extraPaddingInline:opts.airX??0,extraPaddingBlock:opts.air,radiusScale:opts.radius/100,preserveMinimumHeight:opts.strict});
+  const{line,font,icon,basePad,py,raw,height,radius}=result;
   return {
     preset: p,
-    buttonPaddingX: p.buttonPaddingX + (opts.airX ?? 0),
-    fieldPaddingX: p.fieldPaddingX + (opts.airX ?? 0),
+    buttonPaddingX: result.buttonPaddingX,
+    fieldPaddingX: result.fieldPaddingX,
     line,
     font,
     icon,

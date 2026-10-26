@@ -80,6 +80,12 @@ import { Button, Icon, TextField } from '@seda-ai/ui';
 
 ## Общая тема и размер
 
+### Общие параметры контролов — experimental D33
+
+`SedaProvider controlParameters={{scale:115,extraPaddingInline:12,extraPaddingBlock:6,radiusScale:1.25}}` применяет дополнительную геометрию средствами установленной библиотеки. CSS лаборатории не требуется. `scale` задаётся в процентах; X/Y прибавляются к собственной базе компонента; IconButton остаётся квадратным. Явный `size` компонента имеет приоритет. Частичные вложенные параметры наследуются абсолютно. `textScale` по-прежнему отвечает отдельно за роли `Text`.
+
+Одна модель выражений в `seda-contracts` исполняется компилятором и превращается в CSS. `profiles.json.controlParameters` содержит реальные defaults/ranges, происхождение и статус experimental. Требуются CSS `round()` и size container units; неизвестные параметры и неподдержанный режим отклоняются. Исходные восемь профилей без opt-in не меняются. Это не новый сертифицированный density preset и не четырнадцатый instance contract. [D33: API, источник, формулы и ограничения](../seda-contracts/CONTROL-PARAMETERS.md).
+
 FileUpload также использует общий preset. Он сохраняет естественную многострочную высоту; `files` управляет отображаемым списком, а не native FileList. `disabled`/`state="disabled"` блокируют выбор и drop. `uploading` показывает busy/progress без сетевого запроса; валидация файлов, отправка и reset принадлежат приложению. Подробности: `specs/inputs/file-upload.md` и `docs/library/FILEUPLOAD-VISUAL-HANDOFF.md` в репозитории. Это ещё не executable instance contract.
 
 ```tsx

@@ -1,5 +1,6 @@
 /** Browser-safe adapter. Input is validated compiler output; no token lookup or Node API here. */
 import { createTypographyBindings } from './typography.mjs';
+import {deriveControlGeometry,controlGeometryVariables} from './control-geometry.mjs';
 /**
  * @typedef {Record<string, string|number>} CSSVariables
  * @typedef {{collection: string, mode: string, path: string[]}} ResolutionStep
@@ -7,7 +8,7 @@ import { createTypographyBindings } from './typography.mjs';
  * path: string, chain: ResolutionStep[], source?: string, tokenPath?: string[],
  * ref?: Record<string, unknown>, adapter?: string}} BindingEvidence
  * @typedef {{vars: CSSVariables, attributes: Record<string, string>, evidence: BindingEvidence[]}} RecipeBinding
- * @typedef {{layout: {vars: CSSVariables, evidence: BindingEvidence[]}, recipes: Record<string, RecipeBinding>, controls: Record<string, RecipeBinding>}} WebBindings
+ * @typedef {{layout: {vars: CSSVariables, evidence: BindingEvidence[]}, recipes: Record<string, RecipeBinding>, controls: Record<string, RecipeBinding>,controlParameters?:import('./control-geometry.mjs').ControlParameters}} WebBindings
  */
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -37,6 +38,21 @@ function px(value, path, { positive = false, allowNegative = false } = {}) {
   if (typeof value.value !== 'number' || !Number.isFinite(value.value)) fail(path, 'Expected a finite dimension.');
   if (positive ? value.value <= 0 : !allowNegative && value.value < 0) fail(path, `Expected a ${positive ? 'positive' : 'nonnegative'} rendered dimension.`);
   return { ...value, cssValue: `${value.value}px`, adapter: 'number-to-css-px' };
+}
+
+/** Re-execute the shared graph against actual resolved inputs; stale authored results are rejected. */
+function withParametric(binding,control,at){
+  const p=control.parametric;if(p===undefined)return binding;
+  if(p?.kind!=='seda-parametric-control-geometry'||p.modelSource!=='packages/seda-contracts/src/control-geometry.mjs')fail(at+'/parametric','Expected shared control geometry and source');
+  const keys={height:'height',font:'fontSize',line:'lineHeight',icon:'iconSize',radius:'radius',border:'borderWidth',buttonPaddingX:'buttonPaddingInline',fieldPaddingX:'textFieldPaddingInline'},preset={};
+  const inputs={};for(const[name,key]of Object.entries(keys)){preset[name]=px(control.geometry?.[key],at+'/geometry/'+key,{positive:['height','font','line','icon'].includes(name)}).value;inputs[name]=control.geometry[key];}
+  if(p.runtimeConformance!=='not-checked'||JSON.stringify(inputs)!==JSON.stringify(p.inputs))fail(at+'/parametric/inputs','Derived geometry provenance differs from the resolved inputs');
+  let derived;try{derived=deriveControlGeometry(preset,p.parameters);}catch(error){fail(at+'/parametric',error.message);}
+  for(const[name,value]of Object.entries(derived))if(name!=='parameters'&&value!==p[name])fail(at+'/parametric/'+name,'Compiled result differs from the shared control geometry');
+  const vars=controlGeometryVariables(derived),gap=control.component==='Button'?control.geometry.buttonContentGap:control.geometry.textFieldAffixGap;
+  vars['--seda-control-gap']=(px(gap,at+'/geometry/gap').value+(['Checkbox','Toggle'].includes(control.component)?derived.parameters.extraPaddingInline:0))+'px';
+  const evidence=Object.entries(vars).map(([property,cssValue])=>({property,cssValue,value:cssValue,type:'derived',path:at+'/parametric',chain:[],source:p.modelSource,adapter:'shared-control-geometry',inputs:structuredClone(inputs),parameters:derived.parameters}));
+  return{...binding,vars:{...binding.vars,...vars},evidence:[...binding.evidence.filter(item=>!own(vars,item.property)),...evidence]};
 }
 
 /** Props supplied by this pilot's host rather than by a component recipe. */
@@ -114,14 +130,14 @@ export function createTabsWebBindings(control) {
   for (const [key, variable] of Object.entries({ height: 'height', radius: 'radius', fontSize: 'font-size', lineHeight: 'line-height', iconSize: 'icon-size', borderWidth: 'border-width', textFieldPaddingInline: 'field-padding', textFieldAffixGap: 'gap' })) {
     target.add(`--seda-preset-${variable}`, px(control.geometry[key], `${at}/geometry/${key}`, { positive: ['height','fontSize','lineHeight','iconSize'].includes(key) }), `${at}/geometry/${key}`);
   }
-  return { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } };
+  return withParametric({ vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } },control,at);
 }
 
 export function createNumberFieldWebBindings(control){
  const at='/controls/NumberField';if(control?.component!=='NumberField'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled NumberField with explicit TextField visual alias.');
  const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['text','field'],at+'/tokenBranch','--');
  for(const[key,name]of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',borderWidth:'border-width',textFieldPaddingInline:'field-padding'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='borderWidth'&&key!=='textFieldPaddingInline'}),at+'/geometry/'+key);
- return{vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'NumberField'}};
+ return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'NumberField'}},control,at);
 }
 
 export function createSliderWebBindings(control){
@@ -130,14 +146,14 @@ export function createSliderWebBindings(control){
  for(const[key,name]of Object.entries({height:'height',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:true}),at+'/geometry/'+key);
  for(const key of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap'])target.add('--seda-slider-'+kebab(key),px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='focusOffset'}),at+'/geometry/'+key);
  const error=control.semanticAdapters?.['--status-danger-text'];target.add('--status-danger-text',leaf(error,at+'/semanticAdapters/error','color'),at+'/semanticAdapters/error');
- return{vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Slider'}};
+ return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Slider'}},control,at);
 }
 
 export function createTextAreaWebBindings(control){
  const at='/controls/TextArea';if(control?.component!=='TextArea'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled TextArea with required roles.');
  const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['text-area'],at+'/tokenBranch','--');
  for(const [key,name]of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',borderWidth:'border-width',textFieldPaddingInline:'field-padding'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='borderWidth'&&key!=='textFieldPaddingInline'}),at+'/geometry/'+key);
- return{vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'TextArea'}};
+ return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'TextArea'}},control,at);
 }
 
 export function createTreeWebBindings(control) {
@@ -147,7 +163,7 @@ export function createTreeWebBindings(control) {
   requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),`${at}/tokenBranch`);
   colors(target,control.tokenBranch.children,['tree'],`${at}/tokenBranch`,'--');
   for(const [key,variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',textFieldAffixGap:'gap'}))target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
-  return {vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Tree'}};
+  return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Tree'}},control,at);
 }
 
 function requiredColors(branch, paths, at) {
@@ -167,7 +183,7 @@ export function createDropdownMenuWebBindings(control) {
   colors(target, control.tokenBranch.children, ['dropdown-menu'], `${at}/tokenBranch`, '--');
   for (const property of ['--focus-ring','--status-danger-text','--status-danger-container']) target.add(property,control.semanticAdapters?.[property],`${at}/semanticAdapters/${property}`,'color');
   for (const [key, variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',textFieldAffixGap:'gap'})) target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
-  return {vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'DropdownMenu'}};
+  return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'DropdownMenu'}},control,at);
 }
 
 /** Bind compiled selection/choice contracts without resolving tokens in the browser. */
@@ -180,7 +196,7 @@ export function createControlWebBindings(compiled) {
     const target = writer();
     requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
     colors(target, control.tokenBranch.children, [name.toLowerCase()], `${at}/tokenBranch`);
-    return [name, { vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': name } }];
+    return [name, withParametric({ vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': name } },control,at)];
   }));
 }
 
@@ -242,15 +258,16 @@ export function createWebBindings(compiled) {
       if (!own(weights, weight.value)) fail('/typography/message/weight', `No font-weight adapter for ${weight.value}.`);
       target.add('--seda-message-weight', { ...weight, cssValue: weights[weight.value], adapter: 'font-weight-name-to-number' }, '/typography/message/weight');
     }
-    recipes[role] = {
+    recipes[role] = withParametric({
       vars: target.vars,
       attributes: { 'data-seda-contract': instance.component,
         ...(instance.component === 'Button' && own(instance.props, 'loading') ? { 'data-seda-loading-slot': 'true' } : {}),
       },
       evidence: target.evidence,
-    };
+    },{...instance,geometry},at);
   }
-  return { layout: { vars: layoutWriter.vars, evidence: layoutWriter.evidence }, recipes, controls: { ...createControlWebBindings(compiled), NumberField:createNumberFieldWebBindings(compiled.controls?.NumberField),Slider:createSliderWebBindings(compiled.controls?.Slider), TextArea:createTextAreaWebBindings(compiled.controls?.TextArea), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
+  const layoutBinding=withParametric({vars:layoutWriter.vars,evidence:layoutWriter.evidence},compiled,'');
+  return { layout:layoutBinding, recipes,...(compiled.parametric?{controlParameters:compiled.parametric.parameters}:{}), controls: { ...createControlWebBindings(compiled), NumberField:createNumberFieldWebBindings(compiled.controls?.NumberField),Slider:createSliderWebBindings(compiled.controls?.Slider), TextArea:createTextAreaWebBindings(compiled.controls?.TextArea), Tabs: createTabsWebBindings(compiled.controls?.Tabs), DropdownMenu:createDropdownMenuWebBindings(compiled.controls?.DropdownMenu),Tree:createTreeWebBindings(compiled.controls?.Tree) } };
 }
 
 /** Bind only declared sources and host adapters. Does not infer events or duplicate form rules. */

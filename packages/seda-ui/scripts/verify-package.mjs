@@ -1,3 +1,4 @@
+import {verifyControlParameters} from './verify-control-parameters.mjs';
 import {verifySlider} from './verify-slider.mjs';
 import {verifyNumberField} from './verify-number-field.mjs';
 import {verifyPopover} from './verify-popover.mjs';
@@ -285,6 +286,11 @@ const leftIcon=<Icon name="arrow-left"/>;
 // @ts-expect-error only original SEDA catalog names are accepted
 const inventedIcon=<Icon name="invented"/>;
 const typography=<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Heading</Text></SedaProvider>;
+const publicParameters=<SedaProvider controlParameters={{scale:150,extraPaddingInline:24,extraPaddingBlock:12,radiusScale:1.25,preserveMinimumHeight:true}}><Button size="s">Local size</Button></SedaProvider>;
+// @ts-expect-error unsupported parameter name
+const invalidParameters=<SedaProvider controlParameters={{height:32}}/>;
+// @ts-expect-error parameters are typed numeric values
+const stringParameters=<SedaProvider controlParameters={{scale:'150'}}/>;
 // @ts-expect-error invented typography role
 const invalidTextRole=<Text variant="heading/hero"/>;
 // @ts-expect-error unsupported active element
@@ -551,6 +557,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-field-contrast",()=>verifyFieldContrast({cwd,browser,version}));
     await check("react-"+version+"-control-contrast",()=>verifyControlContrast({cwd,browser,version}));
     await check("react-"+version+"-choice-layout",()=>verifyChoiceLayout({cwd,browser}));
+    await check('react-'+version+'-public-control-parameters',()=>verifyControlParameters({cwd,browser,version}));
     await check("react-"+version+"-icon-catalog",()=>verifyIconCatalog({cwd,browser}));
     await check("react-"+version+"-modal",()=>verifyModal({cwd,browser}));
     await check("react-"+version+"-tooltip",()=>verifyTooltip({cwd,browser}));

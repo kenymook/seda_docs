@@ -104,7 +104,7 @@ function RecentsWorkspace(){
   </div>;
  }
  const activeFile=modal&&(modal.kind==='open'||modal.kind==='rename')?files.find(file=>file.id===modal.id):undefined;
- return <SedaProvider theme={preferences.theme} controlSize={preferences.size} textScale={preferences.scale} style={style} className="reference-app" data-reference="recents" data-status={status}>
+ return <SedaProvider controlParameters={bindings.controlParameters} theme={preferences.theme} controlSize={preferences.size} textScale={preferences.scale} style={style} className="reference-app" data-reference="recents" data-status={status}>
   <a className="reference-skip" href="#reference-main">К файлам</a>
   <Sidebar className="reference-sidebar" label="Навигация рабочего пространства" {...(!section.startsWith('project:')||projects.some(name=>'project:'+name.replace(/^[^\p{L}\p{N}]+/u,'').trim()===section)?{selectedKey:section}:{})} header={<><div className="reference-account"><DropdownMenu triggerLabel="Kenymook" triggerIcon={<img className="reference-avatar" src={asset('recentsSidebarTop-imgImage.png')} alt="" width="24" height="24"/>} items={[
     {id:'settings',label:'Параметры интерфейса',onSelect:()=>show({kind:'settings'})},{id:'reload',label:'Перезагрузить локальные файлы',disabled:busy,onSelect:load},{id:'documents',label:'Документы — Building',onSelect:()=>{location.href='./building.html';}},{id:'lab',label:'Открыть лабораторию',onSelect:()=>{location.href='../';}}]}/><IconButton variant="ghost" aria-label="Уведомления" tooltip="Уведомления" icon={icon('recentsSidebarTop-imgIcon1.svg',24)} onClick={()=>navigate('notifications')}/></div>
