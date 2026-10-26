@@ -7,8 +7,10 @@ import {createPilotServer} from './server.mjs';
 
 const settle=page=>page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
 async function readIcons(locator) {
-  return locator.locator('[data-seda-icon]').evaluateAll(icons=>icons.map(icon=>{
-    const owner=icon.closest('button,[role=menuitem]'),r=icon.getBoundingClientRect(),b=owner.getBoundingClientRect(),style=getComputedStyle(icon);
+  return locator.locator('[data-seda-icon]').evaluateAll(icons=>icons.flatMap(icon=>{
+    const owner=icon.closest('button,[role=menuitem]');
+    if(!owner)return []; // Tree disclosure icons have their own row geometry contract.
+    const r=icon.getBoundingClientRect(),b=owner.getBoundingClientRect(),style=getComputedStyle(icon);
     return {name:icon.dataset.sedaIcon,width:r.width,height:r.height,expected:window.__sedaReadPixel(owner,'--seda-control-icon-size','--seda-preset-icon-size'),delta:Math.abs(r.top+r.height/2-b.top-b.height/2),color:style.backgroundColor,ownerColor:getComputedStyle(owner).color};
   }));
 }
