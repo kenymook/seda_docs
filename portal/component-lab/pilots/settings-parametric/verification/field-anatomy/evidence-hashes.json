@@ -16,8 +16,8 @@
   },
   {
     "path": "before/measurements.json",
-    "bytes": 8622,
-    "sha256": "07259d3763bec0bc561e56a7f23428de7115d6f7c99b5fa2bbfc13f8c04a7cb0"
+    "bytes": 8265,
+    "sha256": "cb85b492a9d8b1323a8bf3c453b313233f86eb23eef30fc75b9bbeceeab0fc6b"
   },
   {
     "path": "before/old-fields.png",
@@ -296,8 +296,8 @@
   },
   {
     "path": "source/observations.json",
-    "bytes": 7978,
-    "sha256": "91c9db2a45dec1e5efaa083f44959da7f86be969133679a6bccda477383fba35"
+    "bytes": 7740,
+    "sha256": "7c873946a46c001c9e4f995c2dabf907e02836961558bcc86d5893b5c231c264"
   },
   {
     "path": "source/select-m-root-ax.txt",
