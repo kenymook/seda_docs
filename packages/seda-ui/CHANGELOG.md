@@ -1,3 +1,9 @@
+## Unreleased — Native Select picker layers (D37)
+
+- Give the stylable native Select picker its own opaque `select.dropdown` surface, border and shadow roles. The trigger keeps the layered `surface.control` role, while hover, selected and disabled options use their existing component tokens, including selected foreground contrast.
+- Use a separate `border.field` role for TextField, Select and TextArea. Dark defaults/hover/pressed now resolve to existing 30%/35%/40% white alpha tokens; Light retains its previous values and Checkbox/Radio/Toggle keep their own stronger outlines. The control contrast suite requires at least 3:1 for each visible boundary.
+- Preserve native `<select>` value, form, keyboard and platform popup behavior. Browsers without `appearance: base-select` retain their native picker and the Provider's theme `color-scheme`; the picker styling adds no props or token leaves.
+
 ## Unreleased — Layered field surfaces (D36)
 
 - Resolve default/hover field surfaces through shared semantic control roles. Light keeps its previous colours; Dark uses existing 7%/11% white layers so TextField, Select, TextArea, DatePicker, TimePicker, Search, VerificationCode and ColorPicker sit slightly above their containing panels.

@@ -17,6 +17,8 @@ Select — контрол выбора одного или нескольких 
 
 [D34](../../packages/seda-contracts/FIELD-ANATOMY.md) связывает label/helper с эффективной типографикой контрола и Regular; два интервала группы — отдельные роли по 4 px. Источник проверен read-only по Select M/XL и текстовым слоям XL. Это общее правило полей TextField/Select/NumberField; полная приёмка вариантов и popup остаётся открытой, нативный список продолжает принадлежать браузеру/ОС.
 
+В браузерах с `appearance: base-select` SEDA оформляет нативный picker: dropdown получает **непрозрачный** `select/dropdown/surface`, а option — собственные hover/selected/disabled роли. Фон trigger остаётся `surface/control` и может быть полупрозрачным поверх панели. Смешивать его с фоном popup нельзя: через top layer просвечивает содержимое инспектора. В браузерах без `base-select` popup остаётся платформенным; `color-scheme` темы передаётся через Provider. Это не утверждение о пиксельном паритете popup на всех ОС.
+
 В SEDA AI Select описан как часть AI-ready design system framework: spec фиксирует trigger, dropdown, option states, props contract, token mapping, accessibility, handoff и AI usage rules. AI может помогать проверять состав options, состояния, empty/error/loading сценарии и handoff, но не должен придумывать новые variants, props или tokens.
 
 ### Когда использовать
@@ -196,13 +198,14 @@ Accessibility checklist:
 
 | Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| `$collections/components/$modes/Mode 1/select/surface/default` | Фон trigger. | `surface/base` |
-| `$collections/components/$modes/Mode 1/select/surface/hover` | Фон hover. | `surface/subtle` |
-| `$collections/components/$modes/Mode 1/select/surface/focus` | Фон focus. | `surface/base` |
+| `$collections/components/$modes/Mode 1/select/surface/default` | Фон trigger. | `surface/control` |
+| `$collections/components/$modes/Mode 1/select/surface/hover` | Фон hover. | `surface/control-hover` |
+| `$collections/components/$modes/Mode 1/select/surface/focus` | Фон focus. | `surface/control` |
 | `$collections/components/$modes/Mode 1/select/surface/disabled` | Фон disabled. | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/select/surface/error` | Фон error. | `status/danger/container` |
-| `$collections/components/$modes/Mode 1/select/border/default` | Граница trigger. | `border/control/default` |
-| `$collections/components/$modes/Mode 1/select/border/hover` | Граница hover. | `border/control/hover` |
+| `$collections/components/$modes/Mode 1/select/border/default` | Граница trigger. | `border/field/default` |
+| `$collections/components/$modes/Mode 1/select/border/hover` | Граница hover. | `border/field/hover` |
+| `$collections/components/$modes/Mode 1/select/border/active` | Граница active. | `border/field/pressed` |
 | `$collections/components/$modes/Mode 1/select/border/focus` | Граница focus. | `border/focus` |
 | `$collections/components/$modes/Mode 1/select/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/select/border/disabled` | Граница disabled. | `status/disabled/border` |
@@ -216,7 +219,9 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/select/focus/ring` | Focus ring. | `focus/ring` |
 | `$collections/components/$modes/Mode 1/select/dropdown/surface` | Фон dropdown. | `surface/overlay` |
 | `$collections/components/$modes/Mode 1/select/dropdown/border` | Граница dropdown. | `border/default` |
+| `$collections/components/$modes/Mode 1/select/dropdown/shadow` | Тень dropdown. | `shadow/overlay` |
 | `$collections/components/$modes/Mode 1/select/option/foreground/default` | Текст option. | `text/primary` |
+| `$collections/components/$modes/Mode 1/select/option/foreground/selected` | Текст выбранного option. | `text/on-brand/primary` |
 | `$collections/components/$modes/Mode 1/select/option/foreground/disabled` | Текст disabled option. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/select/option/surface/hover` | Фон hover option. | `container/neutral/hover` |
 | `$collections/components/$modes/Mode 1/select/option/surface/selected` | Фон selected option. | `container/brand/default` |

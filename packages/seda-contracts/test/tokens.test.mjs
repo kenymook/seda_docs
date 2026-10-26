@@ -62,6 +62,30 @@ test("field-like controls resolve the same layered surface in both themes", () =
   raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "select", "surface", "default"), { theme: "Dark" }));
 });
 
+test("field borders soften in Dark without changing Light or choice outlines", () => {
+  const resolver = createTokenResolver(source);
+  const states = { default: "default", hover: "hover", active: "pressed", "read-only": "default", loading: "default" };
+  for (const theme of ["Light", "Dark"]) {
+    for (const [componentState, roleState] of Object.entries(states)) {
+      for (const component of ["text-field", "select", "text-area"]) {
+        const actual = resolver.resolve(ref("components", component, "border", componentState), { theme });
+        const role = resolver.resolve(ref("semantic", "border", "field", roleState), { theme });
+        assert.equal(actual.value, role.value, `${theme} ${component} ${componentState}`);
+        assert.equal(actual.chain[1].path.join("."), `border.field.${roleState}`);
+        if (theme === "Light") assert.equal(actual.value, resolver.resolve(ref("semantic", "border", "control", roleState), { theme }).value);
+      }
+    }
+  }
+  assert.deepEqual(["default", "hover", "pressed"].map(state => resolver.resolve(ref("semantic", "border", "field", state), { theme: "Dark" }).value), ["#ffffff4d", "#ffffff59", "#ffffff66"]);
+  for (const component of ["checkbox", "radio", "toggle"]) {
+    const result = resolver.resolve(ref("components", component, ...(component === "toggle" ? [] : ["control"]), "border", "default"), { theme: "Dark" });
+    assert.equal(result.chain[1].path.join("."), "border.control.default");
+  }
+  const missing = structuredClone(source);
+  delete missing.$collections.semantic.$modes.Dark.border.field.hover;
+  raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "select", "border", "hover"), { theme: "Dark" }));
+});
+
 test("all pilot component branches resolve in Light and Dark with leaf provenance", () => {
   const resolver = createTokenResolver(source);
   for (const theme of ["Light", "Dark"]) {

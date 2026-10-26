@@ -24,27 +24,47 @@ export async function verifyControlSurfaces(page,origin,output){
     const root=document.querySelector('.seda-provider'),s=getComputedStyle(root);
     const fields=[...document.querySelectorAll('.seda-select select,.seda-field__control,.seda-textarea__control')]
       .filter(node=>node.getBoundingClientRect().width>0)
-      .map(node=>({tag:node.tagName,background:getComputedStyle(node).backgroundColor}));
-    return{control:s.getPropertyValue('--surface-control').trim(),hover:s.getPropertyValue('--surface-control-hover').trim(),select:s.getPropertyValue('--select-surface-default').trim(),textField:s.getPropertyValue('--text-field-surface-default').trim(),textArea:s.getPropertyValue('--text-area-surface-default').trim(),panel:s.getPropertyValue('--container-neutral-default').trim(),fields};
+      .map(node=>({tag:node.tagName,background:getComputedStyle(node).backgroundColor,border:getComputedStyle(node).borderTopColor,focused:node.matches(':focus-within')}));
+    const swatch=document.createElement('span');root.append(swatch);swatch.style.background='var(--surface-overlay)';const overlay=getComputedStyle(swatch).backgroundColor;swatch.remove();
+    const pickers=[...document.querySelectorAll('.seda-field__select:not([multiple])')].filter(node=>node.getBoundingClientRect().width>0).map(node=>({scheme:getComputedStyle(node).colorScheme,background:getComputedStyle(node,'::picker(select)').backgroundColor}));
+    return{control:s.getPropertyValue('--surface-control').trim(),hover:s.getPropertyValue('--surface-control-hover').trim(),select:s.getPropertyValue('--select-surface-default').trim(),textField:s.getPropertyValue('--text-field-surface-default').trim(),textArea:s.getPropertyValue('--text-area-surface-default').trim(),fieldBorder:s.getPropertyValue('--border-field-default').trim(),fieldHoverBorder:s.getPropertyValue('--border-field-hover').trim(),choiceBorder:s.getPropertyValue('--border-control-default').trim(),choiceHoverBorder:s.getPropertyValue('--border-control-hover').trim(),componentBorders:['--text-field-border-default','--select-border-default','--text-area-border-default'].map(name=>s.getPropertyValue(name).trim()),panel:s.getPropertyValue('--container-neutral-default').trim(),overlay,supportsPicker:CSS.supports('appearance','base-select')&&CSS.supports('selector(::picker(select))'),pickers,fields};
    });
    const expected=theme==='dark'?'#ffffff12':'#ffffff';
    assert.equal(state.control,expected);assert.equal(state.select,expected);
    assert.equal(state.textField,expected);assert.equal(state.textArea,expected);
    assert.equal(state.hover,theme==='dark'?'#ffffff1c':'#f8f8f9');
+   assert.equal(state.fieldBorder,theme==='dark'?'#ffffff4d':state.choiceBorder);
+   assert.equal(state.fieldHoverBorder,theme==='dark'?'#ffffff59':state.choiceHoverBorder);
+   assert.ok(state.componentBorders.every(border=>border===state.fieldBorder),route+' '+theme+' field border bindings');
    const opaque=state.fields.filter(item=>item.background!=='rgba(0, 0, 0, 0)');
    for(const field of opaque){
     if(theme==='dark')assert.equal(field.background,'rgba(255, 255, 255, 0.07)',route+' '+theme+' '+field.tag);
     else assert.ok(['rgb(255, 255, 255)','rgba(24, 25, 27, 0.06)'].includes(field.background),route+' '+theme+' '+field.tag+' '+field.background);
    }
+   for(const picker of state.pickers){
+    assert.equal(picker.scheme,theme,route+' native Select theme');
+    if(state.supportsPicker){assert.equal(picker.background,state.overlay,route+' picker must use solid overlay');assert.match(picker.background,/^rgb\(/);}
+   }
    if(route==='framer'&&theme==='dark'){
-    const select=page.locator('#fr-position');await select.hover();
+    const select=page.locator('#fr-position');
+    const actualBorder=()=>select.evaluate(node=>getComputedStyle(node.parentElement).borderTopColor);
+    const expectedBorder=await page.evaluate(()=>{const swatch=document.createElement('span');document.querySelector('.seda-provider').append(swatch);swatch.style.background='var(--select-border-default)';const value=getComputedStyle(swatch).backgroundColor;swatch.remove();return value;});
+    await page.mouse.move(500,100);await select.evaluate(node=>node.blur());
+    assert.equal(await actualBorder(),expectedBorder,'Framer dark Select uses soft default border');
+    await select.hover();
     assert.equal(await select.evaluate(node=>getComputedStyle(node.parentElement).backgroundColor),'rgba(255, 255, 255, 0.11)');
     await page.mouse.move(500,100);await select.focus();assert.equal(await select.evaluate(node=>getComputedStyle(node.parentElement).backgroundColor),'rgba(255, 255, 255, 0.07)');
     await page.mouse.move(500,100);await select.evaluate(node=>node.blur());
    }
+   if(route==='framer'&&state.supportsPicker){
+    const select=page.locator('#fr-position');await select.click();await page.waitForTimeout(100);
+    assert.equal(await select.evaluate(node=>node.matches(':open')),true);
+    await page.screenshot({path:path.join(output,'framer-picker-'+theme+'.png')});
+    await page.keyboard.press('Escape');assert.equal(await select.evaluate(node=>node.matches(':open')),false);
+   }
    await page.waitForTimeout(500);
    await page.screenshot({path:path.join(output,route+'-'+theme+'.png')});
-   samples.push({route,theme,visibleFields:state.fields.length,layeredFields:opaque.length,...Object.fromEntries(Object.entries(state).filter(([key])=>key!=='fields'))});
+   samples.push({route,theme,visibleFields:state.fields.length,layeredFields:opaque.length,pickers:state.pickers.length,...Object.fromEntries(Object.entries(state).filter(([key])=>key!=='fields'&&key!=='pickers'))});
   }
  }
  await page.goto(origin+'/');await page.locator('#theme').waitFor();

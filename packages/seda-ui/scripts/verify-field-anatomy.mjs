@@ -68,11 +68,32 @@ export async function verifyFieldAnatomy({cwd,browser}) {
       assert.equal(unchanged.buttonWeight,'600');assert.equal(unchanged.buttonGap,8);assert.equal(unchanged.choiceGap,scale===150?32:8,'Field anatomy must not alter choice geometry');
       if(size==='m'&&state==='default')await page.screenshot({path:path.join(cwd,'field-anatomy-'+theme+'-'+scale+'.png'),fullPage:true});
     }
+    const pickerSamples=[];
+    for(const theme of ['light','dark']){
+      await page.evaluate(c=>window.configure(c),{theme,size:'m',scale:100,state:'default'});await settle();
+      const sample=await page.locator('#select').evaluate(select=>{
+        const provider=select.closest('.seda-provider'),option=select.selectedOptions[0],swatch=document.createElement('span');provider.append(swatch);
+        const resolve=(property,target)=>{swatch.style[target]=`var(${property})`;const value=getComputedStyle(swatch)[target];swatch.style[target]='';return value;};
+        const expected=resolve('--select-dropdown-surface','backgroundColor'),selectedExpected=resolve('--select-option-surface-selected','backgroundColor'),selectedTextExpected=resolve('--select-option-foreground-selected','color');swatch.remove();
+        return{supported:CSS.supports('appearance','base-select')&&CSS.supports('selector(::picker(select))'),scheme:getComputedStyle(select).colorScheme,picker:getComputedStyle(select,'::picker(select)').backgroundColor,expected,selected:getComputedStyle(option).backgroundColor,selectedExpected,selectedText:getComputedStyle(option).color,selectedTextExpected};
+      });
+      assert.equal(sample.scheme,theme,'Native picker receives theme');
+      if(sample.supported){
+        assert.equal(sample.picker,sample.expected,'Picker uses opaque overlay role, not translucent trigger');
+        assert.match(sample.picker,/^rgb\(/,'Picker surface must be opaque');
+        assert.equal(sample.selected,sample.selectedExpected,'Selected option uses own surface role');
+        assert.equal(sample.selectedText,sample.selectedTextExpected,'Selected option text uses contrast role');
+        await page.locator('#select').click();
+        await page.screenshot({path:path.join(cwd,'select-picker-'+theme+'.png')});
+        await page.keyboard.press('Escape');
+      }
+      pickerSamples.push({theme,...sample});
+    }
     await page.evaluate(()=>window.configure({state:'default'}));await settle();
     await page.locator('#public').fill('A draft');await page.locator('#public').evaluate(n=>{window.retainedField=n;n.setSelectionRange(2,5);});
     await page.evaluate(()=>window.configure({theme:'light',scale:100,size:'m',state:'default'}));await settle();
     assert.equal(await page.locator('#public').evaluate(n=>n===window.retainedField&&n===document.activeElement&&n.value==='A draft'&&n.selectionStart===2&&n.selectionEnd===5),true);
-    assert.deepEqual(errors,[]);const result={installedPackage:true,sourceAlias:false,cases:samples.length,fieldRecords:samples.length*9,samples,focusCaretValueRetained:true,errors};
+    assert.deepEqual(errors,[]);const result={installedPackage:true,sourceAlias:false,cases:samples.length,fieldRecords:samples.length*9,samples,pickerSamples,focusCaretValueRetained:true,errors};
     await fs.writeFile(path.join(cwd,'field-anatomy-results.json'),JSON.stringify(result,null,2)+'\n');return{cases:result.cases,fieldRecords:result.fieldRecords,focusCaretValueRetained:true,errors};
   } catch(error){await page.screenshot({path:path.join(cwd,'field-anatomy-failure.png'),fullPage:true});throw error;}
   finally{await page.close();await new Promise(resolve=>server.close(resolve));}

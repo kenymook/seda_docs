@@ -1326,11 +1326,11 @@
     box-sizing: border-box;
     margin-block: 6px;
     padding: 4px;
-    border: 1px solid var(--seda-select-border-default, var(--border-default, #d7dce5));
+    border: 1px solid var(--select-dropdown-border, var(--border-default, #d7dce5));
     border-radius: var(--seda-control-radius, 8px);
-    background: var(--seda-select-surface-default, var(--surface-default, #fff));
-    color: var(--seda-select-foreground-default, var(--text-primary, #17212f));
-    box-shadow: 0 8px 24px #0002;
+    background: var(--select-dropdown-surface, var(--surface-overlay, #fff));
+    color: var(--select-option-foreground-default, var(--text-primary, #17212f));
+    box-shadow: 0 8px 24px var(--select-dropdown-shadow, #0002);
     font: inherit;
     max-block-size: min(320px, 60vh);
     overflow: auto;
@@ -1341,18 +1341,19 @@
     border-radius: max(2px, calc(var(--seda-control-radius, 8px) - 3px));
     gap: 8px;
     font: inherit;
-    color: inherit;
-    background: transparent;
+    color: var(--select-option-foreground-default, inherit);
+    background: var(--select-option-surface-default, transparent);
   }
   .seda-field__select option:is(:hover, :focus-visible) {
-    background: var(--seda-select-surface-hover, #edf3ff);
+    background: var(--select-option-surface-hover, var(--container-neutral-hover, #edf3ff));
     outline: none;
   }
   .seda-field__select option:checked {
-    background: var(--seda-select-surface-active, #e4edff);
+    background: var(--select-option-surface-selected, var(--container-brand-default, #1964b8));
+    color: var(--select-option-foreground-selected, #fff);
     font-weight: 600;
   }
-  .seda-field__select option:disabled { color: var(--seda-select-foreground-disabled, #929aaa); }
+  .seda-field__select option:disabled { background: var(--select-option-surface-disabled, transparent); color: var(--select-option-foreground-disabled, #929aaa); }
 }
 /* A pending button must not grow with the intrinsic width of a changing hidden label. */
 .seda-button[data-loading="true"] { min-width: 0; flex-shrink: 0; }
