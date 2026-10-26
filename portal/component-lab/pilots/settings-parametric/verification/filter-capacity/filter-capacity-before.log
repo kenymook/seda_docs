@@ -1,0 +1,16 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"section":"projects","theme":"Dark","size":"m","scale":150,"x":24,"y":12,"width":1702,"field":{"id":"filter","x":642.859375,"y":700,"width":217.046875,"height":66,"right":859.90625,"bottom":766,"font":21,"line":30,"required":277.998046875,"textWidth":175.998046875,"availableText":115,"constrainedByContainer":false,"deficit":60.951171875,"value":"all"},"available":997}
+    at verifyWorkspaceFilters (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-workspace-filters.mjs:40:13)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-workspace-filters.mjs:67:19 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
