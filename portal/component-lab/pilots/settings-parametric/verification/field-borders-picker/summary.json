@@ -1,0 +1,49 @@
+{
+  "version": 64,
+  "runtime_commit": "8e515e710a5180314ab4a47015fecb30172f26f5",
+  "site_source_commit": "457fefa7307072980afc47249bd9abd5328b3264",
+  "deployment_id": "appgdep_6adf2d070cf081919beac1a68fcf86c2",
+  "archive_sha256": "d81bae835faf6d8de1b3ffe4e438ddc0c38365792b5318442a06f889d7e8e8fa",
+  "contracts": {
+    "test_files": 16,
+    "tests": 147
+  },
+  "package": {
+    "groups": 75,
+    "failed": 0,
+    "react": {
+      "react-18.3.1": {
+        "control_state_cases": 72,
+        "dark_default_boundary_ratios": {
+          "field": 3.216,
+          "area": 3.216,
+          "select": 3.216
+        },
+        "failures": 0
+      },
+      "react-19.2.7": {
+        "control_state_cases": 72,
+        "dark_default_boundary_ratios": {
+          "field": 3.216,
+          "area": 3.216,
+          "select": 3.216
+        },
+        "failures": 0
+      }
+    }
+  },
+  "pilot": {
+    "lab_scripts": 24,
+    "reference_scripts": 29
+  },
+  "local": {
+    "screens": 16,
+    "dark_visible_fields": 113
+  },
+  "live": {
+    "screens": 16,
+    "dark_visible_fields": 113,
+    "artifact_hashes_matched": 532,
+    "page_errors": []
+  }
+}
