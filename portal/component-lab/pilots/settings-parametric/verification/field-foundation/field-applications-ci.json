@@ -1,0 +1,20 @@
+{
+  "lab": {
+    "runtimeCommit": "d08de31f7b42b9a87cc2e1eeb8c280afbf6ae98f",
+    "runId": 40260589763,
+    "jobId": 121371925871,
+    "conclusion": "success",
+    "summary": [
+      "2026-10-26T02:56:18.1253415Z {\"partition\":\"lab\",\"scripts\":23,\"exitCode\":0}"
+    ]
+  },
+  "references": {
+    "runtimeCommit": "d08de31f7b42b9a87cc2e1eeb8c280afbf6ae98f",
+    "runId": 40260589763,
+    "jobId": 121371925902,
+    "conclusion": "success",
+    "summary": [
+      "2026-10-26T03:03:16.4748189Z {\"partition\":\"references\",\"scripts\":28,\"exitCode\":0}"
+    ]
+  }
+}

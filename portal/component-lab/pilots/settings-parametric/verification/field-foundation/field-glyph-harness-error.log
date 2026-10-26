@@ -1,0 +1,15 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.evaluate: ReferenceError: id is not defined
+    at eval (eval at evaluate (:370:30), <anonymous>:3:10)
+    at UtilityScript.evaluate (<anonymous>:372:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at measure (C:\Users\kauta\Desktop\Vibecoding\SEDA AI\.integration-lab2\packages\seda-ui\scripts\verify-field-glyphs.mjs:40:41)
+    at verifyFieldGlyphs (C:\Users\kauta\Desktop\Vibecoding\SEDA AI\.integration-lab2\packages\seda-ui\scripts\verify-field-glyphs.mjs:53:24)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/run-field-glyph.mjs:6:44 {
+  log: []
+}
+
+Node.js v24.19.0

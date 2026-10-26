@@ -1,0 +1,15 @@
+{
+  "runtimeGitHubCommit": "d08de31f7b42b9a87cc2e1eeb8c280afbf6ae98f",
+  "sourceHashesMatched": 930,
+  "artifactHashesMatched": 532,
+  "canonicalGitBlobsMatched": 689,
+  "installedArtifacts": 241,
+  "tokensUnchanged": true,
+  "installedPackage": true,
+  "sourceAlias": false,
+  "siteSourceCommit": "270a9580b2ce9428bcfbe588b45c11af7715d886",
+  "archiveBytes": 8250915,
+  "archiveSHA256": "dffaa81587a2e1f2fc957accc1a497e05dd6eaac386d9c626579199a438a764e",
+  "archiveArtifactHashesMatched": 532,
+  "archiveFiles": 534
+}
