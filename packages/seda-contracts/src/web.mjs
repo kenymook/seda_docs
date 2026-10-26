@@ -1,5 +1,5 @@
 /** Browser-safe adapter. Input is validated compiler output; no token lookup or Node API here. */
-import { createTypographyBindings } from './typography.mjs';
+import { createTypographyBindings,withSystemFontFallback } from './typography.mjs';
 import {deriveControlGeometry,controlGeometryVariables} from './control-geometry.mjs';
 /**
  * @typedef {Record<string, string|number>} CSSVariables
@@ -225,7 +225,7 @@ export function createWebBindings(compiled) {
     for (const [key, variable] of Object.entries({ height: 'height', radius: 'radius', fontSize: 'font-size', lineHeight: 'line-height', iconSize: 'icon-size', borderWidth: 'border-width' })) {
       target.add(`--seda-control-${variable}`, px(geometry[key], `/geometry/${key}`, { positive: ['height', 'fontSize', 'lineHeight', 'iconSize'].includes(key) }), `/geometry/${key}`);
     }
-    target.add('--seda-font-family', typography.family, '/typography/family', 'string');
+    target.add('--seda-font-family', withSystemFontFallback(leaf(typography.family,'/typography/family','string')), '/typography/family', 'string');
     target.add('--seda-label-weight', typography.labelWeight, '/typography/labelWeight', 'string');
     if (instance.component !== 'IconButton') {
       const field = instance.component === 'TextField';

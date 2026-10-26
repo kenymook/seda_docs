@@ -24,14 +24,18 @@ SEDA UI ориентирована на плотные B2B и AI-интерфе�
 | Токен | Значение | Назначение |
 |---|---|---|
 | `font/family` | `Inter` | Основной шрифт в текущих токенах |
-| Web fallback (CSS adapter) | `Inter`, `Segoe UI`, `Roboto`, `Arial`, `sans-serif` | Запасной стек для Web |
+| Web fallback (CSS adapter) | `Inter`, `system-ui`, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `sans-serif` | Общий запасной стек Provider, контрактных контролов и Text |
 | Mono stack (CSS adapter) | `SFMono-Regular`, `Consolas`, `Liberation Mono`, `monospace` | Код, идентификаторы, технические значения |
 
 Рекомендуемый CSS stack:
 
 ```css
-font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 ```
+
+`withSystemFontFallback` в `packages/seda-contracts/src/typography.mjs` сериализует этот стек для Web. Исходный `font/family` и цепочка токенов сохраняются; в evidence явно указывается adapter `font-family-with-system-fallback`. Контрактная привязка не должна заменять общий стек одним именем шрифта. Роли `code/*` сохраняют отдельный mono stack.
+
+Fallback обеспечивает согласованный выбор шрифта внутри приложения, когда основной шрифт недоступен. Точное соответствие метрикам Figma требует поставки и загрузки того же основного шрифта; запасной системный шрифт может отличаться между платформами.
 
 ---
 

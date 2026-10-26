@@ -64,6 +64,8 @@ Verifier запускает настоящий `npm pack`, устанавлив�
 
 ## Иконки и геометрия контрола
 
+Прямые декоративные Icon/SVG в prefix/suffix TextField и NumberField используют существующие TextField icon tokens для default/focus/error/disabled. Текстовые приставки и самостоятельные вложенные действия сохраняют свои роли; Search владеет отдельной иконкой поиска. Компилятор, Provider и Text используют один адаптер запасного Web-шрифта, сохраняя исходный font token и provenance. Это устраняет расхождение с браузерным serif fallback, но не подтверждает загрузку основного шрифта или точное Figma-соответствие.
+
 `Icon` предоставляет 26 имён на основе 25 исходных SVG SEDA из `assets/icons/seda`; имена и Figma node IDs перечислены в `assets/icons/seda/icons.json`. Это начальный набор, не полный каталог иконок приложения.
 
 ```tsx

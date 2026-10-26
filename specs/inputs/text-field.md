@@ -17,6 +17,8 @@ Text Field — однострочный текстовый ввод для ко�
 
 React implementation: CSS custom properties из native `style` наследуются всем составом поля — label/control/affix/message; обычные CSS properties остаются стилями самого input. Это необходимо, чтобы вычисленные geometry/color bindings меняли рамку и связанные слоты вместе с текстом. NumberField использует этот же TextField без второй границы или слота.
 
+Непосредственные декоративные SEDA Icon и SVG в prefix/suffix используют роли `icon/default`, `icon/active`, `icon/error`, `icon/disabled`. Focus использует `active`; error и disabled сохраняют приоритет. Текстовые приставки, произвольные изображения и самостоятельные вложенные действия не перекрашиваются правилом декоративной иконки. Search владеет своими `search/input/icon/*` ролями. Это привязка существующих токенов в коде; свежая Figma-приёмка анатомии affix остаётся отдельной задачей.
+
 В SEDA AI Text Field описан как часть AI-ready design system framework: спецификация связывает Figma variants, props contract, design tokens, accessibility, validation и handoff. AI может ускорять аудит, черновики microcopy, acceptance criteria и проверку соответствия rules, но не принимает финальные решения за дизайнера и разработчика.
 
 ### Когда использовать
@@ -210,6 +212,10 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/text-field/helper/success` | Success helper. | `status/success/text` |
 | `$collections/components/$modes/Mode 1/text-field/affix/surface` | Prefix/suffix surface. | `container/subtle/default` |
 | `$collections/components/$modes/Mode 1/text-field/affix/foreground` | Prefix/suffix foreground. | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/text-field/icon/default` | Декоративная иконка по умолчанию. | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/text-field/icon/active` | Иконка активного поля. | `icon/primary` |
+| `$collections/components/$modes/Mode 1/text-field/icon/error` | Иконка при ошибке. | `status/danger/icon` |
+| `$collections/components/$modes/Mode 1/text-field/icon/disabled` | Иконка недоступного поля. | `status/disabled/icon` |
 | `$collections/components/$modes/Mode 1/text-field/focus/ring` | Focus ring. | `focus/ring` |
 
 Token gaps:

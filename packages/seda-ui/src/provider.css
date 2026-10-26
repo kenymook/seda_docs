@@ -46,6 +46,7 @@
   --seda-field-ring: var(--text-field-focus-ring);
   --seda-field-label: var(--text-field-label-default);
   --seda-field-helper: var(--text-field-helper-default);
+  --seda-field-icon: var(--text-field-icon-default);
 }
 .seda-provider .seda-field--select {
   --seda-field-surface: var(--select-surface-default);
@@ -80,6 +81,7 @@
 .seda-provider .seda-field--text:focus-within {
   --seda-field-surface: var(--text-field-surface-focus);
   --seda-field-border: var(--text-field-border-focus);
+  --seda-field-icon: var(--text-field-icon-active);
 }
 .seda-provider .seda-field--select:focus-within {
   --seda-field-surface: var(--select-surface-focus);
@@ -92,6 +94,7 @@
   --seda-field-surface: var(--text-field-surface-error);
   --seda-field-border: var(--text-field-border-error);
   --seda-field-helper: var(--text-field-helper-error);
+  --seda-field-icon: var(--text-field-icon-error);
 }
 .seda-provider .seda-field--select[data-state="error"] {
   --seda-field-surface: var(--select-surface-error);
@@ -104,6 +107,7 @@
   --seda-field-border: var(--text-field-border-disabled);
   --seda-field-foreground: var(--text-field-foreground-disabled);
   --seda-field-label: var(--text-field-label-disabled);
+  --seda-field-icon: var(--text-field-icon-disabled);
 }
 .seda-provider .seda-field--select[data-disabled="true"] {
   opacity: 1;

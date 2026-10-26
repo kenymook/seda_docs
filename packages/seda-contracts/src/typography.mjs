@@ -10,6 +10,8 @@ export const typographyRoles=Object.freeze({
 });
 for(const value of Object.values(typographyRoles))Object.freeze(value);
 const weights={Regular:400,Medium:500,Semibold:600,Bold:700};
+/** Web serialization only: keep the named token and its provenance intact. */
+export function withSystemFontFallback(family){return{...family,cssValue:JSON.stringify(family.value)+', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',adapter:'font-family-with-system-fallback'};}
 export function validateTypographyScale(scale){if(typeof scale!=='number'||!Number.isFinite(scale)||scale<80||scale>200)throw new TypeError('Typography scale must be a finite percentage from 80 to 200');return scale;}
 export function compileTypography(resolver,{theme='Light'}={}){
  const family=resolver.resolve({collection:'foundation',path:['font','family'],expectedType:'string'},{theme});
@@ -32,9 +34,10 @@ export function createTypographyBindings(typography){
  for(const role of Object.keys(typographyRoles)){
   const base=deriveTypography(typography,role).base,prefix='--seda-type-'+role.replaceAll('/','-');
   for(const [key,leaf]of Object.entries({size:base.size,line:base.lineHeight,spacing:base.letterSpacing,weight:base.weight,family:base.family})){
-   const value=['size','line','spacing'].includes(key)?leaf.value+'px':key==='family'&&!role.startsWith('code/')?JSON.stringify(leaf.value)+', system-ui, sans-serif':leaf.cssValue;
+   const binding=key==='family'&&!role.startsWith('code/')?withSystemFontFallback(leaf):leaf;
+   const value=['size','line','spacing'].includes(key)?leaf.value+'px':binding.cssValue;
    if(typeof value!=='string'&&typeof value!=='number'||typeof value==='number'&&!Number.isFinite(value))throw new TypeError('Invalid typography binding');
-   const property=prefix+'-'+key;vars[property]=value;evidence.push({property,...leaf,cssValue:value,role,source:base.source});
+   const property=prefix+'-'+key;vars[property]=value;evidence.push({property,...binding,cssValue:value,role,source:base.source});
   }
   vars[prefix+'-minimum']=base.minimumSize+'px';vars[prefix+'-ratio']=base.lineHeight.value/base.size.value;
   vars[prefix+'-tracking-ratio']=base.letterSpacing.value/base.size.value;

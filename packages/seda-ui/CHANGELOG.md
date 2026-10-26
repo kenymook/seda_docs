@@ -1,3 +1,10 @@
+## Unreleased — TextField icon state roles
+
+- Apply existing TextField icon default/active/error/disabled tokens to direct SEDA Icon and SVG affixes in both the public Provider and compiler-bound fields. NumberField inherits the same visual alias.
+- Preserve text affix paint and supplied artwork. Keep Search's own semantic icon roles when its internal TextField receives the shared icon adapter.
+- Serialize the same named-font/system fallback stack in compiler recipes, public Provider and Text roles; keep the original font token and resolution chain. Preserve the documented monospace stack for code.
+- Add an installed React 18/19 regression over both render paths, sizes, selected parameter settings, glyph contrast and retained input focus/value/caret. No new props, tokens, SVG or Figma fidelity approval.
+
 ## Unreleased — Public control parameters
 
 - Add opt-in SedaProvider.controlParameters over actual shared presets, with per-field inheritance and explicit local size priority. Reuse one expression graph for numeric compiler output and CSS; publish defaults/ranges/source in profiles.json.

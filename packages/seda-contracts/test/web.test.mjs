@@ -7,6 +7,18 @@ import { createWebBindings, bindWebRecipe, WebBindingError } from '../src/web.mj
 const engine = createContractEngine();
 const source = JSON.parse(fs.readFileSync(new URL('../../../tokens.json', import.meta.url), 'utf8'));
 
+test('Web font stacks: control recipes and Text roles share a documented fallback without changing token provenance',()=>{
+ for(const theme of ['Light','Dark'])for(const controlSize of ['s','m','l','xl']){
+  const compiled=engine.compile(undefined,{overrides:{theme,controlSize}}),web=createWebBindings(compiled),family=compiled.typography.family;
+  for(const binding of Object.values(web.recipes)){
+   const css=binding.vars['--seda-font-family'],evidence=binding.evidence.find(item=>item.property==='--seda-font-family');
+   assert.ok(css.includes('system-ui')&&css.endsWith('sans-serif'),'A named but unavailable font must not fall back to the browser serif default');
+   assert.equal(css,web.layout.vars['--seda-type-body-default-family']);assert.equal(evidence.value,family.value);assert.deepEqual(evidence.chain,family.chain);assert.equal(evidence.adapter,'font-family-with-system-fallback');
+  }
+  assert.match(web.layout.vars['--seda-type-code-default-family'],/monospace$/);assert.ok(!web.layout.vars['--seda-type-code-default-family'].includes('system-ui'));
+ }
+});
+
 test('Shared layout foundation: canonical semantic colors reach CSS with provenance and cannot be omitted',()=>{
  for(const theme of ['Light','Dark']){
   const compiled=engine.compile(undefined,{overrides:{theme}});

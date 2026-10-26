@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
-import {compileTypography,createTypographyBindings,typographyRoles} from '../../seda-contracts/src/typography.mjs';
+import {compileTypography,createTypographyBindings,typographyRoles,withSystemFontFallback} from '../../seda-contracts/src/typography.mjs';
 import {controlGeometryDeclarations,controlParameterMetadata} from '../../seda-contracts/src/control-geometry.mjs';
 /** Build-time only: the consumer receives self-contained CSS and provenance JSON. */
 export function buildThemeAssets(packageRoot, output) {
@@ -310,13 +310,7 @@ export function buildThemeAssets(packageRoot, output) {
       labelWeight = resolver.resolve(system.typography.labelWeight, { theme });
     if (!weight[labelWeight.value])
       throw Error("Unknown label weight " + labelWeight.value);
-    const familyCss = {
-      ...family,
-      cssValue:
-        JSON.stringify(family.value) +
-        ', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-      adapter: "font-family-with-system-fallback",
-    };
+    const familyCss = withSystemFontFallback(family);
     add("--seda-font-family", familyCss);
     variables.set("--seda-label-weight", weight[labelWeight.value]);
     for (const [size, preset] of Object.entries(system.sizes)) {
