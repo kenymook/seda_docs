@@ -118,3 +118,9 @@ React editor на installed SEDA связывает три native canvas и insp
 Рабочие typed connections и local run не равны provider integration. На XL/150% текстовые кнопки rail обрезались; заменены точными source SVG на Seda IconButton и caption roles, ширина rail следует control height. Run panel отделена от properties scroll; Run в карточке блокируется тем же empty-iterator guard, что Run selected. Вложенная матрица проверяет реальную вместимость rail и native wire endpoints.
 
 После version28 additional negative import case воспроизвёл provider array coercion:15/1 FAIL при зелёных функциональных checks. Исправлен primitive type guard;16/16 model checks и15/15 browser checks включают corrupt storage array provider с сохранением исходных bytes. Это не универсальный security audit; полный source visual/AT/OS/performance review остаётся открытым.
+
+## Lab 2.0 — служебные панели на SEDA UI
+
+Левая конфигурация использует контрактные SEDA Select, Slider и Checkbox, а пояснение о профилях — SEDA Alert. Правый Explain Engine использует SEDA Button для узлов графа, Card для пяти разделов, Select для источника применённых значений и Alert для результата измерений. Граф зависимостей, метрики и provenance остаются композициями: у библиотеки нет отдельного компонента для их предметной модели. `data-seda-contract` проверяется на контролах; служебные панели сохраняют отдельную область параметров, а X/Y и масштаб применяются к рабочему приложению.
+
+Визуальная проверка Light/Dark проведена на 1440 px; плотность карточек и длинный результат активного узла доработаны после просмотра снимков. Это проверка применения компонентов в Lab, не приёмка всех reference screens по Figma.

@@ -113,9 +113,7 @@ select:focus-visible {
 }
 .rail h2,
 .inspector h2 {
-  font-size: 22px;
   margin: 0 0 8px;
-  letter-spacing: -0.6px;
 }
 p {
   color: inherit;
@@ -123,22 +121,8 @@ p {
   margin: 7px 0 22px;
   font-size: 12px;
 }
-.rail > label {
-  display: grid;
-  gap: 8px;
-  font-weight: 700;
-  margin: 19px 0 0;
-  font-size: 12px;
-}
-.rail select {
-  height: 38px;
-  width: 100%;
-  padding: 0 10px;
-  border: 1px solid #dce2ea;
-  border-radius: 9px;
-  background: transparent;
-  color: inherit;
-}
+.rail > .seda-field { margin-top: 19px; }
+.rail > .seda-choice { margin: 14px 0 8px; }
 .control {
   margin-top: 25px;
 }
@@ -222,8 +206,7 @@ p {
   box-shadow: 0 1px 4px #061b3814;
 }
 .preview,
-.pane,
-.inspectcard {
+.pane {
   background: #fff;
   border: 1px solid #e3e8f0;
   border-radius: 15px;
@@ -584,18 +567,7 @@ td:first-child {
   gap: 7px;
 }
 .node {
-  border: 1px solid #d9e2f0;
-  border-radius: 7px;
-  background: white;
-  padding: 9px 7px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #52657f;
-}
-.node.chosen {
-  border-color: #477ee8;
-  background: #e5eeff;
-  color: #2156c7;
+  white-space: nowrap;
 }
 .edge {
   font-size: 17px;
@@ -610,13 +582,7 @@ td:first-child {
   margin-top: 10px;
 }
 .inspectcard {
-  padding: 16px;
   margin-bottom: 13px;
-  box-shadow: none;
-  border-radius: 11px;
-}
-.inspectcard .eyebrow {
-  margin-bottom: 5px;
 }
 .inspectcard code {
   font-size: 11px;
@@ -624,7 +590,8 @@ td:first-child {
 }
 .result {
   font-weight: 800;
-  font-size: 23px;
+  font-size: 18px;
+  line-height: 1.3;
   letter-spacing: -0.4px;
   margin-top: 12px;
 }
@@ -706,8 +673,6 @@ body.dark .rail,
 body.dark .inspector,
 body.dark .preview,
 body.dark .pane,
-body.dark .inspectcard,
-body.dark .node,
 body.dark .secondary,
 body.dark .fieldrow input:not(.seda-field__input),
 body.dark .toolbar select:not(.seda-field__select),
@@ -745,8 +710,7 @@ body.dark table:not(.seda-table__element) td:first-child,
 body.dark .metricrow b {
   color: #ecf2fb;
 }
-body.dark .view-switch .active,
-body.dark .node.chosen {
+body.dark .view-switch .active {
   background: #365277;
   color: #fff;
 }
@@ -949,22 +913,21 @@ details {
 /* Composition surfaces use the same semantic palette as the installed controls.
    This scope does not override the internals of SEDA components. */
 #lab-scope .shell { background:var(--surface-subtle); color:var(--text-primary); }
-#lab-scope :is(.top,.rail,.inspector,.preview,.pane,.inspectcard,.modalBody,dialog[data-workspace]) { background:var(--surface-base); color:var(--text-primary); border-color:var(--border-default); }
+#lab-scope :is(.top,.rail,.inspector,.preview,.pane,.modalBody,dialog[data-workspace]) { background:var(--surface-base); color:var(--text-primary); border-color:var(--border-default); }
+#lab-scope .inspector .graph { border-color:var(--border-default); }
+#lab-scope .sectionline { background:var(--border-default); }
 #lab-scope :is(.top,.panelhead,.metricrow) { border-color:var(--border-default); }
 #lab-scope :is(.hint,.count,.brand small,.topmeta) { color:var(--text-secondary); }
 #lab-scope :is(.view-switch,.compare > div,.equation,.inspector .graph) { background:var(--surface-subtle); color:var(--text-secondary); }
 #lab-scope :is(.metricrow b,.equation) { color:var(--text-primary); }
-#lab-scope :is(.view-switch .active,.node.chosen,.mark) { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
-#lab-scope .node { background:var(--surface-base); color:var(--text-brand); border-color:var(--border-default); }
-#lab-scope .node.chosen { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
+#lab-scope :is(.view-switch .active,.mark) { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
 #lab-scope .note { background:var(--status-info-container); color:var(--text-info); }
 #lab-scope .subtle { background:var(--container-neutral-default); color:var(--text-primary); border-color:var(--border-default); }
-#lab-scope .rail select { background:var(--surface-control,var(--surface-base)); color:var(--text-primary); border-color:var(--border-default); }
 #lab-scope .rail input[type="range"] { accent-color:var(--container-brand-default); }
 #lab-scope .eyebrow { color:var(--text-brand); }
 
 #lab-scope .topmeta > .subtle { flex:0 0 auto; }
-#lab-scope :is(.rail > p,.section-top > div > p,.workspace-page > p,.inspector > p,.inspectcard > p,.deps) { color:var(--text-secondary); }
+#lab-scope :is(.rail > p,.section-top > div > p,.workspace-page > p,.inspector > p,.inspectcard p,.deps) { color:var(--text-secondary); }
 #lab-scope .formula { color:var(--text-brand); }
 #lab-scope :is(.passed,.conflict:not(.warn)) { background:var(--status-success-container); color:var(--text-success); }
 #lab-scope .conflict.warn { background:var(--status-warning-container); color:var(--text-warning); }

@@ -1,4 +1,4 @@
-import {Table, Card, Avatar, Tooltip} from "@seda-ai/ui";
+import {Table, Card, Avatar, Tooltip, Alert} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -592,6 +592,10 @@ function App() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
+  const graphNode=(id:string,label:string)=><Button data-node={id} className="node" size="s"
+    variant={selected===id?"primary":"outline"} aria-pressed={selected===id}
+    onClick={()=>setSelected(id)}>{label}</Button>;
+
   return (
     <SedaProvider id="lab-scope" theme={compiled.domTheme} controlSize="m" textScale={100} style={{display:"contents"}}>
     <ControlContractProvider compiled={compiled}>
@@ -647,47 +651,16 @@ function App() {
           <aside className="rail">
             <div className="eyebrow">01 / КОНФИГУРАЦИЯ</div>
             <Text as="h2" variant="heading/section">Параметры</Text>
-            <p>
+            <Text as="p" variant="body/small">
               Измените параметры системы. Результат пересчитывается в
               интерфейсе.
-            </p>
-            <label>
-              Тема{" "}
-              <select
-                id="theme"
-                value={compiled.domTheme}
-                onChange={(e) =>
-                  configure({
-                    theme: e.target.value === "light" ? "Light" : "Dark",
-                  })
-                }
-              >
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
-            </label>
-            <label>
-              Размер{" "}
-              <select
-                id="size"
-                value={configuration.controlSize}
-                onChange={(e) =>
-                  configure({
-                    controlSize: e.target.value as Configuration["controlSize"],
-                  })
-                }
-              >
-                {["s", "m", "l", "xl"].map((s) => (
-                  <option key={s} value={s}>
-                    {s.toUpperCase()} ·{" "}
-                    {
-                      profiles[configuration.theme + ":" + s].geometry.height
-                        .value
-                    }
-                  </option>
-                ))}
-              </select>
-            </label>
+            </Text>
+            <Select id="theme" label="Тема" value={compiled.domTheme}
+              options={[{value:"light",label:"Light"},{value:"dark",label:"Dark"}]}
+              onValueChange={value=>configure({theme:value==="light"?"Light":"Dark"})}/>
+            <Select id="size" label="Размер" value={configuration.controlSize}
+              options={["s","m","l","xl"].map(s=>({value:s,label:`${s.toUpperCase()} · ${profiles[configuration.theme+":"+s].geometry.height.value}`}))}
+              onValueChange={value=>configure({controlSize:value as Configuration["controlSize"]})}/>
             <div className="control">
               <Slider id="scale" label="Масштаб текста" size="s" min={80} max={150} step={5} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
               <div className="ends">
@@ -722,25 +695,15 @@ function App() {
             </div>
             <div className="sectionline"></div>
             <div className="eyebrow">ЦЕЛЬ ПРОЕКТИРОВАНИЯ</div>
-            <label className="check">
-              <input
-                id="strict"
-                type="checkbox"
-                checked={parameters.strict}
-                onChange={(e) =>
-                  setParameters((p) => ({ ...p, strict: e.target.checked }))
-                }
-              />{" "}
-              Сохранять минимум высоты пресета
-            </label>
+            <Checkbox id="strict" label="Сохранять минимум высоты пресета"
+              checked={parameters.strict}
+              onCheckedChange={strict=>setParameters(p=>({...p,strict}))}/>
             <p className="small">
               Если вычисленная высота меньше пресета, ограничение поднимает её
               до минимальной.
             </p>
-            <div className="note">
-              Исходные S / M / L / XL — фиксированные пресеты. Формула
-              служит общим ядром параметров SEDA и доступна через SedaProvider.
-            </div>
+            <Alert variant="info" size="s" title="Исходные профили"
+              description="S / M / L / XL — фиксированные пресеты. Формула служит общим ядром параметров SEDA и доступна через SedaProvider."/>
           </aside>
           <main className="canvas" data-workspace style={workspaceStyle}>
             <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
@@ -1144,86 +1107,39 @@ function App() {
           <aside className="inspector">
             <div className="eyebrow">04 / EXPLAIN ENGINE</div>
             <Text as="h2" variant="heading/section">Инспектор</Text>
-            <p>
+            <Text as="p" variant="body/small">
               Выберите узел, чтобы увидеть значение, формулу и зависимые части
               интерфейса.
-            </p>
+            </Text>
             <div className="graph" id="graph">
-              <button
-                data-node="size"
-                className={"node " + (selected === "size" ? "chosen" : "")}
-                onClick={() => setSelected("size")}
-              >
-                size
-              </button>
-              <span className="edge">→</span>
-              <button
-                data-node="lineHeight"
-                className={
-                  "node " + (selected === "lineHeight" ? "chosen" : "")
-                }
-                onClick={() => setSelected("lineHeight")}
-              >
-                line-height
-              </button>
-              <span className="edge">→</span>
-              <button
-                data-node="height"
-                className={"node " + (selected === "height" ? "chosen" : "")}
-                onClick={() => setSelected("height")}
-              >
-                height
-              </button>
+              {graphNode("size","size")}
+              <Text as="span" variant="label/small" className="edge">→</Text>
+              {graphNode("lineHeight","line-height")}
+              <Text as="span" variant="label/small" className="edge">→</Text>
+              {graphNode("height","height")}
               <div className="graphsecond">
-                <button
-                  data-node="airX"
-                  className={"node " + (selected === "airX" ? "chosen" : "")}
-                  onClick={() => setSelected("airX")}
-                >
-                  padding-x
-                </button>
-                <span className="edge">→</span>
-                <span className="deps">Button / TextField / Select</span>
+                {graphNode("airX","padding-x")}
+                <Text as="span" variant="label/small" className="edge">→</Text>
+                <Text as="span" variant="caption/tiny" className="deps">Button / TextField / Select</Text>
               </div>
               <div className="graphsecond">
-                <button
-                  data-node="air"
-                  className={"node " + (selected === "air" ? "chosen" : "")}
-                  onClick={() => setSelected("air")}
-                >
-                  padding-y
-                </button>
-                <span className="edge">↗</span>
-                <button
-                  data-node="radius"
-                  className={"node " + (selected === "radius" ? "chosen" : "")}
-                  onClick={() => setSelected("radius")}
-                >
-                  radius
-                </button>
-                <span className="edge">→</span>
-                <button
-                  data-node="components"
-                  className={
-                    "node " + (selected === "components" ? "chosen" : "")
-                  }
-                  onClick={() => setSelected("components")}
-                >
-                  UI
-                </button>
+                {graphNode("air","padding-y")}
+                <Text as="span" variant="label/small" className="edge">↗</Text>
+                {graphNode("radius","radius")}
+                <Text as="span" variant="label/small" className="edge">→</Text>
+                {graphNode("components","UI")}
               </div>
             </div>
-            <div className="inspectcard">
-              <div className="eyebrow">ОХВАТ WORKSPACE</div>
-              <p>
+            <Card as="section" title="Охват workspace" variant="compact" className="inspectcard">
+              <Text as="p" variant="body/small">
                 Общие параметры применяются ко всей рабочей области приложения.
                 У Checkbox/Radio/Toggle X меняет интервал до подписи, Y — высоту
                 строки. Круг Radio и форма Toggle сохраняются. Служебная панель
                 лаборатории отделена.
-              </p>
-              <p>
+              </Text>
+              <Text as="p" variant="body/small">
                 Контракты: {workspaceBinding.coverage.contract.join(", ")}. Table, Card и Avatar — публичные SEDA-компоненты с экспериментальной геометрией; формы — композиции.
-              </p>
+              </Text>
               <details className="workspace-tokens">
                 <summary>Источники дополнительных контролов</summary>
                 {workspaceBinding.evidence.map((item: any) => (
@@ -1242,19 +1158,14 @@ function App() {
                   </div>
                 ))}
               </details>
-            </div>
-            <div className="inspectcard">
-              <div className="between">
-                <span className="eyebrow">АКТИВНЫЙ УЗЕЛ</span>
-                <code id="lab-active-node">{selected}</code>
-              </div>
+            </Card>
+            <Card as="section" title="Активный узел" variant="compact" className="inspectcard" status={<code id="lab-active-node">{selected}</code>}>
               <div className="result" id="nodeResult">
                 {node.v}
               </div>
-              <p id="nodeDesc">{node.desc}</p>
-            </div>
-            <div className="inspectcard">
-              <div className="eyebrow">ФОРМУЛА</div>
+              <Text as="p" variant="caption/default" id="nodeDesc">{node.desc}</Text>
+            </Card>
+            <Card as="section" title="Формула" variant="compact" className="inspectcard">
               <div className="formula" id="formula">
                 H = max(L, I) + 2P + 2B
               </div>
@@ -1274,29 +1185,19 @@ function App() {
                   {measurements.length ? fmt(measurements[0].h) + " px" : "—"}
                 </b>
               </div>
-              <div
-                id="conformance"
-                className={failed.length ? "conflict warn" : "passed"}
-              >
-                {!measurements.length
-                  ? "Измерение…"
-                  : failed.length
-                    ? "Расхождение > 1 px: " +
-                      failed.map((m) => m.id).join(", ")
-                    : "PASS: " +
-                      measurements.length +
-                      " контролов, допуск ±1 px" +
-                      (form.saving ? " · loading сохраняет snapshot" : "")}
-              </div>
-            </div>
-            <div className="inspectcard">
-              <div className="eyebrow">ЗАВИСИМОСТИ</div>
+              <Alert id="conformance" size="s" variant={!measurements.length ? "info" : failed.length ? "warning" : "success"}
+                title={!measurements.length ? "Измерение…" : failed.length ? "Расхождение > 1 px" : "PASS"}
+                description={!measurements.length ? undefined : failed.length
+                  ? failed.map((m) => m.id).join(", ")
+                  : measurements.length + " контролов, допуск ±1 px" +
+                    (form.saving ? " · loading сохраняет snapshot" : "")}/>
+            </Card>
+            <Card as="section" title="Зависимости" variant="compact" className="inspectcard">
               <div id="deps" className="deps">
                 {node.deps}
               </div>
-            </div>
-            <div className="inspectcard">
-              <div className="eyebrow">ПРОВЕРКИ</div>
+            </Card>
+            <Card as="section" title="Проверки" variant="compact" className="inspectcard">
               <div id="checks" className="checks">
                 <div>
                   <span>Источник профиля</span>
@@ -1317,25 +1218,23 @@ function App() {
                   </b>
                 </div>
               </div>
-              <p className="small">
+              <Text as="p" variant="body/small" className="small">
                 {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table · Card · Avatar — публичные SEDA-компоненты; их геометрия experimental. Dialog — композиция.
                 SplitView — общий experimental layout; размеры панелей управляются отдельно.
                 Badge/Tag/Alert/Toast и FileUpload — библиотечные адаптеры общей геометрии;
                 их instance contracts ещё не введены. Многострочная высота feedback не входит в проверку однострочных контролов.
                 Дополнительная геометрия — экспериментальный режим библиотеки, не сертифицированный
                 профиль.
-              </p>
+              </Text>
               <details>
                 <summary>Источники применённых значений</summary>
-                <select
-                  aria-label="Источник компонента"
+                <Select
+                  id="source-component"
+                  label="Источник компонента"
                   value={inspectedRole}
-                  onChange={(e) => setInspectedRole(e.target.value)}
-                >
-                  {Object.keys(bindings.recipes).map((r) => (
-                    <option key={r}>{r}</option>
-                  ))}
-                </select>
+                  onValueChange={value=>setInspectedRole(String(value))}
+                  options={Object.keys(bindings.recipes).map((r) => ({value:r,label:r}))}
+                />
                 {evidence.map((item: any) => (
                   <div className="source" key={item.property}>
                     <code>
@@ -1367,7 +1266,7 @@ function App() {
                 ))}
                 <code>tokens SHA256: {provenance.tokensSha256}</code>
               </details>
-            </div>
+            </Card>
           </aside>
         </div>
       </div>

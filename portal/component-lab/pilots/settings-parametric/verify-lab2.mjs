@@ -80,6 +80,37 @@ try {
   await page.goto(url);
   await page.evaluate(() => document.fonts.ready);
   await settle();
+  await check("service-panels-use-seda-components", async () => {
+    const left = page.locator("aside.rail");
+    const right = page.locator("aside.inspector");
+    assert.equal(await left.locator('select[data-seda-contract="Select"]').count(), 2);
+    assert.equal(await left.locator('[data-seda-contract="Slider"]').count(), 4);
+    assert.equal(await left.locator('input[data-seda-contract="Checkbox"]').count(), 1);
+    assert.equal(await right.locator(".seda-card.inspectcard").count(), 5);
+    assert.equal(await left.locator(".seda-alert").count(), 1);
+    assert.equal(await right.locator("#conformance.seda-alert").count(), 1);
+    assert.equal(await right.locator("button.seda-button[data-node]").count(), 7);
+    await right.locator('[data-node="airX"]').click();
+    assert.equal(await right.locator("#lab-active-node").textContent(), "airX");
+    await right.locator("details").last().locator("summary").click();
+    assert.equal(await right.locator('select#source-component[data-seda-contract="Select"]').count(), 1);
+    await right.locator("#source-component").selectOption("save");
+    assert.match(await right.locator(".source").first().textContent(), /seda|Lab|tokens|control/i);
+    await page.locator("#theme").selectOption("dark");
+    await page.locator("#size").selectOption("l");
+    await page.locator("#strict").setChecked(false);
+    await settle();
+    assert.equal((await page.evaluate(() => window.sedaPilot.getCompiled())).configuration.controlSize, "l");
+    assert.equal((await page.evaluate(() => window.sedaPilot.getLab())).parameters.strict, false);
+    await right.locator("details").last().locator("summary").click();
+    await page.setViewportSize({width:1440,height:900});
+    await page.evaluate(() => window.scrollTo(0,0));
+    await page.screenshot({path:path.join(output,"service-panels-dark.png")});
+    await page.locator("#reset").click();
+    await settle();
+    await page.evaluate(() => window.scrollTo(0,0));
+    await page.screenshot({path:path.join(output,"service-panels-light.png")});
+  });
   for (const width of [1440, 1180, 780, 390])
     for (const theme of ["Light", "Dark"])
       for (const size of ["s", "m", "l", "xl"]) {
