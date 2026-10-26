@@ -15,6 +15,8 @@
 
 Select — контрол выбора одного или нескольких значений из раскрывающегося списка. Он используется, когда варианты заранее известны, но их больше, чем удобно показывать через Radio или Checkbox.
 
+[D34](../../packages/seda-contracts/FIELD-ANATOMY.md) связывает label/helper с эффективной типографикой контрола и Regular; два интервала группы — отдельные роли по 4 px. Источник проверен read-only по Select M/XL и текстовым слоям XL. Это общее правило полей TextField/Select/NumberField; полная приёмка вариантов и popup остаётся открытой, нативный список продолжает принадлежать браузеру/ОС.
+
 В SEDA AI Select описан как часть AI-ready design system framework: spec фиксирует trigger, dropdown, option states, props contract, token mapping, accessibility, handoff и AI usage rules. AI может помогать проверять состав options, состояния, empty/error/loading сценарии и handoff, но не должен придумывать новые variants, props или tokens.
 
 ### Когда использовать

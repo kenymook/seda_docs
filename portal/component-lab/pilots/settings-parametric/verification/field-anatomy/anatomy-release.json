@@ -1,0 +1,46 @@
+{
+  "version": 61,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "runtimeGitHubCommit": "dd1f0e30ef10ec714a3b34e138a24583e63cd3e7",
+  "siteSourceCommit": "b431a7f58519f655d935dec6372b540b8a447dae",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_d6ff23b9b8a881918c6f08b1d4d21a52",
+  "deploymentId": "appgdep_6adeda925ce481919e34602ae6858315",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "runtimeCI": {
+    "runId": 40269110878,
+    "jobs": [
+      {
+        "id": 121397870496,
+        "name": "Verify / package",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 121397870800,
+        "name": "Verify / references",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 121397870839,
+        "name": "Verify / lab",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 121401861446,
+        "name": "library",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  }
+}

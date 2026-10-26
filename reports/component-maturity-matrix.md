@@ -1,5 +1,7 @@
 # Component Maturity Matrix
 
+Private v61: TextField/Select/NumberField получили source label/helper typography, два отдельных gap4 и TextField content gap6 без affix surface. [D34, installed-package/CI/production proofs и открытые визуальные ограничения](2026-10-26-field-anatomy.md). Это исправление общего ядра, не завершение полной визуальной и OS/AT приёмки.
+
 Private v60: TextField/NumberField используют существующие роли icon/default/active/error/disabled для SEDA Icon и SVG; compiler/Provider/Text имеют общий fallback stack с сохранением provenance. [Результаты installed package, actual screens, production и границы Figma-проверки](2026-10-26-field-foundation.md). Новых токенов, glyph assets и instance contracts нет; подложка/anatomy affix и полная визуальная приёмка остаются открытыми.
 
 Private v59: фильтры «Проектов» и «Команды» перестраиваются с учётом масштаба, X, иконок и gap, сохраняя геометрию контролов. [Замеры до/после, production и ограничения узких окон](2026-10-26-filter-capacity.md). Это улучшение композиции, не новый контракт и не завершение визуальной приёмки всей системы.
