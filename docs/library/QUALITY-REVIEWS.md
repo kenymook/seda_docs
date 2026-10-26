@@ -119,6 +119,10 @@ React editor на installed SEDA связывает три native canvas и insp
 
 После version28 additional negative import case воспроизвёл provider array coercion:15/1 FAIL при зелёных функциональных checks. Исправлен primitive type guard;16/16 model checks и15/15 browser checks включают corrupt storage array provider с сохранением исходных bytes. Это не универсальный security audit; полный source visual/AT/OS/performance review остаётся открытым.
 
+## Чат и артефакт — визуальная проверка плотного режима
+
+[Рабочий сценарий и ограничения](REFERENCE-ARTIFACT-REVIEW.md): при первом просмотре Light XL/150% длинная кнопка принятия выходила за узкую панель, хотя общий document overflow был равен нулю. Кнопке разрешён многострочный label в этой композиции, а SplitView выделяет артефакту минимум 400 px; при 1280 px скрывается навигация. Повторно просмотрены Light XL на 1440/1280 и Dark на 1440; исходный Chat 4 model/12 browser групп и новый артефакт 1 model/4 browser групп прошли локально. Наличие этих проверок не закрывает полную визуальную приёмку экрана и платформ.
+
 ## Lab 2.0 — служебные панели на SEDA UI
 
 Левая конфигурация использует контрактные SEDA Select, Slider и Checkbox, а пояснение о профилях — SEDA Alert. Правый Explain Engine использует SEDA Button для узлов графа, Card для пяти разделов, Select для источника применённых значений и Alert для результата измерений. Граф зависимостей, метрики и provenance остаются композициями: у библиотеки нет отдельного компонента для их предметной модели. `data-seda-contract` проверяется на контролах; служебные панели сохраняют отдельную область параметров, а X/Y и масштаб применяются к рабочему приложению.

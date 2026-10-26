@@ -15,6 +15,30 @@
 .chat-message code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.94em}.chat-message strong{font-weight:600}
 .chat-activity>.seda-button{min-width:0}
 
+/* The artifact is an application surface; control paint and geometry stay owned by SEDA. */
+.chat-artifact-entry{display:flex;justify-content:flex-end;min-width:0;margin-bottom:2px}
+.chat-artifact-entry>.seda-button{max-width:100%}
+.chat-artifact{height:100%;min-width:0;overflow:auto;overscroll-behavior:contain;padding:16px 18px 24px;background:var(--surface-base);border-inline-start:1px solid var(--border-subtle)}
+.chat-artifact__header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--border-subtle)}
+.chat-artifact__header>div{min-width:0}.chat-artifact__header h2{margin:0;overflow-wrap:anywhere}
+.chat-artifact__kicker.seda-text{display:block;margin:0 0 5px;color:var(--text-brand);letter-spacing:.08em}
+.chat-artifact__scope.seda-text{margin:12px 0;color:var(--text-secondary)}
+.chat-artifact__meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;padding:8px 0 12px;color:var(--text-tertiary)}
+.chat-artifact__proposal{display:grid;gap:10px;min-width:0;margin:0 0 16px;padding:14px;border:1px solid var(--border-default);border-radius:10px;background:var(--surface-subtle)}
+.chat-artifact__proposal h3,.chat-artifact__proposal p{margin:0}.chat-artifact__proposal p{color:var(--text-secondary)}
+.chat-artifact__proposal-text{max-height:140px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:10px;border-radius:6px;background:var(--surface-base)}
+.chat-artifact__work{display:grid;gap:14px;min-width:0}.chat-artifact__work>.seda-field,.chat-artifact__work .seda-textarea{width:100%;min-width:0}
+.chat-artifact__work .seda-tabs{min-width:0}.chat-artifact__work .seda-tabs__panel{min-width:0}
+.chat-artifact__actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-width:0}.chat-artifact__actions>.seda-button{max-width:100%;min-width:0;height:auto;min-height:var(--seda-control-height,var(--seda-preset-height));white-space:normal;text-align:start}.chat-artifact__actions>.seda-button>.seda-button__label{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.chat-artifact__preview{min-height:240px;padding:18px;border:1px solid var(--border-subtle);border-radius:10px;background:var(--surface-subtle);overflow-wrap:anywhere}
+.chat-artifact__preview h3{margin:0 0 16px}.chat-artifact__preview>div{white-space:pre-wrap;line-height:1.6}
+.chat-artifact__versions{display:grid;gap:10px;padding-top:14px;border-top:1px solid var(--border-subtle)}.chat-artifact__versions h3{margin:0}
+.chat-artifact__versions>.seda-field{min-width:0}.chat-artifact__versions>.seda-button{justify-self:start;max-width:100%;white-space:normal}
+.chat-artifact__recovery{display:grid;justify-items:start;gap:12px}.chat-artifact>.seda-alert{margin-top:16px}
+@media(max-width:1120px){.chat-artifact{padding:12px}.chat-artifact__header h2{font-size:var(--seda-control-font-size,var(--seda-preset-font-size))}}
+@media(max-width:1280px){.chat-app[data-artifact-open]>.chat-navigation{display:none}}
+@media(forced-colors:active){.chat-artifact__proposal,.chat-artifact__preview{border:1px solid CanvasText}}
+
 .chat-project>img{width:var(--seda-control-icon-size,var(--seda-preset-icon-size));height:var(--seda-control-icon-size,var(--seda-preset-icon-size));flex:none}
 .chat-rich-content>p.seda-text{margin:0}.chat-message-text.seda-text{margin:0}
 .chat-rich-content>h2.seda-text{margin:8px 0 0}
