@@ -91,6 +91,10 @@ try {
     assert.equal(await left.locator(".seda-alert").count(), 1);
     assert.equal(await right.locator("#conformance.seda-alert").count(), 1);
     assert.equal(await right.locator("button.seda-button[data-node]").count(), 7);
+    assert.equal(await left.locator('.ends .seda-text[data-seda-text="caption/tiny"]').count(), 8);
+    assert.equal(await right.locator('#nodeResult.seda-text[data-seda-text="metric/default"]').count(), 1);
+    assert.equal(await right.locator('#equation.seda-text[data-seda-text="code/small"]').count(), 1);
+    assert.equal(await right.locator('.metricrow strong.seda-text[data-seda-text="metric/small"]').count(), 2);
     await right.locator('[data-node="airX"]').click();
     assert.equal(await right.locator("#lab-active-node").textContent(), "airX");
     await right.locator("#applied-value-sources .seda-accordion__trigger").click();

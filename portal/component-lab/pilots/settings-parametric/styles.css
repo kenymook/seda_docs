@@ -537,7 +537,7 @@ td:first-child {
   font-size: 11px;
   color: var(--text-tertiary);
 }
-.metricrow b {
+.metricrow :is(b, strong) {
   font-size: 12px;
   color: #2a3b50;
 }
@@ -707,7 +707,7 @@ body.dark .metricrow {
   border-color: #344256;
 }
 body.dark table:not(.seda-table__element) td:first-child,
-body.dark .metricrow b {
+body.dark .metricrow :is(b, strong) {
   color: #ecf2fb;
 }
 body.dark .view-switch .active {
@@ -919,7 +919,7 @@ details {
 #lab-scope :is(.top,.panelhead,.metricrow) { border-color:var(--border-default); }
 #lab-scope :is(.hint,.count,.brand small,.topmeta) { color:var(--text-secondary); }
 #lab-scope :is(.view-switch,.compare > div,.equation,.inspector .graph) { background:var(--surface-subtle); color:var(--text-secondary); }
-#lab-scope :is(.metricrow b,.equation) { color:var(--text-primary); }
+#lab-scope :is(.metricrow b,.metricrow strong,.equation) { color:var(--text-primary); }
 #lab-scope :is(.view-switch .active,.mark) { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
 #lab-scope .note { background:var(--status-info-container); color:var(--text-info); }
 #lab-scope .subtle { background:var(--container-neutral-default); color:var(--text-primary); border-color:var(--border-default); }

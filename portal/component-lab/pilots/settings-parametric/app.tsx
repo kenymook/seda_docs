@@ -664,33 +664,33 @@ function App() {
             <div className="control">
               <Slider id="scale" label="Масштаб текста" size="s" min={80} max={150} step={5} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
               <div className="ends">
-                <span>80%</span>
-                <span>150%</span>
+                <Text variant="caption/tiny">80%</Text>
+                <Text variant="caption/tiny">150%</Text>
               </div>
             </div>
             <div className="control">
               <Slider id="air" label="Дополнительный отступ по Y" size="s" min={0} max={12} step={1} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
               <div className="ends">
-                <span>0</span>
-                <span>12px</span>
+                <Text variant="caption/tiny">0</Text>
+                <Text variant="caption/tiny">12px</Text>
               </div>
             </div>
             <div className="control">
               <Slider id="airX" label="Дополнительный отступ по X" size="s" min={0} max={24} step={1} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
               <div className="ends">
-                <span>0</span>
-                <span>24px</span>
+                <Text variant="caption/tiny">0</Text>
+                <Text variant="caption/tiny">24px</Text>
               </div>
-              <p className="small">
+              <Text as="p" variant="caption/default" className="small">
                 К базовым отступам Button, TextField и Select. IconButton остаётся
                 квадратным.
-              </p>
+              </Text>
             </div>
             <div className="control">
               <Slider id="radius" label="Множитель радиуса" size="s" min={50} max={175} step={5} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
               <div className="ends">
-                <span>0.5×</span>
-                <span>1.75×</span>
+                <Text variant="caption/tiny">0.5×</Text>
+                <Text variant="caption/tiny">1.75×</Text>
               </div>
             </div>
             <div className="sectionline"></div>
@@ -698,10 +698,10 @@ function App() {
             <Checkbox id="strict" label="Сохранять минимум высоты пресета"
               checked={parameters.strict}
               onCheckedChange={strict=>setParameters(p=>({...p,strict}))}/>
-            <p className="small">
+            <Text as="p" variant="caption/default" className="small">
               Если вычисленная высота меньше пресета, ограничение поднимает её
               до минимальной.
-            </p>
+            </Text>
             <Alert variant="info" size="s" title="Исходные профили"
               description="S / M / L / XL — фиксированные пресеты. Формула служит общим ядром параметров SEDA и доступна через SedaProvider."/>
           </aside>
@@ -1161,30 +1161,30 @@ function App() {
               }]} />
             </Card>
             <Card as="section" title="Активный узел" variant="compact" className="inspectcard" status={<code id="lab-active-node">{selected}</code>}>
-              <div className="result" id="nodeResult">
+              <Text as="div" variant="metric/default" className="result" id="nodeResult">
                 {node.v}
-              </div>
+              </Text>
               <Text as="p" variant="caption/default" id="nodeDesc">{node.desc}</Text>
             </Card>
             <Card as="section" title="Формула" variant="compact" className="inspectcard">
-              <div className="formula" id="formula">
+              <Text as="div" variant="label/default" className="formula" id="formula">
                 H = max(L, I) + 2P + 2B
-              </div>
-              <div className="equation" id="equation">
+              </Text>
+              <Text as="div" variant="code/small" className="equation" id="equation">
                 {d.formula}
                 {d.constraint
                   ? ` → max(${fmt(d.raw)}, ${d.preset.height}) = ${fmt(d.height)} px`
                   : ""}
+              </Text>
+              <div className="metricrow">
+                <Text variant="caption/default">Вычисленная высота</Text>
+                <Text as="strong" variant="metric/small" id="calculated">{fmt(d.height)} px</Text>
               </div>
               <div className="metricrow">
-                <span>Вычисленная высота</span>
-                <b id="calculated">{fmt(d.height)} px</b>
-              </div>
-              <div className="metricrow">
-                <span>Фактическая высота DOM</span>
-                <b id="measured">
+                <Text variant="caption/default">Фактическая высота DOM</Text>
+                <Text as="strong" variant="metric/small" id="measured">
                   {measurements.length ? fmt(measurements[0].h) + " px" : "—"}
-                </b>
+                </Text>
               </div>
               <Alert id="conformance" size="s" variant={!measurements.length ? "info" : failed.length ? "warning" : "success"}
                 title={!measurements.length ? "Измерение…" : failed.length ? "Расхождение > 1 px" : "PASS"}
@@ -1194,9 +1194,9 @@ function App() {
                     (form.saving ? " · loading сохраняет snapshot" : "")}/>
             </Card>
             <Card as="section" title="Зависимости" variant="compact" className="inspectcard">
-              <div id="deps" className="deps">
+              <Text as="div" variant="caption/default" id="deps" className="deps">
                 {node.deps}
-              </div>
+              </Text>
             </Card>
             <Card as="section" title="Проверки" variant="compact" className="inspectcard">
               <div id="checks" className="checks">

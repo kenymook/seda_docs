@@ -4,6 +4,8 @@ React-компоненты SEDA для веб-приложений и веб-и�
 
 `Search` — общий experimental query/results pattern: настоящее TextField и отдельный IconButton очистки, native Link/Button результатов, локализованные состояния и snapshot identity. Files использует внешний фильтруемый результат; Chat — общий Search внутри Modal, с настоящими переходами и клавиатурой. UI сверяет исходный query и queryKey для ready/loading/error, включая A→B→A; data layer по-прежнему владеет transport/debounce/abort. Ранжирование, поиск и документы не симулируются библиотекой. Полный API и ограничения: specs/overlays-layout/search.md.
 
+`InlineToolbar` — experimental action group рядом с выделением: общая поверхность и клавиатурный порядок, S/M/L/XL и темы через SedaProvider. Редактор владеет моделью текста, расположением панели, историей и сохранением. Спецификация: `specs/overlays-layout/inline-toolbar.md`.
+
 `NotificationCenter` — общий experimental центр уведомлений: snapshot items, точный unread count, all/mentions/unread Tabs, локализованные labels и явные владельцы mark-read/retry/settings. Loading/error/read states используют общие Text/Button/Badge/Icon и существующие notification-center tokens. Panel интегрирован с историей реальных локальных операций Files. `placement=overlay` требует host-owned non-modal surface; самостоятельный overlay host не предоставляется. API, fallback geometry и открытая Figma/AT-приёмка: specs/overlays-layout/notification-center.md.
 
 ## Сборка и подключение

@@ -265,3 +265,7 @@
 - Button не создаёт пустые icon slots для false/пустого Fragment.
 - TextArea использует Button text в header, эффективную field typography, стабильную очистку и родительскую высоту. Новый clearLabel нужен для видимой локализации действия. Clear теперь остаётся недоступным в пустом/readOnly/disabled состоянии, вместо исчезновения.
 - Compiler и public CSS используют общий presentation adapter; source provenance и browser-not-checked границы сохранены.
+## Unreleased — InlineToolbar для редактируемого выделения
+
+- Добавлен experimental InlineToolbar с общей поверхностью, размерами S/M/L/XL, именем, roving focus и навигацией стрелками/Home/End с учётом RTL; приложение владеет выделением и действиями.
+- В Building подключены ограниченные bold/italic/code marks одного блока с сохранением, undo, split/join и явной валидацией. Полный rich-text и межблочное форматирование остаются вне этого этапа.

@@ -8,6 +8,7 @@ import {verifyTable} from './verify-table.mjs';
 import {verifyCardAvatar} from './verify-card-avatar.mjs';
 import {verifyChatBubble} from './verify-chat-bubble.mjs';
 import {verifyTopBar} from './verify-top-bar.mjs';
+import {verifyInlineToolbar} from './verify-inline-toolbar.mjs';
 import {verifySidebar} from './verify-sidebar.mjs';
 import {verifyAccordion} from './verify-accordion.mjs';
 import {verifyNotificationCenter} from './verify-notification-center.mjs';
@@ -175,7 +176,7 @@ return h('main',null,h('h1',null,'SEDA package consumer'),h(TextField,{id:'name'
         assert.equal(r.status, 0, r.stderr);
         assert.equal(r.stderr, "");
         const result = JSON.parse(r.stdout);
-        assert.equal(result.exports.length, 41);
+        assert.equal(result.exports.length, 42);
         assert.ok(result.exports.includes('NumberField'));
         assert.ok(result.exports.includes('Slider'));
         assert.ok(result.exports.includes('Popover'));
@@ -571,6 +572,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-card-avatar",()=>verifyCardAvatar({cwd,browser}));
     await check("react-"+version+"-chat-bubble",()=>verifyChatBubble({cwd,browser}));
     await check("react-"+version+"-top-bar",()=>verifyTopBar({cwd,browser}));
+    await check("react-"+version+"-inline-toolbar",()=>verifyInlineToolbar({cwd,browser,version}));
     await check("react-"+version+"-sidebar",()=>verifySidebar({cwd,browser}));
     await check("react-"+version+"-accordion",()=>verifyAccordion({cwd,browser}));
     await check("react-"+version+"-notification-center",()=>verifyNotificationCenter({cwd,browser}));
