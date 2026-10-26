@@ -2,6 +2,8 @@
 
 React-компоненты SEDA для веб-приложений и веб-интерфейсов в desktop shell. Пакет пока private/experimental: production-ready статус всей библиотеки не заявляется.
 
+Как собирать из компонентов рабочие экраны: [правила композиций](../../docs/library/COMPOSITION-RULES.md). В них описаны ownership, панели редактора, просмотр данных, инспекторы, формы и диалог, а также текущая граница между общим recipe и логикой приложения.
+
 `Search` — общий experimental query/results pattern: настоящее TextField и отдельный IconButton очистки, native Link/Button результатов, локализованные состояния и snapshot identity. Files использует внешний фильтруемый результат; Chat — общий Search внутри Modal, с настоящими переходами и клавиатурой. UI сверяет исходный query и queryKey для ready/loading/error, включая A→B→A; data layer по-прежнему владеет transport/debounce/abort. Ранжирование, поиск и документы не симулируются библиотекой. Полный API и ограничения: specs/overlays-layout/search.md.
 
 `InlineToolbar` — experimental action group рядом с выделением: общая поверхность и клавиатурный порядок, S/M/L/XL и темы через SedaProvider. Редактор владеет моделью текста, расположением панели, историей и сохранением. Спецификация: `specs/overlays-layout/inline-toolbar.md`.
