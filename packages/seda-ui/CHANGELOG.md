@@ -235,3 +235,10 @@
 - Public Accordion с native Button/Icon/Badge, single/multiple ownership, disabled/required-open, mounted hidden panels, optional roving и focus repair. Framer/Webflow/Spline используют installed export, старые details paddings удалены.
 - Shared preset/Accordion token provenance и missing-role guards добавлены. Цвета trigger переключаются сразу, устраняя transient contrast failure; chevron motion уважает reduced motion.
 - 29 component entry modules/36 runtime exports;11 executable instance contracts. Figma/AT/OS и surface contract review остаются открытыми.
+
+## 2026-10-26 — D35 inline action / TextArea
+
+- Исправлен существующий Button text: line-height geometry, Regular, размерные gaps, inline icon slots и inner border. Обычные действия и квадратный IconButton сохраняют свои профили.
+- Button не создаёт пустые icon slots для false/пустого Fragment.
+- TextArea использует Button text в header, эффективную field typography, стабильную очистку и родительскую высоту. Новый clearLabel нужен для видимой локализации действия. Clear теперь остаётся недоступным в пустом/readOnly/disabled состоянии, вместо исчезновения.
+- Compiler и public CSS используют общий presentation adapter; source provenance и browser-not-checked границы сохранены.

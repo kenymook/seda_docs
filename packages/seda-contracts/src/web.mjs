@@ -162,6 +162,7 @@ export function createTextAreaWebBindings(control){
  const at='/controls/TextArea';if(control?.component!=='TextArea'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled TextArea with required roles.');
  const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['text-area'],at+'/tokenBranch','--');
  for(const [key,name]of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',borderWidth:'border-width',textFieldPaddingInline:'field-padding'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='borderWidth'&&key!=='textFieldPaddingInline'}),at+'/geometry/'+key);
+ bindFieldTypography(target,control.fieldTypography,at+'/fieldTypography');
  return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'TextArea'}},control,at);
 }
 
@@ -232,17 +233,22 @@ export function createWebBindings(compiled) {
     const at = `/instances/${role}`;
     if (!['Button', 'IconButton', 'TextField'].includes(instance.component)) fail(at, 'Unsupported web component.');
     const target = writer();
+    const geometry=instance.geometry??compiled.geometry,geometryAt=instance.geometry?at+'/geometry':'/geometry';
     for (const [key, variable] of Object.entries({ height: 'height', radius: 'radius', fontSize: 'font-size', lineHeight: 'line-height', iconSize: 'icon-size', borderWidth: 'border-width' })) {
-      target.add(`--seda-control-${variable}`, px(geometry[key], `/geometry/${key}`, { positive: ['height', 'fontSize', 'lineHeight', 'iconSize'].includes(key) }), `/geometry/${key}`);
+      target.add(`--seda-control-${variable}`, px(geometry[key], `${geometryAt}/${key}`, { positive: ['height', 'fontSize', 'lineHeight', 'iconSize'].includes(key) }), `${geometryAt}/${key}`);
     }
     target.add('--seda-font-family', withSystemFontFallback(leaf(typography.family,'/typography/family','string')), '/typography/family', 'string');
-    target.add('--seda-label-weight', typography.labelWeight, '/typography/labelWeight', 'string');
+    target.add('--seda-label-weight', instance.actionTypography?.weight??typography.labelWeight, instance.actionTypography?at+'/actionTypography/weight':'/typography/labelWeight', 'string');
+    if(instance.actionLayout){
+      if(instance.actionLayout.kind!=='inline-action'||instance.component!=='Button'||instance.props.variant!=='text')fail(at+'/actionLayout','Invalid inline action');
+      target.add('--seda-inline-paint-border',px(geometry.paintBorderWidth,at+'/geometry/paintBorderWidth'),at+'/geometry/paintBorderWidth');
+    }
     if (instance.component !== 'IconButton') {
       const field = instance.component === 'TextField';
       const padding = field ? 'textFieldPaddingInline' : 'buttonPaddingInline';
       const gap = field ? 'textFieldAffixGap' : 'buttonContentGap';
-      target.add('--seda-control-padding-inline', px(geometry[padding], `/geometry/${padding}`), `/geometry/${padding}`);
-      target.add('--seda-control-gap', px(geometry[gap], `/geometry/${gap}`), `/geometry/${gap}`);
+      target.add('--seda-control-padding-inline', px(geometry[padding], `${geometryAt}/${padding}`), `${geometryAt}/${padding}`);
+      target.add('--seda-control-gap', px(geometry[gap], `${geometryAt}/${gap}`), `${geometryAt}/${gap}`);
     }
     const branch = instance.tokenBranch?.children;
     const required = ['surface/default', 'surface/hover', 'surface/disabled', 'border/default', 'border/hover', 'border/disabled', 'foreground/default', 'foreground/disabled'];

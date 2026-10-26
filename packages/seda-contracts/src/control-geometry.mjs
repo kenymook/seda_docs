@@ -49,7 +49,7 @@ export function controlGeometryVariables(geometry){return{...Object.fromEntries(
 const sources={'preset.height':'--seda-preset-height','preset.font':'--seda-preset-font-size','preset.line':'--seda-preset-line-height','preset.icon':'--seda-preset-icon-size','preset.radius':'--seda-preset-radius','preset.border':'--seda-preset-border-width','preset.buttonPaddingX':'--seda-preset-button-padding','preset.fieldPaddingX':'--seda-preset-field-padding','parameter.scale':'--seda-parameter-scale','parameter.extraInline':'--seda-parameter-extra-inline','parameter.extraBlock':'--seda-parameter-extra-block','parameter.radius':'--seda-parameter-radius','parameter.minimum':'--seda-parameter-minimum',...outputNames};
 function css(node,length=false){
   if(typeof node==='number')return String(node)+(length?'px':'');
-  if(node.ref)return'var('+sources[node.ref]+')';
+  if(node.ref){const fallback={'parameter.scale':'1','parameter.extraInline':'0px','parameter.extraBlock':'0px','parameter.radius':'1','parameter.minimum':'1'}[node.ref];return'var('+sources[node.ref]+(fallback!==undefined?', '+fallback:'')+')';}
   if(node.op==='round')return'round(nearest, '+css(node.args[0])+', '+css(node.args[1],true)+')';
   if(node.op==='max')return'max('+node.args.map(arg=>css(arg)).join(', ')+')';
   return'calc('+css(node.args[0])+' '+node.op+' '+css(node.args[1])+')';

@@ -279,3 +279,9 @@ Runtime не принимает state/filled: hover/focus/active принадл�
 ### Plain appearance для составной поверхности (experimental)
 
 `appearance="outlined"` — прежнее поведение по умолчанию. `appearance="plain"` нужен для composer внутри общей поверхности: убирает только собственную заливку и видимую рамку default/hover/active/focus/readOnly. Геометрия, X/Y, autoResize, accessible label и focus ring сохраняются; error и disabled используют прежние component tokens. Forced colors сохраняет видимую границу. Оболочка приложения отвечает за общую поверхность и layout, не меняет внутренние элементы TextArea. Причина нового API: прежний TextArea нельзя было встроить в единую поверхность без произвольных вложенных CSS overrides. Это документированное расширение runtime, не новый Figma variant и не доказательство визуального совпадения всей библиотеки.
+
+## Исполняемая композиция — D35
+
+Header объединяет отдельный label и настоящий SEDA Button text. Очистка не перекрывает ввод и не входит в accessible name поля. clearLabel задаёт видимый локализованный текст; default — «Очистить». При clearable=true действие остаётся в header, а пустое/disabled/readOnly поле делает его недоступным. Controlled значение остаётся у onClear; событие не заменяется выдуманным onChange.
+
+Label/helper/counter используют эффективные размер, строку и Regular поля; header-to-control и control-to-helper — отдельные существующие интервалы 4 px. Native rows=3, ручной resize, autoResize/maxRows, reset, IME и FormData сохраняют прежнее владение. Заданная родителем style.height заполняется обычным полем; autoResize владеет высотой ввода и соблюдает maxRows. Для фиксированной области применяется resize="none". Полный source body padding, остальные Figma состояния и OS/AT остаются отдельной приёмкой. [Решение и источник](../../packages/seda-contracts/INLINE-ACTION-CONTRACT.md).

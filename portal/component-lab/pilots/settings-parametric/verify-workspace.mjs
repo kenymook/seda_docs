@@ -7,10 +7,10 @@ import {createContractEngine} from '../../../../packages/seda-contracts/src/inde
 const engine=createContractEngine(),localPresets=new Map();
 // Independent numeric oracle over resolved profile inputs; never read expected
 // dimensions from the rendered CSS or copy the Provider's expression graph.
-function localGeometry(theme,size,params){
+function localGeometry(theme,size,params,variant){
   const key=theme+':'+size;
-  if(!localPresets.has(key))localPresets.set(key,engine.compile(undefined,{overrides:{theme,controlSize:size}}).geometry);
-  const g=localPresets.get(key),factor=params.scale/100,font=Math.round(g.fontSize.value*factor),line=Math.round(g.lineHeight.value*factor),icon=Math.round(g.iconSize.value*factor),border=g.borderWidth.value;
+  if(!localPresets.has(key))localPresets.set(key,engine.compile(undefined,{overrides:{theme,controlSize:size}}));
+  const profile=localPresets.get(key),g=variant==='text'?profile.actionVariants.text.geometry:profile.geometry,factor=params.scale/100,font=Math.round(g.fontSize.value*factor),line=Math.round(g.lineHeight.value*factor),icon=Math.round(g.iconSize.value*factor);
   return{height:Math.max(g.height.value,Math.max(line,icon)+g.height.value-g.lineHeight.value+2*params.air),font,line,radius:Number((g.radius.value*params.radius/100).toFixed(2)),fieldPaddingX:g.textFieldPaddingInline.value+params.airX,buttonPaddingX:g.buttonPaddingInline.value+params.airX};
 }
 const output = path.join(import.meta.dirname, ".diagnostics-workspace");
@@ -98,21 +98,22 @@ try {
                     .map((el) => {
                       const s = getComputedStyle(el),
                         b = el.getBoundingClientRect();
-                      const inner=el.querySelector('.seda-field__input,.seda-field__select');
+                      const area=el.querySelector('textarea'),inner=el.querySelector('.seda-field__input,.seda-field__select,.seda-textarea__input');
                       return {
                         size:el.closest('[data-size]')?.getAttribute('data-size'),
+                        variant:el.getAttribute('data-variant'),rows:area?.rows??1,
                         id:
                           el.id ||
-                          el.querySelector("input,select")?.id ||
+                          el.querySelector("input,select,textarea")?.id ||
                           el.textContent.trim(),
                         height: b.height,
                         width: b.width,
-                        padding: parseFloat(s.paddingInlineStart),
+                        padding: parseFloat(getComputedStyle(area??el).paddingInlineStart),
                         radius: parseFloat(s.borderRadius),
                         font: parseFloat(s.fontSize),
                         line: parseFloat(s.lineHeight),
                         ...(inner ? {innerBackground:getComputedStyle(inner).backgroundColor,innerColor:getComputedStyle(inner).color,wrapperColor:s.color} : {}),
-                        kind: el.classList.contains("seda-tabs__tab") ? "tab" : el.classList.contains("seda-icon-button")
+                        kind: area ? "textarea" : el.classList.contains("seda-tabs__tab") ? "tab" : el.classList.contains("seda-icon-button")
                           ? "icon"
                           : el.classList.contains("seda-button")
                             ? "button"
@@ -121,13 +122,13 @@ try {
                     }),
                 );
               for (const v of data) {
-                const expected=v.size&&v.size!==size?localGeometry(theme,v.size,params):d;
+                const expected=v.variant==='text'||v.size&&v.size!==size?localGeometry(theme,v.size??size,params,v.variant):d;
                 if(v.innerBackground!==undefined){assert.equal(v.innerBackground,'rgba(0, 0, 0, 0)',v.id+' inner field must let the compiled surface show through');assert.equal(v.innerColor,v.wrapperColor,v.id+' inherits compiled foreground');}
-                near(v.height, expected.height, v.id + " height");
+                near(v.height, expected.height+(v.kind==='textarea'?(v.rows-1)*expected.line:0), v.id + " height");
                 if (v.kind !== "tab") near(v.radius, expected.radius, v.id + " radius");
                 near(v.font, expected.font, v.id + " font");
                 near(v.line, expected.line, v.id + " line");
-                if (v.kind === "field" || v.kind === "tab")
+                if (v.kind === "field" || v.kind === "tab" || v.kind === "textarea")
                   near(v.padding, expected.fieldPaddingX, v.id + " field X");
                 if (v.kind === "button")
                   near(v.padding, expected.buttonPaddingX, v.id + " button X");
@@ -327,6 +328,7 @@ try {
   await check("workspace-settings-validation-state", async () => {
     await fresh();
     await selectPage("settings");
+    await page.locator("#workspace-description").fill("Согласованное описание\nКомандный контекст");
     await page.locator("#workspace-name").fill("");
     await page.locator("#workspace-email").fill("invalid");
     await page.locator("#workspace-url").fill("http://insecure.example");
@@ -346,6 +348,7 @@ try {
     await page.locator("#workspace-email").fill("owner@product.example");
     await page.locator("#workspace-url").fill("https://product.example");
     await page.locator("#workspace-budget").fill("5000");
+    assert.equal(await page.locator("#workspace-description").inputValue(),"Согласованное описание\nКомандный контекст");
     await page.locator("#workspace-team").selectOption("Design");
     await page.locator("#workspace-apply").click();
     assert.match(
@@ -365,6 +368,8 @@ try {
       "Desktop application",
     );
     assert.equal(await page.locator("#workspace-team").inputValue(), "Design");
+    assert.equal(await page.locator("#workspace-description").inputValue(),"Согласованное описание\nКомандный контекст");
+    await page.locator("#workspace-description").fill("Несохранённый контекст");
     await page.locator("#workspace-name").fill("Unsaved");
     await page
       .getByRole("button", { name: "Отменить изменения", exact: true })
@@ -373,6 +378,7 @@ try {
       await page.locator("#workspace-name").inputValue(),
       "Desktop application",
     );
+    assert.equal(await page.locator("#workspace-description").inputValue(),"Согласованное описание\nКомандный контекст");
     return {
       validation: "text/email/url/number",
       persistence: "navigation and profile changes",

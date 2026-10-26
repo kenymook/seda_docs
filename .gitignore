@@ -11,6 +11,7 @@ portal/docs-site/figma-components.json
 # Generated reports, caches and helper workspaces
 reports/*
 !reports/2026-10-26-field-anatomy.md
+!reports/2026-10-26-inline-action-textarea.md
 !reports/component-maturity-matrix.md
 !reports/component-registry.md
 !reports/release-checklist.md
@@ -24,6 +25,7 @@ temp/
 .cache/
 
 # Dependencies and build output
+portal/component-lab/pilots/settings-parametric/.diagnostics-*/
 node_modules/
 dist/
 build/

@@ -1,6 +1,7 @@
 import React, { createContext, forwardRef, useContext } from "react";
 import {
   Select as SedaSelect,
+  TextArea as SedaTextArea,
   Slider as SedaSlider,
   NumberField as SedaNumberField,
   Checkbox as SedaCheckbox,
@@ -100,3 +101,5 @@ export const Slider = forwardRef<HTMLDivElement, React.ComponentProps<typeof Sed
 ));
 
 export const NumberField=forwardRef<HTMLInputElement,React.ComponentProps<typeof SedaNumberField>>((props,ref)=><SedaNumberField {...props} {...checkedAttributes('NumberField',props,useContext(Catalog))} ref={ref}/>);
+
+export const TextArea=forwardRef<HTMLTextAreaElement,React.ComponentProps<typeof SedaTextArea>>((props,ref)=><SedaTextArea {...props} {...checkedAttributes('TextArea',props,useContext(Catalog))} ref={ref}/>);

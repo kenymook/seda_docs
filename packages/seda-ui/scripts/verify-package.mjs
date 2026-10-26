@@ -1,3 +1,4 @@
+import {verifyInlineArea} from './verify-inline-area.mjs';
 import {verifyControlParameters} from './verify-control-parameters.mjs';
 import {verifySlider} from './verify-slider.mjs';
 import {verifyNumberField} from './verify-number-field.mjs';
@@ -550,6 +551,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
       verifySplitView({cwd,browser,version}),
     );
     await check("react-" + version + "-tree", () => verifyTree({cwd,browser,version}));
+    await check("react-"+version+"-inline-action-and-area-anatomy",()=>verifyInlineArea({cwd,browser}));
     await check("react-"+version+"-textarea",()=>verifyTextArea({cwd,browser,version}));
     await check("react-"+version+"-typography",()=>verifyTypography({cwd,browser,version}));
     await check("react-"+version+"-link-variants",()=>verifyLink({cwd,browser,version}));

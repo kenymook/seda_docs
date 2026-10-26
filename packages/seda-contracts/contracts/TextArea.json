@@ -34,6 +34,16 @@
       "name": "counter",
       "element": "span",
       "required": false
+    },
+    {
+      "name": "header",
+      "element": "div",
+      "required": false
+    },
+    {
+      "name": "clear",
+      "element": "button",
+      "required": false
     }
   ],
   "targetDefaults": {
@@ -47,7 +57,8 @@
     "clearable": false,
     "disabled": false,
     "readOnly": false,
-    "required": false
+    "required": false,
+    "clearLabel": "Очистить"
   },
   "states": {
     "availability": [

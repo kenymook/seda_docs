@@ -19,7 +19,7 @@ import {
   type AlertVariant,
 } from "@seda-ai/ui";
 
-import { NumberField, Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
+import { TextArea, NumberField, Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
 import {EditorWorkspace} from "./EditorWorkspace";
 
 type Props = {
@@ -43,6 +43,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
   const invalidFocus = useRef<string | null>(null);
   const [settings, setSettings] = useState({
     name: "Atlas Platform",
+    description: "Рабочее пространство команды: проекты, материалы и обсуждения.",
     email: "owner@atlas.example",
     url: "https://atlas.example",
     budget: "12000",
@@ -218,6 +219,11 @@ export function ProductWorkspace({ size, action, children, typography, textScale
                       suffix: <span>₽</span>,
                     })}
                     {field("date", "Дата запуска", "date")}
+                    <TextArea id="workspace-description" className="workspace-description" size={size}
+                      label="Описание пространства" value={settings.description}
+                      onChange={event=>update('description',event.target.value)} clearable
+                      onClear={()=>update('description','')} showCount maxLength={500} rows={3}
+                      helperText="Контекст и правила работы команды" />
                     <Select
                       className="workspace-select"
                       id="workspace-team"

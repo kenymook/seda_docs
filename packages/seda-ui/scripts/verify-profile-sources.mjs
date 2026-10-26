@@ -133,6 +133,7 @@ export async function verifyProfileSources(root) {
     await fs.mkdir(path.join(temp, "packages/seda-contracts/src"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/profiles"));
     await fs.copyFile(path.join(repo,"packages/seda-contracts/profiles/settings-form.json"),path.join(temp,"packages/seda-contracts/profiles/settings-form.json"));
+    await fs.copyFile(path.join(repo,'packages/seda-contracts/src/inline-action.mjs'),path.join(temp,'packages/seda-contracts/src/inline-action.mjs'));
     await fs.copyFile(path.join(repo,'packages/seda-contracts/src/typography.mjs'),path.join(temp,'packages/seda-contracts/src/typography.mjs'));
     for(const file of ['slider.mjs','slider.d.mts','number-field.mjs','number-field.d.mts','control-geometry.mjs','control-geometry.d.mts'])await fs.copyFile(path.join(repo,'packages/seda-contracts/src',file),path.join(temp,'packages/seda-contracts/src',file));
     for (const name of ["Button", "IconButton", "TextArea", "Slider", "NumberField"])

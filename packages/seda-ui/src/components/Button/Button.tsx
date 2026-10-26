@@ -2,6 +2,7 @@ import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useRef, useImperativeHandle } from "react";
 import { useBrowserLayoutEffect } from "../../utils/useBrowserLayoutEffect";
 import { cx } from "../../utils/classNames";
+import { hasSlotContent } from "../../utils/hasSlotContent";
 import type { ButtonProps } from "./Button.types";
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -84,17 +85,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={element}
         type={type}
       >
-        {iconLeft != null && (
+        {hasSlotContent(iconLeft) && (
           <span
             aria-hidden="true"
             className="seda-button__icon seda-button__leading"
-            data-empty={iconLeft == null ? "true" : undefined}
           >
             <span className="seda-button__icon-content">{iconLeft}</span>
           </span>
         )}
         <span className="seda-button__label">{children}</span>
-        {iconRight != null ? (
+        {hasSlotContent(iconRight) ? (
           <span
             aria-hidden="true"
             className="seda-button__icon seda-button__trailing"

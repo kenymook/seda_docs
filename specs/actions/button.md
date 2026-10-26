@@ -397,3 +397,7 @@ AI не должен:
 ### Runtime: loading geometry (Lab 2.0)
 
 В React-реализации leading slot создаётся только при наличии `iconLeft`. Перед показом центрированного spinner замеряется фактический border box; width/height фиксируются на время loading и возвращаются к authored styles после завершения. Label сохраняет accessible name, но визуально скрыт. Form guard дополнительно блокирует programmatic submit. Матрица проверки: Light/Dark × S/M/L/XL × три длины label × четыре набора icon slots, допуск 1 px.
+
+## Исполняемая геометрия text — D35
+
+Button text использует высоту строки и Regular вместо корпуса обычного действия. Geometry, размер icon slots, gap и внутренний stroke описаны в [контракте inline action](../../packages/seda-contracts/INLINE-ACTION-CONTRACT.md). Пустые boolean/Fragment icon slots не резервируют место; непрозрачные пользовательские React-компоненты сохраняют ответственность за собственное содержимое. Loading сохраняет фактические размеры, имя и запрет повторной активации. Primary/secondary/text входят в проверяемый compiler scope; остальные визуальные варианты требуют собственной приёмки.

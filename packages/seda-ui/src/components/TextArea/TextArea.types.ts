@@ -15,5 +15,7 @@ export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaE
  resize?:'vertical'|'none';
  showCount?:boolean;
  clearable?:boolean;
+ /** Visible localized header action. Clear remains owned by onClear for controlled values. */
+ clearLabel?:string;
  onClear?:()=>void;
 }

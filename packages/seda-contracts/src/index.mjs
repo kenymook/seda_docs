@@ -9,6 +9,7 @@ import { createFormState, transitionForm, formEvents } from './form.mjs';
 import { deriveState, evaluateRules, validateRuleDefinition, mergeDescriptionIds } from './rules.mjs';
 import { validateWebProfile } from './web.mjs';
 import { compileTypography } from './typography.mjs';
+import {resolveInlineAction,resolveInlineActionBranch} from './inline-action.mjs';
 export {createSliderModel,snapSliderValue} from './slider.mjs';
 export {createNumberFieldModel,stepNumberFieldValue} from './number-field.mjs';
 import {deriveControlGeometry,normalizeControlParameters,defaultControlParameters} from './control-geometry.mjs';
@@ -139,9 +140,9 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
   function validateInstance(name, props, { interaction = {}, contract = bundle.contracts.find(item => item.id === name) } = {}) {
     if (!contract) return { valid: false, issues: [issue('COMPONENT_UNKNOWN', '/', `Unknown component ${name}`)], checks: [] };
     const invalidContract = schemaIssues('component', contract, '/contract');
+    if (contract.id !== name) invalidContract.push(issue('COMPONENT_ID_MISMATCH', '/contract/id', `Requested ${name}, received ${contract.id}.`));
     if(!invalidContract.length)invalidContract.push(...sliderGeometryIssues(contract,'/contract',bundle.system.supportedThemes));
     if (invalidContract.length) return { valid: false, issues: invalidContract, checks: [] };
-    if (contract.id !== name) return { valid: false, issues: [issue('COMPONENT_ID_MISMATCH', '/contract/id', `Requested ${name}, received ${contract.id}.`)], checks: [] };
     const actual = api.get(name);
     const expectedApi = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${name}Props`, nativeElement: nativeElements[name] };
     for (const [key, value] of Object.entries(expectedApi)) if (contract.api[key] !== value) invalidContract.push(issue('API_SOURCE_MISMATCH', `/contract/api/${key}`, `Expected ${value}.`));
@@ -212,6 +213,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       for (const [size, values] of Object.entries(candidate.system.sizes)) for (const [key, value] of Object.entries(values)) attempt(`/system/sizes/${size}/${key}`, () => resolveMeasurement(value, theme));
       for (const [key, value] of Object.entries(candidate.system.geometry)) attempt(`/system/geometry/${key}`, () => resolveMeasurement(value, theme));
       for(const contract of candidate.contracts)for(const[key,value]of Object.entries(contract.geometry??{}))attempt(`/contracts/${contract.id}/geometry/${key}`,()=>resolveMeasurement(value,theme));
+      for(const contract of candidate.contracts)if(contract.inlineAction)for(const size of Object.keys(candidate.system.sizes))attempt('/contracts/'+contract.id+'/inlineAction/'+size,()=>resolveInlineAction(contract,Object.fromEntries(Object.entries({...candidate.system.sizes[size],...candidate.system.geometry}).map(([k,v])=>[k,resolveMeasurement(v,theme)])),{size,theme,resolver,resolveMeasurement,fontWeights}));
       for (const [key, value] of Object.entries(candidate.profile.layout)) if (value && typeof value === 'object') attempt(`/profile/layout/${key}`, () => resolveMeasurement(value, theme));
       for (const [key, ref] of Object.entries(candidate.system.typography)) {
         const value = attempt(`/system/typography/${key}`, () => key === 'message' ? resolver.resolveBranch(ref, { theme }) : resolver.resolve(ref, { theme }));
@@ -261,6 +263,10 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
 
   function componentGeometry(name,size,theme){const common=controlGeometry(size,theme),contract=bundle.contracts.find(c=>c.id===name);return{...common,...Object.fromEntries(Object.entries(contract?.geometry??{}).map(([key,value])=>{if(key in common)throw new ContractValidationError([issue('COMPONENT_GEOMETRY_COLLISION','/contracts/'+name+'/geometry/'+key,'Component geometry must not replace a shared preset.')]);return[key,resolveMeasurement(value,theme)];}))};}
 
+  function actionPresentation(contract,geometry,size,theme,variant){
+    return variant===contract?.inlineAction?.variant?resolveInlineAction(contract,geometry,{size,theme,resolver,resolveMeasurement,fontWeights}):{geometry};
+  }
+
   // D34: TextField and its NumberField alias share source typography, while
   // label/message size and line height follow the effective control geometry.
   function fieldTypography(theme) {
@@ -289,8 +295,8 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       try { resolver.resolve({ collection: branch.collection, path: [...branch.path, ...suffix], expectedType: 'color' }, {theme}); }
       catch (error) { throw new ContractValidationError([issue(error.code ?? 'TOKEN_INVALID', `/contracts/${name}/tokenRequirements/${effective.variant ?? 'default'}/${suffix.join('/')}`, error.message)]); }
     }
-    const geometry=componentGeometry(name,effective.size,theme);
-    return { component: name, geometry,...compileParameters(geometry,controlParameters), ...(['TextField','NumberField','Select'].includes(name)?{fieldTypography:fieldTypography(theme)}:{}), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(name==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}), runtimeConformance: 'not-checked' };
+    const presentation=actionPresentation(contract,componentGeometry(name,effective.size,theme),effective.size,theme,effective.variant),{geometry}=presentation;
+    return { component: name, ...presentation,...compileParameters(geometry,controlParameters), ...(['TextField','NumberField','Select','TextArea'].includes(name)?{fieldTypography:fieldTypography(theme)}:{}), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolveInlineActionBranch(contract,resolver.resolveBranch(branch, { theme }),effective.variant), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(name==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}), runtimeConformance: 'not-checked' };
   }
 
   // Explicit temporary adapters for documented component token gaps; resolved with provenance.
@@ -320,17 +326,20 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       if (!checked.valid) throw new ContractValidationError(checked.issues.map(item => ({ ...item, path: `/recipes/${role}${item.path}` })));
       const branch = contract.tokenBranches[props.variant ?? 'default'];
       const auxiliaryTokens = contract.tokenBranches.focus ? { focus: resolver.resolveBranch(contract.tokenBranches.focus, { theme }) } : {};
-      instances[role] = { component: recipe.component, props, state: checked.state, tokenBranch: resolver.resolveBranch(branch, { theme }), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
+      const presentation=actionPresentation(contract,componentGeometry(recipe.component,props.size??controlSize,theme),props.size??controlSize,theme,props.variant);
+      instances[role] = { ...(presentation.actionLayout?presentation:{}),component: recipe.component, props, state: checked.state, tokenBranch: resolveInlineActionBranch(contract,resolver.resolveBranch(branch, { theme }),props.variant), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, ...(['NumberField','Select'].includes(contract.id)?{fieldTypography:fieldTypography(theme)}:{}), geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
+    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, ...(['NumberField','Select','TextArea'].includes(contract.id)?{fieldTypography:fieldTypography(theme)}:{}), geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
     const parameters=compileParameters(geometry,controlParameters);
-    if(controlParameters!==undefined){for(const control of Object.values(controls))Object.assign(control,compileParameters(control.geometry,controlParameters));for(const instance of Object.values(instances))Object.assign(instance,compileParameters(componentGeometry(instance.component,instance.props.size??controlSize,theme),controlParameters));}
+    if(controlParameters!==undefined){for(const control of Object.values(controls))Object.assign(control,compileParameters(control.geometry,controlParameters));for(const instance of Object.values(instances))Object.assign(instance,compileParameters(instance.geometry??componentGeometry(instance.component,instance.props.size??controlSize,theme),controlParameters));}
     const foundationTokens = Object.fromEntries([['surface',['surface','base']],['separator',['border','subtle']],['focus',['focus','ring']]].map(([key,path])=>[key,resolver.resolve({collection:'semantic',path,expectedType:'color'},{theme})]));
-    return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry,...parameters, typography: { field:fieldTypography(theme), roles: compileTypography(resolver,{theme}), family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
+    const buttonContract=bundle.contracts.find(c=>c.id==='Button');
+    const actionVariants={text:actionPresentation(buttonContract,componentGeometry('Button',controlSize,theme),controlSize,theme,'text')};
+    return { controls, actionVariants, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry,...parameters, typography: { field:fieldTypography(theme), roles: compileTypography(resolver,{theme}), family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }
 
   function provenance() {
-    const files = new Set(['tokens.json', 'packages/seda-ui/src/types.ts','packages/seda-contracts/src/control-geometry.mjs','packages/seda-contracts/src/control-geometry.d.mts', ...bundle.contracts.flatMap(contract => [contract.api.typesFile, contract.api.implementationFile, ...Object.values(api.get(contract.id).defaultSources).map(item => item.sourcePath)])]);
+    const files = new Set(['tokens.json', 'packages/seda-ui/src/types.ts','packages/seda-contracts/src/control-geometry.mjs','packages/seda-contracts/src/control-geometry.d.mts','packages/seda-contracts/src/inline-action.mjs', ...bundle.contracts.flatMap(contract => [contract.api.typesFile, contract.api.implementationFile, ...Object.values(api.get(contract.id).defaultSources).map(item => item.sourcePath)])]);
     return { reference: bundle.system.source, files: Object.fromEntries([...files].sort().map(file => [file, crypto.createHash('sha256').update(fs.readFileSync(path.join(repoRoot, file))).digest('hex')])) };
   }
 

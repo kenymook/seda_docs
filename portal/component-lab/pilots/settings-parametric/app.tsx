@@ -514,6 +514,7 @@ function App() {
     const geometryOf = (el: Element) => {
       const size = el.closest('[data-size]')?.getAttribute('data-size') ?? configuration.controlSize;
       if (!geometryBySize.has(size)) geometryBySize.set(size, derive(profiles[`${configuration.theme}:${size}`], parameters));
+      if(el.matches('.seda-button[data-variant="text"]'))return derive(profiles[`${configuration.theme}:${size}`].actionVariants.text,parameters);
       return geometryBySize.get(size)!;
     };
     const measure = () =>
@@ -532,7 +533,7 @@ function App() {
               el.querySelector("input,select")?.id ||
               "control-" + index,
             h: el.getBoundingClientRect().height,
-            expected: el.matches(".seda-slider__rail") ? Math.max(compiled.controls.Slider.geometry.minRailHeight.value,own.height) : el.matches(".workspace-row-choice")
+            expected: el.matches(".seda-textarea__control") ? own.height+((el.querySelector("textarea") as HTMLTextAreaElement)?.rows-1)*own.line : el.matches(".seda-slider__rail") ? Math.max(compiled.controls.Slider.geometry.minRailHeight.value,own.height) : el.matches(".workspace-row-choice")
               ? Math.max(own.icon, own.font)
               : el.id === "save" && form.saving
                 ? (pendingHeightRef.current ?? own.height)
@@ -550,7 +551,7 @@ function App() {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ["hidden", "style", "data-state", "data-loading", "data-size"],
+      attributeFilter: ["hidden", "style", "data-state", "data-loading", "data-size", "data-variant"],
     });
     const resize = new ResizeObserver(schedule);
     resize.observe(target);

@@ -158,7 +158,9 @@ TextArea использует общие S/M/L/XL и собственные cano
   showCount maxLength={4000}/>
 ```
 
-Компонент зарегистрирован одиннадцатым executable contract. Installed React18/19 proofs включают SSR/Strict hydration и DOM/profile measurements. Это не приёмка40 Figma variants, реального IME на каждой ОС, screen reader или native desktop shell. Clear label сейчас русский; общей i18n модели внутренних подписей ещё нет.
+Компонент зарегистрирован одиннадцатым executable contract. Installed React18/19 proofs включают SSR/Strict hydration и DOM/profile measurements. Это не приёмка40 Figma variants, реального IME на каждой ОС, screen reader или native desktop shell.
+
+D35: очистка — настоящий Button text в строке с подписью; `clearLabel` задаёт видимый локализованный текст (default «Очистить»). Пустое/readOnly/disabled поле сохраняет недоступное действие; controlled значение остаётся у `onClear`. Label/helper/counter следуют эффективной field typography. `style.height` выделяет родительскую высоту обычному полю, а autoResize продолжает владеть высотой ввода и maxRows. См. [контракт и границы](../seda-contracts/INLINE-ACTION-CONTRACT.md).
 
 ## Text и масштаб типографики
 
@@ -176,6 +178,8 @@ Public styles экспортируют все semantic color роли с provena
 Toast остаётся presentation-компонентом. Исполняемый host: `ToastProvider`, один `ToastViewport` и `useToast()` с notify/update/dismiss/clear. FIFO: 3 видимых +50 ожидающих, dedupe сохраняет ID/позицию; overflow возвращает null. Таймер начинает отсчёт после показа, сохраняет остаток при hover/focus/неактивном окне и remount viewport. Action/warning/error persistent по умолчанию. Приход не перемещает фокус, Escape закрывает сфокусированный item. Placement задаёт приложение внутри SEDA scope. Подробные границы и duration policy: spec Toast. AT/OS-приёмка и instance contract остаются открытыми.
 
 ## Constrained actions
+
+Существующий Button text использует Regular и компактный корпус по высоте строки; icon slots масштабируются вместе со строкой, а X/Y дополняют собственную нулевую базу. Обычные Button и квадратный IconButton сохраняют свои профили. Compiler и public CSS используют общий presentation adapter. Полная визуальная приёмка всех action variants остаётся открытой.
 
 `Button fullWidth` удерживает ширину в parent, включая длинный label и icon slots. Однострочная подпись получает ellipsis; полное имя остаётся доступным, а приложение передаёт полный native `title` для компактных навигационных строк. Критические действия лучше размещать шире или группировать вертикально. Многострочная геометрия ещё не входит в Button contract. Loading измеряет реальный ограниченный border box.
 

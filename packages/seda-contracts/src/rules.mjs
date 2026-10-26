@@ -168,6 +168,7 @@ export function evaluateRules(contract, props) {
         try{createSliderModel(props);if(!handler(props.onValueChange))violate('Controlled Slider requires its owner handler.');}catch(error){violate(error.message);}
         break;
       case 'textarea-value':
+        if(props.clearable&&props.clearLabel!==undefined&&(typeof props.clearLabel!=='string'||!props.clearLabel.trim()))violate('Clearable TextArea requires nonempty clearLabel.');
         if(props.value!==undefined&&(typeof props.value!=='string'||props.defaultValue!==undefined||!handler(props.onChange)&&!props.readOnly&&!props.disabled))violate('Controlled TextArea requires string value and onChange or readOnly/disabled, without defaultValue.');
         if(props.defaultValue!==undefined&&typeof props.defaultValue!=='string')violate('TextArea defaultValue must be a string.');
         if(props.clearable&&props.value!==undefined&&!handler(props.onClear))violate('Controlled clearable TextArea requires onClear.');

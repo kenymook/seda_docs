@@ -62,7 +62,8 @@
   },
   "pilotVariants": [
     "primary",
-    "secondary"
+    "secondary",
+    "text"
   ],
   "tokenBranches": {
     "primary": {
@@ -79,6 +80,14 @@
         "button",
         "neutral",
         "secondary"
+      ]
+    },
+    "text": {
+      "collection": "components",
+      "path": [
+        "button",
+        "neutral",
+        "text"
       ]
     }
   },
@@ -104,12 +113,12 @@
     },
     {
       "id": "variants",
-      "source": "ai-readiness/pilots/settings-form/decisions.md",
+      "source": "packages/seda-contracts/INLINE-ACTION-CONTRACT.md",
       "condition": "Для визуального пилота",
-      "expected": "Проверяемая рецептура primary или secondary.",
+      "expected": "Проверяемая рецептура primary, secondary или text.",
       "check": "pilot-variant",
       "layer": "instance",
-      "decision": "D12"
+      "decision": "D35"
     },
     {
       "id": "loading-width",
@@ -289,6 +298,130 @@
         "spinner",
         "foreground"
       ]
+    ],
+    "text": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "loading"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "loading"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "hover"
+      ],
+      [
+        "foreground",
+        "pressed"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "loading"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "spinner",
+        "foreground"
+      ]
+    ]
+  },
+  "inlineAction": {
+    "variant": "text",
+    "heightFrom": "lineHeight",
+    "iconFrom": "lineHeight",
+    "layoutBorder": {
+      "value": 0,
+      "unit": "px",
+      "source": "packages/seda-contracts/INLINE-ACTION-CONTRACT.md"
+    },
+    "paddingInline": {
+      "value": 0,
+      "unit": "px",
+      "source": "packages/seda-contracts/INLINE-ACTION-CONTRACT.md"
+    },
+    "paintBorder": {
+      "collection": "foundation",
+      "path": [
+        "border",
+        "width",
+        "s"
+      ],
+      "expectedType": "number",
+      "unit": "px"
+    },
+    "labelWeight": {
+      "collection": "foundation",
+      "path": [
+        "font",
+        "body",
+        "base",
+        "weight"
+      ],
+      "expectedType": "string"
+    },
+    "contentGaps": {
+      "s": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "2xs"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "m": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "xs"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "l": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "s"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      },
+      "xl": {
+        "collection": "foundation",
+        "path": [
+          "space",
+          "m"
+        ],
+        "expectedType": "number",
+        "unit": "px"
+      }
+    },
+    "source": "packages/seda-contracts/INLINE-ACTION-CONTRACT.md",
+    "transparentRoles": [
+      "surface",
+      "border"
     ]
   }
 }

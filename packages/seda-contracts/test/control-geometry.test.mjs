@@ -15,5 +15,5 @@ test('Control geometry: invalid authored parameters and presets fail before CSS 
   for(const patch of[{height:0},{line:NaN},{icon:-1},{border:-1},{fieldPaddingX:Infinity},{height:20}])assert.throws(()=>deriveControlGeometry({...m,...patch}));
 });
 test('Control geometry: CSS expressions share dependency roles and do not author preset numbers',()=>{
-  const css=controlGeometryDeclarations();for(const name of ['--seda-preset-height','--seda-preset-font-size','--seda-preset-line-height','--seda-preset-icon-size','--seda-preset-button-padding','--seda-preset-field-padding','--seda-parameter-scale','--seda-parameter-extra-inline','--seda-parameter-extra-block','--seda-parameter-minimum'])assert.ok(css.includes('var('+name+')'));assert.ok(css.includes('round(nearest,'));assert.ok(!css.includes('32px')&&!css.includes('14px'));
+  const css=controlGeometryDeclarations();for(const name of ['--seda-preset-height','--seda-preset-font-size','--seda-preset-line-height','--seda-preset-icon-size','--seda-preset-button-padding','--seda-preset-field-padding','--seda-parameter-scale','--seda-parameter-extra-inline','--seda-parameter-extra-block','--seda-parameter-minimum'])assert.ok(css.includes('var('+name+')')||css.includes('var('+name+','));assert.ok(css.includes('round(nearest,'));assert.ok(!css.includes('32px')&&!css.includes('14px'));
 });

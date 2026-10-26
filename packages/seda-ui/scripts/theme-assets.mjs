@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
 import {compileTypography,createTypographyBindings,typographyRoles,withSystemFontFallback} from '../../seda-contracts/src/typography.mjs';
 import {controlGeometryDeclarations,controlParameterMetadata} from '../../seda-contracts/src/control-geometry.mjs';
+import {resolveInlineAction,resolveInlineActionBranch} from '../../seda-contracts/src/inline-action.mjs';
 /** Build-time only: the consumer receives self-contained CSS and provenance JSON. */
 export function buildThemeAssets(packageRoot, output) {
   const repo = path.resolve(packageRoot, "../..");
@@ -53,7 +54,7 @@ export function buildThemeAssets(packageRoot, output) {
     sources: {
       "tokens.json": hash(tokensBytes),
       "packages/seda-contracts/profiles/settings-form.json":hash(profileBytes),
-      ...Object.fromEntries(['src/control-geometry.mjs','src/control-geometry.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
+      ...Object.fromEntries(['src/control-geometry.mjs','src/control-geometry.d.mts','src/inline-action.mjs'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       ...Object.fromEntries(['contracts/Slider.json','src/slider.mjs','src/slider.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       ...Object.fromEntries(['contracts/NumberField.json','src/number-field.mjs','src/number-field.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       "packages/seda-contracts/src/typography.mjs":hash(fs.readFileSync(path.join(repo,'packages/seda-contracts/src/typography.mjs'))),
@@ -75,6 +76,7 @@ export function buildThemeAssets(packageRoot, output) {
       ),
     },
     profiles: {},
+    actionProfiles: {},
     themes: {},
     primitives: {},
   };
@@ -156,13 +158,13 @@ export function buildThemeAssets(packageRoot, output) {
       for (const [variant, fallbackPath] of Object.entries(variants)) {
         const declared = actionContracts[component].tokenBranches[variant];
         const branchPath = declared?.path ?? fallbackPath;
-        const branch = resolver.resolveBranch(
+        const branch = resolveInlineActionBranch(actionContracts[component],resolver.resolveBranch(
           {
             collection: declared?.collection ?? "components",
             path: branchPath,
           },
           { theme },
-        );
+        ),variant);
         const prefix = component === "Button" ? "button" : "icon-button";
         for (const role of ["surface", "border", "foreground"])
           if (!branch.children[role]?.default)
@@ -338,6 +340,7 @@ export function buildThemeAssets(packageRoot, output) {
           labelWeight: { ...labelWeight, cssValue: weight[labelWeight.value] },
         },
       };
+      report.actionProfiles[key+':'+size+':text']=resolveInlineAction(actionContracts.Button,resolved,{size,theme,resolver,resolveMeasurement:dimension,fontWeights:weight});
       for (const [name, value] of Object.entries(resolved))
         variables.set(
           "--seda-size-" +
@@ -433,6 +436,13 @@ export function buildThemeAssets(packageRoot, output) {
         "-line-height);}",
     );
     css.push('.seda-provider[data-seda-control-parameters][data-seda-size="'+size+'"]{'+vars+'}');
+  }
+  for(const size of Object.keys(system.sizes)){
+    const action=report.actionProfiles['light:'+size+':text'],g=action.geometry;
+    const input=(role,key)=>'--seda-preset-'+role+':'+(['height','iconSize'].includes(key)?'var(--seda-size-'+size+'-line-height,'+g[key].cssValue+')':g[key].cssValue)+';';
+    const selector='.seda-button[data-variant="text"][data-size="'+size+'"]';
+    const roles={height:'height','icon-size':'iconSize','border-width':'borderWidth','button-padding':'buttonPaddingInline',gap:'buttonContentGap','button-gap':'buttonContentGap'};
+    css.push(selector+',.seda-provider '+selector+'{'+Object.entries(roles).map(([role,key])=>input(role,key)).join('')+'--seda-label-weight:'+action.actionTypography.weight.cssValue+';--seda-inline-paint-border:'+g.paintBorderWidth.cssValue+';'+controlGeometryDeclarations()+'}');
   }
   css.push('.seda-provider[data-seda-control-parameters],.seda-provider[data-seda-control-parameters] '+classes+'{'+controlGeometryDeclarations()+'}');
   css.push('.seda-provider[data-seda-control-parameters]{font-size:var(--seda-control-font-size);line-height:var(--seda-control-line-height);}');
