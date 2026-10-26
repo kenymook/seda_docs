@@ -53,11 +53,11 @@ export async function verifyWorkspaceFilters(page,origin,output){
   await page.locator('#search').evaluate(node=>{window.__retainedFilter=node;node.setSelectionRange(1,4);});
   for(const width of [1024,2200,390,1702]){await page.setViewportSize({width,height:1244});await settle(page);assert.equal(await page.locator('#search').evaluate(node=>node===window.__retainedFilter&&node===document.activeElement&&node.value==='Atlas'&&node.selectionStart===1&&node.selectionEnd===4),true,'Filter focus, caret and value survive reflow');}
   await page.keyboard.press('Tab');assert.equal(await page.locator('#filter').evaluate(node=>node===document.activeElement),true,'DOM tab order is retained');
-  await page.locator('#filter').selectOption('paused');await page.locator('#search').fill('');assert.equal((await page.locator('#count').textContent()).trim(),'1 проектов');
+  await page.locator('#filter').selectOption('paused');await page.locator('#search').fill('');assert.equal((await page.locator('#count').textContent()).trim(),'1 проект');
   await page.locator('#team-filter').selectOption('Mobile');await page.locator('#project-sort').selectOption('name-desc');await settle(page);
-  assert.equal((await page.locator('#count').textContent()).trim(),'1 проектов');assert.ok((await page.locator('#projects-table').textContent()).includes('Horizon App'));
+  assert.equal((await page.locator('#count').textContent()).trim(),'1 проект');assert.ok((await page.locator('#projects-table').textContent()).includes('Horizon App'));
   const chosen=await readFilterCapacity(page,'.workspace-filters');for(const field of chosen.fields)assert.ok(field.deficit<=1,JSON.stringify(field));
-  await page.locator('#reset-filters').click();assert.equal((await page.locator('#count').textContent()).trim(),'4 проектов');
+  await page.locator('#reset-filters').click();assert.equal((await page.locator('#count').textContent()).trim(),'4 проекта');
   assert.deepEqual(errors,[]);return{scope:'Projects and Members filter capacity over actual fonts/options; 2 themes × 4 sizes × 3 parameter vectors × 5 viewports × 2 sections, plus resize/filter workflow. Narrow containers may truncate values; keyboard/OS/AT certification is separate.',samples,workflow:{focusCaretValueRetained:true,tabOrder:true,filtersCoupled:true,reset:true},errors};
  }finally{
   page.off('pageerror',onError);await fs.writeFile(path.join(output,'results.json'),JSON.stringify({scope:'Actual filter capacity; partial samples are retained on failure',samples,errors},null,2)+'\n');

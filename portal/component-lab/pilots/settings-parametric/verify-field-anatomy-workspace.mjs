@@ -35,8 +35,8 @@ export async function verifyFieldAnatomyWorkspace(page,origin,output){
   }
   // Cross-component filters retain their real data ownership after parameter changes.
   await page.locator('#nav-projects').click();await page.locator('#filter').selectOption('paused');
-  assert.equal((await page.locator('#count').textContent()).trim(),'1 проектов');assert.ok((await page.locator('#projects-table').textContent()).includes('Horizon App'));
-  await page.locator('#reset-filters').click();assert.equal((await page.locator('#count').textContent()).trim(),'4 проектов');assert.deepEqual(errors,[]);
+  assert.equal((await page.locator('#count').textContent()).trim(),'1 проект');assert.ok((await page.locator('#projects-table').textContent()).includes('Horizon App'));
+  await page.locator('#reset-filters').click();assert.equal((await page.locator('#count').textContent()).trim(),'4 проекта');assert.deepEqual(errors,[]);
   const result={scope:'Actual Projects/Settings/Members/Components, Light/Dark × S–XL × 100/150 vectors; label/helper geometry and coupled filter workflow',cases:samples.length,fieldRecords:samples.reduce((n,s)=>n+s.fields.length,0),samples,filtersCoupled:true,textAreaCoupled:true,errors};
   await fs.writeFile(path.join(output,'results.json'),JSON.stringify(result,null,2)+'\n');return result;
  }catch(error){await page.screenshot({path:path.join(output,'failure.png'),fullPage:true});throw error;}
