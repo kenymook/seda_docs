@@ -1,0 +1,154 @@
+{"partition":"lab","verifier":"verify-field-anatomy-workspace.mjs"}
+{"cases":64,"fieldRecords":512,"filtersCoupled":true,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-field-anatomy-workspace"}
+{"partition":"lab","verifier":"verify-slider-workspace.mjs"}
+{"samples":16,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-slider-workspace"}
+{"partition":"lab","verifier":"verify-card-avatar-workspace.mjs"}
+{"samples":60,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-card-avatar-workspace"}
+{"partition":"lab","verifier":"verify-table-workspace.mjs"}
+{"samples":60,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-table-workspace"}
+{"partition":"lab","verifier":"verify-inspector-consistency.mjs"}
+{"inspectorRoute":"recents","samples":20}
+{"inspectorRoute":"building","samples":40}
+{"inspectorRoute":"chat","samples":60}
+{"inspectorRoute":"sandbox","samples":80}
+{"inspectorRoute":"spline","samples":100}
+{"inspectorRoute":"webflow","samples":120}
+{"inspectorRoute":"framer","samples":140}
+{"inspectorRoute":"workflow","samples":160}
+{"samples":160,"hashed":293,"used":95,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-inspector-consistency"}
+{"partition":"lab","verifier":"verify-workspace-rhythm.mjs"}
+{"samples":16,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-workspace-rhythm"}
+{"partition":"lab","verifier":"verify-dense-workspace.mjs"}
+{"samples":48,"originalGlyphs":215,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-dense-workspace"}
+{"partition":"lab","verifier":"verify-chat-composer.mjs"}
+{"samples":48,"assets":3,"reference":{"x":323,"y":1176,"width":768,"height":52},"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-chat-composer"}
+{"partition":"lab","verifier":"verify-building-layout.mjs"}
+{"buildingFidelity":"source-font-coordinates-verified","typography":{"family":"\"Segoe UI\", system-ui, sans-serif","sourceFont":"Segoe UI","available":true,"probe":{"mono":388.1484375,"serif":388.1484375}},"portableFlow":{"bundledFont":"Inter","textBoxes":36,"overlaps":0,"sourceContentPreserved":true}}
+{"textBoxes":36,"parameterCases":24,"maxX":0,"maxY":0.16700000000003,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-building-layout"}
+{"partition":"lab","verifier":"verify-tooltip-workspace.mjs"}
+{"samples":64,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-tooltip-workspace"}
+{"partition":"lab","verifier":"verify-application-text.mjs"}
+{"samples":96,"reload":[{"route":"recents","scale":150,"airX":24,"airY":12},{"route":"building","scale":150,"airX":24,"airY":12},{"route":"chat","scale":150,"airX":24,"airY":12},{"route":"sandbox","scale":150,"airX":24,"airY":12}],"isolation":[{"route":"recents","authoredUnchanged":true,"dataUnchanged":true},{"route":"building","authoredUnchanged":true,"dataUnchanged":true},{"route":"chat","authoredUnchanged":true,"dataUnchanged":true},{"route":"sandbox","authoredUnchanged":true,"dataUnchanged":true}],"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-application-text"}
+{"partition":"lab","verifier":"verify-adaptive-panels.mjs"}
+{"samples":6,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-adaptive-panels"}
+{"partition":"lab","verifier":"verify-reference-modal.mjs"}
+{"samples":32,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-reference-modal"}
+{"partition":"lab","verifier":"verify-workspace-text.mjs"}
+{"samples":24,"cardsScale":true,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-workspace-text"}
+{"partition":"lab","verifier":"verify-icon-workspace.mjs"}
+{"samples":96,"scaleReload":true,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-icon-workspace"}
+{"partition":"lab","verifier":"verify-choice-workspace.mjs"}
+{"samples":48,"maxDelta":0,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-choice-layout"}
+{"partition":"lab","verifier":"verify-workspace-nontext.mjs"}
+{"scope":"Lab boundary/marker/glyph/focus and Toggle geometry across compiler parameters; computed colors, not AT certification","samples":96,"disabledMixedFixture":true,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-nontext-workspace"}
+{"partition":"lab","verifier":"verify-workspace-contrast.mjs"}
+{"scope":"6 Lab sections × 2 themes × 4 sizes × 3 scales; repeated DOM measurements, not independent user workflows","samples":144,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-contrast"}
+{"partition":"lab","verifier":"verify-visual-consistency.mjs"}
+{"passed":24,"failed":0,"image":{"slot":30,"width":30,"height":30},"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-visual-consistency"}
+{"partition":"lab","verifier":"verify-feedback-workspace.mjs"}
+PASS feedback-native-filter-count-toast-and-dismiss-focus
+PASS feedback-alert-dismiss-restore-and-explicit-urgency
+PASS feedback-shared-scale-shapes-and-semantic-composition-palette
+PASS feedback-all-severities-and-real-project-tags
+PASS feedback-target-viewports-themes-and-captures
+PASS toast-host-real-queue-actions-and-clear
+PASS toast-host-inherits-parametric-scope-and-focus
+PASS feedback-browser-errors
+{"passed":8,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-feedback"}
+{"partition":"lab","verifier":"verify-lab2.mjs"}
+PASS build-source-artifact-integrity
+PASS geometry-1440-Light-s
+PASS geometry-1440-Light-m
+PASS geometry-1440-Light-l
+PASS geometry-1440-Light-xl
+PASS geometry-1440-Dark-s
+PASS geometry-1440-Dark-m
+PASS geometry-1440-Dark-l
+PASS geometry-1440-Dark-xl
+PASS geometry-1180-Light-s
+PASS geometry-1180-Light-m
+PASS geometry-1180-Light-l
+PASS geometry-1180-Light-xl
+PASS geometry-1180-Dark-s
+PASS geometry-1180-Dark-m
+PASS geometry-1180-Dark-l
+PASS geometry-1180-Dark-xl
+PASS geometry-780-Light-s
+PASS geometry-780-Light-m
+PASS geometry-780-Light-l
+PASS geometry-780-Light-xl
+PASS geometry-780-Dark-s
+PASS geometry-780-Dark-m
+PASS geometry-780-Dark-l
+PASS geometry-780-Dark-xl
+PASS geometry-390-Light-s
+PASS geometry-390-Light-m
+PASS geometry-390-Light-l
+PASS geometry-390-Light-xl
+PASS geometry-390-Dark-s
+PASS geometry-390-Dark-m
+PASS geometry-390-Dark-l
+PASS geometry-390-Dark-xl
+PASS loading-Light-s
+PASS loading-Light-m
+PASS loading-Light-l
+PASS loading-Light-xl
+PASS loading-Dark-s
+PASS loading-Dark-m
+PASS loading-Dark-l
+PASS loading-Dark-xl
+PASS padding-x-Light-s
+PASS padding-x-Light-m
+PASS padding-x-Light-l
+PASS padding-x-Light-xl
+PASS padding-x-Dark-s
+PASS padding-x-Dark-m
+PASS padding-x-Dark-l
+PASS padding-x-Dark-xl
+PASS custom-formula-react-evidence
+PASS form-guard-snapshot-stale-retry-focus
+PASS projects-filter-cards-dialog-keyboard
+PASS token-react-propagation
+PASS padding-x-responsive
+PASS no-browser-errors
+{"passed":55,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-lab2"}
+{"partition":"lab","verifier":"verify-workspace.mjs"}
+PASS workspace-geometry-Light-s
+PASS workspace-geometry-Light-m
+PASS workspace-geometry-Light-l
+PASS workspace-geometry-Light-xl
+PASS workspace-geometry-Dark-s
+PASS workspace-geometry-Dark-m
+PASS workspace-geometry-Dark-l
+PASS workspace-geometry-Dark-xl
+PASS workspace-tokens-and-native-keyboard
+PASS workspace-projects-coupled-table
+PASS workspace-settings-validation-state
+PASS workspace-tabs-contract-and-cross-panel-validation
+PASS workspace-members-local-addition
+PASS workspace-pending-save-across-navigation
+PASS workspace-menu-contract-and-profile-focus
+PASS workspace-menu-actions-and-dialog-handoff
+PASS workspace-dialog-field-theme-isolation
+PASS workspace-editor-panels-history-and-local-save
+PASS workspace-editor-storage-errors-and-corruption
+PASS workspace-editor-tree-selection-expansion-and-reload
+PASS workspace-browser-errors
+{"passed":21,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-workspace"}
+{"partition":"lab","verifier":"verify-workspace-filters.mjs"}
+{"samples":240,"constrained":8,"workflow":{"focusCaretValueRetained":true,"tabOrder":true,"filtersCoupled":true,"reset":true},"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-workspace-filters"}
+{"partition":"lab","verifier":"verify-controls.mjs"}
+PASS control-states-Light-s
+PASS control-states-Light-m
+PASS control-states-Light-l
+PASS control-states-Light-xl
+PASS control-states-Dark-s
+PASS control-states-Dark-m
+PASS control-states-Dark-l
+PASS control-states-Dark-xl
+PASS control-keyboard-multi-and-disabled-options
+PASS control-loading-and-disabled-guards
+PASS field-single-focus-ring-and-picker
+PASS errors-and-real-library-source
+{"passed":12,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-controls"}
+{"partition":"lab","scripts":24,"exitCode":0}

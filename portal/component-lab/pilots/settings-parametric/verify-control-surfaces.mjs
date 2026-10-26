@@ -42,6 +42,7 @@ export async function verifyControlSurfaces(page,origin,output){
     await page.mouse.move(500,100);await select.focus();assert.equal(await select.evaluate(node=>getComputedStyle(node.parentElement).backgroundColor),'rgba(255, 255, 255, 0.07)');
     await page.mouse.move(500,100);await select.evaluate(node=>node.blur());
    }
+   await page.waitForTimeout(500);
    await page.screenshot({path:path.join(output,route+'-'+theme+'.png')});
    samples.push({route,theme,visibleFields:state.fields.length,layeredFields:opaque.length,...Object.fromEntries(Object.entries(state).filter(([key])=>key!=='fields'))});
   }
