@@ -1,0 +1,287 @@
+{
+  "passed": 69,
+  "failed": 0,
+  "scope": "Group receipts; detailed new parameter cases are retained separately. Full original results remain local and in CI.",
+  "rawResult": {
+    "bytes": 15546617,
+    "sha256": "d05d377b733f3a874b2eaa15346528a59f154f1b670015191f8ef25edc709103"
+  },
+  "results": [
+    {
+      "name": "tarball-export-files-and-allowlist",
+      "status": "passed"
+    },
+    {
+      "name": "deterministic-build",
+      "status": "passed"
+    },
+    {
+      "name": "public-profile-sources-and-missing-state",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-native-esm-and-ssr",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-declarations",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-hydration-css-and-behavior",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-provider-profiles",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-tabs-navigation",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-menu-overlays",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-split-view",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-tree",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-textarea",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-typography",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-link-variants",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-file-upload",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-feedback",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-toast-host",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-field-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-control-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-choice-layout",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-public-control-parameters",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-icon-catalog",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-modal",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-tooltip",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-table",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-card-avatar",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-chat-bubble",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-top-bar",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-sidebar",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-accordion",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-notification-center",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-popover",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-slider",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-number-field",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-search",
+      "status": "passed"
+    },
+    {
+      "name": "react-18.3.1-constrained-actions",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-native-esm-and-ssr",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-declarations",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-hydration-css-and-behavior",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-provider-profiles",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-tabs-navigation",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-menu-overlays",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-split-view",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-tree",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-textarea",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-typography",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-link-variants",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-file-upload",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-feedback",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-toast-host",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-field-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-control-contrast",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-choice-layout",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-public-control-parameters",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-icon-catalog",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-modal",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-tooltip",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-table",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-card-avatar",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-chat-bubble",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-top-bar",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-sidebar",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-accordion",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-notification-center",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-popover",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-slider",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-number-field",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-search",
+      "status": "passed"
+    },
+    {
+      "name": "react-19.2.7-constrained-actions",
+      "status": "passed"
+    }
+  ]
+}

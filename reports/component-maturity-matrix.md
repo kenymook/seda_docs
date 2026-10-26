@@ -1,5 +1,8 @@
 # Component Maturity Matrix
 
+
+D33: общие параметры контролов вынесены из Lab в public Provider и общий numeric/CSS граф; private v58, отдельная проверка installed React18/19 и совместных экранов. [Отчёт и границы](2026-10-26-control-parameters.md). Это experimental foundation, не новый instance contract и не приёмка всей библиотеки.
+
 Актуальная оценка: 2026-10-26. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
 
 ## Текущее состояние React-реализации

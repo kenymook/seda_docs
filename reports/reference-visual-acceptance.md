@@ -1,5 +1,8 @@
 # Приёмка reference-интерфейсов SEDA
 
+
+D33: общие параметры контролов вынесены из Lab в public Provider и общий numeric/CSS граф; private v58, отдельная проверка installed React18/19 и совместных экранов. [Отчёт и границы](2026-10-26-control-parameters.md). Это experimental foundation, не новый instance contract и не приёмка всей библиотеки.
+
 Цель — возможность собрать зрелые web/desktop приложения уровня Figma, Notion, ChatGPT и Cloude Design. Исполняемый пример и проверка одного визуального слоя не означают готовность библиотеки.
 
 ## Проверяемые оси

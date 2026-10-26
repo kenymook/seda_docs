@@ -1,0 +1,46 @@
+{
+  "scope": "Selected actual Chromium renders; no claim of fresh Figma fidelity or all browser/OS/AT acceptance",
+  "reviewed": [
+    "local-recents-light-1440-m.png",
+    "local-recents-dark-1440-m.png",
+    "local-building-light-1440-m.png",
+    "local-building-dark-1440-m.png",
+    "local-chat-light-1440-m.png",
+    "local-chat-dark-1440-m.png",
+    "local-sandbox-light-1440-m.png",
+    "local-sandbox-dark-1440-m.png",
+    "local-spline-light-1440-m.png",
+    "local-spline-dark-1440-m.png",
+    "local-webflow-light-1440-m.png",
+    "local-webflow-dark-1440-m.png",
+    "local-framer-light-1440-m.png",
+    "local-framer-dark-1440-m.png",
+    "local-workflow-light-1440-m.png",
+    "local-workflow-dark-1440-m.png",
+    "local-sandbox-dark-1024-xl.png",
+    "local-framer-light-1024-xl.png"
+  ],
+  "observed": [
+    "Shared input/select/number-field boxes, labels and commands retain one normal density across the selected screens",
+    "Glyphs scale with their slots and inherit theme foreground",
+    "TextField label/helper spacing is owned once in installed UI CSS",
+    "Extreme XL/150% settings require scroll, reflow and truncation; they are not a recommended working density"
+  ],
+  "remaining": [
+    "Long Select values remain tight in the Lab four-column filters at extreme X/text parameters; adaptive filter capacity remains open",
+    "Full icon catalog and optical acceptance of all glyph families",
+    "Fresh full-frame Figma acceptance and authored-preview completeness",
+    "Browser/OS/AT/touch and performance coverage"
+  ],
+  "packageReviewed": [
+    "react-19.2.7-parameters-light-100.png",
+    "react-19.2.7-parameters-dark-150.png"
+  ],
+  "labReviewed": [
+    "local-lab-light-100.png",
+    "local-lab-dark-150.png",
+    "local-lab-loading-fit-dark.png",
+    "production-lab-dark-100.png",
+    "production-lab-loading-fit-light.png"
+  ]
+}
