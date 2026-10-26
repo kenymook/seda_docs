@@ -1,3 +1,8 @@
+## Unreleased — Layered field surfaces (D36)
+
+- Resolve default/hover field surfaces through shared semantic control roles. Light keeps its previous colours; Dark uses existing 7%/11% white layers so TextField, Select, TextArea, DatePicker, TimePicker, Search, VerificationCode and ColorPicker sit slightly above their containing panels.
+- Preserve disabled and validation palettes, component state semantics and native select popup ownership. The Lab settings rail follows the same role.
+
 ## Unreleased — Source field anatomy (D34)
 
 - Align TextField/Select label and helper typography with effective control size and scale. Preserve explicit local sizes; keep action Semibold separate from field Regular.

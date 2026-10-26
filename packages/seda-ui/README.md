@@ -162,6 +162,8 @@ TextArea использует общие S/M/L/XL и собственные cano
 
 D35: очистка — настоящий Button text в строке с подписью; `clearLabel` задаёт видимый локализованный текст (default «Очистить»). Пустое/readOnly/disabled поле сохраняет недоступное действие; controlled значение остаётся у `onClear`. Label/helper/counter следуют эффективной field typography. `style.height` выделяет родительскую высоту обычному полю, а autoResize продолжает владеть высотой ввода и maxRows. См. [контракт и границы](../seda-contracts/INLINE-ACTION-CONTRACT.md).
 
+D36: фон TextField, Select, TextArea и родственных полей в Dark строится из общего полупрозрачного semantic layer над поверхностью приложения; в Light цвета не меняются. Поэтому одно и то же SEDA-поле остаётся немного светлее окружающей тёмной панели на плотных рабочих экранах. [Правила и ограничения](../seda-contracts/CONTROL-SURFACE.md).
+
 ## Text и масштаб типографики
 
 19-й public component `Text` использует23 роли foundation. Пример: `<SedaProvider textScale={115}><Text as="h2" variant="heading/section">Раздел</Text></SedaProvider>`. `as` задаёт native outline, `variant` — визуальную роль. Scale80–200 наследуется абсолютно; controlSize независим. CSS содержит те же token values/provenance, что общий compiler; important text minimum12px. Author content/Canvas zoom принадлежат приложению. Подробный контракт: specs/data-display/text.md; роли без prefix type/. Это foundation execution, не12-й registry component contract.

@@ -41,6 +41,27 @@ test("real component aliases resolve through semantic and foundation in both the
   assert.deepEqual(input, ref("components", "text-field", "foreground", "default"));
 });
 
+test("field-like controls resolve the same layered surface in both themes", () => {
+  const resolver = createTokenResolver(source);
+  const branches = [
+    ["text-field", "surface"], ["select", "surface"], ["text-area", "surface"],
+    ["date-picker", "surface"], ["time-picker", "surface"],
+    ["search", "input", "surface"], ["verification-code", "cell", "surface"],
+    ["color-picker", "trigger", "surface"],
+  ];
+  for (const branch of branches) for (const theme of ["Light", "Dark"]) {
+    const normal = resolver.resolve(ref("components", ...branch, "default"), { theme });
+    const hovered = resolver.resolve(ref("components", ...branch, "hover"), { theme });
+    assert.equal(normal.chain[1].path.join("."), "surface.control");
+    assert.equal(hovered.chain[1].path.join("."), "surface.control-hover");
+    assert.equal(normal.value, theme === "Dark" ? "#ffffff12" : "#ffffff");
+    assert.equal(hovered.value, theme === "Dark" ? "#ffffff1c" : "#f8f8f9");
+  }
+  const missing = structuredClone(source);
+  delete missing.$collections.semantic.$modes.Dark.surface.control;
+  raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "select", "surface", "default"), { theme: "Dark" }));
+});
+
 test("all pilot component branches resolve in Light and Dark with leaf provenance", () => {
   const resolver = createTokenResolver(source);
   for (const theme of ["Light", "Dark"]) {

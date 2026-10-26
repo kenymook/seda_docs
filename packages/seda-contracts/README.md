@@ -79,6 +79,8 @@ D33 добавляет runtime-опцию `controlParameters` к `compile()` и 
 
 [D35](INLINE-ACTION-CONTRACT.md): существующий Button text имеет отдельную inline-анатомию, Regular, высоту и icon slots по lineHeight и размерные gaps. Его geometry разрешается из прежних ролей и проходит общий параметрический граф; primary/secondary сохраняют таблицу выше. TextArea получает fieldTypography и header с настоящим Button text. Это по-прежнему 13 contracts; новый variant или токены не добавлены.
 
+[D36](CONTROL-SURFACE.md): общий semantic surface для семейства полей сохраняет Light и даёт тёмным контролам полупрозрачную поверхность немного светлее панели. Восемь семейств используют один token graph; status palettes и нативный popup остаются отдельными.
+
 `src/api.mjs` использует TypeScript compiler API и закреплённые React types. Он сохраняет корректные inherited props, `Omit`, собственные overrides и фактический тип элемента `forwardRef`; произвольного короткого allowlist для native HTML/ARIA нет. Допустимые `data-*` принимаются, неизвестные props и опечатки в ARIA отклоняются.
 
 Recipes используют сериализуемые значения и два явных вида привязок:

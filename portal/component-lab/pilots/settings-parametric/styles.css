@@ -959,7 +959,7 @@ details {
 #lab-scope .node.chosen { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
 #lab-scope .note { background:var(--status-info-container); color:var(--text-info); }
 #lab-scope .subtle { background:var(--container-neutral-default); color:var(--text-primary); border-color:var(--border-default); }
-#lab-scope .rail select { background:var(--surface-base); color:var(--text-primary); border-color:var(--border-default); }
+#lab-scope .rail select { background:var(--surface-control,var(--surface-base)); color:var(--text-primary); border-color:var(--border-default); }
 #lab-scope .rail input[type="range"] { accent-color:var(--container-brand-default); }
 #lab-scope .eyebrow { color:var(--text-brand); }
 
