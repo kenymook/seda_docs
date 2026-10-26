@@ -1,0 +1,12 @@
+Ready for field foundation verification (hidden input).
+{"fields":64}
+{"filters":240}
+{"inspectorRoute":"recents","samples":20}
+{"inspectorRoute":"building","samples":40}
+{"inspectorRoute":"chat","samples":60}
+{"inspectorRoute":"sandbox","samples":80}
+{"inspectorRoute":"spline","samples":100}
+{"inspectorRoute":"webflow","samples":120}
+{"inspectorRoute":"framer","samples":140}
+{"inspectorRoute":"workflow","samples":160}
+{"version":62,"artifacts":532,"fields":64,"filters":240,"inspectors":160,"glyphPaint":95,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-input\\inline-area-live"}

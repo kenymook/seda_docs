@@ -1,0 +1,6813 @@
+{
+  "installedPackage": true,
+  "sourceAlias": false,
+  "samples": [
+    {
+      "theme": "Light",
+      "size": "s",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 16,
+      "button": {
+        "width": 88.71875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 102.34375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 171.875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 43.59375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 51.21875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 56,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 77.703125,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 24,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 16,
+      "button": {
+        "width": 88.71875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 102.34375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 171.875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 43.59375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 51.21875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 56,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 77.703125,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 24,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 16,
+      "button": {
+        "width": 73.921875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 13,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 85.28125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 143.21875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 36.328125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 42.671875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 47,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 67.765625,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 21,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 16,
+      "button": {
+        "width": 73.921875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 13,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 85.28125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 143.21875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 36.328125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 42.671875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 47,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 67.765625,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 21,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 16,
+      "button": {
+        "width": 159.0625,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 104.8125,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 92,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 135.5625,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 22,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 44,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 16,
+      "button": {
+        "width": 159.0625,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 104.8125,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 92,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 135.5625,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 22,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 44,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 20,
+      "button": {
+        "width": 109.5,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 20,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 72,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 95.65625,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 32,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 20,
+      "button": {
+        "width": 109.5,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 20,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 72,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 95.65625,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 32,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 20,
+      "button": {
+        "width": 88.328125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 93.8125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 157.546875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 39.96875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 46.953125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 60,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 80.734375,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 28,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 20,
+      "button": {
+        "width": 88.328125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 93.8125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 157.546875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 39.96875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 46.953125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 60,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 80.734375,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 28,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 20,
+      "button": {
+        "width": 188.234375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 30,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 179.09375,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 300.765625,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 76.296875,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 117.609375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 114,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 158.484375,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 26,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 54,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 20,
+      "button": {
+        "width": 188.234375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 30,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 179.09375,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 300.765625,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 76.296875,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 117.609375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 114,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 158.484375,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 26,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 54,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 24,
+      "button": {
+        "width": 130.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 136.453125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 229.15625,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 58.125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 68.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 88,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 113.609375,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 40,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 24,
+      "button": {
+        "width": 130.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 136.453125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 229.15625,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 58.125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 68.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 88,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 113.609375,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 40,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 24,
+      "button": {
+        "width": 107.109375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 19,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 110.875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 186.1875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 47.234375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 55.484375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 73,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 98.6875,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 35,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 24,
+      "button": {
+        "width": 107.109375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 19,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 110.875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 186.1875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 47.234375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 55.484375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 73,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 98.6875,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 35,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 24,
+      "button": {
+        "width": 217.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 36,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 204.671875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 343.734375,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 87.1875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 130.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 136,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 181.40625,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 30,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 64,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 24,
+      "button": {
+        "width": 217.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 36,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 204.671875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 343.734375,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 87.1875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 130.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 136,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 181.40625,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 30,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 64,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 28,
+      "button": {
+        "width": 151.0625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 28,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 76.8125,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 104,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 131.5625,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 48,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 28,
+      "button": {
+        "width": 151.0625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 28,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 76.8125,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 104,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 131.5625,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 48,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 28,
+      "button": {
+        "width": 121.5,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 22,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 86,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 111.65625,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 42,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 28,
+      "button": {
+        "width": 121.5,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 22,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 86,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 111.65625,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 42,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 28,
+      "button": {
+        "width": 246.59375,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 42,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 230.265625,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 386.703125,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 98.09375,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 143.21875,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 158,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 204.328125,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 34,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 74,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 28,
+      "button": {
+        "width": 246.59375,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 42,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 230.265625,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 386.703125,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 98.09375,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 143.21875,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 158,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 204.328125,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 34,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 74,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 16,
+      "button": {
+        "width": 88.71875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 102.34375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 171.875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 43.59375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 51.21875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 56,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 77.703125,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 24,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 16,
+      "button": {
+        "width": 88.71875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 102.34375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 171.875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 43.59375,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 51.21875,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 56,
+        "font": 12,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 77.703125,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 24,
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 16,
+      "button": {
+        "width": 73.921875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 13,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 85.28125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 143.21875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 36.328125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 42.671875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 47,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 67.765625,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 21,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 16,
+      "button": {
+        "width": 73.921875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 13,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 85.28125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 143.21875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 36.328125,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 42.671875,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 13,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 47,
+        "font": 10,
+        "line": 13,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 67.765625,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 8,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 21,
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 16,
+      "button": {
+        "width": 159.0625,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 104.8125,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 92,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 135.5625,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 22,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 44,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 16,
+      "button": {
+        "width": 159.0625,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 24,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 104.8125,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 2
+      },
+      "header": {
+        "width": 680,
+        "height": 36,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 92,
+        "font": 18,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 135.5625,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 22,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 44,
+        "height": 44,
+        "font": 18,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 20,
+      "button": {
+        "width": 109.5,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 20,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 72,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 95.65625,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 32,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 20,
+      "button": {
+        "width": 109.5,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 20,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 20,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 72,
+        "font": 14,
+        "line": 20,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 95.65625,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 32,
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 20,
+      "button": {
+        "width": 88.328125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 93.8125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 157.546875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 39.96875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 46.953125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 60,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 80.734375,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 28,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 20,
+      "button": {
+        "width": 88.328125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 16,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 93.8125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 157.546875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 39.96875,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 46.953125,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 16,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 60,
+        "font": 11,
+        "line": 16,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 80.734375,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 12,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 28,
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 20,
+      "button": {
+        "width": 188.234375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 30,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 179.09375,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 300.765625,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 76.296875,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 117.609375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 114,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 158.484375,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 26,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 54,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 20,
+      "button": {
+        "width": 188.234375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "icon": {
+        "width": 30,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 179.09375,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 300.765625,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 76.296875,
+        "height": 30,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 117.609375,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 4
+      },
+      "header": {
+        "width": 680,
+        "height": 42,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 114,
+        "font": 21,
+        "line": 30,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 158.484375,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 26,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 54,
+        "height": 54,
+        "font": 21,
+        "line": 30,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 24,
+      "button": {
+        "width": 130.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 136.453125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 229.15625,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 58.125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 68.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 88,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 113.609375,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 40,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 24,
+      "button": {
+        "width": 130.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 24,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 136.453125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 229.15625,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 58.125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 68.28125,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 24,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 88,
+        "font": 16,
+        "line": 24,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 113.609375,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 40,
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 24,
+      "button": {
+        "width": 107.109375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 19,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 110.875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 186.1875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 47.234375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 55.484375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 73,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 98.6875,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 35,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 24,
+      "button": {
+        "width": 107.109375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 19,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 110.875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 186.1875,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 47.234375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 55.484375,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 19,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 73,
+        "font": 13,
+        "line": 19,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 98.6875,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 16,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 35,
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 24,
+      "button": {
+        "width": 217.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 36,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 204.671875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 343.734375,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 87.1875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 130.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 136,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 181.40625,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 30,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 64,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 24,
+      "button": {
+        "width": 217.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "icon": {
+        "width": 36,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 204.671875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 343.734375,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 87.1875,
+        "height": 36,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 130.421875,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 6
+      },
+      "header": {
+        "width": 680,
+        "height": 48,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 136,
+        "font": 24,
+        "line": 36,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 181.40625,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 30,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 64,
+        "height": 64,
+        "font": 24,
+        "line": 36,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {},
+      "bound": false,
+      "sourceLine": 28,
+      "button": {
+        "width": 151.0625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 28,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 76.8125,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 104,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 131.5625,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 48,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {},
+      "bound": true,
+      "sourceLine": 28,
+      "button": {
+        "width": 151.0625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 28,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 153.515625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 257.796875,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 65.390625,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 76.8125,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 28,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 104,
+        "font": 18,
+        "line": 28,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 131.5625,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 48,
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": false,
+      "sourceLine": 28,
+      "button": {
+        "width": 121.5,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 22,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 86,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 111.65625,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 42,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "bound": true,
+      "sourceLine": 28,
+      "button": {
+        "width": 121.5,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 22,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 119.390625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 200.515625,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 50.859375,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 59.75,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 22,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 86,
+        "font": 14,
+        "line": 22,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 111.65625,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 20,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 42,
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": false,
+      "sourceLine": 28,
+      "button": {
+        "width": 246.59375,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 42,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 230.265625,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 386.703125,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 98.09375,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 143.21875,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 158,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 204.328125,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 34,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 74,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 14,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.25
+      },
+      "bound": true,
+      "sourceLine": 28,
+      "button": {
+        "width": 246.59375,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "icon": {
+        "width": 42,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "label": {
+        "width": 230.265625,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "helper": {
+        "width": 386.703125,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "counter": {
+        "width": 98.09375,
+        "height": 42,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": null
+      },
+      "clear": {
+        "width": 143.21875,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 14,
+        "border": 0,
+        "gap": 8
+      },
+      "header": {
+        "width": 680,
+        "height": 54,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 0,
+        "gap": 4
+      },
+      "control": {
+        "width": 680,
+        "height": 158,
+        "font": 27,
+        "line": 42,
+        "weight": "400",
+        "padding": 0,
+        "border": 1,
+        "gap": 0
+      },
+      "regular": {
+        "width": 204.328125,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 34,
+        "border": 1,
+        "gap": 8
+      },
+      "square": {
+        "width": 74,
+        "height": 74,
+        "font": 27,
+        "line": 42,
+        "weight": "600",
+        "padding": 0,
+        "border": 1,
+        "gap": null
+      },
+      "emptySlots": 0,
+      "labelGap": 4,
+      "helperGap": 4,
+      "clearOutside": true,
+      "labelText": "Описание проекта"
+    }
+  ],
+  "loading": [
+    {
+      "theme": "Light",
+      "size": "s",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 88.71875,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 56,
+        "width": 88.71875,
+        "height": 16
+      },
+      "spin": {
+        "x": 69.16780090332031,
+        "y": 56.80842590332031,
+        "width": 14.383148193359375,
+        "height": 14.383148193359375
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 88.71875,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 56,
+        "width": 88.71875,
+        "height": 16
+      },
+      "spin": {
+        "x": 69.72583770751953,
+        "y": 57.36646270751953,
+        "width": 13.267074584960938,
+        "height": 13.267074584960938
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 73.921875,
+        "height": 13
+      },
+      "pending": {
+        "x": 32,
+        "y": 57.5,
+        "width": 73.921875,
+        "height": 13
+      },
+      "spin": {
+        "x": 63.55953598022461,
+        "y": 58.60641098022461,
+        "width": 10.787174224853516,
+        "height": 10.787174224853516
+      },
+      "layout": {
+        "width": 9,
+        "height": 9
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 73.921875,
+        "height": 13
+      },
+      "pending": {
+        "x": 32,
+        "y": 57.5,
+        "width": 73.921875,
+        "height": 13
+      },
+      "spin": {
+        "x": 63.884063720703125,
+        "y": 58.930938720703125,
+        "width": 10.13812255859375,
+        "height": 10.13812255859375
+      },
+      "layout": {
+        "width": 9,
+        "height": 9
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 159.0625,
+        "height": 36
+      },
+      "pending": {
+        "x": 32,
+        "y": 46,
+        "width": 159.0625,
+        "height": 36
+      },
+      "spin": {
+        "x": 93.84156799316406,
+        "y": 46.3103141784668,
+        "width": 35.37937927246094,
+        "height": 35.37936782836914
+      },
+      "layout": {
+        "width": 32,
+        "height": 32
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "s",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 159.0625,
+        "height": 36
+      },
+      "pending": {
+        "x": 32,
+        "y": 46,
+        "width": 159.0625,
+        "height": 36
+      },
+      "spin": {
+        "x": 97.5107421875,
+        "y": 49.9794921875,
+        "width": 28.041015625,
+        "height": 28.041015625
+      },
+      "layout": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 109.5,
+        "height": 20
+      },
+      "pending": {
+        "x": 32,
+        "y": 60,
+        "width": 109.5,
+        "height": 20
+      },
+      "spin": {
+        "x": 77.27001953125,
+        "y": 60.520015716552734,
+        "width": 18.95996856689453,
+        "height": 18.959964752197266
+      },
+      "layout": {
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 109.5,
+        "height": 20
+      },
+      "pending": {
+        "x": 32,
+        "y": 60,
+        "width": 109.5,
+        "height": 20
+      },
+      "spin": {
+        "x": 77.41118621826172,
+        "y": 60.66118621826172,
+        "width": 18.677627563476562,
+        "height": 18.677627563476562
+      },
+      "layout": {
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 88.328125,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 62,
+        "width": 88.328125,
+        "height": 16
+      },
+      "spin": {
+        "x": 69.14303588867188,
+        "y": 62.986785888671875,
+        "width": 14.02642822265625,
+        "height": 14.02642822265625
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 88.328125,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 62,
+        "width": 88.328125,
+        "height": 16
+      },
+      "spin": {
+        "x": 69.14964294433594,
+        "y": 62.9933967590332,
+        "width": 14.013214111328125,
+        "height": 14.01321029663086
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 188.234375,
+        "height": 42
+      },
+      "pending": {
+        "x": 32,
+        "y": 49,
+        "width": 188.234375,
+        "height": 42
+      },
+      "spin": {
+        "x": 101.90699005126953,
+        "y": 45.79761505126953,
+        "width": 48.40477752685547,
+        "height": 48.40476989746094
+      },
+      "layout": {
+        "width": 38,
+        "height": 38
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "m",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 188.234375,
+        "height": 42
+      },
+      "pending": {
+        "x": 32,
+        "y": 49,
+        "width": 188.234375,
+        "height": 42
+      },
+      "spin": {
+        "x": 109.52742767333984,
+        "y": 53.41805648803711,
+        "width": 33.16388702392578,
+        "height": 33.163883209228516
+      },
+      "layout": {
+        "width": 30,
+        "height": 30
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 130.28125,
+        "height": 24
+      },
+      "pending": {
+        "x": 32,
+        "y": 64,
+        "width": 130.28125,
+        "height": 24
+      },
+      "spin": {
+        "x": 83.97683715820312,
+        "y": 62.83621597290039,
+        "width": 26.32757568359375,
+        "height": 26.327571868896484
+      },
+      "layout": {
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 130.28125,
+        "height": 24
+      },
+      "pending": {
+        "x": 32,
+        "y": 64,
+        "width": 130.28125,
+        "height": 24
+      },
+      "spin": {
+        "x": 84.63185119628906,
+        "y": 63.49122619628906,
+        "width": 25.017547607421875,
+        "height": 25.017547607421875
+      },
+      "layout": {
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 107.109375,
+        "height": 19
+      },
+      "pending": {
+        "x": 32,
+        "y": 66.5,
+        "width": 107.109375,
+        "height": 19
+      },
+      "spin": {
+        "x": 77.06837463378906,
+        "y": 67.52149200439453,
+        "width": 16.957000732421875,
+        "height": 16.957015991210938
+      },
+      "layout": {
+        "width": 15,
+        "height": 15
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 107.109375,
+        "height": 19
+      },
+      "pending": {
+        "x": 32,
+        "y": 66.5,
+        "width": 107.109375,
+        "height": 19
+      },
+      "spin": {
+        "x": 76.77880859375,
+        "y": 67.23193359375,
+        "width": 17.5361328125,
+        "height": 17.5361328125
+      },
+      "layout": {
+        "width": 15,
+        "height": 15
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 217.421875,
+        "height": 48
+      },
+      "pending": {
+        "x": 32,
+        "y": 52,
+        "width": 217.421875,
+        "height": 48
+      },
+      "spin": {
+        "x": 112.5341796875,
+        "y": 47.8310546875,
+        "width": 56.337890625,
+        "height": 56.337890625
+      },
+      "layout": {
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "l",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 217.421875,
+        "height": 48
+      },
+      "pending": {
+        "x": 32,
+        "y": 52,
+        "width": 217.421875,
+        "height": 48
+      },
+      "spin": {
+        "x": 118.80536651611328,
+        "y": 54.10224151611328,
+        "width": 43.79552459716797,
+        "height": 43.79552459716797
+      },
+      "layout": {
+        "width": 36,
+        "height": 36
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 151.0625,
+        "height": 28
+      },
+      "pending": {
+        "x": 32,
+        "y": 68,
+        "width": 151.0625,
+        "height": 28
+      },
+      "spin": {
+        "x": 93.3154296875,
+        "y": 67.7841796875,
+        "width": 28.431640625,
+        "height": 28.431640625
+      },
+      "layout": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 151.0625,
+        "height": 28
+      },
+      "pending": {
+        "x": 32,
+        "y": 68,
+        "width": 151.0625,
+        "height": 28
+      },
+      "spin": {
+        "x": 94.24870300292969,
+        "y": 68.71745300292969,
+        "width": 26.565093994140625,
+        "height": 26.565093994140625
+      },
+      "layout": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 121.5,
+        "height": 22
+      },
+      "pending": {
+        "x": 32,
+        "y": 71,
+        "width": 121.5,
+        "height": 22
+      },
+      "spin": {
+        "x": 82.2330093383789,
+        "y": 71.4830093383789,
+        "width": 21.033981323242188,
+        "height": 21.033981323242188
+      },
+      "layout": {
+        "width": 18,
+        "height": 18
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 121.5,
+        "height": 22
+      },
+      "pending": {
+        "x": 32,
+        "y": 71,
+        "width": 121.5,
+        "height": 22
+      },
+      "spin": {
+        "x": 80.34297180175781,
+        "y": 69.59297180175781,
+        "width": 24.814056396484375,
+        "height": 24.814056396484375
+      },
+      "layout": {
+        "width": 18,
+        "height": 18
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 246.59375,
+        "height": 54
+      },
+      "pending": {
+        "x": 32,
+        "y": 45,
+        "width": 246.59375,
+        "height": 54
+      },
+      "spin": {
+        "x": 124.7029800415039,
+        "y": 41.40610885620117,
+        "width": 61.187782287597656,
+        "height": 61.18777847290039
+      },
+      "layout": {
+        "width": 50,
+        "height": 50
+      }
+    },
+    {
+      "theme": "Light",
+      "size": "xl",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 246.59375,
+        "height": 54
+      },
+      "pending": {
+        "x": 32,
+        "y": 45,
+        "width": 246.59375,
+        "height": 54
+      },
+      "spin": {
+        "x": 131.39215087890625,
+        "y": 48.09527587890625,
+        "width": 47.8094482421875,
+        "height": 47.8094482421875
+      },
+      "layout": {
+        "width": 42,
+        "height": 42
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 88.71875,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 56,
+        "width": 88.71875,
+        "height": 16
+      },
+      "spin": {
+        "x": 69.53221130371094,
+        "y": 57.17283630371094,
+        "width": 13.654327392578125,
+        "height": 13.654327392578125
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 88.71875,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 56,
+        "width": 88.71875,
+        "height": 16
+      },
+      "spin": {
+        "x": 68.46333312988281,
+        "y": 56.10395812988281,
+        "width": 15.792083740234375,
+        "height": 15.792083740234375
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 73.921875,
+        "height": 13
+      },
+      "pending": {
+        "x": 32,
+        "y": 57.5,
+        "width": 73.921875,
+        "height": 13
+      },
+      "spin": {
+        "x": 63.97804260253906,
+        "y": 59.02491760253906,
+        "width": 9.950164794921875,
+        "height": 9.950164794921875
+      },
+      "layout": {
+        "width": 9,
+        "height": 9
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 73.921875,
+        "height": 13
+      },
+      "pending": {
+        "x": 32,
+        "y": 57.5,
+        "width": 73.921875,
+        "height": 13
+      },
+      "spin": {
+        "x": 63.123809814453125,
+        "y": 58.17068862915039,
+        "width": 11.65863037109375,
+        "height": 11.658626556396484
+      },
+      "layout": {
+        "width": 9,
+        "height": 9
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 159.0625,
+        "height": 36
+      },
+      "pending": {
+        "x": 32,
+        "y": 46,
+        "width": 159.0625,
+        "height": 36
+      },
+      "spin": {
+        "x": 92.37530517578125,
+        "y": 44.84406280517578,
+        "width": 38.3118896484375,
+        "height": 38.31188201904297
+      },
+      "layout": {
+        "width": 32,
+        "height": 32
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "s",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 36,
+        "width": 159.0625,
+        "height": 36
+      },
+      "pending": {
+        "x": 32,
+        "y": 46,
+        "width": 159.0625,
+        "height": 36
+      },
+      "spin": {
+        "x": 96.53838348388672,
+        "y": 49.00713348388672,
+        "width": 29.985733032226562,
+        "height": 29.985733032226562
+      },
+      "layout": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 109.5,
+        "height": 20
+      },
+      "pending": {
+        "x": 32,
+        "y": 60,
+        "width": 109.5,
+        "height": 20
+      },
+      "spin": {
+        "x": 76.0713119506836,
+        "y": 59.321311950683594,
+        "width": 21.357376098632812,
+        "height": 21.357376098632812
+      },
+      "layout": {
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 109.5,
+        "height": 20
+      },
+      "pending": {
+        "x": 32,
+        "y": 60,
+        "width": 109.5,
+        "height": 20
+      },
+      "spin": {
+        "x": 76.9532470703125,
+        "y": 60.203243255615234,
+        "width": 19.59351348876953,
+        "height": 19.593509674072266
+      },
+      "layout": {
+        "width": 16,
+        "height": 16
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 88.328125,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 62,
+        "width": 88.328125,
+        "height": 16
+      },
+      "spin": {
+        "x": 69.14166259765625,
+        "y": 62.985416412353516,
+        "width": 14.0291748046875,
+        "height": 14.029170989990234
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 88.328125,
+        "height": 16
+      },
+      "pending": {
+        "x": 32,
+        "y": 62,
+        "width": 88.328125,
+        "height": 16
+      },
+      "spin": {
+        "x": 68.61477661132812,
+        "y": 62.45853042602539,
+        "width": 15.08294677734375,
+        "height": 15.082942962646484
+      },
+      "layout": {
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 188.234375,
+        "height": 42
+      },
+      "pending": {
+        "x": 32,
+        "y": 49,
+        "width": 188.234375,
+        "height": 42
+      },
+      "spin": {
+        "x": 101.90657043457031,
+        "y": 45.79719543457031,
+        "width": 48.405609130859375,
+        "height": 48.405609130859375
+      },
+      "layout": {
+        "width": 38,
+        "height": 38
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "m",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 38,
+        "width": 188.234375,
+        "height": 42
+      },
+      "pending": {
+        "x": 32,
+        "y": 49,
+        "width": 188.234375,
+        "height": 42
+      },
+      "spin": {
+        "x": 109.05289459228516,
+        "y": 52.943519592285156,
+        "width": 34.11296844482422,
+        "height": 34.11296081542969
+      },
+      "layout": {
+        "width": 30,
+        "height": 30
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 130.28125,
+        "height": 24
+      },
+      "pending": {
+        "x": 32,
+        "y": 64,
+        "width": 130.28125,
+        "height": 24
+      },
+      "spin": {
+        "x": 85.45794677734375,
+        "y": 64.31731414794922,
+        "width": 23.36536407470703,
+        "height": 23.36536407470703
+      },
+      "layout": {
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 130.28125,
+        "height": 24
+      },
+      "pending": {
+        "x": 32,
+        "y": 64,
+        "width": 130.28125,
+        "height": 24
+      },
+      "spin": {
+        "x": 84.89030456542969,
+        "y": 63.74967575073242,
+        "width": 24.500648498535156,
+        "height": 24.50064468383789
+      },
+      "layout": {
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 107.109375,
+        "height": 19
+      },
+      "pending": {
+        "x": 32,
+        "y": 66.5,
+        "width": 107.109375,
+        "height": 19
+      },
+      "spin": {
+        "x": 76.56661987304688,
+        "y": 67.01974487304688,
+        "width": 17.96051025390625,
+        "height": 17.96051025390625
+      },
+      "layout": {
+        "width": 15,
+        "height": 15
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 107.109375,
+        "height": 19
+      },
+      "pending": {
+        "x": 32,
+        "y": 66.5,
+        "width": 107.109375,
+        "height": 19
+      },
+      "spin": {
+        "x": 76.36184692382812,
+        "y": 66.81497192382812,
+        "width": 18.37005615234375,
+        "height": 18.37005615234375
+      },
+      "layout": {
+        "width": 15,
+        "height": 15
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 217.421875,
+        "height": 48
+      },
+      "pending": {
+        "x": 32,
+        "y": 52,
+        "width": 217.421875,
+        "height": 48
+      },
+      "spin": {
+        "x": 114.99508666992188,
+        "y": 50.291961669921875,
+        "width": 51.41607666015625,
+        "height": 51.41607666015625
+      },
+      "layout": {
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "l",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 40,
+        "width": 217.421875,
+        "height": 48
+      },
+      "pending": {
+        "x": 32,
+        "y": 52,
+        "width": 217.421875,
+        "height": 48
+      },
+      "spin": {
+        "x": 120.46187591552734,
+        "y": 55.75875473022461,
+        "width": 40.48249053955078,
+        "height": 40.482486724853516
+      },
+      "layout": {
+        "width": 36,
+        "height": 36
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 151.0625,
+        "height": 28
+      },
+      "pending": {
+        "x": 32,
+        "y": 68,
+        "width": 151.0625,
+        "height": 28
+      },
+      "spin": {
+        "x": 93.87312316894531,
+        "y": 68.34187316894531,
+        "width": 27.316253662109375,
+        "height": 27.316253662109375
+      },
+      "layout": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 151.0625,
+        "height": 28
+      },
+      "pending": {
+        "x": 32,
+        "y": 68,
+        "width": 151.0625,
+        "height": 28
+      },
+      "spin": {
+        "x": 93.87014770507812,
+        "y": 68.3388900756836,
+        "width": 27.32221221923828,
+        "height": 27.322219848632812
+      },
+      "layout": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 121.5,
+        "height": 22
+      },
+      "pending": {
+        "x": 32,
+        "y": 71,
+        "width": 121.5,
+        "height": 22
+      },
+      "spin": {
+        "x": 82.57839965820312,
+        "y": 71.82839965820312,
+        "width": 20.34320068359375,
+        "height": 20.34320068359375
+      },
+      "layout": {
+        "width": 18,
+        "height": 18
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 121.5,
+        "height": 22
+      },
+      "pending": {
+        "x": 32,
+        "y": 71,
+        "width": 121.5,
+        "height": 22
+      },
+      "spin": {
+        "x": 82.50721740722656,
+        "y": 71.75721740722656,
+        "width": 20.485565185546875,
+        "height": 20.485565185546875
+      },
+      "layout": {
+        "width": 18,
+        "height": 18
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "bound": false,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 246.59375,
+        "height": 54
+      },
+      "pending": {
+        "x": 32,
+        "y": 45,
+        "width": 246.59375,
+        "height": 54
+      },
+      "spin": {
+        "x": 126.08695220947266,
+        "y": 42.79007339477539,
+        "width": 58.41985321044922,
+        "height": 58.419857025146484
+      },
+      "layout": {
+        "width": 50,
+        "height": 50
+      }
+    },
+    {
+      "theme": "Dark",
+      "size": "xl",
+      "bound": true,
+      "before": {
+        "x": 32,
+        "y": 42,
+        "width": 246.59375,
+        "height": 54
+      },
+      "pending": {
+        "x": 32,
+        "y": 45,
+        "width": 246.59375,
+        "height": 54
+      },
+      "spin": {
+        "x": 131.64044189453125,
+        "y": 48.343570709228516,
+        "width": 47.3128662109375,
+        "height": 47.312862396240234
+      },
+      "layout": {
+        "width": 42,
+        "height": 42
+      }
+    }
+  ],
+  "fixedParent": 280,
+  "autoResizeOwnership": true,
+  "stableClearHeader": true,
+  "emptySlotsOmitted": true,
+  "errors": []
+}

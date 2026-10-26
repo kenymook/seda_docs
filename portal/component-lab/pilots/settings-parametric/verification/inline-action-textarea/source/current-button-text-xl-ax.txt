@@ -1,0 +1,477 @@
+Browser tab: 11, Title: "SEDA AI v0.2.0 – Figma", URL: "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4017-1651&t=tjNhypTtyQ8TGi9n-0".
+0 AXWebArea SEDA AI v0.2.0 – Figma, URL: figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4017-1651&t=tjNhypTtyQ8TGi9n-0
+	1 container react-page
+		7 container
+			8 container fullscreen-root
+				9 container Figma Design, 1 item selected
+			10 text Screenreader support for the board is currently disabled. To enable it via Accessibility settings, press Ctrl+K, type Accessibility Settings, and press Enter. To see available keyboard shortcuts, enter Ctrl+Shift+Question mark .
+			11 container
+				12 text Warning: This file is part of a locked team.
+				13 container
+					14 text All of this team’s work is currently view-only. You can edit again when the team is unlocked.
+					15 link Description: Learn more, Value: figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4017-1651&t=tjNhypTtyQ8TGi9n-0#
+				16 button Reactivate professional
+			17 container Comments on canvas
+				18 button Create new comment
+			19 container Left sidebar
+				20 toolbar Navigation Bar
+					21 pop up button (collapsed) Description: Main menu, ID: :r6:-trigger, Secondary Actions: Expand
+						22 image
+					23 button (expanded) Description: File, Secondary Actions: Collapse
+						24 image
+					25 pop up button (collapsed) Description: Review unpublished changes, Secondary Actions: Expand
+				26 container left-panel-container
+					27 container
+						28 button SEDA AI v0.2.0, file name
+						29 text File name
+						30 pop up button (collapsed) Description: Edit file menu, ID: :rb:, Secondary Actions: Expand
+						31 button Minimize UI
+						32 link Description: SEDA AI, Value: figma.com/files/team/1156313042119251770/project/588921952
+						33 button Locked
+						34 heading Button ✅ Find, Value: 2
+							35 button (collapsed) Button ✅, Secondary Actions: Expand
+							36 button Description: Find, ID: canvas-search-icon-button
+						37 heading Layers Collapse layers, Value: 2
+							38 button (expanded) Layers, Secondary Actions: Collapse
+							215 button Collapse layers
+						39 table
+							40 container
+								461 row (selectable, expanded) Button / Button, Secondary Actions: Collapse
+									462 container
+										463 cell
+											464 text Button / Button
+								493 row (selectable, collapsed) destruction, default, s, Secondary Actions: Expand
+									494 container
+										495 cell
+											496 text destruction, default, s
+								497 row (selectable, collapsed) text, disabled, xl, Secondary Actions: Expand
+									498 container
+										499 cell
+											500 text text, disabled, xl
+								501 row (selectable, collapsed) text, focus, xl, Secondary Actions: Expand
+									502 container
+										503 cell
+											504 text text, focus, xl
+								505 row (selectable, collapsed) text, loading, xl, Secondary Actions: Expand
+									506 container
+										507 cell
+											508 text text, loading, xl
+								509 row (selectable, collapsed) text, active, xl, Secondary Actions: Expand
+									510 container
+										511 cell
+											512 text text, active, xl
+								513 row (selectable, collapsed) text, hover, xl, Secondary Actions: Expand
+									514 container
+										515 cell
+											516 text text, hover, xl
+								517 row (selected, collapsed) text, default, xl, Secondary Actions: Expand
+									518 container
+										519 cell
+											520 text text, default, xl
+								521 row (selectable, collapsed) text, disabled, l, Secondary Actions: Expand
+									522 container
+										523 cell
+											524 text text, disabled, l
+								525 row (selectable, collapsed) text, focus, l, Secondary Actions: Expand
+									526 container
+										527 cell
+											528 text text, focus, l
+								529 row (selectable, collapsed) text, loading, l, Secondary Actions: Expand
+									530 container
+										531 cell
+											532 text text, loading, l
+								533 row (selectable, collapsed) text, active, l, Secondary Actions: Expand
+									534 container
+										535 cell
+											536 text text, active, l
+								537 row (selectable, collapsed) text, hover, l, Secondary Actions: Expand
+									538 container
+										539 cell
+											540 text text, hover, l
+								541 row (selectable, collapsed) text, default, l, Secondary Actions: Expand
+									542 container
+										543 cell
+											544 text text, default, l
+								545 row (selectable, collapsed) text, disabled, m, Secondary Actions: Expand
+									546 container
+										547 cell
+											548 text text, disabled, m
+								549 row (selectable, collapsed) text, focus, m, Secondary Actions: Expand
+									550 container
+										551 cell
+											552 text text, focus, m
+								553 row (selectable, collapsed) text, loading, m, Secondary Actions: Expand
+									554 container
+										555 cell
+											556 text text, loading, m
+								557 row (selectable, collapsed) text, active, m, Secondary Actions: Expand
+									558 container
+										559 cell
+											560 text text, active, m
+								561 row (selectable, collapsed) text, hover, m, Secondary Actions: Expand
+									562 container
+										563 cell
+											564 text text, hover, m
+								565 row (selectable, expanded) text, default, m, Secondary Actions: Collapse
+									566 container
+										567 cell
+											568 text text, default, m
+								569 row (selectable, collapsed) IconLeft, Secondary Actions: Expand
+									570 container
+										571 cell
+											572 text IconLeft
+								573 row (selectable, expanded) Text, Secondary Actions: Collapse
+									574 container
+										575 cell
+											576 text Text
+								577 row (selectable) Button text
+									578 container
+										579 cell
+											580 text Button text
+								581 row (selectable, collapsed) IconRight, Secondary Actions: Expand
+									582 container
+										583 cell
+											584 text IconRight
+								585 row (selectable, collapsed) text, disabled, s, Secondary Actions: Expand
+									586 container
+										587 cell
+											588 text text, disabled, s
+								589 row (selectable, collapsed) text, focus, s, Secondary Actions: Expand
+									590 container
+										591 cell
+											592 text text, focus, s
+								593 row (selectable, collapsed) text, loading, s, Secondary Actions: Expand
+									594 container
+										595 cell
+											596 text text, loading, s
+								597 row (selectable, collapsed) text, active, s, Secondary Actions: Expand
+									598 container
+										599 cell
+											600 text text, active, s
+								601 row (selectable, collapsed) text, hover, s, Secondary Actions: Expand
+									602 container
+										603 cell
+											604 text text, hover, s
+								605 row (selectable, collapsed) text, default, s, Secondary Actions: Expand
+									606 container
+										607 cell
+											608 text text, default, s
+								609 row (selectable, collapsed) outline, disabled, xl, Secondary Actions: Expand
+									610 container
+										611 cell
+											612 text outline, disabled, xl
+								613 row (selectable, collapsed) outline, focus, xl, Secondary Actions: Expand
+									614 container
+										615 cell
+											616 text outline, focus, xl
+								617 row (selectable, collapsed) outline, loading, xl, Secondary Actions: Expand
+									618 container
+										619 cell
+											620 text outline, loading, xl
+								621 row (selectable, collapsed) outline, active, xl, Secondary Actions: Expand
+									622 container
+										623 cell
+											624 text outline, active, xl
+								625 row (selectable, collapsed) outline, hover, xl, Secondary Actions: Expand
+									626 container
+										627 cell
+											628 text outline, hover, xl
+								629 row (selectable, collapsed) outline, default, xl, Secondary Actions: Expand
+									630 container
+										631 cell
+											632 text outline, default, xl
+								759 row (selectable, collapsed) outline, disabled, l, Secondary Actions: Expand
+									760 container
+										761 cell
+											762 text outline, disabled, l
+								763 row (selectable, collapsed) outline, focus, l, Secondary Actions: Expand
+									764 container
+										765 cell
+											766 text outline, focus, l
+								767 row (selectable, collapsed) outline, loading, l, Secondary Actions: Expand
+									768 container
+										769 cell
+											770 text outline, loading, l
+								771 row (selectable, collapsed) outline, active, l, Secondary Actions: Expand
+									772 container
+										773 cell
+											774 text outline, active, l
+								775 row (selectable, collapsed) outline, hover, l, Secondary Actions: Expand
+									776 container
+										777 cell
+											778 text outline, hover, l
+								779 row (selectable, collapsed) outline, default, l, Secondary Actions: Expand
+									780 container
+										781 cell
+											782 text outline, default, l
+								783 row (selectable, collapsed) outline, disabled, m, Secondary Actions: Expand
+									784 container
+										785 cell
+											786 text outline, disabled, m
+								787 row (selectable, collapsed) outline, focus, m, Secondary Actions: Expand
+									788 container
+										789 cell
+											790 text outline, focus, m
+								791 row (selectable, collapsed) outline, loading, m, Secondary Actions: Expand
+									792 container
+										793 cell
+											794 text outline, loading, m
+								795 row (selectable, collapsed) outline, active, m, Secondary Actions: Expand
+									796 container
+										797 cell
+											798 text outline, active, m
+								799 row (selectable, collapsed) outline, hover, m, Secondary Actions: Expand
+									800 container
+										801 cell
+											802 text outline, hover, m
+								803 row (selectable, collapsed) outline, default, m, Secondary Actions: Expand
+									804 container
+										805 cell
+											806 text outline, default, m
+								807 row (selectable, collapsed) outline, disabled, s, Secondary Actions: Expand
+									808 container
+										809 cell
+											810 text outline, disabled, s
+								811 row (selectable, collapsed) outline, focus, s, Secondary Actions: Expand
+									812 container
+										813 cell
+											814 text outline, focus, s
+								815 row (selectable, collapsed) outline, loading, s, Secondary Actions: Expand
+									816 container
+										817 cell
+											818 text outline, loading, s
+								819 row (selectable, collapsed) outline, active, s, Secondary Actions: Expand
+									820 container
+										821 cell
+											822 text outline, active, s
+								823 row (selectable, collapsed) outline, hover, s, Secondary Actions: Expand
+									824 container
+										825 cell
+											826 text outline, hover, s
+								827 row (selectable, collapsed) outline, default, s, Secondary Actions: Expand
+									828 container
+										829 cell
+											830 text outline, default, s
+								831 row (selectable, collapsed) primary, disabled, xl, Secondary Actions: Expand
+									832 container
+										833 cell
+											834 text primary, disabled, xl
+								835 row (selectable, collapsed) primary, focus, xl, Secondary Actions: Expand
+									836 container
+										837 cell
+											838 text primary, focus, xl
+								839 row (selectable, collapsed) primary, loading, xl, Secondary Actions: Expand
+									840 container
+										841 cell
+											842 text primary, loading, xl
+								843 row (selectable, collapsed) primary, active, xl, Secondary Actions: Expand
+									844 container
+										845 cell
+											846 text primary, active, xl
+					53 slider Description: Resize handle, Value: 240
+			54 container Right sidebar
+				55 container
+					56 container
+						57 pop up button (collapsed) Description: Multiplayer tools, ID: self-avatar-with-tools-container, Secondary Actions: Expand
+							58 image
+						59 container Prototype view
+							60 button Description: Present, ID: :r1p:
+							61 pop up button (collapsed) Description: Prototype view, ID: :r1o:, Secondary Actions: Expand
+						62 button Share
+						63 tab group
+							64 tab (selectable, settable, boolean) Comments, Value: 0, ID: tab:r1s:-3-trigger
+							65 tab (selected, settable, boolean) Properties, Value: 1, ID: tab:r1s:-2-trigger
+						66 pop up button (collapsed) Description: 535%, zoom and view options, ID: :r1v:, Secondary Actions: Expand
+							67 text 535%
+							68 image
+						69 container
+							70 container
+								71 text Get coding, faster
+								72 button Close
+								73 image Mock box model and css code snippet
+								74 text Dev Mode simplifies handoff, speeds up inspection, and integrates with tools like VS Code and Storybook.
+								75 button Request access
+								76 container Variant
+								693 button Button / Button
+								78 container componentProps-inspection-panel
+									79 heading Component properties, Value: 3
+										80 text Component properties
+									81 button Copy
+									364 button Copy variant: text
+										365 container variant
+											366 text variant
+										367 container text
+											368 text text
+									369 button Copy state: default
+										370 container state
+											371 text state
+										372 container default
+											373 text default
+									374 button Copy size: xl
+										375 container size
+											376 text size
+										377 container xl
+											378 text xl
+									82 button Copy typeText: Button
+										83 container typeText
+											84 text typeText
+										85 container Button
+											86 text Button
+									87 button Copy textLoading: Loading
+										88 container textLoading
+											89 text textLoading
+										90 container Loading
+											91 text Loading
+									92 button Copy showLeftIcon: true
+										93 container showLeftIcon
+											94 text showLeftIcon
+										95 container true
+											96 text true
+									97 button Copy leftIcon: Icon/Line/circle
+										98 container leftIcon
+											99 text leftIcon
+										100 container Icon/Line/circle
+											101 text Icon/Line/circle
+									102 button Copy showRightIcon: true
+										103 container showRightIcon
+											104 text showRightIcon
+										105 container true
+											106 text true
+									107 button Copy loadingIcon: Line/Loading
+										108 container loadingIcon
+											109 text loadingIcon
+										110 container Line/Loading
+											111 text Line/Loading
+									112 button Copy rightIcon: Icon/Line/circle
+										113 container rightIcon
+											114 text rightIcon
+										115 container Icon/Line/circle
+											116 text Icon/Line/circle
+								117 container properties-inspection-panel
+									118 heading Layout, Value: 3
+										119 text Layout
+									120 button Copy
+									694 button Copy Flow: Horizontal
+										695 container Flow
+											696 text Flow
+										697 container Horizontal
+											698 text Horizontal
+									126 button Copy Width: Hug (125px)
+										127 container Width
+											128 text Width
+										129 container Hug (125px)
+											130 text Hug (125px)
+									131 button Copy Height: Hug (28px)
+										132 container Height
+											133 text Height
+										134 container Hug (28px)
+											135 text Hug (28px)
+									699 button Copy Top: 1416px
+										700 container Top
+											701 text Top
+										702 container 1416px
+											703 text 1416px
+									704 button Copy Left: 20px
+										705 container Left
+											706 text Left
+										707 container 20px
+											708 text 20px
+									847 button Copy Radius: border/radius/xl
+										848 container Radius
+											849 text Radius
+										850 container border/radius/xl
+											851 text border/radius/xl
+									709 button Copy Border: border/width/s
+										710 container Border
+											711 text Border
+										712 container border/width/s
+											713 text border/width/s
+									852 button Copy Padding: space/none
+										853 container Padding
+											854 text Padding
+										855 container space/none
+											856 text space/none
+									714 button Copy Gap: space/m
+										715 container Gap
+											716 text Gap
+										717 container space/m
+											718 text space/m
+									719 text Grid
+									720 button Copy Grid—Row start: 20
+										721 container Row start
+											722 text Row start
+										723 container 20
+											724 text 20
+									725 button Copy Grid—Column start: 1
+										726 container Column start
+											727 text Column start
+										728 container 1
+											729 text 1
+									730 button Copy Grid—Horizontal span: 1
+										731 container Horizontal span
+											732 text Horizontal span
+										733 container 1
+											734 text 1
+									735 button Copy Grid—Vertical span: 1
+										736 container Vertical span
+											737 text Vertical span
+										738 container 1
+											739 text 1
+								162 container colors-inspection-panel
+									163 heading Colors, Value: 3
+										164 text Colors
+									165 text Color format
+									166 combo box (collapsed) Color format, Value: Hex, ID: :r24:, Secondary Actions: Expand
+										167 text Hex
+										168 image
+									169 button Copy
+									170 button button/neutral/text/surface/default
+										171 container button/neutral/text/surface/default
+											172 text button/neutral/text/surface/default
+									173 button #000000 0%
+										420 container
+											421 text #000000 0%
+								740 container borders-inspection-panel
+									741 heading Borders, Value: 3
+										742 text Borders
+									743 text Color format
+									744 combo box (collapsed) Color format, Value: Hex, ID: :r2o:, Secondary Actions: Expand
+										745 text Hex
+										746 image
+									747 button Copy
+									748 button 0.5px Top side
+										749 container
+											750 image
+											751 text 0.5px Top side
+									752 button button/neutral/text/border/default
+										753 container button/neutral/text/border/default
+											754 text button/neutral/text/border/default
+									755 button #000000 0%
+										756 container
+											757 text #000000 0%
+									758 text Inner alignment
+								458 container
+									459 button Export
+									460 button Add export settings
+					199 slider Description: Resize handle, Value: 241
+		200 container Application toolbar
+			201 toolbar Editor
+				202 checkbox Description: Move, Value: 1
+					203 image
+				204 checkbox Description: Hand tool, Value: 0
+					205 image
+				206 checkbox Description: Comment, Value: 0
+					207 image
+				208 button (disabled) View only
+				209 Toolbelt Mode
+					210 text Toolbelt Mode
+					211 radio button (settable, integer) Description: Draw, Value: 0, ID: :r2i:-illustration
+					212 radio button (settable, integer) Description: Design, Value: 1, ID: :r2i:-design
+					213 radio button (settable, integer) Description: Motion, Value: 0, ID: :r2i:-metronome
+					214 radio button (settable, integer) Description: Dev Mode, Value: 0, ID: :r2i:-handoff
+		3 container Help/zoom toolbar
+			4 toolbar Help/zoom toolbar
+				5 pop up button (collapsed) Description: Help, ID: :r2:, Secondary Actions: Expand
+					6 image
+
+The focused UI element is 9 container Figma Design, 1 item selected

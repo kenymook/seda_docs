@@ -1,5 +1,7 @@
 # Component Maturity Matrix
 
+Private v62: Button text и TextArea получили общие source-роли компактного действия и поля, включая typography, header gap и loading; реальная Settings-композиция проверена в обеих темах. [D35, installed-package, local/production proofs и открытые ограничения](2026-10-26-inline-action-textarea.md). Это проверенный слой ядра, не полная приёмка всех компонентов, экранов и платформ.
+
 Private v61: TextField/Select/NumberField получили source label/helper typography, два отдельных gap4 и TextField content gap6 без affix surface. [D34, installed-package/CI/production proofs и открытые визуальные ограничения](2026-10-26-field-anatomy.md). Это исправление общего ядра, не завершение полной визуальной и OS/AT приёмки.
 
 Private v60: TextField/NumberField используют существующие роли icon/default/active/error/disabled для SEDA Icon и SVG; compiler/Provider/Text имеют общий fallback stack с сохранением provenance. [Результаты installed package, actual screens, production и границы Figma-проверки](2026-10-26-field-foundation.md). Новых токенов, glyph assets и instance contracts нет; подложка/anatomy affix и полная визуальная приёмка остаются открытыми.
