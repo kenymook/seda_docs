@@ -145,15 +145,15 @@ try {
                     .filter((el) => el.getBoundingClientRect().height > 0)
                     .map((el) => {
                       const b = el.getBoundingClientRect();
+                      const row=el.closest('label');
                       return {
                         kind: el.classList.contains("seda-toggle__control")
                           ? "toggle"
                           : "choice",
                         height: b.height,
                         width: b.width,
-                        gap: parseFloat(
-                          getComputedStyle(el.closest("label")).gap,
-                        ),
+                        compact:row.dataset.content==='none'||row.classList.contains('workspace-row-choice'),
+                        gap:parseFloat(getComputedStyle(row).columnGap),
                       };
                     }),
                 );
@@ -169,7 +169,7 @@ try {
                   choice.kind === "toggle" ? mark * 2 + 4 : mark,
                   "choice/Toggle shape",
                 );
-                near(choice.gap, 8 + params.airX, "choice gap from base + X");
+                near(choice.gap,choice.compact?0:8+params.airX,choice.compact?'unlabelled table choice has no content gap':'choice gap from base + X');
               }
               const overflow = await page.evaluate(
                 () => document.documentElement.scrollWidth - innerWidth,
