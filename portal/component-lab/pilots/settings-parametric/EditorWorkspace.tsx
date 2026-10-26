@@ -45,7 +45,7 @@ export function EditorWorkspace({size,action,typography,textScale}:{size:"s"|"m"
  const headingRole=documentModel.heading.textRole??'heading/section';
  const headingType=deriveTypography(typography,headingRole,textScale);
  return <section className="workspace-page editor-workspace" aria-labelledby="editor-title">
-  <div className="section-top"><div><div className="eyebrow">ПАНЕЛИ РАБОЧЕГО ПРИЛОЖЕНИЯ</div><Text as="h1" variant="heading/page" id="editor-title">Редактор интерфейса</Text>
+  <div className="section-top"><div><Text as="h1" variant="heading/section" id="editor-title">Редактор интерфейса</Text>
   <Text as="p" variant="body/default">Общие компоненты SEDA: разделители, поля, выбор и preview. Экспериментальная композиция, не готовый экран из Figma.</Text></div></div>
   <div className="editor-toolbar">
    <Button {...pane} size={size} id="editor-undo" iconLeft={<Icon name="undo" />} disabled={!past.length} onClick={undo}>Отменить</Button>
@@ -58,7 +58,7 @@ export function EditorWorkspace({size,action,typography,textScale}:{size:"s"|"m"
    <SplitView id="editor-layout" primaryLabel="Объекты макета" secondaryLabel="Canvas и инспектор" separatorLabel="Ширина списка объектов"
     primarySize={navigation} onSizeChange={setNavigation} minSize={120} maxSize={320} secondaryMinSize={408}
     primary={<nav className="editor-objects" aria-label="Объекты макета">
-     <Text as="h2" variant="heading/section">Объекты</Text>
+     <Text as="h2" variant="heading/panel">Объекты</Text>
      <Tree id="editor-node" label="Слои макета" size={size}
       items={[{id:"frame",label:documentModel.frame.text.trim()?documentModel.frame.text:"Frame",children:[{id:"heading",label:documentModel.heading.text.trim()?documentModel.heading.text:"Заголовок"},{id:"button",label:documentModel.button.text.trim()?documentModel.button.text:"Кнопка"}]}]}
       expandedIds={treeExpanded} onExpandedChange={setTreeExpanded} selectedIds={[selection]} onSelectionChange={ids=>{if(ids[0])setSelection(ids[0] as NodeId);}}/>
@@ -68,7 +68,7 @@ export function EditorWorkspace({size,action,typography,textScale}:{size:"s"|"m"
      primary={<div className="editor-preview" id="editor-preview">
       <Text as="p" variant="caption/default" className="hint">Живой preview · SEDA UI</Text>
       <div className="editor-artboard" hidden={!documentModel.frame.visible}>
-       <div className="eyebrow">{documentModel.frame.text}</div>
+       <Text as="div" variant="label/small">{documentModel.frame.text}</Text>
        <Text as="h2" variant={headingRole as TextVariant} id="editor-preview-heading" hidden={!documentModel.heading.visible}>{documentModel.heading.text}</Text>
        <div hidden={!documentModel.button.visible}>{documentModel.button.text.trim()?<Button {...action(documentModel.buttonVariant==="primary"?"save":"cancel")} size={size} id="editor-preview-button" variant={documentModel.buttonVariant} disabled={documentModel.button.disabled} onClick={()=>setClicks(count=>count+1)}>{documentModel.button.text}</Button>:<Text as="p" variant="body/default" role="status">Введите текст кнопки в инспекторе.</Text>}</div>
        <Text as="p" variant="caption/default" className="hint">Нажатий кнопки: <output id="editor-preview-count">{clicks}</output></Text>
@@ -76,7 +76,7 @@ export function EditorWorkspace({size,action,typography,textScale}:{size:"s"|"m"
       {!documentModel.frame.visible&&<Text as="p" variant="body/default" role="status">Frame скрыт. Включите видимость в инспекторе.</Text>}
      </div>}
      secondary={<aside className="editor-properties">
-      <Text as="h2" variant="heading/section">Инспектор</Text>
+      <Text as="h2" variant="heading/panel">Инспектор</Text>
       <Text as="p" variant="body/default" id="editor-selection">Выбран: {selection}</Text>
       <TextField id="editor-node-text" label="Текст элемента" size={size} value={current.text} errorText={current.text.trim()?undefined:"Текст обязателен"} onChange={event=>update({text:event.target.value.slice(0,500)})}/>
       <Toggle id="editor-node-visible" label="Видимость элемента" size={size} checked={current.visible} onCheckedChange={visible=>update({visible})}/>

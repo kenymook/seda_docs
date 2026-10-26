@@ -89,7 +89,7 @@ try {
     assert.equal(await left.locator('select[data-seda-contract="Select"]').count(), 2);
     assert.equal(await left.locator('[data-seda-contract="Slider"]').count(), 4);
     assert.equal(await left.locator('input[data-seda-contract="Checkbox"]').count(), 1);
-    assert.equal(await right.locator(".seda-card.inspectcard").count(), 5);
+    assert.equal(await right.locator(".seda-card.inspectcard").count(), 6);
     assert.equal(await right.locator(".seda-accordion").count(), 2);
     assert.equal(await left.locator(".seda-alert").count(), 1);
     assert.equal(await right.locator("#conformance.seda-alert").count(), 1);

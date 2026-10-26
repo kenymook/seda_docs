@@ -21,6 +21,7 @@ import {
 
 import { TextArea, NumberField, Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
 import {EditorWorkspace} from "./EditorWorkspace";
+import type {WorkspacePage} from "./workspace-composition";
 
 type Props = {
   size: "s" | "m" | "l" | "xl";
@@ -28,6 +29,7 @@ type Props = {
   children: React.ReactNode;
   typography: any;
   textScale: number;
+  onPageChange?: (page: WorkspacePage) => void;
 };
 const teams = [
   { value: "Core", label: "Core" },
@@ -37,8 +39,8 @@ const teams = [
 ];
 
 /** Stateful product composition. Demo data stays in memory; no network invitation is sent. */
-export function ProductWorkspace({ size, action, children, typography, textScale }: Props) {
-  const [page, setPage] = useState("projects");
+export function ProductWorkspace({ size, action, children, typography, textScale, onPageChange }: Props) {
+  const [page, setPage] = useState<WorkspacePage>("projects");
   const [settingsTab, setSettingsTab] = useState("general");
   const invalidFocus = useRef<string | null>(null);
   const [settings, setSettings] = useState({
@@ -139,6 +141,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
   }
   return (
     <>
+      <div className="product-workspace-chrome">
       <div className="product-masthead">
         <div>
           <Avatar name="Atlas workspace" initials="A" variant="brand" alt=""/>
@@ -164,13 +167,14 @@ export function ProductWorkspace({ size, action, children, typography, textScale
             size={size}
             id={"nav-" + id}
             aria-current={page === id ? "page" : undefined}
-            onClick={() => setPage(id)}
+            onClick={() => {const next=id as WorkspacePage;setPage(next);onPageChange?.(next);}}
           >
             {label}
             {id === "members" ? " · " + members.length : ""}
           </Button>
         ))}
       </nav>
+      </div>
       <div id="projects-page" hidden={page !== "projects"}>
         {children}
       </div>
@@ -182,8 +186,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
       >
         <div className="section-top">
           <div>
-            <div className="eyebrow">РАБОЧЕЕ ПРОСТРАНСТВО</div>
-            <Text as="h1" variant="heading/page" id="workspace-settings-title">Настройки</Text>
+            <Text as="h1" variant="heading/section" id="workspace-settings-title">Настройки</Text>
             <Text as="p" variant="body/default">
               Общие параметры применяются к полям, выбору значений и действиям.
             </Text>
@@ -205,7 +208,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
             items={[
               { value: "general", label: "Основные параметры", content: <div className="workspace-settings-panel">
                   <div className="form-section-heading">
-                    <Text as="h2" variant="heading/section">Основная информация</Text>
+                    <Text as="h2" variant="heading/panel">Основная информация</Text>
                     <Text variant="caption/default">Текст · email · URL · число · дата · Select</Text>
                   </div>
                   <div className="workspace-form-grid">
@@ -258,7 +261,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
               </div> },
               { value: "access", label: "Доступ и уведомления", content: <div className="workspace-settings-panel">
                   <div className="form-section-heading">
-                    <Text as="h2" variant="heading/section">Доступ и уведомления</Text>
+                    <Text as="h2" variant="heading/panel">Доступ и уведомления</Text>
                     <Text variant="caption/default">Radio · Toggle · Checkbox</Text>
                   </div>
                   <div className="workspace-form-grid">
@@ -334,8 +337,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
       >
         <div className="section-top">
           <div>
-            <div className="eyebrow">ЛЮДИ И РОЛИ</div>
-            <Text as="h1" variant="heading/page" id="workspace-members-title">Команда</Text>
+            <Text as="h1" variant="heading/section" id="workspace-members-title">Команда</Text>
             <Text as="p" variant="body/default">Поиск, роли и добавление участника в локальную демонстрацию.</Text>
           </div>
           <AvatarGroup label="Участники команды" items={members.map(m=>({id:String(m.id),name:m.name}))} maxVisible={2}
@@ -405,7 +407,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
             setMemberRole("all");
           }}
         >
-          <Text as="h2" variant="heading/section">Добавить участника</Text>
+          <Text as="h2" variant="heading/panel">Добавить участника</Text>
           <Text as="p" variant="body/default">Демонстрация добавления в таблицу. Письмо не отправляется.</Text>
           <div className="workspace-form-grid">
             <TextField
@@ -443,12 +445,12 @@ export function ProductWorkspace({ size, action, children, typography, textScale
       </section>
       <div id="editor-page" hidden={page!=="editor"}><EditorWorkspace size={size} action={action} typography={typography} textScale={textScale}/></div>
       <section id="components-page" className="workspace-page" hidden={page!=="components"} aria-labelledby="components-title">
-        <Text as="h1" variant="heading/page" id="components-title">Согласованность компонентов</Text>
+        <Text as="h1" variant="heading/section" id="components-title">Согласованность компонентов</Text>
         <Text as="p" variant="body/default">Сравните текст, иконки, края и интервалы при изменении общих параметров. Это рабочая проверка визуального слоя, а не отметка готовности библиотеки.</Text>
         <VisualConsistency size={size} action={action} />
       </section>
       <section id="feedback-page" className="workspace-page" hidden={page!=="feedback"} aria-labelledby="feedback-title">
-        <Text as="h1" variant="heading/page" id="feedback-title">Состояния рабочего интерфейса</Text>
+        <Text as="h1" variant="heading/section" id="feedback-title">Состояния рабочего интерфейса</Text>
         <Text as="p" variant="body/default">Сообщения, фильтр и счётчики собраны из SEDA. Выбор и удаление фильтра меняют локальный список; сетевые операции не выполняются.</Text>
         <FeedbackWorkspace />
       </section>
@@ -503,7 +505,7 @@ function ToastQueueDemo() {
   const trigger=useRef<HTMLButtonElement>(null),serial=useRef(0);
   const [reviewed,setReviewed]=useState(0);
   return <div className="pane feedback-workspace__queue" id="feedback-queue-demo">
-    <Text as="h3" variant="heading/section">Очередь уведомлений</Text>
+    <Text as="h3" variant="heading/panel">Очередь уведомлений</Text>
     <Text as="p" variant="body/default">До трёх сообщений одновременно. Время показа начинается после выхода из очереди и останавливается при наведении, фокусе или неактивном окне. Действия и ошибки остаются до закрытия.</Text>
     <div className="visual-consistency__actions">
       <Button id="queue-add" ref={trigger} iconLeft={<Icon name="add" />} onClick={()=>notify({title:`Локальное событие ${++serial.current}`,intent:"success",description:"Автозакрытие через 5 секунд активного показа.",dismissLabel:"Закрыть сообщение очереди"})}>Добавить событие</Button>
@@ -528,7 +530,7 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
     <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
     <Text as="p" variant="caption/default">Slider использует исполняемый контракт SEDA. Нативное поведение и геометрия проверяются отдельно; Figma/OS/AT приёмка остаётся открытой.</Text>
     {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
-      <Text as="h2" variant="heading/section">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
+      <Text as="h2" variant="heading/panel">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
       <div className="visual-consistency__fields">
         <Slider id={`visual-slider-${state}`} label="Значение" size={size} value={sliderValue} onValueChange={setSliderValue} disabled={state==='disabled'} errorText={state==='error'?'Демонстрация ошибки значения':undefined}/>
         <Slider id={`visual-range-${state}`} mode="range" label="Диапазон" thumbLabels={['От','До']} size={size} value={sliderRange} onValueChange={setSliderRange} disabled={state==='disabled'} errorText={state==='error'?'Демонстрация ошибки диапазона':undefined}/>

@@ -1,4 +1,4 @@
-import {Table, Card, Avatar, Tooltip, Alert, Accordion} from "@seda-ai/ui";
+import {Table, Card, Avatar, Tooltip, Alert, Accordion, TopBar} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
@@ -20,6 +20,7 @@ import "@seda-ai/ui/styles.css";
 import "./styles.css";
 import { Slider, Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
 import { ProductWorkspace } from "./ProductWorkspace";
+import {workspaceCompositions, type WorkspacePage} from "./workspace-composition";
 import { createWorkspaceBindings } from "./workspace-bindings.mjs";
 import "./workspace.css";
 import { derive, fmt } from "./lab-model.mjs";
@@ -66,6 +67,7 @@ function App() {
     strict: true,
   });
   const [view, setView] = useState("table");
+  const [workspacePage, setWorkspacePage] = useState<WorkspacePage>("projects");
   const [teamFilter, setTeamFilter] = useState("all");
   const [onlyActive, setOnlyActive] = useState(false);
   const [sort, setSort] = useState("original");
@@ -602,6 +604,7 @@ function App() {
   const graphNode=(id:string,label:string)=><Button data-node={id} className="node" size="s"
     variant={selected===id?"primary":"outline"} aria-pressed={selected===id}
     onClick={()=>setSelected(id)}>{label}</Button>;
+  const composition = workspaceCompositions[workspacePage];
 
   return (
     <SedaProvider id="lab-scope" theme={compiled.domTheme} controlSize="m" textScale={100} style={{display:"contents"}}>
@@ -618,21 +621,28 @@ function App() {
           } as React.CSSProperties
         }
       >
-        <header className="top">
-          <div className="brand">
+        <TopBar className="top" label="SEDA AI Lab" variant="application" size="m" gutter="wide"
+          navigationLabel="Эталонные приложения"
+          items={[
+            {id:"lab",label:"Лаборатория",href:"./",selected:true},
+            {id:"files",label:"Файлы",href:"./references/recents.html"},
+            {id:"documents",label:"Документы",href:"./references/building.html"},
+            {id:"chat",label:"Чат",href:"./references/chat.html"},
+            {id:"sandbox",label:"Sandbox",href:"./references/sandbox.html"},
+            {id:"scene",label:"3D Scene",href:"./references/spline.html?context=scene"},
+            {id:"webflow",label:"Webflow",href:"./references/webflow.html"},
+            {id:"framer",label:"Framer",href:"./references/framer.html"},
+            {id:"workflow",label:"Workflow",href:"./references/workflow.html"},
+          ]}
+          brand={<div className="brand">
             <span className="mark">S</span>
             <div>
               <b>SEDA AI</b>
-              <small>PARAMETRIC DESIGN LAB · 2.0</small>
             </div>
-          </div>
-          <div className="topmeta">
-            <nav className="reference-nav" aria-label="Эталонные приложения">
-            <a className="subtle" href="./references/recents.html">Файлы</a><a className="subtle" href="./references/building.html">Документы</a><a className="subtle" href="./references/chat.html">Чат</a><a className="subtle" href="./references/sandbox.html">Sandbox</a><a className="subtle" href="./references/spline.html?context=scene">3D Scene</a><a className="subtle" href="./references/webflow.html">Webflow</a><a className="subtle" href="./references/framer.html">Framer</a><a className="subtle" href="./references/workflow.html">Workflow</a>
-            </nav>
+          </div>}
+          actions={<div className="lab-header-actions">
             <span className="live-status"><span className="status-dot" aria-hidden="true"></span>Live calculations</span>
-            <div className="lab-header-actions">
-            <button
+            <Button size="s" variant="secondary"
               onClick={() => {
                 configure(initialConfiguration);
                 setParameters({
@@ -644,20 +654,16 @@ function App() {
                 });
               }}
               id="reset"
-              className="subtle"
             >
               Сбросить
-            </button>
-            <button onClick={exportJson} id="export" className="subtle">
+            </Button>
+            <Button size="s" variant="secondary" onClick={exportJson} id="export">
               Экспорт JSON
-            </button>
-            </div>
-          </div>
-        </header>
+            </Button>
+          </div>}/>
         <div className="workspace">
           <aside className="rail">
-            <div className="eyebrow">01 / КОНФИГУРАЦИЯ</div>
-            <Text as="h2" variant="heading/section">Параметры</Text>
+            <Text as="h2" variant="heading/compact">Параметры</Text>
             <Text as="p" variant="body/small">
               Измените параметры системы. Результат пересчитывается в
               интерфейсе.
@@ -701,7 +707,6 @@ function App() {
               </div>
             </div>
             <div className="sectionline"></div>
-            <div className="eyebrow">ЦЕЛЬ ПРОЕКТИРОВАНИЯ</div>
             <Checkbox id="strict" label="Сохранять минимум высоты пресета"
               checked={parameters.strict}
               onCheckedChange={strict=>setParameters(p=>({...p,strict}))}/>
@@ -714,11 +719,10 @@ function App() {
           </aside>
           <main className="canvas" data-workspace style={workspaceStyle}>
             <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
-            <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale}>
+            <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale} onPageChange={setWorkspacePage}>
               <div className="section-top">
                 <div>
-                  <div className="eyebrow">02 / LIVE PREVIEW</div>
-                  <Text as="h1" variant="heading/page">Product workspace</Text>
+                  <Text as="h1" variant="heading/section">Product workspace</Text>
                   <Text as="p" variant="body/default" id="projects-description">
                     Один набор правил управляет формой, фильтрами, таблицей и
                     карточками.
@@ -748,7 +752,7 @@ function App() {
               <div className="preview" id="preview">
                 <div className="panelhead">
                   <div>
-                    <Text as="h2" variant="heading/panel" id="projects-panel-title">Проекты</Text>
+                    <Text as="h2" variant="heading/compact" id="projects-panel-title">Проекты</Text>
                     <Text className="hint" variant="caption/default" id="projects-subtitle">
                       Управление рабочим пространством
                     </Text>
@@ -970,8 +974,7 @@ function App() {
               </div>
               <div className="secondaryGrid">
                 <section className="pane">
-                  <div className="eyebrow">ПРОВЕРКА ПОВЕДЕНИЯ</div>
-                  <Text as="h3" variant="heading/panel">Форма настроек</Text>
+                  <Text as="h3" variant="heading/compact">Форма настроек</Text>
                   <form
                     id="settings-form"
                     noValidate
@@ -1074,8 +1077,7 @@ function App() {
                   </div>
                 </section>
                 <section className="pane">
-                  <div className="eyebrow">03 / СРАВНЕНИЕ</div>
-                  <Text as="h3" variant="heading/panel">До → после</Text>
+                  <Text as="h3" variant="heading/compact">До → после</Text>
                   <div className="compare">
                     <div>
                       <span>Базовый профиль</span>
@@ -1115,8 +1117,7 @@ function App() {
             </SedaProvider>
           </main>
           <aside className="inspector">
-            <div className="eyebrow">04 / EXPLAIN ENGINE</div>
-            <Text as="h2" variant="heading/section">Инспектор</Text>
+            <Text as="h2" variant="heading/compact">Инспектор</Text>
             <Text as="p" variant="body/small">
               Выберите узел, чтобы увидеть значение, формулу и зависимые части
               интерфейса.
@@ -1140,6 +1141,16 @@ function App() {
                 {graphNode("components","UI")}
               </div>
             </div>
+            <Card as="section" title="Сборка экрана" variant="compact" className="inspectcard composition-card">
+              <Text as="p" variant="label/default" id="composition-current-page">{composition.title}</Text>
+              <Text as="p" variant="body/small" className="composition-path">{composition.path}</Text>
+              <div className="composition-map">
+                <div><Text as="span" variant="caption/default">SEDA UI</Text><Text as="p" variant="body/small">{composition.components}</Text></div>
+                <div><Text as="span" variant="caption/default">Приложение</Text><Text as="p" variant="body/small">{composition.application}</Text></div>
+              </div>
+              <Text as="p" variant="body/small" className="composition-rule">{composition.rule}</Text>
+              <Text as="p" variant="caption/default" className="composition-boundary">{composition.boundary}</Text>
+            </Card>
             <Card as="section" title="Охват workspace" variant="compact" className="inspectcard">
               <Text as="p" variant="body/small">
                 Общие параметры применяются ко всей рабочей области приложения.
@@ -1320,8 +1331,7 @@ function App() {
             modal.current?.close();
           }}
         >
-          <div className="eyebrow">НОВЫЙ ПРОЕКТ</div>
-          <Text as="h2" variant="heading/section" id="modal-title">Создать проект</Text>
+          <Text as="h2" variant="heading/panel" id="modal-title">Создать проект</Text>
           <div {...real("projectName")}>
             <TextField
               id="modalName"
@@ -1351,7 +1361,7 @@ function App() {
       <dialog id="delete-project-dialog" ref={deleteDialog} aria-labelledby="delete-project-title" data-workspace style={workspaceStyle}
         onClose={()=>{setDeleteProject(null);if(deleteReturnFocus.current?.isConnected)deleteReturnFocus.current.focus();else document.getElementById("search")?.focus();}}>
         <div className="modalBody">
-          <Text as="h2" variant="heading/section" id="delete-project-title">Удалить проект?</Text>
+          <Text as="h2" variant="heading/panel" id="delete-project-title">Удалить проект?</Text>
           <p>Проект «{deleteProject}» будет удалён из демонстрационного списка. Несохранённая форма останется без изменений.</p>
           <div className="modalActions">
             <Button {...real("cancel")} onClick={()=>deleteDialog.current?.close()}>Отмена</Button>

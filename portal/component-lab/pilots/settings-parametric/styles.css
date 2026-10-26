@@ -35,35 +35,32 @@ select:focus-visible {
   outline-offset: 2px;
 }
 .shell {
-  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 .top {
-  height: 72px;
-  background: #fff;
-  border-bottom: 1px solid #e5e9ef;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 26px;
-  gap: 16px;
+  min-height: 72px;
+  flex-wrap: nowrap;
+  padding: 8px 22px;
+  gap: 12px;
+  position: relative;
+  z-index: 6;
 }
+.top .seda-top-bar__context { flex: 0 0 auto; }
+.top .seda-top-bar__navigation { flex: 1 1 auto; }
+.top .seda-top-bar__actions { flex: 0 0 auto; }
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 .brand > div {
-  display: grid;
-  gap: 2px;
+  display: flex;
+  align-items: center;
 }
 .brand b {
   font-size: 17px;
-}
-.brand small {
-  font-size: 9px;
-  letter-spacing: 1.8px;
-  color: #728095;
-  font-weight: 700;
 }
 .mark {
   width: 35px;
@@ -76,13 +73,6 @@ select:focus-visible {
   font-size: 22px;
   font-weight: 850;
 }
-.topmeta {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  color: #536174;
-  font-size: 12px;
-}
 .status-dot {
   height: 8px;
   width: 8px;
@@ -91,8 +81,9 @@ select:focus-visible {
 }
 .workspace {
   display: grid;
-  grid-template-columns: 270px minmax(520px, 1fr) 325px;
-  min-height: calc(100vh - 72px);
+  grid-template-columns: clamp(244px, 17vw, 280px) minmax(0, 1fr) clamp(290px, 21vw, 335px);
+  flex: 1;
+  min-height: 0;
 }
 .rail,
 .inspector {
@@ -103,13 +94,6 @@ select:focus-visible {
 .inspector {
   border-right: 0;
   border-left: 1px solid #e5e9ef;
-}
-.eyebrow {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.35px;
-  color: #4777d0;
-  margin-bottom: 10px;
 }
 .rail h2,
 .inspector h2 {
@@ -169,6 +153,10 @@ p {
 .canvas {
   padding: 28px 32px 36px;
   min-width: 0;
+}
+.product-workspace-chrome {
+  background: var(--surface-subtle);
+  padding-bottom: 1px;
 }
 .section-top {
   display: flex;
@@ -739,7 +727,6 @@ body.dark dialog {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
-  .inspector > .eyebrow,
   .inspector > h2,
   .inspector > p {
     grid-column: 1/-1;
@@ -751,20 +738,27 @@ body.dark dialog {
     grid-template-columns: 1fr 1fr;
   }
 }
+@media (min-width: 1181px) and (min-height: 700px) {
+  .shell { height: 100dvh; overflow: hidden; }
+  .workspace { overflow: hidden; }
+  .rail, .canvas, .inspector {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+  }
+  .product-workspace-chrome { position:sticky; top:0; z-index:4; }
+}
 @media (max-width: 780px) {
   .top {
     padding: 12px 15px;
-    height: auto;
     min-height: 72px;
     flex-wrap: wrap;
     gap: 8px;
   }
-  .topmeta {
-    font-size: 0;
-    gap: 7px;
-    flex-wrap: wrap;
-    max-width: 100%;
-  }
+  .top .seda-top-bar__context { flex: 1 1 100%; }
+  .top .seda-top-bar__navigation { order: 3; flex-basis: 100%; }
+  .top .seda-top-bar__actions { margin-left: auto; }
   .workspace {
     display: block;
   }
@@ -862,21 +856,11 @@ details {
 }
 
 @media (max-width: 780px) {
-  .topmeta button {
-    font-size: 11px;
-    padding: 0 8px;
-  }
   .brand b {
     font-size: 14px;
   }
-  .brand small {
-    font-size: 7px;
-  }
   .top {
     gap: 8px;
-  }
-  .topmeta {
-    gap: 6px;
   }
   .panelhead {
     flex-wrap: wrap;
@@ -889,9 +873,6 @@ details {
 .pane,
 .seda-button {
   flex-shrink: 0;
-}
-.topmeta {
-  white-space: nowrap;
 }
 .inspector code {
   overflow-wrap: anywhere;
@@ -907,9 +888,6 @@ details {
   left: 0;
 }
 
-/* Reference app navigation grows independently of the Lab workspace width. */
-.top .brand{flex:none}.top .topmeta{min-width:0;overflow-x:auto;max-width:100%}.topmeta .status-dot{flex:none}
-
 /* Composition surfaces use the same semantic palette as the installed controls.
    This scope does not override the internals of SEDA components. */
 #lab-scope .shell { background:var(--surface-subtle); color:var(--text-primary); }
@@ -917,25 +895,26 @@ details {
 #lab-scope .inspector .graph { border-color:var(--border-default); }
 #lab-scope .sectionline { background:var(--border-default); }
 #lab-scope :is(.top,.panelhead,.metricrow) { border-color:var(--border-default); }
-#lab-scope :is(.hint,.count,.brand small,.topmeta) { color:var(--text-secondary); }
+#lab-scope :is(.hint,.count) { color:var(--text-secondary); }
 #lab-scope :is(.view-switch,.compare > div,.equation,.inspector .graph) { background:var(--surface-subtle); color:var(--text-secondary); }
 #lab-scope :is(.metricrow b,.metricrow strong,.equation) { color:var(--text-primary); }
 #lab-scope :is(.view-switch .active,.mark) { background:var(--container-brand-default); color:var(--text-on-brand-primary); }
 #lab-scope .note { background:var(--status-info-container); color:var(--text-info); }
 #lab-scope .subtle { background:var(--container-neutral-default); color:var(--text-primary); border-color:var(--border-default); }
 #lab-scope .rail input[type="range"] { accent-color:var(--container-brand-default); }
-#lab-scope .eyebrow { color:var(--text-brand); }
 
-#lab-scope .topmeta > .subtle { flex:0 0 auto; }
 #lab-scope :is(.rail > p,.section-top > div > p,.workspace-page > p,.inspector > p,.inspectcard p,.deps) { color:var(--text-secondary); }
 #lab-scope .formula { color:var(--text-brand); }
 #lab-scope :is(.passed,.conflict:not(.warn)) { background:var(--status-success-container); color:var(--text-success); }
 #lab-scope .conflict.warn { background:var(--status-warning-container); color:var(--text-warning); }
 
-#lab-scope .top .topmeta { flex:1 1 auto; overflow:visible; }
-.reference-nav { display:flex; flex:1 1 auto; min-width:0; gap:8px; overflow-x:auto; }
-.reference-nav > .subtle { flex:0 0 auto; }
-.lab-header-actions { display:flex; flex:0 0 auto; gap:8px; }
-.lab-header-actions > .subtle { flex:0 0 auto; }
-.live-status { display:inline-flex; align-items:center; flex:0 0 auto; gap:8px; font-size:12px; }
-@media(max-width:780px) { .reference-nav { flex-basis:100%; } }
+.lab-header-actions { display:flex; align-items:center; gap:8px; white-space:nowrap; }
+.live-status { display:inline-flex; align-items:center; flex:none; gap:8px; font-size:12px; color:var(--text-secondary); }
+.composition-card #composition-current-page { margin:0 0 4px; color:var(--text-primary); }
+.composition-card .composition-path { margin:0 0 12px; }
+.composition-map { display:grid; gap:8px; }
+.composition-map>div { padding:8px 0; border-top:1px solid var(--border-default); }
+.composition-map :is(span,p) { display:block; margin:0; }
+.composition-map span { color:var(--text-secondary); }
+.composition-card .composition-rule { margin:10px 0 0; color:var(--text-primary); }
+.composition-card .composition-boundary { margin:8px 0 0; color:var(--text-secondary); }

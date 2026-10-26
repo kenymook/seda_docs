@@ -6,7 +6,7 @@ import {createPilotServer} from './server.mjs';
 import {createContractEngine,deriveTypography} from '../../../../packages/seda-contracts/src/index.mjs';
 
 const subjects=[
-  ['#projects-subtitle','caption/default'],['#count','caption/default'],['#projects-panel-title','heading/panel'],
+  ['#projects-subtitle','caption/default'],['#count','caption/default'],['#projects-panel-title','heading/compact'],
   ['#projects-description','body/default'],['.workspace-pagination>p','caption/default'],
   ['.product-masthead strong','label/default'],['.product-masthead>div>div>span','caption/default'],['.workspace-account','caption/default'],
 ];
@@ -16,7 +16,7 @@ const near=(actual,expected)=>assert.ok(Math.abs(actual-expected)<.05,JSON.strin
 export async function verifyWorkspaceText(page,origin,output) {
   const engine=createContractEngine(),samples=[],roles={};
   await page.goto(origin+'/');await page.waitForFunction(()=>window.sedaPilot);await page.evaluate(()=>document.fonts.ready);
-  const serviceSize=await page.locator('.inspector>.eyebrow').evaluate(el=>getComputedStyle(el).fontSize);
+  const serviceSize=await page.locator('.inspector>h2').evaluate(el=>getComputedStyle(el).fontSize);
   for(const theme of ['Light','Dark']){
     roles[theme]=engine.compile(engine.bundle.profile,{overrides:{theme,controlSize:'m'}}).typography.roles;
     for(const size of ['s','m','l','xl'])for(const scale of [80,100,150]){
@@ -32,7 +32,7 @@ export async function verifyWorkspaceText(page,origin,output) {
       const tableHeaders=await page.locator('#projects-table thead th,#projects-table .seda-table__sort').evaluateAll(nodes=>nodes.map(n=>({font:parseFloat(getComputedStyle(n).fontSize),line:parseFloat(getComputedStyle(n).lineHeight)})));
       assert.ok(tableHeaders.length>=4);for(const value of tableHeaders){near(value.font,Math.max(12,tableGeometry.font));near(value.line,tableGeometry.line);}
       measurements.push({selector:'#projects-table thead th/.seda-table__sort',source:'compiled control typography with Table readability floor',values:tableHeaders});
-      assert.equal(await page.locator('.inspector>.eyebrow').evaluate(el=>getComputedStyle(el).fontSize),serviceSize,'Lab service panel remains separate');
+      assert.equal(await page.locator('.inspector>h2').evaluate(el=>getComputedStyle(el).fontSize),serviceSize,'Lab service panel remains separate');
       const viewLabels=await page.locator('.view-switch .seda-button__label').evaluateAll(labels=>labels.map(label=>({text:label.textContent,width:label.clientWidth,scroll:label.scrollWidth})));
       for(const label of viewLabels)assert.ok(label.scroll<=label.width+1,'Short view label must remain visible: '+label.text);
       samples.push({theme,size,scale,measurements});
