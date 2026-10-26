@@ -23,6 +23,7 @@ import { verifyToastHost } from "./verify-toast-host.mjs";
 import { verifyFieldContrast } from "./verify-field-contrast.mjs";
 import { verifyControlContrast } from "./verify-control-contrast.mjs";
 import { verifyFieldGlyphs } from "./verify-field-glyphs.mjs";
+import { verifyFieldAnatomy } from "./verify-field-anatomy.mjs";
 import { verifyChoiceLayout } from "./verify-choice-layout.mjs";
 import { verifyIconCatalog } from "./verify-icon-catalog.mjs";
 import { verifyModal } from "./verify-modal.mjs";
@@ -558,6 +559,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-field-contrast",()=>verifyFieldContrast({cwd,browser,version}));
     await check("react-"+version+"-control-contrast",()=>verifyControlContrast({cwd,browser,version}));
     await check("react-"+version+"-field-glyphs",()=>verifyFieldGlyphs({cwd,browser,version}));
+    await check("react-"+version+"-field-anatomy",()=>verifyFieldAnatomy({cwd,browser,version}));
     await check("react-"+version+"-choice-layout",()=>verifyChoiceLayout({cwd,browser}));
     await check('react-'+version+'-public-control-parameters',()=>verifyControlParameters({cwd,browser,version}));
     await check("react-"+version+"-icon-catalog",()=>verifyIconCatalog({cwd,browser}));

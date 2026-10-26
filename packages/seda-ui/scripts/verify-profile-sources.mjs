@@ -117,6 +117,10 @@ export async function verifyProfileSources(root) {
         assert.equal(value.value, compiled.geometry[name].value, name);
         assert.equal(value.cssValue, compiled.geometry[name].cssValue, name);
       }
+      for(const [property,expected] of [['--seda-field-weight',compiled.typography.field.weight],['--seda-field-letter-spacing',compiled.typography.field.letterSpacing],['--seda-field-label-gap',compiled.layout.labelToControl],['--seda-field-message-gap',compiled.layout.controlToMessage]]){
+        const actual=palette.find(item=>item.property===property);
+        assert.equal(actual.cssValue,expected.cssValue,property);assert.deepEqual(actual.chain,expected.chain,property+' provenance');
+      }
     }
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), "seda-public-profile-"));
   try {
@@ -127,6 +131,8 @@ export async function verifyProfileSources(root) {
     await fs.mkdir(path.join(temp, "packages/seda-contracts"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/contracts"));
     await fs.mkdir(path.join(temp, "packages/seda-contracts/src"));
+    await fs.mkdir(path.join(temp, "packages/seda-contracts/profiles"));
+    await fs.copyFile(path.join(repo,"packages/seda-contracts/profiles/settings-form.json"),path.join(temp,"packages/seda-contracts/profiles/settings-form.json"));
     await fs.copyFile(path.join(repo,'packages/seda-contracts/src/typography.mjs'),path.join(temp,'packages/seda-contracts/src/typography.mjs'));
     for(const file of ['slider.mjs','slider.d.mts','number-field.mjs','number-field.d.mts','control-geometry.mjs','control-geometry.d.mts'])await fs.copyFile(path.join(repo,'packages/seda-contracts/src',file),path.join(temp,'packages/seda-contracts/src',file));
     for (const name of ["Button", "IconButton", "TextArea", "Slider", "NumberField"])

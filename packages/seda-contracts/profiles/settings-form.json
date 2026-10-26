@@ -36,7 +36,7 @@
       "collection": "foundation",
       "path": [
         "space",
-        "s"
+        "xs"
       ],
       "expectedType": "number",
       "unit": "px"
@@ -45,7 +45,7 @@
       "collection": "foundation",
       "path": [
         "space",
-        "s"
+        "xs"
       ],
       "expectedType": "number",
       "unit": "px"

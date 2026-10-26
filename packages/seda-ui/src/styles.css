@@ -967,7 +967,7 @@
 
 /* Exact control geometry and stable icon slots. Presets are standalone
    fallbacks; a validated contract supplies the --seda-control-* values. */
-.seda-field--text {
+:is(.seda-field--text, .seda-field--select) {
   /* Label/helper margins own their spacing; a grid gap would add it twice. */
   gap: 0;
 }
@@ -1081,7 +1081,7 @@
 }
 
 .seda-field--text .seda-field__control {
-  gap: var(--seda-control-gap, var(--seda-preset-gap));
+  gap: var(--seda-field-affix-gap, var(--seda-preset-field-gap));
 }
 
 .seda-field--text .seda-field__affix > :is(svg, img, .seda-icon) {
@@ -1119,11 +1119,12 @@
   min-width: 0;
 }
 
-.seda-field--text > .seda-field__label {
+:is(.seda-field--text, .seda-field--select) > .seda-field__label {
   font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
-  font-weight: var(--seda-label-weight, 600);
+  font-weight: var(--seda-field-weight, 400);
+  letter-spacing: var(--seda-field-letter-spacing, 0px);
   line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
-  margin-bottom: var(--seda-label-gap, 6px);
+  margin-bottom: var(--seda-label-gap, var(--seda-field-label-gap, 4px));
 }
 
 .seda-field--text > .seda-field__control {
@@ -1131,7 +1132,7 @@
   border-radius: var(--seda-control-radius, var(--seda-preset-radius));
   box-sizing: border-box;
   font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
-  gap: var(--seda-control-gap, var(--seda-preset-gap));
+  gap: var(--seda-field-affix-gap, var(--seda-preset-field-gap));
   height: var(--seda-control-height, var(--seda-preset-height));
   line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
   min-height: var(--seda-control-height, var(--seda-preset-height));
@@ -1151,12 +1152,12 @@
   outline-offset: 2px;
 }
 
-.seda-field--text > .seda-field__message {
-  font-size: var(--seda-message-font-size, 12px);
-  font-weight: var(--seda-message-weight, 400);
-  letter-spacing: var(--seda-message-letter-spacing, 0px);
-  line-height: var(--seda-message-line-height, 16px);
-  margin-top: var(--seda-message-gap, 6px);
+:is(.seda-field--text, .seda-field--select) > .seda-field__message {
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  font-weight: var(--seda-field-weight, 400);
+  letter-spacing: var(--seda-field-letter-spacing, 0px);
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+  margin-top: var(--seda-message-gap, var(--seda-field-message-gap, 4px));
 }
 
 /* Contract color bridge. Each variable is resolved from a named component
@@ -1234,7 +1235,7 @@
 }
 
 [data-seda-contract="TextField"] .seda-field__affix {
-  background: var(--seda-affix-surface);
+  background: transparent;
   color: var(--seda-affix-foreground);
 }
 

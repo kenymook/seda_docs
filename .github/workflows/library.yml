@@ -69,6 +69,9 @@ jobs:
           path: |
             packages/seda-ui/.diagnostics-package/*/results.json
             packages/seda-ui/.diagnostics-package/*/react-*/consumer.png
+            packages/seda-ui/.diagnostics-package/*/react-*/field-anatomy-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/field-anatomy-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-field-anatomy-workspace/*.png
             packages/seda-ui/.diagnostics-package/*/react-*/menu-*.png
             packages/seda-ui/.diagnostics-package/*/react-*/menu-results.json
             packages/seda-ui/.diagnostics-package/*/react-*/tabs-results.json

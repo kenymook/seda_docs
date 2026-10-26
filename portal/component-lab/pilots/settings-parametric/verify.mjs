@@ -256,10 +256,10 @@ try {
       const fieldLabel = await read('#project-name >> xpath=ancestor::label[1]//span[contains(@class,"seda-field__label")]');
       near(fieldLabel.fontSize, geometry.fontSize.value, 'Field label font size');
       near(fieldLabel.lineHeight, geometry.lineHeight.value, 'Field label line height');
-      assert.equal(Number(fieldLabel.fontWeight), compiled.typography.labelWeight.cssValue, 'Field label font weight');
+      assert.equal(Number(fieldLabel.fontWeight), compiled.typography.field.weight.cssValue, 'Field label font weight');
       const message = await read('#review-field-message');
-      near(message.fontSize, compiled.typography.messageTokens.children.size.value, 'Message font size');
-      near(message.lineHeight, compiled.typography.messageTokens.children.lineHeight.value, 'Message line height');
+      near(message.fontSize, geometry.fontSize.value, 'Message follows effective field font');
+      near(message.lineHeight, geometry.lineHeight.value, 'Message follows effective field line');
       const cancelLabel = await read('#cancel-button .seda-button__label');
       near(measured.cancel.box.width, cancelLabel.width + 2 * geometry.buttonPaddingInline.value + 2 * geometry.borderWidth.value, 'Cancel has no loading slot gap', 0.2);
       const fieldsBlock = await read('.settings-fields');

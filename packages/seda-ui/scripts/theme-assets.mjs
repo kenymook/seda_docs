@@ -11,6 +11,8 @@ export function buildThemeAssets(packageRoot, output) {
   const systemBytes = fs.readFileSync(
     path.join(repo, "packages/seda-contracts/system.json"),
   );
+  const profileBytes=fs.readFileSync(path.join(repo,"packages/seda-contracts/profiles/settings-form.json"));
+  const profile=JSON.parse(profileBytes);
   const tokens = JSON.parse(tokensBytes),
     system = JSON.parse(systemBytes);
   const resolver = createTokenResolver(tokens);
@@ -50,6 +52,7 @@ export function buildThemeAssets(packageRoot, output) {
     controlParameters:controlParameterMetadata(),
     sources: {
       "tokens.json": hash(tokensBytes),
+      "packages/seda-contracts/profiles/settings-form.json":hash(profileBytes),
       ...Object.fromEntries(['src/control-geometry.mjs','src/control-geometry.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       ...Object.fromEntries(['contracts/Slider.json','src/slider.mjs','src/slider.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
       ...Object.fromEntries(['contracts/NumberField.json','src/number-field.mjs','src/number-field.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
@@ -313,6 +316,11 @@ export function buildThemeAssets(packageRoot, output) {
     const familyCss = withSystemFontFallback(family);
     add("--seda-font-family", familyCss);
     variables.set("--seda-label-weight", weight[labelWeight.value]);
+    const fieldWeight=resolver.resolve(system.typography.fieldWeight,{theme});
+    if (!weight[fieldWeight.value]) throw Error("Unknown field weight "+fieldWeight.value);
+    add('--seda-field-weight',{...fieldWeight,cssValue:weight[fieldWeight.value],adapter:'font-weight-name-to-number'});
+    add('--seda-field-letter-spacing',resolver.resolve(system.typography.fieldLetterSpacing,{theme}));
+    for(const [property,key] of [['--seda-field-label-gap','labelToControl'],['--seda-field-message-gap','controlToMessage']]) add(property,dimension(profile.layout[key],theme));
     for (const [size, preset] of Object.entries(system.sizes)) {
       const values = { ...preset, ...system.geometry };
       const resolved = Object.fromEntries(
@@ -363,7 +371,8 @@ export function buildThemeAssets(packageRoot, output) {
       "icon-size": "icon-size",
       "border-width": "border-width",
       "field-padding": "text-field-padding-inline",
-      gap: "text-field-affix-gap",
+      gap: "button-content-gap",
+      "field-gap": "text-field-affix-gap",
       "button-gap": "button-content-gap",
       "button-padding": "button-padding-inline",
     };

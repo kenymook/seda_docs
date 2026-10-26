@@ -34,7 +34,7 @@ export function Consumer(){const[c,set]=useState({theme:'light',size:'m',paramet
     for(const theme of ['light','dark'])for(const size of ['s','m','l','xl'])for(const parameters of [{},{scale:80,preserveMinimumHeight:false},{scale:115,extraPaddingInline:12,extraPaddingBlock:6,radiusScale:1.33},{scale:150,extraPaddingInline:24,extraPaddingBlock:12,radiusScale:1.75},{scale:200,extraPaddingInline:0,extraPaddingBlock:0}]){
       await set({theme,size,parameters});const actual=await measure(),e=expected(theme,size,parameters),small=expected(theme,'s',parameters),nested=expected(theme,size,{...parameters,scale:100});
       actual.labelGaps=await page.evaluate(()=>['parameter-field','parameter-select','parameter-number'].map(id=>{const root=document.getElementById(id).closest('.seda-field'),label=root.querySelector('.seda-field__label'),control=root.querySelector('.seda-field__control');return{id,gap:control.getBoundingClientRect().top-label.getBoundingClientRect().bottom};}));
-      for(const entry of actual.labelGaps)near(entry.gap,6,entry.id+' single label gap');
+      for(const entry of actual.labelGaps)near(entry.gap,4,entry.id+' D34 source label gap');
       actual.multiple=await page.locator('#parameter-multiple').evaluate(el=>({minimum:parseFloat(getComputedStyle(el).minHeight),height:el.closest('.seda-field__control').getBoundingClientRect().height,font:parseFloat(getComputedStyle(el).fontSize)}));
       near(actual.multiple.minimum,3*e.line,'multiple Select three scaled lines');near(actual.multiple.font,e.font,'multiple Select font');assert.ok(actual.multiple.height>=actual.multiple.minimum);
       for(const name of ['button','field','select','number']){near(actual[name].height,e.height,name+' height');near(actual[name].font,e.font,name+' font');near(actual[name].radius,e.radius,name+' radius');}
@@ -50,7 +50,7 @@ export function Consumer(){const[c,set]=useState({theme:'light',size:'m',paramet
       const checked=await page.locator('#parameter-toggle').isChecked();await page.locator('#parameter-toggle').evaluate(el=>el.click());assert.equal(await page.locator('#parameter-toggle').isChecked(),checked,'Busy toggle cannot mutate linked state');
       const actual=await measure();near(actual.field.height,66,'error/disabled field height');near(actual.select.height,66,'error/disabled select height');
       actual.helperGaps=await page.evaluate(()=>['parameter-field','parameter-select'].map(id=>{const root=document.getElementById(id).closest('.seda-field'),message=root.querySelector('.seda-field__message'),control=root.querySelector('.seda-field__control');return{id,gap:message?message.getBoundingClientRect().top-control.getBoundingClientRect().bottom:null};}));
-      for(const entry of actual.helperGaps)if(disabled)assert.equal(entry.gap,null,'Disabled field suppresses error');else near(entry.gap,6,entry.id+' single helper gap');
+      for(const entry of actual.helperGaps)if(disabled)assert.equal(entry.gap,null,'Disabled field suppresses error');else near(entry.gap,4,entry.id+' D34 source helper gap');
       if(!disabled){assert.equal(await page.locator('#parameter-field').getAttribute('aria-invalid'),'true');await page.locator('#parameter-field').focus();}
       stateSamples.push({theme,disabled,error:true,busyToggleGuard:true,actual});await page.screenshot({path:path.join(cwd,`parameters-state-${theme}-${disabled?'disabled':'error'}.png`),fullPage:true});
     }

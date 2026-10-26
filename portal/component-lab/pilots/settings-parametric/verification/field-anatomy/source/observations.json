@@ -1,0 +1,238 @@
+{
+  "kind": "seda-read-only-figma-ui-observations",
+  "date": "2026-10-26",
+  "file": "Su1jWqKc9TkD1R8f7wHOQU",
+  "reviewer": "agent",
+  "designerAcceptance": false,
+  "gapAliasMapping": "gap/y/xs is not exported; 4px is inferred from Input M group composition and directly visible on Select M",
+  "observations": [
+    {
+      "observation": "input-m-root",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=914-9886&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Hug (80px)",
+        "Copy Gap: gap/y/xs"
+      ],
+      "files": [
+        {
+          "path": "input-m-root-ax.txt",
+          "bytes": 15611,
+          "sha256": "499a5a4efa78b935d17759d8e6bc1692fafbbb661d5b958a67518b43222730cb"
+        },
+        {
+          "path": "input-m-root.png",
+          "bytes": 89501,
+          "sha256": "5d568efd96ac81438aa133cc43a4d578c1f553611132347a769ee935d369618b"
+        }
+      ]
+    },
+    {
+      "observation": "input-m-control",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2176-4026&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Hug (32px)",
+        "Copy Padding—Top: space/s",
+        "Copy Padding—Right: space/l"
+      ],
+      "files": [
+        {
+          "path": "input-m-control-ax.txt",
+          "bytes": 16769,
+          "sha256": "01f7ed677897a88049da2f58f69556bd8a9cea8ed87103821fbd626ca53720db"
+        },
+        {
+          "path": "input-m-control.png",
+          "bytes": 91198,
+          "sha256": "958b9350bcab998df29fdd6a4692419e211bf6214caae70852ef30757e3803f0"
+        }
+      ]
+    },
+    {
+      "observation": "input-m-label",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=914-9887&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Copy Name: Text/body/Base",
+        "Copy Weight: 400"
+      ],
+      "files": [
+        {
+          "path": "input-m-label-ax.txt",
+          "bytes": 15034,
+          "sha256": "b208dcbed019e9ed0f6fe4017754889e72c298f846fb205646796593e1f79697"
+        },
+        {
+          "path": "input-m-label.png",
+          "bytes": 87322,
+          "sha256": "73b3d41ad5f17193f2be13eebccbb3837d00d049a0835954a2f3a0bfbb533be1"
+        }
+      ]
+    },
+    {
+      "observation": "input-m-helper",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=914-9890&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Copy Name: Text/body/Base",
+        "Copy Weight: 400",
+        "Copy Height: 20px"
+      ],
+      "files": [
+        {
+          "path": "input-m-helper-ax.txt",
+          "bytes": 14910,
+          "sha256": "456059be56643c1cd553edf59b5f821ccbeb5232db7875c40a8c731bfae09d15"
+        },
+        {
+          "path": "input-m-helper.png",
+          "bytes": 91203,
+          "sha256": "4b9ecb08085205ae4abb535f5ad0898d212dd732d1ccaa8f1e51661cd0e5c3a8"
+        }
+      ]
+    },
+    {
+      "observation": "input-m-prefix",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2176-4026&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "button Prefix",
+        "text-field/foreground/placeholder"
+      ],
+      "files": [
+        {
+          "path": "input-m-prefix-ax.txt",
+          "bytes": 15801,
+          "sha256": "4af45d9e7962498c9e12201047b8ec349051102bee9494de7d90ed6ac548e2cc"
+        },
+        {
+          "path": "input-m-prefix.png",
+          "bytes": 83550,
+          "sha256": "531895b96d5df8748c6867c9b872f91de8eb6f7e4ec1e5a71b666ba4341291ff"
+        }
+      ]
+    },
+    {
+      "observation": "input-s-helper",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=914-9791&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Text/bodySmall/Base",
+        "Copy Weight: 400",
+        "Copy Height: 16px"
+      ],
+      "files": [
+        {
+          "path": "input-s-helper-ax.txt",
+          "bytes": 14433,
+          "sha256": "f67d9f819924d6f15667714695434c4c9c007380779531974153128d533fcd85"
+        },
+        {
+          "path": "input-s-helper.png",
+          "bytes": 88287,
+          "sha256": "86cbc9192f949a3365f5ff7d4935d7aae9fef3ef3069c057b05553c66d29a42c"
+        }
+      ]
+    },
+    {
+      "observation": "helper-l",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=914-9790&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Text/bodyLarge/Base",
+        "Copy Weight: 400",
+        "Copy Height: 24px"
+      ],
+      "files": [
+        {
+          "path": "helper-l-ax.txt",
+          "bytes": 14709,
+          "sha256": "3fedcde64c96e9160a0bcb4bf3e8c16f36e6d27c77fb84eee08e8f0e1da5c4ca"
+        },
+        {
+          "path": "helper-l.png",
+          "bytes": 99591,
+          "sha256": "12b69a50814330e6943253d4d178c535d8ccce4a963d38654c9c94f4f55ab373"
+        }
+      ]
+    },
+    {
+      "observation": "helper-xl",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2299-25&t=2n3pBSjrJJqWTb5X-0",
+      "assertedVisibleProperties": [
+        "Text/bodyExtraLarge/Base",
+        "Copy Weight: 400",
+        "Copy Height: 28px"
+      ],
+      "files": [
+        {
+          "path": "helper-xl-ax.txt",
+          "bytes": 14931,
+          "sha256": "2bb881c462f026ccd8e28825face0215908e28c655757c82c911a17e95fbb1c4"
+        },
+        {
+          "path": "helper-xl.png",
+          "bytes": 99992,
+          "sha256": "ef6953d3be26bd4c2269a8aa0df069a336e2bd5e5f01e51fa6d40a6f7b8d85b9"
+        }
+      ]
+    },
+    {
+      "observation": "select-xl-label",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4094-3618&t=Lsa99doxcJalU5uG-0",
+      "assertedVisibleProperties": [
+        "Text/bodyExtraLarge/Base",
+        "Copy Weight: 400",
+        "select/label/default"
+      ],
+      "files": [
+        {
+          "path": "select-xl-label-ax.txt",
+          "bytes": 16261,
+          "sha256": "faf978e0386c2788375537003e62cd2b46acf28cfd153800b9953c1971daf3a1"
+        },
+        {
+          "path": "select-xl-label.png",
+          "bytes": 83789,
+          "sha256": "ca10bcbc637cba2b229d672ed63d2f420057c99a86d6657165c651aa273095a7"
+        }
+      ]
+    },
+    {
+      "observation": "select-xl-helper",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4094-3621&t=Lsa99doxcJalU5uG-0",
+      "assertedVisibleProperties": [
+        "Text/bodyExtraLarge/Base",
+        "Copy Weight: 400",
+        "select/helper/default"
+      ],
+      "files": [
+        {
+          "path": "select-xl-helper-ax.txt",
+          "bytes": 16384,
+          "sha256": "9cbb31673d6422c43750451d1ef1b332d69b082bba2abfde265f75a4be56896e"
+        },
+        {
+          "path": "select-xl-helper.png",
+          "bytes": 86991,
+          "sha256": "ea3c6967ba732002cd1a25e237a8fce87f5824b2fcf5c9c19d4f80b37554ea93"
+        }
+      ]
+    },
+    {
+      "observation": "select-m-root",
+      "url": "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4080-44&t=Lsa99doxcJalU5uG-0",
+      "assertedVisibleProperties": [
+        "Copy size: m",
+        "Hug (80px)",
+        "Copy Gap: 4px"
+      ],
+      "files": [
+        {
+          "path": "select-m-root-ax.txt",
+          "bytes": 18331,
+          "sha256": "d4998f0ff5d8947a546591f209b7b0c6ad422007469a9982ae2ea26f97211e2c"
+        },
+        {
+          "path": "select-m-root.png",
+          "bytes": 94426,
+          "sha256": "1e6e969d9c7b7aefb4e6fe2ed7fc8dbad42d756bcc316d88fdf60f8aad86945e"
+        }
+      ]
+    }
+  ]
+}

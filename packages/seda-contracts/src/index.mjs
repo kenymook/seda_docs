@@ -215,7 +215,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       for (const [key, value] of Object.entries(candidate.profile.layout)) if (value && typeof value === 'object') attempt(`/profile/layout/${key}`, () => resolveMeasurement(value, theme));
       for (const [key, ref] of Object.entries(candidate.system.typography)) {
         const value = attempt(`/system/typography/${key}`, () => key === 'message' ? resolver.resolveBranch(ref, { theme }) : resolver.resolve(ref, { theme }));
-        if (key === 'labelWeight' && value && !own(fontWeights, value.value)) result.push(issue('FONT_WEIGHT_ADAPTER_MISSING', '/system/typography/labelWeight', `No web adapter for ${value.value}.`));
+        if (['labelWeight','fieldWeight'].includes(key) && value && !own(fontWeights, value.value)) result.push(issue('FONT_WEIGHT_ADAPTER_MISSING', '/system/typography/'+key, `No web adapter for ${value.value}.`));
       }
       for (const contract of candidate.contracts) for (const [role, ref] of Object.entries(contract.tokenBranches)) attempt(`/contracts/${contract.id}/tokenBranches/${role}`, () => resolver.resolveBranch(ref, { theme }));
       for (const contract of candidate.contracts) for (const [role, paths] of Object.entries(contract.tokenRequirements)) {
@@ -261,6 +261,13 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
 
   function componentGeometry(name,size,theme){const common=controlGeometry(size,theme),contract=bundle.contracts.find(c=>c.id===name);return{...common,...Object.fromEntries(Object.entries(contract?.geometry??{}).map(([key,value])=>{if(key in common)throw new ContractValidationError([issue('COMPONENT_GEOMETRY_COLLISION','/contracts/'+name+'/geometry/'+key,'Component geometry must not replace a shared preset.')]);return[key,resolveMeasurement(value,theme)];}))};}
 
+  // D34: TextField and its NumberField alias share source typography, while
+  // label/message size and line height follow the effective control geometry.
+  function fieldTypography(theme) {
+    const weight=resolver.resolve(bundle.system.typography.fieldWeight,{theme});
+    return {weight:{...weight,cssValue:fontWeights[weight.value]},letterSpacing:resolver.resolve(bundle.system.typography.fieldLetterSpacing,{theme})};
+  }
+
   function compileParameters(geometry,parameters){
     if(parameters===undefined)return{};
     const keys={height:'height',font:'fontSize',line:'lineHeight',icon:'iconSize',radius:'radius',border:'borderWidth',buttonPaddingX:'buttonPaddingInline',fieldPaddingX:'textFieldPaddingInline'};
@@ -283,7 +290,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       catch (error) { throw new ContractValidationError([issue(error.code ?? 'TOKEN_INVALID', `/contracts/${name}/tokenRequirements/${effective.variant ?? 'default'}/${suffix.join('/')}`, error.message)]); }
     }
     const geometry=componentGeometry(name,effective.size,theme);
-    return { component: name, geometry,...compileParameters(geometry,controlParameters), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(name==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}), runtimeConformance: 'not-checked' };
+    return { component: name, geometry,...compileParameters(geometry,controlParameters), ...(['TextField','NumberField','Select'].includes(name)?{fieldTypography:fieldTypography(theme)}:{}), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolver.resolveBranch(branch, { theme }), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(name==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}), runtimeConformance: 'not-checked' };
   }
 
   // Explicit temporary adapters for documented component token gaps; resolved with provenance.
@@ -315,11 +322,11 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const auxiliaryTokens = contract.tokenBranches.focus ? { focus: resolver.resolveBranch(contract.tokenBranches.focus, { theme }) } : {};
       instances[role] = { component: recipe.component, props, state: checked.state, tokenBranch: resolver.resolveBranch(branch, { theme }), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
+    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, ...(['NumberField','Select'].includes(contract.id)?{fieldTypography:fieldTypography(theme)}:{}), geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
     const parameters=compileParameters(geometry,controlParameters);
     if(controlParameters!==undefined){for(const control of Object.values(controls))Object.assign(control,compileParameters(control.geometry,controlParameters));for(const instance of Object.values(instances))Object.assign(instance,compileParameters(componentGeometry(instance.component,instance.props.size??controlSize,theme),controlParameters));}
     const foundationTokens = Object.fromEntries([['surface',['surface','base']],['separator',['border','subtle']],['focus',['focus','ring']]].map(([key,path])=>[key,resolver.resolve({collection:'semantic',path,expectedType:'color'},{theme})]));
-    return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry,...parameters, typography: { roles: compileTypography(resolver,{theme}), family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
+    return { controls, schemaVersion: '0.1.0', kind: 'seda-compiled-profile', generated: true, source: bundle.system.source, configuration: authored.configuration, domTheme: bundle.system.themeAdapter[theme], layout: resolveMap(authored.layout), foundationTokens, geometry,...parameters, typography: { field:fieldTypography(theme), roles: compileTypography(resolver,{theme}), family, labelWeight: { ...labelWeight, cssValue: fontWeights[labelWeight.value] }, messageTokens: resolver.resolveBranch(bundle.system.typography.message, { theme }) }, instances, form: { policy: authored.formPolicy, state: structuredClone(formState), events: formEvents, onSubmit: { $handler: 'form.submit' } }, copy: authored.copy, planned: report.planned, capabilities: [...authored.capabilities, ...bundle.contracts.flatMap(contract => contract.capabilities.map(capability => ({ component: contract.id, ...capability })))], runtimeConformance: 'not-checked' };
   }
 
   function provenance() {

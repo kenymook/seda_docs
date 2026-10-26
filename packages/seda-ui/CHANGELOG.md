@@ -1,3 +1,10 @@
+## Unreleased — Source field anatomy (D34)
+
+- Align TextField/Select label and helper typography with effective control size and scale. Preserve explicit local sizes; keep action Semibold separate from field Regular.
+- Resolve label/control and control/message gaps independently from the existing profile, now 4px each. Use the source's 6px TextField content gap while preserving 8px action/choice/navigation gaps.
+- Remove the extra affix surface from compiler-bound TextField. NumberField retains the same actual TextField anatomy. Keep previously checked colour and icon state roles.
+- Record read-only source observations and explicit mappings for unexported gap aliases. Full Figma, browser/OS/AT acceptance remains open.
+
 ## Unreleased — TextField icon state roles
 
 - Apply existing TextField icon default/active/error/disabled tokens to direct SEDA Icon and SVG affixes in both the public Provider and compiler-bound fields. NumberField inherits the same visual alias.

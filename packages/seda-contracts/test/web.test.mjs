@@ -7,6 +7,26 @@ import { createWebBindings, bindWebRecipe, WebBindingError } from '../src/web.mj
 const engine = createContractEngine();
 const source = JSON.parse(fs.readFileSync(new URL('../../../tokens.json', import.meta.url), 'utf8'));
 
+test('D34: field anatomy consumes source roles independently of action weight and choice gaps',()=>{
+  for(const theme of ['Light','Dark'])for(const controlSize of ['s','m','l','xl']){
+    const compiled=engine.compile(undefined,{overrides:{theme,controlSize}}),web=createWebBindings(compiled),field=web.recipes.projectName;
+    assert.equal(field.vars['--seda-field-weight'],400);
+    assert.equal(field.vars['--seda-field-affix-gap'],'6px');
+    assert.equal(field.vars['--seda-label-gap'],'4px');assert.equal(field.vars['--seda-message-gap'],'4px');
+    assert.equal(web.recipes.save.vars['--seda-label-weight'],600);assert.equal(web.recipes.save.vars['--seda-control-gap'],'8px');
+    assert.equal(web.controls.Tabs.vars['--seda-preset-gap'],'8px');assert.equal(web.controls.NumberField.vars['--seda-field-weight'],400);
+    assert.deepEqual(field.evidence.find(e=>e.property==='--seda-field-weight').chain,compiled.typography.field.weight.chain);
+    assert.equal(compiled.runtimeConformance,'not-checked');
+  }
+  const changed=structuredClone(source),base=changed.$collections.foundation.$modes['Mode 1'];
+  base.font.body.base.weight.$value='Medium';base.font.body.base.letterSpacing.$value=-.25;base.space.xs.$value=7;base.space.s.$value=9;
+  const customEngine=createContractEngine({tokens:changed}),custom=customEngine.compile(),web=createWebBindings(custom);
+  assert.equal(web.recipes.projectName.vars['--seda-field-weight'],500);assert.equal(web.recipes.projectName.vars['--seda-field-letter-spacing'],'-0.25px');
+  assert.equal(web.recipes.projectName.vars['--seda-label-gap'],'7px');assert.equal(web.recipes.projectName.vars['--seda-message-gap'],'7px');
+  assert.equal(web.recipes.projectName.vars['--seda-field-affix-gap'],'9px');assert.equal(web.recipes.save.vars['--seda-control-gap'],'8px');
+  assert.equal(customEngine.compileControl('NumberField',{label:'Amount',value:'12',onValueChange:{$handler:'change'}}).fieldTypography.weight.cssValue,500);
+});
+
 test('Web font stacks: control recipes and Text roles share a documented fallback without changing token provenance',()=>{
  for(const theme of ['Light','Dark'])for(const controlSize of ['s','m','l','xl']){
   const compiled=engine.compile(undefined,{overrides:{theme,controlSize}}),web=createWebBindings(compiled),family=compiled.typography.family;
@@ -50,8 +70,8 @@ test('R01/R02/R10: eight profiles map geometry, tokens and provenance to actual 
     assert.equal(web.recipes.save.attributes['data-seda-loading-slot'], 'true');
     assert.equal(web.recipes.cancel.attributes['data-seda-loading-slot'], undefined);
     assert.equal(web.recipes.projectName.attributes['data-seda-contract'], 'TextField');
-    assert.equal(web.recipes.projectName.vars['--seda-message-font-size'], '12px');
-    assert.equal(web.recipes.projectName.vars['--seda-message-weight'], 400);
+    assert.equal(web.recipes.projectName.vars['--seda-message-font-size'], undefined);
+    assert.equal(web.recipes.projectName.vars['--seda-field-weight'], 400);
     assert.equal(web.recipes.projectName.vars['--seda-label-weight'], 600);
     assert.equal(web.layout.vars['--seda-layout-container-max-width'], '640px');
     assert.equal(web.recipes.help.vars['--seda-focus-ring'], compiled.instances.help.auxiliaryTokens.focus.children.ring.value);
@@ -104,7 +124,9 @@ test('R01: incomplete or wrong-typed compiled values cannot silently fall back i
     value => { delete value.instances.projectName.tokenBranch.children.surface.active; },
     value => { value.instances.save.tokenBranch.children.surface.default.type = 'number'; },
     value => { delete value.instances.help.auxiliaryTokens.focus; },
-    value => { value.typography.messageTokens.children.weight.value = 'Ultra'; },
+    value => { value.typography.field.weight.value = 'Ultra'; },
+    value => { delete value.typography.field; },
+    value => { value.typography.field.letterSpacing.value = NaN; },
   ]) {
     const compiled = engine.compile(); mutate(compiled);
     assert.throws(() => createWebBindings(compiled), error => error instanceof WebBindingError && error.path.startsWith('/'));
@@ -119,8 +141,8 @@ test('R02: dimensions rejected by CSS fail the bridge while signed letter spacin
     assert.throws(() => createWebBindings(changed), error => error instanceof WebBindingError && error.path === `/geometry/${key}`);
   }
   const signed = structuredClone(compiled);
-  signed.typography.messageTokens.children.letterSpacing.value = -0.1;
-  assert.equal(createWebBindings(signed).recipes.projectName.vars['--seda-message-letter-spacing'], '-0.1px');
+  signed.typography.field.letterSpacing.value = -0.1;
+  assert.equal(createWebBindings(signed).recipes.projectName.vars['--seda-field-letter-spacing'], '-0.1px');
 });
 
 test('R08: recipes cannot silently override attributes owned by the web host', () => {

@@ -49,7 +49,7 @@ function withParametric(binding,control,at){
   if(p.runtimeConformance!=='not-checked'||JSON.stringify(inputs)!==JSON.stringify(p.inputs))fail(at+'/parametric/inputs','Derived geometry provenance differs from the resolved inputs');
   let derived;try{derived=deriveControlGeometry(preset,p.parameters);}catch(error){fail(at+'/parametric',error.message);}
   for(const[name,value]of Object.entries(derived))if(name!=='parameters'&&value!==p[name])fail(at+'/parametric/'+name,'Compiled result differs from the shared control geometry');
-  const vars=controlGeometryVariables(derived),gap=control.component==='Button'?control.geometry.buttonContentGap:control.geometry.textFieldAffixGap;
+  const vars=controlGeometryVariables(derived),gap=['TextField','NumberField'].includes(control.component)?control.geometry.textFieldAffixGap:control.geometry.buttonContentGap;
   vars['--seda-control-gap']=(px(gap,at+'/geometry/gap').value+(['Checkbox','Toggle'].includes(control.component)?derived.parameters.extraPaddingInline:0))+'px';
   const evidence=Object.entries(vars).map(([property,cssValue])=>({property,cssValue,value:cssValue,type:'derived',path:at+'/parametric',chain:[],source:p.modelSource,adapter:'shared-control-geometry',inputs:structuredClone(inputs),parameters:derived.parameters}));
   return{...binding,vars:{...binding.vars,...vars},evidence:[...binding.evidence.filter(item=>!own(vars,item.property)),...evidence]};
@@ -111,6 +111,13 @@ function writer() {
   };
 }
 
+function bindFieldTypography(target, typography, at) {
+  const weight=leaf(typography?.weight,at+'/weight','string');
+  if (!own(weights,weight.value)) fail(at+'/weight',`No font-weight adapter for ${weight.value}.`);
+  target.add('--seda-field-weight',{...weight,cssValue:weights[weight.value],adapter:'font-weight-name-to-number'},at+'/weight');
+  target.add('--seda-field-letter-spacing',px(typography?.letterSpacing,at+'/letterSpacing',{allowNegative:true}),at+'/letterSpacing');
+}
+
 function colors(target, node, prefix, at, namespace = '--seda-') {
   if (!object(node)) fail(at, 'Expected a resolved color branch.');
   for (const [key, value] of Object.entries(node)) {
@@ -127,7 +134,7 @@ export function createTabsWebBindings(control) {
   const target = writer();
   requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
   colors(target, control.tokenBranch.children, ['tabs'], `${at}/tokenBranch`, '--');
-  for (const [key, variable] of Object.entries({ height: 'height', radius: 'radius', fontSize: 'font-size', lineHeight: 'line-height', iconSize: 'icon-size', borderWidth: 'border-width', textFieldPaddingInline: 'field-padding', textFieldAffixGap: 'gap' })) {
+  for (const [key, variable] of Object.entries({ height: 'height', radius: 'radius', fontSize: 'font-size', lineHeight: 'line-height', iconSize: 'icon-size', borderWidth: 'border-width', textFieldPaddingInline: 'field-padding', buttonContentGap: 'gap' })) {
     target.add(`--seda-preset-${variable}`, px(control.geometry[key], `${at}/geometry/${key}`, { positive: ['height','fontSize','lineHeight','iconSize'].includes(key) }), `${at}/geometry/${key}`);
   }
   return withParametric({ vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': 'Tabs' } },control,at);
@@ -137,6 +144,8 @@ export function createNumberFieldWebBindings(control){
  const at='/controls/NumberField';if(control?.component!=='NumberField'||!object(control.geometry)||!Array.isArray(control.tokenRequirements)||!control.tokenRequirements.length)fail(at,'Expected compiled NumberField with explicit TextField visual alias.');
  const target=writer();requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),at+'/tokenBranch');colors(target,control.tokenBranch.children,['text','field'],at+'/tokenBranch','--');
  for(const[key,name]of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',borderWidth:'border-width',textFieldPaddingInline:'field-padding'}))target.add('--seda-preset-'+name,px(control.geometry[key],at+'/geometry/'+key,{positive:key!=='borderWidth'&&key!=='textFieldPaddingInline'}),at+'/geometry/'+key);
+ bindFieldTypography(target,control.fieldTypography,at+'/fieldTypography');
+ target.add('--seda-field-affix-gap',px(control.geometry.textFieldAffixGap,at+'/geometry/textFieldAffixGap'),at+'/geometry/textFieldAffixGap');
  return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'NumberField'}},control,at);
 }
 
@@ -162,7 +171,7 @@ export function createTreeWebBindings(control) {
   const target=writer();
   requiredColors(control.tokenBranch?.children,control.tokenRequirements.map(parts=>parts.join('/')),`${at}/tokenBranch`);
   colors(target,control.tokenBranch.children,['tree'],`${at}/tokenBranch`,'--');
-  for(const [key,variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',textFieldAffixGap:'gap'}))target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
+  for(const [key,variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',buttonContentGap:'gap'}))target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
   return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'Tree'}},control,at);
 }
 
@@ -182,7 +191,7 @@ export function createDropdownMenuWebBindings(control) {
   requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
   colors(target, control.tokenBranch.children, ['dropdown-menu'], `${at}/tokenBranch`, '--');
   for (const property of ['--focus-ring','--status-danger-text','--status-danger-container']) target.add(property,control.semanticAdapters?.[property],`${at}/semanticAdapters/${property}`,'color');
-  for (const [key, variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',textFieldAffixGap:'gap'})) target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
+  for (const [key, variable] of Object.entries({height:'height',radius:'radius',fontSize:'font-size',lineHeight:'line-height',iconSize:'icon-size',borderWidth:'border-width',textFieldPaddingInline:'field-padding',buttonContentGap:'gap'})) target.add(`--seda-preset-${variable}`,px(control.geometry[key],`${at}/geometry/${key}`,{positive:['height','fontSize','lineHeight','iconSize'].includes(key)}),`${at}/geometry/${key}`);
   return withParametric({vars:target.vars,evidence:target.evidence,attributes:{'data-seda-contract':'DropdownMenu'}},control,at);
 }
 
@@ -196,6 +205,7 @@ export function createControlWebBindings(compiled) {
     const target = writer();
     requiredColors(control.tokenBranch?.children, control.tokenRequirements.map(parts => parts.join('/')), `${at}/tokenBranch`);
     colors(target, control.tokenBranch.children, [name.toLowerCase()], `${at}/tokenBranch`);
+    if(name==='Select')bindFieldTypography(target,control.fieldTypography,at+'/fieldTypography');
     return [name, withParametric({ vars: target.vars, evidence: target.evidence, attributes: { 'data-seda-contract': name } },control,at)];
   }));
 }
@@ -250,13 +260,10 @@ export function createWebBindings(compiled) {
     if (instance.component === 'TextField') {
       target.add('--seda-label-gap', px(layout.labelToControl, '/layout/labelToControl'), '/layout/labelToControl');
       target.add('--seda-message-gap', px(layout.controlToMessage, '/layout/controlToMessage'), '/layout/controlToMessage');
-      const message = typography.messageTokens?.children;
-      target.add('--seda-message-font-size', px(message?.size, '/typography/message/size', { positive: true }), '/typography/message/size');
-      target.add('--seda-message-line-height', px(message?.lineHeight, '/typography/message/lineHeight', { positive: true }), '/typography/message/lineHeight');
-      target.add('--seda-message-letter-spacing', px(message?.letterSpacing, '/typography/message/letterSpacing', { allowNegative: true }), '/typography/message/letterSpacing');
-      const weight = leaf(message?.weight, '/typography/message/weight', 'string');
-      if (!own(weights, weight.value)) fail('/typography/message/weight', `No font-weight adapter for ${weight.value}.`);
-      target.add('--seda-message-weight', { ...weight, cssValue: weights[weight.value], adapter: 'font-weight-name-to-number' }, '/typography/message/weight');
+      bindFieldTypography(target,typography.field,'/typography/field');
+      target.add('--seda-field-affix-gap',px(geometry.textFieldAffixGap,'/geometry/textFieldAffixGap'),'/geometry/textFieldAffixGap');
+      // Size/line are read at the component's own scope. Resolving a CSS alias
+      // on this ancestor would freeze an explicit local S to the Provider M.
     }
     recipes[role] = withParametric({
       vars: target.vars,

@@ -1,0 +1,357 @@
+{
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "state": "default",
+      "fields": [
+        {
+          "id": "public",
+          "root": {
+            "x": 24,
+            "y": 24,
+            "width": 604,
+            "height": 68,
+            "bottom": 92
+          },
+          "control": {
+            "x": 24,
+            "y": 46,
+            "width": 604,
+            "height": 24,
+            "bottom": 70
+          },
+          "label": {
+            "x": 24,
+            "y": 24,
+            "width": 604,
+            "height": 16,
+            "bottom": 40
+          },
+          "message": {
+            "x": 24,
+            "y": 76,
+            "width": 604,
+            "height": 16,
+            "bottom": 92
+          },
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": 12,
+          "messageLine": 16,
+          "messageWeight": "400",
+          "labelGap": 6,
+          "messageGap": 6,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            },
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            }
+          ]
+        },
+        {
+          "id": "bound",
+          "root": {
+            "x": 652,
+            "y": 24,
+            "width": 604,
+            "height": 64,
+            "bottom": 88
+          },
+          "control": {
+            "x": 652,
+            "y": 44,
+            "width": 604,
+            "height": 24,
+            "bottom": 68
+          },
+          "label": {
+            "x": 652,
+            "y": 24,
+            "width": 604,
+            "height": 16,
+            "bottom": 40
+          },
+          "message": {
+            "x": 652,
+            "y": 72,
+            "width": 604,
+            "height": 16,
+            "bottom": 88
+          },
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": 12,
+          "messageLine": 16,
+          "messageWeight": "400",
+          "labelGap": 4,
+          "messageGap": 4,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgb(248, 248, 249)",
+              "font": 12
+            },
+            {
+              "background": "rgb(248, 248, 249)",
+              "font": 12
+            }
+          ]
+        },
+        {
+          "id": "number",
+          "root": {
+            "x": 24,
+            "y": 116,
+            "width": 604,
+            "height": 68,
+            "bottom": 184
+          },
+          "control": {
+            "x": 24,
+            "y": 138,
+            "width": 604,
+            "height": 24,
+            "bottom": 162
+          },
+          "label": {
+            "x": 24,
+            "y": 116,
+            "width": 604,
+            "height": 16,
+            "bottom": 132
+          },
+          "message": {
+            "x": 24,
+            "y": 168,
+            "width": 604,
+            "height": 16,
+            "bottom": 184
+          },
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": 12,
+          "messageLine": 16,
+          "messageWeight": "400",
+          "labelGap": 6,
+          "messageGap": 6,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            },
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            }
+          ]
+        },
+        {
+          "id": "bound-number",
+          "root": {
+            "x": 652,
+            "y": 116,
+            "width": 604,
+            "height": 68,
+            "bottom": 184
+          },
+          "control": {
+            "x": 652,
+            "y": 138,
+            "width": 604,
+            "height": 24,
+            "bottom": 162
+          },
+          "label": {
+            "x": 652,
+            "y": 116,
+            "width": 604,
+            "height": 16,
+            "bottom": 132
+          },
+          "message": {
+            "x": 652,
+            "y": 168,
+            "width": 604,
+            "height": 16,
+            "bottom": 184
+          },
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": 12,
+          "messageLine": 16,
+          "messageWeight": "400",
+          "labelGap": 6,
+          "messageGap": 6,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            },
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            }
+          ]
+        },
+        {
+          "id": "local-s",
+          "root": {
+            "x": 24,
+            "y": 208,
+            "width": 604,
+            "height": 68,
+            "bottom": 276
+          },
+          "control": {
+            "x": 24,
+            "y": 230,
+            "width": 604,
+            "height": 24,
+            "bottom": 254
+          },
+          "label": {
+            "x": 24,
+            "y": 208,
+            "width": 604,
+            "height": 16,
+            "bottom": 224
+          },
+          "message": {
+            "x": 24,
+            "y": 260,
+            "width": 604,
+            "height": 16,
+            "bottom": 276
+          },
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": 12,
+          "messageLine": 16,
+          "messageWeight": "400",
+          "labelGap": 6,
+          "messageGap": 6,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            },
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            }
+          ]
+        },
+        {
+          "id": "no-message",
+          "root": {
+            "x": 652,
+            "y": 208,
+            "width": 604,
+            "height": 46,
+            "bottom": 254
+          },
+          "control": {
+            "x": 652,
+            "y": 230,
+            "width": 604,
+            "height": 24,
+            "bottom": 254
+          },
+          "label": {
+            "x": 652,
+            "y": 208,
+            "width": 604,
+            "height": 16,
+            "bottom": 224
+          },
+          "message": null,
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": null,
+          "messageLine": null,
+          "labelGap": 6,
+          "messageGap": null,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            },
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            }
+          ]
+        },
+        {
+          "id": "multiline",
+          "root": {
+            "x": 24,
+            "y": 300,
+            "width": 190,
+            "height": 100,
+            "bottom": 400
+          },
+          "control": {
+            "x": 24,
+            "y": 322,
+            "width": 190,
+            "height": 24,
+            "bottom": 346
+          },
+          "label": {
+            "x": 24,
+            "y": 300,
+            "width": 190,
+            "height": 16,
+            "bottom": 316
+          },
+          "message": {
+            "x": 24,
+            "y": 352,
+            "width": 190,
+            "height": 48,
+            "bottom": 400
+          },
+          "labelFont": 12,
+          "labelLine": 16,
+          "labelWeight": "600",
+          "messageFont": 12,
+          "messageLine": 16,
+          "messageWeight": "400",
+          "labelGap": 6,
+          "messageGap": 6,
+          "contentGap": 8,
+          "affixes": [
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            },
+            {
+              "background": "rgba(0, 0, 0, 0)",
+              "font": 12
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "expectedFailure": "Source Regular 400, observed 600; previous installed v60 package"
+}

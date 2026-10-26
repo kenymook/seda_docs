@@ -54,8 +54,8 @@ try {
     near(sample.field.height,sample.button.height,'field/action shared row height');
     near(sample.padding,sample.compiled.textFieldPaddingInline.value+8,'field padding base + X');
     near(sample.buttonPadding,sample.compiled.buttonPaddingInline.value+8,'button padding base + X');
-    near(sample.gap,sample.compiled.textFieldAffixGap.value,'button preset gap');
-    near(sample.fieldGap,sample.gap,'field/button common gap');
+    near(sample.gap,sample.compiled.buttonContentGap.value,'button content gap');
+    near(sample.fieldGap,sample.compiled.textFieldAffixGap.value,'field source content gap');
     assert.equal(sample.uploads.length,3);
     for(const upload of sample.uploads){near(upload.font,sample.derived.font,'upload shared font');near(upload.icon,icon,'upload shared icon');near(upload.y,sample.derived.py,'upload shared Y');near(upload.x,upload.variant==='inline'?8:upload.variant==='button'?sample.derived.buttonPaddingX:sample.derived.fieldPaddingX,'upload base + X');assert.equal(upload.overflow,false);}
     assert.equal(sample.decorative,'true');

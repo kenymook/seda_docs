@@ -34,9 +34,9 @@ export function createWorkspaceBindings(
     derivations: {
       slider:{source:'compiled.controls.Slider.geometry + shared slider.mjs',minRailHeight:compiled.controls.Slider.geometry.minRailHeight,railHeight:Math.max(compiled.controls.Slider.geometry.minRailHeight.value,derived.height),thumbSize:Math.max(compiled.controls.Slider.geometry.minThumbSize.value,derived.icon),trackHeight:compiled.controls.Slider.geometry.trackHeight,instanceContract:true,runtimeConformance:'requires-browser-evidence'},
       choiceGap: {
-        base: compiled.geometry.textFieldAffixGap,
+        base: compiled.geometry.buttonContentGap,
         parameter: parameters.airX,
-        value: compiled.geometry.textFieldAffixGap.value + parameters.airX,
+        value: compiled.geometry.buttonContentGap.value + parameters.airX,
       },
       choiceSize: {
         icon: derived.icon,
