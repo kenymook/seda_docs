@@ -146,7 +146,7 @@ Legend:
 | File Upload | ready | File Upload | OK | Scan confirms API `variant/state/size`, `s` helper readability, disabled contextual reason, quality score `100`, and `packages/seda-ui` export is ready. |
 | Radio | ready | radio | OK | Ready. |
 | Segmented Control | ready | Segmented Control | OK | Ready. |
-| Select | ready | Select | OK | API normalized to `selection/size/state`. |
+| Select | ready | Select | OK | API normalized to `selection/size/state`. Реальный keyboard/focus/filter сценарий добавлен для трёх движков; popup Firefox остаётся платформенным и не имеет визуального паритета с `base-select`. |
 | Slider | ready | Slider | OK | API normalized to `mode/size/state`. |
 | Text Area | ready | TextArea | OK | Ready. |
 | Text Field | ready | TextField variants | OK | Verify registry alias and code mapping. |

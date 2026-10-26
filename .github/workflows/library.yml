@@ -160,6 +160,7 @@ jobs:
           node verify-recents.mjs
           node verify-building.mjs
           node verify-building-marks.mjs
+          node verify-select-engines.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -171,6 +172,7 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-recents-${{ matrix.engine }}/results.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-building-${{ matrix.engine }}/results.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-building-marks-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-select-engines-${{ matrix.engine }}/results.json
 
   library:
     name: library

@@ -38,6 +38,12 @@ type RequestRecord = {
 const isReview =
   new URLSearchParams(window.location.search).get("review") === "1";
 const initialConfiguration: Configuration = { ...profile.configuration };
+const projectPlural = new Intl.PluralRules("ru-RU");
+const projectCount = (count: number) => {
+  const category = projectPlural.select(count);
+  const suffix = category === "one" ? "проект" : category === "few" ? "проекта" : "проектов";
+  return `${count} ${suffix}`;
+};
 const HelpIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6" />
@@ -835,7 +841,7 @@ function App() {
                     </Button>
                   </div>
                   <Text className="count" id="count" variant="caption/default">
-                    {filteredItems.length} проектов
+                    {projectCount(filteredItems.length)}
                   </Text>
                 </div>
                 {selectedProjects.length > 0 && (
