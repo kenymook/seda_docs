@@ -83,9 +83,14 @@ export async function verifyFieldAnatomy({cwd,browser}) {
         assert.match(sample.picker,/^rgb\(/,'Picker surface must be opaque');
         assert.equal(sample.selected,sample.selectedExpected,'Selected option uses own surface role');
         assert.equal(sample.selectedText,sample.selectedTextExpected,'Selected option text uses contrast role');
+        const iconMetrics=()=>page.locator('#select').evaluate(select=>{const icon=getComputedStyle(select,'::picker-icon'),box=select.getBoundingClientRect(),matrix=new DOMMatrixReadOnly(icon.transform);return{selectHeight:box.height,iconHeight:parseFloat(icon.height),top:parseFloat(icon.top),center:parseFloat(icon.top)+matrix.m42+parseFloat(icon.height)/2,transform:icon.transform};});
+        const closed=await iconMetrics();assert.ok(Math.abs(closed.center-closed.selectHeight/2)<=1,JSON.stringify({theme,closed}));
         await page.locator('#select').click();
+        await page.waitForTimeout(200);
+        const opened=await iconMetrics();assert.equal(await page.locator('#select').evaluate(select=>select.matches(':open')),true);assert.ok(Math.abs(opened.center-opened.selectHeight/2)<=1,JSON.stringify({theme,opened}));assert.ok(Math.abs(opened.center-closed.center)<=1,JSON.stringify({theme,closed,opened}));assert.notEqual(opened.transform,closed.transform);
         await page.screenshot({path:path.join(cwd,'select-picker-'+theme+'.png')});
         await page.keyboard.press('Escape');
+        sample.pickerIcon={closed,opened};
       }
       pickerSamples.push({theme,...sample});
     }

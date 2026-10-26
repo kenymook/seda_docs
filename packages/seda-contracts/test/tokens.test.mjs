@@ -86,6 +86,25 @@ test("field borders soften in Dark without changing Light or choice outlines", (
   raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "select", "border", "hover"), { theme: "Dark" }));
 });
 
+test("Search input borders inherit the field roles while focus and disabled retain their own roles", () => {
+  const resolver = createTokenResolver(source);
+  for (const theme of ["Light", "Dark"]) {
+    for (const [state, role] of [["default", "default"], ["hover", "hover"], ["active", "pressed"]]) {
+      const actual = resolver.resolve(ref("components", "search", "input", "border", state), { theme });
+      const expected = resolver.resolve(ref("semantic", "border", "field", role), { theme });
+      assert.equal(actual.value, expected.value, `${theme} Search ${state}`);
+      assert.equal(actual.chain[1].path.join("."), `border.field.${role}`);
+    }
+    for (const [state, role] of [["focus", "border.focus"], ["disabled", "status.disabled.border"]]) {
+      const actual = resolver.resolve(ref("components", "search", "input", "border", state), { theme });
+      assert.equal(actual.chain[1].path.join("."), role);
+    }
+  }
+  const missing = structuredClone(source);
+  delete missing.$collections.semantic.$modes.Dark.border.field.hover;
+  raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "search", "input", "border", "hover"), { theme: "Dark" }));
+});
+
 test("all pilot component branches resolve in Light and Dark with leaf provenance", () => {
   const resolver = createTokenResolver(source);
   for (const theme of ["Light", "Dark"]) {

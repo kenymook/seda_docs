@@ -116,6 +116,37 @@
   --seda-field-foreground: var(--select-foreground-disabled);
   --seda-field-label: var(--select-label-disabled);
 }
+/* Search composes TextField. Its named input roles enter through the same
+   field variables, so stylesheet order cannot silently discard them. */
+.seda-provider .seda-search__query .seda-field--text {
+  --seda-field-surface: var(--search-input-surface-default);
+  --seda-field-border: var(--search-input-border-default);
+  --seda-field-foreground: var(--search-input-foreground-default);
+  --seda-field-ring: var(--search-focus-ring);
+  --seda-field-icon: var(--search-input-icon-default);
+}
+.seda-provider .seda-search__query .seda-field--text:not([data-disabled="true"]):has(.seda-field__control:hover) {
+  --seda-field-surface: var(--search-input-surface-hover);
+  --seda-field-border: var(--search-input-border-hover);
+}
+.seda-provider .seda-search__query .seda-field--text:not([data-disabled="true"]):focus-within {
+  --seda-field-surface: var(--search-input-surface-focus);
+  --seda-field-border: var(--search-input-border-focus);
+  --seda-field-icon: var(--search-input-icon-active);
+}
+.seda-provider .seda-search__query .seda-field--text:not([data-disabled="true"]):has(.seda-field__control:active) {
+  --seda-field-surface: var(--search-input-surface-active);
+  --seda-field-border: var(--search-input-border-active);
+}
+.seda-provider .seda-search__query .seda-field--text[data-disabled="true"] {
+  --seda-field-surface: var(--search-input-surface-disabled);
+  --seda-field-border: var(--search-input-border-disabled);
+  --seda-field-foreground: var(--search-input-foreground-disabled);
+  --seda-field-icon: var(--search-input-icon-disabled);
+}
+.seda-provider .seda-search__query .seda-field__input::placeholder {
+  color: var(--search-input-foreground-placeholder);
+}
 :is(.seda-choice, .seda-toggle) {
   /* Anchor the mark and neighbouring controls to the primary line, never the helper block. */
   --seda-choice-mark-size: var(--seda-control-choice-size, var(--seda-preset-icon-size, 16px));

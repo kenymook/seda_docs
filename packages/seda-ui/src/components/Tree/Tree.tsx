@@ -3,6 +3,7 @@ import type { KeyboardEvent, MouseEvent } from "react";
 import { SedaProvider, useSedaSize } from "../../foundation/SedaProvider";
 import { useBrowserLayoutEffect } from "../../utils/useBrowserLayoutEffect";
 import { cx } from "../../utils/classNames";
+import { Icon } from "../Icon";
 import type { TreeNode, TreeProps } from "./Tree.types";
 import { indexTree, visibleTree, treeIds, treeRange, treeSearch } from "./treeModel";
 
@@ -124,7 +125,7 @@ export const Tree = forwardRef<HTMLDivElement, TreeProps>(function Tree({
         <div className="seda-tree__row" style={{ paddingInlineStart: `calc(var(--seda-control-padding-inline, var(--seda-preset-field-padding)) + ${entry.level - 1} * (var(--seda-preset-icon-size) + var(--seda-control-gap, var(--seda-preset-gap))))` }}
           onMouseDown={event => { event.preventDefault(); }} onClick={event => click(event, node.id)}
           onDoubleClick={event => { event.stopPropagation(); if (unavailable || (event.target as Element).closest("[data-tree-disclosure]")) return; if (branch) toggle(node.id); else onActivate?.(node.id); }}>
-          <span className="seda-tree__disclosure" data-tree-disclosure={branch ? "" : undefined} aria-hidden="true">{branch ? open.has(node.id) ? "⌄" : "›" : null}</span>
+          <span className="seda-tree__disclosure" data-tree-disclosure={branch ? "" : undefined} aria-hidden="true">{branch ? <Icon name="arrow-chevron-down" /> : null}</span>
           {node.icon != null && <span className="seda-tree__icon" aria-hidden="true">{node.icon}</span>}
           <span className="seda-tree__label" id={labelId}>{node.label}</span>
         </div>

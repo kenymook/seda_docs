@@ -46,6 +46,15 @@ console.log(JSON.stringify({html:renderToString(React.createElement(TreeConsumer
   assert.equal(await item('root').getAttribute('aria-expanded'),'true');assert.equal(await item('a').getAttribute('aria-expanded'),null);
   assert.equal(await item('a').getAttribute('aria-level'),'2');assert.equal(await item('a').getAttribute('aria-setsize'),'4');assert.equal(await item('blocked').getAttribute('aria-selected'),null);
   assert.equal(await page.locator('[role=treeitem][tabindex="0"]').count(),1);assert.deepEqual(await selected(),['a']);
+  const disclosureSamples=[];
+  for(const theme of ['light','dark'])for(const controlSize of ['s','m','l','xl']){
+   await configure({theme,controlSize});
+   const inspect=()=>row('branch').evaluate(node=>{const row=node.getBoundingClientRect(),glyph=node.querySelector('.seda-tree__disclosure .seda-icon'),box=glyph.getBoundingClientRect();return{height:row.height,width:box.width,centerDelta:Math.abs((box.top+box.bottom-row.top-row.bottom)/2),transform:getComputedStyle(glyph).transform};});
+   const closed=await inspect();assert.ok(closed.width>0&&closed.centerDelta<=1,JSON.stringify({theme,controlSize,closed}));
+   await row('branch').locator('[data-tree-disclosure]').click();const expanded=await inspect();assert.equal(await item('branch').getAttribute('aria-expanded'),'true');assert.ok(expanded.centerDelta<=1,JSON.stringify({theme,controlSize,expanded}));assert.ok(Math.abs(expanded.height-closed.height)<=1);assert.notEqual(expanded.transform,closed.transform);
+   disclosureSamples.push({theme,controlSize,closed,expanded});await row('branch').locator('[data-tree-disclosure]').click();
+  }
+  await configure({theme:'light',controlSize:'m'});
   await item('a').focus();await press('ArrowDown');assert.equal(await focusId(),'tree-branch');assert.deepEqual(await selected(),['a']);
   await press('ArrowRight');assert.equal(await item('branch').getAttribute('aria-expanded'),'true');await press('ArrowRight');assert.equal(await focusId(),'tree-deep');
   await press('Space');assert.deepEqual(await selected(),['deep']);await press('ArrowLeft');assert.equal(await focusId(),'tree-branch');await press('ArrowLeft');assert.equal(await item('deep').count(),0);assert.deepEqual(await selected(),[]);
@@ -84,7 +93,7 @@ console.log(JSON.stringify({html:renderToString(React.createElement(TreeConsumer
    const actual=await page.locator('[role=treeitem]').evaluateAll(items=>items.map(item=>({id:item.id.slice(5),level:Number(item.getAttribute('aria-level')),position:Number(item.getAttribute('aria-posinset')),count:Number(item.getAttribute('aria-setsize')),disabled:item.getAttribute('aria-disabled')==='true',expanded:item.hasAttribute('aria-expanded')?item.getAttribute('aria-expanded')==='true':null,selected:item.getAttribute('aria-selected')==='true'})));
    assert.deepEqual(actual,expected);compilerSnapshots++;
   }
-  assert.deepEqual(errors,[]);const result={sourceAlias:false,ssr:true,strictHydration:true,invalidInputsRejected:invalid,combinations,compilerSnapshots,measurements,keyboard:true,independentSelectionExpansion:true,multipleRange:true,controlledRejection:true,focusRepair:true,rtl:true,externalFocusRetained:true,errors};
+  assert.deepEqual(errors,[]);const result={sourceAlias:false,ssr:true,strictHydration:true,invalidInputsRejected:invalid,combinations,compilerSnapshots,disclosureSamples,measurements,keyboard:true,independentSelectionExpansion:true,multipleRange:true,controlledRejection:true,focusRepair:true,rtl:true,externalFocusRetained:true,errors};
   await fs.writeFile(path.join(cwd,'tree-results.json'),JSON.stringify(result,null,2)+'\n');return result;
  }finally{await page.close();await new Promise(resolve=>server.close(resolve));}
 }

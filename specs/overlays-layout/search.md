@@ -188,14 +188,16 @@ Accessibility checklist:
 
 ## 8. Design Tokens
 
-Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`. Для Search используются component tokens из namespace `search`.
+Перед изменением Design Tokens сверяйте реальные component tokens в `tokens.json`. Search композирует публичный TextField: размеры, форма и механика поля принадлежат TextField, а именованные `search/input/*` роли передаются через общий слой переменных поля. Рамки default/hover/active разрешаются из общего `border.field`; focus и disabled сохраняют свои смысловые роли. Это предотвращает расхождение между указанным токеном Search и фактически нарисованной рамкой.
 
 | Token | Роль | Semantic mapping |
 | --- | --- | --- |
 | `$collections/components/$modes/Mode 1/search/input/surface` | Search input surface. | `surface/base` |
-| `$collections/components/$modes/Mode 1/search/input/border/default` | Input border. | `border/default` |
+| `$collections/components/$modes/Mode 1/search/input/border/default` | Input border. | `border/field/default` |
 | `$collections/components/$modes/Mode 1/search/input/border/focus` | Input focus border. | `border/focus` |
-| `$collections/components/$modes/Mode 1/search/input/border/hover` | Input hover border. | `border/hover` |
+| `$collections/components/$modes/Mode 1/search/input/border/hover` | Input hover border. | `border/field/hover` |
+| `$collections/components/$modes/Mode 1/search/input/border/active` | Input pressed border. | `border/field/pressed` |
+| `$collections/components/$modes/Mode 1/search/input/border/disabled` | Input disabled border. | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/search/input/foreground/default` | Query text. | `text/primary` |
 | `$collections/components/$modes/Mode 1/search/input/foreground/placeholder` | Placeholder. | `text/muted` |
 | `$collections/components/$modes/Mode 1/search/input/icon/default` | Search icon. | `icon/tertiary` |

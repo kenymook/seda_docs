@@ -1,3 +1,15 @@
+## Unreleased — Tree and Select disclosure alignment (D39)
+
+- Use the SEDA chevron icon for Tree disclosure and keep its centre fixed while rotating between collapsed and expanded states, including RTL.
+- Centre the native stylable Select picker icon with a single translate-and-rotate transform in both closed and open states. The system picker remains native where browser support differs.
+- Measure both arrow centres across Light/Dark and S/M/L/XL in the installed package, including expanded Tree and open Select states.
+
+## Unreleased — Search input role ownership (D38)
+
+- Resolve Search input default, hover and active borders through the shared `border.field` roles. Focus and disabled keep their existing roles; current Light and Dark appearance stays aligned with TextField.
+- Bind Search's named input roles through the same Provider field variables used by its composed TextField. This removes the stylesheet-order mismatch where Search tokens were declared but the visible control inherited TextField's border instead.
+- Verify actual default, hover, focus and disabled border paint in both themes in the installed React 18/19 package.
+
 ## Unreleased — Native Select picker layers (D37)
 
 - Give the stylable native Select picker its own opaque `select.dropdown` surface, border and shadow roles. The trigger keeps the layered `surface.control` role, while hover, selected and disabled options use their existing component tokens, including selected foreground contrast.

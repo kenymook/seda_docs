@@ -6,7 +6,9 @@
 .seda-tree__item[aria-selected="true"] > .seda-tree__row { background:var(--tree-row-surface-selected); color:var(--tree-foreground-selected); }
 .seda-tree__disclosure,.seda-tree__icon { display:inline-flex; align-items:center; justify-content:center; flex:0 0 var(--seda-control-icon-size, var(--seda-preset-icon-size)); width:var(--seda-control-icon-size, var(--seda-preset-icon-size)); height:var(--seda-control-icon-size, var(--seda-preset-icon-size)); color:var(--tree-icon-default); }
 .seda-tree__disclosure[data-tree-disclosure] { cursor:pointer; }
-.seda-tree:dir(rtl) .seda-tree__item[aria-expanded="false"] > .seda-tree__row > .seda-tree__disclosure { transform:rotate(180deg); }
+.seda-tree__disclosure > .seda-icon { display:block; flex:none; width:75%; height:75%; transform:rotate(-90deg); transform-origin:center; }
+.seda-tree__item[aria-expanded="true"] > .seda-tree__row > .seda-tree__disclosure > .seda-icon { transform:rotate(0deg); }
+.seda-tree:dir(rtl) .seda-tree__item[aria-expanded="false"] > .seda-tree__row > .seda-tree__disclosure > .seda-icon { transform:rotate(90deg); }
 .seda-tree__icon > :is(svg, img, .seda-icon),.seda-tree__disclosure > svg { width:100%;height:100%;object-fit:contain; }
 .seda-tree__label { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
 .seda-tree__item[aria-selected="true"] > .seda-tree__row :is(.seda-tree__icon,.seda-tree__disclosure) { color:var(--tree-icon-selected); }

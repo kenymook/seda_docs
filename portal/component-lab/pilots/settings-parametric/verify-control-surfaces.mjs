@@ -25,9 +25,12 @@ export async function verifyControlSurfaces(page,origin,output){
     const fields=[...document.querySelectorAll('.seda-select select,.seda-field__control,.seda-textarea__control')]
       .filter(node=>node.getBoundingClientRect().width>0)
       .map(node=>({tag:node.tagName,background:getComputedStyle(node).backgroundColor,border:getComputedStyle(node).borderTopColor,focused:node.matches(':focus-within')}));
+    const searchFields=[...document.querySelectorAll('.seda-search__query .seda-field__control')]
+      .filter(node=>node.getBoundingClientRect().width>0)
+      .map(node=>{const probe=document.createElement('span');probe.style.border='1px solid var(--search-input-border-default)';node.append(probe);const expected=getComputedStyle(probe).borderTopColor;probe.remove();return{actual:getComputedStyle(node).borderTopColor,expected};});
     const swatch=document.createElement('span');root.append(swatch);swatch.style.background='var(--surface-overlay)';const overlay=getComputedStyle(swatch).backgroundColor;swatch.remove();
     const pickers=[...document.querySelectorAll('.seda-field__select:not([multiple])')].filter(node=>node.getBoundingClientRect().width>0).map(node=>({scheme:getComputedStyle(node).colorScheme,background:getComputedStyle(node,'::picker(select)').backgroundColor}));
-    return{control:s.getPropertyValue('--surface-control').trim(),hover:s.getPropertyValue('--surface-control-hover').trim(),select:s.getPropertyValue('--select-surface-default').trim(),textField:s.getPropertyValue('--text-field-surface-default').trim(),textArea:s.getPropertyValue('--text-area-surface-default').trim(),fieldBorder:s.getPropertyValue('--border-field-default').trim(),fieldHoverBorder:s.getPropertyValue('--border-field-hover').trim(),choiceBorder:s.getPropertyValue('--border-control-default').trim(),choiceHoverBorder:s.getPropertyValue('--border-control-hover').trim(),componentBorders:['--text-field-border-default','--select-border-default','--text-area-border-default'].map(name=>s.getPropertyValue(name).trim()),panel:s.getPropertyValue('--container-neutral-default').trim(),overlay,supportsPicker:CSS.supports('appearance','base-select')&&CSS.supports('selector(::picker(select))'),pickers,fields};
+    return{control:s.getPropertyValue('--surface-control').trim(),hover:s.getPropertyValue('--surface-control-hover').trim(),select:s.getPropertyValue('--select-surface-default').trim(),textField:s.getPropertyValue('--text-field-surface-default').trim(),textArea:s.getPropertyValue('--text-area-surface-default').trim(),fieldBorder:s.getPropertyValue('--border-field-default').trim(),fieldHoverBorder:s.getPropertyValue('--border-field-hover').trim(),choiceBorder:s.getPropertyValue('--border-control-default').trim(),choiceHoverBorder:s.getPropertyValue('--border-control-hover').trim(),componentBorders:['--text-field-border-default','--select-border-default','--text-area-border-default'].map(name=>s.getPropertyValue(name).trim()),panel:s.getPropertyValue('--container-neutral-default').trim(),overlay,supportsPicker:CSS.supports('appearance','base-select')&&CSS.supports('selector(::picker(select))'),pickers,fields,searchFields};
    });
    const expected=theme==='dark'?'#ffffff12':'#ffffff';
    assert.equal(state.control,expected);assert.equal(state.select,expected);
@@ -36,6 +39,8 @@ export async function verifyControlSurfaces(page,origin,output){
    assert.equal(state.fieldBorder,theme==='dark'?'#ffffff4d':state.choiceBorder);
    assert.equal(state.fieldHoverBorder,theme==='dark'?'#ffffff59':state.choiceHoverBorder);
    assert.ok(state.componentBorders.every(border=>border===state.fieldBorder),route+' '+theme+' field border bindings');
+   if(route==='recents')assert.ok(state.searchFields.length>0,'Files contains a visible Search field');
+   for(const searchField of state.searchFields)assert.equal(searchField.actual,searchField.expected,route+' '+theme+' Search border follows its component token');
    const opaque=state.fields.filter(item=>item.background!=='rgba(0, 0, 0, 0)');
    for(const field of opaque){
     if(theme==='dark')assert.equal(field.background,'rgba(255, 255, 255, 0.07)',route+' '+theme+' '+field.tag);
@@ -64,7 +69,7 @@ export async function verifyControlSurfaces(page,origin,output){
    }
    await page.waitForTimeout(500);
    await page.screenshot({path:path.join(output,route+'-'+theme+'.png')});
-   samples.push({route,theme,visibleFields:state.fields.length,layeredFields:opaque.length,pickers:state.pickers.length,...Object.fromEntries(Object.entries(state).filter(([key])=>key!=='fields'&&key!=='pickers'))});
+   samples.push({route,theme,visibleFields:state.fields.length,layeredFields:opaque.length,pickers:state.pickers.length,searchFields:state.searchFields.length,...Object.fromEntries(Object.entries(state).filter(([key])=>key!=='fields'&&key!=='pickers'&&key!=='searchFields'))});
   }
  }
  await page.goto(origin+'/');await page.locator('#theme').waitFor();
