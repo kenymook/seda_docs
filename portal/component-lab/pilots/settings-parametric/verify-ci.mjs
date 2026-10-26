@@ -6,7 +6,7 @@ import {pathToFileURL} from 'node:url';
 
 const groups={
  lab:['field-anatomy-workspace','slider-workspace','card-avatar-workspace','table-workspace','inspector-consistency','workspace-rhythm','dense-workspace','chat-composer','building-layout','tooltip-workspace','application-text','adaptive-panels','reference-modal','workspace-text','icon-workspace','choice-workspace','workspace-nontext','workspace-contrast','visual-consistency','feedback-workspace','lab2','workspace','workspace-filters','controls'],
- references:['spline-icons','editor-dock','number-field-workspace','recents','notification-workspace','search-workspace','popover-workspace','building','chat','chat-bubble-workspace','top-bar-workspace','sidebar-workspace','accordion-workspace','sandbox-model','sandbox','typography','spline-model','spline-renderer','spline','spline-manipulator','webflow-model','webflow-preview','webflow','framer-model','framer-preview','framer','workflow-model','workflow','control-surfaces'],
+ references:['spline-icons','editor-dock','number-field-workspace','recents','notification-workspace','search-workspace','popover-workspace','building','chat','chat-artifact','chat-bubble-workspace','top-bar-workspace','sidebar-workspace','accordion-workspace','sandbox-model','sandbox','typography','spline-model','spline-renderer','spline','spline-manipulator','webflow-model','webflow-preview','webflow','framer-model','framer-preview','framer','workflow-model','workflow','control-surfaces'],
 };
 /** CI partitions the authoritative npm verifier list; unknown or omitted files fail. */
 export function planVerification(script){
