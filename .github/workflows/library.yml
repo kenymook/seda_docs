@@ -119,12 +119,62 @@ jobs:
             portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.json
             portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.png
 
+  browser-engines:
+    name: Verify / ${{ matrix.engine }}
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [firefox, webkit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SEDA_BROWSER_ENGINE: ${{ matrix.engine }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            packages/seda-ui/package-lock.json
+            portal/component-lab/pilots/settings-parametric/package-lock.json
+      - run: npm ci
+        working-directory: packages/seda-ui
+      - run: npm run build
+        working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run typecheck
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run build
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - name: Verify installed package in ${{ matrix.engine }}
+        working-directory: portal/component-lab/pilots/settings-parametric
+        run: |
+          node verify-lab2.mjs
+          node verify-recents.mjs
+          node verify-building.mjs
+          node verify-building-marks.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seda-verification-${{ matrix.engine }}
+          include-hidden-files: true
+          path: |
+            portal/component-lab/pilots/settings-parametric/.diagnostics-lab2-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-lab2-${{ matrix.engine }}/1440-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-recents-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-building-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-building-marks-${{ matrix.engine }}/results.json
+
   library:
     name: library
-    needs: verify
+    needs: [verify, browser-engines]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
       - name: Require every verification partition
-        run: test '${{ needs.verify.result }}' = 'success'
+        run: test '${{ needs.verify.result }}' = 'success' && test '${{ needs.browser-engines.result }}' = 'success'
