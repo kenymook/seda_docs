@@ -61,7 +61,7 @@ export async function buildPilot({
     path.join(packageRoot, 'owner-policy.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner.css', 'owner.html', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner.css', 'owner.html', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
@@ -105,7 +105,7 @@ export async function buildPilot({
     contractComponents,
     tokenBranches: Object.keys(tokens.$collections.components.$modes['Mode 1']),
   };
-  const catalog = { profiles, profile: engine.bundle.profile, provenance, ownerPolicy, system: engine.bundle.system, componentCoverage };
+  const catalog = { profiles, profile: engine.bundle.profile, provenance, ownerPolicy, system: engine.bundle.system, componentCoverage, tokens };
   await fs.mkdir(outputDir, { recursive: true });
   const result = await build({
     absWorkingDir: pilotRoot,

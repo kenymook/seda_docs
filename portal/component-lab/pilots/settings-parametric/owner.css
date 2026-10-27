@@ -19,6 +19,11 @@ body{margin:0}
 .owner-size-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .owner-range-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .owner-range-grid>*{min-width:0}
+.owner-token-editor p{margin:0;color:var(--owner-muted);font-size:11px;line-height:1.45}
+.owner-token-editor .seda-field{min-width:0}
+.owner-token-preview{display:flex;align-items:center;gap:9px;min-width:0;font-size:11px;color:var(--owner-muted);overflow-wrap:anywhere}
+.owner-token-swatch{display:inline-block;flex:none;width:21px;height:21px;border:1px solid var(--owner-line);border-radius:5px}
+.owner-token-path{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
 .owner-actions{display:flex;flex-wrap:wrap;gap:7px;padding-top:16px}
 .owner-actions>.seda-button:first-child{width:100%}
 .owner-note{font-size:11px;line-height:1.45;color:var(--owner-muted);margin:12px 0}

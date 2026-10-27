@@ -5,4 +5,5 @@ declare module 'seda:catalog' {
   export const ownerPolicy: any;
   export const system: any;
   export const componentCoverage: any;
+  export const tokens: any;
 }
