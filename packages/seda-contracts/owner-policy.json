@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-owner-policy",
+  "availableThemes": ["Light", "Dark"],
+  "availableSizes": ["s", "m", "l", "xl"],
+  "defaultConfiguration": { "theme": "Light", "controlSize": "m" },
+  "controls": {
+    "scale": { "min": 80, "max": 150, "step": 5, "default": 100 },
+    "air": { "min": 0, "max": 12, "step": 1, "default": 0 },
+    "airX": { "min": 0, "max": 24, "step": 1, "default": 0 },
+    "radius": { "min": 50, "max": 175, "step": 5, "default": 100 },
+    "strict": { "default": true }
+  }
+}

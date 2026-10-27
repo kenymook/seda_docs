@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createContractEngine } from '../../../../packages/seda-contracts/src/index.mjs';
 import { createWebBindings } from '../../../../packages/seda-contracts/src/web.mjs';
+import { validateOwnerPolicy } from '../../../../packages/seda-contracts/src/owner-policy.mjs';
 
 const pilotRoot = import.meta.dirname;
 const sha256 = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -57,9 +58,10 @@ export async function buildPilot({
     ...await filesBelow(path.join(packageRoot, 'contracts')),
     ...await filesBelow(path.join(packageRoot, 'profiles')),
     path.join(packageRoot, 'system.json'),
+    path.join(packageRoot, 'owner-policy.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner.css', 'owner.html', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
@@ -68,6 +70,11 @@ export async function buildPilot({
   const engine = createContractEngine({ repoRoot, packageRoot, tokens });
   const validation = engine.validate();
   if (!validation.valid) throw new Error(`Contracts failed validation: ${JSON.stringify(validation.issues)}`);
+  const ownerPolicy = validateOwnerPolicy(
+    JSON.parse(await fs.readFile(path.join(packageRoot, 'owner-policy.json'), 'utf8')),
+    engine.bundle.system,
+    engine.bundle.profile,
+  );
   const audit = engine.audit();
   if (!audit.valid) throw new Error(`Source defaults failed audit: ${JSON.stringify(audit)}`);
   const profiles = {};
@@ -86,11 +93,23 @@ export async function buildPilot({
     tokensSha256: sha256(tokenBytes),
     sources: { ...before, 'tokens.json': sha256(tokenBytes) },
   };
-  const catalog = { profiles, profile: engine.bundle.profile, provenance };
+  const publicIndex = await fs.readFile(path.join(libraryRoot, 'src/index.ts'), 'utf8');
+  const publicComponents = [...publicIndex.matchAll(/export \* from ["']\.\/components\/([^"']+)["']/g)].map(match => match[1]);
+  const contractComponents = (await fs.readdir(path.join(packageRoot, 'contracts')))
+    .filter(name => name.endsWith('.json')).map(name => name.slice(0, -5));
+  if (publicComponents.length !== new Set(publicComponents).size || contractComponents.some(name => !publicComponents.includes(name))) {
+    throw new Error('Owner catalog coverage disagrees with public SEDA exports');
+  }
+  const componentCoverage = {
+    publicComponents,
+    contractComponents,
+    tokenBranches: Object.keys(tokens.$collections.components.$modes['Mode 1']),
+  };
+  const catalog = { profiles, profile: engine.bundle.profile, provenance, ownerPolicy, system: engine.bundle.system, componentCoverage };
   await fs.mkdir(outputDir, { recursive: true });
   const result = await build({
     absWorkingDir: pilotRoot,
-    entryPoints: [path.join(pilotRoot, 'app.tsx')],
+    entryPoints: [path.join(pilotRoot, 'app.tsx'), path.join(pilotRoot, 'owner.tsx')],
     outdir: outputDir,
     entryNames: '[name]',
     assetNames: 'assets/[name]-[hash]',
@@ -121,6 +140,7 @@ export async function buildPilot({
     }],
   });
   await fs.copyFile(path.join(pilotRoot, 'index.html'), path.join(outputDir, 'index.html'));
+  await fs.copyFile(path.join(pilotRoot, 'owner.html'), path.join(outputDir, 'owner.html'));
   const installedPackage=path.join(pilotRoot,'node_modules/@seda-ai/ui');
   if((await fs.lstat(installedPackage)).isSymbolicLink())throw Error('Reference application requires an installed package, not a source link');
   const referenceOut=path.join(outputDir,'references');
@@ -159,7 +179,7 @@ export async function buildPilot({
     throw new Error('A source changed during the build. Rebuild before verifying the page.');
   }
   const artifacts = [];
-  for (const name of [...Object.keys(result.metafile.outputs), path.join(outputDir, 'index.html'),...await filesBelow(referenceOut)]) {
+  for (const name of [...Object.keys(result.metafile.outputs), path.join(outputDir, 'index.html'), path.join(outputDir, 'owner.html'),...await filesBelow(referenceOut)]) {
     const file = path.resolve(pilotRoot, name);
     const relative = path.relative(outputDir, file).split(path.sep).join('/');
     if (relative.startsWith('../')) throw new Error(`Unexpected output outside build directory: ${name}`);

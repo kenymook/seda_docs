@@ -10,7 +10,7 @@ import {
   createWebBindings,
   bindWebRecipe,
 } from "../../../../packages/seda-contracts/src/web.mjs";
-import { profiles, profile, provenance } from "seda:catalog";
+import { profiles, profile, provenance, ownerPolicy } from "seda:catalog";
 import { ControlFixtures } from "./control-fixtures";
 import { ReviewFixtures } from "./test-fixtures";
 import "@fontsource/inter/400.css";
@@ -38,7 +38,15 @@ type RequestRecord = {
 };
 const isReview =
   new URLSearchParams(window.location.search).get("review") === "1";
-const initialConfiguration: Configuration = { ...profile.configuration };
+const initialConfiguration: Configuration = { ...profile.configuration, ...ownerPolicy.defaultConfiguration };
+const parameterRanges = ownerPolicy.controls;
+const defaultParameters = {
+  scale: parameterRanges.scale.default as number,
+  air: parameterRanges.air.default as number,
+  airX: parameterRanges.airX.default as number,
+  radius: parameterRanges.radius.default as number,
+  strict: parameterRanges.strict.default as boolean,
+};
 const projectPlural = new Intl.PluralRules("ru-RU");
 const projectCount = (count: number) => {
   const category = projectPlural.select(count);
@@ -59,13 +67,7 @@ const HelpIcon = () => (
 );
 
 function App() {
-  const [parameters, setParameters] = useState({
-    scale: 100,
-    air: 0,
-    airX: 0,
-    radius: 100,
-    strict: true,
-  });
+  const [parameters, setParameters] = useState({ ...defaultParameters });
   const [view, setView] = useState("table");
   const [workspacePage, setWorkspacePage] = useState<WorkspacePage>("projects");
   const [teamFilter, setTeamFilter] = useState("all");
@@ -311,7 +313,7 @@ function App() {
     replacementRef.current = null;
     setReplacement(null);
     setTransportMode("manual");
-    setParameters({ scale: 100, air: 0, airX: 0, radius: 100, strict: true });
+    setParameters({ ...defaultParameters });
     refreshRequests();
   }
 
@@ -645,13 +647,7 @@ function App() {
             <Button size="s" variant="secondary"
               onClick={() => {
                 configure(initialConfiguration);
-                setParameters({
-                  scale: 100,
-                  air: 0,
-                  airX: 0,
-                  radius: 100,
-                  strict: true,
-                });
+                setParameters({ ...defaultParameters });
               }}
               id="reset"
             >
@@ -668,31 +664,32 @@ function App() {
               Измените параметры системы. Результат пересчитывается в
               интерфейсе.
             </Text>
+            <Button id="owner-lab-link" size="s" variant="text" iconRight={<Icon name="arrow-right" />} onClick={() => window.location.assign('./owner.html')}>Component Lab</Button>
             <Select id="theme" label="Тема" value={compiled.domTheme}
-              options={[{value:"light",label:"Light"},{value:"dark",label:"Dark"}]}
+              options={ownerPolicy.availableThemes.map((theme: Configuration["theme"])=>({value:theme.toLowerCase(),label:theme}))}
               onValueChange={value=>configure({theme:value==="light"?"Light":"Dark"})}/>
             <Select id="size" label="Размер" value={configuration.controlSize}
-              options={["s","m","l","xl"].map(s=>({value:s,label:`${s.toUpperCase()} · ${profiles[configuration.theme+":"+s].geometry.height.value}`}))}
+              options={ownerPolicy.availableSizes.map((s: Configuration["controlSize"])=>({value:s,label:`${s.toUpperCase()} · ${profiles[configuration.theme+":"+s].geometry.height.value}`}))}
               onValueChange={value=>configure({controlSize:value as Configuration["controlSize"]})}/>
             <div className="control">
-              <Slider id="scale" label="Масштаб текста" size="s" min={80} max={150} step={5} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
+              <Slider id="scale" label="Масштаб текста" size="s" min={parameterRanges.scale.min} max={parameterRanges.scale.max} step={parameterRanges.scale.step} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
               <div className="ends">
-                <Text variant="caption/tiny">80%</Text>
-                <Text variant="caption/tiny">150%</Text>
+                <Text variant="caption/tiny">{parameterRanges.scale.min}%</Text>
+                <Text variant="caption/tiny">{parameterRanges.scale.max}%</Text>
               </div>
             </div>
             <div className="control">
-              <Slider id="air" label="Дополнительный отступ по Y" size="s" min={0} max={12} step={1} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
+              <Slider id="air" label="Дополнительный отступ по Y" size="s" min={parameterRanges.air.min} max={parameterRanges.air.max} step={parameterRanges.air.step} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
               <div className="ends">
-                <Text variant="caption/tiny">0</Text>
-                <Text variant="caption/tiny">12px</Text>
+                <Text variant="caption/tiny">{parameterRanges.air.min}</Text>
+                <Text variant="caption/tiny">{parameterRanges.air.max}px</Text>
               </div>
             </div>
             <div className="control">
-              <Slider id="airX" label="Дополнительный отступ по X" size="s" min={0} max={24} step={1} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
+              <Slider id="airX" label="Дополнительный отступ по X" size="s" min={parameterRanges.airX.min} max={parameterRanges.airX.max} step={parameterRanges.airX.step} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
               <div className="ends">
-                <Text variant="caption/tiny">0</Text>
-                <Text variant="caption/tiny">24px</Text>
+                <Text variant="caption/tiny">{parameterRanges.airX.min}</Text>
+                <Text variant="caption/tiny">{parameterRanges.airX.max}px</Text>
               </div>
               <Text as="p" variant="caption/default" className="small">
                 К базовым отступам Button, TextField и Select. IconButton остаётся
@@ -700,10 +697,10 @@ function App() {
               </Text>
             </div>
             <div className="control">
-              <Slider id="radius" label="Множитель радиуса" size="s" min={50} max={175} step={5} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
+              <Slider id="radius" label="Множитель радиуса" size="s" min={parameterRanges.radius.min} max={parameterRanges.radius.max} step={parameterRanges.radius.step} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
               <div className="ends">
-                <Text variant="caption/tiny">0.5×</Text>
-                <Text variant="caption/tiny">1.75×</Text>
+                <Text variant="caption/tiny">{(parameterRanges.radius.min/100).toFixed(2)}×</Text>
+                <Text variant="caption/tiny">{(parameterRanges.radius.max/100).toFixed(2)}×</Text>
               </div>
             </div>
             <div className="sectionline"></div>
