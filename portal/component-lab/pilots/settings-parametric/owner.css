@@ -22,8 +22,28 @@ body{margin:0}
 .owner-token-editor p{margin:0;color:var(--owner-muted);font-size:11px;line-height:1.45}
 .owner-token-editor .seda-field{min-width:0}
 .owner-token-preview{display:flex;align-items:center;gap:9px;min-width:0;font-size:11px;color:var(--owner-muted);overflow-wrap:anywhere}
+.owner-token-preview strong{display:block;color:var(--owner-text);font-variant-numeric:tabular-nums}
+.owner-token-preview small{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;line-height:1.4}
 .owner-token-swatch{display:inline-block;flex:none;width:21px;height:21px;border:1px solid var(--owner-line);border-radius:5px}
 .owner-token-path{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+.owner-palette-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.owner-palette-tabs .seda-button{min-width:0;padding-inline:6px;font-size:11px}
+.owner-palette-list{max-height:216px;overflow:auto;border:1px solid var(--owner-line);border-radius:8px;background:var(--owner-panel)}
+.owner-palette-item{display:flex;align-items:center;gap:9px;width:100%;padding:7px 8px;border:0;border-bottom:1px solid var(--owner-line);background:transparent;color:var(--owner-text);text-align:left;cursor:pointer}
+.owner-palette-item:last-child{border-bottom:0}
+.owner-palette-item:hover{background:var(--owner-canvas)}
+.owner-palette-item[aria-pressed=true]{background:color-mix(in srgb,var(--owner-accent) 11%,var(--owner-panel));box-shadow:inset 3px 0 var(--owner-accent)}
+.owner-palette-item:focus-visible{outline:2px solid var(--owner-accent);outline-offset:-2px}
+.owner-palette-name{min-width:0;overflow-wrap:anywhere}
+.owner-palette-name strong,.owner-palette-name small{display:block;font-size:11px;line-height:1.35}
+.owner-palette-name small{color:var(--owner-muted);font-variant-numeric:tabular-nums}
+.owner-token-editor .owner-palette-count{font-size:10px}
+.owner-custom-color{display:flex;align-items:end;gap:9px;min-width:0}
+.owner-custom-color>input[type=color]{flex:none;width:38px;height:30px;padding:2px;border:1px solid var(--owner-line);border-radius:6px;background:var(--owner-panel);cursor:pointer}
+.owner-custom-color>.seda-field{flex:1;min-width:0}
+.owner-advanced-token{font-size:11px}
+.owner-advanced-token summary{cursor:pointer;color:var(--owner-accent)}
+.owner-advanced-token .seda-field{margin-top:9px}
 .owner-actions{display:flex;flex-wrap:wrap;gap:7px;padding-top:16px}
 .owner-actions>.seda-button:first-child{width:100%}
 .owner-note{font-size:11px;line-height:1.45;color:var(--owner-muted);margin:12px 0}

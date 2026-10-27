@@ -24,25 +24,48 @@ try {
   assert.ok(realControls >= 7, `expected real SEDA controls, found ${realControls}`);
   await page.screenshot({ path: path.join(output, 'owner-light.png'), fullPage: true });
 
-  const tokenValue = page.getByLabel('Значение токена');
-  assert.equal(await tokenValue.inputValue(), '{container.brand.default}');
-  await tokenValue.fill('#8B2D8B');
+  const hexValue = page.getByLabel('Свой HEX');
+  assert.equal(await hexValue.inputValue(), '#1964b8');
+  await hexValue.click();
+  await hexValue.press('ControlOrMeta+A');
+  await hexValue.pressSequentially('#8B2D8B');
+  assert.equal(await hexValue.inputValue(), '#8B2D8B');
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
   const createButton = page.locator('.owner-buttons .seda-button').first();
   await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-buttons .seda-button')).backgroundColor === 'rgb(139, 45, 139)');
   assert.equal(await createButton.evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(139, 45, 139)');
   assert.match(await page.evaluate(() => localStorage.getItem('seda-owner-component-lab-draft-v2') || ''), /#8B2D8B/);
   await page.reload();
-  assert.equal(await page.getByLabel('Значение токена').inputValue(), '#8B2D8B');
+  assert.equal(await page.getByLabel('Свой HEX').inputValue(), '#8B2D8B');
   assert.match(await page.locator('.owner-note').innerText(), /восстановлен/);
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
   await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-buttons .seda-button')).backgroundColor === 'rgb(139, 45, 139)');
   assert.equal(await createButton.evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(139, 45, 139)');
+  await page.locator('.owner-advanced-token summary').click();
   await page.getByLabel('Значение токена').fill('{missing.semantic.role}');
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
   assert.match(await page.locator('.owner-sidebar').innerText(), /no target|not found|не связан|не существует/i);
   await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
   assert.equal(await page.getByLabel('Значение токена').inputValue(), '{container.brand.default}');
+  assert.equal(await page.getByLabel('Свой HEX').inputValue(), '#1964b8');
+
+  await page.getByLabel('Компонент', { exact: true }).selectOption('select');
+  await page.getByLabel('Часть и состояние').selectOption('select/border/default');
+  assert.equal(await page.getByLabel('Раздел палитры').inputValue(), 'border');
+  await page.getByLabel('Поиск цвета или роли').fill('focus');
+  assert.equal(await page.getByRole('button', { name: /\{border.focus\}/ }).count(), 1);
+  await page.getByRole('button', { name: /\{border.focus\}/ }).click();
+  assert.equal(await page.locator('.owner-token-preview small').innerText(), '{border.focus}');
+  await page.getByRole('button', { name: 'Базовые цвета' }).click();
+  await page.getByLabel('Раздел палитры').selectOption('red');
+  await page.getByRole('button', { name: /\{color.red.60\}/ }).click();
+  await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-workspace .seda-field--select > .seda-field__control')).borderTopColor === 'rgb(168, 55, 42)');
+  assert.equal(await page.locator('.owner-workspace .seda-field--select > .seda-field__control').evaluate(element => getComputedStyle(element).borderTopColor), 'rgb(168, 55, 42)');
+  await page.getByLabel('Выбрать свой цвет').fill('#339966');
+  await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-workspace .seda-field--select > .seda-field__control')).borderTopColor === 'rgb(51, 153, 102)');
+  await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
 
   const max = page.locator('.owner-range-grid input').nth(1);
   await max.fill('201');
@@ -79,7 +102,7 @@ try {
   assert.equal(await page.getByRole('dialog').getByRole('link', { name: 'Лаборатория' }).count(), 1);
   await page.getByRole('button', { name: 'Закрыть' }).click();
   assert.deepEqual(errors, []);
-  console.log(JSON.stringify({ passed: 18, realControls, errors: errors.length, output }));
+  console.log(JSON.stringify({ passed: 22, realControls, errors: errors.length, output }));
 } finally {
   await browser.close();
   await new Promise(resolve => server.close(resolve));

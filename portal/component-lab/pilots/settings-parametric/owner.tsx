@@ -5,7 +5,7 @@ import { componentCoverage, ownerPolicy, profile, profiles, provenance, system, 
 import { validateOwnerPolicy } from '../../../../packages/seda-contracts/src/owner-policy.mjs';
 import { createWebBindings } from '../../../../packages/seda-contracts/src/web.mjs';
 import { createWorkspaceBindings } from './workspace-bindings.mjs';
-import { applyTokenEdits, editableComponentTokens, resolvedColorVariables, tokenDetail } from './owner-token-draft.mjs';
+import { applyTokenEdits, editableComponentTokens, paletteColors, resolvedColorVariables, tokenDetail } from './owner-token-draft.mjs';
 import { derive } from './lab-model.mjs';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
@@ -91,6 +91,10 @@ function OwnerLab() {
   const [appliedTokenEdits, setAppliedTokenEdits] = useState<Record<string, string>>({});
   const [selectedComponent, setSelectedComponent] = useState('button');
   const [selectedToken, setSelectedToken] = useState('button/primary/solid/surface/default');
+  const [paletteSource, setPaletteSource] = useState<'semantic' | 'foundation'>('semantic');
+  const [paletteGroup, setPaletteGroup] = useState('container');
+  const [paletteQuery, setPaletteQuery] = useState('');
+  const [hexInput, setHexInput] = useState('#1964b8');
   const [activeAxis, setActiveAxis] = useState<Axis>('scale');
   const [theme, setTheme] = useState<Theme>(ownerPolicy.defaultConfiguration.theme);
   const [size, setSize] = useState<Size>(ownerPolicy.defaultConfiguration.controlSize);
@@ -129,6 +133,16 @@ function OwnerLab() {
     try { return tokenDetail(applyTokenEdits(tokens, tokenEdits, tokenCatalog), currentToken.path, theme); }
     catch { return null; }
   }, [tokenEdits, currentToken?.path, theme]);
+  const palette = useMemo(() => paletteColors(tokens, theme), [theme]);
+  const paletteGroups = [...new Set(palette.filter(item => item.collection === paletteSource).map(item => item.group))];
+  const activePaletteGroup = paletteGroups.includes(paletteGroup) ? paletteGroup : paletteGroups[0];
+  const selectedValue = currentToken ? tokenEdits[currentToken.path] ?? originalToken?.authored : '';
+  const paletteMatches = palette.filter(item => item.collection === paletteSource && (paletteQuery.trim()
+    ? `${item.path} ${item.value}`.toLowerCase().includes(paletteQuery.trim().toLowerCase())
+    : item.group === activePaletteGroup)).sort((left, right) => Number(right.alias === selectedValue) - Number(left.alias === selectedValue));
+  const displayedColor = selectedDetail?.value ?? originalToken?.value ?? '';
+  const pickerColor = /^#[\da-f]{6}/i.test(displayedColor) ? displayedColor.slice(0, 7) : '#000000';
+  useEffect(() => { setHexInput(pickerColor); }, [selectedToken, theme]);
   useEffect(() => {
     try { localStorage.setItem(draftStorageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, policy: draft, componentTokenOverrides: tokenEdits })); }
     catch { setMessage('Браузер не сохранил локальный черновик. Скачайте JSON перед закрытием страницы.'); }
@@ -147,6 +161,23 @@ function OwnerLab() {
 
   function setRange(axis: Axis, field: RangeField, value: string) {
     setDraft(previous => ({ ...previous, controls: { ...previous.controls, [axis]: { ...previous.controls[axis], [field]: value } } }));
+    setError('');
+  }
+  function chooseToken(path: string) {
+    setSelectedToken(path);
+    setPaletteQuery('');
+    const authored = tokenDetail(tokens, path, theme).authored;
+    const match = palette.find(item => item.alias === authored);
+    if (match) { setPaletteSource(match.collection as 'semantic' | 'foundation'); setPaletteGroup(match.group); }
+  }
+  function chooseColor(value: string) {
+    if (!currentToken) return;
+    setTokenEdits(previous => ({ ...previous, [currentToken.path]: value }));
+    if (/^#[\da-f]{6}$/i.test(value)) setHexInput(value);
+    else {
+      const match = palette.find(item => item.alias === value);
+      if (match) setHexInput(match.value.slice(0, 7));
+    }
     setError('');
   }
   function toggleChoice(kind: 'availableThemes' | 'availableSizes', value: Theme | Size, active: boolean) {
@@ -192,6 +223,7 @@ function OwnerLab() {
     setDraft(toDraft(ownerPolicy));
     setApplied(ownerPolicy);
     setTokenEdits({});
+    setHexInput(originalToken?.value?.slice(0, 7) ?? '#1964b8');
     setAppliedTokenEdits({});
     setTheme(ownerPolicy.defaultConfiguration.theme);
     setSize(ownerPolicy.defaultConfiguration.controlSize);
@@ -236,10 +268,20 @@ function OwnerLab() {
           <div className="owner-section"><Checkbox label="Сохранять минимум высоты" checked={draft.controls.strict.default} onCheckedChange={value => setDraft(previous => ({ ...previous, controls: { ...previous.controls, strict: { default: value } } }))} /></div>
           <div className="owner-section owner-token-editor" aria-label="Токены компонентов">
             <h2>Токены компонентов</h2>
-            <p>Меняйте роль или цвет части компонента. Значения проверяются общим resolver.</p>
-            <Select label="Компонент" value={selectedComponent} options={componentOptions.map(value => ({ value, label: value }))} onValueChange={value => { const component = String(value); setSelectedComponent(component); setSelectedToken(tokenCatalog.find(item => item.component === component)?.path ?? ''); }} />
-            <Select label="Часть и состояние" value={currentToken?.path ?? ''} options={componentTokens.map(item => ({ value: item.path, label: item.property }))} onValueChange={value => setSelectedToken(String(value))} />
-            {currentToken && <><TextField label="Значение токена" value={tokenEdits[currentToken.path] ?? originalToken?.authored ?? ''} onChange={event => { const value = event.target.value; setTokenEdits(previous => ({ ...previous, [currentToken.path]: value })); setError(''); }} /><div className="owner-token-preview"><span className="owner-token-swatch" style={{ background: selectedDetail?.value ?? originalToken?.value }} /><span>{selectedDetail?.value ?? 'Значение ждёт проверки'}</span></div><Button variant="text" onClick={() => setTokenEdits(previous => { const next = { ...previous }; delete next[currentToken.path]; return next; })}>Вернуть значение токена</Button></>}
+            <p>Выберите компонент и состояние, затем цвет из палитры или свой HEX. «Применить» обновит живой предпросмотр.</p>
+            <Select label="Компонент" value={selectedComponent} options={componentOptions.map(value => ({ value, label: value }))} onValueChange={value => { const component = String(value); setSelectedComponent(component); const first = tokenCatalog.find(item => item.component === component); if (first) chooseToken(first.path); }} />
+            <Select label="Часть и состояние" value={currentToken?.path ?? ''} options={componentTokens.map(item => ({ value: item.path, label: item.property }))} onValueChange={value => chooseToken(String(value))} />
+            {currentToken && <>
+              <div className="owner-token-preview"><span className="owner-token-swatch" style={{ background: selectedDetail?.value ?? originalToken?.value }} /><span><strong>{selectedDetail?.value ?? 'Значение ждёт проверки'}</strong><small>{selectedValue}</small></span></div>
+              <div className="owner-palette-tabs" role="group" aria-label="Источник цвета"><Button variant={paletteSource === 'semantic' ? 'primary' : 'secondary'} onClick={() => { setPaletteSource('semantic'); setPaletteGroup('border'); setPaletteQuery(''); }}>Роли интерфейса</Button><Button variant={paletteSource === 'foundation' ? 'primary' : 'secondary'} onClick={() => { setPaletteSource('foundation'); setPaletteGroup('blue'); setPaletteQuery(''); }}>Базовые цвета</Button></div>
+              <Select label="Раздел палитры" value={activePaletteGroup} options={paletteGroups.map(value => ({ value, label: value }))} onValueChange={value => { setPaletteGroup(String(value)); setPaletteQuery(''); }} />
+              <TextField label="Поиск цвета или роли" value={paletteQuery} onChange={event => setPaletteQuery(event.target.value)} placeholder="Например, focus или blue" />
+              <div className="owner-palette-list" role="group" aria-label="Цвета SEDA">{paletteMatches.slice(0, 60).map(item => <button type="button" key={`${item.collection}:${item.path}`} className="owner-palette-item" aria-label={`${item.alias} · ${item.value}`} aria-pressed={selectedValue === item.alias} onClick={() => chooseColor(item.alias)}><span className="owner-token-swatch" style={{ background: item.value }} /><span className="owner-palette-name"><strong>{item.path}</strong><small>{item.value}</small></span></button>)}{!paletteMatches.length && <p>Цвета не найдены.</p>}</div>
+              <p className="owner-palette-count">{paletteMatches.length > 60 ? `Показано 60 из ${paletteMatches.length}. Уточните поиск.` : `${paletteMatches.length} цветов в разделе`}</p>
+              <div className="owner-custom-color"><input type="color" aria-label="Выбрать свой цвет" value={pickerColor} onChange={event => chooseColor(event.target.value)} /><TextField label="Свой HEX" value={hexInput} onChange={event => { setHexInput(event.target.value); chooseColor(event.target.value); }} placeholder="#1964b8" /></div>
+              <details className="owner-advanced-token"><summary>Ссылка на токен вручную</summary><TextField label="Значение токена" value={selectedValue ?? ''} onChange={event => chooseColor(event.target.value)} /></details>
+              <Button variant="text" onClick={() => { setTokenEdits(previous => { const next = { ...previous }; delete next[currentToken.path]; return next; }); setHexInput(originalToken?.value?.slice(0, 7) ?? '#000000'); }}>Вернуть исходный токен</Button>
+            </>}
           </div>
           {error && <Alert variant="error" title="Проверьте черновик" description={error} />}
           <div className="owner-actions"><Button variant="primary" onClick={apply}>Применить к предпросмотру</Button><Button variant="secondary" onClick={download}>Скачать JSON</Button><Button variant="text" onClick={reset}>Сбросить</Button></div>

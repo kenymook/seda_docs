@@ -46,7 +46,11 @@ export function resolvedColorVariables(evidence, tokens, theme) {
   const vars = {};
   for (const item of evidence) {
     if (item.type !== 'color' || !item.ref) continue;
-    vars[item.property] = resolver.resolve(item.ref, { theme }).cssValue;
+    const value = resolver.resolve(item.ref, { theme }).cssValue;
+    vars[item.property] = value;
+    // The public components consume the token namespace directly. Contract
+    // adapters also expose --seda-* evidence names; keep both bound to one leaf.
+    if (item.ref.collection === 'components') vars[`--${item.ref.path.join('-')}`] = value;
   }
   return vars;
 }
@@ -58,4 +62,30 @@ export function tokenDetail(tokens, path, theme) {
   if (!leaf(node)) throw new Error(`Токен ${path} отсутствует.`);
   const resolved = createTokenResolver(tokens).resolve({ collection: 'components', path: parts, expectedType: 'color' }, { theme });
   return { authored: node.$value, value: resolved.cssValue, chain: resolved.chain.map(step => `${step.collection}/${step.mode}/${step.path.join('/')}`) };
+}
+
+export function paletteColors(tokens, theme) {
+  const resolver = createTokenResolver(tokens);
+  const roots = {
+    semantic: tokens.$collections.semantic.$modes[theme],
+    foundation: tokens.$collections.foundation.$modes['Mode 1'],
+    components: tokens.$collections.components.$modes['Mode 1'],
+  };
+  const entries = [];
+  const get = (root, path) => path.reduce((node, part) => node?.[part], root);
+  const visit = (collection, node, path = []) => {
+    if (leaf(node)) {
+      if (node.$type !== 'color') return;
+      const matches = Object.values(roots).filter(root => leaf(get(root, path))).length;
+      if (matches !== 1) return;
+      const value = resolver.resolve({ collection, path, expectedType: 'color' }, { theme }).cssValue;
+      entries.push({ collection, path: path.join('/'), group: collection === 'foundation' ? path[1] : path[0], label: collection === 'foundation' ? path.slice(2).join('/') : path.slice(1).join('/'), alias: `{${path.join('.')}}`, value });
+      return;
+    }
+    if (!node || typeof node !== 'object') return;
+    for (const [name, child] of Object.entries(node)) if (!name.startsWith('$')) visit(collection, child, [...path, name]);
+  };
+  visit('semantic', roots.semantic);
+  visit('foundation', roots.foundation.color, ['color']);
+  return entries;
 }
