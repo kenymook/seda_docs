@@ -1,0 +1,101 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { chromium } from 'playwright';
+import { createPilotServer } from './server.mjs';
+import { applyWorkbenchEdits, colorCatalog, dependencyCount, resolvedToken, tokenKey } from './token-workbench-model.mjs';
+
+const source = JSON.parse(await fs.readFile(path.resolve(import.meta.dirname, '../../../../tokens.json'), 'utf8'));
+const catalog = colorCatalog(source);
+const foundation = catalog.filter(item => item.collection === 'foundation');
+const semantic = catalog.filter(item => item.collection === 'semantic');
+const select = catalog.filter(item => item.collection === 'components' && item.component === 'select');
+assert.equal(foundation.length, 143);
+assert.equal(semantic.length, 372);
+assert.ok(select.length >= 55, `Select color tokens: ${select.length}`);
+assert.equal(select.length, new Set(select.map(item => item.path)).size);
+const focus = select.find(item => item.path === 'select/border/focus');
+const focusSource = resolvedToken(source, focus, 'Light');
+const targetPath = focusSource.chain.at(-1);
+const target = foundation.find(item => `foundation/Mode 1/${item.path}` === targetPath);
+assert.ok(target, `Select focus must resolve into foundation palette: ${targetPath}`);
+const changed = applyWorkbenchEdits(source, { [target.key]: 'oklch(60% 0.12 260)' }, catalog);
+assert.equal(resolvedToken(changed, focus, 'Light').value, 'oklch(60% 0.12 260)');
+assert.ok(dependencyCount(source, catalog, target, 'Light') > 1);
+assert.throws(() => applyWorkbenchEdits(source, { [target.key]: '{color.blue.60}' }, catalog), /нужен OKLCH/);
+assert.throws(() => applyWorkbenchEdits(source, { [tokenKey('semantic', 'Light', 'border/field/default')]: 'oklch(60% 0.12 260)' }, catalog), /ссылаться напрямую/);
+assert.throws(() => applyWorkbenchEdits(source, { [tokenKey('components', 'Mode 1', 'select/border/default')]: '{color.blue.60}' }, catalog), /семантическую роль/);
+
+const output = path.join(import.meta.dirname, '.diagnostics-tokens');
+await fs.mkdir(output, { recursive: true });
+const server = await createPilotServer({ port: 0 });
+const browser = await chromium.launch({ headless: true, ...(process.env.SEDA_BROWSER_EXECUTABLE ? { executablePath: process.env.SEDA_BROWSER_EXECUTABLE } : {}) });
+const page = await browser.newPage({ viewport: { width: 1519, height: 1000 }, acceptDownloads: true });
+const errors = [];
+page.on('pageerror', error => errors.push(error.message));
+const base = `http://127.0.0.1:${server.address().port}`;
+try {
+  await page.goto(`${base}/owner.html`, { waitUntil: 'load' });
+  await page.getByRole('link', { name: /Открыть редактор токенов/ }).click();
+  await page.waitForURL('**/tokens.html');
+  assert.equal(await page.getByRole('heading', { name: 'Палитра' }).count(), 1);
+  assert.ok(await page.locator('.token-row').count() > 5);
+  assert.match(await page.locator('.token-row').first().innerText(), /oklch\(/);
+  assert.match(await page.getByLabel('OKLCH').inputValue(), /^oklch\(/);
+  await page.screenshot({ path: path.join(output, 'palette-light.png'), fullPage: true });
+  await page.getByLabel('Поиск по токенам').fill('blue/60');
+  await page.locator('.token-row').first().click();
+  await page.getByLabel('OKLCH').fill('oklch(60% 0.12 260)');
+  assert.match(await page.locator('.token-status').innerText(), /1 изменений/);
+  await page.getByRole('button', { name: 'Применить', exact: true }).click();
+  assert.match(await page.locator('.token-inspector').innerText(), /Зависимых токенов/);
+  await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
+
+  await page.getByRole('button', { name: /02 Семантика/ }).click();
+  assert.equal(await page.getByRole('heading', { name: 'Семантические роли' }).count(), 1);
+  await page.getByLabel('Группа').selectOption('border');
+  await page.getByLabel('Поиск по токенам').fill('border/field/default');
+  await page.locator('.token-row').first().click();
+  await page.getByLabel('Цвет палитры').selectOption('{color.blue.60}');
+  assert.match(await page.locator('.token-inspector').innerText(), /color\.blue\.60/);
+  await page.getByRole('button', { name: 'Применить', exact: true }).click();
+  assert.match(await page.locator('.token-status').innerText(), /применён/);
+
+  await page.getByRole('button', { name: /03 Компоненты/ }).click();
+  assert.equal(await page.getByRole('heading', { name: 'Компонент · select' }).count(), 1);
+  assert.equal(await page.locator('.token-preview-grid .seda-field--select').count(), 4);
+  await page.getByLabel('Группа').selectOption('border');
+  await page.getByLabel('Поиск по токенам').fill('select/border/default');
+  await page.locator('.token-row').first().click();
+  assert.match(await page.locator('.token-inspector').innerText(), /border\.field\.default/);
+  const allRows = catalog.filter(item => item.collection === 'components' && item.component === 'select');
+  assert.equal(allRows.length, select.length);
+  await page.getByLabel('Семантическая роль').selectOption('{border.focus}');
+  await page.getByRole('button', { name: 'Применить', exact: true }).click();
+  const expected = resolvedToken(applyWorkbenchEdits(source, {
+    [tokenKey('semantic', 'Light', 'border/field/default')]: '{color.blue.60}',
+    [tokenKey('components', 'Mode 1', 'select/border/default')]: '{border.focus}',
+  }, catalog), select.find(item => item.path === 'select/border/default'), 'Light').value;
+  assert.equal(await page.locator('.token-preview-grid .seda-field--select').first().evaluate(element => getComputedStyle(element).getPropertyValue('--select-border-default').trim()), expected);
+  await page.reload();
+  assert.match(await page.locator('.token-status').innerText(), /2 изменений/);
+  await page.getByRole('button', { name: /03 Компоненты/ }).click();
+  await page.getByLabel('Группа').selectOption('border');
+  await page.getByLabel('Поиск по токенам').fill('select/border/default');
+  assert.match(await page.locator('.token-row').first().innerText(), /\{border\.focus\}/);
+  const download = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Скачать JSON' }).click();
+  const file = await download;
+  assert.equal(file.suggestedFilename(), 'seda-token-workbench.draft.json');
+  await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
+  assert.match(await page.locator('.token-status').innerText(), /0 изменений/);
+  await page.getByLabel('Тема').selectOption('Dark');
+  await page.screenshot({ path: path.join(output, 'components-dark.png'), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: path.join(output, 'components-mobile.png'), fullPage: true });
+  const mobileLayout = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: innerWidth, tabs: [...document.querySelectorAll('.token-layer')].map(tab => tab.getBoundingClientRect().right) }));
+  assert.ok(mobileLayout.width <= mobileLayout.viewport, `Mobile horizontal overflow: ${JSON.stringify(mobileLayout)}`);
+  assert.ok(mobileLayout.tabs.every(right => right <= mobileLayout.viewport + 1), `Mobile tabs clipped: ${JSON.stringify(mobileLayout)}`);
+  assert.deepEqual(errors, []);
+  console.log(JSON.stringify({ passed: 25, palette: foundation.length, semantic: semantic.length, select: select.length, errors: errors.length, output }));
+} finally { await browser.close(); await new Promise(resolve => server.close(resolve)); }

@@ -1,0 +1,107 @@
+import React, { useEffect, useMemo, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { Button, Icon, Select, SedaProvider, TextField, TopBar } from '@seda-ai/ui';
+import { componentCoverage, provenance, tokens } from 'seda:catalog';
+import { displayOklch, hexToOklch, pickerHex } from './owner-color.mjs';
+import { applyWorkbenchEdits, colorCatalog, dependencyCount, directAlias, resolvedToken } from './token-workbench-model.mjs';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@seda-ai/ui/styles.css';
+import './tokens.css';
+
+type Layer = 'foundation' | 'semantic' | 'components';
+type Theme = 'Light' | 'Dark';
+type TokenEntry = { collection: Layer; mode: string; path: string; key: string; authored: string; group: string; component: string | null };
+const catalog = colorCatalog(tokens) as TokenEntry[];
+const byKey = new Map(catalog.map(item => [item.key, item]));
+const storageKey = 'seda-token-workbench-v1';
+
+function restoreEdits(): Record<string, string> {
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+    if (saved?.sourceTokensSha256 !== provenance.tokensSha256 || !saved.edits || typeof saved.edits !== 'object') return {};
+    return Object.fromEntries(Object.entries(saved.edits).filter(([key, value]) => byKey.has(key) && typeof value === 'string' && value.length <= 120)) as Record<string, string>;
+  } catch { return {}; }
+}
+
+function TokenWorkbench() {
+  const [layer, setLayer] = useState<Layer>('foundation');
+  const [theme, setTheme] = useState<Theme>('Light');
+  const [component, setComponent] = useState('select');
+  const [group, setGroup] = useState('blue');
+  const [query, setQuery] = useState('');
+  const [selectedKey, setSelectedKey] = useState('');
+  const [edits, setEdits] = useState<Record<string, string>>(restoreEdits);
+  const [appliedEdits, setAppliedEdits] = useState<Record<string, string>>({});
+  const [message, setMessage] = useState('Черновик хранится в браузере. Применение меняет только предпросмотр.');
+  const [compactNav, setCompactNav] = useState(() => window.innerWidth < 700);
+  useEffect(() => { const update = () => setCompactNav(window.innerWidth < 700); window.addEventListener('resize', update); return () => window.removeEventListener('resize', update); }, []);
+  useEffect(() => { localStorage.setItem(storageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, edits })); }, [edits]);
+
+  const draft = useMemo(() => {
+    try { return { tokens: applyWorkbenchEdits(tokens, edits, catalog), error: '' }; }
+    catch (error) { return { tokens, error: error instanceof Error ? error.message : String(error) }; }
+  }, [edits]);
+  const applied = useMemo(() => applyWorkbenchEdits(tokens, appliedEdits, catalog), [appliedEdits]);
+  const entries = catalog.filter(item => item.collection === layer && (layer !== 'semantic' || item.mode === theme) && (layer !== 'components' || item.component === component));
+  const groups = [...new Set(entries.map(item => item.group))];
+  const activeGroup = groups.includes(group) ? group : groups[0];
+  const shown = entries.filter(item => query.trim()
+    ? `${item.path} ${edits[item.key] ?? item.authored}`.toLowerCase().includes(query.trim().toLowerCase())
+    : item.group === activeGroup);
+  const selected = entries.find(item => item.key === selectedKey) ?? shown[0] ?? entries[0];
+  const authored = selected ? edits[selected.key] ?? selected.authored : '';
+  const editorValue = selected?.collection === 'foundation' ? displayOklch(authored) ?? authored : authored;
+  const resolved = selected ? resolvedToken(draft.tokens, selected, theme) : null;
+  const sourceResolved = selected ? resolvedToken(tokens, selected, theme) : null;
+  const effectiveColor = draft.error ? sourceResolved?.value : resolved?.value;
+  const dependents = selected ? dependencyCount(draft.tokens, catalog, selected, theme) : 0;
+  const foundation = catalog.filter(item => item.collection === 'foundation');
+  const semantic = catalog.filter(item => item.collection === 'semantic' && item.mode === theme);
+  const semanticOptions = semantic.map(item => ({ value: directAlias(item), label: `${item.path} · ${displayOklch(resolvedToken(draft.tokens, item, theme).value)}` }));
+  const foundationOptions = foundation.map(item => ({ value: directAlias(item), label: `${item.path} · ${displayOklch(resolvedToken(draft.tokens, item, theme).value)}` }));
+  const options = selected?.collection === 'semantic' ? foundationOptions : semanticOptions;
+  const linkOptions = options.some(option => option.value === authored) ? options : [{ value: authored, label: `Исходная косвенная ссылка · ${authored}` }, ...options];
+  const selectVars = useMemo(() => Object.fromEntries(catalog.filter(item => item.collection === 'components' && item.component === 'select').map(item => [`--${item.path.replaceAll('/', '-')}`, resolvedToken(applied, item, theme).value])), [applied, theme]);
+  const componentNames = [...new Set(catalog.filter(item => item.collection === 'components').map(item => item.component).filter(Boolean))] as string[];
+  const componentCount = entries.length;
+
+  function switchLayer(value: Layer) { setLayer(value); setGroup(value === 'foundation' ? 'blue' : value === 'semantic' ? 'container' : 'surface'); setQuery(''); setSelectedKey(''); }
+  function edit(value: string) { if (!selected) return; setEdits(previous => ({ ...previous, [selected.key]: value })); setMessage('Черновик изменён. Примените его для проверки компонента.'); }
+  function revert() { if (!selected) return; setEdits(previous => { const next = { ...previous }; delete next[selected.key]; return next; }); }
+  function apply() { if (draft.error) { setMessage(draft.error); return; } setAppliedEdits({ ...edits }); setMessage('Черновик применён к предпросмотру. Исходный tokens.json не изменён.'); }
+  function reset() { setEdits({}); setAppliedEdits({}); setMessage('Черновик сброшен к исходным токенам.'); }
+  function download() {
+    if (draft.error) { setMessage(draft.error); return; }
+    const content = { schemaVersion: 1, kind: 'seda-token-workbench-draft', sourceTokensSha256: provenance.tokensSha256, edits };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(content, null, 2) + '\n'], { type: 'application/json' }));
+    const link = document.createElement('a'); link.href = url; link.download = 'seda-token-workbench.draft.json'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  const topBarProps = {
+    variant: 'application' as const, label: 'SEDA Tokens', size: 'm' as const, gutter: 'wide' as const,
+    navigationLabel: 'Рабочие области',
+    items: [{ id: 'lab', label: 'Лаборатория', href: './' }, { id: 'owner', label: 'Component Lab', href: './owner.html' }, { id: 'tokens', label: 'Токены', href: './tokens.html', selected: true }],
+    brand: <strong className="token-brand"><span>S</span> SEDA AI</strong>, actions: <span className="token-top-note">Система токенов · черновик</span>,
+  };
+
+  return <SedaProvider theme={theme.toLowerCase() as 'light' | 'dark'} controlSize="m">
+    <div className="token-app" data-theme={theme.toLowerCase()}>
+      {compactNav ? <TopBar {...topBarProps} navigationPresentation="dialog" navigationTriggerLabel="Разделы" navigationCloseLabel="Закрыть" /> : <TopBar {...topBarProps} />}
+      <header className="token-toolbar"><div><h1>Токены SEDA</h1><p>Палитра → семантические роли → компоненты. Меняйте связи и проверяйте результат на настоящих контролах.</p></div><div className="token-toolbar-actions"><Select label="Тема" value={theme} options={['Light', 'Dark'].map(value => ({ value, label: value }))} onValueChange={value => { setTheme(value as Theme); setSelectedKey(''); }} /><Button variant="primary" onClick={apply} disabled={!!draft.error}>Применить</Button><Button variant="secondary" onClick={download}>Скачать JSON</Button><Button variant="text" onClick={reset}>Сбросить</Button></div></header>
+      <div className="token-status" role="status"><span>{Object.keys(edits).length} изменений в черновике</span><span>{draft.error || message}</span></div>
+      <div className="token-layout">
+        <nav className="token-rail" aria-label="Слои токенов"><h2>Слои</h2>{([['foundation', '01', 'Палитра', 'Исходные цвета в OKLCH'], ['semantic', '02', 'Семантика', 'Роли для Light и Dark'], ['components', '03', 'Компоненты', 'Части и состояния']] as const).map(([id, order, label, description]) => <button type="button" key={id} className="token-layer" aria-current={layer === id ? 'page' : undefined} onClick={() => switchLayer(id)}><span>{order}</span><strong>{label}</strong><small>{description}</small></button>)}<div className="token-rail-note"><strong>Источник</strong><span>tokens.json · {provenance.tokensSha256.slice(0, 10)}</span><p>Редактор сохраняет локальный черновик. Изменения библиотеки выпускаются отдельно через PR.</p></div></nav>
+        <main className="token-main"><div className="token-heading"><div><p className="token-kicker">{layer === 'foundation' ? '01 / FOUNDATION' : layer === 'semantic' ? '02 / SEMANTIC' : '03 / COMPONENTS'}</p><h2>{layer === 'foundation' ? 'Палитра' : layer === 'semantic' ? 'Семантические роли' : `Компонент · ${component}`}</h2><p>{layer === 'foundation' ? 'Редактируйте исходные цвета. Зависимые роли и компоненты пересчитаются вместе с ними.' : layer === 'semantic' ? 'Каждая изменённая роль напрямую связывается с цветом палитры для выбранной темы.' : `Все ${componentCount} цветовых токенов ${component} сгруппированы по частям и состояниям. Изменённые связи ведут к семантическим ролям.`}</p></div>{layer === 'components' && <Select label="Компонент" value={component} options={componentNames.map(value => ({ value, label: value }))} onValueChange={value => { setComponent(String(value)); setGroup('surface'); setSelectedKey(''); setQuery(''); }} />}</div>
+          {layer === 'components' && component === 'select' && <section className="token-preview" aria-label="Предпросмотр Select"><div><h3>Предпросмотр Select</h3><p>Контрактный компонент @seda-ai/ui. Состояния управляются реальным Select; вид нативного списка зависит от ОС.</p></div><SedaProvider theme={theme.toLowerCase() as 'light' | 'dark'} controlSize="m" style={{ ...selectVars, display: 'contents' } as React.CSSProperties}><div className="token-preview-grid"><Select label="Обычный" options={[{ value: 'all', label: 'Все роли' }, { value: 'owner', label: 'Владелец' }]} defaultValue="all" /><Select label="Фокус" state="focus" options={[{ value: 'all', label: 'Все роли' }]} placeholder="Выберите роль" /><Select label="Ошибка" errorText="Проверьте значение" options={[{ value: 'all', label: 'Все роли' }]} placeholder="Выберите роль" /><Select label="Недоступен" disabled options={[{ value: 'all', label: 'Все роли' }]} defaultValue="all" /></div></SedaProvider></section>}
+          {layer === 'components' && component !== 'select' && <div className="token-scope">Токены компонента доступны для настройки. Отдельный предпросмотр состояний пока проверен для Select.</div>}
+          <div className="token-list-toolbar"><Select label="Группа" value={activeGroup} options={groups.map(value => ({ value, label: value }))} onValueChange={value => { setGroup(String(value)); setSelectedKey(''); setQuery(''); }} /><TextField label="Поиск по токенам" value={query} onChange={event => { setQuery(event.target.value); setSelectedKey(''); }} placeholder="Путь или ссылка" /><span>{shown.length} из {entries.length}</span></div>
+          <div className="token-table" role="table" aria-label="Токены выбранного слоя"><div className="token-table-head" role="row"><span role="columnheader">Токен</span><span role="columnheader">Связь / значение</span><span role="columnheader">Цвет</span></div>{shown.map(item => { const value = resolvedToken(draft.tokens, item, theme).value; const changed = Object.prototype.hasOwnProperty.call(edits, item.key); const authoredValue = edits[item.key] ?? item.authored; return <button type="button" role="row" key={item.key} className="token-row" aria-selected={selected?.key === item.key} onClick={() => setSelectedKey(item.key)}><span role="cell"><strong>{item.path.split('/').slice(layer === 'components' ? 1 : 0).join('/')}</strong>{changed && <em>изменён</em>}</span><span role="cell">{item.collection === 'foundation' ? displayOklch(authoredValue) ?? authoredValue : authoredValue}</span><span role="cell"><i style={{ background: value }} /><small>{displayOklch(value) ?? value}</small></span></button>; })}{!shown.length && <p className="token-empty">Токены не найдены.</p>}</div>
+        </main>
+        <aside className="token-inspector" aria-label="Редактор токена"><h2>Инспектор токена</h2>{selected ? <><p className="token-inspector-path">{selected.collection}/{selected.mode}/{selected.path}</p><div className="token-inspector-color"><i style={{ background: effectiveColor }} /><div><strong>{displayOklch(effectiveColor ?? '') ?? 'Ошибка разрешения'}</strong><small>{editorValue}</small></div></div><dl><dt>Источник</dt><dd>{selected.authored}</dd><dt>Зависимых токенов</dt><dd>{dependents}</dd><dt>Цепочка</dt><dd>{resolved?.chain.join(' → ')}</dd></dl><div className="token-editor"><h3>{selected.collection === 'foundation' ? 'Исходный цвет' : 'Связь токена'}</h3>{selected.collection === 'foundation' ? <><TextField label="OKLCH" value={editorValue} onChange={event => edit(event.target.value)} placeholder="oklch(60% 0.15 240)" /><label className="token-visual-picker">Выбрать визуально <input type="color" aria-label="Выбрать цвет палитры" value={pickerHex(effectiveColor ?? '') ?? '#000000'} onChange={event => edit(hexToOklch(event.target.value) ?? event.target.value)} /></label></> : <Select label={selected.collection === 'semantic' ? 'Цвет палитры' : 'Семантическая роль'} value={authored} options={linkOptions} onValueChange={value => edit(String(value))} />}{selected.collection === 'semantic' && !authored.startsWith('{color.') && <p>Исходная роль связана косвенно. Выберите цвет палитры, чтобы установить прямую связь.</p>}<Button variant="text" onClick={revert} disabled={!Object.prototype.hasOwnProperty.call(edits, selected.key)}>Вернуть исходное значение</Button></div></> : <p>Выберите токен в таблице.</p>}<div className="token-inspector-footer"><strong>Публичная библиотека</strong><span>{componentCoverage.publicComponents.length} компонентов · {componentCoverage.contractComponents.length} исполняемых контрактов</span></div></aside>
+      </div>
+    </div>
+  </SedaProvider>;
+}
+
+createRoot(document.getElementById('root')!).render(<TokenWorkbench />);

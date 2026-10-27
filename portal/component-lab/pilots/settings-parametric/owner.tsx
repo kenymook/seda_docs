@@ -240,7 +240,7 @@ function OwnerLab() {
     size: 'm' as const,
     gutter: 'wide' as const,
     navigationLabel: 'Рабочие области',
-    items: [{ id: 'lab', label: 'Лаборатория', href: './' }, { id: 'owner', label: 'Component Lab', href: './owner.html', selected: true }],
+    items: [{ id: 'lab', label: 'Лаборатория', href: './' }, { id: 'owner', label: 'Component Lab', href: './owner.html', selected: true }, { id: 'tokens', label: 'Токены', href: './tokens.html' }],
     brand: <strong className="owner-brand"><span>S</span> SEDA AI</strong>,
     actions: <span className="owner-state">Черновик владельца</span>,
   };
@@ -270,7 +270,9 @@ function OwnerLab() {
           <div className="owner-section"><Checkbox label="Сохранять минимум высоты" checked={draft.controls.strict.default} onCheckedChange={value => setDraft(previous => ({ ...previous, controls: { ...previous.controls, strict: { default: value } } }))} /></div>
           <div className="owner-section owner-token-editor" aria-label="Токены компонентов">
             <h2>Токены компонентов</h2>
-            <p>Выберите компонент и состояние, затем роль из палитры или свой цвет в OKLCH. «Применить» обновит живой предпросмотр.</p>
+            <p>Для работы со всей палитрой, семантическими ролями и состояниями компонентов откройте отдельный редактор токенов.</p>
+            <a className="owner-token-studio-link" href="./tokens.html">Открыть редактор токенов →</a>
+            <p>Быстрая проверка одного токена доступна ниже.</p>
             <Select label="Компонент" value={selectedComponent} options={componentOptions.map(value => ({ value, label: value }))} onValueChange={value => { const component = String(value); setSelectedComponent(component); const first = tokenCatalog.find(item => item.component === component); if (first) chooseToken(first.path); }} />
             <Select label="Часть и состояние" value={currentToken?.path ?? ''} options={componentTokens.map(item => ({ value: item.path, label: item.property }))} onValueChange={value => chooseToken(String(value))} />
             {currentToken && <>
