@@ -5,6 +5,7 @@ import { componentCoverage, ownerPolicy, profile, profiles, provenance, system, 
 import { validateOwnerPolicy } from '../../../../packages/seda-contracts/src/owner-policy.mjs';
 import { createWebBindings } from '../../../../packages/seda-contracts/src/web.mjs';
 import { createWorkspaceBindings } from './workspace-bindings.mjs';
+import { displayOklch, hexToOklch, parseOklch, pickerHex } from './owner-color.mjs';
 import { applyTokenEdits, editableComponentTokens, paletteColors, resolvedColorVariables, tokenDetail } from './owner-token-draft.mjs';
 import { derive } from './lab-model.mjs';
 import '@fontsource/inter/400.css';
@@ -94,7 +95,7 @@ function OwnerLab() {
   const [paletteSource, setPaletteSource] = useState<'semantic' | 'foundation'>('semantic');
   const [paletteGroup, setPaletteGroup] = useState('container');
   const [paletteQuery, setPaletteQuery] = useState('');
-  const [hexInput, setHexInput] = useState('#1964b8');
+  const [colorInput, setColorInput] = useState(() => hexToOklch('#1964b8') ?? '');
   const [activeAxis, setActiveAxis] = useState<Axis>('scale');
   const [theme, setTheme] = useState<Theme>(ownerPolicy.defaultConfiguration.theme);
   const [size, setSize] = useState<Size>(ownerPolicy.defaultConfiguration.controlSize);
@@ -133,16 +134,16 @@ function OwnerLab() {
     try { return tokenDetail(applyTokenEdits(tokens, tokenEdits, tokenCatalog), currentToken.path, theme); }
     catch { return null; }
   }, [tokenEdits, currentToken?.path, theme]);
-  const palette = useMemo(() => paletteColors(tokens, theme), [theme]);
+  const palette = useMemo(() => paletteColors(tokens, theme).map(item => ({ ...item, oklch: displayOklch(item.value) ?? item.value })), [theme]);
   const paletteGroups = [...new Set(palette.filter(item => item.collection === paletteSource).map(item => item.group))];
   const activePaletteGroup = paletteGroups.includes(paletteGroup) ? paletteGroup : paletteGroups[0];
   const selectedValue = currentToken ? tokenEdits[currentToken.path] ?? originalToken?.authored : '';
   const paletteMatches = palette.filter(item => item.collection === paletteSource && (paletteQuery.trim()
-    ? `${item.path} ${item.value}`.toLowerCase().includes(paletteQuery.trim().toLowerCase())
+    ? `${item.path} ${item.value} ${item.oklch}`.toLowerCase().includes(paletteQuery.trim().toLowerCase())
     : item.group === activePaletteGroup)).sort((left, right) => Number(right.alias === selectedValue) - Number(left.alias === selectedValue));
   const displayedColor = selectedDetail?.value ?? originalToken?.value ?? '';
-  const pickerColor = /^#[\da-f]{6}/i.test(displayedColor) ? displayedColor.slice(0, 7) : '#000000';
-  useEffect(() => { setHexInput(pickerColor); }, [selectedToken, theme]);
+  const pickerColor = pickerHex(displayedColor) ?? '#000000';
+  useEffect(() => { setColorInput(displayOklch(displayedColor) ?? ''); }, [selectedToken, theme]);
   useEffect(() => {
     try { localStorage.setItem(draftStorageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, policy: draft, componentTokenOverrides: tokenEdits })); }
     catch { setMessage('Браузер не сохранил локальный черновик. Скачайте JSON перед закрытием страницы.'); }
@@ -173,10 +174,11 @@ function OwnerLab() {
   function chooseColor(value: string) {
     if (!currentToken) return;
     setTokenEdits(previous => ({ ...previous, [currentToken.path]: value }));
-    if (/^#[\da-f]{6}$/i.test(value)) setHexInput(value);
+    if (parseOklch(value)) setColorInput(value);
+    else if (hexToOklch(value)) setColorInput(hexToOklch(value) ?? '');
     else {
       const match = palette.find(item => item.alias === value);
-      if (match) setHexInput(match.value.slice(0, 7));
+      if (match) setColorInput(match.oklch);
     }
     setError('');
   }
@@ -223,7 +225,7 @@ function OwnerLab() {
     setDraft(toDraft(ownerPolicy));
     setApplied(ownerPolicy);
     setTokenEdits({});
-    setHexInput(originalToken?.value?.slice(0, 7) ?? '#1964b8');
+    setColorInput(displayOklch(originalToken?.value ?? '') ?? '');
     setAppliedTokenEdits({});
     setTheme(ownerPolicy.defaultConfiguration.theme);
     setSize(ownerPolicy.defaultConfiguration.controlSize);
@@ -268,19 +270,19 @@ function OwnerLab() {
           <div className="owner-section"><Checkbox label="Сохранять минимум высоты" checked={draft.controls.strict.default} onCheckedChange={value => setDraft(previous => ({ ...previous, controls: { ...previous.controls, strict: { default: value } } }))} /></div>
           <div className="owner-section owner-token-editor" aria-label="Токены компонентов">
             <h2>Токены компонентов</h2>
-            <p>Выберите компонент и состояние, затем цвет из палитры или свой HEX. «Применить» обновит живой предпросмотр.</p>
+            <p>Выберите компонент и состояние, затем роль из палитры или свой цвет в OKLCH. «Применить» обновит живой предпросмотр.</p>
             <Select label="Компонент" value={selectedComponent} options={componentOptions.map(value => ({ value, label: value }))} onValueChange={value => { const component = String(value); setSelectedComponent(component); const first = tokenCatalog.find(item => item.component === component); if (first) chooseToken(first.path); }} />
             <Select label="Часть и состояние" value={currentToken?.path ?? ''} options={componentTokens.map(item => ({ value: item.path, label: item.property }))} onValueChange={value => chooseToken(String(value))} />
             {currentToken && <>
-              <div className="owner-token-preview"><span className="owner-token-swatch" style={{ background: selectedDetail?.value ?? originalToken?.value }} /><span><strong>{selectedDetail?.value ?? 'Значение ждёт проверки'}</strong><small>{selectedValue}</small></span></div>
+              <div className="owner-token-preview"><span className="owner-token-swatch" style={{ background: selectedDetail?.value ?? originalToken?.value }} /><span><strong>{displayOklch(selectedDetail?.value ?? '') ?? 'Значение ждёт проверки'}</strong><small>{selectedValue}</small></span></div>
               <div className="owner-palette-tabs" role="group" aria-label="Источник цвета"><Button variant={paletteSource === 'semantic' ? 'primary' : 'secondary'} onClick={() => { setPaletteSource('semantic'); setPaletteGroup('border'); setPaletteQuery(''); }}>Роли интерфейса</Button><Button variant={paletteSource === 'foundation' ? 'primary' : 'secondary'} onClick={() => { setPaletteSource('foundation'); setPaletteGroup('blue'); setPaletteQuery(''); }}>Базовые цвета</Button></div>
               <Select label="Раздел палитры" value={activePaletteGroup} options={paletteGroups.map(value => ({ value, label: value }))} onValueChange={value => { setPaletteGroup(String(value)); setPaletteQuery(''); }} />
               <TextField label="Поиск цвета или роли" value={paletteQuery} onChange={event => setPaletteQuery(event.target.value)} placeholder="Например, focus или blue" />
-              <div className="owner-palette-list" role="group" aria-label="Цвета SEDA">{paletteMatches.slice(0, 60).map(item => <button type="button" key={`${item.collection}:${item.path}`} className="owner-palette-item" aria-label={`${item.alias} · ${item.value}`} aria-pressed={selectedValue === item.alias} onClick={() => chooseColor(item.alias)}><span className="owner-token-swatch" style={{ background: item.value }} /><span className="owner-palette-name"><strong>{item.path}</strong><small>{item.value}</small></span></button>)}{!paletteMatches.length && <p>Цвета не найдены.</p>}</div>
+              <div className="owner-palette-list" role="group" aria-label="Цвета SEDA">{paletteMatches.slice(0, 60).map(item => <button type="button" key={`${item.collection}:${item.path}`} className="owner-palette-item" aria-label={`${item.alias} · ${item.oklch}`} aria-pressed={selectedValue === item.alias} onClick={() => chooseColor(item.alias)}><span className="owner-token-swatch" style={{ background: item.value }} /><span className="owner-palette-name"><strong>{item.path}</strong><small>{item.oklch}</small></span></button>)}{!paletteMatches.length && <p>Цвета не найдены.</p>}</div>
               <p className="owner-palette-count">{paletteMatches.length > 60 ? `Показано 60 из ${paletteMatches.length}. Уточните поиск.` : `${paletteMatches.length} цветов в разделе`}</p>
-              <div className="owner-custom-color"><input type="color" aria-label="Выбрать свой цвет" value={pickerColor} onChange={event => chooseColor(event.target.value)} /><TextField label="Свой HEX" value={hexInput} onChange={event => { setHexInput(event.target.value); chooseColor(event.target.value); }} placeholder="#1964b8" /></div>
+              <div className="owner-custom-color"><TextField label="Свой OKLCH" value={colorInput} onChange={event => { setColorInput(event.target.value); chooseColor(event.target.value); }} placeholder="oklch(60% 0.15 240)" /><label>Выбрать визуально <input type="color" aria-label="Выбрать свой цвет" value={pickerColor} onChange={event => chooseColor(hexToOklch(event.target.value) ?? event.target.value)} /></label></div>
               <details className="owner-advanced-token"><summary>Ссылка на токен вручную</summary><TextField label="Значение токена" value={selectedValue ?? ''} onChange={event => chooseColor(event.target.value)} /></details>
-              <Button variant="text" onClick={() => { setTokenEdits(previous => { const next = { ...previous }; delete next[currentToken.path]; return next; }); setHexInput(originalToken?.value?.slice(0, 7) ?? '#000000'); }}>Вернуть исходный токен</Button>
+              <Button variant="text" onClick={() => { setTokenEdits(previous => { const next = { ...previous }; delete next[currentToken.path]; return next; }); setColorInput(displayOklch(originalToken?.value ?? '') ?? ''); }}>Вернуть исходный токен</Button>
             </>}
           </div>
           {error && <Alert variant="error" title="Проверьте черновик" description={error} />}
@@ -299,7 +301,7 @@ function OwnerLab() {
             </section>
           </SedaProvider>
         </main>
-        <aside className="owner-inspector" aria-label="Источники и готовность"><Text as="h2" variant="heading/compact">Источники</Text><dl><dt>Профиль</dt><dd>{profile.id}</dd><dt>Формула</dt><dd>{geometry.formula}</dd><dt>Высота</dt><dd>{geometry.height} px</dd><dt>Пакет</dt><dd>@seda-ai/ui</dd></dl><h3>Выбранный токен</h3>{currentToken && <><p className="owner-token-path">components/{currentToken.path}</p><dl><dt>Источник</dt><dd>{originalToken?.authored}</dd><dt>Черновик</dt><dd>{tokenEdits[currentToken.path] ?? 'без изменений'}</dd><dt>Значение</dt><dd>{selectedDetail?.value ?? 'не разрешено'}</dd><dt>CSS</dt><dd>{currentToken.variables.join(', ')}</dd></dl><p>Цепочка: {selectedDetail?.chain.join(' → ') ?? 'проверьте значение'}</p></>}<h3>Граница готовности</h3><p>На экране показаны настоящие SEDA Button, IconButton, TextField, Select, Checkbox, Radio, Toggle и Table. Геометрия Table остаётся экспериментальной композицией.</p><p>Остальные публичные модули доступны в пакете; отдельные истории и визуальная приёмка будут добавляться по мере проверки контрактов.</p><h3>Токены</h3><p>Редактор меняет только цветовые листья компонентов с действующими CSS-привязками. Черновик хранится в этом браузере и не меняет tokens.json до выпуска через PR.</p><details className="owner-catalog"><summary>Публичный API · {componentCoverage.publicComponents.length}</summary><ul>{componentCoverage.publicComponents.map((name: string) => <li key={name}><span>{name}</span><small>{componentCoverage.contractComponents.includes(name) ? 'контракт' : 'API'}</small></li>)}</ul></details></aside>
+        <aside className="owner-inspector" aria-label="Источники и готовность"><Text as="h2" variant="heading/compact">Источники</Text><dl><dt>Профиль</dt><dd>{profile.id}</dd><dt>Формула</dt><dd>{geometry.formula}</dd><dt>Высота</dt><dd>{geometry.height} px</dd><dt>Пакет</dt><dd>@seda-ai/ui</dd></dl><h3>Выбранный токен</h3>{currentToken && <><p className="owner-token-path">components/{currentToken.path}</p><dl><dt>Источник</dt><dd>{originalToken?.authored}</dd><dt>Черновик</dt><dd>{tokenEdits[currentToken.path] ?? 'без изменений'}</dd><dt>Значение · OKLCH</dt><dd>{displayOklch(selectedDetail?.value ?? '') ?? 'не разрешено'}</dd><dt>CSS</dt><dd>{currentToken.variables.join(', ')}</dd></dl><p>Цепочка: {selectedDetail?.chain.join(' → ') ?? 'проверьте значение'}</p></>}<h3>Граница готовности</h3><p>На экране показаны настоящие SEDA Button, IconButton, TextField, Select, Checkbox, Radio, Toggle и Table. Геометрия Table остаётся экспериментальной композицией.</p><p>Остальные публичные модули доступны в пакете; отдельные истории и визуальная приёмка будут добавляться по мере проверки контрактов.</p><h3>Токены</h3><p>Редактор меняет только цветовые листья компонентов с действующими CSS-привязками. Черновик хранится в этом браузере и не меняет tokens.json до выпуска через PR.</p><details className="owner-catalog"><summary>Публичный API · {componentCoverage.publicComponents.length}</summary><ul>{componentCoverage.publicComponents.map((name: string) => <li key={name}><span>{name}</span><small>{componentCoverage.contractComponents.includes(name) ? 'контракт' : 'API'}</small></li>)}</ul></details></aside>
       </div>
     </div>
   </SedaProvider>;

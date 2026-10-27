@@ -38,9 +38,11 @@ body{margin:0}
 .owner-palette-name strong,.owner-palette-name small{display:block;font-size:11px;line-height:1.35}
 .owner-palette-name small{color:var(--owner-muted);font-variant-numeric:tabular-nums}
 .owner-token-editor .owner-palette-count{font-size:10px}
-.owner-custom-color{display:flex;align-items:end;gap:9px;min-width:0}
-.owner-custom-color>input[type=color]{flex:none;width:38px;height:30px;padding:2px;border:1px solid var(--owner-line);border-radius:6px;background:var(--owner-panel);cursor:pointer}
-.owner-custom-color>.seda-field{flex:1;min-width:0}
+.owner-custom-color{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;min-width:0}
+.owner-custom-color>.seda-field{display:flex;flex-direction:column;align-items:stretch;min-width:0;width:100%}
+.owner-custom-color>.seda-field input{font-size:10px;letter-spacing:-.02em}
+.owner-custom-color>label{display:flex;align-items:center;justify-content:space-between;gap:9px;font-size:11px;color:var(--owner-muted)}
+.owner-custom-color>label input[type=color]{flex:none;width:38px;height:30px;padding:2px;border:1px solid var(--owner-line);border-radius:6px;background:var(--owner-panel);cursor:pointer}
 .owner-advanced-token{font-size:11px}
 .owner-advanced-token summary{cursor:pointer;color:var(--owner-accent)}
 .owner-advanced-token .seda-field{margin-top:9px}

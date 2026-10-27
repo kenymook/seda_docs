@@ -1,8 +1,9 @@
 import { createTokenResolver } from '../../../../packages/seda-contracts/src/tokens.mjs';
+import { parseOklch } from './owner-color.mjs';
 
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 const leaf = value => value !== null && typeof value === 'object' && !Array.isArray(value) && own(value, '$value');
-const colorValue = value => /^#[\da-f]{6}(?:[\da-f]{2})?$/i.test(value) || /^\{[\w-]+(?:\.[\w-]+)+\}$/.test(value);
+const colorValue = value => /^#[\da-f]{6}(?:[\da-f]{2})?$/i.test(value) || parseOklch(value) !== null || /^\{[\w-]+(?:\.[\w-]+)+\}$/.test(value);
 
 export function editableComponentTokens(evidence) {
   const result = new Map();
@@ -23,7 +24,7 @@ export function applyTokenEdits(source, edits, editable) {
   const root = tokens.$collections.components.$modes['Mode 1'];
   for (const [path, value] of Object.entries(edits)) {
     if (!allowed.has(path)) throw new Error(`Токен ${path} не связан с проверяемым компонентом.`);
-    if (typeof value !== 'string' || value.length > 120 || !colorValue(value)) throw new Error(`Некорректное значение ${path}: нужен цвет #RRGGBB или ссылка {semantic.role}.`);
+    if (typeof value !== 'string' || value.length > 120 || !colorValue(value)) throw new Error(`Некорректное значение ${path}: нужен цвет oklch(60% 0.15 240) или ссылка {semantic.role}.`);
     let node = root;
     for (const part of path.split('/')) node = node?.[part];
     if (!leaf(node) || node.$type !== 'color') throw new Error(`Токен ${path} отсутствует в источнике.`);

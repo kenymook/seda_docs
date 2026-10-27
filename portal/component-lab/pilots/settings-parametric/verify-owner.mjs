@@ -3,6 +3,14 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { createPilotServer } from './server.mjs';
+import { displayOklch, hexToOklch, oklchToHex, parseOklch } from './owner-color.mjs';
+
+assert.equal(parseOklch('oklch(60% 0.15 240)')?.lightness, 0.6);
+assert.equal(parseOklch('oklch(120% 0.15 240)'), null);
+assert.equal(parseOklch('oklch(60% 0.15 240 / 120%)'), null);
+assert.match(displayOklch('#18191b80'), /^oklch\(.+ \/ 0\.502\)$/);
+assert.match(displayOklch('#ffffff1c'), /^oklch\(100% 0 0 \/ 0\.11\)$/);
+assert.equal(oklchToHex(hexToOklch('#1964b8')), '#1964b8');
 
 const output = path.join(import.meta.dirname, '.diagnostics-owner');
 await fs.mkdir(output, { recursive: true });
@@ -24,30 +32,41 @@ try {
   assert.ok(realControls >= 7, `expected real SEDA controls, found ${realControls}`);
   await page.screenshot({ path: path.join(output, 'owner-light.png'), fullPage: true });
 
-  const hexValue = page.getByLabel('Свой HEX');
-  assert.equal(await hexValue.inputValue(), '#1964b8');
-  await hexValue.click();
-  await hexValue.press('ControlOrMeta+A');
-  await hexValue.pressSequentially('#8B2D8B');
-  assert.equal(await hexValue.inputValue(), '#8B2D8B');
+  const colorValue = page.getByLabel('Свой OKLCH');
+  assert.equal(await colorValue.inputValue(), hexToOklch('#1964b8'));
+  const colorGeometry = await page.locator('.owner-custom-color > .seda-field').evaluate(element => {
+    const label = element.querySelector('.seda-field__label').getBoundingClientRect();
+    const control = element.querySelector('.seda-field__control').getBoundingClientRect();
+    const style = getComputedStyle(element);
+    return { labelBottom: label.bottom, controlTop: control.top, controlWidth: control.width, fieldWidth: element.getBoundingClientRect().width, display: style.display, columns: style.gridTemplateColumns, flow: style.gridAutoFlow };
+  });
+  assert.ok(colorGeometry.labelBottom <= colorGeometry.controlTop && colorGeometry.controlWidth >= 200, JSON.stringify(colorGeometry));
+  await colorValue.click();
+  await colorValue.press('ControlOrMeta+A');
+  await colorValue.pressSequentially('oklch(60% 0.15 240)');
+  assert.equal(await colorValue.inputValue(), 'oklch(60% 0.15 240)');
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
   const createButton = page.locator('.owner-buttons .seda-button').first();
-  await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-buttons .seda-button')).backgroundColor === 'rgb(139, 45, 139)');
-  assert.equal(await createButton.evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(139, 45, 139)');
-  assert.match(await page.evaluate(() => localStorage.getItem('seda-owner-component-lab-draft-v2') || ''), /#8B2D8B/);
+  await page.waitForFunction(() => document.querySelector('.owner-buttons .seda-button')?.style.getPropertyValue('--seda-action-surface-default').trim() === 'oklch(60% 0.15 240)');
+  assert.equal(await createButton.evaluate(element => element.style.getPropertyValue('--seda-action-surface-default').trim()), 'oklch(60% 0.15 240)');
+  assert.match(await page.evaluate(() => localStorage.getItem('seda-owner-component-lab-draft-v2') || ''), /oklch\(60% 0\.15 240\)/);
   await page.reload();
-  assert.equal(await page.getByLabel('Свой HEX').inputValue(), '#8B2D8B');
+  assert.equal(await page.getByLabel('Свой OKLCH').inputValue(), 'oklch(60% 0.15 240)');
   assert.match(await page.locator('.owner-note').innerText(), /восстановлен/);
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
-  await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-buttons .seda-button')).backgroundColor === 'rgb(139, 45, 139)');
-  assert.equal(await createButton.evaluate(element => getComputedStyle(element).backgroundColor), 'rgb(139, 45, 139)');
+  await page.waitForFunction(() => document.querySelector('.owner-buttons .seda-button')?.style.getPropertyValue('--seda-action-surface-default').trim() === 'oklch(60% 0.15 240)');
+  assert.equal(await createButton.evaluate(element => element.style.getPropertyValue('--seda-action-surface-default').trim()), 'oklch(60% 0.15 240)');
   await page.locator('.owner-advanced-token summary').click();
   await page.getByLabel('Значение токена').fill('{missing.semantic.role}');
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
   assert.match(await page.locator('.owner-sidebar').innerText(), /no target|not found|не связан|не существует/i);
   await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
   assert.equal(await page.getByLabel('Значение токена').inputValue(), '{container.brand.default}');
-  assert.equal(await page.getByLabel('Свой HEX').inputValue(), '#1964b8');
+  assert.equal(await page.getByLabel('Свой OKLCH').inputValue(), hexToOklch('#1964b8'));
+  await page.getByLabel('Свой OKLCH').fill('oklch(120% 0.15 240)');
+  await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
+  assert.match(await page.locator('.owner-sidebar').innerText(), /Некорректное значение/);
+  await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
 
   await page.getByLabel('Компонент', { exact: true }).selectOption('select');
   await page.getByLabel('Часть и состояние').selectOption('select/border/default');
@@ -59,12 +78,15 @@ try {
   await page.getByRole('button', { name: 'Базовые цвета' }).click();
   await page.getByLabel('Раздел палитры').selectOption('red');
   await page.getByRole('button', { name: /\{color.red.60\}/ }).click();
+  assert.match(await page.getByLabel('Свой OKLCH').inputValue(), /^oklch\(/);
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
   await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-workspace .seda-field--select > .seda-field__control')).borderTopColor === 'rgb(168, 55, 42)');
   assert.equal(await page.locator('.owner-workspace .seda-field--select > .seda-field__control').evaluate(element => getComputedStyle(element).borderTopColor), 'rgb(168, 55, 42)');
   await page.getByLabel('Выбрать свой цвет').fill('#339966');
+  assert.equal(await page.getByLabel('Свой OKLCH').inputValue(), hexToOklch('#339966'));
   await page.getByRole('button', { name: 'Применить к предпросмотру' }).click();
-  await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-workspace .seda-field--select > .seda-field__control')).borderTopColor === 'rgb(51, 153, 102)');
+  await page.waitForFunction(() => getComputedStyle(document.querySelector('.owner-workspace .seda-field--select > .seda-field__control')).borderTopColor !== 'rgb(168, 55, 42)');
+  assert.equal(await page.locator('.owner-workspace').evaluate(element => getComputedStyle(element).getPropertyValue('--select-border-default').trim()), hexToOklch('#339966'));
   await page.getByRole('button', { name: 'Сбросить', exact: true }).click();
 
   const max = page.locator('.owner-range-grid input').nth(1);
