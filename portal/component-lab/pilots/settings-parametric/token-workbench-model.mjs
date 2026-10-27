@@ -59,8 +59,14 @@ export function resolvedToken(source, item, theme) {
 
 export function directAlias(item) { return `{${item.path.replaceAll('/', '.')}}`; }
 
-export function dependencyCount(source, catalog, target, theme) {
+export function tokenRelations(source, catalog, target, theme) {
   const marker = `${target.collection}/${target.mode}/${target.path}`;
   const resolver = createTokenResolver(source);
-  return catalog.filter(item => (item.collection !== 'semantic' || item.mode === theme) && item.key !== target.key && resolver.resolve({ collection: item.collection, path: item.path.split('/'), expectedType: 'color' }, { theme }).chain.some(step => `${step.collection}/${step.mode}/${step.path.join('/')}` === marker)).length;
+  const byStep = new Map(catalog.map(item => [`${item.collection}/${item.mode}/${item.path}`, item]));
+  const chain = resolver.resolve({ collection: target.collection, path: target.path.split('/'), expectedType: 'color' }, { theme }).chain;
+  const sources = chain.slice(1).map(step => byStep.get(`${step.collection}/${step.mode}/${step.path.join('/')}`)).filter(Boolean);
+  const dependents = catalog.filter(item => (item.collection !== 'semantic' || item.mode === theme) && item.key !== target.key && resolver.resolve({ collection: item.collection, path: item.path.split('/'), expectedType: 'color' }, { theme }).chain.some(step => `${step.collection}/${step.mode}/${step.path.join('/')}` === marker));
+  return { sources, dependents };
 }
+
+export function dependencyCount(source, catalog, target, theme) { return tokenRelations(source, catalog, target, theme).dependents.length; }
