@@ -1,10 +1,10 @@
 export const foundationSections = [
- {id:'typography',label:'Типографика',title:'Typography',icon:'settings'},
- {id:'radius',label:'Скругления',title:'Radius',icon:'circle'},
- {id:'spacing',label:'Отступы',title:'Spacing',icon:'monitor'},
- {id:'borders',label:'Толщина рамки',title:'Border width',icon:'more'},
- {id:'motion',label:'Анимация',title:'Motion',icon:'clock'},
- {id:'opacity',label:'Прозрачность',title:'Opacity',icon:'circle'},
+ {id:'typography',label:'Типографика',title:'Typography'},
+ {id:'radius',label:'Скругления',title:'Radius'},
+ {id:'spacing',label:'Отступы',title:'Spacing'},
+ {id:'borders',label:'Толщина рамки',title:'Border width'},
+ {id:'motion',label:'Анимация',title:'Motion'},
+ {id:'opacity',label:'Прозрачность',title:'Opacity'},
 ];
 export function foundationCatalog(source){
  const entries=[];
