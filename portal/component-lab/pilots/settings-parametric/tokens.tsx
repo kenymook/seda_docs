@@ -1,3 +1,4 @@
+import {bindSavedDesign} from './saved-design-model.mjs';
 import {StudioHeader, StudioRail} from './StudioChrome';
 import {FoundationStudio} from './FoundationStudio';
 import {foundationSections} from './foundation-model.mjs';
@@ -5,7 +6,7 @@ import {useTokenStore} from './use-token-store';
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Button, Checkbox, Icon, IconButton, Popover, Radio, Select, SedaProvider, TextField, Toggle, TopBar } from '@seda-ai/ui';
-import { componentCoverage, provenance, tokens } from 'seda:catalog';
+import { componentCoverage, provenance, tokens, profiles, libraryBindings, buttonContract } from 'seda:catalog';
 import { displayHex, displayOklch, hexToOklch, pickerHex } from './owner-color.mjs';
 import { applyWorkbenchEdits, designCatalog, colorCatalog, directAlias, resolvedToken, tokenKey, tokenRelations, workbenchColorVariables } from './token-workbench-model.mjs';
 import '@fontsource/inter/400.css';
@@ -118,6 +119,7 @@ function TokenWorkbench() {
   useEffect(() => { if (!draft.error) setAppliedEdits({ ...edits }); }, [edits, draft.error]);
   const sync = useTokenStore(provenance.tokensSha256, edits, setEdits, !draft.error);
   const applied = useMemo(() => applyWorkbenchEdits(tokens, appliedEdits, allCatalog), [appliedEdits]);
+  const liveBindings=useMemo(()=>bindSavedDesign(tokens,appliedEdits,profiles,libraryBindings,buttonContract),[appliedEdits]);
   const shellVariables = useMemo(() => workbenchColorVariables(applied, theme), [applied, theme]);
   const entries = catalog.filter(item => item.collection === layer && (layer !== 'semantic' || item.mode === theme) && (layer !== 'components' || item.component === component));
   const groups = [...new Set(entries.map(item => item.group))];
@@ -206,7 +208,7 @@ function TokenWorkbench() {
   const syncProblem=!!draft.error||!!sync.conflict||/Нет связи|Не удалось|отличается/.test(sync.status);
   const footer=<><span className="studio-sync-live" role="status" aria-live="polite">{draft.error||sync.status}</span>{syncProblem&&<div className="studio-sync-error" role="alert"><span>{draft.error||sync.status}</span><div>{sync.conflict?<><Button variant="ghost" onClick={()=>sync.resolve(false)}>Загрузить из базы</Button><Button variant="secondary" onClick={()=>sync.resolve(true)}>Сохранить мою версию</Button></>:<Button variant="ghost" onClick={sync.retry}>Синхронизировать</Button>}</div></div>}</>;
 
-  return <SedaProvider theme={theme.toLowerCase() as 'light' | 'dark'} controlSize="m" style={shellVariables as React.CSSProperties}><div className="token-app studio" data-theme={theme.toLowerCase()}>
+  return <SedaProvider theme={theme.toLowerCase() as 'light' | 'dark'} controlSize="m" style={shellVariables as React.CSSProperties}><style data-seda-editor-design>{liveBindings.css}</style><div className="token-app studio" data-theme={theme.toLowerCase()}>
     <StudioHeader actions={<><Select label="Theme" value={theme} options={['Light','Dark'].map(value => ({value,label:value}))} onValueChange={value => setTheme(value as Theme)} /><Button variant="secondary" onClick={download}>Экспорт JSON</Button><Button variant="ghost" onClick={reset}>Сбросить</Button></>}/>
     <div className="studio-workspace"><StudioRail area={foundationArea??layer} onSelect={id=>{if(['foundation','semantic','components'].includes(id)){setFoundationArea(null);switchLayer(id as Layer);}else setFoundationArea(id);setLibraryQuery('');setColorEditorOpen(false);}}/>{foundationArea?<FoundationStudio key={foundationArea} area={foundationArea} source={applied} original={tokens} theme={theme} edits={edits} setEdits={setEdits} footer={footer}/>:<><aside className="studio-library"><div className="studio-panel-heading">{layer === 'components' ? 'Библиотека' : 'Color groups'}</div><div className="studio-library-search"><TextField label="Поиск в библиотеке" placeholder="Поиск…" value={libraryQuery} onChange={event => setLibraryQuery(event.target.value)} /></div><div className="studio-library-items">{library.filter(name => name.toLowerCase().includes(libraryQuery.toLowerCase())).map(name => <button key={name} aria-pressed={layer === 'components' ? component === name : activeGroup === name} onClick={() => { if(layer === 'components') chooseLibrary(name); else { setGroup(name); setQuery(''); setSelectedKey(''); } }}><span className="studio-item-symbol" aria-hidden="true">{layer === 'components' ? '◇' : '▦'}</span>{groupLabels[name] ?? name}</button>)}</div></aside>
     <main className="studio-canvas"><div className="studio-canvas-scroll">
