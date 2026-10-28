@@ -85,10 +85,10 @@ function restoreValidEdits(): Record<string, string> {
 }
 
 function TokenWorkbench() {
-  const [layer, setLayer] = useState<Layer>('foundation');
+  const [layer, setLayer] = useState<Layer>('components');
   const [theme, setTheme] = useState<Theme>('Light');
   const [component, setComponent] = useState('select');
-  const [group, setGroup] = useState('blue');
+  const [group, setGroup] = useState('border');
   const [query, setQuery] = useState('');
   const [selectedKey, setSelectedKey] = useState('');
   const [showAllDependents, setShowAllDependents] = useState(false);
@@ -97,7 +97,7 @@ function TokenWorkbench() {
   const [initialEdits] = useState<Record<string, string>>(restoreValidEdits);
   const [edits, setEdits] = useState<Record<string, string>>(initialEdits);
   const [appliedEdits, setAppliedEdits] = useState<Record<string, string>>(initialEdits);
-  const [message, setMessage] = useState('Черновик хранится в браузере. Применение меняет только предпросмотр.');
+  const [message, setMessage] = useState('Изменения сразу видны в предпросмотре и сохраняются в этом браузере.');
   const [compactNav, setCompactNav] = useState(() => window.innerWidth < 700);
   useEffect(() => { const update = () => setCompactNav(window.innerWidth < 700); window.addEventListener('resize', update); return () => window.removeEventListener('resize', update); }, []);
   useEffect(() => { localStorage.setItem(storageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, edits })); }, [edits]);
@@ -106,6 +106,7 @@ function TokenWorkbench() {
     try { return { tokens: applyWorkbenchEdits(tokens, edits, catalog), error: '' }; }
     catch (error) { return { tokens, error: error instanceof Error ? error.message : String(error) }; }
   }, [edits]);
+  useEffect(() => { if (!draft.error) setAppliedEdits({ ...edits }); }, [edits, draft.error]);
   const applied = useMemo(() => applyWorkbenchEdits(tokens, appliedEdits, catalog), [appliedEdits]);
   const entries = catalog.filter(item => item.collection === layer && (layer !== 'semantic' || item.mode === theme) && (layer !== 'components' || item.component === component));
   const groups = [...new Set(entries.map(item => item.group))];
@@ -146,15 +147,8 @@ function TokenWorkbench() {
     setLayer(item.collection); setComponent(item.component ?? component); setGroup(item.group); setQuery(''); setSelectedKey(item.key); setShowAllDependents(false);
     setMessage(`Показан связанный токен ${item.path}. Его цепочка указана в инспекторе.`);
   }
-  function switchLayer(value: Layer) {
-    if (value === layer) return;
-    const related = [...relations.sources, ...relations.dependents].filter(item => item.collection === value) as TokenEntry[];
-    const next = related.find(item => item.component === component) ?? related[0];
-    if (next) { navigateToEntry(next); return; }
-    setLayer(value); setGroup(value === 'foundation' ? 'blue' : value === 'semantic' ? 'container' : 'surface'); setQuery(''); setSelectedKey('__unrelated__');
-    setMessage(`У ${selected?.path ?? 'выбранного токена'} нет связи со слоем «${value === 'foundation' ? 'Палитра' : value === 'semantic' ? 'Семантика' : 'Компоненты'}». Выберите токен в таблице.`);
-  }
-  function edit(value: string) { if (!selected) return; setEdits(previous => ({ ...previous, [selected.key]: value })); setMessage('Черновик изменён. Примените его для проверки компонента.'); }
+  function switchLayer(value: Layer) { setLayer(value); setGroup(value === 'foundation' ? 'blue' : 'border'); setQuery(''); setRoleQuery(''); setSelectedKey(''); }
+  function edit(value: string) { if (!selected) return; setEdits(previous => ({ ...previous, [selected.key]: value })); setMessage('Изменения сохранены в этом браузере. Предпросмотр обновлён.'); }
   function revert() { if (!selected) return; setEdits(previous => { const next = { ...previous }; delete next[selected.key]; return next; }); }
   function apply() { if (draft.error) { setMessage(draft.error); return; } setAppliedEdits({ ...edits }); setMessage('Черновик применён к предпросмотру. Исходный tokens.json не изменён.'); }
   function reset() { setEdits({}); setAppliedEdits({}); setMessage('Черновик сброшен к исходным токенам.'); }
@@ -183,19 +177,18 @@ function TokenWorkbench() {
     variant: 'application' as const, label: 'SEDA Tokens', size: 'm' as const, gutter: 'wide' as const,
     navigationLabel: 'Рабочие области',
     items: [{ id: 'lab', label: 'Лаборатория', href: './' }, { id: 'owner', label: 'Component Lab', href: './owner.html' }, { id: 'tokens', label: 'Токены', href: './tokens.html', selected: true }],
-    brand: <strong className="token-brand"><span>S</span> SEDA AI</strong>, actions: <span className="token-top-note">Система токенов · черновик</span>,
+    brand: <strong className="token-brand"><span>S</span> SEDA AI</strong>, actions: <span className="token-top-note"></span>,
   };
 
   return <SedaProvider theme={theme.toLowerCase() as 'light' | 'dark'} controlSize="m">
-    <div className="token-app" data-theme={theme.toLowerCase()}>
-      {compactNav ? <TopBar {...topBarProps} navigationPresentation="dialog" navigationTriggerLabel="Разделы" navigationCloseLabel="Закрыть" /> : <TopBar {...topBarProps} />}
-      <header className="token-toolbar"><div><h1>Токены SEDA</h1><p>Палитра → семантические роли → компоненты. Меняйте связи и проверяйте результат на настоящих контролах.</p><button type="button" className="token-task-link" onClick={openComponentEditor}>Настроить цвета компонента <span aria-hidden="true">→</span></button></div><div className="token-toolbar-actions"><Select label="Тема" value={theme} options={['Light', 'Dark'].map(value => ({ value, label: value }))} onValueChange={value => { setTheme(value as Theme); setSelectedKey(''); }} /><Button variant="primary" onClick={apply} disabled={!!draft.error}>Применить</Button><Button variant="secondary" onClick={download}>Скачать JSON</Button><Button variant="text" onClick={reset}>Сбросить</Button></div></header>
+    <div className={`token-app mini-builder layer-${layer}`} data-theme={theme.toLowerCase()}>
+      <header className="token-toolbar"><div><h1>SEDA <span>Mini builder</span></h1><p>Палитра · Цветовые роли · Стили компонентов</p><button type="button" className="token-task-link" onClick={openComponentEditor}>Настроить цвета компонента <span aria-hidden="true">→</span></button></div><div className="token-toolbar-actions"><Select label="Тема" value={theme} options={['Light', 'Dark'].map(value => ({ value, label: value }))} onValueChange={value => { setTheme(value as Theme); setSelectedKey(''); }} /><Button variant="secondary" onClick={download}>Экспорт JSON</Button><Button variant="text" onClick={reset}>Сбросить</Button></div></header>
       <div className="token-status" role="status"><span>{Object.keys(edits).length} изменений в черновике</span><span>{draft.error || message}</span></div>
       <div className="token-layout">
         <nav className="token-rail" aria-label="Слои токенов"><h2>Слои</h2>{([['foundation', '01', 'Палитра', 'Исходные цвета в OKLCH'], ['semantic', '02', 'Семантика', 'Роли для Light и Dark'], ['components', '03', 'Компоненты', 'Части и состояния']] as const).map(([id, order, label, description]) => <button type="button" key={id} className="token-layer" aria-current={layer === id ? 'page' : undefined} onClick={() => switchLayer(id)}><span>{order}</span><strong>{label}</strong><small>{description}</small></button>)}<div className="token-rail-note"><strong>Источник</strong><span>tokens.json · {provenance.tokensSha256.slice(0, 10)}</span><p>Редактор сохраняет локальный черновик. Изменения библиотеки выпускаются отдельно через PR.</p></div></nav>
         <main className="token-main"><div className="token-heading"><div><p className="token-kicker">{layer === 'foundation' ? '01 / FOUNDATION' : layer === 'semantic' ? '02 / SEMANTIC' : '03 / COMPONENTS'}</p><h2>{layer === 'foundation' ? 'Палитра' : layer === 'semantic' ? 'Семантические роли' : `Компонент · ${component}`}</h2><p>{layer === 'foundation' ? 'Редактируйте исходные цвета. Зависимые роли и компоненты пересчитаются вместе с ними.' : layer === 'semantic' ? 'Каждая изменённая роль напрямую связывается с цветом палитры для выбранной темы.' : `Все ${componentCount} цветовых токенов ${component} сгруппированы по частям и состояниям. Изменённые связи ведут к семантическим ролям.`}</p></div>{layer === 'components' && <Select label="Компонент" value={component} options={componentNames.map(value => ({ value, label: value }))} onValueChange={value => { const nextComponent = String(value); const first = catalog.find(item => item.collection === 'components' && item.component === nextComponent); setComponent(nextComponent); setGroup(first?.group ?? 'surface'); setSelectedKey(first?.key ?? '__unrelated__'); setQuery(''); setRoleQuery(''); setMessage(`Выбран компонент ${nextComponent}. Теперь выберите свойство и цветовую роль.`); }} />}</div>
           {layer === 'components' && <section className="token-border-task" aria-label="Настройка цвета компонента">
-            <div className="token-border-task-head"><div><span className="token-task-kicker">КОМПОНЕНТ · ЦВЕТОВЫЕ ТОКЕНЫ</span><h3>Настройка цвета</h3><p>Выберите часть и состояние, затем роль. Меняется один токен выбранного компонента. Размеры и типографика настраиваются отдельно в Component Lab.</p></div><span className="token-task-scope">{componentCount} токенов</span></div>
+            <div className="token-border-task-head"><div><span className="token-task-kicker">СТИЛИ КОМПОНЕНТА</span><h3>Цвета и состояния</h3><p>Выберите часть и состояние, затем роль. Меняется один токен выбранного компонента. </p></div><span className="token-task-scope">{componentCount} токенов</span></div>
             <div className="token-task-fields"><Select label="1 · Группа цветов" value={activeGroup} options={groups.map(value => ({ value, label: `${groupLabels[value] ?? value} · ${value}` }))} onValueChange={value => { const nextGroup = String(value); const first = entries.find(item => item.group === nextGroup); setGroup(nextGroup); setSelectedKey(first?.key ?? '__unrelated__'); setQuery(''); setRoleQuery(''); }} /><Select label="2 · Часть и состояние" value={componentToken?.key ?? ''} options={componentGroupEntries.map(item => ({ value: item.key, label: item.path.split('/').slice(1).join(' / ') }))} placeholder="Выберите токен" onValueChange={value => { setSelectedKey(String(value)); setQuery(''); setRoleQuery(''); }} /></div>
             {componentToken ? <div className="token-border-task-body"><div className="token-border-choice-area"><div className="token-role-heading"><h4>3 · Назначьте цветовую роль</h4><span>{componentToken.path}</span></div><TextField label="Найти роль" value={roleQuery} onChange={event => setRoleQuery(event.target.value)} placeholder="Например, border/subtle" /><div className="token-border-choices">{roleChoices.map(role => {
               const darkRole = byKey.get(tokenKey('semantic', 'Dark', role.path));
