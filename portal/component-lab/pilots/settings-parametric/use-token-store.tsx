@@ -17,7 +17,7 @@ export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>vo
    try{
     const response=await fetch('/api/token-document',{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!response.ok)throw Error();const doc:Document=await response.json();if(stopped||base.current&&doc.revision<base.current.revision)return;
     if(doc.sourceTokensSha256!==hash){setStatus('Версия токенов в базе отличается. Локальные изменения сохранены; нужен перенос данных.');return;}
-    let previous:Document|null=null;try{previous=JSON.parse(localStorage.getItem(key)||'null');}catch{}
+    let previous:Document|null=base.current;if(!previous){try{previous=JSON.parse(localStorage.getItem(key)||'null');}catch{}}
     const local=current.current;
     if(same(local,doc.edits)||!Object.keys(local).length&& !previous){setEdits(doc.edits);accept(doc);setStatus('Сохранено в базе');}
     else if(doc.revision===0){accept(doc);setStatus('Перенос локальных изменений…');}

@@ -9,3 +9,5 @@ TypeScript: PASS. Pilot production build/source audit: PASS. Sites Worker produc
 Run verify-token-store.mjs only against a disposable local database: it modifies then resets the shared test document. Screenshots are local diagnostics, excluded from Git. Hosted deployment and hosted data confirmation are recorded in the delivery message.
 
 Limits: this persists editor settings; tokens.json/library releases remain an explicit release operation. A future baseline hash change needs a deliberate stored-patch migration and currently blocks writes. A conflict exposes explicit load-shared/keep-local actions; no silent overwrite. Recovery snapshots are stored, with no history UI yet.
+
+Follow-up: a clean sibling tab in the same browser now compares against its own confirmed revision, rather than another tab's shared localStorage snapshot. The real-D1 browser suite also checks this focus/pull scenario and passed after the fix. TypeScript, pilot build and Worker build passed again.
