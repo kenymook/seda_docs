@@ -60,3 +60,13 @@ export function displayOklch(value) {
 export function pickerHex(value) {
   return hexPattern.test(value) ? value.slice(0, 7) : oklchToHex(value);
 }
+
+// HEX is the sRGB representation; keep alpha rather than compositing on a background.
+export function displayHex(value) {
+  if (hexPattern.test(value)) return value.toUpperCase();
+  const parsed = parseOklch(value);
+  const rgb = parsed ? oklchToHex(value) : null;
+  if (!rgb) return null;
+  const alpha = parsed.alpha < 1 ? Math.round(parsed.alpha * 255).toString(16).padStart(2, '0') : '';
+  return (rgb + alpha).toUpperCase();
+}
