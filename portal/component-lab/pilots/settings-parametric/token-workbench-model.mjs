@@ -70,3 +70,10 @@ export function tokenRelations(source, catalog, target, theme) {
 }
 
 export function dependencyCount(source, catalog, target, theme) { return tokenRelations(source, catalog, target, theme).dependents.length; }
+
+export function workbenchColorVariables(source, theme) {
+  const resolver = createTokenResolver(source);
+  return Object.fromEntries(colorCatalog(source)
+    .filter(item => item.collection === 'components' || item.collection === 'semantic' && item.mode === theme)
+    .map(item => ['--' + item.path.replaceAll('/', '-'), resolver.resolve({ collection: item.collection, path: item.path.split('/'), expectedType: 'color' }, { theme }).cssValue]));
+}
