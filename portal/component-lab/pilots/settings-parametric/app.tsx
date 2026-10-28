@@ -627,7 +627,7 @@ function App() {
           } as React.CSSProperties
         }
       >
-        <StudioHeader actions={<><Button size="s" variant="ghost"
+        <StudioHeader actions={<><IconButton id="theme-toggle" variant="ghost" aria-label="Тёмная тема" selected={compiled.domTheme === "dark"} tooltip={compiled.domTheme === "dark" ? "Включить светлую тему" : "Включить тёмную тему"} icon={<Icon name={compiled.domTheme === "dark" ? "sun" : "moon"}/>} disabled={!ownerPolicy.availableThemes.includes(compiled.domTheme === "dark" ? "Light" : "Dark")} onClick={()=>configure({theme:compiled.domTheme === "dark" ? "Light" : "Dark"})}/><Button size="s" variant="ghost"
               onClick={() => {
                 configure(initialConfiguration);
                 setParameters({ ...defaultParameters });

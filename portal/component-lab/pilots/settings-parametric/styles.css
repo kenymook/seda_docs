@@ -155,8 +155,7 @@ p {
   min-width: 0;
 }
 .product-workspace-chrome {
-  background: var(--surface-subtle);
-  padding-bottom: 1px;
+  background: transparent;
 }
 .section-top {
   display: flex;
@@ -747,7 +746,6 @@ body.dark dialog {
     overscroll-behavior-y: contain;
     scrollbar-width: thin;
   }
-  .product-workspace-chrome { position:sticky; top:0; z-index:4; }
 }
 @media (max-width: 780px) {
   .top {

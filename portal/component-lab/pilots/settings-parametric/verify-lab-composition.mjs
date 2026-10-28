@@ -27,9 +27,14 @@ export async function verifyLabComposition(page,origin,output){
   assert.equal(sample.rail.width,54);
   assert.ok(sample.rail.x<sample.navigation.x&&sample.navigation.x<sample.canvas.x&&sample.canvas.x<sample.right.x);
   assert.ok(sample.documentScroll<=1,'Desktop uses one viewport');
+  const masthead=page.locator('.product-workspace-chrome');
+  const paint=await masthead.evaluate(el=>({background:getComputedStyle(el).backgroundColor,position:getComputedStyle(el).position,y:el.getBoundingClientRect().y}));
+  assert.equal(paint.background,'rgba(0, 0, 0, 0)');assert.equal(paint.position,'static');
   const before=sample.right.y;
   await page.locator('.canvas').evaluate(el=>{el.scrollTop=320;});await settle(page);
   assert.equal((await page.locator('.lab-right-sidebar').boundingBox()).y,before);
+  const scroll=await page.locator('.canvas').evaluate(el=>el.scrollTop);
+  assert.ok(scroll>100);assert.ok(Math.abs((await masthead.boundingBox()).y-(paint.y-scroll))<=1,'Masthead scrolls with canvas content');
   await page.locator('.canvas').evaluate(el=>{el.scrollTop=0;});
   samples.push(sample);
   if(width===1702||width===780)await page.screenshot({path:path.join(output,'lab-layout-'+width+'.png')});
@@ -41,6 +46,14 @@ export async function verifyLabComposition(page,origin,output){
   assert.equal((await page.locator('#composition-current-page').textContent()).trim(),title);
   assert.equal(await page.locator('#nav-'+id).getAttribute('aria-current'),'page');
  }
+ await page.getByRole('tab',{name:'Инспектор',exact:true}).click();
+ const themeToggle=page.locator('#theme-toggle');
+ await themeToggle.focus();await page.keyboard.press('Space');await settle(page);
+ assert.equal(await themeToggle.getAttribute('aria-pressed'),'true');assert.equal(await page.locator('#lab').getAttribute('data-theme'),'dark');
+ await page.getByRole('tab',{name:'Параметры',exact:true}).click();assert.equal(await page.locator('#theme').inputValue(),'dark');
+ await page.locator('#theme').selectOption('light');assert.equal(await themeToggle.getAttribute('aria-pressed'),'false');
+ await themeToggle.click();assert.equal(await page.locator('#theme').inputValue(),'dark');
+ await themeToggle.click();assert.equal(await page.locator('#theme').inputValue(),'light');
  for(const theme of ['light','dark']){
   await page.getByRole('tab',{name:'Параметры',exact:true}).click();
   await page.locator('#theme').selectOption(theme);await page.locator('#scale').fill('100');await settle(page);
