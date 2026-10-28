@@ -1,3 +1,9 @@
+## Unreleased — Select warning and success validation
+
+- Add warningText/successText with disabled > error > warning > success precedence, one described message and non-blocking native selection for warning/success.
+- Bind existing surface/border/helper/arrow validation tokens. Remove the generic error-field override from Select so its own border assignment reaches the painted control.
+- Extend the executable Select contract and Studio state board; other controls do not acquire validation states implicitly.
+
 ## Unreleased — Select control-owned SEDA arrow
 
 - Replace the browser picker-icon border drawing with the original SEDA chevron in a decorative, pointer-transparent control slot. The slot stays centered when the picker opens and follows icon-size and field-padding tokens, including RTL.

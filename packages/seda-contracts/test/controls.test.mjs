@@ -33,6 +33,18 @@ const sample = (name) =>
   ["Select", "Radio"].includes(name)
     ? { label: name, options, value: "a", onValueChange: handler }
     : { label: name, checked: false, onCheckedChange: handler };
+test('Select validation messages share precedence and token state with public API',()=>{
+  for(const tone of ['warning','success']){
+    const props={...sample('Select'),[tone+'Text']:'Проверка',state:tone};
+    const result=engine.validateInstance('Select',props,{interaction:{focused:true}});
+    assert.equal(result.valid,true,JSON.stringify(result.issues));
+    assert.equal(result.state.validation,tone);assert.equal(result.state.tokenState,tone);assert.equal(result.state.focusRing,true);
+    for(const empty of ['', ' ', null, false, []])assert.equal(engine.validateInstance('Select',{...props,[tone+'Text']:empty}).valid,false);
+    assert.equal(engine.validateInstance('Select',{...props,disabled:true}).state.validation,'none');
+    assert.equal(engine.validateInstance('Select',{...props,errorText:'Ошибка'}).state.tokenState,'error');
+  }
+  assert.equal(engine.validateInstance('Select',{...sample('Select'),warningText:'Внимание',successText:'Готово'}).state.validation,'warning');
+});
 for (const name of names) {
   test(`${name}: actual public API, defaults and compileControl share source and tokens`, () => {
     for (const theme of ["Light", "Dark"])

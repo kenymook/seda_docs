@@ -34,7 +34,9 @@
     ],
     "validation": [
       "none",
-      "error"
+      "error",
+      "warning",
+      "success"
     ],
     "interaction": [
       "hovered",
@@ -77,9 +79,9 @@
     },
     {
       "id": "error",
-      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "source": "packages/seda-contracts/SELECT-VALIDATION.md",
       "condition": "Supported public API state",
-      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "expected": "Nonempty validation messages use disabled > error > warning > success precedence; only error sets aria-invalid.",
       "check": "error-message",
       "layer": "instance",
       "decision": "D25"

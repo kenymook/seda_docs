@@ -12,6 +12,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       defaultValue,
       disabled,
       errorText,
+      warningText,
+      successText,
       helperText,
       id,
       label,
@@ -33,8 +35,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const labelId = `${selectId}-label`;
     const messageId = `${selectId}-message`;
     const hasError = !disabled && hasMessage(errorText);
+    const validation = disabled ? undefined : hasError ? "error" : hasMessage(warningText) ? "warning" : hasMessage(successText) ? "success" : undefined;
     const message = hasError
       ? errorText
+      : validation === "warning" ? warningText
+      : validation === "success" ? successText
       : hasMessage(helperText)
         ? helperText
         : undefined;
@@ -45,11 +50,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const multiple = selection === "multi";
     const resolvedState = disabled
       ? "disabled"
-      : hasError
-        ? "error"
+      : validation
+        ? validation
         : value && value.length !== 0
           ? "filled"
-          : state === "error" || state === "disabled"
+          : state === "error" || state === "warning" || state === "success" || state === "disabled"
             ? "default"
             : state;
 
@@ -115,7 +120,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {message != null ? (
           <span
             className="seda-field__message"
-            data-tone={hasError ? "error" : undefined}
+            data-tone={validation}
             id={messageId}
           >
             {message}

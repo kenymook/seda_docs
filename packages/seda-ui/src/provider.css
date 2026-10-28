@@ -100,6 +100,19 @@
   --seda-field-surface: var(--select-surface-error);
   --seda-field-border: var(--select-border-error);
   --seda-field-helper: var(--select-helper-error);
+  --seda-field-arrow: var(--select-arrow-error);
+}
+.seda-provider .seda-field--select[data-state="warning"] {
+  --seda-field-surface: var(--select-surface-warning);
+  --seda-field-border: var(--select-border-warning);
+  --seda-field-helper: var(--select-helper-warning);
+  --seda-field-arrow: var(--select-arrow-warning);
+}
+.seda-provider .seda-field--select[data-state="success"] {
+  --seda-field-surface: var(--select-surface-success);
+  --seda-field-border: var(--select-border-success);
+  --seda-field-helper: var(--select-helper-success);
+  --seda-field-arrow: var(--select-arrow-success);
 }
 .seda-provider .seda-field--text[data-disabled="true"] {
   opacity: 1;

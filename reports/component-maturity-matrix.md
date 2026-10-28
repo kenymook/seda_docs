@@ -1,5 +1,7 @@
 # Component Maturity Matrix
 
+Select validation: замкнуты warning/success между публичным API, compiler state и реальной отрисовкой border/helper/arrow. [Поведение и доказательства](../packages/seda-contracts/SELECT-VALIDATION.md). Это устранение конкретного разрыва, не подтверждение полной зрелости библиотеки для интерфейсов уровня Figma/Notion/ChatGPT/Cloude Design. active/read-only/loading Select и общая OS/AT-приёмка остаются открытыми.
+
 Private v62: Button text и TextArea получили общие source-роли компактного действия и поля, включая typography, header gap и loading; реальная Settings-композиция проверена в обеих темах. [D35, installed-package, local/production proofs и открытые ограничения](2026-10-26-inline-action-textarea.md). Это проверенный слой ядра, не полная приёмка всех компонентов, экранов и платформ.
 
 Private v61: TextField/Select/NumberField получили source label/helper typography, два отдельных gap4 и TextField content gap6 без affix surface. [D34, installed-package/CI/production proofs и открытые визуальные ограничения](2026-10-26-field-anatomy.md). Это исправление общего ядра, не завершение полной визуальной и OS/AT приёмки.

@@ -276,7 +276,7 @@
   padding: 0;
 }
 
-.seda-field[data-state="error"] .seda-field__control {
+.seda-field:not(.seda-field--select)[data-state="error"] .seda-field__control {
   --seda-field-border: var(--status-danger-border, #ef4444);
   --seda-field-surface: var(--status-danger-container, #fff7f7);
 }
@@ -1318,11 +1318,11 @@
 /* Keep the SEDA arrow centered in the control independently of native picker layout. */
 .seda-field--select > .seda-field__control { position: relative; }
 .seda-field__select:not([multiple]) { appearance: none; -webkit-appearance: none; box-sizing: border-box; padding-inline-end: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) + var(--seda-control-gap, var(--seda-preset-gap))); }
-.seda-select__arrow { position: absolute; top: 50%; inset-inline-end: var(--seda-control-padding-inline, var(--seda-preset-field-padding)); transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: var(--seda-control-icon-size, var(--seda-preset-icon-size)); height: var(--seda-control-icon-size, var(--seda-preset-icon-size)); pointer-events: none; color: var(--select-arrow-default, currentColor); }
+.seda-select__arrow { position: absolute; top: 50%; inset-inline-end: var(--seda-control-padding-inline, var(--seda-preset-field-padding)); transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: var(--seda-control-icon-size, var(--seda-preset-icon-size)); height: var(--seda-control-icon-size, var(--seda-preset-icon-size)); pointer-events: none; color: var(--seda-field-arrow, var(--select-arrow-default, currentColor)); }
 .seda-select__arrow > .seda-icon { width: 100%; height: 100%; }
 .seda-field--select:has(select:open) .seda-select__arrow > .seda-icon { transform: rotate(180deg); }
 .seda-field--select[data-disabled=true] .seda-select__arrow { color: var(--select-arrow-disabled, var(--select-arrow-default)); }
-.seda-field--select:not([data-disabled=true]):has(select:focus) .seda-select__arrow { color: var(--select-arrow-active, var(--select-arrow-default)); }
+.seda-field--select:not([data-disabled=true]):has(select:focus) .seda-select__arrow { color: var(--seda-field-arrow, var(--select-arrow-active, var(--select-arrow-default))); }
 /* Progressive native picker styling preserves select semantics, form and keyboard behavior. */
 @supports (appearance: base-select) {
   .seda-field__select:not([multiple]),

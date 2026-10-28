@@ -11,6 +11,8 @@
 
 ## 1. Key Principles
 
+Исполняемая валидация `warningText` / `successText` дополнена к существующему `errorText`: [API, приоритеты, токены, проверки и границы](../../packages/seda-contracts/SELECT-VALIDATION.md). Только error задаёт aria-invalid; warning/success не блокируют выбор. Disabled подавляет validation tone.
+
 ### Что это
 
 Select — контрол выбора одного или нескольких значений из раскрывающегося списка. Он используется, когда варианты заранее известны, но их больше, чем удобно показывать через Radio или Checkbox.

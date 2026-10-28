@@ -29,16 +29,17 @@ export function deriveState(component, props, interaction = {}) {
   const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
   const error = ['TextField','TextArea','Select','Checkbox','Radio','Slider','NumberField'].includes(component) && content(props.errorText) !== 'empty';
+  const validation = disabled ? 'none' : error ? 'error' : component==='Select' && content(props.warningText)!=='empty' ? 'warning' : component==='Select' && content(props.successText)!=='empty' ? 'success' : 'none';
   const focused = interaction.focused ?? false;
   const hovered = interaction.hovered ?? false;
   const active = interaction.active ?? false;
   return {
     availability: disabled ? 'disabled' : component==='NumberField'&&props.readOnly ? 'read-only' : 'enabled',
     activity: loading ? 'loading' : 'idle',
-    validation: disabled ? 'none' : error ? 'error' : 'none',
+    validation,
     interaction: { hovered, focused, active },
     data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','TextArea','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : error ? 'error' : component==='TextArea'&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : component==='TextArea'&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
     ...(tabs ? { tabs } : {}),
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
@@ -183,9 +184,14 @@ export function evaluateRules(contract, props) {
         else if (own(props, 'filled') && props.filled !== (props.value.length > 0)) violate('filled must follow the raw current value length.');
         break;
       case 'error-message': {
+        if(contract.id==='Select')for(const tone of ['warning','success']){
+          const value=props[tone+'Text'],result=content(value);
+          if((props.state===tone||value!==undefined)&&result==='empty')violate(`${tone} state requires nonempty ${tone}Text; use undefined when absent.`);
+          if(status!=='violated'&&value!==undefined&&result==='opaque')unchecked(`Rendered ${tone} text requires a DOM check.`);
+        }
         const result = content(props.errorText);
         if ((props.state === 'error' || props.errorText !== undefined) && result === 'empty') violate('Error state requires nonempty errorText; use undefined when there is no error.');
-        if (props.errorText !== undefined && result === 'opaque') unchecked('Rendered error text requires a DOM check.');
+        if (status !== 'violated' && props.errorText !== undefined && result === 'opaque') unchecked('Rendered error text requires a DOM check.');
         break;
       }
       case 'native-disabled':

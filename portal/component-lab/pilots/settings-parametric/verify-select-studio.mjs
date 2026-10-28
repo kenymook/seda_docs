@@ -23,9 +23,14 @@ async function saved(){await page.locator('.studio-edit-toolbar').getByRole('sta
 async function border(state){return page.locator(`[data-preview-state="${state}"] .seda-field__control`).evaluate(e=>getComputedStyle(e).borderColor);}
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}/tokens.html`);await saved();
- assert.equal(await page.locator('.studio-select-state-grid select').count(),5);
+ assert.equal(await page.locator('.studio-select-state-grid select').count(),7);
  assert.equal(await page.getByLabel('Preview disabled',{exact:true}).isDisabled(),true);
  assert.equal(await page.getByLabel('Preview error',{exact:true}).getAttribute('aria-invalid'),'true');
+ for(const tone of ['warning','success']){
+  assert.equal(await page.getByLabel('Preview '+tone,{exact:true}).getAttribute('aria-invalid'),null);
+  assert.equal(await page.locator('[data-preview-state='+tone+'] .seda-field').getAttribute('data-state'),tone);
+  assert.equal(await page.locator('[data-preview-state='+tone+'] .seda-field__message').getAttribute('data-tone'),tone);
+ }
  assert.equal(await page.locator('.studio-select-state-grid select').first().getAttribute('tabindex'),'-1');
  for(const theme of ['Light','Dark']){
   await page.getByLabel('Theme',{exact:true}).selectOption(theme);
@@ -37,7 +42,7 @@ try{
   assert.equal(await page.locator('[data-preview-state=default] .seda-field').evaluate(e=>getComputedStyle(e).getPropertyValue('--seda-field-border').trim()),expected);
   assert.equal(await border('hover'),hover);assert.equal(await border('focus'),focus);
   await fs.mkdir('.diagnostics-select-studio',{recursive:true});
-  await page.screenshot({path:`.diagnostics-select-studio/${theme}.png`,fullPage:true});
+  await page.locator('.studio-select-states').evaluate(e=>e.scrollIntoView({block:'start'}));await page.screenshot({path:`.diagnostics-select-studio/${theme}.png`,fullPage:true});
   await page.getByRole('button',{name:'Отменить изменение',exact:true}).click();await saved();
  }
  // Edit from a state tile, persist, reload, and reset exactly the selected token.
@@ -64,5 +69,5 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);assert.ok(writes>=6);
- console.log('PASS: five real Select fixtures, state tokens in both themes, isolated autosave/reload, undo/reset, shared-role scope, mobile, no JS errors. API is a test fixture.');
+ console.log('PASS: seven real Select fixtures, state tokens in both themes, isolated autosave/reload, undo/reset, shared-role scope, mobile, no JS errors. API is a test fixture.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}

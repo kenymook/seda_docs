@@ -117,7 +117,9 @@
           "items": {
             "enum": [
               "none",
-              "error"
+              "error",
+              "warning",
+              "success"
             ]
           },
           "minItems": 1,
