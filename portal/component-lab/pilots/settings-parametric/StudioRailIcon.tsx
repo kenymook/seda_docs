@@ -3,6 +3,7 @@ import React from 'react';
 /** Editor navigation glyphs. SEDA IconButton owns sizing, states and accessibility. */
 export function StudioRailIcon({area}:{area:string}){
  const glyphs:Record<string,React.ReactNode>={
+  lab:<><path d="M9 3h6M10 3v6l-6 10a1.3 1.3 0 0 0 1.1 2h13.8a1.3 1.3 0 0 0 1.1-2L14 9V3M7 15h10"/><circle cx="10" cy="17" r=".7" fill="currentColor"/><circle cx="14" cy="18" r=".7" fill="currentColor"/></>,
   foundation:<><path d="M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1.4-3.4 1.5 1.5 0 0 1 1.1-2.6H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8Z"/><circle cx="7.5" cy="11" r=".8" fill="currentColor"/><circle cx="10" cy="6.8" r=".8" fill="currentColor"/><circle cx="15" cy="7.5" r=".8" fill="currentColor"/><circle cx="17.5" cy="11" r=".8" fill="currentColor"/></>,
   semantic:<><path d="m8 7 8 4M8 17l8-4M6 9v6"/><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/></>,
   components:<><path d="m12 2 4 4-4 4-4-4Zm-6 6 4 4-4 4-4-4Zm12 0 4 4-4 4-4-4Zm-6 6 4 4-4 4-4-4Z"/></>,

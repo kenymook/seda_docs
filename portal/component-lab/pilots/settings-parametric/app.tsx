@@ -1,3 +1,6 @@
+import {StudioHeader, StudioRail} from './StudioChrome';
+import {Tabs as ShellTabs} from '@seda-ai/ui';
+import './lab-studio.css';
 import {Table, Card, Avatar, Tooltip, Alert, Accordion, TopBar} from "@seda-ai/ui";
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
@@ -67,6 +70,7 @@ const HelpIcon = () => (
 );
 
 function App() {
+  const [rightPanel,setRightPanel]=useState("parameters");
   const [parameters, setParameters] = useState({ ...defaultParameters });
   const [view, setView] = useState("table");
   const [workspacePage, setWorkspacePage] = useState<WorkspacePage>("projects");
@@ -612,7 +616,7 @@ function App() {
     <SedaProvider id="lab-scope" theme={compiled.domTheme} controlSize="m" textScale={100} style={{display:"contents"}}>
     <ControlContractProvider compiled={compiled}>
       <div
-        className="shell"
+        className="shell lab-studio"
         id="lab"
         data-theme={compiled.domTheme}
         style={
@@ -623,28 +627,7 @@ function App() {
           } as React.CSSProperties
         }
       >
-        <TopBar className="top" label="SEDA AI Lab" variant="application" size="m" gutter="wide"
-          navigationLabel="Эталонные приложения"
-          items={[
-            {id:"lab",label:"Лаборатория",href:"./",selected:true},
-            {id:"files",label:"Файлы",href:"./references/recents.html"},
-            {id:"documents",label:"Документы",href:"./references/building.html"},
-            {id:"chat",label:"Чат",href:"./references/chat.html"},
-            {id:"sandbox",label:"Sandbox",href:"./references/sandbox.html"},
-            {id:"scene",label:"3D Scene",href:"./references/spline.html?context=scene"},
-            {id:"webflow",label:"Webflow",href:"./references/webflow.html"},
-            {id:"framer",label:"Framer",href:"./references/framer.html"},
-            {id:"workflow",label:"Workflow",href:"./references/workflow.html"},
-          ]}
-          brand={<div className="brand">
-            <span className="mark">S</span>
-            <div>
-              <b>SEDA AI</b>
-            </div>
-          </div>}
-          actions={<div className="lab-header-actions">
-            <span className="live-status"><span className="status-dot" aria-hidden="true"></span>Live calculations</span>
-            <Button size="s" variant="secondary"
+        <StudioHeader actions={<><Button size="s" variant="ghost"
               onClick={() => {
                 configure(initialConfiguration);
                 setParameters({ ...defaultParameters });
@@ -656,67 +639,15 @@ function App() {
             <Button size="s" variant="secondary" onClick={exportJson} id="export">
               Экспорт JSON
             </Button>
-          </div>}/>
-        <div className="workspace">
-          <aside className="rail">
-            <Text as="h2" variant="heading/compact">Параметры</Text>
-            <Text as="p" variant="body/small">
-              Измените параметры системы. Результат пересчитывается в
-              интерфейсе.
-            </Text>
-            <Button id="owner-lab-link" size="s" variant="text" iconRight={<Icon name="arrow-right" />} onClick={() => window.location.assign('./owner.html')}>Component Lab</Button>
-            <Select id="theme" label="Тема" value={compiled.domTheme}
-              options={ownerPolicy.availableThemes.map((theme: Configuration["theme"])=>({value:theme.toLowerCase(),label:theme}))}
-              onValueChange={value=>configure({theme:value==="light"?"Light":"Dark"})}/>
-            <Select id="size" label="Размер" value={configuration.controlSize}
-              options={ownerPolicy.availableSizes.map((s: Configuration["controlSize"])=>({value:s,label:`${s.toUpperCase()} · ${profiles[configuration.theme+":"+s].geometry.height.value}`}))}
-              onValueChange={value=>configure({controlSize:value as Configuration["controlSize"]})}/>
-            <div className="control">
-              <Slider id="scale" label="Масштаб текста" size="s" min={parameterRanges.scale.min} max={parameterRanges.scale.max} step={parameterRanges.scale.step} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
-              <div className="ends">
-                <Text variant="caption/tiny">{parameterRanges.scale.min}%</Text>
-                <Text variant="caption/tiny">{parameterRanges.scale.max}%</Text>
-              </div>
-            </div>
-            <div className="control">
-              <Slider id="air" label="Дополнительный отступ по Y" size="s" min={parameterRanges.air.min} max={parameterRanges.air.max} step={parameterRanges.air.step} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
-              <div className="ends">
-                <Text variant="caption/tiny">{parameterRanges.air.min}</Text>
-                <Text variant="caption/tiny">{parameterRanges.air.max}px</Text>
-              </div>
-            </div>
-            <div className="control">
-              <Slider id="airX" label="Дополнительный отступ по X" size="s" min={parameterRanges.airX.min} max={parameterRanges.airX.max} step={parameterRanges.airX.step} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
-              <div className="ends">
-                <Text variant="caption/tiny">{parameterRanges.airX.min}</Text>
-                <Text variant="caption/tiny">{parameterRanges.airX.max}px</Text>
-              </div>
-              <Text as="p" variant="caption/default" className="small">
-                К базовым отступам Button, TextField и Select. IconButton остаётся
-                квадратным.
-              </Text>
-            </div>
-            <div className="control">
-              <Slider id="radius" label="Множитель радиуса" size="s" min={parameterRanges.radius.min} max={parameterRanges.radius.max} step={parameterRanges.radius.step} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
-              <div className="ends">
-                <Text variant="caption/tiny">{(parameterRanges.radius.min/100).toFixed(2)}×</Text>
-                <Text variant="caption/tiny">{(parameterRanges.radius.max/100).toFixed(2)}×</Text>
-              </div>
-            </div>
-            <div className="sectionline"></div>
-            <Checkbox id="strict" label="Сохранять минимум высоты пресета"
-              checked={parameters.strict}
-              onCheckedChange={strict=>setParameters(p=>({...p,strict}))}/>
-            <Text as="p" variant="caption/default" className="small">
-              Если вычисленная высота меньше пресета, ограничение поднимает её
-              до минимальной.
-            </Text>
-            <Alert variant="info" size="s" title="Исходные профили"
-              description="S / M / L / XL — фиксированные пресеты. Формула служит общим ядром параметров SEDA и доступна через SedaProvider."/>
-          </aside>
+          </>}/>
+        <div className="workspace lab-studio-workspace">
+          <StudioRail area="lab"/>
+          <aside className="lab-navigation" aria-label="Навигация Lab"><div className="lab-panel-heading">SEDA AI Lab</div><nav aria-label="Навигация рабочего пространства">{[['projects','Проекты'],['settings','Настройки'],['members','Команда'],['editor','Редактор'],['components','Компоненты'],['feedback','Состояния']].map(([id,label])=><Button key={id} id={'nav-'+id} variant="ghost" aria-current={workspacePage===id?'page':undefined} onClick={()=>setWorkspacePage(id as WorkspacePage)}>{label}</Button>)}</nav><div className="lab-panel-heading">Примеры</div><nav aria-label="Эталонные приложения">{[['recents','Файлы'],['building','Документы'],['chat','Чат'],['sandbox','Sandbox'],['spline','3D Scene'],['webflow','Webflow'],['framer','Framer'],['workflow','Workflow']].map(([path,label])=><Button key={path} variant="ghost" onClick={()=>location.assign('./references/'+path+'.html'+(path==='spline'?'?context=scene':''))}>{label}</Button>)}</nav></aside>
+
+
           <main className="canvas" data-workspace style={workspaceStyle}>
             <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
-            <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale} onPageChange={setWorkspacePage}>
+            <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale} page={workspacePage}>
               <div className="section-top">
                 <div>
                   <Text as="h1" variant="heading/section">Product workspace</Text>
@@ -1113,7 +1044,61 @@ function App() {
             </ProductWorkspace>
             </SedaProvider>
           </main>
-          <aside className="inspector">
+          <aside className="lab-right-sidebar"><ShellTabs label="Панель Lab" value={rightPanel} onValueChange={setRightPanel} variant="line" items={[{value:'parameters',label:'Параметры',content:<>          <aside className="rail">
+            <Text as="h2" variant="heading/compact">Параметры</Text>
+            <Text as="p" variant="body/small">
+              Измените параметры системы. Результат пересчитывается в
+              интерфейсе.
+            </Text>
+            <Select id="theme" label="Тема" value={compiled.domTheme}
+              options={ownerPolicy.availableThemes.map((theme: Configuration["theme"])=>({value:theme.toLowerCase(),label:theme}))}
+              onValueChange={value=>configure({theme:value==="light"?"Light":"Dark"})}/>
+            <Select id="size" label="Размер" value={configuration.controlSize}
+              options={ownerPolicy.availableSizes.map((s: Configuration["controlSize"])=>({value:s,label:`${s.toUpperCase()} · ${profiles[configuration.theme+":"+s].geometry.height.value}`}))}
+              onValueChange={value=>configure({controlSize:value as Configuration["controlSize"]})}/>
+            <div className="control">
+              <Slider id="scale" label="Масштаб текста" size="s" min={parameterRanges.scale.min} max={parameterRanges.scale.max} step={parameterRanges.scale.step} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{parameterRanges.scale.min}%</Text>
+                <Text variant="caption/tiny">{parameterRanges.scale.max}%</Text>
+              </div>
+            </div>
+            <div className="control">
+              <Slider id="air" label="Дополнительный отступ по Y" size="s" min={parameterRanges.air.min} max={parameterRanges.air.max} step={parameterRanges.air.step} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{parameterRanges.air.min}</Text>
+                <Text variant="caption/tiny">{parameterRanges.air.max}px</Text>
+              </div>
+            </div>
+            <div className="control">
+              <Slider id="airX" label="Дополнительный отступ по X" size="s" min={parameterRanges.airX.min} max={parameterRanges.airX.max} step={parameterRanges.airX.step} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{parameterRanges.airX.min}</Text>
+                <Text variant="caption/tiny">{parameterRanges.airX.max}px</Text>
+              </div>
+              <Text as="p" variant="caption/default" className="small">
+                К базовым отступам Button, TextField и Select. IconButton остаётся
+                квадратным.
+              </Text>
+            </div>
+            <div className="control">
+              <Slider id="radius" label="Множитель радиуса" size="s" min={parameterRanges.radius.min} max={parameterRanges.radius.max} step={parameterRanges.radius.step} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{(parameterRanges.radius.min/100).toFixed(2)}×</Text>
+                <Text variant="caption/tiny">{(parameterRanges.radius.max/100).toFixed(2)}×</Text>
+              </div>
+            </div>
+            <div className="sectionline"></div>
+            <Checkbox id="strict" label="Сохранять минимум высоты пресета"
+              checked={parameters.strict}
+              onCheckedChange={strict=>setParameters(p=>({...p,strict}))}/>
+            <Text as="p" variant="caption/default" className="small">
+              Если вычисленная высота меньше пресета, ограничение поднимает её
+              до минимальной.
+            </Text>
+            <Alert variant="info" size="s" title="Исходные профили"
+              description="S / M / L / XL — фиксированные пресеты. Формула служит общим ядром параметров SEDA и доступна через SedaProvider."/>
+          </aside></>},{value:'inspector',label:'Инспектор',content:<>          <aside className="inspector">
             <Text as="h2" variant="heading/compact">Инспектор</Text>
             <Text as="p" variant="body/small">
               Выберите узел, чтобы увидеть значение, формулу и зависимые части
@@ -1287,7 +1272,7 @@ function App() {
                 </div>
               }]} />
             </Card>
-          </aside>
+          </aside></>}]} /></aside>
         </div>
       </div>
       <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>

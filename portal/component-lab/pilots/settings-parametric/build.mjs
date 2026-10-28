@@ -61,7 +61,7 @@ export async function buildPilot({
     path.join(packageRoot, 'owner-policy.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'StudioChrome.tsx', 'studio-chrome.css', 'lab-studio.css', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),

@@ -29,7 +29,7 @@ type Props = {
   children: React.ReactNode;
   typography: any;
   textScale: number;
-  onPageChange?: (page: WorkspacePage) => void;
+  page: WorkspacePage;
 };
 const teams = [
   { value: "Core", label: "Core" },
@@ -39,8 +39,8 @@ const teams = [
 ];
 
 /** Stateful product composition. Demo data stays in memory; no network invitation is sent. */
-export function ProductWorkspace({ size, action, children, typography, textScale, onPageChange }: Props) {
-  const [page, setPage] = useState<WorkspacePage>("projects");
+export function ProductWorkspace({ size, action, children, typography, textScale, page }: Props) {
+
   const [settingsTab, setSettingsTab] = useState("general");
   const invalidFocus = useRef<string | null>(null);
   const [settings, setSettings] = useState({
@@ -152,28 +152,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
         </div>
         <Text className="workspace-account" variant="caption/default">AK · Владелец</Text>
       </div>
-      <nav className="product-nav" aria-label="Навигация рабочего пространства">
-        {[
-          ["projects", "Проекты"],
-          ["settings", "Настройки"],
-          ["members", "Команда"],
-          ["editor", "Редактор"],
-          ["components", "Компоненты"],
-          ["feedback", "Состояния"],
-        ].map(([id, label]) => (
-          <Button
-            key={id}
-            {...action("cancel")}
-            size={size}
-            id={"nav-" + id}
-            aria-current={page === id ? "page" : undefined}
-            onClick={() => {const next=id as WorkspacePage;setPage(next);onPageChange?.(next);}}
-          >
-            {label}
-            {id === "members" ? " · " + members.length : ""}
-          </Button>
-        ))}
-      </nav>
+
       </div>
       <div id="projects-page" hidden={page !== "projects"}>
         {children}
