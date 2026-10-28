@@ -21,3 +21,4 @@
 @media(max-width:760px){.studio-workspace{display:flex}.studio-rail{justify-content:flex-start;padding:6px 12px}.studio-rail .seda-icon-button{flex:0 0 40px}}
 .studio-color-options button>span:not(.seda-icon){flex:1;min-width:0}.studio-color-options button>.seda-icon{width:16px;height:16px;flex:none;color:var(--icon-brand)}.studio-color-options button[aria-pressed=true]{box-shadow:inset 2px 0 var(--border-focus)}
 .studio-rail .seda-icon-button[aria-current=page]{color:var(--icon-primary);box-shadow:none}
+.studio-property-group{margin:0}.studio-property-group h3{font-size:14px;font-weight:600;color:var(--text-secondary);margin:8px 4px;padding:4px 0}.studio-property-group+.studio-property-group{border-top:1px solid var(--tk-line);margin-top:12px;padding-top:8px}
