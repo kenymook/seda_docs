@@ -1,0 +1,12 @@
+/node_modules/
+/dist/
+/public/
+/.next/
+/.vinext/
+/.sites-runtime/
+/.wrangler/
+next-env.d.ts
+worker/token-api.js
+*.tsbuildinfo
+.env*
+.dev.vars*
