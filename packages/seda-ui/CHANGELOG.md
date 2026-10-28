@@ -1,3 +1,9 @@
+## Unreleased — Select control-owned SEDA arrow
+
+- Replace the browser picker-icon border drawing with the original SEDA chevron in a decorative, pointer-transparent control slot. The slot stays centered when the picker opens and follows icon-size and field-padding tokens, including RTL.
+- Hide the native arrow to prevent duplicates; retain native selection, keyboard navigation and progressive picker styling. Multi-select has no disclosure arrow.
+- Verify actual arrow geometry in Chrome across Light/Dark, open/closed, LTR/RTL and five token-controlled slot sizes. Other browser engines retain native pickers and require separate verification.
+
 ## Unreleased — Tree and Select disclosure alignment (D39)
 
 - Use the SEDA chevron icon for Tree disclosure and keep its centre fixed while rotating between collapsed and expanded states, including RTL.

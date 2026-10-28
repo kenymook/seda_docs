@@ -2,6 +2,7 @@ import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
 import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
+import { Icon } from "../Icon";
 import type { SelectProps } from "./Select.types";
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -109,6 +110,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               </option>
             ))}
           </select>
+          {!multiple && <span className="seda-select__arrow" aria-hidden="true"><Icon name="arrow-chevron-down" /></span>}
         </span>
         {message != null ? (
           <span
