@@ -22,6 +22,7 @@ export function tokenStoreApi(tokens, sourceHash) {
    if(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site')return json({error:'Same origin required'},403);
    const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
    let body;try{body=JSON.parse(new TextDecoder().decode(bytes));}catch{return json({error:'Invalid JSON'},400);}
+   if(body.clientVersion!==2)return json({error:'Обновите страницу редактора перед сохранением.'},428);
    if(body.sourceTokensSha256!==sourceHash)return json({error:'Token source has changed'},409);
    if(!Number.isSafeInteger(body.revision)||body.revision<0||!body.edits||Array.isArray(body.edits)||typeof body.edits!=='object')return json({error:'Invalid document'},400);
    try{applyWorkbenchEdits(tokens,body.edits,catalog);}catch(error){return json({error:error.message},422);}

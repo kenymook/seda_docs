@@ -2,7 +2,7 @@ import {useEffect,useRef,useState} from 'react';
 type Edits=Record<string,string>;
 type Document={sourceTokensSha256:string;revision:number;edits:Edits;updatedAt:string|null};
 const same=(a:Edits,b:Edits)=>JSON.stringify(Object.entries(a).sort())===JSON.stringify(Object.entries(b).sort());
-const key='seda-token-workbench-confirmed-v1';
+const key='seda-token-workbench-confirmed-v2';
 export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>void,valid:boolean){
  const [status,setStatus]=useState('Подключение к базе…');
  const [ready,setReady]=useState(false);
@@ -43,7 +43,7 @@ export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>vo
   const timer=setTimeout(async()=>{
    busy.current=true;const snapshot={...current.current};const revision=base.current!.revision;
    try{
-    const response=await fetch('/api/token-document',{method:'PUT',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(15000),body:JSON.stringify({sourceTokensSha256:hash,revision,edits:snapshot})});
+    const response=await fetch('/api/token-document',{method:'PUT',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(15000),body:JSON.stringify({clientVersion:2,sourceTokensSha256:hash,revision,edits:snapshot})});
     const doc=await response.json();
     if(response.status===409&&doc.document){setConflict(doc.document);setStatus('Изменено в другой вкладке. Ваши правки сохранены локально.');setReady(false);return;}
     if(!response.ok)throw Error();accept(doc);setStatus(same(current.current,snapshot)?'Сохранено в базе':'Сохранение…');

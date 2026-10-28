@@ -19,7 +19,7 @@ type TokenEntry = { collection: Layer; mode: string; path: string; key: string; 
 const catalog = (colorCatalog(tokens) as TokenEntry[]).map(item => item.component === 'button' ? {...item, group:item.path.split('/').slice(1,3).join('/')} : item);
 const allCatalog=designCatalog(tokens);
 const byKey = new Map(allCatalog.map(item => [item.key, item]));
-const storageKey = 'seda-token-workbench-v1';
+const storageKey = 'seda-token-workbench-v2';
 const selectDefaultBorder = byKey.get(tokenKey('components', 'Mode 1', 'select/border/default'))!;
 const rolePresets: Record<string, string[]> = {
   border: ['border/subtle', 'border/default', 'border/strong', 'border/field/default', 'border/focus', 'status/danger/border'],
@@ -77,7 +77,7 @@ function componentSample(name: string, item: TokenEntry, label: string, vars: Re
 
 function restoreEdits(): Record<string, string> {
   try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+    const saved = JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem('seda-token-workbench-v1') || 'null');
     if (saved?.sourceTokensSha256 !== provenance.tokensSha256 || !saved.edits || typeof saved.edits !== 'object') return {};
     return Object.fromEntries(Object.entries(saved.edits).filter(([key, value]) => byKey.has(key) && typeof value === 'string' && value.length <= 120)) as Record<string, string>;
   } catch { return {}; }

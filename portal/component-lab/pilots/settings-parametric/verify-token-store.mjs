@@ -3,8 +3,9 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 const url=process.env.SEDA_STORE_URL||'http://127.0.0.1:5198';
 const get=()=>fetch(url+'/api/token-document').then(r=>r.json());
-const put=async(body,origin=url)=>{const r=await fetch(url+'/api/token-document',{method:'PUT',headers:{'Content-Type':'application/json',Origin:origin,Connection:'close'},body:JSON.stringify(body),signal:AbortSignal.timeout(10000)});const data=await r.json();return {status:r.status,json:async()=>data};};
+const put=async(body,origin=url)=>{const r=await fetch(url+'/api/token-document',{method:'PUT',headers:{'Content-Type':'application/json',Origin:origin,Connection:'close'},body:JSON.stringify({...body,clientVersion:2}),signal:AbortSignal.timeout(10000)});const data=await r.json();return {status:r.status,json:async()=>data};};
 let doc=await get();const hash=doc.sourceTokensSha256;
+const legacy=await fetch(url+'/api/token-document',{method:'PUT',headers:{'Content-Type':'application/json',Origin:url},body:JSON.stringify({...doc,edits:{}})});assert.equal(legacy.status,428);await legacy.text();
 assert.equal((await put({...doc,edits:{}},'https://foreign.example')).status,403);
 assert.equal((await put({...doc,edits:{unknown:'oklch(50% 0 0)'}})).status,422);
 assert.equal((await put({...doc,sourceTokensSha256:'old'})).status,409);
@@ -34,6 +35,7 @@ try{
  await fresh.getByRole('button',{name:'select/border/default color',exact:true}).click();await fresh.getByRole('dialog',{name:'Color role'}).getByRole('button',{name:'border/default',exact:true}).click();await fresh.keyboard.press('Escape');await fresh.waitForFunction(()=>document.querySelector('[role=status]')?.textContent.includes('Не удалось сохранить'));
  assert.equal((await get()).edits[key],'{border.strong}');await fresh.unroute('**/api/token-document');await fresh.getByRole('button',{name:'Синхронизировать',exact:true}).click();await fresh.waitForFunction(()=>document.querySelector('[role=status]')?.textContent.includes('Сохранено в базе'));assert.equal((await get()).edits[key],'{border.default}');
  await fresh.getByRole('button',{name:'Отступы',exact:true}).click();await fresh.getByRole('spinbutton').fill('12');await fresh.getByRole('button',{name:'Применить',exact:true}).click();await fresh.waitForFunction(()=>document.querySelector('[role=status]')?.textContent.includes('Сохранено в базе'));assert.equal((await get()).edits['foundation|Mode 1|space/m'],'12');assert.equal((await get()).edits[key],'{border.default}');
+ await fresh.evaluate(hash=>localStorage.setItem('seda-token-workbench-v1',JSON.stringify({sourceTokensSha256:hash,edits:{}})),hash);
  await fresh.reload();await fresh.getByRole('button',{name:'Отступы',exact:true}).click();await fresh.waitForFunction(()=>getComputedStyle(document.querySelector('.studio-spacing-specimen')).gap==='12px');
  for(const theme of ['Light','Dark']){await fresh.getByLabel('Theme').selectOption(theme);await fresh.screenshot({path:'.diagnostics-studio/database-'+theme+'.png',animations:'disabled',fullPage:true});}
  assert.deepEqual(errors,[]);
