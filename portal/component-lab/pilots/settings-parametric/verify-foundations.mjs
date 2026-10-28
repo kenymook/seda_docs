@@ -45,7 +45,7 @@ try{
  await update('Толщина рамки','border/width/m','1.5');assert.equal(await page.locator('.studio-border-specimen').evaluate(e=>e.style.borderWidth),'1.5px');
  await update('Анимация','duration/base','450');await page.getByRole('button',{name:'Воспроизвести',exact:true}).click();assert.equal(await page.locator('.studio-motion-marker').evaluate(e=>getComputedStyle(e).animationDuration),'0.45s');
  await update('Прозрачность','opacity/disabled','0.5');assert.equal(await page.locator('.studio-opacity-specimen>div').evaluate(e=>getComputedStyle(e).opacity),'0.5');
- await page.getByRole('spinbutton').fill('2');await page.getByRole('button',{name:'Применить',exact:true}).click();await page.getByRole('alert').waitFor();assert.equal(await page.locator('.studio-opacity-specimen>div').evaluate(e=>getComputedStyle(e).opacity),'0.5');
+ await page.getByRole('spinbutton').fill('2');await page.getByRole('button',{name:'Применить',exact:true}).click();await page.getByRole('complementary',{name:'Foundation inspector'}).getByRole('alert').waitFor();assert.equal(await page.locator('.studio-opacity-specimen>div').evaluate(e=>getComputedStyle(e).opacity),'0.5');
  await page.reload();await page.getByRole('button',{name:'Отступы',exact:true}).click();assert.equal(await page.locator('.studio-spacing-specimen').evaluate(e=>getComputedStyle(e).gap),'12px');
  await page.getByRole('button',{name:'Вернуть исходное значение',exact:true}).click();await page.waitForFunction(()=>getComputedStyle(document.querySelector('.studio-spacing-specimen')).gap==='8px');
  await page.getByRole('button',{name:'Компоненты',exact:true}).click();await page.getByRole('button',{name:'select/border/default color',exact:true}).waitFor();
