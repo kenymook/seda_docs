@@ -126,7 +126,7 @@ function TokenWorkbench() {
   const dependents = relations.dependents.length;
   const foundation = catalog.filter(item => item.collection === 'foundation');
   const semantic = catalog.filter(item => item.collection === 'semantic' && item.mode === theme);
-  const semanticOptions = semantic.map(item => ({ value: directAlias(item), label: `${item.path} · ${displayOklch(resolvedToken(draft.tokens, item, theme).value)}` }));
+  const semanticOptions = semantic.map(item => ({ value: directAlias(item), label: item.path }));
   const foundationOptions = foundation.map(item => ({ value: directAlias(item), label: `${item.path} · ${displayOklch(resolvedToken(draft.tokens, item, theme).value)}` }));
   const options = selected?.collection === 'semantic' ? foundationOptions : semanticOptions;
   const linkOptions = options.some(option => option.value === authored) ? options : [{ value: authored, label: `Original alias · ${authored}` }, ...options];
