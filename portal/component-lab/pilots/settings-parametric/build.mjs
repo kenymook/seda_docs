@@ -61,7 +61,7 @@ export async function buildPilot({
     path.join(packageRoot, 'owner-policy.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'StudioChrome.tsx', 'studio-chrome.css', 'lab-studio.css', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'StudioChrome.tsx', 'studio-chrome.css', 'lab-studio.css', 'release-preview.tsx', 'release-preview.css', 'release-preview.html', 'release-preview-model.mjs', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
@@ -109,7 +109,7 @@ export async function buildPilot({
   await fs.mkdir(outputDir, { recursive: true });
   const result = await build({
     absWorkingDir: pilotRoot,
-    entryPoints: [path.join(pilotRoot, 'app.tsx'), path.join(pilotRoot, 'owner.tsx'), path.join(pilotRoot, 'tokens.tsx')],
+    entryPoints: [path.join(pilotRoot, 'app.tsx'), path.join(pilotRoot, 'owner.tsx'), path.join(pilotRoot, 'tokens.tsx'), path.join(pilotRoot, 'release-preview.tsx')],
     outdir: outputDir,
     entryNames: '[name]',
     assetNames: 'assets/[name]-[hash]',
@@ -142,6 +142,7 @@ export async function buildPilot({
   await fs.copyFile(path.join(pilotRoot, 'index.html'), path.join(outputDir, 'index.html'));
   await fs.copyFile(path.join(pilotRoot, 'owner.html'), path.join(outputDir, 'owner.html'));
   await fs.copyFile(path.join(pilotRoot, 'tokens.html'), path.join(outputDir, 'tokens.html'));
+  await fs.copyFile(path.join(pilotRoot, 'release-preview.html'), path.join(outputDir, 'release-preview.html'));
   const installedPackage=path.join(pilotRoot,'node_modules/@seda-ai/ui');
   if((await fs.lstat(installedPackage)).isSymbolicLink())throw Error('Reference application requires an installed package, not a source link');
   const referenceOut=path.join(outputDir,'references');
@@ -180,7 +181,7 @@ export async function buildPilot({
     throw new Error('A source changed during the build. Rebuild before verifying the page.');
   }
   const artifacts = [];
-  for (const name of [...Object.keys(result.metafile.outputs), path.join(outputDir, 'index.html'), path.join(outputDir, 'owner.html'), path.join(outputDir, 'tokens.html'),...await filesBelow(referenceOut)]) {
+  for (const name of [...Object.keys(result.metafile.outputs), path.join(outputDir, 'index.html'), path.join(outputDir, 'owner.html'), path.join(outputDir, 'tokens.html'), path.join(outputDir, 'release-preview.html'),...await filesBelow(referenceOut)]) {
     const file = path.resolve(pilotRoot, name);
     const relative = path.relative(outputDir, file).split(path.sep).join('/');
     if (relative.startsWith('../')) throw new Error(`Unexpected output outside build directory: ${name}`);
