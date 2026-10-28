@@ -1,4 +1,6 @@
 import { createTokenResolver } from '../../../../packages/seda-contracts/src/tokens.mjs';
+import {foundationCatalog,validateFoundationValue} from './foundation-model.mjs';
+import {compileTypography} from '../../../../packages/seda-contracts/src/typography.mjs';
 import { parseOklch } from './owner-color.mjs';
 
 const modes = { foundation: ['Mode 1'], semantic: ['Light', 'Dark'], components: ['Mode 1'] };
@@ -25,7 +27,9 @@ export function colorCatalog(source) {
   return entries;
 }
 
-export function applyWorkbenchEdits(source, edits, catalog = colorCatalog(source)) {
+export function designCatalog(source){return [...colorCatalog(source),...foundationCatalog(source)];}
+
+export function applyWorkbenchEdits(source, edits, catalog = designCatalog(source)) {
   if (!edits || typeof edits !== 'object' || Array.isArray(edits)) throw new Error('Некорректный черновик токенов.');
   const byKey = new Map(catalog.map(item => [item.key, item]));
   const foundation = new Set(catalog.filter(item => item.collection === 'foundation').map(item => item.path));
@@ -35,19 +39,23 @@ export function applyWorkbenchEdits(source, edits, catalog = colorCatalog(source
     const item = byKey.get(key);
     if (!item) throw new Error(`Неизвестный токен ${key}.`);
     if (typeof value !== 'string' || value.length > 120) throw new Error(`Некорректное значение ${item.path}.`);
-    if (item.collection === 'foundation' && !parseOklch(value)) throw new Error(`Палитра ${item.path}: нужен OKLCH, например oklch(60% 0.15 240).`);
-    if (item.collection === 'semantic' && (!/^\{color\.[\w.-]+\}$/.test(value) || !foundation.has(value.slice(1, -1).replaceAll('.', '/')))) throw new Error(`Семантический токен ${item.path} должен ссылаться напрямую на цвет палитры.`);
-    if (item.collection === 'components' && (!/^\{[\w.-]+\}$/.test(value) || !semantic.has(value.slice(1, -1).replaceAll('.', '/')))) throw new Error(`Токен ${item.path} должен ссылаться на семантическую роль.`);
+    const isColor=!item.type||item.type==='color';
+    if (isColor && item.collection === 'foundation' && !parseOklch(value)) throw new Error(`Палитра ${item.path}: нужен OKLCH, например oklch(60% 0.15 240).`);
+    if (isColor && item.collection === 'semantic' && (!/^\{color\.[\w.-]+\}$/.test(value) || !foundation.has(value.slice(1, -1).replaceAll('.', '/')))) throw new Error(`Семантический токен ${item.path} должен ссылаться напрямую на цвет палитры.`);
+    if (isColor && item.collection === 'components' && (!/^\{[\w.-]+\}$/.test(value) || !semantic.has(value.slice(1, -1).replaceAll('.', '/')))) throw new Error(`Токен ${item.path} должен ссылаться на семантическую роль.`);
     let node = copy.$collections[item.collection].$modes[item.mode];
     for (const part of item.path.split('/')) node = node?.[part];
-    if (!node || node.$type !== 'color' || !own(node, '$value')) throw new Error(`Токен ${item.path} отсутствует в источнике.`);
-    node.$value = value;
+    if (!node || node.$type !== (item.type??'color') || !own(node, '$value')) throw new Error(`Токен ${item.path} отсутствует в источнике.`);
+    node.$value = isColor ? value : validateFoundationValue(item,value);
   }
   const resolver = createTokenResolver(copy);
   for (const item of catalog) {
     if (item.collection === 'semantic' && item.mode === 'Dark') continue;
-    for (const theme of ['Light', 'Dark']) resolver.resolve({ collection: item.collection, path: item.path.split('/'), expectedType: 'color' }, { theme });
+    for (const theme of ['Light', 'Dark']) resolver.resolve({ collection: item.collection, path: item.path.split('/'), expectedType: item.type??'color' }, { theme });
   }
+  compileTypography(resolver);
+  const fonts=copy.$collections.foundation.$modes['Mode 1'].font;
+  for(const node of Object.values(fonts))if(node&&typeof node==='object'&&!('$value' in node))for(const style of Object.values(node))if(style?.size&&style?.lineHeight&&style.lineHeight.$value<style.size.$value)throw Error('lineHeight must be at least font size.');
   return copy;
 }
 

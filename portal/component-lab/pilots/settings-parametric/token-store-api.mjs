@@ -1,7 +1,7 @@
-import {applyWorkbenchEdits, colorCatalog} from './token-workbench-model.mjs';
+import {applyWorkbenchEdits, designCatalog} from './token-workbench-model.mjs';
 const json=(value,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 export function tokenStoreApi(tokens, sourceHash) {
- const catalog=colorCatalog(tokens);
+ const catalog=designCatalog(tokens);
  return async function(request,db){
   const url=new URL(request.url);
   if(!db)return json({error:'Database unavailable'},503);
