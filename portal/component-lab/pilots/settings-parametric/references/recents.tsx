@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from '../SharedDesignProvider';
 import {Popover,Sidebar,TopBar,NotificationCenter,Search} from '@seda-ai/ui';
 import {ReferenceGlyph} from './reference-glyph';
 import {ReferenceTextScale} from './reference-text-scale';
@@ -25,6 +26,7 @@ type Modal={kind:'create';type:string}|{kind:'rename'|'open';id:string}|{kind:'d
 function routeSection(){const params=new URLSearchParams(location.search),section=params.get('section');return params.has('project')?'project:'+params.get('project')!.slice(0,160):section&&['recents','community','drafts','teams','trash','notifications'].includes(section)?section:'recents';}
 
 function RecentsWorkspace(){
+ const profiles=useSavedProfiles();
  const [newsOpen,setNewsOpen]=useState(false);
  const [headerScrolled,setHeaderScrolled]=useState(false);
  const [files,setFiles]=useState<WorkspaceFile[]>([]),[preferences,setPreferences]=useState<Preferences>(defaults);
@@ -155,4 +157,4 @@ function RecentsWorkspace(){
   </WorkspaceDialog>}
  </SedaProvider>;
 }
-createRoot(document.getElementById('root')!).render(<RecentsWorkspace/>);
+createRoot(document.getElementById('root')!).render(<SharedDesignProvider><RecentsWorkspace/></SharedDesignProvider>);

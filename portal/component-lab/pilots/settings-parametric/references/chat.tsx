@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from '../SharedDesignProvider';
 import {Sidebar,TopBar} from '@seda-ai/ui';
 import {ReferenceGlyph} from './reference-glyph';
 import {ReferenceTextScale} from './reference-text-scale';
@@ -12,6 +13,7 @@ const icon=(name:string,size=18,identity=false)=>identity?<img src={'./assets/ch
 const route=()=>new URLSearchParams(location.search).get('thread')??'design';
 type Modal='settings'|'search'|'attach'|'rename'|'trash'|'trash-list'|'reset'|'source'|'versions'|'help'|'clear'|'attachment-preview'|null;
 function Chat(){
+ const profiles=useSavedProfiles();
  const searchInput=useRef<HTMLInputElement>(null),shareInput=useRef<HTMLInputElement>(null);
  const [shareOpen,setShareOpen]=useState(false);
  const[model,setModel]=useState<ChatModel>(()=>structuredClone(initialChat)),current=useRef(model),[active,setActive]=useState(route),activeRef=useRef(active),[status,setStatus]=useState<'loading'|'ready'|'error'>('loading'),ready=useRef(false),mounted=useRef(false),saved=useRef('');
@@ -89,4 +91,4 @@ function Chat(){
  </WorkspaceDialog>}
  </SedaProvider>;
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><Chat/></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<SharedDesignProvider><React.StrictMode><Chat/></React.StrictMode></SharedDesignProvider>);

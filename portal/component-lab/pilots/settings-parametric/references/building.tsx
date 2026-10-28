@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from '../SharedDesignProvider';
 import {TopBar} from '@seda-ai/ui';
 import {ReferenceGlyph} from './reference-glyph';
 import {ReferenceTextScale} from './reference-text-scale';
@@ -25,6 +26,7 @@ type HistoryEntry={before:DocModel;after:DocModel;pageId:string;beforePageId?:st
 function route(){const params=new URLSearchParams(location.search);return{page:params.get('page')??'description',trash:params.get('trash')==='1'};}
 
 function Building(){
+ const profiles=useSavedProfiles();
  const [model,setModel]=useState<DocModel>(()=>structuredClone(initialDocument)),current=useRef(model),[saved,setSaved]=useState('');
  const [activeId,setActiveId]=useState(route().page),[trashView,setTrashView]=useState(route().trash),[expanded,setExpanded]=useState<readonly string[]>(['sdds-plasma','plasma-design']);
  const [preferences,setPreferences]=useState<Preferences>(defaults),[sidebar,setSidebar]=useState(220),[status,setStatus]=useState<'loading'|'ready'|'error'>('loading');
@@ -133,4 +135,4 @@ function Building(){
  </WorkspaceDialog>}
  </SedaProvider>;
 }
-createRoot(document.getElementById('root')!).render(<Building/>);
+createRoot(document.getElementById('root')!).render(<SharedDesignProvider><Building/></SharedDesignProvider>);

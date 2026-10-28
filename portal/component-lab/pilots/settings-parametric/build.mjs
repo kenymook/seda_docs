@@ -61,7 +61,7 @@ export async function buildPilot({
     path.join(packageRoot, 'owner-policy.json'),
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
-    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'StudioChrome.tsx', 'studio-chrome.css', 'lab-studio.css', 'release-preview.tsx', 'release-preview.css', 'release-preview.html', 'release-preview-model.mjs', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
+    ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'StudioChrome.tsx', 'studio-chrome.css', 'lab-studio.css', 'SharedDesignProvider.tsx', 'shared-design.css', 'saved-design-model.mjs', 'release-preview.tsx', 'release-preview.css', 'release-preview.html', 'release-preview-model.mjs', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
   ].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
@@ -105,7 +105,9 @@ export async function buildPilot({
     contractComponents,
     tokenBranches: Object.keys(tokens.$collections.components.$modes['Mode 1']),
   };
-  const catalog = { profiles, profile: engine.bundle.profile, provenance, ownerPolicy, system: engine.bundle.system, componentCoverage, tokens };
+  const libraryBindings=JSON.parse(await fs.readFile(path.join(libraryRoot,'dist/profiles.json'),'utf8'));
+  const buttonContract=engine.bundle.contracts.find(item=>item.id==='Button');
+  const catalog = {libraryBindings,buttonContract, profiles, profile: engine.bundle.profile, provenance, ownerPolicy, system: engine.bundle.system, componentCoverage, tokens };
   await fs.mkdir(outputDir, { recursive: true });
   const result = await build({
     absWorkingDir: pilotRoot,
@@ -149,6 +151,7 @@ export async function buildPilot({
   const referenceBuild=await build({
     absWorkingDir:pilotRoot,entryPoints:['recents','building','chat','sandbox','spline','webflow','framer','workflow'].map(name=>path.join(pilotRoot,'references',name+'.tsx')),outdir:referenceOut,
     bundle:true,format:'esm',jsx:'automatic',target:'es2020',metafile:true,minify:true,
+    alias:{react:path.join(pilotRoot,'node_modules/react'),'react-dom':path.join(pilotRoot,'node_modules/react-dom'),'@seda-ai/ui/styles.css':path.join(pilotRoot,'node_modules/@seda-ai/ui/dist/styles.css'),'@seda-ai/ui':path.join(pilotRoot,'node_modules/@seda-ai/ui/dist/index.js')},
     loader:{'.woff':'file','.woff2':'file'},assetNames:'fonts/[name]-[hash]',
     plugins:[{name:'reference-contract-catalog',setup(builder){
       builder.onResolve({filter:/^seda:catalog$/},()=>({path:'catalog',namespace:'seda'}));
@@ -161,9 +164,9 @@ export async function buildPilot({
     const branch=engine.resolver.resolveBranch({collection:'components',path:['sidebar']},{theme}).children;
     const selected=branch.item.surface.selected,accent=branch.item.accent.selected;
     navigationProvenance[theme]={selected,accent};
-    await fs.appendFile(path.join(referenceOut,'recents.css'),`\n.reference-app[data-seda-theme="${theme.toLowerCase()}"]{--reference-nav-selected:${selected.cssValue};--reference-nav-accent:${accent.cssValue};}\n`);
-    await fs.appendFile(path.join(referenceOut,'chat.css'),`\n.chat-app[data-seda-theme="${theme.toLowerCase()}"]{--chat-nav-selected:${selected.cssValue};--chat-nav-accent:${accent.cssValue};}\n`);
-    await fs.appendFile(path.join(referenceOut,'sandbox.css'),`\n.sandbox-app[data-seda-theme="${theme.toLowerCase()}"]{--sandbox-nav-selected:${selected.cssValue};--sandbox-nav-accent:${accent.cssValue};}\n`);
+    await fs.appendFile(path.join(referenceOut,'recents.css'),`\n.reference-app[data-seda-theme="${theme.toLowerCase()}"]{--reference-nav-selected:var(--sidebar-item-surface-selected);--reference-nav-accent:var(--sidebar-item-accent-selected);}\n`);
+    await fs.appendFile(path.join(referenceOut,'chat.css'),`\n.chat-app[data-seda-theme="${theme.toLowerCase()}"]{--chat-nav-selected:var(--sidebar-item-surface-selected);--chat-nav-accent:var(--sidebar-item-accent-selected);}\n`);
+    await fs.appendFile(path.join(referenceOut,'sandbox.css'),`\n.sandbox-app[data-seda-theme="${theme.toLowerCase()}"]{--sandbox-nav-selected:var(--sidebar-item-surface-selected);--sandbox-nav-accent:var(--sidebar-item-accent-selected);}\n`);
   }
   if(referenceInputs.some(file=>/seda-ui[\\/]src[\\/]/.test(file))||!referenceInputs.some(file=>file.includes('node_modules/@seda-ai/ui/dist/components/Button/Button.js')))throw Error('Reference must consume installed SEDA public ESM');
   await fs.cp(path.join(pilotRoot,'references/assets'),path.join(referenceOut,'assets'),{recursive:true});

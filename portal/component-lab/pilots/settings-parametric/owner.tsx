@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from './SharedDesignProvider';
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Alert, Button, Checkbox, Icon, IconButton, NumberField, Radio, Select, SedaProvider, Slider, Table, Text, TextField, Toggle, TopBar } from '@seda-ai/ui';
@@ -79,6 +80,7 @@ function defaults(policy: any) {
 }
 
 function OwnerLab() {
+ const profiles=useSavedProfiles();
   const [restored] = useState(restoredDraft);
   const [compactNav, setCompactNav] = useState(() => window.innerWidth < 600);
   useEffect(() => {
@@ -309,4 +311,4 @@ function OwnerLab() {
   </SedaProvider>;
 }
 
-createRoot(document.getElementById('root')!).render(<OwnerLab />);
+createRoot(document.getElementById('root')!).render(<SharedDesignProvider><OwnerLab /></SharedDesignProvider>);

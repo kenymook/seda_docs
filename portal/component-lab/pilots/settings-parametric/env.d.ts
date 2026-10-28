@@ -1,4 +1,6 @@
 declare module 'seda:catalog' {
+  export const libraryBindings: any;
+  export const buttonContract: any;
   export const profiles: Record<string, any>;
   export const profile: any;
   export const provenance: any;

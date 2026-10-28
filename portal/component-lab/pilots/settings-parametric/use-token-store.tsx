@@ -11,7 +11,7 @@ export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>vo
  const [conflict,setConflict]=useState<Document|null>(null);
  const base=useRef<Document|null>(null),current=useRef(edits),busy=useRef(false);
  current.current=edits;
- function accept(doc:Document){base.current=doc;localStorage.setItem(key,JSON.stringify(doc));}
+ function accept(doc:Document){base.current=doc;try{localStorage.setItem(key,JSON.stringify(doc));}catch{}window.dispatchEvent(new Event('seda-design-saved'));try{const channel=new BroadcastChannel('seda-design');channel.postMessage({revision:doc.revision});channel.close();}catch{}}
  useEffect(()=>{let stopped=false;
   async function load(){
    try{

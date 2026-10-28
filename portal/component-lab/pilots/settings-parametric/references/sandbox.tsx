@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from '../SharedDesignProvider';
 import {EditorDock,editorCanvasMinimum} from './editor-dock';
 import {ReferenceGlyph} from './reference-glyph';
 import React,{useCallback,useEffect,useRef,useState}from'react';import{createRoot}from'react-dom/client';
@@ -15,6 +16,7 @@ function revealToolbarAction(event:React.FocusEvent<HTMLDivElement>){
  if(delta)toolbar.scrollBy({left:delta,behavior:'instant'});
 }
 function Sandbox(){
+ const profiles=useSavedProfiles();
  const[initialController]=useState(()=>new m.SceneHistory(m.initialScene()));const controller=useRef(initialController),[state,setState]=useState(controller.current.state),stateRef=useRef(state),[preview,setPreview]=useState<m.SceneState|null>(null),[gesture,setGesture]=useState(false),[status,setStatus]=useState<'loading'|'ready'|'error'>('loading'),[saved,setSaved]=useState(''),[busy,setBusy]=useState(false),lock=useRef(false),request=useRef(0),mounted=useRef(false);
  const[prefs,setPrefs]=useState<SandboxPreferences>(defaultSandboxPreferences),[sidebar,setSidebar]=useState(233),[canvasWidth,setCanvasWidth]=useState(Math.max(320,innerWidth-648)),[tool,setTool]=useState<CanvasTool>('select'),[tab,setTab]=useState('design'),[modal,setModal]=useState<Modal>(null),[query,setQuery]=useState(''),[name,setName]=useState(''),[notice,setNotice]=useState(''),[error,setError]=useState(''),[pendingCount,setPendingCount]=useState(0),pending=useRef(new Set<string>()),lastTrigger=useRef<HTMLElement|null>(null),uploadEpoch=useRef(0),[uploading,setUploading]=useState(false),[presentation,setPresentation]=useState<string>('artboard-1');
  const display=preview??state,page=m.activePage(display),selection=display.selection,enabled=status==='ready'&&!gesture,camera=m.cameraFor(display),dirty=status==='ready'&&m.serializeScene(state)!==saved;
@@ -132,4 +134,4 @@ function Sandbox(){
  </WorkspaceDialog>}
  </SedaProvider>;
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><Sandbox/></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<SharedDesignProvider><React.StrictMode><Sandbox/></React.StrictMode></SharedDesignProvider>);

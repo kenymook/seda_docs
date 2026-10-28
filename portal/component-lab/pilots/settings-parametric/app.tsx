@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from './SharedDesignProvider';
 import {StudioHeader, StudioRail} from './StudioChrome';
 import {Tabs as ShellTabs} from '@seda-ai/ui';
 import './lab-studio.css';
@@ -70,6 +71,7 @@ const HelpIcon = () => (
 );
 
 function App() {
+  const profiles=useSavedProfiles();
   const [rightPanel,setRightPanel]=useState("parameters");
   const [parameters, setParameters] = useState({ ...defaultParameters });
   const [view, setView] = useState("table");
@@ -1368,4 +1370,4 @@ function App() {
     </SedaProvider>
   );
 }
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(<SharedDesignProvider><App /></SharedDesignProvider>);

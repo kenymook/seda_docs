@@ -1,3 +1,4 @@
+import {SharedDesignProvider,useSavedProfiles} from '../SharedDesignProvider';
 import {Accordion} from '@seda-ai/ui';
 import {EditorDock,editorCanvasMinimum} from './editor-dock';
 import {ReferenceGlyph} from './reference-glyph';
@@ -16,6 +17,7 @@ const preferencesKey='seda.reference.spline.preferences.v1',panelKey='seda.refer
 const editing=(target:EventTarget|null)=>target instanceof Element&&!!target.closest('input,textarea,select,[contenteditable=true],[role=menu]');
 type Modal='settings'|'export'|'help'|'code'|null;
 function Spline(){
+ const profiles=useSavedProfiles();
  const [history]=useState(()=>new m.SplineHistory(m.initialDocument())),[document,setDocument]=useState(history.document),documentRef=useRef(document),[view,setView]=useState(()=>m.initialView(new URLSearchParams(location.search).get('context')==='object'?'object':'scene')),viewRef=useRef(view);
  const [saveController,setSaveController]=useState(()=>new m.SplineSave(document)),saveRef=useRef(saveController),[busy,setBusy]=useState(false),[loadState,setLoadState]=useState<'loading'|'ready'|'error'>('loading'),[notice,setNotice]=useState(''),[error,setError]=useState(''),mounted=useRef(false);
  const [prefs,setPrefs]=useState<Preferences>({...defaults,size:'s'}),[textScale,setTextScale]=useState(100),[left,setLeft]=useState(320),[right,setRight]=useState(230),[editorExtent,setEditorExtent]=useState(innerWidth-328),editorHost=useRef<HTMLDivElement>(null),[modal,setModal]=useState<Modal>(null),trigger=useRef<HTMLElement|null>(null),[query,setQuery]=useState(''),[prompt,setPrompt]=useState(''),[agentNotice,setAgentNotice]=useState('');
@@ -82,4 +84,4 @@ function Spline(){
  </WorkspaceDialog>}
  </SedaProvider>;
 }
-createRoot(document.getElementById('root')!).render(<Spline/>);
+createRoot(document.getElementById('root')!).render(<SharedDesignProvider><Spline/></SharedDesignProvider>);
