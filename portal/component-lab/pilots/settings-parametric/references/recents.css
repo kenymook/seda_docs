@@ -82,3 +82,4 @@
 
 /* In a short desktop window a wrapped toolbar must scroll away instead of covering the workspace. */
 @media(max-height:640px){.reference-header{position:relative;top:auto}}
+.reference-folder-path{padding:8px 24px 0;min-width:0}

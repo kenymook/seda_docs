@@ -29,7 +29,8 @@
     "verify:field-paint": "node verify-field-state-paint.mjs",
     "verify:field-validation": "node verify-field-validation.mjs",
     "verify:part-navigation": "node verify-studio-part-navigation.mjs",
-    "verify:source-migration": "node verify-token-source-migration.mjs"
+    "verify:source-migration": "node verify-token-source-migration.mjs",
+    "verify:breadcrumbs": "node verify-breadcrumbs-workspace.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",

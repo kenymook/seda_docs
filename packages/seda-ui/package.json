@@ -22,7 +22,8 @@
     "typecheck": "tsc --noEmit",
     "build": "node scripts/build.mjs",
     "prepack": "npm run build",
-    "verify:package": "node scripts/verify-package.mjs"
+    "verify:package": "node scripts/verify-package.mjs",
+    "verify:breadcrumbs": "node scripts/verify-breadcrumbs-package.mjs"
   },
   "peerDependencies": {
     "react": ">=18",

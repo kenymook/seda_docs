@@ -182,6 +182,18 @@ Figma component set: `Breadcrumbs`. Node id: `6220:927`.
 
 ## 9. Code mapping
 
+### React runtime — 2026-10-29
+
+Публичный `Breadcrumbs` экспортируется из `@seda-ai/ui`. Это experimental native-композиция; наличие реализации не заменяет приёмку Figma/OS/AT или отдельный instance contract.
+
+- `label` именует `nav`; `items` — непустой массив уникальных `id`, строковых `label`, `href`, optional `disabled`, `icon`, `onClick`. Доступным предкам нужен `href`. Последний item всегда текущий: `span[aria-current=page]`, даже если приложение передало ему `href`. Недоступные предки — текст, без fake links и без Tab stop.
+- `variant="ghost" | "text"`, `separator="slash" | "triangle"`; `size` наследуется из Provider (standalone `m`). Цвета берутся из существующей ветки `breadcrumbs`. Геометрия наследует общие параметры SEDA; дополнительных токенов нет. На coarse pointer ссылки и disclosure имеют минимум 44 × 44 px; плотные desktop sizes остаются доступными.
+- `maxItems` (целое, минимум 3, default 4) задаёт порог сокращения, а не число DOM-узлов: выше порога видны первый, предпоследний, текущий item и disclosure. `expandLabel` локализует его имя (default `Show full path`). Нажатие раскрывает промежуточные уровни inline и переводит фокус на первого доступного раскрытого предка, либо `nav`, если все предки недоступны. Полный путь переносится; данные не теряются в ellipsis.
+- Смена `id`/`href`/`label` иерархии сбрасывает раскрытие; смена темы/размера его сохраняет. Маршруты и обработка модифицированных кликов принадлежат приложению. Component не создаёт menu, router, page history, persistence или новые IA levels.
+- В Studio есть реальный предпросмотр. В Files композиция появляется внутри папки и возвращает в исходную коллекцию с сохранением фильтров; это локальная модель файлов, не серверная файловая система.
+
+Проверка реализации: `npm --prefix packages/seda-ui run verify:breadcrumbs` — packed-package React 18/19, SSR, публичные типы, клавиатура, collapse, токены обеих тем, длинные RTL/LTR пути, масштаб текста/иконки, forced colors. Отдельная проверка Studio/Files — `node verify-breadcrumbs-workspace.mjs` из pilot. Свежая пиксельная сверка с Figma node `6220:927`, Firefox/WebKit и screen reader acceptance остаются открытыми.
+
 | Design concept | Suggested prop / API | Правило |
 | --- | --- | --- |
 | Variant | `variant` | Маппится на Figma `variant`: `ghost` или `text`. |

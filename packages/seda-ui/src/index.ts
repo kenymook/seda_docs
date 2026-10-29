@@ -40,3 +40,4 @@ export * from './components/Popover';
 export * from './components/Slider';
 export * from './components/NumberField';
 export * from './components/InlineToolbar';
+export * from './components/Breadcrumbs';

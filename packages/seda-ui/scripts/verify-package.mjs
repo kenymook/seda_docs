@@ -19,6 +19,7 @@ import { verifyTabs } from "./verify-tabs.mjs";
 import { verifyMenu } from "./verify-menu.mjs";
 import { verifySplitView } from "./verify-split-view.mjs";
 import { verifyLink } from "./verify-link.mjs";
+import { verifyBreadcrumbs } from './verify-breadcrumbs.mjs';
 import { verifyFileUpload } from "./verify-file-upload.mjs";
 import { verifyFeedback } from "./verify-feedback.mjs";
 import { verifyToastHost } from "./verify-toast-host.mjs";
@@ -556,6 +557,7 @@ const options:ToastOptions={title:'Saved',action:<button>Invented</button>};retu
     await check("react-"+version+"-textarea",()=>verifyTextArea({cwd,browser,version}));
     await check("react-"+version+"-typography",()=>verifyTypography({cwd,browser,version}));
     await check("react-"+version+"-link-variants",()=>verifyLink({cwd,browser,version}));
+    await check('react-'+version+'-breadcrumbs',()=>verifyBreadcrumbs({cwd,browser,version}));
     await check("react-"+version+"-file-upload",()=>verifyFileUpload({cwd,browser,version}));
     await check("react-"+version+"-feedback",()=>verifyFeedback({cwd,browser,version}));
     await check("react-"+version+"-toast-host",()=>verifyToastHost({cwd,browser,version}));

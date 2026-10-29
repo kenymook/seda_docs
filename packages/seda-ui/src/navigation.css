@@ -1,4 +1,26 @@
 .seda-tree.seda-provider { background:transparent; }
+.seda-breadcrumbs-scope.seda-provider{min-width:0;max-width:100%;background:transparent}
+.seda-breadcrumbs{box-sizing:border-box;min-width:0;max-width:100%;background:var(--breadcrumbs-surface-default);color:var(--breadcrumbs-foreground-default);font-family:var(--seda-font-family,system-ui,sans-serif);font-size:var(--seda-control-font-size,var(--seda-preset-font-size));line-height:var(--seda-control-line-height,var(--seda-preset-line-height))}
+.seda-breadcrumbs__list{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:0;padding:0;list-style:none}
+.seda-breadcrumbs__level{display:flex;align-items:center;gap:4px;min-width:0;max-width:100%}
+.seda-breadcrumbs__item{box-sizing:border-box;display:inline-flex;align-items:center;gap:var(--seda-control-gap,var(--seda-preset-gap));min-width:0;max-width:100%;min-height:var(--seda-control-height,var(--seda-preset-height));padding:0 var(--seda-control-padding-inline,var(--seda-preset-field-padding));border:1px solid var(--breadcrumbs-border-default);border-radius:var(--seda-control-radius,var(--seda-preset-radius));background:var(--breadcrumbs-item-surface-default);color:var(--breadcrumbs-item-foreground-default);font:inherit;text-decoration:none;text-align:start;cursor:pointer}
+.seda-breadcrumbs__label{min-width:0;overflow-wrap:anywhere}
+.seda-breadcrumbs__item:is(a,button):hover{background:var(--breadcrumbs-item-surface-hover);border-color:var(--breadcrumbs-border-hover);color:var(--breadcrumbs-item-foreground-hover)}
+.seda-breadcrumbs__item:is(a,button):active{background:var(--breadcrumbs-item-surface-active);border-color:var(--breadcrumbs-border-pressed)}
+.seda-breadcrumbs[data-variant=text] .seda-breadcrumbs__item{padding-inline:0;background:transparent}
+.seda-breadcrumbs[data-variant=text] .seda-breadcrumbs__item:is(a,button):hover{text-decoration:underline;text-underline-offset:3px}
+.seda-breadcrumbs__item[aria-current]{color:var(--breadcrumbs-item-foreground-current);cursor:default}
+.seda-breadcrumbs__item[aria-disabled=true]{color:var(--breadcrumbs-item-foreground-disabled);background:var(--breadcrumbs-item-surface-disabled);border-color:var(--breadcrumbs-border-disabled);cursor:not-allowed}
+.seda-breadcrumbs__item:focus-visible{outline:2px solid var(--breadcrumbs-focus-ring);outline-offset:2px}
+.seda-breadcrumbs__icon{display:inline-flex;flex:none;align-items:center;justify-content:center;width:var(--seda-control-icon-size,var(--seda-preset-icon-size));height:var(--seda-control-icon-size,var(--seda-preset-icon-size));color:var(--breadcrumbs-item-icon-default)}
+.seda-breadcrumbs__icon>:is(svg,img,.seda-icon){width:100%;height:100%;object-fit:contain}
+.seda-breadcrumbs__item:is(a,button):hover .seda-breadcrumbs__icon{color:var(--breadcrumbs-item-icon-hover)}
+.seda-breadcrumbs__item[aria-disabled=true] .seda-breadcrumbs__icon{color:var(--breadcrumbs-item-icon-disabled)}
+.seda-breadcrumbs__separator{display:inline-flex;flex:none;align-items:center;justify-content:center;color:var(--breadcrumbs-separator-foreground);width:var(--seda-control-icon-size,var(--seda-preset-icon-size));height:var(--seda-control-icon-size,var(--seda-preset-icon-size))}
+.seda-breadcrumbs__separator>i{width:0;height:0;border-block:4px solid transparent;border-inline-start:5px solid currentColor}
+.seda-breadcrumbs:dir(rtl) .seda-breadcrumbs__separator>i{transform:rotate(180deg)}
+@media(forced-colors:active){.seda-breadcrumbs__item[aria-current]{color:CanvasText}.seda-breadcrumbs__item[aria-disabled=true]{color:GrayText}.seda-breadcrumbs__item:focus-visible{outline-color:Highlight}}
+@media(pointer:coarse){.seda-breadcrumbs__item:is(a,button){min-height:max(44px,var(--seda-control-height,var(--seda-preset-height)));min-width:44px}}
 .seda-tree { min-width:0; font-family:var(--seda-font-family,system-ui,sans-serif); }
 .seda-tree__item { outline:none; }
 .seda-tree__row { box-sizing:border-box; display:flex; align-items:center; min-height:var(--seda-control-height,var(--seda-preset-height)); gap:var(--seda-control-gap,var(--seda-preset-gap)); padding-inline-end:var(--seda-control-padding-inline,var(--seda-preset-field-padding)); border-radius:var(--seda-control-radius,var(--seda-preset-radius)); color:var(--tree-foreground-default); background:var(--tree-row-surface-default); font-size:var(--seda-control-font-size,var(--seda-preset-font-size)); line-height:var(--seda-control-line-height,var(--seda-preset-line-height)); cursor:default; user-select:none; }

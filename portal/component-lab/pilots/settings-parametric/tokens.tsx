@@ -7,7 +7,7 @@ import {useTokenStore} from './use-token-store';
 import {migrateTokenDocument} from './token-source-migration.mjs';
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Button, Checkbox, Icon, IconButton, Popover, Radio, Select, SedaProvider, TextField, Toggle, TopBar } from '@seda-ai/ui';
+import { Breadcrumbs, Button, Checkbox, Icon, IconButton, Popover, Radio, Select, SedaProvider, TextField, Toggle, TopBar } from '@seda-ai/ui';
 import { componentCoverage, provenance, tokens, profiles, libraryBindings, buttonContract } from 'seda:catalog';
 import { displayHex, displayOklch, hexToOklch, pickerHex } from './owner-color.mjs';
 import { applyWorkbenchEdits, designCatalog, colorCatalog, directAlias, resolvedToken, tokenKey, tokenRelations, workbenchColorVariables } from './token-workbench-model.mjs';
@@ -66,6 +66,7 @@ function componentSample(name: string, item: TokenEntry, label: string, vars: Re
   const path = item.path;
   const disabled = path.endsWith('/disabled');
   const error = path.endsWith('/error');
+  if (name === 'breadcrumbs') return <Breadcrumbs label="Путь документа" expandLabel="Показать весь путь" items={[{id:'workspace',label:'Atlas',href:'#atlas',disabled,icon:<Icon name="monitor"/>},{id:'project',label:'Проекты',href:'#projects',disabled},{id:'current',label:'Документ'}]} />;
   if (name === 'select') return <Select label={label} options={[{ value: 'all', label: 'Все роли' },{value:'editor',label:'Редактор'},{value:'viewer',label:'Наблюдатель'}]} defaultValue="all" disabled={disabled} readOnly={path.endsWith('/read-only')} loading={path.endsWith('/loading')} warningText={path.endsWith('/warning') ? 'Проверьте доступ' : undefined} successText={path.endsWith('/success') ? 'Доступ подтверждён' : undefined} errorText={error ? 'Проверьте значение' : undefined} />;
   if (name === 'text-field') return <TextField label={label} defaultValue="Atlas" disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} warningText={path.endsWith('/warning') ? 'Требуется проверка' : undefined} successText={path.endsWith('/success') ? 'Значение подтверждено' : undefined} />;
   if (name === 'checkbox') return <Checkbox label={label} defaultChecked={path.includes('/checked') || path.includes('/indeterminate')} disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} />;

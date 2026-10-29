@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {chromium,firefox,webkit} from 'playwright';
 import {createPilotServer} from './server.mjs';
 const engineName=process.env.SEDA_BROWSER_ENGINE||'chromium',engines={chromium,firefox,webkit};if(!Object.hasOwn(engines,engineName))throw Error('Unsupported browser engine: '+engineName);
@@ -9,6 +10,10 @@ const server=await createPilotServer({port:0}),base='http://127.0.0.1:'+server.a
 const browser=await engines[engineName].launch({headless:true,...(process.env.SEDA_BROWSER_EXECUTABLE?{executablePath:process.env.SEDA_BROWSER_EXECUTABLE}:{})});
 const page=await browser.newPage({viewport:{width:1440,height:1288}}),errors=[],results=[];page.setDefaultTimeout(8000);
 page.on('pageerror',error=>errors.push(error.message));
+// This local application runner supplies the shared store explicitly. Offline-store
+// behaviour is covered separately; an unavailable API banner must not mask file actions.
+const sourceTokensSha256=createHash('sha256').update(await fs.readFile('../../../../tokens.json')).digest('hex');
+await page.route('**/api/token-document',route=>{assert.equal(route.request().method(),'GET','Files never writes shared design settings');return route.fulfill({json:{sourceTokensSha256,revision:0,edits:{},updatedAt:null}});});
 const list=()=>page.locator('[role=listitem][data-file-id]'),file=id=>page.locator('[data-file-id="'+id+'"]');
 const settle=()=>page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
 async function ready(){await page.waitForSelector('[data-reference=recents][data-status=ready]');await page.evaluate(()=>document.fonts.ready);await settle();}
@@ -35,12 +40,12 @@ try{
   await page.locator('#reference-search').fill('Sandbox');assert.equal(await list().count(),1);await page.locator('#reference-type').selectOption('published');assert.equal(await list().count(),0);assert.equal(await page.getByRole('heading',{name:'Файлы не найдены'}).count(),1);
   await page.getByRole('button',{name:'Сбросить фильтры',exact:true}).click();assert.equal(await list().count(),25);
   await page.getByRole('tab',{name:'Recently viewed',exact:true}).focus();await page.keyboard.press('ArrowRight');assert.equal(await page.getByRole('tab',{name:'Shared files',exact:true}).getAttribute('aria-selected'),'true');assert.ok(await list().count()<25);
-  await page.keyboard.press('ArrowRight');assert.equal(await page.getByRole('tab',{name:'Shared folders',exact:true}).getAttribute('aria-selected'),'true');assert.equal(await page.locator('.reference-folder-grid').count(),1);await page.locator('.reference-folder-grid button').first().click();assert.ok(await list().count()>0);await page.getByRole('link',{name:'Recents',exact:true}).click();
+  await page.keyboard.press('ArrowRight');assert.equal(await page.getByRole('tab',{name:'Shared folders',exact:true}).getAttribute('aria-selected'),'true');assert.equal(await page.locator('.reference-folder-grid').count(),1);await page.locator('.reference-folder-grid button').first().click();assert.ok(await list().count()>0);await page.locator('.seda-sidebar').getByRole('link',{name:'Recents',exact:true}).click();
   return {coupled:true,keyboardTabs:true,folderNavigation:true};
  });
  await check('reference-real-navigation-and-history',async()=>{
   await page.getByRole('link',{name:'Drafts',exact:true}).click();assert.equal(new URL(page.url()).searchParams.get('section'),'drafts');assert.ok(await list().count()>0);await page.reload();await ready();assert.equal(await page.getByRole('heading',{name:'Drafts',exact:true}).count(),1);
-  await page.getByRole('link',{name:'Trash',exact:true}).click();assert.equal(await page.getByRole('heading',{name:'Корзина пуста'}).count(),1);await page.goBack();assert.equal(await page.getByRole('heading',{name:'Drafts',exact:true}).count(),1);await page.getByRole('link',{name:'Recents',exact:true}).click();
+  await page.getByRole('link',{name:'Trash',exact:true}).click();assert.equal(await page.getByRole('heading',{name:'Корзина пуста'}).count(),1);await page.goBack();assert.equal(await page.getByRole('heading',{name:'Drafts',exact:true}).count(),1);await page.locator('.seda-sidebar').getByRole('link',{name:'Recents',exact:true}).click();
   return {reload:true,back:true};
  });
  await check('reference-create-rename-copy-and-local-reload',async()=>{
@@ -54,7 +59,7 @@ try{
   const ids=await list().evaluateAll(items=>items.slice(0,2).map(item=>item.dataset.fileId));for(const id of ids){await file(id).hover();await file(id).getByRole('checkbox').check();}
   assert.match(await page.getByRole('region',{name:'Действия с выбранными файлами'}).textContent(),/Выбрано: 2/);await page.getByRole('button',{name:'В корзину',exact:true}).click();await page.getByRole('button',{name:'Отмена',exact:true}).click();assert.equal(await list().count(),27);
   await page.getByRole('button',{name:'В корзину',exact:true}).click();await page.getByRole('button',{name:'Переместить',exact:true}).click();await page.getByRole('dialog').waitFor({state:'hidden'});assert.equal(await list().count(),25);await page.getByRole('link',{name:'Trash',exact:true}).click();assert.equal(await list().count(),2);
-  await menu(ids[0]);await page.getByRole('menuitem',{name:'Восстановить',exact:true}).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('seda.reference.recents.files.v1')).files.filter(file=>file.trashed).length===1);assert.equal(await list().count(),1);await page.getByRole('link',{name:'Recents',exact:true}).click();assert.equal(await list().count(),26);return {multiple:true,cancel:true,trash:true,restore:true};
+  await menu(ids[0]);await page.getByRole('menuitem',{name:'Восстановить',exact:true}).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('seda.reference.recents.files.v1')).files.filter(file=>file.trashed).length===1);assert.equal(await list().count(),1);await page.locator('.seda-sidebar').getByRole('link',{name:'Recents',exact:true}).click();assert.equal(await list().count(),26);return {multiple:true,cancel:true,trash:true,restore:true};
  });
  await check('reference-storage-failure-preserves-data-and-draft',async()=>{
   await page.getByRole('button',{name:'Design',exact:true}).click();await page.locator('#reference-file-name').fill('Storage failure draft');

@@ -1,3 +1,9 @@
+## Unreleased — Breadcrumbs
+
+- Add the public experimental Breadcrumbs native navigation with existing component tokens, ghost/text, slash/triangle, inherited sizes and control parameters.
+- Keep the current page non-interactive; disabled ancestors have no link. Reveal long paths inline with keyboard focus repair, reset expansion on hierarchy changes, and retain it across theme changes.
+- Replace the Studio placeholder and connect actual Files folder navigation. No token source or saved document format changes. Fresh Figma fidelity and OS/AT acceptance remain open.
+
 ## Unreleased — TextField and NumberField validation
 
 - Add warningText/successText to the actual public fields, with disabled > error > warning > success message precedence and existing component roles. Preserve independent focus and external aria-invalid.

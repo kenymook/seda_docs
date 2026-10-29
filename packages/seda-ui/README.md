@@ -2,6 +2,8 @@
 
 React-компоненты SEDA для веб-приложений и веб-интерфейсов в desktop shell. Пакет пока private/experimental: production-ready статус всей библиотеки не заявляется.
 
+`Breadcrumbs` — native `nav`/`ol` для иерархии документов и файлов: `items`, `label`, `ghost`/`text`, `slash`/`triangle`, размеры Provider, current/disabled и раскрытие длинного пути inline. Приложение владеет URL и данными. Полный API и границы: `specs/navigation/breadcrumbs.md`. Проверка опубликованного tarball на React 18/19: `npm run verify:breadcrumbs`.
+
 Как собирать из компонентов рабочие экраны: [правила композиций](../../docs/library/COMPOSITION-RULES.md). В них описаны ownership, панели редактора, просмотр данных, инспекторы, формы и диалог, а также текущая граница между общим recipe и логикой приложения.
 
 `Search` — общий experimental query/results pattern: настоящее TextField и отдельный IconButton очистки, native Link/Button результатов, локализованные состояния и snapshot identity. Files использует внешний фильтруемый результат; Chat — общий Search внутри Modal, с настоящими переходами и клавиатурой. UI сверяет исходный query и queryKey для ready/loading/error, включая A→B→A; data layer по-прежнему владеет transport/debounce/abort. Ранжирование, поиск и документы не симулируются библиотекой. Полный API и ограничения: specs/overlays-layout/search.md.
