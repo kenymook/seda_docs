@@ -31,7 +31,8 @@
     "verify:part-navigation": "node verify-studio-part-navigation.mjs",
     "verify:source-migration": "node verify-token-source-migration.mjs",
     "verify:breadcrumbs": "node verify-breadcrumbs-workspace.mjs",
-    "verify:scrollbars": "node verify-studio-scrollbars.mjs"
+    "verify:scrollbars": "node verify-studio-scrollbars.mjs",
+    "verify:availability": "node verify-component-availability.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",

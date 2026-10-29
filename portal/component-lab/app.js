@@ -352,7 +352,7 @@ function renderNav(filter = "") {
       <section class="nav-section">
         <h2 class="nav-section-title">System review</h2>
         <a class="nav-link ${selectedComponent === SIZE_MATRIX_ID ? "active" : ""}" href="#${SIZE_MATRIX_ID}" data-component="${SIZE_MATRIX_ID}">
-          Size Matrix
+          Size Matrix <small class="legacy-demo-label">HTML</small>
           <span class="nav-count">${sizeMatrixComponents().length}</span>
         </a>
       </section>
@@ -365,8 +365,8 @@ function renderNav(filter = "") {
         <h2 class="nav-section-title">${escapeHtml(title)}</h2>
         ${items.map((name) => `
           <a class="nav-link ${name === selectedComponent ? "active" : ""}" href="#${name}" data-component="${name}">
-            ${escapeHtml(titleCase(name))}
-            <span class="nav-count">${countLeaves(components[name])}</span>
+            <span>${escapeHtml(titleCase(name))}<small class="legacy-demo-label">HTML demo</small></span>
+            <span class="nav-count" title="Color token leaves">${countLeaves(components[name])}</span>
           </a>
         `).join("")}
       </section>
@@ -395,7 +395,7 @@ function groupComponents(names) {
   return result;
 }
 
-function hasLiveDemo(name) {
+function hasHtmlDemo(name) {
   if (name === SIZE_MATRIX_ID) return true;
   return Boolean(demos[name]) || components[name];
 }
@@ -445,10 +445,10 @@ function selectComponent(name) {
   document.title = `${isMatrix ? "Size Matrix" : titleCase(name)} - SEDA AI`;
   componentDescription.textContent = isMatrix
     ? "Сравнение компонентов по одной размерной шкале: s, m, l, xl."
-    : hasLiveDemo(name)
-      ? "Живой предпросмотр компонента с настройкой props."
+    : hasHtmlDemo(name)
+      ? "Legacy HTML demo на токенах SEDA. Это отдельная демонстрационная реализация, не компонент @seda-ai/ui."
       : "Для этого компонента пока доступен token preview. Интерактивный пример можно добавить следующим проходом.";
-  demoStatus.textContent = isMatrix ? "System review" : hasLiveDemo(name) ? "Interactive" : "Token preview";
+  demoStatus.textContent = isMatrix ? "HTML size matrix" : "HTML demo";
   renderNav(searchInput.value);
   renderProps();
   renderPreview();
@@ -618,7 +618,7 @@ function renderPreview() {
 function sizeMatrixComponents() {
   return flatComponents.filter((name) => {
     const sizeControl = getControls(name).find((control) => control.id === "size");
-    return hasLiveDemo(name) && SIZE_MATRIX_SIZES.every((size) => sizeControl?.options?.includes(size));
+    return hasHtmlDemo(name) && SIZE_MATRIX_SIZES.every((size) => sizeControl?.options?.includes(size));
   });
 }
 
