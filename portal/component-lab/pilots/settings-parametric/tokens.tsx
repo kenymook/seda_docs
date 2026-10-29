@@ -1,3 +1,4 @@
+import {renderStudioPreview} from './StudioPreviews';
 import {bindSavedDesign} from './saved-design-model.mjs';
 import {SelectStateBoard} from './SelectStateBoard';
 import {StudioHeader, StudioRail} from './StudioChrome';
@@ -7,7 +8,7 @@ import {useTokenStore} from './use-token-store';
 import {migrateTokenDocument} from './token-source-migration.mjs';
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Breadcrumbs, Button, Checkbox, Icon, IconButton, Popover, Radio, Select, SedaProvider, TextField, Toggle, TopBar } from '@seda-ai/ui';
+import { Button, Icon, IconButton, Popover, Select, SedaProvider, TextField, TopBar } from '@seda-ai/ui';
 import { componentCoverage, provenance, tokens, profiles, libraryBindings, buttonContract } from 'seda:catalog';
 import { displayHex, displayOklch, hexToOklch, pickerHex } from './owner-color.mjs';
 import { applyWorkbenchEdits, designCatalog, colorCatalog, directAlias, resolvedToken, tokenKey, tokenRelations, workbenchColorVariables } from './token-workbench-model.mjs';
@@ -63,21 +64,7 @@ function componentColorVars(source: any, name: string, theme: Theme, item?: Toke
 }
 
 function componentSample(name: string, item: TokenEntry, label: string, vars: Record<string, string>) {
-  const path = item.path;
-  const disabled = path.endsWith('/disabled');
-  const error = path.endsWith('/error');
-  if (name === 'breadcrumbs') return <Breadcrumbs label="Путь документа" expandLabel="Показать весь путь" items={[{id:'workspace',label:'Atlas',href:'#atlas',disabled,icon:<Icon name="monitor"/>},{id:'project',label:'Проекты',href:'#projects',disabled},{id:'current',label:'Документ'}]} />;
-  if (name === 'select') return <Select label={label} options={[{ value: 'all', label: 'Все роли' },{value:'editor',label:'Редактор'},{value:'viewer',label:'Наблюдатель'}]} defaultValue="all" disabled={disabled} readOnly={path.endsWith('/read-only')} loading={path.endsWith('/loading')} warningText={path.endsWith('/warning') ? 'Проверьте доступ' : undefined} successText={path.endsWith('/success') ? 'Доступ подтверждён' : undefined} errorText={error ? 'Проверьте значение' : undefined} />;
-  if (name === 'text-field') return <TextField label={label} defaultValue="Atlas" disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} warningText={path.endsWith('/warning') ? 'Требуется проверка' : undefined} successText={path.endsWith('/success') ? 'Значение подтверждено' : undefined} />;
-  if (name === 'checkbox') return <Checkbox label={label} defaultChecked={path.includes('/checked') || path.includes('/indeterminate')} disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} />;
-  if (name === 'radio') return <Radio label={label} options={[{ value: 'one', label: 'Первый' }, { value: 'two', label: 'Второй' }]} defaultValue="one" disabled={disabled} />;
-  if (name === 'toggle') return <Toggle label={label} defaultChecked={path.includes('/on/')} disabled={disabled} />;
-  if (name === 'button') {
-    const parts = path.split('/');
-    const variant = parts[1] === 'primary' ? 'primary' : parts[1] === 'danger' ? 'destruction' : parts[2] === 'secondary' ? 'secondary' : parts[2] === 'outline' ? 'outline' : parts[2] === 'ghost' ? 'ghost' : 'text';
-    return <Button variant={variant} disabled={disabled} loading={path.endsWith('/loading')} style={vars as React.CSSProperties}>{label}</Button>;
-  }
-  return <p className="token-preview-unavailable">Для {name} проверенный предпросмотр ещё не подготовлен. Значение и цепочка токена видны ниже.</p>;
+  return renderStudioPreview(name,{path:item.path,label,variables:vars}) ?? <p className="token-preview-unavailable">Для {name} проверенный предпросмотр ещё не подготовлен. Значение и цепочка токена видны ниже.</p>;
 }
 
 function restoreEdits(): Record<string, string> {

@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { createContractEngine } from '../../../../packages/seda-contracts/src/index.mjs';
 import { createWebBindings } from '../../../../packages/seda-contracts/src/web.mjs';
 import { validateOwnerPolicy } from '../../../../packages/seda-contracts/src/owner-policy.mjs';
+import {generateComponentCatalog} from '../../../../packages/seda-ui/scripts/component-catalog.mjs';
 
 const pilotRoot = import.meta.dirname;
 const sha256 = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
@@ -48,7 +49,11 @@ export async function buildPilot({
   const installedManifest=await fs.readFile(path.join(pilotRoot,'node_modules/@seda-ai/ui/dist/manifest.json'),'utf8');
   if(canonicalManifest!==installedManifest)throw Error('Installed SEDA package is stale. Build packages/seda-ui, then run npm ci in the pilot before building the reference application.');
   const tokens = JSON.parse(tokenBytes.toString('utf8'));
-  const sourceFiles = [
+  const inventory=await generateComponentCatalog({repoRoot,tokens,tokensSha256:sha256(tokenBytes)});
+  const pilotSources=(await fs.readdir(pilotRoot,{withFileTypes:true})).filter(file=>file.isFile()&&/\.(?:tsx?|mjs|css|html|json)$/.test(file.name)&&!file.name.startsWith('verify-')).map(file=>path.join(pilotRoot,file.name));
+  const sourceFiles = [...new Set([
+    ...pilotSources,
+    ...Object.keys(inventory.sources).map(file=>path.join(repoRoot,file)),
     ...await filesBelow(path.join(pilotRoot,'references')),
     ...await filesBelow(path.join(pilotRoot,'node_modules/@seda-ai/ui/dist')),
     ...await filesBelow(path.join(repoRoot, 'packages/seda-ui/src')),
@@ -62,7 +67,7 @@ export async function buildPilot({
     path.join(packageRoot, 'package.json'),
     path.join(packageRoot, 'package-lock.json'),
     ...['contract-controls.tsx', 'control-fixtures.tsx', 'ProductWorkspace.tsx', 'EditorWorkspace.tsx', 'workspace-bindings.mjs', 'workspace.css', 'app.tsx', 'owner.tsx', 'owner-token-draft.mjs', 'owner-color.mjs', 'owner.css', 'owner.html', 'tokens.tsx', 'SelectStateBoard.tsx', 'tokens.css', 'tokens.html', 'token-workbench-model.mjs', 'token-store-api.mjs', 'use-token-store.tsx', 'foundation-model.mjs', 'FoundationStudio.tsx', 'StudioRailIcon.tsx', 'StudioChrome.tsx', 'studio-chrome.css', 'lab-studio.css', 'SharedDesignProvider.tsx', 'shared-design.css', 'saved-design-model.mjs', 'release-preview.tsx', 'release-preview.css', 'release-preview.html', 'release-preview-model.mjs', 'lab-model.mjs', 'styles.css', 'test-fixtures.tsx', 'index.html', 'build.mjs', 'package.json', 'package-lock.json'].map(name => path.join(pilotRoot, name)),
-  ].sort();
+  ])].sort();
   const fingerprint = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async file => [
     path.relative(repoRoot, file).split(path.sep).join('/'), sha256(await fs.readFile(file)),
   ])));
@@ -104,11 +109,13 @@ export async function buildPilot({
     publicComponents,
     contractComponents,
     tokenBranches: Object.keys(tokens.$collections.components.$modes['Mode 1']),
+    catalog:inventory.catalog,
   };
   const libraryBindings=JSON.parse(await fs.readFile(path.join(libraryRoot,'dist/profiles.json'),'utf8'));
   const buttonContract=engine.bundle.contracts.find(item=>item.id==='Button');
   const catalog = {libraryBindings,buttonContract, profiles, profile: engine.bundle.profile, provenance, ownerPolicy, system: engine.bundle.system, componentCoverage, tokens };
   await fs.mkdir(outputDir, { recursive: true });
+  await fs.writeFile(path.join(outputDir,'component-catalog.json'),JSON.stringify(inventory.catalog,null,2)+'\n');
   const result = await build({
     absWorkingDir: pilotRoot,
     entryPoints: [path.join(pilotRoot, 'app.tsx'), path.join(pilotRoot, 'owner.tsx'), path.join(pilotRoot, 'tokens.tsx'), path.join(pilotRoot, 'release-preview.tsx')],
