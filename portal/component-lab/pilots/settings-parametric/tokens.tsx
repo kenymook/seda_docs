@@ -4,6 +4,7 @@ import {StudioHeader, StudioRail} from './StudioChrome';
 import {FoundationStudio} from './FoundationStudio';
 import {foundationSections} from './foundation-model.mjs';
 import {useTokenStore} from './use-token-store';
+import {migrateTokenDocument} from './token-source-migration.mjs';
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Button, Checkbox, Icon, IconButton, Popover, Radio, Select, SedaProvider, TextField, Toggle, TopBar } from '@seda-ai/ui';
@@ -80,7 +81,7 @@ function componentSample(name: string, item: TokenEntry, label: string, vars: Re
 
 function restoreEdits(): Record<string, string> {
   try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem('seda-token-workbench-v1') || 'null');
+    const saved = migrateTokenDocument(JSON.parse(localStorage.getItem(storageKey) || localStorage.getItem('seda-token-workbench-v1') || 'null'),tokens,provenance.tokensSha256);
     if (saved?.sourceTokensSha256 !== provenance.tokensSha256 || !saved.edits || typeof saved.edits !== 'object') return {};
     return Object.fromEntries(Object.entries(saved.edits).filter(([key, value]) => byKey.has(key) && typeof value === 'string' && value.length <= 120)) as Record<string, string>;
   } catch { return {}; }
@@ -112,14 +113,20 @@ function TokenWorkbench() {
   const [message, setMessage] = useState('Изменения сразу видны в предпросмотре и сохраняются в этом браузере.');
   const [compactNav, setCompactNav] = useState(() => window.innerWidth < 700);
   useEffect(() => { const update = () => setCompactNav(window.innerWidth < 700); window.addEventListener('resize', update); return () => window.removeEventListener('resize', update); }, []);
-  useEffect(() => { localStorage.setItem(storageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, edits })); }, [edits]);
+  useEffect(() => {
+    try {
+      const raw=localStorage.getItem(storageKey)||localStorage.getItem('seda-token-workbench-v1');
+      if(raw){const previous=JSON.parse(raw);if(previous?.sourceTokensSha256!==provenance.tokensSha256){const backup=storageKey+'-source-backup-'+(previous?.sourceTokensSha256??'unknown');if(!localStorage.getItem(backup))localStorage.setItem(backup,raw);}}
+      localStorage.setItem(storageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, edits }));
+    } catch {setMessage('Не удалось сохранить локальную копию. Прежний черновик сохранён; проверьте свободное место в браузере.');}
+  }, [edits]);
 
   const draft = useMemo(() => {
     try { return { tokens: applyWorkbenchEdits(tokens, edits, allCatalog), error: '' }; }
     catch (error) { return { tokens, error: error instanceof Error ? error.message : String(error) }; }
   }, [edits]);
   useEffect(() => { if (!draft.error) setAppliedEdits({ ...edits }); }, [edits, draft.error]);
-  const sync = useTokenStore(provenance.tokensSha256, edits, setEdits, !draft.error);
+  const sync = useTokenStore(provenance.tokensSha256, edits, setEdits, !draft.error,tokens);
   const applied = useMemo(() => applyWorkbenchEdits(tokens, appliedEdits, allCatalog), [appliedEdits]);
   const liveBindings=useMemo(()=>bindSavedDesign(tokens,appliedEdits,profiles,libraryBindings,buttonContract),[appliedEdits]);
   const shellVariables = useMemo(() => workbenchColorVariables(applied, theme), [applied, theme]);

@@ -1,9 +1,10 @@
 import {useEffect,useRef,useState} from 'react';
+import {migrateTokenDocument} from './token-source-migration.mjs';
 type Edits=Record<string,string>;
 type Document={sourceTokensSha256:string;revision:number;edits:Edits;updatedAt:string|null};
 const same=(a:Edits,b:Edits)=>JSON.stringify(Object.entries(a).sort())===JSON.stringify(Object.entries(b).sort());
 const key='seda-token-workbench-confirmed-v2';
-export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>void,valid:boolean){
+export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>void,valid:boolean,tokens:unknown){
  const [status,setStatus]=useState('Подключение к базе…');
  const [ready,setReady]=useState(false);
  const [tick,setAttemptTick]=useState(0);
@@ -15,9 +16,9 @@ export function useTokenStore(hash:string,edits:Edits,setEdits:(edits:Edits)=>vo
  useEffect(()=>{let stopped=false;
   async function load(){
    try{
-    const response=await fetch('/api/token-document',{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!response.ok)throw Error();const doc:Document=await response.json();if(stopped||base.current&&doc.revision<base.current.revision)return;
+    const response=await fetch('/api/token-document',{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!response.ok)throw Error();const doc:Document=migrateTokenDocument(await response.json(),tokens,hash);if(stopped||base.current&&doc.revision<base.current.revision)return;
     if(doc.sourceTokensSha256!==hash){setStatus('Версия токенов в базе отличается. Локальные изменения сохранены; нужен перенос данных.');return;}
-    let previous:Document|null=base.current;if(!previous){try{previous=JSON.parse(localStorage.getItem(key)||'null');}catch{}}
+    let previous:Document|null=base.current;if(!previous){try{previous=migrateTokenDocument(JSON.parse(localStorage.getItem(key)||'null'),tokens,hash);}catch{}}
     const local=current.current;
     if(same(local,doc.edits)||!Object.keys(local).length&& !previous){setEdits(doc.edits);accept(doc);setStatus('Сохранено в базе');}
     else if(doc.revision===0){accept(doc);setStatus('Перенос локальных изменений…');}

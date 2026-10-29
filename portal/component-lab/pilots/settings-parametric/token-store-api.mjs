@@ -1,4 +1,5 @@
 import {applyWorkbenchEdits, designCatalog} from './token-workbench-model.mjs';
+import {compatibleSourceHash,migrateTokenDocument} from './token-source-migration.mjs';
 const json=(value,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 export function tokenStoreApi(tokens, sourceHash) {
  const catalog=designCatalog(tokens);
@@ -9,7 +10,8 @@ export function tokenStoreApi(tokens, sourceHash) {
   if(!local&&!request.headers.get('oai-authenticated-user-id'))return json({error:'Sign in required'},401);
   const read=async()=>{
    const row=await db.prepare('SELECT source_hash, revision, edits_json, updated_at FROM token_documents WHERE id = ?').bind('shared').first();
-   return row?{sourceTokensSha256:row.source_hash,revision:row.revision,edits:JSON.parse(row.edits_json),updatedAt:row.updated_at}:{sourceTokensSha256:sourceHash,revision:0,edits:{},updatedAt:null};
+   const document=row?{sourceTokensSha256:row.source_hash,revision:row.revision,edits:JSON.parse(row.edits_json),updatedAt:row.updated_at}:{sourceTokensSha256:sourceHash,revision:0,edits:{},updatedAt:null};
+   return migrateTokenDocument(document,tokens,sourceHash);
   };
   try{
    if(request.method==='GET')return json(await read());
@@ -28,10 +30,11 @@ export function tokenStoreApi(tokens, sourceHash) {
    try{applyWorkbenchEdits(tokens,body.edits,catalog);}catch(error){return json({error:error.message},422);}
    const edits=JSON.stringify(body.edits),revision=body.revision+1,updatedAt=new Date().toISOString();
    const results=await db.batch([
-    db.prepare('INSERT INTO token_documents (id, source_hash, revision, edits_json, updated_at) SELECT ?, ?, ?, ?, ? WHERE (? = 0 OR EXISTS (SELECT 1 FROM token_documents WHERE id = \'shared\')) ON CONFLICT(id) DO UPDATE SET revision = excluded.revision, edits_json = excluded.edits_json, updated_at = excluded.updated_at WHERE token_documents.source_hash = ? AND token_documents.revision = ?').bind('shared',sourceHash,revision,edits,updatedAt,body.revision,sourceHash,body.revision),
+    db.prepare('INSERT OR IGNORE INTO token_history (revision, source_hash, edits_json, updated_at) SELECT revision, source_hash, edits_json, updated_at FROM token_documents WHERE id = ? AND source_hash = ? AND revision = ?').bind('shared',compatibleSourceHash(sourceHash),body.revision),
+    db.prepare('INSERT INTO token_documents (id, source_hash, revision, edits_json, updated_at) SELECT ?, ?, ?, ?, ? WHERE (? = 0 OR EXISTS (SELECT 1 FROM token_documents WHERE id = \'shared\')) ON CONFLICT(id) DO UPDATE SET source_hash = excluded.source_hash, revision = excluded.revision, edits_json = excluded.edits_json, updated_at = excluded.updated_at WHERE token_documents.source_hash IN (?, ?) AND token_documents.revision = ?').bind('shared',sourceHash,revision,edits,updatedAt,body.revision,sourceHash,compatibleSourceHash(sourceHash),body.revision),
     db.prepare('INSERT OR IGNORE INTO token_history (revision, source_hash, edits_json, updated_at) SELECT revision, source_hash, edits_json, updated_at FROM token_documents WHERE id = ? AND revision = ? AND edits_json = ?').bind('shared',revision,edits)
    ]);
-   if(!results[0].meta.changes)return json({error:'Document changed in another editor',document:await read()},409);
+   if(!results[1].meta.changes)return json({error:'Document changed in another editor',document:await read()},409);
    return json({sourceTokensSha256:sourceHash,revision,edits:body.edits,updatedAt});
   }catch{return json({error:'Database temporarily unavailable'},503);}
  };

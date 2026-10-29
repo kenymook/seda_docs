@@ -268,3 +268,17 @@ test('an alias names a token leaf, not a same-named branch in another collection
  const doc=empty();doc.$collections.semantic.$modes.Light.branch={child:color('#ffffff')};doc.$collections.components.$modes['Mode 1'].consumer=color('{branch}');
  raises('TOKEN_BRANCH_AS_LEAF',()=>createTokenResolver(doc).resolve(ref('components','consumer')));
 });
+
+
+test('semantic colour roles link directly to the palette in each theme',()=>{
+ let count=0;
+ for(const [theme,root] of Object.entries(source.$collections.semantic.$modes)){
+  function walk(node,path=[]){if(node&&typeof node==='object'&&'$value' in node){if(node.$type==='color'){
+   assert.match(node.$value,/^\{color\.[\w.-]+\}$/u,theme+'/'+path.join('/'));
+   const result=createTokenResolver(source).resolve({collection:'semantic',path,expectedType:'color'},{theme});
+   assert.deepEqual(result.chain.map(step=>step.collection),['semantic','foundation']);count++;
+  }return;}for(const [name,child]of Object.entries(node??{}))if(!name.startsWith('$'))walk(child,[...path,name]);}
+  walk(root);
+ }
+ assert.ok(count>0);
+});
