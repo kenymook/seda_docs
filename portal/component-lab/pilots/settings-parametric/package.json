@@ -30,7 +30,8 @@
     "verify:field-validation": "node verify-field-validation.mjs",
     "verify:part-navigation": "node verify-studio-part-navigation.mjs",
     "verify:source-migration": "node verify-token-source-migration.mjs",
-    "verify:breadcrumbs": "node verify-breadcrumbs-workspace.mjs"
+    "verify:breadcrumbs": "node verify-breadcrumbs-workspace.mjs",
+    "verify:scrollbars": "node verify-studio-scrollbars.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.5",
