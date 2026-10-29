@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Sidebar width",
+    "reference": 241,
+    "actual": 241,
+    "delta": 0
+  },
+  {
+    "name": "Header height",
+    "reference": 48.67,
+    "actual": 48,
+    "delta": -0.67
+  },
+  {
+    "name": "First card X",
+    "reference": 275,
+    "actual": 265,
+    "delta": -10
+  },
+  {
+    "name": "First card Y",
+    "reference": 161.67,
+    "actual": 160,
+    "delta": -1.67
+  },
+  {
+    "name": "First card width",
+    "reference": 355.67,
+    "actual": 367.66,
+    "delta": 11.99
+  },
+  {
+    "name": "First card height",
+    "reference": 259,
+    "actual": 271.69,
+    "delta": 12.69
+  },
+  {
+    "name": "Card radius",
+    "reference": 13,
+    "actual": 8,
+    "delta": -5
+  },
+  {
+    "name": "Card title font",
+    "reference": 11,
+    "actual": 14,
+    "delta": 3
+  },
+  {
+    "name": "Tabs height",
+    "reference": 24,
+    "actual": 32,
+    "delta": 8
+  },
+  {
+    "name": "Filters X",
+    "reference": 558.23,
+    "actual": 812.83,
+    "delta": 254.6
+  }
+]
