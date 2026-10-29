@@ -62,6 +62,8 @@
 
 `COV-02`: статусы до выбора подключены к тому же каталогу в Studio; missing preview больше не изображается выбранным React-компонентом. Старый HTML Component Lab явно маркирует все 52 пункта, текущий demo и size matrix как HTML. Проверены обе темы, keyboard/search, сохранение inspector и прежние adapters. Остальные gates `0.2` остаются открыты; полная зрелость не следует из маркировки покрытия.
 
+`OWN-01/02`, технический проход: [owner workflow review](OWNER-WORKFLOW-REVIEW.md) фиксирует настоящий локальный Worker/D1, palette → semantic → три component bindings, точный scope, новый browser/consumers, CAS/conflict/offline/retry, late response и source migration. Исправлены потеря незавершённого цветового draft после reload, противоречивый inspector при invalid draft и невидимая ошибка localStorage. Component assignments предлагают только semantic roles; legacy direct palette binding явно помечена. `PROOF-01` остаётся открытым: это скриптовые проверки, не самостоятельное прохождение владельцем. Не закрыты VIS-00 и общая browser/OS/AT/independent-consumer приёмка.
+
 В `0.2` не добавляются авторизация/роли для новых команд, marketplace, обязательный npm release, новый сайт, новый AI backend или переделка всей архитектуры. Уже работающая общая база сохраняется. Эти исключения относятся только к ближайшей версии и не отменяют полную цель.
 
 ## `0.3` — согласованное ядро

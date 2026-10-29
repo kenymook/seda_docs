@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 const url=process.env.SEDA_STORE_URL||'http://127.0.0.1:5198';
+if(!['127.0.0.1','localhost'].includes(new URL(url).hostname))throw Error('This mutating test requires an isolated local store');
 const get=()=>fetch(url+'/api/token-document').then(r=>r.json());
 const put=async(body,origin=url)=>{const r=await fetch(url+'/api/token-document',{method:'PUT',headers:{'Content-Type':'application/json',Origin:origin,Connection:'close'},body:JSON.stringify({...body,clientVersion:2}),signal:AbortSignal.timeout(10000)});const data=await r.json();return {status:r.status,json:async()=>data};};
 let doc=await get();const hash=doc.sourceTokensSha256;

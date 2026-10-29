@@ -76,10 +76,13 @@ function restoreEdits(): Record<string, string> {
     return Object.fromEntries(Object.entries(saved.edits).filter(([key, value]) => byKey.has(key) && typeof value === 'string' && value.length <= 120)) as Record<string, string>;
   } catch { return {}; }
 }
-function restoreValidEdits(): Record<string, string> {
-  const edits = restoreEdits();
-  try { applyWorkbenchEdits(tokens, edits, allCatalog); return edits; }
-  catch { return {}; }
+function restoreValidEdits(pending: Record<string,string>): Record<string,string> {
+  const candidates=[pending];
+  for(const key of [storageKey+'-last-valid','seda-token-workbench-confirmed-v2']){
+    try{const saved=migrateTokenDocument(JSON.parse(localStorage.getItem(key)||'null'),tokens,provenance.tokensSha256);if(saved?.sourceTokensSha256===provenance.tokensSha256&&saved.edits)candidates.push(saved.edits);}catch{}
+  }
+  for(const edits of candidates){try{applyWorkbenchEdits(tokens,edits,allCatalog);return edits;}catch{}}
+  return {};
 }
 
 function TokenWorkbench() {
@@ -96,10 +99,11 @@ function TokenWorkbench() {
   const [colorEditorOpen, setColorEditorOpen] = useState(false);
   const [roleQuery, setRoleQuery] = useState('');
   const [showAllRoles, setShowAllRoles] = useState(false);
-  const [initialEdits] = useState<Record<string, string>>(restoreValidEdits);
+  const [initialEdits] = useState<Record<string, string>>(restoreEdits);
   const [edits, setEdits] = useState<Record<string, string>>(initialEdits);
   const [lastEdit, setLastEdit] = useState<{key:string; before:string|undefined; after:string|undefined}|null>(null);
-  const [appliedEdits, setAppliedEdits] = useState<Record<string, string>>(initialEdits);
+  const [appliedEdits, setAppliedEdits] = useState<Record<string, string>>(()=>restoreValidEdits(initialEdits));
+  const [localDraftProblem,setLocalDraftProblem]=useState('');
   const [message, setMessage] = useState('Изменения сразу видны в предпросмотре и сохраняются в этом браузере.');
   const [compactNav, setCompactNav] = useState(() => window.innerWidth < 700);
   useEffect(() => { const update = () => setCompactNav(window.innerWidth < 700); window.addEventListener('resize', update); return () => window.removeEventListener('resize', update); }, []);
@@ -107,15 +111,15 @@ function TokenWorkbench() {
     try {
       const raw=localStorage.getItem(storageKey)||localStorage.getItem('seda-token-workbench-v1');
       if(raw){const previous=JSON.parse(raw);if(previous?.sourceTokensSha256!==provenance.tokensSha256){const backup=storageKey+'-source-backup-'+(previous?.sourceTokensSha256??'unknown');if(!localStorage.getItem(backup))localStorage.setItem(backup,raw);}}
-      localStorage.setItem(storageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, edits }));
-    } catch {setMessage('Не удалось сохранить локальную копию. Прежний черновик сохранён; проверьте свободное место в браузере.');}
+      localStorage.setItem(storageKey, JSON.stringify({ sourceTokensSha256: provenance.tokensSha256, edits }));setLocalDraftProblem('');
+    } catch {setLocalDraftProblem('Не удалось сохранить локальный черновик. Правка остаётся в открытой вкладке; освободите место в браузере или экспортируйте JSON перед закрытием.');}
   }, [edits]);
 
   const draft = useMemo(() => {
     try { return { tokens: applyWorkbenchEdits(tokens, edits, allCatalog), error: '' }; }
     catch (error) { return { tokens, error: error instanceof Error ? error.message : String(error) }; }
   }, [edits]);
-  useEffect(() => { if (!draft.error) setAppliedEdits({ ...edits }); }, [edits, draft.error]);
+  useEffect(() => { if (!draft.error) {setAppliedEdits({ ...edits });try{localStorage.setItem(storageKey+'-last-valid',JSON.stringify({sourceTokensSha256:provenance.tokensSha256,edits}));}catch{}} }, [edits, draft.error]);
   const sync = useTokenStore(provenance.tokensSha256, edits, setEdits, !draft.error,tokens);
   const applied = useMemo(() => applyWorkbenchEdits(tokens, appliedEdits, allCatalog), [appliedEdits]);
   const liveBindings=useMemo(()=>bindSavedDesign(tokens,appliedEdits,profiles,libraryBindings,buttonContract),[appliedEdits]);
@@ -130,10 +134,10 @@ function TokenWorkbench() {
   const selected = selectedKey === '__unrelated__' ? undefined : shown.find(item => item.key === selectedKey) ?? shown[0];
   const authored = selected ? edits[selected.key] ?? selected.authored : '';
   const editorValue = selected?.collection === 'foundation' ? displayOklch(authored) ?? authored : authored;
-  const resolved = selected ? resolvedToken(draft.tokens, selected, theme) : null;
+  const resolved = selected ? resolvedToken(draft.error ? applied : draft.tokens, selected, theme) : null;
   const sourceResolved = selected ? resolvedToken(tokens, selected, theme) : null;
-  const effectiveColor = draft.error ? sourceResolved?.value : resolved?.value;
-  const relations = (selected && !draft.error ? tokenRelations(draft.tokens, catalog, selected, theme) : { sources: [], dependents: [] }) as { sources: TokenEntry[]; dependents: TokenEntry[] };
+  const effectiveColor = resolved?.value;
+  const relations = (selected ? tokenRelations(draft.error ? applied : draft.tokens, catalog, selected, theme) : { sources: [], dependents: [] }) as { sources: TokenEntry[]; dependents: TokenEntry[] };
   const dependents = relations.dependents.length;
   const foundation = catalog.filter(item => item.collection === 'foundation');
   const semantic = catalog.filter(item => item.collection === 'semantic' && item.mode === theme);
@@ -216,12 +220,13 @@ function TokenWorkbench() {
   const propertyGroups = [{title:'States', items:componentGroupEntries.filter(item=>!isValidation(item))},{title:'Validation',items:componentGroupEntries.filter(isValidation)}].filter(group=>group.items.length); 
   const tokenGroups = [...new Set(shown.map(item => item.path.split('/').slice(0, -1).join('/')))];
   const legacySource = layer === 'components' && !semantic.some(item=>directAlias(item)===authored) ? foundation.find(item=>directAlias(item)===authored) : undefined;
-  const colorOptions = (layer === 'semantic' ? foundation : [...(legacySource ? [legacySource] : []), ...semantic]).filter(item => item.path.toLowerCase().includes(roleQuery.toLowerCase()));
-  const colorEditor = selected && <section className="studio-color-editor" aria-label="Редактор цвета">{layer === 'components' && <p className="studio-edit-scope">Меняется назначение роли для {selected.path}. Сама роль и другие компоненты сохраняют свои значения.{relations.sources.find(item=>item.collection==='semantic') && <Button variant="secondary" onClick={()=>{navigateToEntry(relations.sources.find(item=>item.collection==='semantic')!);setColorEditorOpen(false);}}>Открыть общую роль</Button>}</p>}{layer === 'semantic' && <div className="studio-edit-scope"><p>Общая роль: изменение затронет {dependents} связанных токенов в {theme}.</p><details><summary>Где используется</summary>{relations.dependents.map(item=><div key={item.key}>{item.path}</div>)}</details></div>}{layer !== 'components' && <><p className="studio-token-path">{selected.path}</p><div className="studio-resolved-color"><i style={{background:effectiveColor}}/><div><code>{displayOklch(effectiveColor??'')}</code><code className="studio-hex-value">{displayHex(effectiveColor??'')}</code></div></div></>}
+  const colorOptions = (layer === 'semantic' ? foundation : semantic).filter(item => item.path.toLowerCase().includes(roleQuery.toLowerCase()));
+  const colorEditor = selected && <section className="studio-color-editor" aria-label="Редактор цвета">{layer === 'components' && <p className="studio-edit-scope">Меняется назначение роли для {selected.path}. Сама роль и другие компоненты сохраняют свои значения.{relations.sources.find(item=>item.collection==='semantic') && <Button variant="secondary" onClick={()=>{navigateToEntry(relations.sources.find(item=>item.collection==='semantic')!);setColorEditorOpen(false);}}>Открыть общую роль</Button>}</p>}{layer === 'components' && legacySource && <p className="studio-edit-scope">Исходная прямая ссылка палитры: {legacySource.path}. Для нового назначения выберите semantic role.</p>}{layer === 'foundation' && <div className="studio-edit-scope"><p>Общий цвет палитры: изменение затронет {dependents} связанных токенов.</p><details><summary>Где используется</summary>{relations.dependents.map(item=><div key={item.key}>{item.path}</div>)}</details></div>}{layer === 'semantic' && <div className="studio-edit-scope"><p>Общая роль: изменение затронет {dependents} связанных токенов в {theme}.</p><details><summary>Где используется</summary>{relations.dependents.map(item=><div key={item.key}>{item.path}</div>)}</details></div>}{layer !== 'components' && <><p className="studio-token-path">{selected.path}</p><div className="studio-resolved-color"><i style={{background:effectiveColor}}/><div><code>{displayOklch(effectiveColor??'')}</code><code className="studio-hex-value">{displayHex(effectiveColor??'')}</code></div></div></>}
         {layer==='foundation' ? <><TextField label="OKLCH" value={editorValue} onChange={event=>edit(event.target.value)} /><label className="studio-native-picker">Выбрать визуально<input type="color" aria-label="Выбрать цвет палитры" value={pickerHex(effectiveColor??'')??'#000000'} onChange={event=>edit(hexToOklch(event.target.value)??event.target.value)} /></label></> : <>{layer==='semantic' && <Select label="Palette color" value={authored} options={linkOptions} onValueChange={value=>edit(String(value))} />}<TextField className="studio-role-search" label="Поиск цвета" value={roleQuery} placeholder="Название цвета или роли" onChange={event=>setRoleQuery(event.target.value)} /><div className="studio-color-options">{colorOptions.map(item=><button key={item.key} ref={node=>{if(node && authored===directAlias(item)){const list=node.parentElement!;const optionBox=node.getBoundingClientRect(),listBox=list.getBoundingClientRect();list.scrollTop+=optionBox.top-listBox.top-(list.clientHeight-optionBox.height)/2;}}} aria-pressed={authored===directAlias(item)} onClick={()=>{if(authored!==directAlias(item))edit(directAlias(item));}}><i style={{background:resolvedToken(applied,item,theme).value}}/><span>{item.path}</span>{authored===directAlias(item) && <Icon name="success" />}</button>)}</div></>}
         <Button variant="text" disabled={!Object.hasOwn(edits,selected.key)} onClick={revert}>Вернуть исходное значение</Button><details><summary>Token references</summary><div className="studio-relations">{relations.sources.map(item=><button key={item.key} onClick={()=>navigateToEntry(item)}>{item.path} →</button>)}</div></details></section>;
-  const syncProblem=!!draft.error||!!sync.conflict||/Нет связи|Не удалось|отличается/.test(sync.status);
-  const footer=<><span className="studio-sync-live" role="status" aria-live="polite">{draft.error||sync.status}</span>{syncProblem&&<div className="studio-sync-error" role="alert"><span>{draft.error||sync.status}</span><div>{sync.conflict?<><Button variant="ghost" onClick={()=>sync.resolve(false)}>Загрузить из базы</Button><Button variant="secondary" onClick={()=>sync.resolve(true)}>Сохранить мою версию</Button></>:<Button variant="ghost" onClick={sync.retry}>Синхронизировать</Button>}</div></div>}</>;
+  const draftProblem=draft.error ? draft.error+' '+(localDraftProblem ? 'Незавершённая правка не отправлена в базу.' : 'Незавершённая правка сохранена локально и не отправлена в базу. Предпросмотр использует последнее корректное оформление.') : '';
+  const syncProblem=!!draft.error||!!localDraftProblem||!!sync.conflict||/Нет связи|Не удалось|отличается/.test(sync.status);
+  const footer=<><span className="studio-sync-live" role="status" aria-live="polite">{draft.error||sync.status}</span>{syncProblem&&<div className="studio-sync-error" role="alert"><span>{[draftProblem,localDraftProblem,!draft.error&&!localDraftProblem?sync.status:''].filter(Boolean).join(' ')}</span><div>{sync.conflict?<><Button variant="ghost" onClick={()=>sync.resolve(false)}>Загрузить из базы</Button><Button variant="secondary" onClick={()=>sync.resolve(true)}>Сохранить мою версию</Button></>:<Button variant="ghost" onClick={sync.retry}>Синхронизировать</Button>}</div></div>}</>;
 
   return <SedaProvider theme={theme.toLowerCase() as 'light' | 'dark'} controlSize="m" style={shellVariables as React.CSSProperties}><style data-seda-editor-design>{liveBindings.css}</style><div className="token-app studio" data-theme={theme.toLowerCase()}>
     <StudioHeader actions={<><Select label="Theme" value={theme} options={['Light','Dark'].map(value => ({value,label:value}))} onValueChange={value => setTheme(value as Theme)} /><Button variant="secondary" onClick={download}>Экспорт JSON</Button><Button variant="ghost" onClick={reset}>Сбросить</Button></>}/>
