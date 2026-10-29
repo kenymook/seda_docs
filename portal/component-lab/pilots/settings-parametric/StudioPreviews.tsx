@@ -1,11 +1,19 @@
 import React from 'react';
-import {Breadcrumbs,Button,Checkbox,Icon,Radio,Select,TextField,Toggle} from '@seda-ai/ui';
+import {Breadcrumbs,Button,Checkbox,Chip,Icon,Radio,Select,TextField,Toggle} from '@seda-ai/ui';
 
 export type StudioPreviewProps={path:string;label:string;variables:Record<string,string>};
 type PreviewRenderer=(props:StudioPreviewProps)=>React.ReactNode;
+function ChipPreview({path}:StudioPreviewProps){
+ const [visible,setVisible]=React.useState(true);
+ const [expanded,setExpanded]=React.useState(false);
+ const popupId=React.useId();
+ if(path.startsWith('chip/control/'))return <div><Chip label="Фильтр" control="expand" expanded={expanded} controlsId={popupId} onOpenChange={setExpanded} disabled={path.endsWith('/disabled')}/><div id={popupId} hidden={!expanded}>Параметры фильтра</div></div>;
+ return visible?<Chip label="Активный фильтр" control="remove" removeLabel="Удалить фильтр" onRemove={()=>setVisible(false)} disabled={path.endsWith('/disabled')} variant={path.endsWith('/selected')?'selected':path.endsWith('/filled')?'filled':'default'}/>:<Button variant="secondary" onClick={()=>setVisible(true)}>Восстановить фильтр</Button>;
+}
 // One literal registry is used by Studio and inspected by the build-time catalogue.
 // Registration means a live adapter exists, not that every state is accepted.
 export const studioPreviews={
+ 'chip':(props:StudioPreviewProps)=><ChipPreview {...props}/>,
  'breadcrumbs':({path}:StudioPreviewProps)=><Breadcrumbs label="Путь документа" expandLabel="Показать весь путь" items={[{id:'workspace',label:'Atlas',href:'#atlas',disabled:path.endsWith('/disabled'),icon:<Icon name="monitor"/>},{id:'project',label:'Проекты',href:'#projects',disabled:path.endsWith('/disabled')},{id:'current',label:'Документ'}]}/>,
  'select':({path,label}:StudioPreviewProps)=><Select label={label} options={[{value:'all',label:'Все роли'},{value:'editor',label:'Редактор'},{value:'viewer',label:'Наблюдатель'}]} defaultValue="all" disabled={path.endsWith('/disabled')} readOnly={path.endsWith('/read-only')} loading={path.endsWith('/loading')} warningText={path.endsWith('/warning')?'Проверьте доступ':undefined} successText={path.endsWith('/success')?'Доступ подтверждён':undefined} errorText={path.endsWith('/error')?'Проверьте значение':undefined}/>,
  'text-field':({path,label}:StudioPreviewProps)=><TextField label={label} defaultValue="Atlas" disabled={path.endsWith('/disabled')} errorText={path.endsWith('/error')?'Проверьте значение':undefined} warningText={path.endsWith('/warning')?'Требуется проверка':undefined} successText={path.endsWith('/success')?'Значение подтверждено':undefined}/>,

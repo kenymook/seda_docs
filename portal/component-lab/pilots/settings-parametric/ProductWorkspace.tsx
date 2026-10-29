@@ -16,6 +16,7 @@ import {
   useToast,
   Badge,
   Tag,
+  Chip,
   type AlertVariant,
 } from "@seda-ai/ui";
 
@@ -441,13 +442,18 @@ function FeedbackWorkspace() {
   const [severity,setSeverity]=useState<AlertVariant>("info");
   const [selected,setSelected]=useState(false);
   const [hasFilter,setHasFilter]=useState(true);
+  const [coreFilter,setCoreFilter]=useState(false);
   const [showAlert,setShowAlert]=useState(true);
   const [notice,setNotice]=useState<string|null>(null);
   const noticeTrigger=useRef<HTMLButtonElement>(null);
   const filterTrigger=useRef<HTMLButtonElement>(null);
+  const coreTrigger=useRef<HTMLButtonElement>(null);
   const alertTrigger=useRef<HTMLButtonElement>(null);
   const tone=severity==="error"?"danger":severity;
-  const items=[{name:"Atlas",mine:true},{name:"Nova",mine:false},{name:"Orbit",mine:true},{name:"Horizon",mine:false}].filter(item=>!selected||item.mine);
+  const projects=[{name:"Atlas",mine:true,team:"Core"},{name:"Nova",mine:false,team:"Core"},{name:"Orbit",mine:true,team:"Design"},{name:"Horizon",mine:false,team:"Mobile"}];
+  const matching=(mine:boolean,core:boolean)=>projects.filter(item=>(!mine||item.mine)&&(!core||item.team==="Core"));
+  const summary=(mine:boolean,core:boolean)=>{const count=matching(mine,core).length;return `${count} ${count===1?'проект':'проекта'}`;};
+  const items=matching(selected,coreFilter);
   return <div className="feedback-workspace">
     <div className="pane feedback-workspace__controls">
       <Select id="feedback-severity" label="Вариант сообщения" value={severity} onValueChange={value=>setSeverity(value as AlertVariant)} options={[
@@ -464,16 +470,18 @@ function FeedbackWorkspace() {
       <div className="visual-consistency__actions">
         {hasFilter&&<Tag id="feedback-filter" type="selectable" tone={tone} selected={selected} badgeValue={2}
           leadingIcon={<Icon name="user" />} dismissible dismissLabel="Удалить фильтр моих проектов"
-          onSelectedChange={value=>{setSelected(value);setNotice(value?"Фильтр включён: 2 проекта":"Фильтр выключен: 4 проекта");}}
+          onSelectedChange={value=>{setSelected(value);setNotice(`Фильтр ${value?'включён':'выключен'}: ${summary(value,coreFilter)}`);}}
           onDismiss={()=>{setHasFilter(false);setSelected(false);setNotice("Фильтр удалён");requestAnimationFrame(()=>filterTrigger.current?.focus());}}>Мои проекты</Tag>}
         <Button ref={filterTrigger} id="feedback-restore-filter" disabled={hasFilter} onClick={()=>setHasFilter(true)}>Вернуть фильтр</Button>
+        <Button ref={coreTrigger} id="feedback-add-core" variant="secondary" disabled={coreFilter} onClick={()=>setCoreFilter(true)}>Фильтр Core</Button>
+        {coreFilter&&<Chip id="feedback-core-chip" label="Команда: Core" control="remove" removeLabel="Удалить фильтр команды Core" onRemove={()=>{setCoreFilter(false);requestAnimationFrame(()=>coreTrigger.current?.focus());}}/>}
         <Badge id="feedback-count" count={items.length} tone={tone} accessibleLabel={`Проектов в списке: ${items.length}`} />
       </div>
       <ul className="feedback-workspace__list" id="feedback-projects">{items.map(item=><li key={item.name}><Text as="span" variant="body/default">{item.name}</Text><Tag leadingIcon={<Icon name="info" />}>{item.mine?"Мой проект":"Командный проект"}</Tag></li>)}</ul>
     </div>
     {notice&&<Toast id="feedback-toast" intent={severity==="ai"?"info":severity} duration={null} title={notice}
       description="Постоянное уведомление: закройте его вручную. Автоочередь Toast здесь не имитируется."
-      actionLabel={selected?"Сбросить фильтр":undefined} onAction={()=>{setSelected(false);setNotice("Фильтр сброшен: 4 проекта");}}
+      actionLabel={selected?"Сбросить фильтр":undefined} onAction={()=>{setSelected(false);setNotice(`Фильтр сброшен: ${summary(false,coreFilter)}`);}}
       dismissLabel="Закрыть уведомление" onDismiss={()=>{setNotice(null);noticeTrigger.current?.focus();}} />}
     <ToastProvider><ToastQueueDemo /></ToastProvider>
   </div>;

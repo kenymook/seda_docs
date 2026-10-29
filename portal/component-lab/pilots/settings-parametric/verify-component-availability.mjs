@@ -12,8 +12,21 @@ try{
   const library=page.locator('.studio-library-items');
   assert.equal(await library.getByRole('button',{name:'select',exact:true}).getAttribute('data-availability'),'live');
   assert.equal(await library.getByRole('button',{name:'avatar',exact:true}).getAttribute('data-availability'),'runtime');
-  assert.equal(await library.getByRole('button',{name:'chip',exact:true}).getAttribute('data-availability'),'tokens');
-  for(const [id,kind]of [['avatar','runtime'],['chip','tokens']]){
+  assert.equal(await library.getByRole('button',{name:'chip',exact:true}).getAttribute('data-availability'),'live');
+  await library.getByRole('button',{name:'chip',exact:true}).click();
+  const chip=page.locator('.studio-selected-element .seda-chip');await chip.waitFor();
+  assert.ok(await chip.evaluate(n=>getComputedStyle(n).getPropertyValue('--chip-border-default').trim()));
+  await chip.getByRole('button',{name:'Удалить фильтр'}).click();
+  await page.getByRole('button',{name:'Восстановить фильтр'}).click();await chip.waitFor();
+  await page.getByLabel('Property group',{exact:true}).selectOption('control');
+  assert.equal(await page.getByText('icon (fallback)',{exact:true}).count(),1);
+  const preview=page.locator('.studio-selected-element').getByRole('button',{name:'Фильтр'});await preview.click();
+  assert.equal(await preview.getAttribute('aria-expanded'),'true');assert.equal(await page.getByText('Параметры фильтра',{exact:true}).isVisible(),true);
+  await page.getByRole('button',{name:'chip/control/icon color',exact:true}).click();
+  assert.ok(await page.getByRole('note').getByText(/Резервный цвет/).isVisible());
+  await page.getByRole('button',{name:'Close color editor',exact:true}).click();
+  assert.equal(await library.getByRole('button',{name:'button-group',exact:true}).getAttribute('data-availability'),'tokens');
+  for(const [id,kind]of [['avatar','runtime'],['button-group','tokens']]){
    const button=library.getByRole('button',{name:id,exact:true});await button.click();
    assert.equal(await page.locator('.studio-preview-availability').getAttribute('data-availability'),kind);
    assert.equal(await page.locator('.studio-selected-element,.studio-selection-label,.studio-handle').count(),0);

@@ -22,6 +22,19 @@ try{
     await page.locator('#feedback-filter .seda-tag__dismiss').focus();await page.keyboard.press('Enter');await settle();assert.equal(await page.locator('#feedback-filter').count(),0);assert.match(await page.locator('#feedback-toast').innerText(),/Фильтр удалён/);assert.equal(await page.locator('#feedback-restore-filter').evaluate(el=>el===document.activeElement),true);
     await page.locator('#feedback-restore-filter').click();assert.equal(await page.locator('#feedback-filter').count(),1);assert.equal(await page.locator('button button,[role=button] button').count(),0);return{nativeSpace:true,count2And4:true,independentDismiss:true,focusRestored:true};
   });
+  await check('chip-core-filter-intersects-and-restores-focus',async()=>{
+    const toggle=page.locator('#feedback-filter .seda-tag__main');await toggle.click();assert.equal(await page.locator('#feedback-projects li').count(),2);
+    await page.locator('#feedback-add-core').click();assert.equal(await page.locator('#feedback-projects li').count(),1);assert.equal(await page.locator('#feedback-projects li').first().innerText().then(x=>x.includes('Atlas')),true);
+    for(const theme of ['Light','Dark']){await page.evaluate(theme=>window.sedaPilot.configure({theme}),theme);await settle();await page.locator('#feedback-core-chip').locator('..').locator('..').screenshot({path:path.join(output,'chip-filter-'+theme.toLowerCase()+'.png')});}
+    await page.evaluate(()=>window.sedaPilot.configure({theme:'Light'}));await settle();
+    await page.getByRole('button',{name:'Удалить фильтр команды Core'}).focus();await page.keyboard.press('Enter');await settle();assert.equal(await page.locator('#feedback-projects li').count(),2);
+    assert.equal(await page.locator('#feedback-add-core').evaluate(el=>el===document.activeElement),true);assert.equal(await toggle.getAttribute('aria-pressed'),'true');
+    await toggle.click();assert.equal(await page.locator('#feedback-projects li').count(),4);
+    await page.locator('#feedback-add-core').click();await toggle.click();assert.match(await page.locator('#feedback-toast').innerText(),/1 проект(?!а)/);
+    await page.getByRole('button',{name:'Сбросить фильтр',exact:true}).click();assert.equal(await page.locator('#feedback-projects li').count(),2);assert.match(await page.locator('#feedback-toast').innerText(),/2 проекта/);
+    await page.getByRole('button',{name:'Удалить фильтр команды Core'}).click();await settle();assert.equal(await page.locator('#feedback-projects li').count(),4);
+    return{intersection:true,keyboardRemove:true,focusRestored:true,otherFilterPreserved:true,noticeMatchesFilteredCount:true};
+  });
   await check('feedback-alert-dismiss-restore-and-explicit-urgency',async()=>{
     await page.getByRole('button',{name:'Скрыть пример сообщения',exact:true}).click();await settle();assert.equal(await page.locator('#feedback-alert').count(),0);assert.equal(await page.locator('#feedback-show-alert').evaluate(el=>el===document.activeElement),true);
     await page.locator('#feedback-show-alert').click();await settle();assert.equal(await page.locator('#feedback-severity').evaluate(el=>el===document.activeElement),true);
@@ -36,12 +49,12 @@ try{
         const paints=Array.from(root.querySelectorAll('.seda-alert__title,.seda-alert__description,.seda-toast__title,.seda-toast__description,.seda-toast__action,.seda-tag__label,.seda-badge__value')).filter(el=>el.getBoundingClientRect().height>0).map(el=>{const backgrounds=[];for(let a=el;a;a=a.parentElement)backgrounds.push(getComputedStyle(a).backgroundColor);return{part:el.className,color:getComputedStyle(el).color,backgrounds,font:parseFloat(getComputedStyle(el).fontSize)};});
         const glyphs=Array.from(root.querySelectorAll('.seda-alert__icon .seda-icon,.seda-toast__icon .seda-icon,.seda-tag__icon .seda-icon')).map(el=>el.getBoundingClientRect().width);
         const probe=document.createElement('span');probe.style.background='var(--surface-base)';document.getElementById('lab-scope').append(probe);const base=getComputedStyle(probe).backgroundColor;probe.remove();
-        return{derived,paints,glyphs,panelColors:['.top','.rail','.pane'].map(selector=>getComputedStyle(document.querySelector(selector)).backgroundColor),base,overflow:document.documentElement.scrollWidth-innerWidth};
+        return{derived,paints,glyphs,panelColors:[...root.querySelectorAll('.pane')].map(element=>getComputedStyle(element).backgroundColor),base,overflow:document.documentElement.scrollWidth-innerWidth};
       });
       for(const paint of actual.paints){near(paint.font,actual.derived.font,'feedback shared font');assert.ok(textContrast(paint.color,paint.backgrounds)>=4.5,`${theme}/${size}/${scale}/${paint.part}`);}
       for(const width of actual.glyphs)near(width,actual.derived.icon,'feedback shared icon');for(const color of actual.panelColors)assert.equal(color,actual.base,'same semantic surface');assert.equal(actual.overflow,0);samples.push({theme,size,scale,font:actual.derived.font,icon:actual.derived.icon});
     }
-    return{samples,semanticSurfaces:true,activeTextContrast:4.5,pillShapesRetained:true};
+    return{samples,feedbackPaneSurfaces:true,activeTextContrast:4.5,pillShapesRetained:true};
   });
   await check('feedback-all-severities-and-real-project-tags',async()=>{
     for(const severity of ['info','success','warning','error','ai']){await page.locator('#feedback-severity').selectOption(severity);await settle();assert.equal(await page.locator('#feedback-alert .seda-alert__icon .seda-icon').count(),1);}

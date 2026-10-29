@@ -1,6 +1,6 @@
 # Каталог покрытия SEDA
 
-Каталог отвечает на вопрос «что существует и чем подтверждено», а не присваивает общий `ready`. Он собирается из исходников при каждом build портала. Текущая точка: 59 записей, 58 спецификаций, 36 public modules, 13 executable contracts, 52 component token branches и 7 Studio adapters. Это разные множества, их нельзя складывать или выдавать за число принятых компонентов.
+Каталог отвечает на вопрос «что существует и чем подтверждено», а не присваивает общий `ready`. Он собирается из исходников при каждом build портала. Текущая точка: 59 записей, 58 спецификаций, 37 public modules, 13 executable contracts, 52 component token branches и 8 Studio adapters. Это разные множества, их нельзя складывать или выдавать за число принятых компонентов.
 
 ## Источники и использование
 
@@ -26,9 +26,9 @@
 | `preview: registered` | Есть живой Studio adapter реального компонента | Все размеры, темы и состояния компонента |
 | `visualReview/platformReview: not-accepted` | Полная актуальная приёмка ещё не заявлена | Отсутствие любого прежнего теста: bounded evidence хранится отдельно |
 
-Примеры: NumberField — public composition с собственным числовым контрактом и shared TextField tokens. Button System — family, не выдуманный ButtonSystem export. Breadcrumbs имеет runtime и Studio adapter, но не зарегистрированный instance contract. Chip имеет spec и tokens, но отсутствующий public runtime. Icon использует foundation documentation.
+Примеры: NumberField — public composition с собственным числовым контрактом и shared TextField tokens. Button System — family, не выдуманный ButtonSystem export. Breadcrumbs имеет runtime и Studio adapter, но не зарегистрированный instance contract. Chip имеет experimental public runtime и Studio adapter; instance contract и полная приёмка остаются открыты. Icon использует foundation documentation.
 
-Каталог фиксирует 22 записи без public runtime и одно family-only семейство. Нулевые `visualAccepted/platformAccepted` означают отсутствие полной актуальной приёмки по gates roadmap; прежние целевые проверки не обнуляются и перечислены как evidence с ограниченным scope.
+Каталог фиксирует 21 запись без public runtime и одно family-only семейство. Нулевые `visualAccepted/platformAccepted` означают отсутствие полной актуальной приёмки по gates roadmap; прежние целевые проверки не обнуляются и перечислены как evidence с ограниченным scope.
 
 ## Проверка
 
