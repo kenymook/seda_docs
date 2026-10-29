@@ -145,7 +145,8 @@
             "number-field-model",
             "number-field-keyboard",
             "number-field-draft",
-            "number-field-form"
+            "number-field-form",
+            "chip-control"
           ]
         },
         "prop": {

@@ -1,25 +1,8 @@
 import {forwardRef} from 'react';
-import type {HTMLAttributes,ReactNode} from 'react';
-import type {SedaSize} from '../../types';
+import type {ChipProps} from './Chip.types';
 import {useSedaSize} from '../../foundation/SedaProvider';
 import {Icon} from '../Icon';
 import {cx} from '../../utils/classNames';
-
-export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement>,'children'|'onClick'> {
- label:string;
- variant?:'default'|'filled'|'selected';
- size?:SedaSize;
- leadingIcon?:ReactNode;
- control?:'none'|'remove'|'expand'|'select';
- disabled?:boolean;
- removeLabel?:string;
- onRemove?:()=>void;
- expanded?:boolean;
- controlsId?:string;
- onOpenChange?:(open:boolean)=>void;
- selected?:boolean;
- onSelectedChange?:(selected:boolean)=>void;
-}
 
 /** One native action per chip; the parent owns group focus after removal. */
 export const Chip=forwardRef<HTMLSpanElement,ChipProps>(function Chip({label,variant='default',size:sizeProp,leadingIcon,control='none',disabled=false,removeLabel,onRemove,expanded,controlsId,onOpenChange,selected,onSelectedChange,className,...props},ref){

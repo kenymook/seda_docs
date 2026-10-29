@@ -50,6 +50,6 @@ test('real source catalog is deterministic and preserves exported values and abs
  assert.ok(get('avatar').runtime.exports.includes('AvatarGroup'));assert.ok(!get('avatar').runtime.exports.includes('AvatarProps'));
  assert.equal(get('breadcrumbs').preview.status,'registered');assert.equal(get('breadcrumbs').contract.status,'not-registered');
  assert.equal(get('number-field').tokens.status,'shared');assert.equal(get('chip').runtime.status,'exported');assert.equal(get('chip').preview.status,'registered');assert.equal(get('icon').specification.status,'foundation-document');
- assert.equal(first.catalog.counts.publicModules,37);assert.equal(first.catalog.counts.contracts,13);assert.equal(first.catalog.counts.tokenBranches,52);assert.equal(first.catalog.counts.studioPreviews,8);
+ assert.equal(first.catalog.counts.publicModules,37);assert.equal(first.catalog.counts.contracts,14);assert.equal(first.catalog.counts.tokenBranches,52);assert.equal(first.catalog.counts.studioPreviews,8);
  assert.ok(first.sources['portal/component-lab/pilots/settings-parametric/StudioPreviews.tsx']);
 });

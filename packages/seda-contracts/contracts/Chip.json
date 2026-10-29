@@ -1,0 +1,548 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Chip",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Chip/Chip.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Chip/Chip.tsx",
+    "export": "ChipProps",
+    "nativeElement": "span"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "span",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "span",
+      "prop": "label",
+      "required": true
+    },
+    {
+      "name": "action",
+      "element": "button",
+      "required": false
+    }
+  ],
+  "targetDefaults": {
+    "size": "m"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": []
+  },
+  "pilotVariants": [
+    "default",
+    "filled",
+    "selected"
+  ],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "chip"
+      ]
+    },
+    "filled": {
+      "collection": "components",
+      "path": [
+        "chip"
+      ]
+    },
+    "selected": {
+      "collection": "components",
+      "path": [
+        "chip"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "specs/data-display/chip.md",
+      "condition": "Supported Chip API",
+      "expected": "label",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D35"
+    },
+    {
+      "id": "control",
+      "source": "specs/data-display/chip.md",
+      "condition": "Supported Chip API",
+      "expected": "control",
+      "check": "chip-control",
+      "layer": "instance",
+      "decision": "D35"
+    },
+    {
+      "id": "focus",
+      "source": "specs/data-display/chip.md",
+      "condition": "Supported Chip API",
+      "expected": "focus",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D35"
+    },
+    {
+      "id": "geometry",
+      "source": "specs/data-display/chip.md",
+      "condition": "Supported Chip API",
+      "expected": "geometry",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D35"
+    },
+    {
+      "id": "tokens",
+      "source": "specs/data-display/chip.md",
+      "condition": "Supported Chip API",
+      "expected": "tokens",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D35"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "platform-assistive-technology",
+      "status": "not-checked",
+      "reason": "Browser, OS and assistive technology acceptance remains open."
+    }
+  ],
+  "evidence": {
+    "source": "specs/data-display/chip.md",
+    "baseline": "portal/component-lab/pilots/settings-parametric/verify-chip.mjs",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "filled"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "surface",
+        "selected"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "filled"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "active"
+      ],
+      [
+        "border",
+        "selected"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "filled"
+      ],
+      [
+        "foreground",
+        "selected"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "icon",
+        "default"
+      ],
+      [
+        "icon",
+        "filled"
+      ],
+      [
+        "icon",
+        "selected"
+      ],
+      [
+        "control",
+        "icon",
+        "default"
+      ],
+      [
+        "control",
+        "icon",
+        "hover"
+      ],
+      [
+        "control",
+        "icon",
+        "active"
+      ],
+      [
+        "control",
+        "icon",
+        "disabled"
+      ],
+      [
+        "control",
+        "surface",
+        "hover"
+      ],
+      [
+        "control",
+        "surface",
+        "active"
+      ],
+      [
+        "remove",
+        "icon",
+        "default"
+      ],
+      [
+        "remove",
+        "icon",
+        "hover"
+      ],
+      [
+        "remove",
+        "icon",
+        "selected"
+      ],
+      [
+        "remove",
+        "surface",
+        "hover"
+      ],
+      [
+        "remove",
+        "surface",
+        "selectedHover"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ],
+    "filled": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "filled"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "surface",
+        "selected"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "filled"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "active"
+      ],
+      [
+        "border",
+        "selected"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "filled"
+      ],
+      [
+        "foreground",
+        "selected"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "icon",
+        "default"
+      ],
+      [
+        "icon",
+        "filled"
+      ],
+      [
+        "icon",
+        "selected"
+      ],
+      [
+        "control",
+        "icon",
+        "default"
+      ],
+      [
+        "control",
+        "icon",
+        "hover"
+      ],
+      [
+        "control",
+        "icon",
+        "active"
+      ],
+      [
+        "control",
+        "icon",
+        "disabled"
+      ],
+      [
+        "control",
+        "surface",
+        "hover"
+      ],
+      [
+        "control",
+        "surface",
+        "active"
+      ],
+      [
+        "remove",
+        "icon",
+        "default"
+      ],
+      [
+        "remove",
+        "icon",
+        "hover"
+      ],
+      [
+        "remove",
+        "icon",
+        "selected"
+      ],
+      [
+        "remove",
+        "surface",
+        "hover"
+      ],
+      [
+        "remove",
+        "surface",
+        "selectedHover"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ],
+    "selected": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "filled"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "surface",
+        "selected"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "filled"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "active"
+      ],
+      [
+        "border",
+        "selected"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "filled"
+      ],
+      [
+        "foreground",
+        "selected"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "icon",
+        "default"
+      ],
+      [
+        "icon",
+        "filled"
+      ],
+      [
+        "icon",
+        "selected"
+      ],
+      [
+        "control",
+        "icon",
+        "default"
+      ],
+      [
+        "control",
+        "icon",
+        "hover"
+      ],
+      [
+        "control",
+        "icon",
+        "active"
+      ],
+      [
+        "control",
+        "icon",
+        "disabled"
+      ],
+      [
+        "control",
+        "surface",
+        "hover"
+      ],
+      [
+        "control",
+        "surface",
+        "active"
+      ],
+      [
+        "remove",
+        "icon",
+        "default"
+      ],
+      [
+        "remove",
+        "icon",
+        "hover"
+      ],
+      [
+        "remove",
+        "icon",
+        "selected"
+      ],
+      [
+        "remove",
+        "surface",
+        "hover"
+      ],
+      [
+        "remove",
+        "surface",
+        "selectedHover"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ]
+  }
+}

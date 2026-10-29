@@ -5,6 +5,7 @@ import path from 'node:path';
 import {chromium} from 'playwright';
 import {createPilotServer} from './server.mjs';
 import {deriveControlGeometry} from '../../../../packages/seda-contracts/src/control-geometry.mjs';
+import {createContractEngine} from '../../../../packages/seda-contracts/src/index.mjs';
 const profiles=JSON.parse(await fs.readFile('node_modules/@seda-ai/ui/dist/profiles.json','utf8'));
 const bundle=await build({stdin:{resolveDir:process.cwd(),loader:'jsx',contents:`
 import React,{useState} from 'react';import{createRoot}from'react-dom/client';import{Chip,SedaProvider}from'@seda-ai/ui';
@@ -45,11 +46,14 @@ try{
  for(const size of ['s','m','l','xl'])assert.ok(dimensions[size+'-150'].font>dimensions[size+'-100'].font,JSON.stringify(dimensions));
  assert.ok(dimensions['m-custom'].width>dimensions['m-100'].width);assert.ok(dimensions['m-custom'].height>dimensions['m-100'].height);assert.ok(dimensions['m-custom'].radius>dimensions['m-100'].radius);
  const explicit=await page.locator('[data-case="xl-explicit"]').evaluate(n=>({height:n.getBoundingClientRect().height,font:parseFloat(getComputedStyle(n).fontSize)}));assert.equal(explicit.height,dimensions['xl-100'].height);assert.equal(explicit.font,dimensions['xl-100'].font);
+ const engine=createContractEngine();
  for(const [id,actual] of Object.entries(dimensions)){
   const [size,scale]=id.split('-'),g=profiles.profiles['light:'+size].geometry;
   const preset={height:g.height.value,font:g.fontSize.value,line:g.lineHeight.value,icon:g.iconSize.value,radius:g.radius.value,border:g.borderWidth.value,buttonPaddingX:g.buttonPaddingInline.value,fieldPaddingX:g.textFieldPaddingInline.value};
   const params=scale==='custom'?{scale:100,extraPaddingInline:12,extraPaddingBlock:6,radiusScale:1.5}:{scale:Number(scale)};
   const expected=deriveControlGeometry(preset,params);
+  const compiled=engine.compileControl('Chip',{label:'Example',size,control:'select',selected:false,onSelectedChange:{$handler:'example.change'}},{theme:'Light',controlParameters:params});
+  for(const field of ['height','font','radius'])assert.equal(compiled.parametric[field],expected[field],id+' compiler '+field);
   for(const [field,expectedValue] of [['height',expected.height],['font',expected.font],['radius',expected.radius]])assert.ok(Math.abs(actual[field]-expectedValue)<=1,`${id} ${field}: DOM ${actual[field]} vs compiler ${expectedValue}`);
  }
  console.log(JSON.stringify({geometry:dimensions}));

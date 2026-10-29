@@ -22,7 +22,8 @@
         "Tree",
         "TextArea",
         "Slider",
-        "NumberField"
+        "NumberField",
+        "Chip"
       ]
     },
     "api": {
@@ -51,7 +52,8 @@
             "select",
             "fieldset",
             "div",
-            "textarea"
+            "textarea",
+            "span"
           ]
         }
       },

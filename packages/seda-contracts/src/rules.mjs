@@ -4,7 +4,7 @@ import{createSliderModel}from'./slider.mjs';
 import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
 const browserChecks = new Set(['select-availability','control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics','slider-keyboard','slider-pointer','slider-form','slider-value-text','number-field-keyboard','number-field-draft','number-field-form']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model','chip-control']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -43,7 +43,7 @@ export function deriveState(component, props, interaction = {}) {
     validation,
     interaction: { hovered, focused, active },
     data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','TextArea','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : ['TextArea','Select'].includes(component)&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : ['TextArea','Select'].includes(component)&&props.readOnly ? 'read-only' : component === 'Chip' && (props.control === 'select' ? props.selected : props.variant === 'selected') ? 'selected' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField','Chip'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
     ...(tabs ? { tabs } : {}),
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
@@ -128,6 +128,13 @@ export function evaluateRules(contract, props) {
       case 'slot-present':
         if (content(props[rule.prop]) === 'empty') violate(`A nonempty ${rule.prop} slot is required.`);
         break;
+      case 'chip-control': {
+        const mode = props.control ?? 'none';
+        if (mode === 'remove' && (typeof props.removeLabel !== 'string' || !props.removeLabel.trim() || !handler(props.onRemove))) violate('Remove requires an accessible label and handler.');
+        if (mode === 'expand' && (typeof props.expanded !== 'boolean' || !handler(props.onOpenChange))) violate('Expand requires controlled boolean expanded and onOpenChange.');
+        if (mode === 'select' && (typeof props.selected !== 'boolean' || !handler(props.onSelectedChange))) violate('Select requires controlled boolean selected and onSelectedChange.');
+        break;
+      }
       case 'selection-value': {
         const options = Array.isArray(props.options) ? props.options : [];
         if (!Array.isArray(options) || !options.length || options.some(o => !o || typeof o.value !== 'string' || !o.value.trim() || content(o.label) === 'empty') || new Set(options.map(o => o.value)).size !== options.length) violate('Options require unique nonempty values and labels.');

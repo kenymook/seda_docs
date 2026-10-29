@@ -13,7 +13,7 @@ test('C01/R07: valid contracts retire implemented D16 while keeping browser evid
   assert.equal(report.valid, true, JSON.stringify(report.issues));
   assert.equal(report.issues.length, 0);
   assert.deepEqual(report.planned, []);
-  assert.equal(report.deferredChecks.length, 66);
+  assert.equal(report.deferredChecks.length, 69);
   assert.equal(report.deferredChecks.filter(item=>item.component==='Select'&&item.ruleId==='availability-behavior').length,1);
   assert.equal(report.deferredChecks.filter(item=>item.component==='NumberField').length,5);
   assert.equal(report.deferredChecks.filter(item=>item.component==='Slider').length,6);

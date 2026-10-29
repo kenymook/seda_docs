@@ -43,6 +43,7 @@ const requiredChecks = {
   TextArea: [['text-content','label'],['textarea-value'],['textarea-layout'],['error-message'],['native-disabled']],
   Slider: [['text-content','label'],['slider-model'],['error-message'],['native-disabled']],
   NumberField: [['text-content','label'],['number-field-model'],['error-message'],['native-disabled']],
+  Chip: [['text-content','label'],['chip-control']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {
