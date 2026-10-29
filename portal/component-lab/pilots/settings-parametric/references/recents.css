@@ -83,3 +83,9 @@
 /* In a short desktop window a wrapped toolbar must scroll away instead of covering the workspace. */
 @media(max-height:640px){.reference-header{position:relative;top:auto}}
 .reference-folder-path{padding:8px 24px 0;min-width:0}
+
+/* Command priority belongs to the application recipe, not TopBar internals. */
+.reference-header.seda-top-bar{flex-wrap:nowrap;flex-direction:row;align-items:center}
+.reference-header>.seda-top-bar__context{flex:0 1 120px}
+.reference-header>.seda-top-bar__actions{flex:1 1 0;flex-wrap:nowrap;min-width:0}
+.reference-create-actions{display:block;width:100%;min-width:0}
