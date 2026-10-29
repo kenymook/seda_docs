@@ -62,7 +62,9 @@
     ],
     "validation": [
       "none",
-      "error"
+      "error",
+      "warning",
+      "success"
     ],
     "interaction": [
       "hovered",
@@ -105,9 +107,9 @@
     },
     {
       "id": "error",
-      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
-      "condition": "Supported NumberField instance",
-      "expected": "Ошибку показывает owner через непустой errorText.",
+      "source": "packages/seda-contracts/FIELD-VALIDATION.md",
+      "condition": "При errorText/warningText/successText или validation preview",
+      "expected": "Непустое сообщение, единый приоритет и связь с реальным состоянием поля.",
       "check": "error-message",
       "layer": "instance",
       "decision": "D32"
@@ -289,6 +291,38 @@
       [
         "icon",
         "error"
+      ],
+      [
+        "surface",
+        "warning"
+      ],
+      [
+        "border",
+        "warning"
+      ],
+      [
+        "helper",
+        "warning"
+      ],
+      [
+        "icon",
+        "warning"
+      ],
+      [
+        "surface",
+        "success"
+      ],
+      [
+        "border",
+        "success"
+      ],
+      [
+        "helper",
+        "success"
+      ],
+      [
+        "icon",
+        "success"
       ]
     ]
   }

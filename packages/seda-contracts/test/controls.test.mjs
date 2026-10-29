@@ -260,3 +260,22 @@ test('Shared web bridge binds four compiled branches and rejects missing state l
  delete compiled.controls.Select.tokenBranch.children.surface.error;
  assert.throws(()=>createControlWebBindings(compiled),/Expected a resolved leaf/);
 });
+
+for(const name of ['TextField','NumberField'])test(name+' validation shares public messages and numeric confirmation facts',()=>{
+ const base=name==='TextField'?{label:'Name',value:'Atlas',onChange:handler}:{label:'Width',value:'320',onValueChange:handler,min:1,max:4096};
+ for(const tone of ['warning','success']){
+  const props={...base,[tone+'Text']:'Check'};
+  const result=engine.validateInstance(name,props,{interaction:{focused:true,hovered:true,active:true}});
+  assert.equal(result.valid,true,JSON.stringify(result.issues));assert.equal(result.state.validation,tone);assert.equal(result.state.tokenState,tone);assert.equal(result.state.focusRing,true);
+  for(const empty of ['', ' ',null,false,[]])assert.equal(engine.validateInstance(name,{...props,[tone+'Text']:empty}).valid,false);
+  assert.equal(engine.validateInstance(name,{...props,disabled:true}).state.validation,'none');
+  assert.equal(engine.validateInstance(name,{...props,errorText:'Invalid'}).state.validation,'error');
+  assert.equal(engine.compileControl(name,props).state.validation,tone);
+ }
+ assert.equal(engine.validateInstance(name,{...base,warningText:'Check',successText:'Done'}).state.validation,'warning');
+ assert.equal(engine.validateInstance(name,{...base,successText:'Done','aria-invalid':true}).state.validation,'none');
+ if(name==='NumberField')for(const value of ['','-','1e','no','5000']){
+  const result=engine.validateInstance(name,{...base,value,successText:'Old confirmation'});
+  assert.equal(result.valid,true,JSON.stringify(result.issues));assert.equal(result.state.validation,'none');assert.equal(result.state.numberField.raw,value);
+ }
+});

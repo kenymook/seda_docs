@@ -40,3 +40,6 @@ Executable contract D32 и browser-safe numeric core принадлежат pack
 Проверить single source bytes, decimal/large steps, partial/Mixed, bounds и неизменяемость; keyboard editing/IME/disabled/readOnly/fieldset, owner refusal, descriptions/form/ref, общий размер/темы; реальные редакторы должны сохранять commit/cancel/history/selection/save. Менять raw buffer без подтверждения документа нельзя считать сохранением. Не добавлять invented variants, formatter/parser, dragging или commit callbacks. AI отмечает gap и needs-review вместо выдуманного approved Figma состояния.
 
 До готовности: fresh Figma design review, locales/parsing policy, pointer stepper/scrub affordance policy, touch/target OS/AT/Firefox/WebKit acceptance. Общая цель зрелости SEDA остаётся открытой.
+
+
+Публичные warningText/successText, приоритеты сообщений и numeric confirmation описаны в [исполняемом контракте валидации](../../packages/seda-contracts/FIELD-VALIDATION.md).

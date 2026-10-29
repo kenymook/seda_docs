@@ -16,6 +16,7 @@ export const NumberField=forwardRef<HTMLInputElement,NumberFieldProps>(({value,o
     aria-valuenow={model.value??undefined} aria-valuemin={min} aria-valuemax={max}
     aria-valuetext={model.mixed?mixedLabel:props['aria-valuetext']}
     aria-invalid={!disabled&&model.outOfRange?true:props['aria-invalid']}
+    successText={model.numericState==='number'&&!model.outOfRange?props.successText:undefined}
     placeholder={model.mixed?mixedLabel:props.placeholder}
     onCompositionStart={event=>{composing.current=true;props.onCompositionStart?.(event);}}
     onCompositionEnd={event=>{composing.current=false;props.onCompositionEnd?.(event);}}

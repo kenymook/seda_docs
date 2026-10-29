@@ -66,7 +66,7 @@ function componentSample(name: string, item: TokenEntry, label: string, vars: Re
   const disabled = path.endsWith('/disabled');
   const error = path.endsWith('/error');
   if (name === 'select') return <Select label={label} options={[{ value: 'all', label: 'Все роли' },{value:'editor',label:'Редактор'},{value:'viewer',label:'Наблюдатель'}]} defaultValue="all" disabled={disabled} readOnly={path.endsWith('/read-only')} loading={path.endsWith('/loading')} warningText={path.endsWith('/warning') ? 'Проверьте доступ' : undefined} successText={path.endsWith('/success') ? 'Доступ подтверждён' : undefined} errorText={error ? 'Проверьте значение' : undefined} />;
-  if (name === 'text-field') return <TextField label={label} defaultValue="Atlas" disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} />;
+  if (name === 'text-field') return <TextField label={label} defaultValue="Atlas" disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} warningText={path.endsWith('/warning') ? 'Требуется проверка' : undefined} successText={path.endsWith('/success') ? 'Значение подтверждено' : undefined} />;
   if (name === 'checkbox') return <Checkbox label={label} defaultChecked={path.includes('/checked') || path.includes('/indeterminate')} disabled={disabled} errorText={error ? 'Проверьте значение' : undefined} />;
   if (name === 'radio') return <Radio label={label} options={[{ value: 'one', label: 'Первый' }, { value: 'two', label: 'Второй' }]} defaultValue="one" disabled={disabled} />;
   if (name === 'toggle') return <Toggle label={label} defaultChecked={path.includes('/on/')} disabled={disabled} />;

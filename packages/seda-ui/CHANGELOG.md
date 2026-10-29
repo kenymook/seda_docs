@@ -1,3 +1,9 @@
+## Unreleased — TextField and NumberField validation
+
+- Add warningText/successText to the actual public fields, with disabled > error > warning > success message precedence and existing component roles. Preserve independent focus and external aria-invalid.
+- Suppress stale numeric success while the controlled buffer is empty, partial, invalid or out of range; do not coerce input or add automatic business errors.
+- Extend executable contracts, required token paths, compiler state and web bindings; add a live three-field validation composition and TextField Studio previews.
+
 ## Unreleased — field component error paint
 
 - Preserve TextField component border/surface error tokens instead of overriding them on the child control with generic danger roles. NumberField inherits the fix through its TextField composition.

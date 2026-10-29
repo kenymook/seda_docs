@@ -497,6 +497,21 @@ function ToastQueueDemo() {
   </div>;
 }
 
+function FieldValidationExample({size}: Pick<Props, "size">) {
+  const [tone,setTone]=useState("warning"),[name,setName]=useState("Atlas"),[width,setWidth]=useState("320"),[role,setRole]=useState("editor");
+  const messages={disabled:tone==="disabled",errorText:tone==="error"?"Проверьте значение":undefined,warningText:tone==="warning"?"Требуется проверка":undefined,successText:tone==="success"?"Значение подтверждено":undefined,helperText:"Редактируемое поле"};
+  return <section className="pane visual-consistency__sample" aria-label="Field validation" id="field-validation-example">
+    <Text as="h2" variant="heading/panel">Состояния полей</Text>
+    <Select id="field-validation-tone" label="Validation" value={tone} onValueChange={value=>setTone(String(value))} size={size} options={["default","error","warning","success","disabled"].map(value=>({value,label:value}))}/>
+    <div className="visual-consistency__fields">
+      <TextField {...messages} id="field-validation-text" label="Название" value={name} onChange={event=>setName(event.target.value)} prefix={<Icon name="search"/>} size={size}/>
+      <NumberField {...messages} id="field-validation-number" label="Ширина" value={width} onValueChange={setWidth} min={1} max={4096} suffix="px" size={size}/>
+      <Select {...messages} id="field-validation-select" label="Роль" value={role} onValueChange={value=>setRole(String(value))} options={[{value:"editor",label:"Редактор"},{value:"viewer",label:"Наблюдатель"}]} size={size}/>
+    </div>
+    <Text as="p" variant="caption/default">Warning и success не блокируют ввод. NumberField сохраняет промежуточный ввод и скрывает success, пока число не входит в диапазон 1–4096.</Text>
+  </section>;
+}
+
 function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
@@ -508,6 +523,7 @@ function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
   return <div className="visual-consistency">
     <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
     <Text as="p" variant="caption/default">Slider использует исполняемый контракт SEDA. Нативное поведение и геометрия проверяются отдельно; Figma/OS/AT приёмка остаётся открытой.</Text>
+    <FieldValidationExample size={size}/>
     {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
       <Text as="h2" variant="heading/panel">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
       <div className="visual-consistency__fields">

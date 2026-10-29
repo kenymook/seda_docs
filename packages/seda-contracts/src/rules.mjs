@@ -29,7 +29,11 @@ export function deriveState(component, props, interaction = {}) {
   const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
   const error = ['TextField','TextArea','Select','Checkbox','Radio','Slider','NumberField'].includes(component) && content(props.errorText) !== 'empty';
-  const validation = disabled || component==='Select' && (loading || props.readOnly) ? 'none' : error ? 'error' : component==='Select' && content(props.warningText)!=='empty' ? 'warning' : component==='Select' && content(props.successText)!=='empty' ? 'success' : 'none';
+  const numberField = component==='NumberField' ? createNumberFieldModel(props) : undefined;
+  const messageField = ['Select','TextField','NumberField'].includes(component);
+  const invalid = component!=='Select' && [true,'true','grammar','spelling'].includes(props['aria-invalid']);
+  const canConfirm = !invalid && (!numberField || numberField.numericState==='number' && !numberField.outOfRange);
+  const validation = disabled || component==='Select' && (loading || props.readOnly) ? 'none' : error ? 'error' : messageField && content(props.warningText)!=='empty' ? 'warning' : messageField && canConfirm && content(props.successText)!=='empty' ? 'success' : 'none';
   const focused = interaction.focused ?? false;
   const hovered = interaction.hovered ?? false;
   const active = interaction.active ?? false;
@@ -45,7 +49,7 @@ export function deriveState(component, props, interaction = {}) {
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
     ...(component==='Tree'?{tree:deriveTree(props),data:props.items?.length?'filled':'empty'}:{}),
     ...(component==='Slider'?{slider:createSliderModel(props),data:'filled'}:{}),
-    ...(component==='NumberField'?{numberField:createNumberFieldModel(props),data:props.value.length?'filled':'empty'}:{}),
+    ...(component==='NumberField'?{numberField,data:props.value.length?'filled':'empty'}:{}),
   };
 }
 
@@ -184,7 +188,7 @@ export function evaluateRules(contract, props) {
         else if (own(props, 'filled') && props.filled !== (props.value.length > 0)) violate('filled must follow the raw current value length.');
         break;
       case 'error-message': {
-        if(contract.id==='Select')for(const tone of ['warning','success']){
+        if(['Select','TextField','NumberField'].includes(contract.id))for(const tone of ['warning','success']){
           const value=props[tone+'Text'],result=content(value);
           if((props.state===tone||value!==undefined)&&result==='empty')violate(`${tone} state requires nonempty ${tone}Text; use undefined when absent.`);
           if(status!=='violated'&&value!==undefined&&result==='opaque')unchecked(`Rendered ${tone} text requires a DOM check.`);

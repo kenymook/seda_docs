@@ -14,6 +14,8 @@ export interface NumberFieldProps extends Omit<InputHTMLAttributes<HTMLInputElem
   mixedLabel?:string;
   helperText?:ReactNode;
   errorText?:ReactNode;
+  warningText?:ReactNode;
+  successText?:ReactNode;
   prefix?:ReactNode;
   suffix?:ReactNode;
 }

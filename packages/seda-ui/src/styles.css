@@ -1288,6 +1288,13 @@
   color: var(--seda-icon-disabled);
 }
 
+[data-seda-contract="TextField"] .seda-field--text[data-state="warning"] > .seda-field__control { background:var(--seda-surface-warning); border-color:var(--seda-border-warning); }
+[data-seda-contract="TextField"] .seda-field--text[data-state="warning"] .seda-field__affix > :is(svg, .seda-icon) { color:var(--seda-icon-warning); }
+[data-seda-contract="TextField"] .seda-field--text > .seda-field__message[data-tone="warning"] { color:var(--seda-helper-warning); }
+[data-seda-contract="TextField"] .seda-field--text[data-state="success"] > .seda-field__control { background:var(--seda-surface-success); border-color:var(--seda-border-success); }
+[data-seda-contract="TextField"] .seda-field--text[data-state="success"] .seda-field__affix > :is(svg, .seda-icon) { color:var(--seda-icon-success); }
+[data-seda-contract="TextField"] .seda-field--text > .seda-field__message[data-tone="success"] { color:var(--seda-helper-success); }
+
 /* Loading preserves the measured border box; no permanent spinner slot. */
 .seda-button { position: relative; }
 .seda-button[data-loading="true"] > :not(.seda-button__loading-center) { opacity: 0; }

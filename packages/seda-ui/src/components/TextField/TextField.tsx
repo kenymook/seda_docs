@@ -11,6 +11,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       className,
       disabled,
       errorText,
+      warningText,
+      successText,
       filled,
       helperText,
       id,
@@ -32,8 +34,10 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
     const hasError = !disabled && hasMessage(errorText);
-    const message = hasError ? errorText : hasMessage(helperText) ? helperText : undefined;
-    const resolvedState = disabled ? "disabled" : hasError ? "error" : state === "error" || state === "disabled" ? "default" : state;
+    const invalid = props["aria-invalid"] === true || props["aria-invalid"] === "true" || props["aria-invalid"] === "grammar" || props["aria-invalid"] === "spelling";
+    const validation = disabled ? undefined : hasError ? "error" : hasMessage(warningText) ? "warning" : !invalid && hasMessage(successText) ? "success" : undefined;
+    const message = validation === "error" ? errorText : validation === "warning" ? warningText : validation === "success" ? successText : hasMessage(helperText) ? helperText : undefined;
+    const resolvedState = disabled ? "disabled" : validation ?? (["error", "warning", "success", "disabled"].includes(state) ? "default" : state);
     const isFilled = filled ?? (value != null && String(value).length > 0);
     const externalDescriptions = props["aria-describedby"]?.split(/\s+/).filter(id => id && (message != null || id !== messageId)).join(" ");
     // Component variables must reach the border, affixes and message as well as
@@ -64,7 +68,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           {suffix ? <span className="seda-field__affix">{suffix}</span> : null}
         </span>
         {message != null ? (
-          <span className="seda-field__message" data-tone={hasError ? "error" : undefined} id={messageId}>
+          <span className="seda-field__message" data-tone={validation} id={messageId}>
             {message}
           </span>
         ) : null}

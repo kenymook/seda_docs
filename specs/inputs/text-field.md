@@ -318,3 +318,6 @@ Handoff для Text Field должен включать:
 - Использовать disabled для read-only значения.
 - Прятать ограничения формата только в Tooltip.
 - Генерировать handoff без validation triggers и value contract.
+
+
+Публичные warningText/successText, приоритеты сообщений и numeric confirmation описаны в [исполняемом контракте валидации](../../packages/seda-contracts/FIELD-VALIDATION.md).

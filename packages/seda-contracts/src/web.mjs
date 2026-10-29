@@ -252,7 +252,7 @@ export function createWebBindings(compiled) {
     }
     const branch = instance.tokenBranch?.children;
     const required = ['surface/default', 'surface/hover', 'surface/disabled', 'border/default', 'border/hover', 'border/disabled', 'foreground/default', 'foreground/disabled'];
-    if (instance.component === 'TextField') required.push('surface/focus', 'surface/error', 'surface/active', 'border/focus', 'border/error', 'border/active', 'foreground/placeholder', 'label/default', 'label/disabled', 'helper/default', 'helper/error', 'focus/ring', 'affix/surface', 'affix/foreground', 'icon/default', 'icon/active', 'icon/disabled', 'icon/error');
+    if (instance.component === 'TextField') required.push('surface/focus', 'surface/error', 'surface/active', 'border/focus', 'border/error', 'border/active', 'foreground/placeholder', 'label/default', 'label/disabled', 'helper/default', 'helper/error', 'focus/ring', 'affix/surface', 'affix/foreground', 'icon/default', 'icon/active', 'icon/disabled', 'icon/error', 'surface/warning', 'surface/success', 'border/warning', 'border/success', 'helper/warning', 'helper/success', 'icon/warning', 'icon/success');
     else required.push('surface/pressed', 'border/pressed');
     if (instance.component === 'IconButton') required.push('foreground/hover', 'foreground/pressed');
     if (instance.component === 'Button') required.push('surface/loading', 'border/loading', 'foreground/loading', 'spinner/foreground', 'focus/ring');

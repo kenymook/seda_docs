@@ -13,7 +13,7 @@ Select получает additive props `warningText?: ReactNode` и `successText
 - Внешние aria-describedby IDs объединяются без повторов с ID видимого сообщения.
 - Preview state=warning/success требует соответствующего непустого сообщения. Контракт отклоняет пустое явно переданное сообщение; при неполных props React безопасно возвращается к обычному отображению.
 
-Словарь validation в общей схеме дополнен warning/success; эти состояния объявлены только в контракте Select. Остальные компоненты не получают новые состояния автоматически. deriveState и compileControl возвращают тот же приоритет validation/tokenState, что и React.
+Словарь validation в общей схеме дополнен warning/success; TextField и NumberField подключены отдельно в FIELD-VALIDATION.md. Остальные компоненты не получают новые состояния автоматически. deriveState и compileControl возвращают тот же приоритет validation/tokenState, что и React.
 
 ## Цветовые привязки
 
