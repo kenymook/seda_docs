@@ -1,5 +1,7 @@
 # Component Maturity Matrix
 
+Порядок дальнейшей работы: [ROADMAP — версии 0.2–1.0](../docs/library/ROADMAP.md). Проверенный inventory на 29 октября: [roadmap-baseline.json](../docs/library/roadmap-baseline.json). Исторические результаты ниже сохраняют свой scope/commit и не являются текущим PASS всей системы.
+
 Breadcrumbs (2026-10-29): добавлен публичный experimental React-компонент с существующими component tokens, ghost/text и slash/triangle, размерами и общими параметрами Provider. Native hierarchy, current span, недоступные предки без ссылок, раскрытие длинного пути inline с фокусом, сброс на смену иерархии. Studio больше не показывает заглушку; Files использует его для возврата из реальной локальной папки. Packed-package React18/19: SSR, types, 16 theme/size/variant samples на версию, клавиатура, long RTL/LTR, scale/icon, forced colors; приложение — Studio autosave/reload и Files folder/back/filter/focus в обеих темах на изолированном API. Это не новый instance contract и не завершённая Figma/OS/AT приёмка. [API и границы](../specs/navigation/breadcrumbs.md).
 
 TextField/NumberField validation: публичные warningText/successText подключены к существующим surface/border/helper/icon, compiler state, token requirements и web bindings. NumberField не подтверждает empty/Mixed/partial/invalid/out-of-range buffer. На рабочем экране добавлена живая композиция TextField/NumberField/Select; Studio text-field отображает выбранные warning/success. [Контракт и границы](../packages/seda-contracts/FIELD-VALIDATION.md). Проверено 56 installed-package message/paint случаев (2 темы × 2 компонента × direct/contract binding × 7 сообщений), 2 live React темы, сохранение raw buffer/DOM/value, stepping, disabled и узкий экран. Отдельно 72 field paint и 16 Select validation случаев, 24 workspace geometry/loading сценария; TypeScript и audited build — PASS. Полная межбраузерная/OS/AT и React 18/19 матрица этого расширения не выполнена; readOnly/loading TextField не объявляются готовыми.
@@ -26,7 +28,7 @@ D33: общие параметры контролов вынесены из Lab 
 
 | Область | Авторитетное основание | Статус |
 | --- | --- | --- |
-| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 34 component entry modules плюс provider/host APIs | Реальная реализация, не полная библиотека |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 36 component entry modules плюс provider/host APIs, source inventory на 29 октября | Реальная реализация, не полная библиотека; число модулей не равно числу принятых компонентов |
 | Контракты | 13 executable control contracts и 8 общих профилей | Проверяемое ядро, включая Slider и NumberField; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
 | Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 26 публичных имён /25 исходных SVG; arrow-left явно производная от arrow-right с поворотом 180°. [Private v57: source/raster/app proofs](2026-10-26-icon-orientation.md). Полнота для всех приложений не достигнута |
 | Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
