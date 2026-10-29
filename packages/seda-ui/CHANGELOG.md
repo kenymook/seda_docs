@@ -1,3 +1,9 @@
+## Unreleased — Select read-only and loading
+
+- Add focusable readOnly/loading with retained form values and guarded native pointer, selection keys, input/change callbacks. Controlled values remain owned by the application; reset restores uncontrolled defaults and retains controlled values.
+- Keep the same DOM and geometry; loading uses the existing icon slot and reduced-motion-aware spinner. Dismiss the progressive native picker on lock without temporarily disabling the form control or stealing a neighbour's focus.
+- Connect existing availability tokens and preserve validation/availability tone under hover/focus. Expose a required browser obligation in the executable Select contract; compilation alone is not runtime proof.
+
 ## Unreleased — Select warning and success validation
 
 - Add warningText/successText with disabled > error > warning > success precedence, one described message and non-blocking native selection for warning/success.

@@ -115,6 +115,7 @@
             "description-merge",
             "disabled-error-presentation",
             "component-token-binding",
+            "select-availability",
             "icon-box",
             "full-tooltip",
             "selection-value",

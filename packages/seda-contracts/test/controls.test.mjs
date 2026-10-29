@@ -33,6 +33,25 @@ const sample = (name) =>
   ["Select", "Radio"].includes(name)
     ? { label: name, options, value: "a", onValueChange: handler }
     : { label: name, checked: false, onCheckedChange: handler };
+test('Select availability is explicit, guarded and retains independent focus',()=>{
+  for(const flag of ['readOnly','loading']){
+    const props={...sample('Select'),[flag]:true,errorText:'Old error',warningText:'Old warning'};
+    const result=engine.validateInstance('Select',props,{interaction:{focused:true,hovered:true,active:true}});
+    assert.equal(result.valid,true,JSON.stringify(result.issues));
+    assert.equal(result.checks.find(c=>c.check==='select-availability').status,'not-checked');
+    assert.equal(result.state.validation,'none');assert.equal(result.state.focusRing,true);
+    assert.equal(result.state.tokenState,flag==='readOnly'?'read-only':'loading');
+    assert.equal(result.state.availability,flag==='readOnly'?'read-only':'enabled');
+    assert.equal(result.state.activity,flag==='loading'?'loading':'idle');
+    assert.equal(engine.validateInstance('Select',{...props,disabled:true}).state.tokenState,'disabled');
+    assert.equal(engine.validateInstance('Select',{...sample('Select'),state:flag==='readOnly'?'read-only':'loading'}).valid,false);
+    const withoutHandler={...props};delete withoutHandler.onValueChange;
+    assert.equal(engine.validateInstance('Select',withoutHandler).valid,true);
+  }
+  for(const facts of [{'aria-readonly':true},{'aria-disabled':true}])assert.equal(engine.validateInstance('Select',{...sample('Select'),...facts}).valid,false);
+  const compiled=engine.compileControl('Select',{...sample('Select'),loading:true,readOnly:true});
+  assert.equal(compiled.state.tokenState,'loading');
+});
 test('Select validation messages share precedence and token state with public API',()=>{
   for(const tone of ['warning','success']){
     const props={...sample('Select'),[tone+'Text']:'Проверка',state:tone};

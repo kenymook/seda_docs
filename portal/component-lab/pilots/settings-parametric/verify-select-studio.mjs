@@ -23,7 +23,7 @@ async function saved(){await page.locator('.studio-edit-toolbar').getByRole('sta
 async function border(state){return page.locator(`[data-preview-state="${state}"] .seda-field__control`).evaluate(e=>getComputedStyle(e).borderColor);}
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}/tokens.html`);await saved();
- assert.equal(await page.locator('.studio-select-state-grid select').count(),7);
+ assert.equal(await page.locator('.studio-select-state-grid select').count(),9);
  assert.equal(await page.getByLabel('Preview disabled',{exact:true}).isDisabled(),true);
  assert.equal(await page.getByLabel('Preview error',{exact:true}).getAttribute('aria-invalid'),'true');
  for(const tone of ['warning','success']){
@@ -69,5 +69,5 @@ try{
  await page.setViewportSize({width:390,height:844});
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);assert.ok(writes>=6);
- console.log('PASS: seven real Select fixtures, state tokens in both themes, isolated autosave/reload, undo/reset, shared-role scope, mobile, no JS errors. API is a test fixture.');
+ console.log('PASS: nine real Select fixtures, state tokens in both themes, isolated autosave/reload, undo/reset, shared-role scope, mobile, no JS errors. API is a test fixture.');
 }finally{await browser.close();await new Promise(r=>server.close(r));}

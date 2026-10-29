@@ -11,6 +11,8 @@
 
 ## 1. Key Principles
 
+Исполняемые readOnly/loading сохраняют DOM, фокус и значение формы, но блокируют пользовательское изменение: [API, форма, клавиатура, picker и границы](../../packages/seda-contracts/SELECT-AVAILABILITY.md). Блокировка отправки всей формы при асинхронной загрузке остаётся у приложения.
+
 Исполняемая валидация `warningText` / `successText` дополнена к существующему `errorText`: [API, приоритеты, токены, проверки и границы](../../packages/seda-contracts/SELECT-VALIDATION.md). Только error задаёт aria-invalid; warning/success не блокируют выбор. Disabled подавляет validation tone.
 
 ### Что это

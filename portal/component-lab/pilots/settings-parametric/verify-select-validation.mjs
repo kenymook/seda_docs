@@ -32,6 +32,8 @@ try{
    assert.equal(await page.locator('.seda-field__control').evaluate(e=>getComputedStyle(e).borderTopColor),'rgb(1, 2, 3)');
    assert.equal(await page.locator('.seda-field__message').evaluate(e=>getComputedStyle(e).color),'rgb(4, 5, 6)');
    assert.equal(await page.locator('.seda-select__arrow').evaluate(e=>getComputedStyle(e).color),'rgb(7, 8, 9)');
+   await page.locator('#role').focus();await page.locator('.seda-field__control').hover();
+   assert.equal(await page.locator('.seda-field__control').evaluate(e=>getComputedStyle(e).borderTopColor),'rgb(1, 2, 3)');
   }
   if(state==='warning'||state==='success'){
    await page.locator('#role').selectOption('viewer');assert.equal(await page.locator('#role').inputValue(),'viewer');

@@ -74,7 +74,7 @@
   --seda-field-surface: var(--text-field-surface-hover);
   --seda-field-border: var(--text-field-border-hover);
 }
-.seda-provider .seda-field--select:has(.seda-field__control:hover) {
+.seda-provider .seda-field--select:where(:not([data-disabled="true"],[data-state="loading"],[data-state="read-only"],[data-state="error"],[data-state="warning"],[data-state="success"])):has(.seda-field__control:hover) {
   --seda-field-surface: var(--select-surface-hover);
   --seda-field-border: var(--select-border-hover);
 }
@@ -83,7 +83,7 @@
   --seda-field-border: var(--text-field-border-focus);
   --seda-field-icon: var(--text-field-icon-active);
 }
-.seda-provider .seda-field--select:focus-within {
+.seda-provider .seda-field--select:where(:not([data-disabled="true"],[data-state="loading"],[data-state="read-only"],[data-state="error"],[data-state="warning"],[data-state="success"])):focus-within {
   --seda-field-surface: var(--select-surface-focus);
   --seda-field-border: var(--select-border-focus);
 }
@@ -129,6 +129,22 @@
   --seda-field-foreground: var(--select-foreground-disabled);
   --seda-field-label: var(--select-label-disabled);
 }
+.seda-provider .seda-field--select[data-state="read-only"] {
+  --seda-field-surface: var(--select-surface-read-only);
+  --seda-field-border: var(--select-border-read-only);
+  --seda-field-foreground: var(--select-foreground-read-only);
+  --seda-field-label: var(--select-label-read-only);
+  --seda-field-arrow: var(--select-arrow-default);
+}
+.seda-provider .seda-field--select[data-state="loading"] {
+  --seda-field-surface: var(--select-surface-loading);
+  --seda-field-border: var(--select-border-loading);
+}
+.seda-select__spinner {
+  box-sizing: border-box; width: 100%; height: 100%; border: 2px solid var(--select-icon-loading);
+  border-inline-end-color: transparent; border-radius: 50%; animation: seda-spin 700ms linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .seda-select__spinner { animation: none; } }
 /* Search composes TextField. Its named input roles enter through the same
    field variables, so stylesheet order cannot silently discard them. */
 .seda-provider .seda-search__query .seda-field--text {
@@ -463,4 +479,13 @@
 }
 .seda-provider :is(.seda-button, .seda-icon-button):focus-visible {
   outline-color: var(--seda-action-focus);
+}
+
+.seda-field--select[data-state="loading"] .seda-field__select[multiple] { padding-inline-end: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) + var(--seda-control-gap, var(--seda-preset-gap))); }
+/* Leave base-select while locked: its UA popover has no public hidePicker API.
+   Disabling this progressive layer dismisses the picker without remounting or
+   temporarily disabling a successful form control. The SEDA slot stays fixed. */
+@supports (appearance: base-select) {
+  .seda-field__select:is([aria-busy="true"],[aria-readonly="true"]) { appearance: none; }
+  .seda-field__select:is([aria-busy="true"],[aria-readonly="true"])::picker(select) { appearance: none; display: none; }
 }

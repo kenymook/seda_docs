@@ -3,7 +3,7 @@ import { componentNames } from './registry.mjs';
 import{createSliderModel}from'./slider.mjs';
 import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
-const browserChecks = new Set(['control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics','slider-keyboard','slider-pointer','slider-form','slider-value-text','number-field-keyboard','number-field-draft','number-field-form']);
+const browserChecks = new Set(['select-availability','control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics','slider-keyboard','slider-pointer','slider-form','slider-value-text','number-field-keyboard','number-field-draft','number-field-form']);
 const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
@@ -29,17 +29,17 @@ export function deriveState(component, props, interaction = {}) {
   const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
   const error = ['TextField','TextArea','Select','Checkbox','Radio','Slider','NumberField'].includes(component) && content(props.errorText) !== 'empty';
-  const validation = disabled ? 'none' : error ? 'error' : component==='Select' && content(props.warningText)!=='empty' ? 'warning' : component==='Select' && content(props.successText)!=='empty' ? 'success' : 'none';
+  const validation = disabled || component==='Select' && (loading || props.readOnly) ? 'none' : error ? 'error' : component==='Select' && content(props.warningText)!=='empty' ? 'warning' : component==='Select' && content(props.successText)!=='empty' ? 'success' : 'none';
   const focused = interaction.focused ?? false;
   const hovered = interaction.hovered ?? false;
   const active = interaction.active ?? false;
   return {
-    availability: disabled ? 'disabled' : component==='NumberField'&&props.readOnly ? 'read-only' : 'enabled',
+    availability: disabled ? 'disabled' : ['NumberField','Select'].includes(component)&&props.readOnly ? 'read-only' : 'enabled',
     activity: loading ? 'loading' : 'idle',
     validation,
     interaction: { hovered, focused, active },
     data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','TextArea','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : component==='TextArea'&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    tokenState: disabled ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : ['TextArea','Select'].includes(component)&&props.readOnly ? 'read-only' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
     focusRing: focused && !disabled,
     ...(tabs ? { tabs } : {}),
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
@@ -128,7 +128,7 @@ export function evaluateRules(contract, props) {
         const options = Array.isArray(props.options) ? props.options : [];
         if (!Array.isArray(options) || !options.length || options.some(o => !o || typeof o.value !== 'string' || !o.value.trim() || content(o.label) === 'empty') || new Set(options.map(o => o.value)).size !== options.length) violate('Options require unique nonempty values and labels.');
         if (props.value !== undefined && props.defaultValue !== undefined) violate('value and defaultValue are mutually exclusive.');
-        if (props.value !== undefined && !props.onValueChange && !props.onChange) violate('A controlled selection requires a change handler.');
+        if (props.value !== undefined && !props.onValueChange && !props.onChange && !(contract.id==='Select'&&(props.readOnly||props.loading||props.disabled))) violate('A controlled editable selection requires a change handler.');
         const value = props.value ?? props.defaultValue;
         const multi = contract.id === 'Select' && props.selection === 'multi';
         if (value !== undefined && (multi ? !Array.isArray(value) : typeof value !== 'string')) violate('Selection value shape must match single/multi mode.');
@@ -195,6 +195,12 @@ export function evaluateRules(contract, props) {
         break;
       }
       case 'native-disabled':
+        if(contract.id==='Select'){
+          if(props.state==='read-only'&&props.readOnly!==true)violate('Select state=read-only requires readOnly=true.');
+          if(props.state==='loading'&&props.loading!==true)violate('Select state=loading requires loading=true.');
+          if([true,'true'].includes(props['aria-disabled'])&&!props.disabled&&!props.loading)violate('Select aria-disabled requires disabled or loading behavior.');
+          if([true,'true'].includes(props['aria-readonly'])&&!props.readOnly)violate('Select aria-readonly requires readOnly behavior.');
+        }
         if (props.state === 'disabled' && props.disabled !== true) violate('Preview state=disabled does not disable the native input; pass disabled=true.');
         break;
       case 'aria-disabled-activation':

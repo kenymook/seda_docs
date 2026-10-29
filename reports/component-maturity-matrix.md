@@ -1,6 +1,8 @@
 # Component Maturity Matrix
 
-Select validation: замкнуты warning/success между публичным API, compiler state и реальной отрисовкой border/helper/arrow. [Поведение и доказательства](../packages/seda-contracts/SELECT-VALIDATION.md). Это устранение конкретного разрыва, не подтверждение полной зрелости библиотеки для интерфейсов уровня Figma/Notion/ChatGPT/Cloude Design. active/read-only/loading Select и общая OS/AT-приёмка остаются открытыми.
+Select availability: добавлены реальные readOnly/loading, guard изменения, сохранность FormData, controlled/uncontrolled reset и стабильный слот spinner. [Контракт и границы](../packages/seda-contracts/SELECT-AVAILABILITY.md). Это не полная приёмка Select: active, popup/OS/AT и остальные движки остаются открытыми.
+
+Select validation: замкнуты warning/success между публичным API, compiler state и реальной отрисовкой border/helper/arrow. [Поведение и доказательства](../packages/seda-contracts/SELECT-VALIDATION.md). Это устранение конкретного разрыва, не подтверждение полной зрелости библиотеки для интерфейсов уровня Figma/Notion/ChatGPT/Cloude Design. readOnly/loading реализованы следующим расширением; active и общая OS/AT-приёмка остаются открытыми.
 
 Private v62: Button text и TextArea получили общие source-роли компактного действия и поля, включая typography, header gap и loading; реальная Settings-композиция проверена в обеих темах. [D35, installed-package, local/production proofs и открытые ограничения](2026-10-26-inline-action-textarea.md). Это проверенный слой ядра, не полная приёмка всех компонентов, экранов и платформ.
 

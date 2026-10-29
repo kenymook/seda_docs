@@ -33,7 +33,7 @@ const requiredChecks = {
   Button: [['text-content', 'children'], ['aria-disabled-activation'], ['pilot-variant']],
   IconButton: [['text-content', 'aria-label'], ['slot-present', 'icon'], ['aria-disabled-activation'], ['persistent-selection-unused'], ['pilot-variant']],
   TextField: [['text-content', 'label'], ['controlled-value'], ['error-message'], ['native-disabled']],
-  Select: [['text-content', 'label'], ['selection-value'], ['error-message'], ['native-disabled']],
+  Select: [['text-content', 'label'], ['selection-value'], ['error-message'], ['native-disabled'], ['select-availability', undefined, 'browser']],
   Checkbox: [['text-content', 'label'], ['checked-value'], ['error-message']],
   Radio: [['text-content', 'label'], ['selection-value'], ['error-message']],
   Toggle: [['text-content', 'label'], ['checked-value'], ['aria-disabled-activation']],
@@ -147,7 +147,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     const expectedApi = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${name}Props`, nativeElement: nativeElements[name] };
     for (const [key, value] of Object.entries(expectedApi)) if (contract.api[key] !== value) invalidContract.push(issue('API_SOURCE_MISMATCH', `/contract/api/${key}`, `Expected ${value}.`));
     for (const rule of contract.rules) { const error = validateRuleDefinition(rule); if (error) invalidContract.push(issue('RULE_INVALID', '/contract/rules', error)); }
-    for (const [check, prop] of requiredChecks[name]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === 'instance')) invalidContract.push(issue('REQUIRED_RULE_MISSING', '/contract/rules', `Required ${check} check is missing.`));
+    for (const [check, prop, layer = 'instance'] of requiredChecks[name]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === layer)) invalidContract.push(issue('REQUIRED_RULE_MISSING', '/contract/rules', `Required ${check} check is missing.`));
     if (invalidContract.length) return { valid: false, issues: invalidContract, checks: [] };
     if (!props || typeof props !== 'object' || Array.isArray(props)) return { valid: false, issues: [issue('API_PROPS_OBJECT', '/props', 'Props must be a plain object.')], checks: [] };
     const commonGeometryKeys=new Set([...Object.keys(bundle.system.sizes.m),...Object.keys(bundle.system.geometry),'boxSizing']);
@@ -196,7 +196,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
         if (error) result.push(issue('RULE_INVALID', `${at}/rules/${rule.id}`, error));
         if (rule.prop && !actual.props[rule.prop]) result.push(issue('RULE_PROP_UNKNOWN', `${at}/rules/${rule.id}/prop`, `Unknown prop ${rule.prop}.`));
       }
-      for (const [check, prop] of requiredChecks[contract.id]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === 'instance')) result.push(issue('REQUIRED_RULE_MISSING', `${at}/rules`, `Required pilot check ${check}${prop ? ' for ' + prop : ''} is missing.`));
+      for (const [check, prop, layer = 'instance'] of requiredChecks[contract.id]) if (!contract.rules.some(rule => rule.check === check && rule.prop === prop && rule.layer === layer)) result.push(issue('REQUIRED_RULE_MISSING', `${at}/rules`, `Required pilot check ${check}${prop ? ' for ' + prop : ''} is missing.`));
       const requiredBranches = !contract.pilotVariants.length ? ['default'] : contract.pilotVariants;
       if (['Button','IconButton'].includes(contract.id) && !requiredBranches.length) result.push(issue('PILOT_VARIANT_MISSING', `${at}/pilotVariants`, 'Action contract needs at least one pilot variant.'));
       for (const role of requiredBranches) if (!own(contract.tokenBranches, role)) result.push(issue('TOKEN_BRANCH_MISSING', `${at}/tokenBranches/${role}`, `Missing branch for pilot recipe ${role}.`));

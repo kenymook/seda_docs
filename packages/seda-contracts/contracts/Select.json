@@ -22,15 +22,19 @@
     }
   ],
   "targetDefaults": {
-    "size": "m"
+    "size": "m",
+    "readOnly": false,
+    "loading": false
   },
   "states": {
     "availability": [
       "enabled",
-      "disabled"
+      "disabled",
+      "read-only"
     ],
     "activity": [
-      "idle"
+      "idle",
+      "loading"
     ],
     "validation": [
       "none",
@@ -139,6 +143,15 @@
       "check": "disabled-error-presentation",
       "layer": "browser",
       "decision": "D25"
+    },
+    {
+      "id": "availability-behavior",
+      "source": "packages/seda-contracts/SELECT-AVAILABILITY.md",
+      "condition": "Select readOnly or loading is true",
+      "expected": "Prevent native picker and selection by pointer/keyboard; keep focus and form value; guard change callbacks; loading retains geometry and exposes busy state.",
+      "check": "select-availability",
+      "layer": "browser",
+      "decision": "D25"
     }
   ],
   "capabilities": [
@@ -230,6 +243,34 @@
       [
         "foreground",
         "placeholder"
+      ],
+      [
+        "surface",
+        "read-only"
+      ],
+      [
+        "border",
+        "read-only"
+      ],
+      [
+        "foreground",
+        "read-only"
+      ],
+      [
+        "label",
+        "read-only"
+      ],
+      [
+        "surface",
+        "loading"
+      ],
+      [
+        "border",
+        "loading"
+      ],
+      [
+        "icon",
+        "loading"
       ]
     ]
   }
