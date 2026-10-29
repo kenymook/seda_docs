@@ -1,3 +1,9 @@
+## Unreleased — field component error paint
+
+- Preserve TextField component border/surface error tokens instead of overriding them on the child control with generic danger roles. NumberField inherits the fix through its TextField composition.
+- Exclude error and disabled fields from ordinary hover/focus paint; retain the visible focus outline.
+- Add installed-package browser coverage with distinct token assignments across Light/Dark and S/M/L/XL. No token values, numeric parsing, or public API changed.
+
 ## Unreleased — Select read-only and loading
 
 - Add focusable readOnly/loading with retained form values and guarded native pointer, selection keys, input/change callbacks. Controlled values remain owned by the application; reset restores uncontrolled defaults and retains controlled values.

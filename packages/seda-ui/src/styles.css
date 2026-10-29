@@ -276,11 +276,6 @@
   padding: 0;
 }
 
-.seda-field:not(.seda-field--select)[data-state="error"] .seda-field__control {
-  --seda-field-border: var(--status-danger-border, #ef4444);
-  --seda-field-surface: var(--status-danger-container, #fff7f7);
-}
-
 .seda-field[data-disabled="true"] {
   opacity: 0.6;
 }

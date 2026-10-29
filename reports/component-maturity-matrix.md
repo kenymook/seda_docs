@@ -1,5 +1,7 @@
 # Component Maturity Matrix
 
+Field paint: устранена подмена component error border/surface в TextField и его композиции NumberField общей status/danger ролью, а также перекрытие ошибки hover. `verify-field-state-paint.mjs`: 72 installed-package browser cases (3 компонента × 4 размера × 3 состояния × 2 темы), проверены реальные border/surface/helper/icon, focus outline и стабильность геометрии; 24 workspace geometry/loading cases и 16 Select validation cases прошли. TypeScript и audited build — PASS. Визуально просмотрены обе темы, включая отдельную композицию трёх полей с ошибкой. Это целевое исправление CSS, не новая поддержка warning/success/readOnly у TextField и не полная приёмка других движков/OS/AT.
+
 Select availability: добавлены реальные readOnly/loading, guard изменения, сохранность FormData, controlled/uncontrolled reset и стабильный слот spinner. [Контракт и границы](../packages/seda-contracts/SELECT-AVAILABILITY.md). Это не полная приёмка Select: active, popup/OS/AT и остальные движки остаются открытыми.
 
 Select validation: замкнуты warning/success между публичным API, compiler state и реальной отрисовкой border/helper/arrow. [Поведение и доказательства](../packages/seda-contracts/SELECT-VALIDATION.md). Это устранение конкретного разрыва, не подтверждение полной зрелости библиотеки для интерфейсов уровня Figma/Notion/ChatGPT/Cloude Design. readOnly/loading реализованы следующим расширением; active и общая OS/AT-приёмка остаются открытыми.

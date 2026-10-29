@@ -70,7 +70,7 @@
 .seda-provider .seda-field--text .seda-field__input::placeholder {
   color: var(--text-field-foreground-placeholder);
 }
-.seda-provider .seda-field--text:has(.seda-field__control:hover) {
+.seda-provider .seda-field--text:where(:not([data-disabled="true"],[data-state="error"])):has(.seda-field__control:hover) {
   --seda-field-surface: var(--text-field-surface-hover);
   --seda-field-border: var(--text-field-border-hover);
 }
@@ -78,7 +78,7 @@
   --seda-field-surface: var(--select-surface-hover);
   --seda-field-border: var(--select-border-hover);
 }
-.seda-provider .seda-field--text:focus-within {
+.seda-provider .seda-field--text:where(:not([data-disabled="true"],[data-state="error"])):focus-within {
   --seda-field-surface: var(--text-field-surface-focus);
   --seda-field-border: var(--text-field-border-focus);
   --seda-field-icon: var(--text-field-icon-active);
