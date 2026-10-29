@@ -19,10 +19,16 @@ await page.route('**/api/token-document',async route=>{
   }
   await route.fulfill({json:doc});
 });
-async function saved(){await page.locator('.studio-edit-toolbar').getByRole('status').filter({hasText:'Сохранено в базе'}).waitFor();}
+async function saved(){await page.locator('.studio-sync-live[role=status]').filter({hasText:'Сохранено в базе'}).waitFor();}
 async function border(state){return page.locator(`[data-preview-state="${state}"] .seda-field__control`).evaluate(e=>getComputedStyle(e).borderColor);}
 try{
  await page.goto(`http://127.0.0.1:${server.address().port}/tokens.html`);await saved();
+ const undo=page.locator('.studio-inspector-heading').getByRole('button',{name:'Отменить изменение',exact:true});
+ assert.equal(await undo.getAttribute('class').then(value=>value.includes('seda-icon-button')),true);
+ assert.equal(await undo.locator('[data-seda-icon=undo]').count(),1);
+ assert.equal(await undo.innerText(),'');
+ assert.equal(await undo.isDisabled(),true);
+ assert.equal(await page.locator('.studio-artboard-title,.studio-edit-toolbar').count(),0);
  assert.equal(await page.locator('.studio-select-state-grid select').count(),9);
  assert.equal(await page.getByLabel('Preview disabled',{exact:true}).isDisabled(),true);
  assert.equal(await page.getByLabel('Preview error',{exact:true}).getAttribute('aria-invalid'),'true');
@@ -38,6 +44,9 @@ try{
   await page.getByRole('button',{name:'select/border/default color',exact:true}).click();
   await page.getByRole('dialog',{name:'Color role'}).getByRole('button',{name:'border/subtle',exact:true}).click();
   await page.keyboard.press('Escape');await saved();
+  assert.equal(await undo.isEnabled(),true);
+  await undo.focus();await page.getByRole('tooltip').filter({hasText:'Отменить изменение'}).waitFor();await page.keyboard.press('Escape');
+  const rect=await undo.boundingBox();assert.ok(Math.abs(rect.width-rect.height)<=1,'undo IconButton is square');
   const expected=await page.locator('.studio').evaluate(e=>getComputedStyle(e).getPropertyValue('--border-subtle').trim());
   assert.equal(await page.locator('[data-preview-state=default] .seda-field').evaluate(e=>getComputedStyle(e).getPropertyValue('--seda-field-border').trim()),expected);
   assert.equal(await border('hover'),hover);assert.equal(await border('focus'),focus);
