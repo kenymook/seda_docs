@@ -23,7 +23,8 @@
         "TextArea",
         "Slider",
         "NumberField",
-        "Chip"
+        "Chip",
+        "Pagination"
       ]
     },
     "api": {
@@ -53,7 +54,8 @@
             "fieldset",
             "div",
             "textarea",
-            "span"
+            "span",
+            "nav"
           ]
         }
       },

@@ -146,7 +146,8 @@
             "number-field-keyboard",
             "number-field-draft",
             "number-field-form",
-            "chip-control"
+            "chip-control",
+            "pagination-model"
           ]
         },
         "prop": {

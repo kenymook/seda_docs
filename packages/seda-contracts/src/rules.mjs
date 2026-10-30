@@ -4,7 +4,7 @@ import{createSliderModel}from'./slider.mjs';
 import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
 const browserChecks = new Set(['select-availability','control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics','slider-keyboard','slider-pointer','slider-form','slider-value-text','number-field-keyboard','number-field-draft','number-field-form']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model','chip-control']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model','chip-control','pagination-model']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -28,6 +28,7 @@ export function deriveState(component, props, interaction = {}) {
   const menu = component === 'DropdownMenu' ? deriveMenu(props) : undefined;
   const disabled = tabs ? tabs.value === null : menu ? menu.unavailable : props.disabled === true;
   const loading = props.loading === true;
+  const pagination = component === 'Pagination' ? {page:props.page,pageCount:props.pageCount,previousAvailable:!disabled&&!loading&&props.pageCount>0&&props.page>1,nextAvailable:!disabled&&!loading&&props.pageCount>0&&props.page<props.pageCount,retainFocusOnDisabled:props.retainFocusOnDisabled===true} : undefined;
   const error = ['TextField','TextArea','Select','Checkbox','Radio','Slider','NumberField'].includes(component) && content(props.errorText) !== 'empty';
   const numberField = component==='NumberField' ? createNumberFieldModel(props) : undefined;
   const messageField = ['Select','TextField','NumberField'].includes(component);
@@ -43,8 +44,9 @@ export function deriveState(component, props, interaction = {}) {
     validation,
     interaction: { hovered, focused, active },
     data: tabs ? (tabs.value === null ? 'empty' : 'filled') : ['Checkbox','Toggle'].includes(component) ? (props.indeterminate ? 'indeterminate' : (props.checked ?? props.defaultChecked) ? 'checked' : 'unchecked') : ['TextField','TextArea','Select','Radio'].includes(component) ? ((props.value ?? props.defaultValue)?.length > 0 ? 'filled' : 'empty') : null,
-    tokenState: disabled ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : ['TextArea','Select'].includes(component)&&props.readOnly ? 'read-only' : component === 'Chip' && (props.control === 'select' ? props.selected : props.variant === 'selected') ? 'selected' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField','Chip'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
-    focusRing: focused && !disabled,
+    tokenState: disabled || pagination && (loading || props.pageCount === 0) ? 'disabled' : loading ? 'loading' : validation!=='none' ? validation : ['TextArea','Select'].includes(component)&&props.readOnly ? 'read-only' : component === 'Chip' && (props.control === 'select' ? props.selected : props.variant === 'selected') ? 'selected' : active ? (['TextField','TextArea','Select','Checkbox','Radio','Toggle','Tabs','DropdownMenu','Slider','NumberField','Chip','Pagination'].includes(component) ? 'active' : 'pressed') : hovered ? 'hover' : component === 'Checkbox' && props.indeterminate ? 'indeterminate' : component === 'Checkbox' && (props.checked ?? props.defaultChecked) ? 'checked' : component === 'Radio' && (props.value ?? props.defaultValue) ? 'selected' : component === 'Toggle' ? ((props.checked ?? props.defaultChecked) ? 'on' : 'off') : 'default',
+    focusRing: focused && (pagination ? (!(disabled||loading||props.pageCount===0) || pagination.retainFocusOnDisabled) : !disabled),
+    ...(pagination ? {pagination} : {}),
     ...(tabs ? { tabs } : {}),
     ...(menu ? { menu, data: menu.items.length ? 'filled' : 'empty' } : {}),
     ...(component==='Tree'?{tree:deriveTree(props),data:props.items?.length?'filled':'empty'}:{}),
@@ -128,6 +130,12 @@ export function evaluateRules(contract, props) {
       case 'slot-present':
         if (content(props[rule.prop]) === 'empty') violate(`A nonempty ${rule.prop} slot is required.`);
         break;
+      case 'pagination-model': {
+        if (!Number.isSafeInteger(props.pageCount) || props.pageCount<0 || !Number.isSafeInteger(props.page) || props.page<1 || props.page>Math.max(1,props.pageCount)) violate('Pagination requires an in-range integer page and nonnegative pageCount.');
+        if (!handler(props.onPageChange)) violate('Pagination requires a page change handler.');
+        if (props.previousLabel !== undefined && (typeof props.previousLabel !== 'string' || !props.previousLabel.trim()) || props.nextLabel !== undefined && (typeof props.nextLabel !== 'string' || !props.nextLabel.trim())) violate('Navigation labels must not be empty.');
+        break;
+      }
       case 'chip-control': {
         const mode = props.control ?? 'none';
         if (mode === 'remove' && (typeof props.removeLabel !== 'string' || !props.removeLabel.trim() || !handler(props.onRemove))) violate('Remove requires an accessible label and handler.');

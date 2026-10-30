@@ -44,6 +44,7 @@ const requiredChecks = {
   Slider: [['text-content','label'],['slider-model'],['error-message'],['native-disabled']],
   NumberField: [['text-content','label'],['number-field-model'],['error-message'],['native-disabled']],
   Chip: [['text-content','label'],['chip-control']],
+  Pagination: [['text-content','label'],['pagination-model']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {

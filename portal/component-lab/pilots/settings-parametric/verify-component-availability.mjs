@@ -10,6 +10,10 @@ try{
  for(const theme of ['Light','Dark']){
   await page.goto(base+'/tokens.html?area=components');await page.getByLabel('Theme',{exact:true}).selectOption(theme);
   const library=page.locator('.studio-library-items');
+  const availability=library.locator('#availability-button');
+  const hiddenDescription=await availability.evaluate(n=>({width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height,clip:getComputedStyle(n).clipPath,text:n.textContent}));
+  assert.equal(hiddenDescription.width,1);assert.equal(hiddenDescription.height,1);assert.equal(hiddenDescription.clip,'inset(50%)');assert.equal(hiddenDescription.text,'Live preview');
+  assert.equal(await library.getByRole('button',{name:'button',exact:true}).getAttribute('aria-describedby'),'availability-button');
   assert.equal(await library.getByRole('button',{name:'select',exact:true}).getAttribute('data-availability'),'live');
   assert.equal(await library.getByRole('button',{name:'avatar',exact:true}).getAttribute('data-availability'),'runtime');
   assert.equal(await library.getByRole('button',{name:'chip',exact:true}).getAttribute('data-availability'),'live');
