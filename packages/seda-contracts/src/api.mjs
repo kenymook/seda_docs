@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
-const COMPONENTS = ['Button', 'IconButton', 'TextField'];
+import { componentNames as COMPONENTS } from './registry.mjs';
 const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
 const pointer = value => String(value).replaceAll('~', '~0').replaceAll('/', '~1');
 const issue = (code, name, message, status = 'violated') => ({
@@ -21,7 +21,7 @@ function literalValue(node) {
   return { $expression: node.getText() };
 }
 
-function implementationMetadata(file, component) {
+function implementationMetadata(file, component, repoRoot) {
   const source = ts.createSourceFile(file, fs.readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   const declaration = source.statements.flatMap(statement => ts.isVariableStatement(statement) ? [...statement.declarationList.declarations] : [])
     .find(node => ts.isIdentifier(node.name) && node.name.text === component);
@@ -33,12 +33,32 @@ function implementationMetadata(file, component) {
   const render = initializer.arguments[0];
   const pattern = render && (ts.isArrowFunction(render) || ts.isFunctionExpression(render)) ? render.parameters[0]?.name : null;
   if (!pattern || !ts.isObjectBindingPattern(pattern)) throw new Error(`API_SOURCE_UNSUPPORTED: ${component} must expose a destructured render parameter to audit defaults`);
-  return {
-    elementType,
-    defaults: Object.fromEntries(pattern.elements.filter(element => element.initializer).map(element => [
-      element.propertyName?.text ?? element.name.text, literalValue(element.initializer),
-    ])),
-  };
+  const defaults = Object.fromEntries(pattern.elements.filter(element => element.initializer).map(element => [element.propertyName?.text ?? element.name.text, literalValue(element.initializer)]));
+  const defaultSources = {};
+  const sizeBinding = pattern.elements.find(element => (element.propertyName?.text ?? element.name.text) === 'size');
+  if (sizeBinding && !sizeBinding.initializer) {
+    const hookImport = source.statements.filter(ts.isImportDeclaration).find(node => node.importClause?.namedBindings && ts.isNamedImports(node.importClause.namedBindings) && node.importClause.namedBindings.elements.some(item => (item.propertyName?.text ?? item.name.text) === 'useSedaSize'));
+    const importedName = hookImport?.importClause.namedBindings.elements.find(item => (item.propertyName?.text ?? item.name.text) === 'useSedaSize')?.name.text;
+    const calls = render.body && ts.isBlock(render.body) ? render.body.statements.flatMap(node => ts.isVariableStatement(node) ? [...node.declarationList.declarations] : []) : [];
+    const binding = calls.find(node => node.name.getText(source) === 'size' && ts.isCallExpression(node.initializer) && node.initializer.expression.getText(source) === importedName && node.initializer.arguments.length === 1 && node.initializer.arguments[0].getText(source) === sizeBinding.name.getText(source));
+    if (!hookImport || !binding || !ts.isStringLiteral(hookImport.moduleSpecifier)) throw new Error(`API_SOURCE_UNSUPPORTED: ${component} size must use the explicit useSedaSize protocol`);
+    const helperFile = path.resolve(path.dirname(file), hookImport.moduleSpecifier.text + '.tsx');
+    const helper = ts.createSourceFile(helperFile, fs.readFileSync(helperFile, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+    const variables = helper.statements.flatMap(node => ts.isVariableStatement(node) ? [...node.declarationList.declarations] : []);
+    const configurationExpression = variables.find(node => node.name.getText(helper) === 'defaultConfiguration')?.initializer;
+    const configuration = configurationExpression && ts.isCallExpression(configurationExpression) && configurationExpression.expression.getText(helper) === 'Object.freeze' ? configurationExpression.arguments[0] : configurationExpression;
+    const context = variables.find(node => node.name.getText(helper) === 'SedaContext')?.initializer;
+    const hook = helper.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === 'useSedaSize');
+    const statements = hook?.body?.statements;
+    const contextRead = statements?.find(ts.isVariableStatement)?.declarationList.declarations[0];
+    const returned = statements?.find(ts.isReturnStatement)?.expression;
+    if (!configuration || !ts.isObjectLiteralExpression(configuration) || !context || !ts.isCallExpression(context) || context.expression.getText(helper) !== 'createContext' || context.arguments[0]?.getText(helper) !== 'defaultConfiguration' || !contextRead || contextRead.name.getText(helper) !== 'configuration' || contextRead.initializer?.getText(helper).replace(/\s/g,'') !== 'useContext(SedaContext)' || returned?.getText(helper).replace(/\s/g,'') !== 'size??configuration.controlSize') throw new Error('API_SOURCE_UNSUPPORTED: size fallback/context protocol changed; audit it explicitly');
+    const sizeDefault = configuration.properties.find(node => ts.isPropertyAssignment(node) && node.name.getText(helper) === 'controlSize');
+    if (!sizeDefault) throw new Error('API_SOURCE_UNSUPPORTED: missing standalone controlSize fallback');
+    defaults.size = literalValue(sizeDefault.initializer);
+    defaultSources.size = { sourcePath: path.relative(repoRoot, helperFile).split(path.sep).join('/'), scope: 'standalone-fallback', providerOverride: true };
+  }
+  return { elementType, defaults, defaultSources };
 }
 
 function enumValues(type) {
@@ -70,7 +90,7 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
   const reactTypes = path.join(packageRoot, 'node_modules/@types/react/index.d.ts');
   if (!fs.existsSync(reactTypes)) throw new Error('API_DEPENDENCY_MISSING: run npm ci in packages/seda-contracts');
   const probeFile = path.join(packageRoot, '__seda_api_probe__.ts');
-  const implementations = Object.fromEntries(COMPONENTS.map(name => [name, implementationMetadata(files[name].implementation, name)]));
+  const implementations = Object.fromEntries(COMPONENTS.map(name => [name, implementationMetadata(files[name].implementation, name, repoRoot)]));
   const imports = COMPONENTS.map(name => `import type { ${name}Props } from ${JSON.stringify(files[name].types)};`).join('\n');
   const publicTypes = COMPONENTS.map(name => `type __${name}PublicProps = ${name}Props & RefAttributes<${implementations[name].elementType}>;`).join('\n');
   const sharedTypes = path.join(repoRoot, 'packages/seda-ui/src/types.ts');
@@ -111,9 +131,16 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
   const metadata = new Map();
   for (const name of COMPONENTS) {
     const source = program.getSourceFile(files[name].types);
-    const declaration = source.statements.find(node => ts.isInterfaceDeclaration(node) && node.name.text === `${name}Props`);
-    if (!declaration) throw new Error(`API_SOURCE_UNSUPPORTED: missing ${name}Props interface`);
-    const ownNames = new Set(declaration.members.map(member => member.name?.text).filter(Boolean));
+    const declaration = source.statements.find(node => (ts.isInterfaceDeclaration(node)||ts.isTypeAliasDeclaration(node)) && node.name.text === `${name}Props`);
+    if (!declaration) throw new Error(`API_SOURCE_UNSUPPORTED: missing ${name}Props declaration`);
+    const ownNames=new Set(),seen=new Set();
+    const collect=node=>{
+      if(!node||seen.has(node))return;seen.add(node);
+      if(ts.isInterfaceDeclaration(node)||ts.isTypeLiteralNode(node)){for(const member of node.members)if(ts.isPropertySignature(member)&&member.name)ownNames.add(member.name.getText(source).replace(/^['"]|['"]$/g,''));for(const clause of node.heritageClauses??[])for(const base of clause.types){const name=base.expression.getText(source);collect(source.statements.find(n=>(ts.isInterfaceDeclaration(n)||ts.isTypeAliasDeclaration(n))&&n.name.text===name));}}
+      else if(ts.isTypeAliasDeclaration(node)||ts.isParenthesizedTypeNode(node))collect(node.type);
+      else if(ts.isUnionTypeNode(node)||ts.isIntersectionTypeNode(node))node.types.forEach(collect);
+      else if(ts.isTypeReferenceNode(node)&&ts.isIdentifier(node.typeName))collect(source.statements.find(n=>(ts.isInterfaceDeclaration(n)||ts.isTypeAliasDeclaration(n))&&n.name.text===node.typeName.text));
+    };collect(declaration);
     const publicDeclaration = program.getSourceFile(probeFile).statements.find(node => ts.isTypeAliasDeclaration(node) && node.name.text === `__${name}PublicProps`);
     const type = checker.getTypeAtLocation(publicDeclaration);
     const props = {};
@@ -127,13 +154,15 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
         ...(values ? { enumValues: values } : {}),
         origin: ownNames.has(symbol.name) ? 'own' : ['ref', 'key'].includes(symbol.name) ? 'react' : 'native',
         acceptsHandler: members.some(member => checker.getSignaturesOfType(member, ts.SignatureKind.Call).length > 0),
+        ...(members.flatMap(member=>checker.getSignaturesOfType(member,ts.SignatureKind.Call)).length>0&&members.flatMap(member=>checker.getSignaturesOfType(member,ts.SignatureKind.Call)).every(signature=>!!(checker.getReturnTypeOfSignature(signature).flags&ts.TypeFlags.StringLike))?{handlerReturnsString:true}:{}),
         acceptsSlot: checker.isTypeAssignableTo(slotType, propertyType),
       };
     }
     metadata.set(name, {
       name, sourcePath: path.relative(repoRoot, files[name].types).split(path.sep).join('/'),
       implementationPath: path.relative(repoRoot, files[name].implementation).split(path.sep).join('/'),
-      props, refElement: implementations[name].elementType, observedDefaults: implementations[name].defaults,
+      props, refElement: implementations[name].elementType, observedDefaults: implementations[name].defaults, defaultSources: implementations[name].defaultSources,
+      ...(type.isUnion()?{discriminatedUnion:true}:{}),
     });
   }
 
@@ -172,14 +201,14 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
             issues.push(issue('API_BINDING_TYPE', key, `${descriptor} is not assignable to ${name}.${key}: ${prop.type}`));
             continue;
           }
-          expression = descriptor === '$handler' ? '(...__args: any[]): void => {}' : '(null as unknown as __SedaSlot)';
+          expression = descriptor === '$handler' ? prop.handlerReturnsString?'(...__args: any[]): string => ""':'(...__args: any[]): void => {}' : '(null as unknown as __SedaSlot)';
         } else expression = serialize(value, new Set());
         entries.push({ key, expression });
       } catch (error) {
-        issues.push(issue('API_VALUE_UNCHECKED', key, error.message, 'not-checked'));
+        issues.push(issue(error.code ?? 'API_VALUE_UNCHECKED', key, error.message, error.code ? 'violated' : 'not-checked'));
       }
     }
-    return [...issues, ...checkExpressions(name, entries, 'API_PROP_TYPE')];
+    return [...issues, ...checkExpressions(name, entries, 'API_PROP_TYPE', {complete:requireRequired&&api.discriminatedUnion})];
   }
 
   /** Check a binding's whole value domain, rather than one current sample. */
@@ -214,14 +243,14 @@ export function createApiInspector({ repoRoot, packageRoot = path.resolve(path.d
     return [...issues, ...checkExpressions(name, entries, 'BINDING_TYPE_MISMATCH')];
   }
 
-  function checkExpressions(name, entries, code) {
+  function checkExpressions(name, entries, code, {complete=false}={}) {
     if (!entries.length) return [];
     const issues = [];
     // Presence is checked above; Pick preserves each provided property's actual
     // requiredness/type. Partial would incorrectly admit undefined for a
     // required string such as IconButton's aria-label.
     const providedKeys = entries.map(entry => JSON.stringify(entry.key)).join(' | ');
-    probeText = `${header}\nconst __props = {\n${entries.map(entry => `  ${JSON.stringify(entry.key)}: ${entry.expression},`).join('\n')}\n} satisfies Pick<__${name}PublicProps, ${providedKeys}>;\n`;
+    probeText = `${header}\ntype __DistributivePick<T,K extends keyof T>=T extends unknown?Pick<T,K>:never;\nconst __props = {\n${entries.map(entry => `  ${JSON.stringify(entry.key)}: ${entry.expression},`).join('\n')}\n} satisfies ${complete?`__${name}PublicProps`:`__DistributivePick<__${name}PublicProps, ${providedKeys}>`};\n`;
     probeSource = undefined;
     program = ts.createProgram(program.getRootFileNames(), options, host, program);
     const source = program.getSourceFile(probeFile);
@@ -267,6 +296,16 @@ function serialize(value, ancestors) {
   if (typeof value !== 'object') throw new Error(`Unsupported recipe value: ${typeof value}`);
   if (ancestors.has(value)) throw new Error('Cyclic recipe values are not supported');
   if (!Array.isArray(value) && ![Object.prototype, null].includes(Object.getPrototypeOf(value))) throw new Error('Custom object instances require a binding adapter');
+  if (own(value, '$handler') || own(value, '$slot')) {
+    const descriptor = own(value, '$handler') ? '$handler' : '$slot';
+    if (Object.keys(value).length !== 1 || typeof value[descriptor] !== 'string' || !value[descriptor].trim()) {
+      const error = new Error('Nested binding descriptor must contain exactly one nonempty $handler or $slot');
+      error.code = 'API_BINDING_DESCRIPTOR';
+      throw error;
+    }
+    // The full enclosing property is checked by TypeScript; a slot in value/label cannot bypass its type.
+    return descriptor === '$handler' ? '(...__args: any[]): void => {}' : '(null as unknown as __SedaSlot)';
+  }
   ancestors.add(value);
   const result = Array.isArray(value)
     ? `[${value.map(item => serialize(item, ancestors)).join(',')}]`

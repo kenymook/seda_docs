@@ -43,7 +43,9 @@
       "required": false
     }
   ],
-  "targetDefaults": {},
+  "targetDefaults": {
+    "size": "m"
+  },
   "states": {
     "availability": [
       "enabled",
@@ -54,7 +56,9 @@
     ],
     "validation": [
       "none",
-      "error"
+      "error",
+      "warning",
+      "success"
     ],
     "interaction": [
       "hovered",
@@ -97,9 +101,9 @@
     },
     {
       "id": "error-message",
-      "source": "ai-readiness/pilots/settings-form/decisions.md",
-      "condition": "При state=error или заданном errorText",
-      "expected": "Ошибка содержит непустое сообщение.",
+      "source": "packages/seda-contracts/FIELD-VALIDATION.md",
+      "condition": "При errorText/warningText/successText или validation preview",
+      "expected": "Непустое сообщение, единый приоритет и связь с реальным состоянием поля.",
       "check": "error-message",
       "layer": "instance",
       "decision": "D05"
@@ -291,6 +295,38 @@
       [
         "icon",
         "error"
+      ],
+      [
+        "surface",
+        "warning"
+      ],
+      [
+        "border",
+        "warning"
+      ],
+      [
+        "helper",
+        "warning"
+      ],
+      [
+        "icon",
+        "warning"
+      ],
+      [
+        "surface",
+        "success"
+      ],
+      [
+        "border",
+        "success"
+      ],
+      [
+        "helper",
+        "success"
+      ],
+      [
+        "icon",
+        "success"
       ]
     ]
   }

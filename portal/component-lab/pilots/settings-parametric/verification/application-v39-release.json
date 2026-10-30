@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "93174f4419dc674fd231715ae16446d42f593a08",
+  "siteSource": "c004a2dc4960a4942df5833ff65ae4039e000a21",
+  "version": 39,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deploymentId": "appgdep_6add167067d081918a715d3372d0a3fd",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_2e48655ae0cc81919c18f4ddcb2a70e3",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archive": {
+    "bytes": 7723140,
+    "sha256": "c47be21778d957770941436b5b1dc4ad9168a0d4270c0a788e2b29b34fc40130"
+  },
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 122,
+  "packageGroupsPassed": 43,
+  "fullPilotSequenceExitCode": 0,
+  "finalFocusedSequence": [
+    "application-text",
+    "adaptive-panels",
+    "icon-workspace",
+    "reference-modal",
+    "sandbox-model",
+    "sandbox"
+  ],
+  "finalFocusedExitCode": 0,
+  "scopeNote": "Full pilot sequence preceded the final Sandbox-only dock relocation/Pages nowrap. Final build and focused sequence passed afterwards. Other runtime and public package unchanged.",
+  "loading": {
+    "combinations": 288,
+    "maxWidthDelta": 0,
+    "maxHeightDelta": 0
+  },
+  "production": {
+    "sourceHashesMatched": 774,
+    "rootTextSamples": 24,
+    "applicationTextSamples": 96,
+    "adaptivePanelSamples": 6,
+    "modalSamples": 32,
+    "reload": [
+      {
+        "route": "recents",
+        "scale": 150,
+        "airX": 24,
+        "airY": 12
+      },
+      {
+        "route": "building",
+        "scale": 150,
+        "airX": 24,
+        "airY": 12
+      },
+      {
+        "route": "chat",
+        "scale": 150,
+        "airX": 24,
+        "airY": 12
+      },
+      {
+        "route": "sandbox",
+        "scale": 150,
+        "airX": 24,
+        "airY": 12
+      }
+    ],
+    "isolation": [
+      {
+        "route": "recents",
+        "authoredUnchanged": true,
+        "dataUnchanged": true
+      },
+      {
+        "route": "building",
+        "authoredUnchanged": true,
+        "dataUnchanged": true
+      },
+      {
+        "route": "chat",
+        "authoredUnchanged": true,
+        "dataUnchanged": true
+      },
+      {
+        "route": "sandbox",
+        "authoredUnchanged": true,
+        "dataUnchanged": true
+      }
+    ],
+    "errors": [],
+    "fullResults": "v39-production-results.json"
+  },
+  "logNormalization": "UTF-8, LF. Hashes match canonical committed bytes.",
+  "rawSHA256": {
+    "v39-package-log.txt": "ee5835d8460354c2320a8568d6abf5427c5c2a6a4a1d079a27b2fdd4384e7cdc",
+    "v39-contracts-log.txt": "129be9f0f5ff4f27715379565ab5592b8d38be3accf86ad25440d0e741bdd200",
+    "v39-pilot-log.txt": "e22a560e9ea3f12e96e2a56281290edcd179ffc91e62bffcef0e9b19bdd73271",
+    "v39-focused-log.txt": "d21466ed6f4cb2be07f07d36bc7d2dd6927a4a118cd192cfe090a5858108b59e",
+    "v39-production-results.json": "9bf65dc442593335451668d90316d470bce6ba92d691abeec658290f158c9aba",
+    "v39-typography-before.json": "cc4c5a331dd36c253d9cb276a7944794a25c1042d8254e8fccddd7162756849e",
+    "v39-typography-after.json": "a3bb9742f6453b5d9220345d2fc5bfe5999230bde191896a12f96299556469c9",
+    "v39-chat-before-m150.png": "f7be47e279e1bf6189191189831c5eeeb93dcf34fdab2531e8b822516db4daef",
+    "v39-chat-after-m150.png": "2c7c5fe797ba6cfa6cac39bec5230d7008cd1c275b02e1fc6002fbd8c88e6169",
+    "v39-sandbox-before-m150.png": "91ba4081e3514d88816f793ee3ae2f53466d11542ef01e55d19afadf6441444f",
+    "v39-sandbox-after-m150.png": "a9cc1a82f4f4d0a080955daf4263b9ece4979d33113ebf519ff711803a8d1d89",
+    "v39-sandbox-960-large.png": "cec5409cbabc72830996a7266728f4cc489fa20109a7f0cc251d43fdc5d6791e",
+    "v39-chat-1280-large.png": "f381b9dc3f4dbc13079bf01274ad5fbe6e9507be72ae42606623085defa03836",
+    "packages\\seda-ui\\.diagnostics-package\\2026-10-24T20-12-58-222Z\\results.json": "9a0b905a163653e8d2fbf8c87ace765e4e38ef495e1e277a3441a8b0c4cd7fe8",
+    "packages\\seda-ui\\.diagnostics-package\\2026-10-24T20-12-58-222Z\\react-18.3.1\\tabs-results.json": "21679016a0092d446180ea89aae3a2cde874b8cf8a43ceb0966faa86fab3f2b2",
+    "packages\\seda-ui\\.diagnostics-package\\2026-10-24T20-12-58-222Z\\react-19.2.7\\tabs-results.json": "21679016a0092d446180ea89aae3a2cde874b8cf8a43ceb0966faa86fab3f2b2",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-application-text\\results.json": "f67bd6842b58baa98df80113acf0a87a233621d9746e63f142928254e4ff6f5a",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-adaptive-panels\\results.json": "02c74a16433422ce3a8ec89574b42fa30d2f0822dc3e3ec086619ea94e89ea05",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-icon-workspace\\results.json": "c35ae29a2a97373b0b78b10fb10423ae04e14dbced976607d3fbcd6e1ea5f9ba",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-lab2\\results.json": "63421d17eb9337e200fcc79338249f3bdd349a679132b085f5994754b09e2514",
+    "portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-sandbox\\results.json": "e26e6ea105817c1a2714fac1ea7e814a9ec564f8eaedba9714ed589a46d01498"
+  },
+  "limitations": [
+    "Not a whole-library visual/fidelity acceptance",
+    "Only Chromium; native desktop shell, AT and full app RTL not verified",
+    "No new executable surface/feedback/FileUpload contracts",
+    "Native title does not substitute a complete Tooltip component",
+    "Labels wider than tablist viewport retain full text and horizontal scrolling"
+  ]
+}

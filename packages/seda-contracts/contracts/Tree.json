@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Tree",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Tree/Tree.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Tree/Tree.tsx",
+    "export": "TreeProps",
+    "nativeElement": "div"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "div",
+      "required": true
+    },
+    {
+      "name": "items",
+      "element": "div",
+      "prop": "items",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "selectionMode": "single",
+    "disabled": false,
+    "emptyText": "Нет элементов"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "tree"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Nonempty accessible tree label.",
+      "check": "text-content",
+      "layer": "instance",
+      "decision": "D29",
+      "prop": "label"
+    },
+    {
+      "id": "items",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Unique nonempty ids and labels, arrays, disabled inheritance and at most 128 levels.",
+      "check": "tree-items",
+      "layer": "instance",
+      "decision": "D29"
+    },
+    {
+      "id": "state",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Controlled/default ownership; independent selection and expansion; stale ids ignored.",
+      "check": "tree-state",
+      "layer": "instance",
+      "decision": "D29"
+    },
+    {
+      "id": "keyboard",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Visible navigation, disclosure, typeahead, range and additive selection, RTL.",
+      "check": "tree-keyboard",
+      "layer": "browser",
+      "decision": "D29"
+    },
+    {
+      "id": "focus",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "One roving stop; repair removed/disabled focus without stealing inspector focus.",
+      "check": "tree-focus",
+      "layer": "browser",
+      "decision": "D29"
+    },
+    {
+      "id": "semantics",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Tree/treeitem/group hierarchy, level/position/setsize, selected and expanded states.",
+      "check": "tree-semantics",
+      "layer": "browser",
+      "decision": "D29"
+    },
+    {
+      "id": "geometry",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Common size and geometry agree with DOM.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D29"
+    },
+    {
+      "id": "tokens",
+      "source": "specs/navigation/tree.md",
+      "condition": "Authored Tree props",
+      "expected": "Canonical Tree role bindings and theme provenance.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D29"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "platform-assistive-technology",
+      "status": "not-checked",
+      "reason": "Chromium evidence does not establish screen readers or native desktop."
+    },
+    {
+      "id": "virtual-lazy-reorder-checkbox",
+      "status": "decision-needed",
+      "reason": "No virtualization, lazy data, reorder or checkbox selection API."
+    }
+  ],
+  "evidence": {
+    "source": "specs/navigation/tree.md",
+    "baseline": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "row",
+        "surface",
+        "default"
+      ],
+      [
+        "row",
+        "surface",
+        "hover"
+      ],
+      [
+        "row",
+        "surface",
+        "selected"
+      ],
+      [
+        "row",
+        "surface",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "selected"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "icon",
+        "default"
+      ],
+      [
+        "icon",
+        "selected"
+      ],
+      [
+        "icon",
+        "disabled"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/building",
+  "status": 200,
+  "installedPackage": true,
+  "sourceAlias": false,
+  "matchedSourceHashes": 385,
+  "component": "TextArea",
+  "defaultRows": 2,
+  "initial": {
+    "height": 88,
+    "padding": 24,
+    "line": 28
+  },
+  "threeRows": 116,
+  "maxRows": 6,
+  "cappedHeight": 200,
+  "clearAndFocus": true,
+  "draftAcrossDialog": true,
+  "multilineSaveReload": true,
+  "lightMHeight": 52,
+  "pageErrors": []
+}

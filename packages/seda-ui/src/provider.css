@@ -1,0 +1,503 @@
+.seda-provider {
+  min-width: 0;
+  font-family: var(--seda-font-family, sans-serif);
+  color: var(--text-primary);
+  background: var(--surface-base);
+}
+:is(.seda-field__label, .seda-choice__label, .seda-toggle__label) {
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+  font-weight: var(--seda-label-weight, 600);
+}
+.seda-provider .seda-field {
+  min-width: 0;
+}
+.seda-field > .seda-field__control {
+  box-sizing: border-box;
+  height: var(--seda-control-height, var(--seda-preset-height));
+  min-height: var(--seda-control-height, var(--seda-preset-height));
+  border-width: var(
+    --seda-control-border-width,
+    var(--seda-preset-border-width)
+  );
+  border-radius: var(--seda-control-radius, var(--seda-preset-radius));
+  padding-inline: var(
+    --seda-control-padding-inline,
+    var(--seda-preset-field-padding)
+  );
+  font-size: var(--seda-control-font-size, var(--seda-preset-font-size));
+  line-height: var(--seda-control-line-height, var(--seda-preset-line-height));
+}
+.seda-field__select {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.seda-field__select[multiple] {
+  min-height: calc(3 * var(--seda-control-line-height, var(--seda-preset-line-height)));
+}
+.seda-field__control:has(select[multiple]) {
+  height: auto;
+}
+.seda-provider .seda-field--text {
+  --seda-field-surface: var(--text-field-surface-default);
+  --seda-field-border: var(--text-field-border-default);
+  --seda-field-foreground: var(--text-field-foreground-default);
+  --seda-field-ring: var(--text-field-focus-ring);
+  --seda-field-label: var(--text-field-label-default);
+  --seda-field-helper: var(--text-field-helper-default);
+  --seda-field-icon: var(--text-field-icon-default);
+}
+.seda-provider .seda-field--select {
+  --seda-field-surface: var(--select-surface-default);
+  --seda-field-border: var(--select-border-default);
+  --seda-field-foreground: var(--select-foreground-default);
+  --seda-field-ring: var(--select-focus-ring);
+  --seda-field-label: var(--select-label-default);
+  --seda-field-helper: var(--select-helper-default);
+}
+.seda-provider .seda-field__control {
+  background: var(--seda-field-surface);
+  border-color: var(--seda-field-border);
+  color: var(--seda-field-foreground);
+}
+.seda-provider .seda-field__label {
+  color: var(--seda-field-label, var(--text-primary));
+}
+.seda-provider .seda-field__message {
+  color: var(--seda-field-helper, var(--text-tertiary));
+}
+.seda-provider .seda-field--text .seda-field__input::placeholder {
+  color: var(--text-field-foreground-placeholder);
+}
+.seda-provider .seda-field--text:where(:not([data-disabled="true"],[data-state="error"],[data-state="warning"],[data-state="success"])):has(.seda-field__control:hover) {
+  --seda-field-surface: var(--text-field-surface-hover);
+  --seda-field-border: var(--text-field-border-hover);
+}
+.seda-provider .seda-field--select:where(:not([data-disabled="true"],[data-state="loading"],[data-state="read-only"],[data-state="error"],[data-state="warning"],[data-state="success"])):has(.seda-field__control:hover) {
+  --seda-field-surface: var(--select-surface-hover);
+  --seda-field-border: var(--select-border-hover);
+}
+.seda-provider .seda-field--text:where(:not([data-disabled="true"],[data-state="error"],[data-state="warning"],[data-state="success"])):focus-within {
+  --seda-field-surface: var(--text-field-surface-focus);
+  --seda-field-border: var(--text-field-border-focus);
+  --seda-field-icon: var(--text-field-icon-active);
+}
+.seda-provider .seda-field--select:where(:not([data-disabled="true"],[data-state="loading"],[data-state="read-only"],[data-state="error"],[data-state="warning"],[data-state="success"])):focus-within {
+  --seda-field-surface: var(--select-surface-focus);
+  --seda-field-border: var(--select-border-focus);
+}
+.seda-provider .seda-field__control:has(:focus-visible) {
+  outline-color: var(--seda-field-ring);
+}
+.seda-provider .seda-field--text[data-state="error"] {
+  --seda-field-surface: var(--text-field-surface-error);
+  --seda-field-border: var(--text-field-border-error);
+  --seda-field-helper: var(--text-field-helper-error);
+  --seda-field-icon: var(--text-field-icon-error);
+}
+.seda-provider .seda-field--text[data-state="warning"] {
+  --seda-field-surface: var(--text-field-surface-warning);
+  --seda-field-border: var(--text-field-border-warning);
+  --seda-field-helper: var(--text-field-helper-warning);
+  --seda-field-icon: var(--text-field-icon-warning);
+}
+.seda-provider .seda-field--text[data-state="success"] {
+  --seda-field-surface: var(--text-field-surface-success);
+  --seda-field-border: var(--text-field-border-success);
+  --seda-field-helper: var(--text-field-helper-success);
+  --seda-field-icon: var(--text-field-icon-success);
+}
+.seda-provider .seda-field--select[data-state="error"] {
+  --seda-field-surface: var(--select-surface-error);
+  --seda-field-border: var(--select-border-error);
+  --seda-field-helper: var(--select-helper-error);
+  --seda-field-arrow: var(--select-arrow-error);
+}
+.seda-provider .seda-field--select[data-state="warning"] {
+  --seda-field-surface: var(--select-surface-warning);
+  --seda-field-border: var(--select-border-warning);
+  --seda-field-helper: var(--select-helper-warning);
+  --seda-field-arrow: var(--select-arrow-warning);
+}
+.seda-provider .seda-field--select[data-state="success"] {
+  --seda-field-surface: var(--select-surface-success);
+  --seda-field-border: var(--select-border-success);
+  --seda-field-helper: var(--select-helper-success);
+  --seda-field-arrow: var(--select-arrow-success);
+}
+.seda-provider .seda-field--text[data-disabled="true"] {
+  opacity: 1;
+  --seda-field-surface: var(--text-field-surface-disabled);
+  --seda-field-border: var(--text-field-border-disabled);
+  --seda-field-foreground: var(--text-field-foreground-disabled);
+  --seda-field-label: var(--text-field-label-disabled);
+  --seda-field-icon: var(--text-field-icon-disabled);
+}
+.seda-provider .seda-field--select[data-disabled="true"] {
+  opacity: 1;
+  --seda-field-surface: var(--select-surface-disabled);
+  --seda-field-border: var(--select-border-disabled);
+  --seda-field-foreground: var(--select-foreground-disabled);
+  --seda-field-label: var(--select-label-disabled);
+}
+.seda-provider .seda-field--select[data-state="read-only"] {
+  --seda-field-surface: var(--select-surface-read-only);
+  --seda-field-border: var(--select-border-read-only);
+  --seda-field-foreground: var(--select-foreground-read-only);
+  --seda-field-label: var(--select-label-read-only);
+  --seda-field-arrow: var(--select-arrow-default);
+}
+.seda-provider .seda-field--select[data-state="loading"] {
+  --seda-field-surface: var(--select-surface-loading);
+  --seda-field-border: var(--select-border-loading);
+}
+.seda-select__spinner {
+  box-sizing: border-box; width: 100%; height: 100%; border: 2px solid var(--select-icon-loading);
+  border-inline-end-color: transparent; border-radius: 50%; animation: seda-spin 700ms linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .seda-select__spinner { animation: none; } }
+/* Search composes TextField. Its named input roles enter through the same
+   field variables, so stylesheet order cannot silently discard them. */
+.seda-provider .seda-search__query .seda-field--text {
+  --seda-field-surface: var(--search-input-surface-default);
+  --seda-field-border: var(--search-input-border-default);
+  --seda-field-foreground: var(--search-input-foreground-default);
+  --seda-field-ring: var(--search-focus-ring);
+  --seda-field-icon: var(--search-input-icon-default);
+}
+.seda-provider .seda-search__query .seda-field--text:not([data-disabled="true"]):has(.seda-field__control:hover) {
+  --seda-field-surface: var(--search-input-surface-hover);
+  --seda-field-border: var(--search-input-border-hover);
+}
+.seda-provider .seda-search__query .seda-field--text:not([data-disabled="true"]):focus-within {
+  --seda-field-surface: var(--search-input-surface-focus);
+  --seda-field-border: var(--search-input-border-focus);
+  --seda-field-icon: var(--search-input-icon-active);
+}
+.seda-provider .seda-search__query .seda-field--text:not([data-disabled="true"]):has(.seda-field__control:active) {
+  --seda-field-surface: var(--search-input-surface-active);
+  --seda-field-border: var(--search-input-border-active);
+}
+.seda-provider .seda-search__query .seda-field--text[data-disabled="true"] {
+  --seda-field-surface: var(--search-input-surface-disabled);
+  --seda-field-border: var(--search-input-border-disabled);
+  --seda-field-foreground: var(--search-input-foreground-disabled);
+  --seda-field-icon: var(--search-input-icon-disabled);
+}
+.seda-provider .seda-search__query .seda-field__input::placeholder {
+  color: var(--search-input-foreground-placeholder);
+}
+:is(.seda-choice, .seda-toggle) {
+  /* Anchor the mark and neighbouring controls to the primary line, never the helper block. */
+  --seda-choice-mark-size: var(--seda-control-choice-size, var(--seda-preset-icon-size, 16px));
+  --seda-choice-line: var(--seda-control-line-height, var(--seda-preset-line-height, 20px));
+  --seda-choice-head: max(var(--seda-choice-line), calc(var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset, 2px)));
+  box-sizing: border-box;
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  align-content: start;
+  min-height: var(--seda-control-height, var(--seda-preset-height));
+  padding-block: max(
+    0px,
+    calc((var(--seda-control-height, var(--seda-preset-height, 32px)) - var(--seda-choice-head)) / 2)
+  );
+  gap: var(--seda-control-gap, var(--seda-preset-gap));
+}
+:is(.seda-choice__content, .seda-toggle__content) {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  align-self: first baseline;
+  gap: var(--seda-message-gap, 6px);
+}
+.seda-choice[data-content="none"] {
+  grid-template-columns: auto;
+  gap: 0;
+}
+:is(.seda-choice__label, .seda-toggle__label) {
+  display: block;
+  box-sizing: border-box;
+  min-block-size: var(--seda-choice-head);
+  padding-block: max(0px, calc((var(--seda-choice-head) - var(--seda-choice-line)) / 2));
+  overflow-wrap: anywhere;
+}
+:is(.seda-choice__control, .seda-toggle__control) {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  position: relative;
+  top: calc((var(--seda-choice-head) - var(--seda-choice-mark-size)) / 2);
+}
+.seda-toggle__control {
+  top: calc((var(--seda-choice-head) - var(--seda-choice-mark-size) - 2 * var(--seda-primitive-toggle-inset, 2px)) / 2);
+}
+.seda-provider .seda-choice__control {
+  appearance: none;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  height: var(--seda-choice-mark-size);
+  width: var(--seda-choice-mark-size);
+  margin: 0;
+  border: var(--seda-preset-border-width) solid
+    var(--checkbox-control-border-default);
+  border-radius: min(
+    var(--seda-control-radius, var(--seda-preset-radius)),
+    calc(var(--seda-primitive-choice-radius) * var(--seda-parameter-radius, 1))
+  );
+  background: var(--checkbox-control-surface-default);
+}
+.seda-provider .seda-choice__label {
+  color: var(--checkbox-label-default);
+}
+.seda-provider .seda-choice__control[type="checkbox"]:hover:not(:disabled):not(:checked):not(:indeterminate):not([aria-invalid="true"]) {
+  background: var(--checkbox-control-surface-hover);
+}
+.seda-provider .seda-choice__control:checked {
+  background: var(--checkbox-control-surface-checked);
+  border-color: var(--checkbox-control-border-checked);
+}
+.seda-provider .seda-choice__control:checked::after {
+  content: "";
+  width: 60%;
+  height: 60%;
+  background: var(--checkbox-control-icon-checked);
+  clip-path: polygon(0 50%, 18% 30%, 40% 55%, 85% 0, 100% 18%, 40% 100%);
+}
+.seda-provider .seda-choice__control[type="checkbox"]:indeterminate {
+  background: var(--checkbox-control-surface-indeterminate);
+  border-color: var(--checkbox-control-border-checked);
+}
+.seda-provider .seda-choice__control[type="checkbox"]:indeterminate::after {
+  content: "";
+  width: 60%;
+  height: 2px;
+  background: var(--checkbox-control-icon-indeterminate);
+  clip-path: none;
+}
+.seda-provider .seda-choice__control[type="checkbox"][aria-invalid="true"] {
+  background: var(--checkbox-control-surface-error);
+  border-color: var(--checkbox-control-border-error);
+}
+.seda-provider .seda-choice__control[aria-invalid="true"]:is(:checked,:indeterminate):not(:disabled)::after {
+  background: var(--checkbox-control-icon-error);
+}
+.seda-provider .seda-choice__control[type="checkbox"]:disabled {
+  background: var(--checkbox-control-surface-disabled);
+  border-color: var(--checkbox-control-border-disabled);
+  cursor: not-allowed;
+}
+.seda-provider .seda-choice__control[type="checkbox"]:disabled::after {
+  background: var(--checkbox-control-icon-disabled);
+}
+.seda-provider .seda-choice[data-disabled="true"] .seda-choice__label {
+  color: var(--checkbox-label-disabled);
+}
+.seda-provider .seda-choice .seda-field__message {
+  color: var(--checkbox-helper-default);
+}
+.seda-provider .seda-choice .seda-field__message[data-tone="error"] {
+  color: var(--checkbox-helper-error);
+}
+.seda-provider .seda-radio-group .seda-choice__control {
+  border-radius: 50%;
+  background: var(--radio-control-surface-default);
+  border-color: var(--radio-control-border-default);
+}
+.seda-provider .seda-radio-group .seda-choice__label {
+  color: var(--radio-label-default);
+}
+.seda-provider .seda-radio-group:not([aria-invalid="true"]) .seda-choice__control:hover:not(:disabled):not(:checked) {
+  background: var(--radio-control-surface-hover);
+}
+.seda-provider .seda-radio-group .seda-choice__control:checked {
+  background: var(--radio-control-surface-selected);
+  border-color: var(--radio-control-border-selected);
+}
+.seda-provider .seda-radio-group .seda-choice__control:checked::after {
+  width: 45%;
+  height: 45%;
+  clip-path: none;
+  border-radius: 50%;
+  background: var(--radio-control-dot-selected);
+}
+.seda-provider .seda-radio-group[aria-invalid="true"] .seda-choice__control {
+  background: var(--radio-control-surface-error);
+  border-color: var(--radio-control-border-error);
+}
+.seda-provider .seda-radio-group[aria-invalid="true"] .seda-choice__control:checked:not(:disabled)::after {
+  background: var(--radio-control-dot-error);
+}
+.seda-provider .seda-radio-group .seda-choice__control:disabled {
+  background: var(--radio-control-surface-disabled);
+  border-color: var(--radio-control-border-disabled);
+}
+.seda-provider .seda-radio-group .seda-choice__control:disabled::after {
+  background: var(--radio-control-dot-disabled);
+}
+.seda-provider
+  .seda-radio-group
+  .seda-choice[data-disabled="true"]
+  .seda-choice__label {
+  color: var(--radio-label-disabled);
+}
+.seda-provider .seda-radio-group > .seda-field__message {
+  color: var(--radio-helper-default);
+}
+.seda-provider .seda-radio-group > .seda-field__message[data-tone="error"] {
+  color: var(--radio-helper-error);
+}
+.seda-provider .seda-choice__control:focus-visible {
+  outline-color: var(--checkbox-focus-ring);
+}
+.seda-provider .seda-radio-group .seda-choice__control:focus-visible {
+  outline-color: var(--radio-focus-ring);
+}
+.seda-toggle__control {
+  box-sizing: border-box;
+  border: var(--seda-preset-border-width) solid var(--toggle-border-default);
+  height: calc(
+    var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset)
+  );
+  width: calc(
+    2 * var(--seda-choice-mark-size) + 2 * var(--seda-primitive-toggle-inset)
+  );
+  flex: 0 0 auto;
+  margin: 0;
+}
+.seda-toggle__control::after {
+  left: calc(var(--seda-primitive-toggle-inset) - var(--seda-preset-border-width));
+  top: calc(var(--seda-primitive-toggle-inset) - var(--seda-preset-border-width));
+  height: var(--seda-choice-mark-size);
+  width: var(--seda-choice-mark-size);
+}
+.seda-toggle__control:checked::after {
+  background: var(--toggle-thumb-on);
+  transform: translateX(var(--seda-choice-mark-size));
+}
+.seda-provider .seda-toggle__control:hover:not(:checked):not(:disabled) {
+  background: var(--toggle-track-off-hover);
+}
+.seda-provider .seda-toggle__control:checked:hover:not(:disabled) {
+  background: var(--toggle-track-on-hover);
+}
+.seda-provider .seda-toggle__control:is(:disabled, [aria-disabled="true"]) {
+  border-color: var(--toggle-border-disabled);
+  background: var(--toggle-track-disabled);
+  cursor: not-allowed;
+}
+.seda-provider
+  .seda-toggle__control:is(:disabled, [aria-disabled="true"])::after {
+  background: var(--toggle-thumb-disabled);
+}
+.seda-provider .seda-toggle__control:focus-visible {
+  outline-color: var(--toggle-focus-ring);
+}
+.seda-provider .seda-toggle__label {
+  color: var(--toggle-label-default);
+}
+.seda-provider .seda-toggle[data-disabled="true"] .seda-toggle__label {
+  color: var(--toggle-label-disabled);
+}
+.seda-provider .seda-toggle .seda-field__message {
+  color: var(--toggle-helper-default);
+}
+.seda-provider .seda-toggle[data-disabled="true"] .seda-field__message {
+  color: var(--toggle-helper-disabled);
+}
+@media (prefers-reduced-motion: reduce) {
+  .seda-provider :is(.seda-button__spinner, .seda-icon-button__spinner) {
+    animation: none;
+  }
+  .seda-provider
+    :is(
+      .seda-button,
+      .seda-icon-button,
+      .seda-field__control,
+      .seda-toggle__control
+    ),
+  .seda-toggle__control::after {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .seda-toggle__control {
+    --toggle-thumb-default: CanvasText;
+    --toggle-thumb-on: CanvasText;
+    --toggle-thumb-disabled: GrayText;
+    --seda-toggle-thumb-default: CanvasText;
+    --seda-toggle-thumb-on: CanvasText;
+    --seda-toggle-thumb-disabled: GrayText;
+  }
+  .seda-toggle__control::after { forced-color-adjust: none; }
+  .seda-provider :is(.seda-choice__control, .seda-toggle__control) {
+    forced-color-adjust: auto;
+    border: 1px solid ButtonText;
+  }
+  .seda-provider .seda-choice__control:is(:checked, [type="checkbox"]:indeterminate)::after {
+    background: Highlight;
+  }
+}
+
+.seda-choice__control {
+  width: var(--seda-preset-icon-size, 16px);
+  height: var(--seda-preset-icon-size, 16px);
+  margin: 0;
+  flex: 0 0 auto;
+}
+.seda-provider :is(.seda-button, .seda-icon-button) {
+  background: var(--seda-action-surface-default);
+  border-color: var(--seda-action-border-default);
+  color: var(--seda-action-foreground-default);
+  opacity: 1;
+}
+.seda-provider
+  :is(.seda-button, .seda-icon-button):hover:not(:disabled):not(
+    [aria-disabled="true"]
+  ) {
+  background: var(--seda-action-surface-hover);
+  border-color: var(--seda-action-border-hover);
+  color: var(--seda-action-foreground-hover);
+}
+.seda-provider
+  :is(.seda-button, .seda-icon-button):active:not(:disabled):not(
+    [aria-disabled="true"]
+  ) {
+  background: var(--seda-action-surface-pressed);
+  border-color: var(--seda-action-border-pressed);
+  color: var(--seda-action-foreground-pressed);
+}
+.seda-provider .seda-icon-button[data-selected="true"] {
+  background: var(--seda-action-surface-selected);
+  border-color: var(--seda-action-border-selected);
+  color: var(--seda-action-foreground-selected);
+}
+.seda-provider :is(.seda-button, .seda-icon-button)[data-loading="true"] {
+  background: var(--seda-action-surface-loading);
+  border-color: var(--seda-action-border-loading);
+  color: var(--seda-action-foreground-loading);
+}
+.seda-provider :is(.seda-button, .seda-icon-button):disabled {
+  background: var(--seda-action-surface-disabled);
+  border-color: var(--seda-action-border-disabled);
+  color: var(--seda-action-foreground-disabled);
+  opacity: 1;
+}
+.seda-provider :is(.seda-button__spinner, .seda-icon-button__spinner) {
+  color: var(--seda-action-spinner);
+}
+.seda-provider :is(.seda-button, .seda-icon-button):focus-visible {
+  outline-color: var(--seda-action-focus);
+}
+
+.seda-field--select[data-state="loading"] .seda-field__select[multiple] { padding-inline-end: calc(var(--seda-control-icon-size, var(--seda-preset-icon-size)) + var(--seda-control-gap, var(--seda-preset-gap))); }
+/* Leave base-select while locked: its UA popover has no public hidePicker API.
+   Disabling this progressive layer dismisses the picker without remounting or
+   temporarily disabling a successful form control. The SEDA slot stays fixed. */
+@supports (appearance: base-select) {
+  .seda-field__select:is([aria-busy="true"],[aria-readonly="true"]) { appearance: none; }
+  .seda-field__select:is([aria-busy="true"],[aria-readonly="true"])::picker(select) { appearance: none; display: none; }
+}

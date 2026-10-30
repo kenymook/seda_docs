@@ -1,0 +1,2705 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "39438d18b2562bd059861ade190599a8b25c110a",
+  "siteSource": "a6aa07ed2dd5623638acd1a05607ea647ff51c42",
+  "version": 35,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "deploymentId": "appgdep_6adcdbe6a33c819187016c3a0c8bbb68",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_fdaf1cc17e8c8191b2e66a60b2a61b5e",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archiveSha256": "916c0ed27c57657913c1b08fab2217d134f6e173727fb6966adec1dd2e787b71",
+  "archiveBytes": 7561681,
+  "sourceHashesMatched": 755,
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 122,
+  "packageGroupsPassed": 35,
+  "packageGroupsFailed": 0,
+  "consumers": {
+    "18.3.1": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "sampleCount": 72,
+      "activeSampleCount": 48,
+      "minimumActiveContrast": 3.364159270951403,
+      "geometry": [
+        {
+          "size": "s",
+          "checked": false,
+          "width": 32,
+          "height": 18,
+          "thumbWidth": 14,
+          "thumbHeight": 14,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "s",
+          "checked": true,
+          "width": 32,
+          "height": 18,
+          "thumbWidth": 14,
+          "thumbHeight": 14,
+          "thumbX": 16,
+          "thumbY": 2
+        },
+        {
+          "size": "m",
+          "checked": false,
+          "width": 36,
+          "height": 20,
+          "thumbWidth": 16,
+          "thumbHeight": 16,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "m",
+          "checked": true,
+          "width": 36,
+          "height": 20,
+          "thumbWidth": 16,
+          "thumbHeight": 16,
+          "thumbX": 18,
+          "thumbY": 2
+        },
+        {
+          "size": "l",
+          "checked": false,
+          "width": 40,
+          "height": 22,
+          "thumbWidth": 18,
+          "thumbHeight": 18,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "l",
+          "checked": true,
+          "width": 40,
+          "height": 22,
+          "thumbWidth": 18,
+          "thumbHeight": 18,
+          "thumbX": 20,
+          "thumbY": 2
+        },
+        {
+          "size": "xl",
+          "checked": false,
+          "width": 44,
+          "height": 24,
+          "thumbWidth": 20,
+          "thumbHeight": 20,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "xl",
+          "checked": true,
+          "width": 44,
+          "height": 24,
+          "thumbWidth": 20,
+          "thumbHeight": 20,
+          "thumbX": 22,
+          "thumbY": 2
+        }
+      ],
+      "rawEvidenceSha256": "a6e81c93a98bbdfe99a95015f2d1b3f0c51e00e58a7374ef37721fcded8734e6",
+      "errors": [],
+      "forcedColorsMarkers": [
+        {
+          "id": "check",
+          "background": "rgb(55, 0, 110)"
+        },
+        {
+          "id": "toggle",
+          "background": "rgb(0, 0, 0)"
+        },
+        {
+          "id": "radio",
+          "background": "rgb(55, 0, 110)"
+        }
+      ],
+      "forcedColorsMarkersPassed": true
+    },
+    "19.2.7": {
+      "installedPackage": true,
+      "sourceAlias": false,
+      "sampleCount": 72,
+      "activeSampleCount": 48,
+      "minimumActiveContrast": 3.364159270951403,
+      "geometry": [
+        {
+          "size": "s",
+          "checked": false,
+          "width": 32,
+          "height": 18,
+          "thumbWidth": 14,
+          "thumbHeight": 14,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "s",
+          "checked": true,
+          "width": 32,
+          "height": 18,
+          "thumbWidth": 14,
+          "thumbHeight": 14,
+          "thumbX": 16,
+          "thumbY": 2
+        },
+        {
+          "size": "m",
+          "checked": false,
+          "width": 36,
+          "height": 20,
+          "thumbWidth": 16,
+          "thumbHeight": 16,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "m",
+          "checked": true,
+          "width": 36,
+          "height": 20,
+          "thumbWidth": 16,
+          "thumbHeight": 16,
+          "thumbX": 18,
+          "thumbY": 2
+        },
+        {
+          "size": "l",
+          "checked": false,
+          "width": 40,
+          "height": 22,
+          "thumbWidth": 18,
+          "thumbHeight": 18,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "l",
+          "checked": true,
+          "width": 40,
+          "height": 22,
+          "thumbWidth": 18,
+          "thumbHeight": 18,
+          "thumbX": 20,
+          "thumbY": 2
+        },
+        {
+          "size": "xl",
+          "checked": false,
+          "width": 44,
+          "height": 24,
+          "thumbWidth": 20,
+          "thumbHeight": 20,
+          "thumbX": 2,
+          "thumbY": 2
+        },
+        {
+          "size": "xl",
+          "checked": true,
+          "width": 44,
+          "height": 24,
+          "thumbWidth": 20,
+          "thumbHeight": 20,
+          "thumbX": 22,
+          "thumbY": 2
+        }
+      ],
+      "rawEvidenceSha256": "a6e81c93a98bbdfe99a95015f2d1b3f0c51e00e58a7374ef37721fcded8734e6",
+      "errors": [],
+      "forcedColorsMarkers": [
+        {
+          "id": "check",
+          "background": "rgb(55, 0, 110)"
+        },
+        {
+          "id": "toggle",
+          "background": "rgb(0, 0, 0)"
+        },
+        {
+          "id": "radio",
+          "background": "rgb(55, 0, 110)"
+        }
+      ],
+      "forcedColorsMarkersPassed": true
+    }
+  },
+  "baseline": [
+    {
+      "theme": "light",
+      "state": "default",
+      "checked": false,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "check",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "default",
+      "checked": false,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "check",
+          "part": "boundary",
+          "ratio": 1.6207690893221083
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.6207690893221083
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "default",
+      "checked": false,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "check",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "default",
+      "checked": true,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "default",
+      "checked": true,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "check",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "default",
+      "checked": true,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "error",
+      "checked": false,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.127522791597843
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "error",
+      "checked": false,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "error",
+      "checked": false,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "error",
+      "checked": true,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "check",
+          "part": "marker",
+          "ratio": 1.071036437583053
+        },
+        {
+          "id": "radio",
+          "part": "marker",
+          "ratio": 1.071036437583053
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "error",
+      "checked": true,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "check",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "error",
+      "checked": true,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "check",
+          "part": "marker",
+          "ratio": 1.071036437583053
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "radio",
+          "part": "marker",
+          "ratio": 1.071036437583053
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "mixed",
+      "checked": false,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "mixed",
+      "checked": false,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "check",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.6207690893221083
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "mixed",
+      "checked": false,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.127522791597843
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "mixed",
+      "checked": true,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "mixed",
+      "checked": true,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.5438338559933944
+        },
+        {
+          "id": "check",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        },
+        {
+          "id": "radio",
+          "part": "marker",
+          "ratio": 1.2786919335180638
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "state": "mixed",
+      "checked": true,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.3942982177847285
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "default",
+      "checked": false,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "check",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "default",
+      "checked": false,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "check",
+          "part": "boundary",
+          "ratio": 2.206064165362212
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.571719468219476
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.571719468219476
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 2.206064165362212
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "default",
+      "checked": false,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "check",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "default",
+      "checked": true,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "default",
+      "checked": true,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 2.085101492850558
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 2.085101492850558
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "default",
+      "checked": true,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "error",
+      "checked": false,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.3689050245054508
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "error",
+      "checked": false,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.571719468219476
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.571719468219476
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "error",
+      "checked": false,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "error",
+      "checked": true,
+      "interaction": "rest",
+      "failures": []
+    },
+    {
+      "theme": "dark",
+      "state": "error",
+      "checked": true,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 2.085101492850558
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 2.085101492850558
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "error",
+      "checked": true,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "mixed",
+      "checked": false,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "mixed",
+      "checked": false,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.571719468219476
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.571719468219476
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 2.206064165362212
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "mixed",
+      "checked": false,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "radio",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "mixed",
+      "checked": true,
+      "interaction": "rest",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.3689050245054508
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "mixed",
+      "checked": true,
+      "interaction": "hover",
+      "failures": [
+        {
+          "id": "field",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "area",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "select",
+          "part": "boundary",
+          "ratio": 1.9164591121175814
+        },
+        {
+          "id": "toggle",
+          "part": "boundary",
+          "ratio": 2.085101492850558
+        },
+        {
+          "id": "toggle",
+          "part": "marker",
+          "ratio": 2.085101492850558
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "state": "mixed",
+      "checked": true,
+      "interaction": "focus",
+      "failures": [
+        {
+          "id": "field",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "area",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "select",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "check",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "toggle",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "icon",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        },
+        {
+          "id": "radio",
+          "part": "focus",
+          "ratio": 1.2838673677726202
+        }
+      ]
+    }
+  ],
+  "production": {
+    "samples": [
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.364159270951403,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 4.115138756569976,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 80,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 80,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 100,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 100,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 150,
+        "state": "default",
+        "toggleChecked": true,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": false,
+        "minimum": 3.8243822938377066,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 150,
+        "state": "error",
+        "toggleChecked": true,
+        "minimum": 5.651478146315515,
+        "geometry": {
+          "dy": 0,
+          "inset": 2
+        }
+      }
+    ],
+    "errors": [],
+    "disabledMixedFixture": true
+  },
+  "limits": [
+    "Computed canonical color audit, not pixel or complete WCAG/AT certification",
+    "Not all button variants, external backgrounds, popups, RTL or authored canvas",
+    "Figma bindings were not edited; full reference fidelity remains unaccepted"
+  ]
+}

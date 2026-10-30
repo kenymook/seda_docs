@@ -1,0 +1,18 @@
+{
+  "verifiedAt": "2026-10-29T22:01:07.531Z",
+  "browser": "156.0.8078.49",
+  "cases": 12,
+  "defects": 7,
+  "checks": [
+    "reference and 12 case SHA256 match capture receipt",
+    "images loaded at original dimensions",
+    "overlay opacity",
+    "split clipping",
+    "1:1 scale",
+    "1920 case dimensions",
+    "12-image matrix",
+    "receipt links"
+  ],
+  "errors": [],
+  "visualAcceptance": false
+}

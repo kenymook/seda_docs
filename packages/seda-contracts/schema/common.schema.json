@@ -115,8 +115,40 @@
             "description-merge",
             "disabled-error-presentation",
             "component-token-binding",
+            "select-availability",
             "icon-box",
-            "full-tooltip"
+            "full-tooltip",
+            "selection-value",
+            "checked-value",
+            "tabs-items",
+            "tabs-selection",
+            "tabs-keyboard",
+            "tabs-panels",
+            "tabs-focus-repair",
+            "menu-items",
+            "menu-open",
+            "menu-keyboard",
+            "menu-focus",
+            "menu-overlay",
+            "tree-items",
+            "tree-state",
+            "tree-keyboard",
+            "tree-focus",
+            "tree-semantics",
+            "textarea-value",
+            "textarea-layout",
+            "slider-model",
+            "slider-keyboard",
+            "slider-pointer",
+            "slider-form",
+            "slider-value-text",
+            "number-field-model",
+            "number-field-keyboard",
+            "number-field-draft",
+            "number-field-form",
+            "chip-control",
+            "pagination-model",
+            "empty-state-model"
           ]
         },
         "prop": {
@@ -132,7 +164,7 @@
         },
         "decision": {
           "type": "string",
-          "pattern": "^D(0[1-9]|1[0-9]|2[0-4])$"
+          "pattern": "^D(0[1-9]|1[0-9]|2[0-9]|3[0-5])$"
         }
       },
       "required": [

@@ -1,0 +1,45 @@
+{
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "reviewed": [
+    "Files",
+    "Chat Search Modal",
+    "Sandbox",
+    "Spline",
+    "Framer",
+    "Webflow extreme density",
+    "Workflow",
+    "Chat metadata panel",
+    "Building"
+  ],
+  "observations": [
+    "Shared icon slots and owner foreground roles",
+    "Inspector section16 field8 label4 spacing; local scroll retained",
+    "Search icon and clear control align with field text; results use common icon column",
+    "Authored canvas geometry does not follow control density"
+  ],
+  "fixedBeforeFinal": [
+    "Disabled result identity remained readable",
+    "Search caption spacing survives host reset",
+    "Global Ctrl K enters Modal from body"
+  ],
+  "remaining": [
+    "No fresh Figma signoff due service quota",
+    "No native OS IME, screen reader, Firefox/WebKit or performance acceptance",
+    "Public icon catalog incomplete; reference adapters preserve original source artwork"
+  ],
+  "productionVersion": 51,
+  "automationLimit": {
+    "status": "incomplete-on-production",
+    "failure": "Native Ctrl-click tab does not inherit Sites test bypass authorization; chat-input wait timed out at verify-search-workspace.mjs:18. Local Windows and independent Linux full Search tests pass. Actual owner browser native new-tab and normal Enter verified separately. No assertion removed."
+  },
+  "productionReviewed": [
+    "Files Light/Dark",
+    "Chat Search Modal Light/Dark",
+    "Short window480 Light/Dark",
+    "Sandbox/Spline/Webflow M100 Light/Dark",
+    "Native owner-browser Ctrl-click and Enter"
+  ]
+}

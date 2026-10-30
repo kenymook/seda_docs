@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
+const runtime=import.meta.dirname;
+const source=path.resolve(process.env.SEDA_REPO_ROOT || (await fs.access(path.join(runtime,'tokens.json')).then(()=>runtime,()=>path.join(runtime,'..'))));
+const pilot=path.join(source,'portal/component-lab/pilots/settings-parametric');
+const {build}=await import(pathToFileURL(path.join(pilot,'node_modules/esbuild/lib/main.js')));
+const file=path.join(source,'tokens.json');
+const hash=createHash('sha256').update(await fs.readFile(file)).digest('hex');
+await build({stdin:{contents:'import tokens from '+JSON.stringify(file)+';import {tokenStoreApi} from '+JSON.stringify(path.join(pilot,'token-store-api.mjs'))+';export default tokenStoreApi(tokens,'+JSON.stringify(hash)+');',resolveDir:runtime,sourcefile:'token-api-entry.js'},bundle:true,format:'esm',platform:'browser',target:'es2022',outfile:path.join(runtime,'worker/token-api.js')});
+await fs.cp(path.join(pilot,'dist'),path.join(runtime,'public'),{recursive:true});

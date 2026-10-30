@@ -1,0 +1,5 @@
+{
+  "popoverClosed": true,
+  "modalRemainsOpen": false,
+  "state": "{\"c\":{\"theme\":\"light\",\"density\":\"m\",\"scale\":100,\"size\":\"m\",\"side\":\"bottom\",\"align\":\"start\",\"dir\":\"ltr\",\"long\":false,\"disabled\":false,\"hidden\":false,\"modal\":true,\"ignore\":false,\"remove\":false,\"removeField\":false,\"search\":false,\"custom\":false,\"variant\":\"default\"},\"open\":false,\"outer\":false,\"events\":[{\"next\":true,\"reason\":\"trigger\"},{\"next\":false,\"reason\":\"escape\"}]}"
+}

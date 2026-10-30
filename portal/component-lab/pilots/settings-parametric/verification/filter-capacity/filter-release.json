@@ -1,0 +1,48 @@
+{
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "version": {
+    "id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_c88d76fd660c8191bdd9de283b38c372",
+    "project_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "version_number": 59,
+    "source": {
+      "commit_sha": "788e67cb8cf3ccbf18f98f633bae06ec51ca8e00"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000001548243a1d328d41fe4a05f",
+      "content_hash": "sha256:0d67df2b6867166c57a29c8c1446593fe58481362736927be90b8d2a4fbc7890",
+      "size_bytes": 33771520,
+      "file_count": 534
+    },
+    "screenshot_url": null,
+    "deployment_id": "appgdep_6adeb467e53c8191b80fd182eb9d90c6"
+  },
+  "deployment": {
+    "id": "appgdep_6adeb467e53c8191b80fd182eb9d90c6",
+    "project_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "title": "SEDA AI — параметрическая форма",
+    "version_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_c88d76fd660c8191bdd9de283b38c372",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-26T02:01:28.739761+00:00"
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "ownerCount": 1,
+    "groupCount": 0,
+    "externalVisitors": 0
+  },
+  "runtimeGitHubCommit": "06f51e3e8dc306823cc5664042f8961f266a9fc5",
+  "ciRun": {
+    "id": 40256806492,
+    "url": "https://github.com/kenymook/seda_docs/actions/runs/40256806492",
+    "lastObserved": "success"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "samples": [
+    {
+      "route": "recents",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".reference-header h1",
+          "font": "14px",
+          "line": "20px",
+          "role": "label/default"
+        },
+        {
+          "selector": ".reference-file-summary h2",
+          "font": "14px",
+          "line": "20px",
+          "role": "label/default"
+        },
+        {
+          "selector": ".reference-file-summary p",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        },
+        {
+          "selector": ".reference-local-note",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        }
+      ]
+    },
+    {
+      "route": "recents",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".reference-header h1",
+          "font": "21px",
+          "line": "30px",
+          "role": "label/default"
+        },
+        {
+          "selector": ".reference-file-summary h2",
+          "font": "21px",
+          "line": "30px",
+          "role": "label/default"
+        },
+        {
+          "selector": ".reference-file-summary p",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        },
+        {
+          "selector": ".reference-local-note",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        }
+      ]
+    },
+    {
+      "route": "building",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".building-nav-label",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        },
+        {
+          "selector": "#doc-dirty",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        },
+        {
+          "selector": "#doc-status",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        },
+        {
+          "selector": ".building-document>h1",
+          "font": "40px",
+          "line": "64px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "building",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".building-nav-label",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        },
+        {
+          "selector": "#doc-dirty",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        },
+        {
+          "selector": "#doc-status",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        },
+        {
+          "selector": ".building-document>h1",
+          "font": "40px",
+          "line": "64px",
+          "role": null
+        }
+      ]
+    },
+    {
+      "route": "chat",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".chat-navigation-scroll h2",
+          "font": "14px",
+          "line": "20px",
+          "role": "body/default"
+        },
+        {
+          "selector": ".chat-activity h2",
+          "font": "14px",
+          "line": "20px",
+          "role": "body/default"
+        },
+        {
+          "selector": ".chat-source-label",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        },
+        {
+          "selector": ".chat-composer-note",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        },
+        {
+          "selector": "#chat-save-state",
+          "font": "12px",
+          "line": "16px",
+          "role": "caption/default"
+        }
+      ]
+    },
+    {
+      "route": "chat",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".chat-navigation-scroll h2",
+          "font": "21px",
+          "line": "30px",
+          "role": "body/default"
+        },
+        {
+          "selector": ".chat-activity h2",
+          "font": "21px",
+          "line": "30px",
+          "role": "body/default"
+        },
+        {
+          "selector": ".chat-source-label",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        },
+        {
+          "selector": ".chat-composer-note",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        },
+        {
+          "selector": "#chat-save-state",
+          "font": "18px",
+          "line": "24px",
+          "role": "caption/default"
+        }
+      ]
+    },
+    {
+      "route": "sandbox",
+      "scale": 100,
+      "values": [
+        {
+          "selector": ".sandbox-section-heading h2",
+          "font": "12px",
+          "line": "16px",
+          "role": "label/small"
+        },
+        {
+          "selector": ".sandbox-properties-section h2",
+          "font": "12px",
+          "line": "16px",
+          "role": "label/small"
+        },
+        {
+          "selector": ".sandbox-status span",
+          "font": "10px",
+          "line": "14px",
+          "role": "caption/tiny"
+        },
+        {
+          "selector": ".sandbox-navigation>header small",
+          "font": "10px",
+          "line": "14px",
+          "role": "caption/tiny"
+        }
+      ]
+    },
+    {
+      "route": "sandbox",
+      "scale": 150,
+      "values": [
+        {
+          "selector": ".sandbox-section-heading h2",
+          "font": "18px",
+          "line": "24px",
+          "role": "label/small"
+        },
+        {
+          "selector": ".sandbox-properties-section h2",
+          "font": "18px",
+          "line": "24px",
+          "role": "label/small"
+        },
+        {
+          "selector": ".sandbox-status span",
+          "font": "15px",
+          "line": "21px",
+          "role": "caption/tiny"
+        },
+        {
+          "selector": ".sandbox-navigation>header small",
+          "font": "15px",
+          "line": "21px",
+          "role": "caption/tiny"
+        }
+      ]
+    }
+  ]
+}

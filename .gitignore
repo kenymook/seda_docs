@@ -10,6 +10,8 @@ portal/docs-site/figma-components.json
 
 # Generated reports, caches and helper workspaces
 reports/*
+!reports/2026-10-26-field-anatomy.md
+!reports/2026-10-26-inline-action-textarea.md
 !reports/component-maturity-matrix.md
 !reports/component-registry.md
 !reports/release-checklist.md
@@ -23,6 +25,7 @@ temp/
 .cache/
 
 # Dependencies and build output
+portal/component-lab/pilots/settings-parametric/.diagnostics-*/
 node_modules/
 dist/
 build/
@@ -39,3 +42,50 @@ coverage/
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-recents/
+portal/component-lab/pilots/settings-parametric/.diagnostics-recents-first.png
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-building/
+portal/component-lab/pilots/settings-parametric/.diagnostics-building-first.png
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-chat/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox/
+portal/component-lab/pilots/settings-parametric/.diagnostics-typography/
+/portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/
+/portal/component-lab/pilots/settings-parametric/.diagnostics-visual-consistency/
+
+/portal/component-lab/pilots/settings-parametric/.diagnostics-feedback/
+portal/component-lab/pilots/settings-parametric/.diagnostics-contrast/
+portal/component-lab/pilots/settings-parametric/.diagnostics-nontext/
+portal/component-lab/pilots/settings-parametric/.diagnostics-nontext-workspace/
+portal/component-lab/pilots/settings-parametric/.diagnostics-choice-layout/
+portal/component-lab/pilots/settings-parametric/.diagnostics-icon-workspace/
+portal/component-lab/pilots/settings-parametric/.diagnostics-workspace-text/
+portal/component-lab/pilots/settings-parametric/.diagnostics-reference-modal/
+portal/component-lab/pilots/settings-parametric/.diagnostics-application-text/
+portal/component-lab/pilots/settings-parametric/.diagnostics-adaptive-panels/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-dense-workspace/
+portal/component-lab/pilots/settings-parametric/.diagnostics-chat-composer/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-workspace-rhythm/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-inspector-consistency/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-table-workspace/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-card-avatar-workspace/
+portal/component-lab/pilots/settings-parametric/.diagnostics-chat-bubble/
+portal/component-lab/pilots/settings-parametric/.diagnostics-chat-bubble-workspace/
+portal/component-lab/pilots/settings-parametric/.diagnostics-top-bar/
+portal/component-lab/pilots/settings-parametric/.diagnostics-top-bar-workspace/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-sidebar/
+portal/component-lab/pilots/settings-parametric/.diagnostics-sidebar-workspace/
+
+portal/component-lab/pilots/settings-parametric/.diagnostics-accordion/
+portal/component-lab/pilots/settings-parametric/.diagnostics-accordion-workspace/
+portal/component-lab/pilots/settings-parametric/.diagnostics-workspace-filters/
+portal/component-lab/pilots/settings-parametric/.diagnostics-field-anatomy-workspace/

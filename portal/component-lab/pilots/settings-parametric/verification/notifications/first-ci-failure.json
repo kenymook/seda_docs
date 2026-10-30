@@ -1,0 +1,21 @@
+{
+  "head": "daafd09fc2ba5c16dd19776b60f3f340206da3d7",
+  "job": {
+    "id": 121184191654,
+    "head_sha": "daafd09fc2ba5c16dd19776b60f3f340206da3d7",
+    "name": "Verify / package",
+    "status": "completed",
+    "conclusion": "failure"
+  },
+  "url": "https://github.com/kenymook/seda_docs/actions/runs/40198419168/job/121184191654",
+  "kind": "bounded CI diagnostic excerpt; complete authoritative log linked",
+  "excerpt": [
+    "2026-10-25T13:40:32.8213622Z Expected values to be strictly equal:",
+    "2026-10-25T13:40:32.8218253Z + actual - expected",
+    "2026-10-25T13:40:32.8218989Z + 'all-read'",
+    "2026-10-25T13:40:32.8220311Z - 'empty'",
+    "2026-10-25T13:40:32.9218672Z {\"output\":\"/home/runner/work/seda_docs/seda_docs/packages/seda-ui/.diagnostics-package/2026-10-25T13-37-38-713Z\",\"passed\":29,\"failed\":1}"
+  ],
+  "fix": "Verifier now waits for the committed React snapshot before asserting empty/read state and external focus. Published component and assertions are unchanged.",
+  "verificationCommit": "a50bbd9b0f635822141404ebe1bc3bd77dda72f6"
+}

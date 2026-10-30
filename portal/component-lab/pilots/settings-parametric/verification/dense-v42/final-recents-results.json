@@ -1,0 +1,575 @@
+{
+  "scope": "Recents reference 1:691",
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "name": "reference-package-assets-and-frame-structure",
+      "status": "passed",
+      "evidence": {
+        "node": "1:691",
+        "installedPublicPackage": true,
+        "files": 25,
+        "geometry": {
+          "x": 265,
+          "y": 161,
+          "width": 367.65625,
+          "height": 271.6875
+        }
+      }
+    },
+    {
+      "name": "reference-search-filter-tabs-and-empty-state",
+      "status": "passed",
+      "evidence": {
+        "coupled": true,
+        "keyboardTabs": true,
+        "folderNavigation": true
+      }
+    },
+    {
+      "name": "reference-real-navigation-and-history",
+      "status": "passed",
+      "evidence": {
+        "reload": true,
+        "back": true
+      }
+    },
+    {
+      "name": "reference-create-rename-copy-and-local-reload",
+      "status": "passed",
+      "evidence": {
+        "create": true,
+        "validation": true,
+        "copy": true,
+        "rename": true,
+        "reload": true,
+        "openAndFocusReturn": true
+      }
+    },
+    {
+      "name": "reference-selection-delete-cancel-restore",
+      "status": "passed",
+      "evidence": {
+        "multiple": true,
+        "cancel": true,
+        "trash": true,
+        "restore": true
+      }
+    },
+    {
+      "name": "reference-storage-failure-preserves-data-and-draft",
+      "status": "passed",
+      "evidence": {
+        "atomicFailure": true,
+        "draftRetained": true,
+        "retry": true
+      }
+    },
+    {
+      "name": "reference-theme-size-xy-and-workspace-layout",
+      "status": "passed",
+      "evidence": {
+        "samples": 24,
+        "measurements": [
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "s",
+            "button": 36,
+            "field": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tab": 36,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 157,
+            "gridTop": 173
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "m",
+            "button": 44,
+            "field": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tab": 44,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 181,
+            "gridTop": 197
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "l",
+            "button": 52,
+            "field": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tab": 52,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 205,
+            "gridTop": 289
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "xl",
+            "button": 60,
+            "field": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tab": 60,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 229,
+            "gridTop": 321
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "s",
+            "button": 36,
+            "field": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tab": 36,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 157,
+            "gridTop": 173
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "m",
+            "button": 44,
+            "field": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tab": 44,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 181,
+            "gridTop": 197
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "l",
+            "button": 52,
+            "field": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tab": 52,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 205,
+            "gridTop": 289
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "xl",
+            "button": 60,
+            "field": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tab": 60,
+            "filtersRight": 1256,
+            "mainRight": 1280,
+            "bodyWidth": 1280,
+            "viewport": 1280,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 229,
+            "gridTop": 321
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "button": 36,
+            "field": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tab": 36,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 157,
+            "gridTop": 173
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "button": 44,
+            "field": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tab": 44,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 181,
+            "gridTop": 197
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "button": 52,
+            "field": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tab": 52,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 205,
+            "gridTop": 221
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "button": 60,
+            "field": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tab": 60,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 229,
+            "gridTop": 321
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "button": 36,
+            "field": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tab": 36,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 157,
+            "gridTop": 173
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "button": 44,
+            "field": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tab": 44,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 181,
+            "gridTop": 197
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "button": 52,
+            "field": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tab": 52,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 205,
+            "gridTop": 221
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "button": 60,
+            "field": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tab": 60,
+            "filtersRight": 1416,
+            "mainRight": 1440,
+            "bodyWidth": 1440,
+            "viewport": 1440,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 229,
+            "gridTop": 321
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "s",
+            "button": 36,
+            "field": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tab": 36,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 157,
+            "gridTop": 173
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "m",
+            "button": 44,
+            "field": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tab": 44,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 181,
+            "gridTop": 197
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "l",
+            "button": 52,
+            "field": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tab": 52,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 205,
+            "gridTop": 221
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "xl",
+            "button": 60,
+            "field": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tab": 60,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(255, 255, 255)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 229,
+            "gridTop": 245
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "s",
+            "button": 36,
+            "field": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "tab": 36,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 157,
+            "gridTop": 173
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "m",
+            "button": 44,
+            "field": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "tab": 44,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 181,
+            "gridTop": 197
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "l",
+            "button": 52,
+            "field": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "tab": 52,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 205,
+            "gridTop": 221
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "xl",
+            "button": 60,
+            "field": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "tab": 60,
+            "filtersRight": 1896,
+            "mainRight": 1920,
+            "bodyWidth": 1920,
+            "viewport": 1920,
+            "colors": {
+              "field": "rgb(23, 23, 24)",
+              "inner": "rgba(0, 0, 0, 0)"
+            },
+            "tabsBottom": 229,
+            "gridTop": 245
+          }
+        ]
+      }
+    },
+    {
+      "name": "reference-corrupt-storage-recovery",
+      "status": "passed",
+      "evidence": {
+        "visibleError": true,
+        "explicitRecovery": true
+      }
+    },
+    {
+      "name": "reference-no-browser-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

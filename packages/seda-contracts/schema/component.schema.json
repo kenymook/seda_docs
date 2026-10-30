@@ -12,7 +12,20 @@
       "enum": [
         "Button",
         "IconButton",
-        "TextField"
+        "TextField",
+        "Select",
+        "Checkbox",
+        "Radio",
+        "Toggle",
+        "Tabs",
+        "DropdownMenu",
+        "Tree",
+        "TextArea",
+        "Slider",
+        "NumberField",
+        "Chip",
+        "Pagination",
+        "EmptyState"
       ]
     },
     "api": {
@@ -37,7 +50,13 @@
         "nativeElement": {
           "enum": [
             "button",
-            "input"
+            "input",
+            "select",
+            "fieldset",
+            "div",
+            "textarea",
+            "span",
+            "nav"
           ]
         }
       },
@@ -80,7 +99,8 @@
           "items": {
             "enum": [
               "enabled",
-              "disabled"
+              "disabled",
+              "read-only"
             ]
           },
           "minItems": 1,
@@ -102,7 +122,9 @@
           "items": {
             "enum": [
               "none",
-              "error"
+              "error",
+              "warning",
+              "success"
             ]
           },
           "minItems": 1,
@@ -117,7 +139,7 @@
               "active"
             ]
           },
-          "minItems": 1,
+          "minItems": 0,
           "uniqueItems": true
         },
         "data": {
@@ -125,7 +147,10 @@
           "items": {
             "enum": [
               "empty",
-              "filled"
+              "filled",
+              "checked",
+              "unchecked",
+              "indeterminate"
             ]
           },
           "minItems": 0,
@@ -209,6 +234,111 @@
           }
         }
       }
+    },
+    "geometry": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "urn:seda:common:0.1.0#/definitions/measurement"
+      }
+    },
+    "inlineAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "variant": {
+          "const": "text"
+        },
+        "heightFrom": {
+          "const": "lineHeight"
+        },
+        "iconFrom": {
+          "const": "lineHeight"
+        },
+        "layoutBorder": {
+          "allOf": [
+            {
+              "$ref": "urn:seda:common:0.1.0#/definitions/documentedDimension"
+            },
+            {
+              "properties": {
+                "value": {
+                  "const": 0
+                }
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "paddingInline": {
+          "allOf": [
+            {
+              "$ref": "urn:seda:common:0.1.0#/definitions/documentedDimension"
+            },
+            {
+              "properties": {
+                "value": {
+                  "const": 0
+                }
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "paintBorder": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/dimensionRef"
+        },
+        "labelWeight": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "contentGaps": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "s": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/dimensionRef"
+            },
+            "m": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/dimensionRef"
+            },
+            "l": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/dimensionRef"
+            },
+            "xl": {
+              "$ref": "urn:seda:common:0.1.0#/definitions/dimensionRef"
+            }
+          },
+          "required": [
+            "s",
+            "m",
+            "l",
+            "xl"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "transparentRoles": {
+          "const": [
+            "surface",
+            "border"
+          ]
+        }
+      },
+      "required": [
+        "variant",
+        "heightFrom",
+        "iconFrom",
+        "layoutBorder",
+        "paddingInline",
+        "paintBorder",
+        "labelWeight",
+        "contentGaps",
+        "source",
+        "transparentRoles"
+      ]
     }
   },
   "required": [
@@ -227,5 +357,24 @@
     "tokenRequirements"
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:seda:component:0.1.0"
+  "$id": "urn:seda:component:0.1.0",
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "inlineAction"
+        ],
+        "properties": {
+          "inlineAction": {}
+        }
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "const": "Button"
+          }
+        }
+      }
+    }
+  ]
 }

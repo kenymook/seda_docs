@@ -1,0 +1,6889 @@
+{
+  "version": "18.3.1",
+  "installedPackage": true,
+  "sourceAlias": false,
+  "scope": "Only installed UI CSS; public Provider parameters, local size, nested values, portals, hydration and state retention",
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "parameters": {},
+      "expected": {
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "icon": 14,
+        "choice": 14,
+        "radius": 6,
+        "buttonX": 8,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 65.171875,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 14,
+          "height": 14,
+          "font": 12,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 74.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 24,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 91.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 161.09375
+        },
+        "check": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 144.09375
+        },
+        "radio": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 160.09375
+        },
+        "toggle": {
+          "width": 32,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 238.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 427.09375
+        },
+        "nested": {
+          "width": 56.625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 511.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 511.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 38,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 258.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 449.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 48,
+          "height": 146,
+          "font": 12
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "icon": 11,
+        "choice": 11,
+        "radius": 6,
+        "buttonX": 8,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 57.984375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 11,
+          "height": 11,
+          "font": 10,
+          "line": 13,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 74.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 21,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 0,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 88.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 152.09375
+        },
+        "check": {
+          "width": 11,
+          "height": 11,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 138.09375
+        },
+        "radio": {
+          "width": 11,
+          "height": 11,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 151.09375
+        },
+        "toggle": {
+          "width": 26,
+          "height": 15,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 223.09375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 397.09375
+        },
+        "nested": {
+          "width": 56.625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 478.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 478.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 32,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 240.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 416.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 39,
+          "height": 134,
+          "font": 10
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 38,
+        "font": 14,
+        "line": 18,
+        "icon": 16,
+        "choice": 16,
+        "radius": 7.98,
+        "buttonX": 20,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 95.375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "font": 14,
+          "line": 18,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 80.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 38,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 0,
+          "radius": 7.98,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 93.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 179.09375
+        },
+        "check": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 166.09375
+        },
+        "radio": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 184.09375
+        },
+        "toggle": {
+          "width": 36,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 290.09375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 531.09375
+        },
+        "nested": {
+          "width": 80.625,
+          "height": 36,
+          "font": 12,
+          "line": 16,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 617.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 617.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 54,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 306.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 555.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 54,
+          "height": 202,
+          "font": 14
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 56,
+        "font": 18,
+        "line": 24,
+        "icon": 21,
+        "choice": 21,
+        "radius": 10.5,
+        "buttonX": 32,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 132.75,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 21,
+          "height": 21,
+          "font": 18,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 86.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 56,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 10.5,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 99.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 209.09375
+        },
+        "check": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 196.59375
+        },
+        "radio": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 220.59375
+        },
+        "toggle": {
+          "width": 46,
+          "height": 25,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 362.59375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 675.09375
+        },
+        "nested": {
+          "width": 104.625,
+          "height": 48,
+          "font": 12,
+          "line": 16,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 785.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 785.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 78,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 378.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 705.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 72,
+          "height": 274,
+          "font": 18
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "s",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 40,
+        "font": 24,
+        "line": 32,
+        "icon": 28,
+        "choice": 28,
+        "radius": 6,
+        "buttonX": 8,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 104.34375,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 28,
+          "height": 28,
+          "font": 24,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 75.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 40,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 107.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 209.09375
+        },
+        "check": {
+          "width": 28,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 177.09375
+        },
+        "radio": {
+          "width": 28,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 209.09375
+        },
+        "toggle": {
+          "width": 60,
+          "height": 32,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 319.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 587.09375
+        },
+        "nested": {
+          "width": 56.625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 689.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 689.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 70,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 354.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 625.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 96,
+          "height": 210,
+          "font": 24
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "parameters": {},
+      "expected": {
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "icon": 16,
+        "choice": 16,
+        "radius": 8,
+        "buttonX": 12,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 79.375,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 77.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 32,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 95.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 177.09375
+        },
+        "check": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 159.09375
+        },
+        "radio": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 179.09375
+        },
+        "toggle": {
+          "width": 36,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 273.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 495.09375
+        },
+        "nested": {
+          "width": 71.0625,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 583.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 583.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 50,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 294.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 521.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 60,
+          "height": 178,
+          "font": 14
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "icon": 13,
+        "choice": 13,
+        "radius": 8,
+        "buttonX": 12,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 70.078125,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 13,
+          "height": 13,
+          "font": 11,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 76.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 28,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 91.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 165.09375
+        },
+        "check": {
+          "width": 13,
+          "height": 13,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 150.59375
+        },
+        "radio": {
+          "width": 13,
+          "height": 13,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 166.59375
+        },
+        "toggle": {
+          "width": 30,
+          "height": 17,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 252.59375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 455.09375
+        },
+        "nested": {
+          "width": 71.0625,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 539.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 539.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 42,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 270.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 477.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 48,
+          "height": 162,
+          "font": 11
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 47,
+        "font": 16,
+        "line": 23,
+        "icon": 18,
+        "choice": 18,
+        "radius": 10.64,
+        "buttonX": 24,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 109.5625,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 24,
+          "radius": 10.64,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 18,
+          "height": 18,
+          "font": 16,
+          "line": 23,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 83.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 47,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 0,
+          "radius": 10.64,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 98.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 198.09375
+        },
+        "check": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 183.59375
+        },
+        "radio": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 206.59375
+        },
+        "toggle": {
+          "width": 40,
+          "height": 22,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 330.59375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 609.09375
+        },
+        "nested": {
+          "width": 95.0625,
+          "height": 44,
+          "font": 14,
+          "line": 20,
+          "paddingX": 24,
+          "radius": 10.64,
+          "top": 709.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 709.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 68,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 348.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 638.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 69,
+          "height": 238,
+          "font": 16
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 66,
+        "font": 21,
+        "line": 30,
+        "icon": 24,
+        "choice": 24,
+        "radius": 14,
+        "buttonX": 36,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 150.046875,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 36,
+          "radius": 14,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 24,
+          "height": 24,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 90.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 66,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 14,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 105.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 231.09375
+        },
+        "check": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 216.09375
+        },
+        "radio": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 246.09375
+        },
+        "toggle": {
+          "width": 52,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 408.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 763.09375
+        },
+        "nested": {
+          "width": 119.0625,
+          "height": 56,
+          "font": 14,
+          "line": 20,
+          "paddingX": 36,
+          "radius": 14,
+          "top": 889.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 889.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 426.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 799.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 90,
+          "height": 314,
+          "font": 21
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 52,
+        "font": 28,
+        "line": 40,
+        "icon": 32,
+        "choice": 32,
+        "radius": 8,
+        "buttonX": 12,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 124.734375,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 32,
+          "height": 32,
+          "font": 28,
+          "line": 40,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 79.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 52,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 115.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 237.09375
+        },
+        "check": {
+          "width": 32,
+          "height": 32,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 201.09375
+        },
+        "radio": {
+          "width": 32,
+          "height": 32,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 241.09375
+        },
+        "toggle": {
+          "width": 68,
+          "height": 36,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 375.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 695.09375
+        },
+        "nested": {
+          "width": 71.0625,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 817.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 817.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 90,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 414.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 741.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 120,
+          "height": 258,
+          "font": 28
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "parameters": {},
+      "expected": {
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "icon": 18,
+        "choice": 18,
+        "radius": 10,
+        "buttonX": 16,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 93.5625,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 18,
+          "height": 18,
+          "font": 16,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 80.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 40,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 99.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 193.09375
+        },
+        "check": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 174.09375
+        },
+        "radio": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 198.09375
+        },
+        "toggle": {
+          "width": 40,
+          "height": 22,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 308.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 563.09375
+        },
+        "nested": {
+          "width": 85.5,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 657.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 657.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 62,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 330.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 593.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 72,
+          "height": 210,
+          "font": 16
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "icon": 14,
+        "choice": 14,
+        "radius": 10,
+        "buttonX": 16,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 83.265625,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 14,
+          "height": 14,
+          "font": 13,
+          "line": 19,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 79.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 35,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 0,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 94.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 178.09375
+        },
+        "check": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 163.59375
+        },
+        "radio": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 182.59375
+        },
+        "toggle": {
+          "width": 32,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 282.59375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 513.09375
+        },
+        "nested": {
+          "width": 85.5,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 600.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 600.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 52,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 300.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 538.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 57,
+          "height": 190,
+          "font": 13
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 56,
+        "font": 18,
+        "line": 28,
+        "icon": 21,
+        "choice": 21,
+        "radius": 13.3,
+        "buttonX": 28,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 124.75,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 28,
+          "radius": 13.3,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 21,
+          "height": 21,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 86.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 56,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 13.3,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 103.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 217.09375
+        },
+        "check": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 200.59375
+        },
+        "radio": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 228.59375
+        },
+        "toggle": {
+          "width": 46,
+          "height": 25,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 370.59375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 687.09375
+        },
+        "nested": {
+          "width": 109.5,
+          "height": 52,
+          "font": 16,
+          "line": 24,
+          "paddingX": 28,
+          "radius": 13.3,
+          "top": 801.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 801.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 82,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 390.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 721.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 84,
+          "height": 274,
+          "font": 18
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 76,
+        "font": 24,
+        "line": 36,
+        "icon": 27,
+        "choice": 27,
+        "radius": 17.5,
+        "buttonX": 40,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 167.34375,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 40,
+          "radius": 17.5,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 27,
+          "height": 27,
+          "font": 24,
+          "line": 36,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 93.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 76,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 0,
+          "radius": 17.5,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 111.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 253.09375
+        },
+        "check": {
+          "width": 27,
+          "height": 27,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 235.59375
+        },
+        "radio": {
+          "width": 27,
+          "height": 27,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 271.59375
+        },
+        "toggle": {
+          "width": 58,
+          "height": 31,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 453.59375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 851.09375
+        },
+        "nested": {
+          "width": 133.5,
+          "height": 64,
+          "font": 16,
+          "line": 24,
+          "paddingX": 40,
+          "radius": 17.5,
+          "top": 993.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 993.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 110,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 474.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 893.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 108,
+          "height": 354,
+          "font": 24
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 64,
+        "font": 32,
+        "line": 48,
+        "icon": 36,
+        "choice": 36,
+        "radius": 10,
+        "buttonX": 16,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 145.109375,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 36,
+          "height": 36,
+          "font": 32,
+          "line": 48,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 83.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 64,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 0,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 123.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 265.09375
+        },
+        "check": {
+          "width": 36,
+          "height": 36,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 225.09375
+        },
+        "radio": {
+          "width": 36,
+          "height": 36,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 273.09375
+        },
+        "toggle": {
+          "width": 76,
+          "height": 40,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 431.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 803.09375
+        },
+        "nested": {
+          "width": 85.5,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 945.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 945.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 110,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 474.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 857.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 144,
+          "height": 306,
+          "font": 32
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "parameters": {},
+      "expected": {
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "icon": 20,
+        "choice": 20,
+        "radius": 12,
+        "buttonX": 20,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 107.75,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 20,
+          "height": 20,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 83.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 48,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 103.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 209.09375
+        },
+        "check": {
+          "width": 20,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 189.09375
+        },
+        "radio": {
+          "width": 20,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 217.09375
+        },
+        "toggle": {
+          "width": 44,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 343.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 631.09375
+        },
+        "nested": {
+          "width": 99.9375,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 737.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 737.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 74,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 366.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 665.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 84,
+          "height": 242,
+          "font": 18
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "icon": 16,
+        "choice": 16,
+        "radius": 12,
+        "buttonX": 20,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 95.375,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "font": 14,
+          "line": 22,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 82.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 42,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 0,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 97.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 191.09375
+        },
+        "check": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 176.09375
+        },
+        "radio": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 198.09375
+        },
+        "toggle": {
+          "width": 36,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 312.09375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 571.09375
+        },
+        "nested": {
+          "width": 99.9375,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 665.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 665.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 62,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 330.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 599.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 66,
+          "height": 218,
+          "font": 14
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 64,
+        "font": 21,
+        "line": 32,
+        "icon": 23,
+        "choice": 23,
+        "radius": 15.96,
+        "buttonX": 32,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 141.046875,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 32,
+          "radius": 15.96,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 23,
+          "height": 23,
+          "font": 21,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 89.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 64,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 15.96,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 107.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 233.09375
+        },
+        "check": {
+          "width": 23,
+          "height": 23,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 215.59375
+        },
+        "radio": {
+          "width": 23,
+          "height": 23,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 247.59375
+        },
+        "toggle": {
+          "width": 50,
+          "height": 27,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 405.59375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 755.09375
+        },
+        "nested": {
+          "width": 123.9375,
+          "height": 60,
+          "font": 18,
+          "line": 28,
+          "paddingX": 32,
+          "radius": 15.96,
+          "top": 881.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 881.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 426.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 793.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 96,
+          "height": 306,
+          "font": 21
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 86,
+        "font": 27,
+        "line": 42,
+        "icon": 30,
+        "choice": 30,
+        "radius": 21,
+        "buttonX": 44,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 184.625,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 44,
+          "radius": 21,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 30,
+          "height": 30,
+          "font": 27,
+          "line": 42,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 97.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 86,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 0,
+          "radius": 21,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 117.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 275.09375
+        },
+        "check": {
+          "width": 30,
+          "height": 30,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 255.09375
+        },
+        "radio": {
+          "width": 30,
+          "height": 30,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 297.09375
+        },
+        "toggle": {
+          "width": 64,
+          "height": 34,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 499.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 939.09375
+        },
+        "nested": {
+          "width": 147.9375,
+          "height": 72,
+          "font": 18,
+          "line": 28,
+          "paddingX": 44,
+          "radius": 21,
+          "top": 1097.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 1097.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 126,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 522.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 987.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 126,
+          "height": 394,
+          "font": 27
+        }
+      }
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 76,
+        "font": 36,
+        "line": 56,
+        "icon": 40,
+        "choice": 40,
+        "radius": 12,
+        "buttonX": 20,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 165.5,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 40,
+          "height": 40,
+          "font": 36,
+          "line": 56,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 87.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 76,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 0,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 131.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 293.09375
+        },
+        "check": {
+          "width": 40,
+          "height": 40,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 249.09375
+        },
+        "radio": {
+          "width": 40,
+          "height": 40,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 305.09375
+        },
+        "toggle": {
+          "width": 84,
+          "height": 44,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 487.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 911.09375
+        },
+        "nested": {
+          "width": 99.9375,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 1073.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 1073.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 130,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 534.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 973.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 168,
+          "height": 354,
+          "font": 36
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "parameters": {},
+      "expected": {
+        "height": 24,
+        "font": 12,
+        "line": 16,
+        "icon": 14,
+        "choice": 14,
+        "radius": 6,
+        "buttonX": 8,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 65.171875,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 14,
+          "height": 14,
+          "font": 12,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 74.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 24,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 91.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 161.09375
+        },
+        "check": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 144.09375
+        },
+        "radio": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 160.09375
+        },
+        "toggle": {
+          "width": 32,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 238.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 427.09375
+        },
+        "nested": {
+          "width": 56.625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 511.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 511.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 38,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 258.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 449.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 48,
+          "height": 146,
+          "font": 12
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 21,
+        "font": 10,
+        "line": 13,
+        "icon": 11,
+        "choice": 11,
+        "radius": 6,
+        "buttonX": 8,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 57.984375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 11,
+          "height": 11,
+          "font": 10,
+          "line": 13,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 74.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 21,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 0,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 88.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 152.09375
+        },
+        "check": {
+          "width": 11,
+          "height": 11,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 138.09375
+        },
+        "radio": {
+          "width": 11,
+          "height": 11,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 151.09375
+        },
+        "toggle": {
+          "width": 26,
+          "height": 15,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 223.09375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 397.09375
+        },
+        "nested": {
+          "width": 56.625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 478.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 478.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 32,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 240.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 416.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 39,
+          "height": 134,
+          "font": 10
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 38,
+        "font": 14,
+        "line": 18,
+        "icon": 16,
+        "choice": 16,
+        "radius": 7.98,
+        "buttonX": 20,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 95.375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "font": 14,
+          "line": 18,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 80.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 38,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 0,
+          "radius": 7.98,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 93.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 179.09375
+        },
+        "check": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 166.09375
+        },
+        "radio": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 184.09375
+        },
+        "toggle": {
+          "width": 36,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 290.09375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 531.09375
+        },
+        "nested": {
+          "width": 80.625,
+          "height": 36,
+          "font": 12,
+          "line": 16,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 617.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 617.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 54,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 306.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 22,
+          "radius": 7.98,
+          "top": 555.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 54,
+          "height": 202,
+          "font": 14
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 56,
+        "font": 18,
+        "line": 24,
+        "icon": 21,
+        "choice": 21,
+        "radius": 10.5,
+        "buttonX": 32,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 132.75,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 21,
+          "height": 21,
+          "font": 18,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 86.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 56,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 10.5,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 99.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 209.09375
+        },
+        "check": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 196.59375
+        },
+        "radio": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 220.59375
+        },
+        "toggle": {
+          "width": 46,
+          "height": 25,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 362.59375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 675.09375
+        },
+        "nested": {
+          "width": 104.625,
+          "height": 48,
+          "font": 12,
+          "line": 16,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 785.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 785.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 78,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 378.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 34,
+          "radius": 10.5,
+          "top": 705.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 72,
+          "height": 274,
+          "font": 18
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 40,
+        "font": 24,
+        "line": 32,
+        "icon": 28,
+        "choice": 28,
+        "radius": 6,
+        "buttonX": 8,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 104.34375,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 28,
+          "height": 28,
+          "font": 24,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 75.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 40,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 6,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 107.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 209.09375
+        },
+        "check": {
+          "width": 28,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 177.09375
+        },
+        "radio": {
+          "width": 28,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 209.09375
+        },
+        "toggle": {
+          "width": 60,
+          "height": 32,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 319.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 587.09375
+        },
+        "nested": {
+          "width": 56.625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 689.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 689.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 70,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 354.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 10,
+          "radius": 6,
+          "top": 625.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 96,
+          "height": 210,
+          "font": 24
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "parameters": {},
+      "expected": {
+        "height": 32,
+        "font": 14,
+        "line": 20,
+        "icon": 16,
+        "choice": 16,
+        "radius": 8,
+        "buttonX": 12,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 79.375,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 77.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 32,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 95.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 177.09375
+        },
+        "check": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 159.09375
+        },
+        "radio": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 179.09375
+        },
+        "toggle": {
+          "width": 36,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 273.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 495.09375
+        },
+        "nested": {
+          "width": 71.0625,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 583.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 583.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 50,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 294.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 521.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 60,
+          "height": 178,
+          "font": 14
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 28,
+        "font": 11,
+        "line": 16,
+        "icon": 13,
+        "choice": 13,
+        "radius": 8,
+        "buttonX": 12,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 70.078125,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 13,
+          "height": 13,
+          "font": 11,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 76.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 28,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 91.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 165.09375
+        },
+        "check": {
+          "width": 13,
+          "height": 13,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 150.59375
+        },
+        "radio": {
+          "width": 13,
+          "height": 13,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 166.59375
+        },
+        "toggle": {
+          "width": 30,
+          "height": 17,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 252.59375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 455.09375
+        },
+        "nested": {
+          "width": 71.0625,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 539.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 539.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 42,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 270.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 28,
+          "font": 11,
+          "line": 16,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 477.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 48,
+          "height": 162,
+          "font": 11
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 47,
+        "font": 16,
+        "line": 23,
+        "icon": 18,
+        "choice": 18,
+        "radius": 10.64,
+        "buttonX": 24,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 109.5625,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 24,
+          "radius": 10.64,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 18,
+          "height": 18,
+          "font": 16,
+          "line": 23,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 83.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 47,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 0,
+          "radius": 10.64,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 98.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 198.09375
+        },
+        "check": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 183.59375
+        },
+        "radio": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 206.59375
+        },
+        "toggle": {
+          "width": 40,
+          "height": 22,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 330.59375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 609.09375
+        },
+        "nested": {
+          "width": 95.0625,
+          "height": 44,
+          "font": 14,
+          "line": 20,
+          "paddingX": 24,
+          "radius": 10.64,
+          "top": 709.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 709.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 68,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 348.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 47,
+          "font": 16,
+          "line": 23,
+          "paddingX": 22,
+          "radius": 10.64,
+          "top": 638.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 69,
+          "height": 238,
+          "font": 16
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 66,
+        "font": 21,
+        "line": 30,
+        "icon": 24,
+        "choice": 24,
+        "radius": 14,
+        "buttonX": 36,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 150.046875,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 36,
+          "radius": 14,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 24,
+          "height": 24,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 90.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 66,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 14,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 105.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 231.09375
+        },
+        "check": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 216.09375
+        },
+        "radio": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 246.09375
+        },
+        "toggle": {
+          "width": 52,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 408.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 763.09375
+        },
+        "nested": {
+          "width": 119.0625,
+          "height": 56,
+          "font": 14,
+          "line": 20,
+          "paddingX": 36,
+          "radius": 14,
+          "top": 889.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 889.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 426.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 14,
+          "top": 799.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 90,
+          "height": 314,
+          "font": 21
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 52,
+        "font": 28,
+        "line": 40,
+        "icon": 32,
+        "choice": 32,
+        "radius": 8,
+        "buttonX": 12,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 124.734375,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 32,
+          "height": 32,
+          "font": 28,
+          "line": 40,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 79.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 52,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 115.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 237.09375
+        },
+        "check": {
+          "width": 32,
+          "height": 32,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 201.09375
+        },
+        "radio": {
+          "width": 32,
+          "height": 32,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 241.09375
+        },
+        "toggle": {
+          "width": 68,
+          "height": 36,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 375.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 695.09375
+        },
+        "nested": {
+          "width": 71.0625,
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "paddingX": 12,
+          "radius": 8,
+          "top": 817.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 817.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 90,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 414.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 52,
+          "font": 28,
+          "line": 40,
+          "paddingX": 10,
+          "radius": 8,
+          "top": 741.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 120,
+          "height": 258,
+          "font": 28
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "parameters": {},
+      "expected": {
+        "height": 40,
+        "font": 16,
+        "line": 24,
+        "icon": 18,
+        "choice": 18,
+        "radius": 10,
+        "buttonX": 16,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 93.5625,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 18,
+          "height": 18,
+          "font": 16,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 80.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 40,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 0,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 99.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 193.09375
+        },
+        "check": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 174.09375
+        },
+        "radio": {
+          "width": 18,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 198.09375
+        },
+        "toggle": {
+          "width": 40,
+          "height": 22,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 308.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 563.09375
+        },
+        "nested": {
+          "width": 85.5,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 657.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 657.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 62,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 330.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 593.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 72,
+          "height": 210,
+          "font": 16
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 35,
+        "font": 13,
+        "line": 19,
+        "icon": 14,
+        "choice": 14,
+        "radius": 10,
+        "buttonX": 16,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 83.265625,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 14,
+          "height": 14,
+          "font": 13,
+          "line": 19,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 79.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 35,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 0,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 94.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 178.09375
+        },
+        "check": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 163.59375
+        },
+        "radio": {
+          "width": 14,
+          "height": 14,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 182.59375
+        },
+        "toggle": {
+          "width": 32,
+          "height": 18,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 282.59375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 513.09375
+        },
+        "nested": {
+          "width": 85.5,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 600.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 600.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 52,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 300.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 35,
+          "font": 13,
+          "line": 19,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 538.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 57,
+          "height": 190,
+          "font": 13
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 56,
+        "font": 18,
+        "line": 28,
+        "icon": 21,
+        "choice": 21,
+        "radius": 13.3,
+        "buttonX": 28,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 124.75,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 28,
+          "radius": 13.3,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 21,
+          "height": 21,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 86.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 56,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 13.3,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 103.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 217.09375
+        },
+        "check": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 200.59375
+        },
+        "radio": {
+          "width": 21,
+          "height": 21,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 228.59375
+        },
+        "toggle": {
+          "width": 46,
+          "height": 25,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 370.59375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 687.09375
+        },
+        "nested": {
+          "width": 109.5,
+          "height": 52,
+          "font": 16,
+          "line": 24,
+          "paddingX": 28,
+          "radius": 13.3,
+          "top": 801.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 801.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 82,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 390.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 56,
+          "font": 18,
+          "line": 28,
+          "paddingX": 22,
+          "radius": 13.3,
+          "top": 721.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 84,
+          "height": 274,
+          "font": 18
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 76,
+        "font": 24,
+        "line": 36,
+        "icon": 27,
+        "choice": 27,
+        "radius": 17.5,
+        "buttonX": 40,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 167.34375,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 40,
+          "radius": 17.5,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 27,
+          "height": 27,
+          "font": 24,
+          "line": 36,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 93.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 76,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 0,
+          "radius": 17.5,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 111.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 253.09375
+        },
+        "check": {
+          "width": 27,
+          "height": 27,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 235.59375
+        },
+        "radio": {
+          "width": 27,
+          "height": 27,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 271.59375
+        },
+        "toggle": {
+          "width": 58,
+          "height": 31,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 453.59375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 851.09375
+        },
+        "nested": {
+          "width": 133.5,
+          "height": 64,
+          "font": 16,
+          "line": 24,
+          "paddingX": 40,
+          "radius": 17.5,
+          "top": 993.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 993.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 110,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 474.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 76,
+          "font": 24,
+          "line": 36,
+          "paddingX": 34,
+          "radius": 17.5,
+          "top": 893.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 108,
+          "height": 354,
+          "font": 24
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 64,
+        "font": 32,
+        "line": 48,
+        "icon": 36,
+        "choice": 36,
+        "radius": 10,
+        "buttonX": 16,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 145.109375,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 36,
+          "height": 36,
+          "font": 32,
+          "line": 48,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 83.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 64,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 0,
+          "radius": 10,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 123.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 265.09375
+        },
+        "check": {
+          "width": 36,
+          "height": 36,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 225.09375
+        },
+        "radio": {
+          "width": 36,
+          "height": 36,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 273.09375
+        },
+        "toggle": {
+          "width": 76,
+          "height": 40,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 431.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 803.09375
+        },
+        "nested": {
+          "width": 85.5,
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "paddingX": 16,
+          "radius": 10,
+          "top": 945.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 945.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 110,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 474.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 64,
+          "font": 32,
+          "line": 48,
+          "paddingX": 10,
+          "radius": 10,
+          "top": 857.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 144,
+          "height": 306,
+          "font": 32
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "parameters": {},
+      "expected": {
+        "height": 48,
+        "font": 18,
+        "line": 28,
+        "icon": 20,
+        "choice": 20,
+        "radius": 12,
+        "buttonX": 20,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 107.75,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 20,
+          "height": 20,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 83.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 48,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 0,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 103.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 209.09375
+        },
+        "check": {
+          "width": 20,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 189.09375
+        },
+        "radio": {
+          "width": 20,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 217.09375
+        },
+        "toggle": {
+          "width": 44,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 343.09375
+        },
+        "explicit": {
+          "width": 55.90625,
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 631.09375
+        },
+        "nested": {
+          "width": 99.9375,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 737.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 737.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 74,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 366.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 665.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 84,
+          "height": 242,
+          "font": 18
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 80,
+        "preserveMinimumHeight": false
+      },
+      "expected": {
+        "height": 42,
+        "font": 14,
+        "line": 22,
+        "icon": 16,
+        "choice": 16,
+        "radius": 12,
+        "buttonX": 20,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 95.375,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "font": 14,
+          "line": 22,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 82.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 42,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 0,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 97.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 191.09375
+        },
+        "check": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 176.09375
+        },
+        "radio": {
+          "width": 16,
+          "height": 16,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 198.09375
+        },
+        "toggle": {
+          "width": 36,
+          "height": 20,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 312.09375
+        },
+        "explicit": {
+          "width": 49.59375,
+          "height": 21,
+          "font": 10,
+          "line": 13,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 571.09375
+        },
+        "nested": {
+          "width": 99.9375,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 665.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 665.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 62,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 330.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 42,
+          "font": 14,
+          "line": 22,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 599.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 66,
+          "height": 218,
+          "font": 14
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 115,
+        "extraPaddingInline": 12,
+        "extraPaddingBlock": 6,
+        "radiusScale": 1.33
+      },
+      "expected": {
+        "height": 64,
+        "font": 21,
+        "line": 32,
+        "icon": 23,
+        "choice": 23,
+        "radius": 15.96,
+        "buttonX": 32,
+        "fieldX": 22
+      },
+      "actual": {
+        "button": {
+          "width": 141.046875,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 32,
+          "radius": 15.96,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 23,
+          "height": 23,
+          "font": 21,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 89.59375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 64,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 0,
+          "radius": 15.96,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 107.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 233.09375
+        },
+        "check": {
+          "width": 23,
+          "height": 23,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 5.32,
+          "top": 215.59375
+        },
+        "radio": {
+          "width": 23,
+          "height": 23,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 247.59375
+        },
+        "toggle": {
+          "width": 50,
+          "height": 27,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 405.59375
+        },
+        "explicit": {
+          "width": 86.234375,
+          "height": 38,
+          "font": 14,
+          "line": 18,
+          "paddingX": 20,
+          "radius": 7.98,
+          "top": 755.09375
+        },
+        "nested": {
+          "width": 123.9375,
+          "height": 60,
+          "font": 18,
+          "line": 28,
+          "paddingX": 32,
+          "radius": 15.96,
+          "top": 881.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 881.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 426.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 64,
+          "font": 21,
+          "line": 32,
+          "paddingX": 22,
+          "radius": 15.96,
+          "top": 793.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 96,
+          "height": 306,
+          "font": 21
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "extraPaddingInline": 24,
+        "extraPaddingBlock": 12,
+        "radiusScale": 1.75
+      },
+      "expected": {
+        "height": 86,
+        "font": 27,
+        "line": 42,
+        "icon": 30,
+        "choice": 30,
+        "radius": 21,
+        "buttonX": 44,
+        "fieldX": 34
+      },
+      "actual": {
+        "button": {
+          "width": 184.625,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 44,
+          "radius": 21,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 30,
+          "height": 30,
+          "font": 27,
+          "line": 42,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 97.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 86,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 0,
+          "radius": 21,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 117.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 275.09375
+        },
+        "check": {
+          "width": 30,
+          "height": 30,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 7,
+          "top": 255.09375
+        },
+        "radio": {
+          "width": 30,
+          "height": 30,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 297.09375
+        },
+        "toggle": {
+          "width": 64,
+          "height": 34,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 499.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 10.5,
+          "top": 939.09375
+        },
+        "nested": {
+          "width": 147.9375,
+          "height": 72,
+          "font": 18,
+          "line": 28,
+          "paddingX": 44,
+          "radius": 21,
+          "top": 1097.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 1097.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 126,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 522.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 86,
+          "font": 27,
+          "line": 42,
+          "paddingX": 34,
+          "radius": 21,
+          "top": 987.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 126,
+          "height": 394,
+          "font": 27
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 200,
+        "extraPaddingInline": 0,
+        "extraPaddingBlock": 0
+      },
+      "expected": {
+        "height": 76,
+        "font": 36,
+        "line": 56,
+        "icon": 40,
+        "choice": 40,
+        "radius": 12,
+        "buttonX": 20,
+        "fieldX": 10
+      },
+      "actual": {
+        "button": {
+          "width": 165.5,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 40,
+          "height": 40,
+          "font": 36,
+          "line": 56,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 87.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 76,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 0,
+          "radius": 12,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 131.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 293.09375
+        },
+        "check": {
+          "width": 40,
+          "height": 40,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 249.09375
+        },
+        "radio": {
+          "width": 40,
+          "height": 40,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 305.09375
+        },
+        "toggle": {
+          "width": 84,
+          "height": 44,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 487.09375
+        },
+        "explicit": {
+          "width": 93.8125,
+          "height": 40,
+          "font": 24,
+          "line": 32,
+          "paddingX": 8,
+          "radius": 6,
+          "top": 911.09375
+        },
+        "nested": {
+          "width": 99.9375,
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "paddingX": 20,
+          "radius": 12,
+          "top": 1073.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 1073.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 130,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 534.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 76,
+          "font": 36,
+          "line": 56,
+          "paddingX": 10,
+          "radius": 12,
+          "top": 973.09375
+        },
+        "labelGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          },
+          {
+            "id": "parameter-number",
+            "gap": 6
+          }
+        ],
+        "multiple": {
+          "minimum": 168,
+          "height": 354,
+          "font": 36
+        }
+      }
+    }
+  ],
+  "stateSamples": [
+    {
+      "theme": "light",
+      "disabled": false,
+      "error": true,
+      "busyToggleGuard": true,
+      "actual": {
+        "button": {
+          "width": 150.046875,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 24,
+          "height": 24,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 90.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 66,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 105.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 253.09375
+        },
+        "check": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 238.09375
+        },
+        "radio": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 268.09375
+        },
+        "toggle": {
+          "width": 52,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 454.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 6,
+          "top": 809.09375
+        },
+        "nested": {
+          "width": 119.0625,
+          "height": 56,
+          "font": 14,
+          "line": 20,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 935.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 935.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 472.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 845.09375
+        },
+        "helperGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          }
+        ]
+      }
+    },
+    {
+      "theme": "light",
+      "disabled": true,
+      "error": true,
+      "busyToggleGuard": true,
+      "actual": {
+        "button": {
+          "width": 150.046875,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 24,
+          "height": 24,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 90.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 66,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 105.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 231.09375
+        },
+        "check": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 216.09375
+        },
+        "radio": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 246.09375
+        },
+        "toggle": {
+          "width": 52,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 408.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 6,
+          "top": 763.09375
+        },
+        "nested": {
+          "width": 119.0625,
+          "height": 56,
+          "font": 14,
+          "line": 20,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 889.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 889.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 426.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 799.09375
+        },
+        "helperGaps": [
+          {
+            "id": "parameter-field",
+            "gap": null
+          },
+          {
+            "id": "parameter-select",
+            "gap": null
+          }
+        ]
+      }
+    },
+    {
+      "theme": "dark",
+      "disabled": false,
+      "error": true,
+      "busyToggleGuard": true,
+      "actual": {
+        "button": {
+          "width": 150.046875,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 24,
+          "height": 24,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 90.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 66,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 105.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 253.09375
+        },
+        "check": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 238.09375
+        },
+        "radio": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 268.09375
+        },
+        "toggle": {
+          "width": 52,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 454.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 6,
+          "top": 809.09375
+        },
+        "nested": {
+          "width": 119.0625,
+          "height": 56,
+          "font": 14,
+          "line": 20,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 935.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 935.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 472.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 845.09375
+        },
+        "helperGaps": [
+          {
+            "id": "parameter-field",
+            "gap": 6
+          },
+          {
+            "id": "parameter-select",
+            "gap": 6
+          }
+        ]
+      }
+    },
+    {
+      "theme": "dark",
+      "disabled": true,
+      "error": true,
+      "busyToggleGuard": true,
+      "actual": {
+        "button": {
+          "width": 150.046875,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "icon": {
+          "width": 24,
+          "height": 24,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 90.09375
+        },
+        "center": 0,
+        "iconButton": {
+          "width": 66,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 0,
+          "radius": 8,
+          "top": 69.09375
+        },
+        "field": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 105.09375
+        },
+        "select": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 231.09375
+        },
+        "check": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 4,
+          "top": 216.09375
+        },
+        "radio": {
+          "width": 24,
+          "height": 24,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 50,
+          "top": 246.09375
+        },
+        "toggle": {
+          "width": 52,
+          "height": 28,
+          "font": 13.3333,
+          "line": null,
+          "paddingX": 0,
+          "radius": 999,
+          "top": 408.09375
+        },
+        "explicit": {
+          "width": 122.859375,
+          "height": 56,
+          "font": 18,
+          "line": 24,
+          "paddingX": 32,
+          "radius": 6,
+          "top": 763.09375
+        },
+        "nested": {
+          "width": 119.0625,
+          "height": 56,
+          "font": 14,
+          "line": 20,
+          "paddingX": 36,
+          "radius": 8,
+          "top": 889.09375
+        },
+        "text": {
+          "width": 468,
+          "height": 20,
+          "font": 14,
+          "line": 20,
+          "paddingX": 0,
+          "radius": 0,
+          "top": 889.09375
+        },
+        "area": {
+          "width": 466,
+          "height": 94,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 426.09375
+        },
+        "number": {
+          "width": 468,
+          "height": 66,
+          "font": 21,
+          "line": 30,
+          "paddingX": 34,
+          "radius": 8,
+          "top": 799.09375
+        },
+        "helperGaps": [
+          {
+            "id": "parameter-field",
+            "gap": null
+          },
+          {
+            "id": "parameter-select",
+            "gap": null
+          }
+        ]
+      }
+    }
+  ],
+  "spinnerCases": [
+    {
+      "theme": "light",
+      "before": {
+        "x": 24,
+        "y": 69.09375,
+        "width": 57.984375,
+        "height": 21
+      },
+      "width": 57.984375,
+      "height": 21,
+      "spinnerWidth": 15,
+      "spinnerHeight": 15,
+      "deltaX": 0.0078125,
+      "deltaY": 0
+    },
+    {
+      "theme": "dark",
+      "before": {
+        "x": 24,
+        "y": 69.09375,
+        "width": 57.984375,
+        "height": 21
+      },
+      "width": 57.984375,
+      "height": 21,
+      "spinnerWidth": 15,
+      "spinnerHeight": 15,
+      "deltaX": 0.0078125,
+      "deltaY": 3.814697265625e-06
+    }
+  ],
+  "workflow": {
+    "linkedChoices": true,
+    "focusCaretValueRetained": true,
+    "menuAndPopoverInheritance": true,
+    "loadingFrozen": true
+  },
+  "errors": []
+}

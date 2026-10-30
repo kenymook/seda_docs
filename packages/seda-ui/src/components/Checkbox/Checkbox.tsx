@@ -1,4 +1,12 @@
-import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from "react";
+import { useSedaSize } from "../../foundation/SedaProvider";
+import {
+  forwardRef,
+  useEffect,
+  useId,
+  useImperativeHandle,
+  useRef,
+} from "react";
+import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
 import type { CheckboxProps } from "./Checkbox.types";
 
@@ -15,14 +23,27 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       label,
       onCheckedChange,
       required,
-      size = "m",
+      size: sizeProp,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
+    const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
+    const hasLabel = hasMessage(label);
+    const hasError = !disabled && hasMessage(errorText);
+    const message = hasError
+      ? errorText
+      : hasMessage(helperText)
+        ? helperText
+        : undefined;
+    const externalDescriptions = props["aria-describedby"]
+      ?.split(/\s+/)
+      .filter((id) => id && (message != null || id !== messageId))
+      .join(" ");
     const inputRef = useRef<HTMLInputElement>(null);
 
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
@@ -34,12 +55,28 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }, [indeterminate]);
 
     return (
-      <label className={cx("seda-choice", className)} data-disabled={disabled ? "true" : undefined} data-size={size}>
+      <label
+        className={cx("seda-choice", className)}
+        data-disabled={disabled ? "true" : undefined}
+        data-content={hasLabel || message != null ? undefined : "none"}
+        data-size={size}
+      >
         <input
           {...props}
+          aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] || !hasLabel ? undefined : labelId)}
           aria-checked={indeterminate ? "mixed" : checked}
-          aria-describedby={helperText || errorText ? messageId : props["aria-describedby"]}
-          aria-invalid={Boolean(errorText) || undefined}
+          aria-describedby={mergeDescriptionIds(
+            externalDescriptions,
+            message != null ? messageId : undefined,
+          )}
+          aria-invalid={hasError || undefined}
+          onClick={(event) => {
+            if (props.readOnly) {
+              event.preventDefault();
+              return;
+            }
+            props.onClick?.(event);
+          }}
           checked={checked}
           className="seda-choice__control"
           disabled={disabled}
@@ -52,17 +89,21 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           required={required}
           type="checkbox"
         />
-        <span className="seda-choice__content">
-          <span className="seda-choice__label">
+        {(hasLabel || message != null) && <span className="seda-choice__content">
+          {hasLabel && <span className="seda-choice__label" id={labelId}>
             {label}
             {required ? " *" : null}
-          </span>
-          {errorText || helperText ? (
-            <span className="seda-field__message" data-tone={errorText ? "error" : undefined} id={messageId}>
-              {errorText ?? helperText}
+          </span>}
+          {message != null ? (
+            <span
+              className="seda-field__message"
+              data-tone={hasError ? "error" : undefined}
+              id={messageId}
+            >
+              {message}
             </span>
           ) : null}
-        </span>
+        </span>}
       </label>
     );
   },

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {initialReleaseState as initial,transitionRelease as reduce,releaseBlocker as blocker,nextReleaseVersion} from './release-preview-model.mjs';
+let checks=0;const eq=(a,b)=>{assert.deepEqual(a,b);checks++;};
+let s=initial();eq(blocker(s),'Проверьте текущие изменения');s=reduce(s,{type:'check'});eq(s.phase,'checking');const busy=reduce(s,{type:'check'});eq(busy,s);s=reduce(s,{type:'checked',revision:12});eq(blocker(s),null);
+s=reduce(s,{type:'publish',operation:'a',edits:{token:'value'}});eq(reduce(s,{type:'publish',operation:'b'}),s);eq(reduce(s,{type:'published',operation:'old'}),s);
+s=reduce(s,{type:'edit'});s=reduce(s,{type:'published',operation:'a'});eq(s.draft,true);eq(s.history[0].edits,{token:'value'});eq(s.current,'0.6.3');eq(s.validatedRevision,null);
+let unknown=reduce(s,{type:'check'});unknown=reduce(unknown,{type:'checked',revision:unknown.revision});unknown=reduce(unknown,{type:'publish',operation:'b'});unknown=reduce(unknown,{type:'unknown',operation:'b'});eq(unknown.phase,'unknown');eq(reduce(unknown,{type:'publish',operation:'c'}),unknown);unknown=reduce(unknown,{type:'published',operation:'b'});eq(unknown.history.length,s.history.length+1);
+for(const mode of ['offline','syncing','conflict','invalid','incompatible','unknown'])assert.ok(blocker(initial(mode)));checks+=6;
+let changed=reduce(initial(),{type:'check'});changed=reduce(changed,{type:'edit'});changed=reduce(changed,{type:'checked',revision:12});eq(changed.validatedRevision,null);eq(changed.phase,'idle');
+let warning=initial('warning');warning=reduce(warning,{type:'check'});warning=reduce(warning,{type:'checked',revision:12});assert.ok(blocker(warning));checks++;warning=reduce(warning,{type:'acknowledge',value:true});eq(blocker(warning),null);
+let rollback=initial();rollback=reduce(rollback,{type:'restore',operation:'r',version:'0.6.1'});rollback=reduce(rollback,{type:'restored',operation:'r',version:'0.6.1'});eq(rollback.current,'0.6.3');eq(rollback.history[0].rollbackOf,'0.6.1');eq(rollback.draft,true);eq(rollback.validatedRevision,null);
+eq(reduce(initial(),{type:'restore',operation:'bad',version:'9.9.9'}),initial());
+eq(nextReleaseVersion(null),'0.1.0');eq(nextReleaseVersion('0.1.0'),'0.1.1');eq(nextReleaseVersion('1.4.9'),'1.4.10');
+eq(reduce(initial('empty'),{type:'check'}),initial('empty'));
+console.log('PASS release UX model: '+checks+' assertions; duplicate/late/unknown replies, snapshot isolation, validation invalidation, rollback and versioning');

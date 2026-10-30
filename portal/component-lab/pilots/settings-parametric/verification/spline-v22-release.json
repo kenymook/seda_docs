@@ -1,0 +1,30 @@
+{
+  "version": 22,
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adbe723ce448191b29ca480ea39b508",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_d7a5d130bfd48191b2ab708e369f87a2",
+  "status": "succeeded",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "siteSource": "87265300bc86a926d441a1d45681a6797a149b9f",
+  "githubSource": "e198f7362b36ae5265d795709b18acd2b6ea0077",
+  "accessMode": "custom",
+  "revision": 1,
+  "owners": 1,
+  "externalVisitors": 0,
+  "groups": 0,
+  "production": {
+    "matchedSourceHashes": 607,
+    "splineApplicationBrowserGroups": 10,
+    "nestedProfileSamples": 24,
+    "javascriptErrors": 0,
+    "loadingDeltaWidth": 0,
+    "loadingDeltaHeight": 0,
+    "visualAcceptance": false
+  },
+  "limits": [
+    "Procedural geometry/materials/camera differ from source artwork",
+    "Pointer transform gizmo not implemented",
+    "States/Events/Modifiers/Collision/Variables/asset import/collaboration/inference not implemented",
+    "Full visual/AT/performance acceptance open; three required reference screens absent"
+  ]
+}

@@ -1,4 +1,6 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
+import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
 import type { ToggleProps } from "./Toggle.types";
 
@@ -14,23 +16,50 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
       loading = false,
       onCheckedChange,
       required,
-      size = "m",
+      size: sizeProp,
       statusText,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
+    const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
+    const message = hasMessage(statusText)
+      ? statusText
+      : hasMessage(helperText)
+        ? helperText
+        : undefined;
+    const externalDescriptions = props["aria-describedby"]
+      ?.split(/\s+/)
+      .filter((id) => id && (message != null || id !== messageId))
+      .join(" ");
     const isBlocked = disabled || loading;
 
     return (
-      <label className={cx("seda-toggle", className)} data-disabled={disabled ? "true" : undefined} data-size={size}>
+      <label
+        className={cx("seda-toggle", className)}
+        data-disabled={disabled ? "true" : undefined}
+        data-size={size}
+      >
         <input
           {...props}
-          aria-describedby={helperText || statusText ? messageId : props["aria-describedby"]}
+          aria-labelledby={props["aria-labelledby"] ?? (props["aria-label"] ? undefined : labelId)}
+          aria-describedby={mergeDescriptionIds(
+            externalDescriptions,
+            message != null ? messageId : undefined,
+          )}
           aria-disabled={loading ? true : props["aria-disabled"]}
+          aria-busy={loading || undefined}
+          onClick={(event) => {
+            if (isBlocked || props.readOnly) {
+              event.preventDefault();
+              return;
+            }
+            props.onClick?.(event);
+          }}
           checked={checked}
           className="seda-toggle__control"
           disabled={disabled}
@@ -49,13 +78,13 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
           type="checkbox"
         />
         <span className="seda-toggle__content">
-          <span className="seda-toggle__label">
+          <span className="seda-toggle__label" id={labelId}>
             {label}
             {required ? " *" : null}
           </span>
-          {statusText || helperText ? (
+          {message != null ? (
             <span className="seda-field__message" id={messageId}>
-              {statusText ?? helperText}
+              {message}
             </span>
           ) : null}
         </span>

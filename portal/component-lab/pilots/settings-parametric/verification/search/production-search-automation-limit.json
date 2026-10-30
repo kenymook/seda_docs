@@ -1,0 +1,14 @@
+{
+  "version": 51,
+  "status": "incomplete",
+  "failedAssertion": "popup.locator(#chat-input).waitFor at verify-search-workspace.mjs:18",
+  "observedPage": "Требуется вход / Войдите, чтобы получить доступ",
+  "diagnosis": "Browser-created tab is not covered by the Sites test bypass header; route and context header probes did not authorize it. Exact result URL preserved. No component runtime change made to bypass this.",
+  "localAndLinuxAssertions": "unchanged and passing",
+  "actualOwnerBrowser": "Ctrl-click native new tab and normal Enter passed through UI; screenshots retained",
+  "attempts": [
+    "origin-scoped route",
+    "context headers with external route abort",
+    "explicit same-URL test authorization; did not complete"
+  ]
+}

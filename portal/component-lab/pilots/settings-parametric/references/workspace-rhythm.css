@@ -1,0 +1,32 @@
+/* Composition recipe over the existing foundation 4/8/12/16/24 spacing scale.
+   This does not override control anatomy or authored canvas/document content. */
+ .seda-provider [data-workspace-actions][class]{align-items:center;column-gap:8px;row-gap:8px}
+.seda-provider [data-workspace-actions=compact][class]{column-gap:4px}
+.reference-glyph{vertical-align:middle}
+.reference-section-disclosure{transition:transform .12s}
+[aria-expanded=true] .reference-section-disclosure{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.reference-section-disclosure{transition:none}}
+
+/* UI glyph adapters retain original source bytes; only monochrome artwork inherits foreground. */
+.reference-artwork,.reference-composite-glyph{display:block;flex:none;width:var(--seda-control-icon-size,var(--seda-preset-icon-size,16px));height:var(--seda-control-icon-size,var(--seda-preset-icon-size,16px));object-fit:contain;vertical-align:middle}
+.reference-composite-glyph{overflow:hidden;pointer-events:none;color:inherit}
+.reference-composite-glyph foreignObject{pointer-events:none}
+/* Inspector recipe: compact row4, related fields8, section16. No fixed field heights. */
+.seda-provider [data-workspace-inspector]>header{padding:8px 16px}
+.seda-provider [data-workspace-inspector] :is(.sandbox-properties-section,.wf-selector,.wf-computed,.wf-node-settings){padding:16px;border-bottom:1px solid var(--border-subtle);min-width:0}
+.seda-provider [data-workspace-inspector] :is(.sandbox-properties-section,.wf-selector,.wf-computed,.wf-node-settings)>:is(h2,summary){margin:0 0 8px}
+.seda-provider .spline-inspector[data-workspace-inspector]>section,
+.seda-provider .fr-inspector[data-workspace-inspector] section:not(.seda-accordion__item),
+.seda-provider .flow-inspector[data-workspace-inspector] section{padding:16px;gap:8px;min-width:0}
+.seda-provider .spline-inspector[data-workspace-inspector]>details{padding:16px;gap:8px}
+.seda-provider .spline-inspector[data-workspace-inspector]>details>summary{margin-bottom:8px}
+.seda-provider [data-workspace-inspector] :is(.sandbox-property-grid,.spline-axis-grid,.wf-fields){gap:8px}
+.seda-provider [data-workspace-inspector] :is(.wf-property,.fr-property,.fr-sizing){display:flex;flex-direction:column;gap:4px;min-width:0}
+.seda-provider [data-workspace-inspector] .wf-property-origin{gap:4px}
+.seda-provider [data-workspace-inspector] .wf-property-origin .seda-button{margin:0}
+.seda-provider [data-workspace-inspector] .sandbox-align-tools{gap:4px;justify-content:flex-start;flex-wrap:wrap}
+.seda-provider [data-workspace-inspector] .sandbox-command-row{gap:8px;flex-wrap:wrap}
+.seda-provider .chat-activity[data-workspace-inspector]{padding:16px}
+.seda-provider .chat-activity[data-workspace-inspector] dl>div{gap:8px;margin-block:8px}
+.editor-dock{height:100%;width:100%;min-height:0;min-width:0}
+.editor-dock>.seda-split-view{height:100%;min-height:0;min-width:0}

@@ -1,0 +1,81 @@
+Bounded diagnostic excerpt; original lines: 85
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 12000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Read more', exact: true })
+    - locator resolved to <button type="button" data-size="xl" class="seda-button" aria-expanded="false" aria-haspopup="dialog" data-variant="secondary">…</button>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <span class="seda-button__label">FigJam</span> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="default" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+  - retrying click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div data-workspace-actions="true" class="reference-create-actions">…</div> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+  - retrying click action
+    - waiting 20ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <span class="seda-button__label">FigJam</span> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+  2 × retrying click action
+      - waiting 100ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> intercepts pointer events
+  5 × retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div data-workspace-actions="true" class="reference-create-actions">…</div> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <span class="seda-button__label">FigJam</span> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+      - waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <div data-workspace-actions="true" class="reference-create-actions">…</div> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <span class="seda-button__label">FigJam</span> from <header data-size="xl" aria-label="Файлы" data-gutter="wide" data-state="scrolled" data-variant="page-header" class="seda-top-bar reference-header">…</header> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+
+    at verifyPopoverWorkspace (C:\Users\kauta\Desktop\Vibecoding\SEDA AI\.integration-lab2\portal\component-lab\pilots\settings-parametric\verify-popover-workspace.mjs:21:184)

@@ -13,7 +13,12 @@ test('C01/R07: valid contracts retire implemented D16 while keeping browser evid
   assert.equal(report.valid, true, JSON.stringify(report.issues));
   assert.equal(report.issues.length, 0);
   assert.deepEqual(report.planned, []);
-  assert.equal(report.deferredChecks.length, 13);
+  assert.equal(report.deferredChecks.length, 73);
+  assert.equal(report.deferredChecks.filter(item=>item.component==='EmptyState'&&item.ruleId==='tokens').length,1);
+  assert.equal(report.deferredChecks.filter(item=>item.component==='Select'&&item.ruleId==='availability-behavior').length,1);
+  assert.equal(report.deferredChecks.filter(item=>item.component==='NumberField').length,5);
+  assert.equal(report.deferredChecks.filter(item=>item.component==='Slider').length,6);
+  assert.equal(report.deferredChecks.filter(item=>item.component==='DropdownMenu').length,5);
   assert.ok(report.deferredChecks.every(item => item.status === 'not-checked'));
   assert.equal(report.runtimeConformance, 'not-checked');
 });
@@ -57,7 +62,7 @@ test('C02/R06: observed defaults now agree with types and target contracts', () 
   assert.equal(engine.validate().valid, true);
   const audit = engine.audit();
   assert.equal(audit.valid, true);
-  assert.deepEqual(audit.issues, []);
+  assert.deepEqual(audit.issues, [{code:'API_DEFAULT_UNCHECKED',path:'/props/formatValue',message:'Default expression requires execution: String',severity:'warning',status:'not-checked',component:'Slider'},{code:'API_DEFAULT_UNCHECKED',path:'/props/pageLabel',message:'Default expression requires execution: (n)=>`Страница ${n}`',severity:'warning',status:'not-checked',component:'Pagination'}]);
   assert.deepEqual(audit.targetDrift, []);
   const instance = engine.validateInstance('IconButton', { 'aria-label': 'Help', icon: { $slot: 'help-icon' } });
   assert.equal(instance.valid, true);

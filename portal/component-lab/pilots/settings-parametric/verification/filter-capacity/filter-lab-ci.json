@@ -1,0 +1,13 @@
+{
+  "runtimeCommit": "06f51e3e8dc306823cc5664042f8961f266a9fc5",
+  "runId": 40256806492,
+  "jobId": 121360310057,
+  "conclusion": "success",
+  "summary": [
+    "2026-10-26T02:10:26.7472561Z {\"passed\":55,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-lab2\"}",
+    "2026-10-26T02:11:55.9514528Z {\"passed\":21,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-workspace\"}",
+    "2026-10-26T02:12:45.4399582Z {\"samples\":240,\"constrained\":8,\"workflow\":{\"focusCaretValueRetained\":true,\"tabOrder\":true,\"filtersCoupled\":true,\"reset\":true},\"errors\":[],\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-workspace-filters\"}",
+    "2026-10-26T02:12:50.7674380Z {\"passed\":12,\"failed\":0,\"output\":\"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-controls\"}",
+    "2026-10-26T02:12:50.7792127Z {\"partition\":\"lab\",\"scripts\":23,\"exitCode\":0}"
+  ]
+}

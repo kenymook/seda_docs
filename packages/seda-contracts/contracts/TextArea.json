@@ -1,0 +1,326 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "TextArea",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/TextArea/TextArea.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/TextArea/TextArea.tsx",
+    "export": "TextAreaProps",
+    "nativeElement": "textarea"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "div",
+      "required": true
+    },
+    {
+      "name": "control",
+      "element": "textarea",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "label",
+      "prop": "label",
+      "required": true
+    },
+    {
+      "name": "message",
+      "element": "span",
+      "required": false
+    },
+    {
+      "name": "counter",
+      "element": "span",
+      "required": false
+    },
+    {
+      "name": "header",
+      "element": "div",
+      "required": false
+    },
+    {
+      "name": "clear",
+      "element": "button",
+      "required": false
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "rows": 3,
+    "autoResize": false,
+    "resize": "vertical",
+    "hideLabel": false,
+    "appearance": "outlined",
+    "showCount": false,
+    "clearable": false,
+    "disabled": false,
+    "readOnly": false,
+    "required": false,
+    "clearLabel": "Очистить"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none",
+      "error"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "text-area"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "Р’СЃРµРіРґР°",
+      "expected": "Непустой label; hideLabel сохраняет его программное имя.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D30"
+    },
+    {
+      "id": "error-message",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё state=error РёР»Рё Р·Р°РґР°РЅРЅРѕРј errorText",
+      "expected": "РћС€РёР±РєР° СЃРѕРґРµСЂР¶РёС‚ РЅРµРїСѓСЃС‚РѕРµ СЃРѕРѕР±С‰РµРЅРёРµ.",
+      "check": "error-message",
+      "layer": "instance",
+      "decision": "D30"
+    },
+    {
+      "id": "disabled",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё preview state=disabled",
+      "expected": "РќР°С‚РёРІРЅС‹Р№ disabled РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ Р±Р»РѕРєРёСЂСѓРµС‚ input.",
+      "check": "native-disabled",
+      "layer": "instance",
+      "decision": "D30"
+    },
+    {
+      "id": "description",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё РІРЅРµС€РЅРµРј РѕРїРёСЃР°РЅРёРё Рё СЃРѕРѕР±С‰РµРЅРёРё",
+      "expected": "aria-describedby СЃРѕРґРµСЂР¶РёС‚ РѕР±Р° ID Р±РµР· РґСѓР±Р»РµР№.",
+      "check": "description-merge",
+      "layer": "browser",
+      "decision": "D30"
+    },
+    {
+      "id": "disabled-error",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё disabled Рё СЃРѕС…СЂР°РЅС‘РЅРЅРѕР№ РѕС€РёР±РєРµ",
+      "expected": "РЎРѕРѕР±С‰РµРЅРёРµ РѕС€РёР±РєРё СЃРєСЂС‹С‚Рѕ; РѕС€РёР±РєР° РјРѕР¶РµС‚ РѕСЃС‚Р°С‚СЊСЃСЏ РІ СЃРѕСЃС‚РѕСЏРЅРёРё С„РѕСЂРјС‹.",
+      "check": "disabled-error-presentation",
+      "layer": "browser",
+      "decision": "D30"
+    },
+    {
+      "id": "geometry",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё РІС‹Р±СЂР°РЅРЅРѕРј СЂР°Р·РјРµСЂРµ",
+      "expected": "Р’С‹СЃРѕС‚Р°, СЂР°РґРёСѓСЃ Рё С‚РёРїРѕРіСЂР°С„РёРєР° СЃРѕРІРїР°РґР°СЋС‚ СЃ СЂР°Р·СЂРµС€С‘РЅРЅС‹Рј РїСЂРµСЃРµС‚РѕРј.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D30"
+    },
+    {
+      "id": "focus",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё РєР»Р°РІРёР°С‚СѓСЂРЅРѕРј С„РѕРєСѓСЃРµ",
+      "expected": "Р’РёРґРёРјС‹Р№ РёРЅРґРёРєР°С‚РѕСЂ С„РѕРєСѓСЃР° СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ СЃ РѕС€РёР±РєРѕР№.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D30"
+    },
+    {
+      "id": "token-binding",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "РџСЂРё РёР·РјРµРЅРµРЅРёРё component token",
+      "expected": "РњРµРЅСЏРµС‚СЃСЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰Р°СЏ CSS-СЂРѕР»СЊ; РёСЃС‚РѕС‡РЅРёРє СЃРѕРІРїР°РґР°РµС‚ СЃ СЂР°Р·СЂРµС€С‘РЅРЅРѕР№ С†РµРїРѕС‡РєРѕР№.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D30"
+    },
+    {
+      "id": "value",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "Always",
+      "expected": "Explicit native controlled or uncontrolled value; clear has a separate owner callback.",
+      "check": "textarea-value",
+      "layer": "instance",
+      "decision": "D30"
+    },
+    {
+      "id": "layout",
+      "source": "packages/seda-contracts/TEXTAREA-CONTRACT.md",
+      "condition": "Always",
+      "expected": "Positive integer rows; maxRows requires autoResize and >=rows.",
+      "check": "textarea-layout",
+      "layer": "instance",
+      "decision": "D30"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "uncontrolled-filled",
+      "status": "not-checked",
+      "reason": "Native defaultValue СЃСѓС‰РµСЃС‚РІСѓРµС‚; РїРёР»РѕС‚ РёСЃРїРѕР»СЊР·СѓРµС‚ controlled string."
+    },
+    {
+      "id": "readonly-visual",
+      "status": "not-checked",
+      "reason": "Native readOnly РґРѕРїСѓСЃС‚РёРј, РѕС‚РґРµР»СЊРЅРѕРµ РІРёР·СѓР°Р»СЊРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ РЅРµ РїСЂРѕРІРµСЂРµРЅРѕ."
+    },
+    {
+      "id": "touch-hit-area",
+      "status": "not-checked",
+      "reason": "РћР±Р»Р°СЃС‚СЊ РїРёР»РѕС‚Р° вЂ” web pointer Рё keyboard."
+    },
+    {
+      "id": "all-visual-variants",
+      "status": "not-checked",
+      "reason": "РџРѕРєСЂС‹С‚РёРµ РѕРіСЂР°РЅРёС‡РµРЅРѕ СЂРµС†РµРїС‚СѓСЂР°РјРё РїРёР»РѕС‚Р°."
+    }
+  ],
+  "evidence": {
+    "source": "specs/inputs/text-area.md",
+    "baseline": "docs/library/REFERENCE-CHAT-HANDOFF.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "focus"
+      ],
+      [
+        "surface",
+        "error"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "focus"
+      ],
+      [
+        "border",
+        "error"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "label",
+        "default"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "helper",
+        "default"
+      ],
+      [
+        "helper",
+        "error"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "border",
+        "active"
+      ],
+      [
+        "foreground",
+        "placeholder"
+      ],
+      [
+        "surface",
+        "read-only"
+      ],
+      [
+        "border",
+        "read-only"
+      ],
+      [
+        "foreground",
+        "read-only"
+      ],
+      [
+        "label",
+        "read-only"
+      ],
+      [
+        "counter",
+        "default"
+      ],
+      [
+        "counter",
+        "error"
+      ],
+      [
+        "counter",
+        "disabled"
+      ]
+    ]
+  }
+}

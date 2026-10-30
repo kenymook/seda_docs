@@ -1,0 +1,19 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"tag":"BODY","text":"SearchПодробности строкиNameAmountStatusДействияAlpha 1$1,234.50ActiveOpen Alpha 1Beta 2$2,469.00ActiveOpen Beta 2Gamma 3$3,703.50LockedOpen Gamma 3Delta 4$4,938.00ActiveOpen Delta 4Epsilon 5$6,172.50ActiveOpen Epsilon 51–5 из 12НазадДалееNameAlpha 1{\"selection\":[\"remote\",\"3\",\"1\",\"6\",\"7\",\"8\",\"9\",\"10\"],\"expanded\":[],\"sort\":null,\"page\":1,\"actions\":0,\"retries\":0}","inside":false,"disabled":false}
+
+false !== true
+
+    at verifyTable (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-table.mjs:28:391)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/table-smoke-run.mjs:2:934 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

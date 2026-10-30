@@ -1,0 +1,35 @@
+{
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "densities": [
+    "m100",
+    "xl150/x24/y12"
+  ],
+  "reviewed": [
+    "Installed Slider gallery",
+    "Actual Lab parameter Sliders",
+    "Actual default/error/disabled/focus rows"
+  ],
+  "scope": "Selected screens and states; no Figma or platform certification",
+  "fixed": [
+    "A one-unit step at large offsets was lost by fixed significant rounding; exact scaled integer grid used when representable"
+  ],
+  "measuredErrorContrast": {
+    "light": 4.585275121518341,
+    "dark": 7.503530832247619
+  },
+  "limits": [
+    "No new registry instance contract",
+    "No fresh Figma/OS/AT/touch screen-reader/Firefox/WebKit approval",
+    "No vertical API or free-form numeric expression parser",
+    "Track/target/border/focus geometry gaps remain experimental"
+  ],
+  "productionVersion": 53,
+  "productionReviewed": [
+    "Actual Sliders Light/Dark",
+    "Default/error/disabled/focus at M100 and XL150/X24/Y12",
+    "Selected inspector screenshots"
+  ]
+}

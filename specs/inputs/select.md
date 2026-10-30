@@ -11,9 +11,17 @@
 
 ## 1. Key Principles
 
+Исполняемые readOnly/loading сохраняют DOM, фокус и значение формы, но блокируют пользовательское изменение: [API, форма, клавиатура, picker и границы](../../packages/seda-contracts/SELECT-AVAILABILITY.md). Блокировка отправки всей формы при асинхронной загрузке остаётся у приложения.
+
+Исполняемая валидация `warningText` / `successText` дополнена к существующему `errorText`: [API, приоритеты, токены, проверки и границы](../../packages/seda-contracts/SELECT-VALIDATION.md). Только error задаёт aria-invalid; warning/success не блокируют выбор. Disabled подавляет validation tone.
+
 ### Что это
 
 Select — контрол выбора одного или нескольких значений из раскрывающегося списка. Он используется, когда варианты заранее известны, но их больше, чем удобно показывать через Radio или Checkbox.
+
+[D34](../../packages/seda-contracts/FIELD-ANATOMY.md) связывает label/helper с эффективной типографикой контрола и Regular; два интервала группы — отдельные роли по 4 px. Источник проверен read-only по Select M/XL и текстовым слоям XL. Это общее правило полей TextField/Select/NumberField; полная приёмка вариантов и popup остаётся открытой, нативный список продолжает принадлежать браузеру/ОС.
+
+В браузерах с `appearance: base-select` SEDA оформляет нативный picker: dropdown получает **непрозрачный** `select/dropdown/surface`, а option — собственные hover/selected/disabled роли. Фон trigger остаётся `surface/control` и может быть полупрозрачным поверх панели. Смешивать его с фоном popup нельзя: через top layer просвечивает содержимое инспектора. В браузерах без `base-select` popup остаётся платформенным; `color-scheme` темы передаётся через Provider. Это не утверждение о пиксельном паритете popup на всех ОС.
 
 В SEDA AI Select описан как часть AI-ready design system framework: spec фиксирует trigger, dropdown, option states, props contract, token mapping, accessibility, handoff и AI usage rules. AI может помогать проверять состав options, состояния, empty/error/loading сценарии и handoff, но не должен придумывать новые variants, props или tokens.
 
@@ -37,6 +45,7 @@ Select — контрол выбора одного или нескольких 
 
 - **Options are data** — каждый option имеет stable `value`, видимый `label` и optional metadata.
 - **Selection is explicit** — selected state виден и программно доступен.
+- Native Select связывает доступное имя только с видимым label через `aria-labelledby`. Options и helper/error входят в значение и описание, а не в имя поля. Явные `aria-label` / `aria-labelledby` потребителя сохраняют приоритет; индикатор required скрыт от имени.
 - **Open state has ownership** — trigger, dropdown и parent Form не должны конфликтовать за `open`.
 - **Tokens before visuals** — trigger, arrow, list и option оформляются через component tokens.
 - **AI assists, system governs** — AI может предложить структуру options, но не утверждает data model и business rules.
@@ -193,18 +202,19 @@ Accessibility checklist:
 
 | Token | Роль | Semantic mapping |
 | --- | --- | --- |
-| `$collections/components/$modes/Mode 1/select/surface/default` | Фон trigger. | `surface/base` |
-| `$collections/components/$modes/Mode 1/select/surface/hover` | Фон hover. | `surface/subtle` |
-| `$collections/components/$modes/Mode 1/select/surface/focus` | Фон focus. | `surface/base` |
+| `$collections/components/$modes/Mode 1/select/surface/default` | Фон trigger. | `surface/control` |
+| `$collections/components/$modes/Mode 1/select/surface/hover` | Фон hover. | `surface/control-hover` |
+| `$collections/components/$modes/Mode 1/select/surface/focus` | Фон focus. | `surface/control` |
 | `$collections/components/$modes/Mode 1/select/surface/disabled` | Фон disabled. | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/select/surface/error` | Фон error. | `status/danger/container` |
-| `$collections/components/$modes/Mode 1/select/border/default` | Граница trigger. | `border/default` |
-| `$collections/components/$modes/Mode 1/select/border/hover` | Граница hover. | `border/hover` |
+| `$collections/components/$modes/Mode 1/select/border/default` | Граница trigger. | `border/field/default` |
+| `$collections/components/$modes/Mode 1/select/border/hover` | Граница hover. | `border/field/hover` |
+| `$collections/components/$modes/Mode 1/select/border/active` | Граница active. | `border/field/pressed` |
 | `$collections/components/$modes/Mode 1/select/border/focus` | Граница focus. | `border/focus` |
 | `$collections/components/$modes/Mode 1/select/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/select/border/disabled` | Граница disabled. | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/select/foreground/default` | Текст выбранного значения. | `text/primary` |
-| `$collections/components/$modes/Mode 1/select/foreground/placeholder` | Placeholder. | `text/muted` |
+| `$collections/components/$modes/Mode 1/select/foreground/placeholder` | Placeholder. | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/select/foreground/disabled` | Текст disabled. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/select/arrow/default` | Arrow icon. | `icon/tertiary` |
 | `$collections/components/$modes/Mode 1/select/arrow/active` | Arrow в open/active. | `icon/primary` |
@@ -213,10 +223,12 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/select/focus/ring` | Focus ring. | `focus/ring` |
 | `$collections/components/$modes/Mode 1/select/dropdown/surface` | Фон dropdown. | `surface/overlay` |
 | `$collections/components/$modes/Mode 1/select/dropdown/border` | Граница dropdown. | `border/default` |
+| `$collections/components/$modes/Mode 1/select/dropdown/shadow` | Тень dropdown. | `shadow/overlay` |
 | `$collections/components/$modes/Mode 1/select/option/foreground/default` | Текст option. | `text/primary` |
+| `$collections/components/$modes/Mode 1/select/option/foreground/selected` | Текст выбранного option. | `text/on-brand/primary` |
 | `$collections/components/$modes/Mode 1/select/option/foreground/disabled` | Текст disabled option. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/select/option/surface/hover` | Фон hover option. | `container/neutral/hover` |
-| `$collections/components/$modes/Mode 1/select/option/surface/selected` | Фон selected option. | `container/neutral/selected` |
+| `$collections/components/$modes/Mode 1/select/option/surface/selected` | Фон selected option. | `container/brand/default` |
 
 Token gaps:
 
@@ -318,3 +330,8 @@ Handoff для Select должен включать:
 - Прятать error только в Toast.
 - Добавлять searchable или async behavior без system review.
 - Использовать raw colors для dropdown, option hover или selected state.
+
+
+## Исполняемый контракт web
+
+Контракт реализован в `packages/seda-contracts/contracts/Select.json`. Общий compiler и runtime-проверки описаны в [D25](../../packages/seda-contracts/WORKSPACE-CONTRACTS.md). Источник исполнения — настоящий компонент `packages/seda-ui`, а не HTML-макет. Браузерное покрытие и ограничения платформ зафиксированы в [отчёте Lab](../../portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md).

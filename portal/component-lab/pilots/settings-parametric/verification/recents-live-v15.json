@@ -1,0 +1,21 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/recents",
+  "status": 200,
+  "sourceNode": "1:691",
+  "sourceAlias": false,
+  "installedPackage": true,
+  "matchedSourceHashes": 375,
+  "initialFiles": 25,
+  "searchAndFilters": true,
+  "createAndReload": true,
+  "trashAndRestore": true,
+  "preferences": true,
+  "geometry": {
+    "button": 60,
+    "field": 60,
+    "iconWidth": 60,
+    "iconHeight": 60,
+    "overflow": 0
+  },
+  "pageErrors": []
+}

@@ -1,0 +1,825 @@
+
+> @seda-ai/ui@0.1.0 prepack
+> npm run build
+
+
+> @seda-ai/ui@0.1.0 build
+> node scripts/build.mjs
+
+{"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\packages\\seda-ui\\dist","files":156,"format":"esm","reactBundled":false}
+[
+  {
+    "id": "@seda-ai/ui@0.1.0",
+    "name": "@seda-ai/ui",
+    "version": "0.1.0",
+    "size": 167051,
+    "unpackedSize": 2160762,
+    "shasum": "22718a71a034826227095b74c6360ab0f2304967",
+    "integrity": "sha512-NwaPW8oOGP190eBMpkIC5l1agjXkeSdgzmXFnYN6QbpVhpPCoz7ZkQfS5MfzzkvJwmwA/CGnoSkPLdhgM5ql4w==",
+    "filename": "seda-ai-ui-0.1.0.tgz",
+    "files": [
+      {
+        "path": "CHANGELOG.md",
+        "size": 20659,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 22587,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Alert/Alert.d.ts",
+        "size": 183,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Alert/Alert.js",
+        "size": 2266,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Alert/Alert.types.d.ts",
+        "size": 676,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Alert/Alert.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Alert/index.d.ts",
+        "size": 62,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Alert/index.js",
+        "size": 62,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Badge/Badge.d.ts",
+        "size": 184,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Badge/Badge.js",
+        "size": 1735,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Badge/Badge.types.d.ts",
+        "size": 617,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Badge/Badge.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Badge/index.d.ts",
+        "size": 62,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Badge/index.js",
+        "size": 62,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Button/Button.d.ts",
+        "size": 190,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Button/Button.js",
+        "size": 3806,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Button/Button.types.d.ts",
+        "size": 498,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Button/Button.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Button/index.d.ts",
+        "size": 64,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Button/index.js",
+        "size": 64,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Checkbox/Checkbox.d.ts",
+        "size": 197,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Checkbox/Checkbox.js",
+        "size": 2685,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Checkbox/Checkbox.types.d.ts",
+        "size": 469,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Checkbox/Checkbox.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Checkbox/index.d.ts",
+        "size": 68,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Checkbox/index.js",
+        "size": 68,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/DropdownMenu.d.ts",
+        "size": 211,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/DropdownMenu.js",
+        "size": 17419,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/DropdownMenu.types.d.ts",
+        "size": 1561,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/DropdownMenu.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/index.d.ts",
+        "size": 195,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/index.js",
+        "size": 50,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/menuModel.d.ts",
+        "size": 436,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/DropdownMenu/menuModel.js",
+        "size": 2958,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/FileUpload/FileUpload.d.ts",
+        "size": 205,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/FileUpload/FileUpload.js",
+        "size": 5202,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/FileUpload/FileUpload.types.d.ts",
+        "size": 1023,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/FileUpload/FileUpload.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/FileUpload/index.d.ts",
+        "size": 72,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/FileUpload/index.js",
+        "size": 72,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Icon/index.d.ts",
+        "size": 567,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Icon/index.js",
+        "size": 604,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Icon/seda-icon-assets.d.ts",
+        "size": 327,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Icon/seda-icon-assets.js",
+        "size": 53398,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/IconButton/IconButton.d.ts",
+        "size": 206,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/IconButton/IconButton.js",
+        "size": 2107,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/IconButton/IconButton.types.d.ts",
+        "size": 538,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/IconButton/IconButton.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/IconButton/index.d.ts",
+        "size": 72,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/IconButton/index.js",
+        "size": 72,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Link/index.d.ts",
+        "size": 60,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Link/index.js",
+        "size": 60,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Link/Link.d.ts",
+        "size": 182,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Link/Link.js",
+        "size": 1530,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Link/Link.types.d.ts",
+        "size": 597,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Link/Link.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Modal/index.d.ts",
+        "size": 133,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Modal/index.js",
+        "size": 36,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Modal/Modal.d.ts",
+        "size": 272,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Modal/Modal.js",
+        "size": 16430,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Modal/Modal.types.d.ts",
+        "size": 1222,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Modal/Modal.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Radio/index.d.ts",
+        "size": 62,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Radio/index.js",
+        "size": 62,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Radio/Radio.d.ts",
+        "size": 188,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Radio/Radio.js",
+        "size": 2976,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Radio/Radio.types.d.ts",
+        "size": 625,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Radio/Radio.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Select/index.d.ts",
+        "size": 64,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Select/index.js",
+        "size": 64,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Select/Select.d.ts",
+        "size": 190,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Select/Select.js",
+        "size": 3201,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Select/Select.types.d.ts",
+        "size": 924,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Select/Select.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/index.d.ts",
+        "size": 127,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/index.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/splitModel.d.ts",
+        "size": 331,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/splitModel.js",
+        "size": 529,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/SplitView.d.ts",
+        "size": 278,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/SplitView.js",
+        "size": 11273,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/SplitView.types.d.ts",
+        "size": 1001,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/SplitView/SplitView.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tabs/index.d.ts",
+        "size": 94,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tabs/index.js",
+        "size": 34,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tabs/Tabs.d.ts",
+        "size": 179,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tabs/Tabs.js",
+        "size": 6741,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tabs/Tabs.types.d.ts",
+        "size": 683,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tabs/Tabs.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tag/index.d.ts",
+        "size": 58,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tag/index.js",
+        "size": 58,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tag/Tag.d.ts",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tag/Tag.js",
+        "size": 2354,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tag/Tag.types.d.ts",
+        "size": 806,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tag/Tag.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Text/index.d.ts",
+        "size": 105,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Text/index.js",
+        "size": 48,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Text/Text.d.ts",
+        "size": 989,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Text/Text.js",
+        "size": 1134,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextArea/index.d.ts",
+        "size": 100,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextArea/index.js",
+        "size": 42,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextArea/TextArea.d.ts",
+        "size": 200,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextArea/TextArea.js",
+        "size": 6759,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextArea/TextArea.types.d.ts",
+        "size": 609,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextArea/TextArea.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextField/index.d.ts",
+        "size": 70,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextField/index.js",
+        "size": 70,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextField/TextField.d.ts",
+        "size": 201,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextField/TextField.js",
+        "size": 2475,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextField/TextField.types.d.ts",
+        "size": 495,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/TextField/TextField.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/index.d.ts",
+        "size": 285,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/index.js",
+        "size": 139,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/toast-store.d.ts",
+        "size": 1559,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/toast-store.js",
+        "size": 3710,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/Toast.d.ts",
+        "size": 183,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/Toast.js",
+        "size": 2320,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/Toast.types.d.ts",
+        "size": 708,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/Toast.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/ToastProvider.d.ts",
+        "size": 822,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toast/ToastProvider.js",
+        "size": 5418,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toggle/index.d.ts",
+        "size": 64,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toggle/index.js",
+        "size": 64,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toggle/Toggle.d.ts",
+        "size": 189,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toggle/Toggle.js",
+        "size": 2517,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toggle/Toggle.types.d.ts",
+        "size": 462,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Toggle/Toggle.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tooltip/index.d.ts",
+        "size": 135,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tooltip/index.js",
+        "size": 40,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tooltip/Tooltip.d.ts",
+        "size": 664,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tooltip/Tooltip.js",
+        "size": 11336,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tooltip/Tooltip.types.d.ts",
+        "size": 667,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tooltip/Tooltip.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/index.d.ts",
+        "size": 94,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/index.js",
+        "size": 34,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/Tree.d.ts",
+        "size": 179,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/Tree.js",
+        "size": 11639,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/Tree.types.d.ts",
+        "size": 902,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/Tree.types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/treeModel.d.ts",
+        "size": 904,
+        "mode": 420
+      },
+      {
+        "path": "dist/components/Tree/treeModel.js",
+        "size": 2317,
+        "mode": 420
+      },
+      {
+        "path": "dist/foundation/SedaProvider.d.ts",
+        "size": 980,
+        "mode": 420
+      },
+      {
+        "path": "dist/foundation/SedaProvider.js",
+        "size": 1943,
+        "mode": 420
+      },
+      {
+        "path": "dist/icon-catalog.json",
+        "size": 6274,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 1192,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 1102,
+        "mode": 420
+      },
+      {
+        "path": "dist/manifest.json",
+        "size": 22462,
+        "mode": 420
+      },
+      {
+        "path": "dist/profiles.json",
+        "size": 1533282,
+        "mode": 420
+      },
+      {
+        "path": "dist/styles.css",
+        "size": 211873,
+        "mode": 420
+      },
+      {
+        "path": "dist/themes.css",
+        "size": 117226,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 160,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/classNames.d.ts",
+        "size": 89,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/classNames.js",
+        "size": 79,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/fieldMessage.d.ts",
+        "size": 206,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/fieldMessage.js",
+        "size": 900,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/overlayStack.d.ts",
+        "size": 380,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/overlayStack.js",
+        "size": 2139,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/useBrowserLayoutEffect.d.ts",
+        "size": 190,
+        "mode": 420
+      },
+      {
+        "path": "dist/utils/useBrowserLayoutEffect.js",
+        "size": 243,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 960,
+        "mode": 420
+      }
+    ],
+    "entryCount": 160,
+    "bundled": []
+  }
+]

@@ -1,0 +1,441 @@
+{
+  "scope": "Production version22 Spline reference: full10 UI groups, procedural scene; source fidelity and AT acceptance remain open",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/spline",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "spline-installed-seda-and-real-source-assets",
+      "status": "passed",
+      "evidence": {
+        "viewportFrame": {
+          "x": 336,
+          "y": 55,
+          "width": 858,
+          "height": 1217
+        },
+        "installedComponents": 15,
+        "sourceAssets": 20,
+        "sourceSceneRasterInRuntime": false
+      }
+    },
+    {
+      "name": "spline-contexts-share-document-transform-and-material",
+      "status": "passed",
+      "evidence": {
+        "sharedDocument": true,
+        "verifiedSourceXYZ": true
+      }
+    },
+    {
+      "name": "spline-invalid-draft-selection-guard-and-escape",
+      "status": "passed",
+      "evidence": {
+        "invalidRejected": true,
+        "tabGuard": true,
+        "escape": true,
+        "compositionGuard": true
+      }
+    },
+    {
+      "name": "spline-visible-material-repaint-and-history",
+      "status": "passed",
+      "evidence": {
+        "repaint": true,
+        "undoRedo": true,
+        "lock": true,
+        "visibility": true
+      }
+    },
+    {
+      "name": "spline-keyboard-transform-camera-and-preview",
+      "status": "passed",
+      "evidence": {
+        "keyboardXYZ": true,
+        "cameraIndependent": true,
+        "previewReadOnly": true
+      }
+    },
+    {
+      "name": "spline-save-loading-captured-snapshot-and-reload",
+      "status": "passed",
+      "evidence": {
+        "loadingDeltaWidth": 0,
+        "loadingDeltaHeight": 0,
+        "capturedSnapshot": true,
+        "newerEditsDirty": true,
+        "reload": true
+      }
+    },
+    {
+      "name": "spline-profile-matrix-fields-and-panels",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "theme": "light",
+            "size": "s",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 468,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "s",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 324,
+            "overflowElements": [],
+            "inputWidth": 78,
+            "inputScroll": 78,
+            "canvasWidth": 764,
+            "canvasHeight": 1136,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "s",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 324,
+            "overflowElements": [],
+            "inputWidth": 78,
+            "inputScroll": 78,
+            "canvasWidth": 1244,
+            "canvasHeight": 1200,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "m",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 448,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "m",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 371,
+            "overflowElements": [],
+            "inputWidth": 102,
+            "inputScroll": 102,
+            "canvasWidth": 717,
+            "canvasHeight": 1116,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "m",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 371,
+            "overflowElements": [],
+            "inputWidth": 102,
+            "inputScroll": 102,
+            "canvasWidth": 1197,
+            "canvasHeight": 1190,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "l",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 344,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "l",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 418,
+            "overflowElements": [],
+            "inputWidth": 59,
+            "inputScroll": 59,
+            "canvasWidth": 670,
+            "canvasHeight": 1012,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "l",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 418,
+            "overflowElements": [],
+            "inputWidth": 59,
+            "inputScroll": 59,
+            "canvasWidth": 1150,
+            "canvasHeight": 1096,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "xl",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 314,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "xl",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 465,
+            "overflowElements": [],
+            "inputWidth": 74,
+            "inputScroll": 74,
+            "canvasWidth": 623,
+            "canvasHeight": 982,
+            "value": "250"
+          },
+          {
+            "theme": "light",
+            "size": "xl",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 465,
+            "overflowElements": [],
+            "inputWidth": 74,
+            "inputScroll": 74,
+            "canvasWidth": 1103,
+            "canvasHeight": 1076,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "s",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 468,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "s",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 324,
+            "overflowElements": [],
+            "inputWidth": 78,
+            "inputScroll": 78,
+            "canvasWidth": 764,
+            "canvasHeight": 1136,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "s",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 324,
+            "overflowElements": [],
+            "inputWidth": 78,
+            "inputScroll": 78,
+            "canvasWidth": 1244,
+            "canvasHeight": 1200,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "m",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 448,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "m",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 371,
+            "overflowElements": [],
+            "inputWidth": 102,
+            "inputScroll": 102,
+            "canvasWidth": 717,
+            "canvasHeight": 1116,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "m",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 371,
+            "overflowElements": [],
+            "inputWidth": 102,
+            "inputScroll": 102,
+            "canvasWidth": 1197,
+            "canvasHeight": 1190,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "l",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 344,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "l",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 418,
+            "overflowElements": [],
+            "inputWidth": 59,
+            "inputScroll": 59,
+            "canvasWidth": 670,
+            "canvasHeight": 1012,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "l",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 418,
+            "overflowElements": [],
+            "inputWidth": 59,
+            "inputScroll": 59,
+            "canvasWidth": 1150,
+            "canvasHeight": 1096,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "xl",
+            "width": 1024,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 696,
+            "overflowElements": [],
+            "inputWidth": 151,
+            "inputScroll": 151,
+            "canvasWidth": 680,
+            "canvasHeight": 314,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "xl",
+            "width": 1440,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 465,
+            "overflowElements": [],
+            "inputWidth": 74,
+            "inputScroll": 74,
+            "canvasWidth": 623,
+            "canvasHeight": 982,
+            "value": "250"
+          },
+          {
+            "theme": "dark",
+            "size": "xl",
+            "width": 1920,
+            "pageOverflow": 0,
+            "inspectorOverflow": 0,
+            "inspectorWidth": 465,
+            "overflowElements": [],
+            "inputWidth": 74,
+            "inputScroll": 74,
+            "canvasWidth": 1103,
+            "canvasHeight": 1076,
+            "value": "250"
+          }
+        ]
+      }
+    },
+    {
+      "name": "spline-dialog-focus-and-agent-boundary",
+      "status": "passed",
+      "evidence": {
+        "dialogFocus": true,
+        "sourcePrompt": true,
+        "providerBoundary": true
+      }
+    },
+    {
+      "name": "spline-corrupt-storage-is-not-overwritten",
+      "status": "passed",
+      "evidence": {
+        "preserved": true,
+        "saveDisabledUntilRecovery": true,
+        "recoveryDirty": true
+      }
+    },
+    {
+      "name": "spline-no-javascript-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

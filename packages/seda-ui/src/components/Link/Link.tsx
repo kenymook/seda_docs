@@ -1,3 +1,4 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef } from "react";
 import { cx } from "../../utils/classNames";
 import type { LinkProps } from "./Link.types";
@@ -14,7 +15,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       iconRight,
       onClick,
       rel,
-      size = "m",
+      size: sizeProp,
       strong = false,
       target,
       textStyle = "body",
@@ -24,6 +25,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const externalTarget = external ? "_blank" : target;
     const safeRel = externalTarget === "_blank" ? rel ?? "noopener noreferrer" : rel;
 

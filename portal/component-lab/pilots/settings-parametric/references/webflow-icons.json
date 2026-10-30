@@ -1,0 +1,2725 @@
+{
+  "1:7214": {
+    "style": {
+      "position": "absolute",
+      "left": "-4px",
+      "overflow": "clip",
+      "width": "24px",
+      "height": "24px",
+      "top": "-4px"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "bottom": "25.0%",
+          "left": "16.67%",
+          "right": "4.17%",
+          "top": "25.0%"
+        },
+        "children": [
+          {
+            "src": "webflow-7213-imgGroup.svg",
+            "style": {
+              "position": "absolute",
+              "display": "block",
+              "inset": "0.0px",
+              "maxWidth": "none",
+              "width": "100%",
+              "height": "100%"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "1:7233": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5% 18.75%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "12.5% 18.75%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector2.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7243": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector3.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7254": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector4.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7261": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "9.37% 7.17% 18.75% 7.17%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "9.37% 7.17% 18.75% 7.17%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector5.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7281": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "6.25% 6.25% 12.5% 12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "6.25% 6.25% 12.5% 12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector7.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7286": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "bottom": "14.77%",
+          "display": "contents",
+          "left": "25.0%",
+          "right": "15.37%",
+          "top": "15.11%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "14.77%",
+              "left": "25.0%",
+              "right": "15.37%",
+              "top": "15.11%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector8.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7291": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "41.54% 29.04% 33.08% 29.04%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "41.54% 29.04% 33.08% 29.04%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector9.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7294": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "41.54% 29.04% 33.08% 29.04%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "41.54% 29.04% 33.08% 29.04%"
+            },
+            "children": [
+              {
+                "src": "webflow-7213-imgVector9.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7588": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "14.58% 14.58% 18.75% 18.75%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "14.58% 14.58% 18.75% 18.75%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7594": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5% 16.67% 12.5% 20.83%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "12.5% 16.67% 12.5% 20.83%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector1.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "23.78% 27.94% 58.33% 54.17%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector2.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7602": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "bottom": "29.17%",
+          "display": "contents",
+          "left": "8.33%",
+          "right": "8.33%",
+          "top": "25.0%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "29.17%",
+              "display": "contents",
+              "left": "8.33%",
+              "right": "8.33%",
+              "top": "25.0%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "70.83%",
+                  "left": "8.33%",
+                  "right": "29.17%",
+                  "top": "25.0%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector3.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "50.0%",
+                  "left": "29.17%",
+                  "right": "8.33%",
+                  "top": "45.83%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector4.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "66.67% 8.33% 29.17% 29.17%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector4.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7614": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "11.03% 12.5% 11.03% 16.67%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "11.03% 12.5% 11.03% 16.67%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector5.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "34.93%",
+              "display": "contents",
+              "left": "25.0%",
+              "right": "47.92%",
+              "top": "20.34%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "20.34% 47.92% 57.84% 33.22%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector6.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "34.93%",
+                  "left": "25.0%",
+                  "opacity": 0.4,
+                  "right": "56.13%",
+                  "top": "43.26%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector7.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7623": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5% 16.67% 12.5% 12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "54.36% 47.81% 12.5% 12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector8.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "12.5% 16.67% 12.5% 18.81%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.0%",
+                  "left": "62.5%",
+                  "right": "29.17%",
+                  "top": "66.67%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector9.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "12.5% 16.67% 12.5% 18.81%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector10.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7632": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "10.42% 16.67% 8.33% 16.67%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "16.93%",
+              "display": "contents",
+              "left": "25.0%",
+              "right": "31.25%",
+              "top": "28.6%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "58.59%",
+                  "left": "25.0%",
+                  "opacity": 0.4,
+                  "right": "68.75%",
+                  "top": "28.6%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector11.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "16.93%",
+                  "left": "43.75%",
+                  "opacity": 0.4,
+                  "right": "50.0%",
+                  "top": "70.27%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector12.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "28.6% 31.25% 58.59% 62.5%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector13.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "10.42% 16.67% 8.33% 16.67%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "50.0%",
+                  "left": "16.67%",
+                  "right": "54.17%",
+                  "top": "10.42%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector14.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "50.0%",
+                  "left": "54.17%",
+                  "right": "16.67%",
+                  "top": "10.42%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector15.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "52.08% 35.42% 8.33% 35.42%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector16.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7645": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "4.23% 16.67% 16.67% 4.23%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "20.83% 16.67% 16.67% 20.83%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "33.33% 58.33% 58.33% 33.33%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector17.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "20.83% 16.67% 16.67% 20.83%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector18.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "4.23% 42.09% 20.83% 4.23%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "4.23% 42.09% 83.33% 29.59%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector19.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "29.59% 83.33% 42.08% 4.23%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector20.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "63.36% 47.92% 20.83% 33.33%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector21.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7658": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "16.67% 12.5% 14.58% 12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "16.67% 12.5% 14.58% 12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector22.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "33.33%",
+              "left": "20.83%",
+              "right": "70.83%",
+              "top": "25.0%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector23.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7665": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5% 12.5% 10.42% 12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "85.42% 12.5% 10.42% 12.5%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "-50% -2.78%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector24.svg",
+                    "style": {
+                      "display": "block",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "25.0%",
+              "display": "contents",
+              "left": "25.0%",
+              "right": "25.88%",
+              "top": "12.5%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.0%",
+                  "left": "25.0%",
+                  "right": "70.83%",
+                  "top": "12.5%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector25.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.0%",
+                  "left": "37.5%",
+                  "right": "58.33%",
+                  "top": "12.5%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector25.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.39%",
+                  "left": "50.0%",
+                  "right": "25.88%",
+                  "top": "15.63%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector26.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7678": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "16.67% 20.83% 20.83% 16.67%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "65.44%",
+              "left": "25.0%",
+              "right": "65.44%",
+              "top": "25.0%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector27.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "16.67% 20.83% 20.83% 16.67%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "16.67% 54.17% 54.17% 16.67%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector28.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "54.17%",
+                  "left": "50.0%",
+                  "right": "20.83%",
+                  "top": "16.67%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector29.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "20.83%",
+                  "left": "16.67%",
+                  "right": "54.17%",
+                  "top": "50.0%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector30.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "20.83%",
+                  "left": "50.0%",
+                  "right": "20.83%",
+                  "top": "50.0%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector31.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7690": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "16.67%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "16.67%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector32.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "55.86%",
+              "display": "contents",
+              "left": "25.0%",
+              "right": "25.0%",
+              "top": "37.5%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "55.86%",
+                  "left": "25.0%",
+                  "opacity": 0.4,
+                  "right": "68.75%",
+                  "top": "38.74%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector33.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "56.1%",
+                  "left": "68.75%",
+                  "opacity": 0.4,
+                  "right": "25.0%",
+                  "top": "38.67%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector34.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "37.5% 41.67% 58.1% 41.67%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector35.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "37.11%",
+              "display": "contents",
+              "left": "25.0%",
+              "right": "25.0%",
+              "top": "56.25%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "38.35%",
+                  "left": "25.0%",
+                  "opacity": 0.4,
+                  "right": "68.75%",
+                  "top": "56.25%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector36.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "38.28%",
+                  "left": "68.75%",
+                  "opacity": 0.4,
+                  "right": "25.0%",
+                  "top": "56.49%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector37.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "58.49% 41.67% 37.11% 41.67%",
+                  "opacity": 0.4
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector38.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7703": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "16.67% 19.21%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "16.67% 19.21%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "45.83%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector39.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "16.67% 19.21%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector40.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7711": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "8.33% 8.33% 12.5% 12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "16.67% 16.73% 12.5% 12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector41.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "8.33% 8.33% 28.13% 37.5%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "65.63% 48.96% 28.13% 44.79%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector42.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "33.33% 41.67% 39.58% 37.5%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector43.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "8.33% 8.33% 58.33% 58.33%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector44.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7721": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "16.67%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "16.67%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "16.67%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector45.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "37.5%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector46.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7729": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "20.83% 19.36% 19.36% 20.83%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "20.83% 19.36% 19.36% 20.83%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector47.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "29.17% 43.25% 43.25% 29.17%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector48.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7736": {
+    "style": {
+      "height": "24px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "bottom": "22.92%",
+          "display": "contents",
+          "left": "14.58%",
+          "right": "14.58%",
+          "top": "25.0%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "22.92%",
+              "left": "14.58%",
+              "right": "14.58%",
+              "top": "25.0%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "-4% -2.94%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-7584-imgVector49.svg",
+                    "style": {
+                      "display": "block",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "30.03%",
+              "left": "25.0%",
+              "right": "55.03%",
+              "top": "50.0%"
+            },
+            "children": [
+              {
+                "src": "webflow-7584-imgVector50.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:5959": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "10.29% 12.5% 18.75% 11.21%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "10.29% 12.5% 18.75% 11.21%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:5964": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "10.29% 11.21% 18.75% 12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "10.29% 11.21% 18.75% 12.5%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector1.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:5971": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "29.04% 33.08% 29.04% 41.54%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "29.04% 33.08% 29.04% 41.54%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector2.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:5987": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "29.04% 33.08% 29.04% 41.54%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "29.04% 33.08% 29.04% 41.54%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector2.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:5992": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "29.04% 33.08% 29.04% 41.54%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "29.04% 33.08% 29.04% 41.54%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector2.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6013": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "41.54% 29.04% 33.08% 29.04%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "41.54% 29.04% 33.08% 29.04%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector5.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6025": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "6.25% 0 12.5% 6.25%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "6.25% 0 12.5% 6.25%"
+            },
+            "children": [
+              {
+                "src": "webflow-5954-imgVector6.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6030": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "9.38% 0 18.75% 0"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "9.38% 0 18.75% 0"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "9.38% 4.07% 53.13% 60.32%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector7.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "18.75%",
+                  "left": "0.0px",
+                  "right": "0.0px",
+                  "top": "25.0%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector8.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6037": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5% 18.75%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "12.5% 18.75%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.0%",
+                  "left": "40.63%",
+                  "right": "40.63%",
+                  "top": "68.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector9.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "12.5% 18.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector10.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6044": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "bottom": "25.0%",
+          "display": "contents",
+          "left": "12.5%",
+          "right": "12.5%",
+          "top": "25.0%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "25.0%",
+              "display": "contents",
+              "left": "12.5%",
+              "right": "12.5%",
+              "top": "25.0%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "43.75%",
+                  "left": "68.75%",
+                  "right": "25.0%",
+                  "top": "43.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector11.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.0%",
+                  "left": "12.5%",
+                  "right": "12.5%",
+                  "top": "25.0%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector12.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6051": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "bottom": "12.5%",
+          "display": "contents",
+          "left": "25.0%",
+          "right": "25.0%",
+          "top": "12.5%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "bottom": "12.5%",
+              "display": "contents",
+              "left": "25.0%",
+              "right": "25.0%",
+              "top": "12.5%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "25.0%",
+                  "left": "43.75%",
+                  "right": "43.75%",
+                  "top": "68.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector13.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "bottom": "12.5%",
+                  "left": "25.0%",
+                  "right": "25.0%",
+                  "top": "12.5%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector14.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6058": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "43.75% 18.75%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "43.75% 18.75%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "43.75% 68.75% 43.75% 18.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector3.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "43.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector3.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "43.75% 18.75% 43.75% 68.75%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector4.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:6066": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "10.29%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "display": "contents",
+              "inset": "10.29%"
+            },
+            "children": [
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "10.29% 10.29% 56.25% 56.25%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector15.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              },
+              {
+                "style": {
+                  "position": "absolute",
+                  "inset": "56.25% 56.25% 10.29% 10.29%"
+                },
+                "children": [
+                  {
+                    "src": "webflow-5954-imgVector16.svg",
+                    "style": {
+                      "position": "absolute",
+                      "display": "block",
+                      "inset": "0.0px",
+                      "maxWidth": "none",
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7307": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "19.67% 25.92% 19.67% 32.17%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "19.67% 25.92% 19.67% 32.17%"
+            },
+            "children": [
+              {
+                "src": "webflow-7302-imgVector.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "1:7312": {
+    "style": {
+      "height": "16px",
+      "overflow": "clip",
+      "position": "relative",
+      "flexShrink": 0,
+      "width": "100%"
+    },
+    "children": [
+      {
+        "style": {
+          "position": "absolute",
+          "display": "contents",
+          "inset": "12.5% 12.5% 18.75% 18.75%"
+        },
+        "children": [
+          {
+            "style": {
+              "position": "absolute",
+              "inset": "12.5% 12.5% 18.75% 18.75%"
+            },
+            "children": [
+              {
+                "src": "webflow-7302-imgVector1.svg",
+                "style": {
+                  "position": "absolute",
+                  "display": "block",
+                  "inset": "0.0px",
+                  "maxWidth": "none",
+                  "width": "100%",
+                  "height": "100%"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

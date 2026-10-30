@@ -1,0 +1,29 @@
+{
+  "scope": "Agent visual review, not independent designer signoff or fresh Figma/AT approval",
+  "baselineSiteVersion": 43,
+  "baselineScreenshots": 4,
+  "normalApplicationFramesReviewed": [
+    "projects-light-1543-m.png",
+    "projects-dark-1543-m.png",
+    "members-light-1543-m.png",
+    "members-dark-1543-m.png"
+  ],
+  "stressReview": "Initial viewport missed Projects table below fold. Separate Table element captures revealed character-by-character wrapping. Fixed break-word min-content behavior; reviewed both start and end scroll positions in Light/Dark for Projects/Team. Both last columns and actions remain reachable.",
+  "stressElementFrames": 8,
+  "packageReview": "Loaded Light/Dark, refresh/loading, error/retry, empty and RTL/narrow fixtures checked. Gray/striped/selected/disabled surfaces are actual Table tokens. Stable state budget remains minimum, not a fixed height promise.",
+  "limitations": [
+    "Chromium Windows",
+    "No new Figma acceptance: Starter MCP quota rejected Table context/screenshot",
+    "Full OS/screen-reader/i18n/advanced grid remains open"
+  ],
+  "productionReview": {
+    "version": 44,
+    "frames": [
+      "production-projects-light-1543-m.png",
+      "production-projects-dark-1543-m.png",
+      "production-members-light-1543-m.png",
+      "production-members-dark-1543-m.png"
+    ],
+    "result": "Live Projects and Team reviewed in both themes; cell typography, row/header spacing and inherited field controls match local checked artifact."
+  }
+}

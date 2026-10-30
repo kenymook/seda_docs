@@ -1,0 +1,19 @@
+{
+  "sourceHashesMatched": 925,
+  "artifactHashesMatched": 532,
+  "canonicalGitBlobsMatched": 686,
+  "installedArtifacts": 239,
+  "installedPackage": true,
+  "sourceAlias": false,
+  "positiveInstalledConsumers": [
+    "Lab NumberField",
+    "Sandbox NumberField",
+    "Spline NumberField"
+  ],
+  "numericCoreBytesMatched": true,
+  "tokensUnchanged": true,
+  "runtimeGitHubCommit": "a025c6ffaa8f0658d84515bddaf637c2239e3b57",
+  "siteSourceCommit": "0365a388486bd08dd3d383d4cad3722530ef3fb7",
+  "archiveBytes": 8217269,
+  "archiveSHA256": "017f267cc29fbd99836ea1a3771aecb266d94b87be75d59bbffbbd42b7a21ff6"
+}

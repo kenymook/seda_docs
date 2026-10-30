@@ -1,0 +1,274 @@
+{"partition":"references","verifier":"verify-recents.mjs"}
+PASS reference-package-assets-and-frame-structure
+PASS reference-search-filter-tabs-and-empty-state
+PASS reference-real-navigation-and-history
+PASS reference-create-rename-copy-and-local-reload
+PASS reference-selection-delete-cancel-restore
+PASS reference-storage-failure-preserves-data-and-draft
+PASS reference-theme-size-xy-and-workspace-layout
+PASS reference-corrupt-storage-recovery
+PASS reference-no-browser-errors
+{"passed":9,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-recents"}
+{"partition":"references","verifier":"verify-notification-workspace.mjs"}
+{"history":{"invalidModels":10,"boundedHistory":true,"previousSnapshotUnchanged":true}}
+{"samples":24,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-notifications"}
+{"partition":"references","verifier":"verify-search-workspace.mjs"}
+{"samples":48,"shortWindows":4,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-search-workspace"}
+{"partition":"references","verifier":"verify-building.mjs"}
+PASS document-model-source-roundtrip
+PASS document-model-restore-boundaries
+PASS document-model-split-join-lossless
+PASS document-model-order-and-nesting
+PASS document-model-page-hierarchy
+PASS document-reference-structure-installed-package
+PASS document-content-typography-and-control-isolation
+PASS document-edit-caret-history-and-navigation
+PASS document-split-join-slash-and-safe-paste
+PASS document-keyboard-move-nest-copy-delete
+PASS document-structural-focus-without-animation-frame
+PASS document-cross-block-edit-guard
+PASS document-pages-comments-trash-and-reload
+PASS document-save-snapshot-duplicate-guard-loading
+PASS document-quota-error-retains-draft
+PASS document-profiles-panels-and-independent-scroll
+PASS document-textarea-profile-draft-and-comment-save
+PASS document-search-cover-and-shortcuts
+PASS document-corrupt-data-visible-recovery
+PASS document-rejected-edit-restores-visible-text
+PASS document-page-depth-rejection-is-atomic
+PASS document-browser-errors
+{"modelPassed":5,"browserPassed":17,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-building"}
+{"partition":"references","verifier":"verify-chat.mjs"}
+PASS chat-model-source-and-asset-integrity
+PASS chat-model-validation-recovery-and-branch
+PASS chat-runner-duplicate-late-result-and-thread-isolation
+PASS chat-runner-rejected-commit-and-errors
+PASS chat-source-layout-and-installed-components
+PASS chat-thread-drafts-url-back-and-reload
+PASS chat-composer-ime-newline-send-and-stop-retry
+PASS chat-background-thread-and-error-retry
+PASS chat-text-attachments-and-invalid-file
+PASS chat-message-branch-and-original-history
+PASS chat-search-rename-pin-trash-share-and-focus
+PASS chat-profile-matrix-draft-panels-and-active-run
+PASS chat-scroll-intent-and-streaming-reload
+PASS chat-storage-quota-and-explicit-recovery
+PASS chat-long-history-load-older-anchor
+PASS chat-javascript-errors
+{"modelPassed":4,"browserPassed":12,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-chat"}
+{"partition":"references","verifier":"verify-chat-bubble-workspace.mjs"}
+{"samples":24,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-chat-bubble-workspace"}
+{"partition":"references","verifier":"verify-top-bar-workspace.mjs"}
+{"samples":72,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-top-bar-workspace"}
+{"partition":"references","verifier":"verify-sidebar-workspace.mjs"}
+{"samples":48,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-sidebar-workspace"}
+{"partition":"references","verifier":"verify-accordion-workspace.mjs"}
+{"samples":72,"drafts":[{"route":"framer","invalidDraftRetained":true,"validationRetained":true,"modelUnchanged":true},{"route":"webflow","invalidDraftRetained":true,"validationRetained":true,"modelUnchanged":true},{"route":"spline","disclosureOnly":true,"modelUnchanged":true}],"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-accordion-workspace"}
+{"partition":"references","verifier":"verify-sandbox-model.mjs"}
+PASS scene-source-reconstruction-roundtrip
+PASS scene-malformed-storage-and-hierarchy-rejected
+PASS scene-affine-inverse-and-nested-rotation
+PASS scene-world-move-and-parent-child-not-doubled
+PASS scene-reparent-preserves-world-geometry-and-rejects-cycle
+PASS scene-mixed-values-and-atomic-numeric-input
+PASS scene-lock-visibility-and-edit-ownership
+PASS scene-duplicate-delete-and-sibling-order
+PASS scene-rotated-resize-preserves-anchor
+PASS scene-align-and-distribute-world-space
+PASS scene-history-roundtrip-and-camera-ownership
+PASS scene-camera-anchor-fit-and-prototype-key
+PASS scene-group-ungroup-preserves-world-and-selection
+PASS scene-page-history-restores-document-and-camera
+PASS scene-schema-and-depth-rejection-remain-atomic
+PASS scene-captions-fit-measured-gutters-without-changing-document
+PASS scene-captions-selected-priority-is-deterministic-in-crowded-space
+PASS scene-captions-viewport-and-below-placement-boundaries
+PASS scene-captions-remain-disjoint-across-zoom-and-pan
+PASS sandbox-ui-scale-legacy-migration-and-validation
+{"modelPassed":20,"failed":0}
+{"partition":"references","verifier":"verify-sandbox.mjs"}
+PASS sandbox-source-assets-installed-controls-and-live-scene
+PASS sandbox-mixed-input-apply-undo-and-invalid-draft
+PASS sandbox-blur-to-canvas-and-late-gesture-ownership
+PASS sandbox-pointer-move-rotated-node-and-escape
+PASS sandbox-resize-rotated-anchor-and-keyboard-handle
+PASS sandbox-parent-child-selection-moves-once
+PASS sandbox-pan-zoom-and-document-isolation
+PASS sandbox-group-copy-ungroup-and-undo
+PASS sandbox-pages-url-rename-remove-and-history
+PASS sandbox-real-text-font-fill-lock-and-visibility
+PASS sandbox-align-and-distribute-real-objects
+PASS sandbox-draw-shapes-marquee-and-delete
+PASS sandbox-save-snapshot-loading-and-newer-draft
+PASS sandbox-storage-quota-export-and-import-validation
+PASS sandbox-dismissed-import-cannot-overwrite-newer-model
+PASS sandbox-profiles-controls-panels-and-document-isolation
+PASS sandbox-preview-same-renderer-and-corrupt-recovery
+PASS sandbox-captions-real-bounds-long-name-and-movement
+PASS sandbox-captions-zoom-pan-resize-without-document-mutation
+PASS sandbox-browser-errors
+{"browserPassed":20,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-sandbox"}
+{"partition":"references","verifier":"verify-typography.mjs"}
+PASS typography-real-public-text-and-canonical-provenance
+PASS typography-scale-reaches-headings-prose-and-inspector
+PASS typography-role-change-history-and-local-reload
+PASS typography-density-xy-radius-do-not-change-role
+PASS typography-long-cyrillic-wrap-and-responsive-panels
+PASS typography-theme-repaint-and-save
+PASS typography-no-javascript-errors
+{"passed":7,"failed":0}
+{"partition":"references","verifier":"verify-spline-model.mjs"}
+PASS spline-document-roundtrip-source-transform
+PASS spline-invalid-imports-rejected
+PASS spline-transform-material-lock-and-immutable-input
+PASS spline-number-drafts-reject-partial-and-nonfinite
+PASS spline-history-preserves-view-and-branches
+PASS spline-save-captures-snapshot-and-rejects-late-results
+PASS spline-storage-failure-retains-dirty-and-allows-retry
+PASS spline-transform-gesture-preview-is-one-owned-commit
+PASS spline-transform-gesture-invalid-cancel-and-stale-owner
+{"passed":9,"failed":0}
+{"partition":"references","verifier":"verify-spline-renderer.mjs"}
+PASS spline-real-webgl-nine-procedural-objects
+PASS spline-transform-material-and-visibility-repaint
+PASS spline-raycast-select-and-orbit-camera
+PASS spline-projection-resize-context-loss-and-restore
+PASS spline-renderer-disposal-and-javascript-errors
+{"passed":5,"failed":0}
+{"partition":"references","verifier":"verify-spline.mjs"}
+PASS spline-installed-seda-and-real-source-assets
+PASS spline-contexts-share-document-transform-and-material
+PASS spline-invalid-draft-selection-guard-and-escape
+PASS spline-visible-material-repaint-and-history
+PASS spline-keyboard-transform-camera-and-preview
+PASS spline-save-loading-captured-snapshot-and-reload
+PASS spline-profile-matrix-fields-and-panels
+PASS spline-dialog-focus-and-agent-boundary
+PASS spline-corrupt-storage-is-not-overwritten
+PASS spline-no-javascript-errors
+{"passed":10,"failed":0}
+{"partition":"references","verifier":"verify-spline-manipulator.mjs"}
+PASS gizmo-pointer-translate-is-one-undo-and-camera-isolated
+PASS gizmo-escape-restores-preview-and-preserves-selection
+PASS gizmo-pointercancel-and-lost-capture-rollback
+PASS gizmo-rotate-scale-and-positive-scale-boundary
+PASS gizmo-invalid-draft-cannot-start-or-steal-selection
+PASS gizmo-window-blur-and-resize-cancel
+PASS gizmo-context-loss-cancels-and-restores-interaction
+PASS gizmo-commit-save-reload-and-keyboard-alternative
+PASS gizmo-locked-hidden-and-preview-guards
+PASS gizmo-theme-density-and-constrained-panels
+PASS gizmo-no-javascript-errors
+{"passed":11,"failed":0}
+{"partition":"references","verifier":"verify-webflow-model.mjs"}
+PASS source-reconstruction-roundtrip-and-empty-canvas
+PASS strict-import-rejects-unknown-properties-and-invalid-tree
+PASS prototype-names-and-object-inheritance-rejected
+PASS css-input-parser-preserves-units-and-rejects-injection
+PASS breakpoint-boundaries-and-downward-cascade
+PASS shared-class-rule-updates-all-users-without-inline-duplication
+PASS relative-inheritance-is-traced-but-not-reapplied-on-descendants
+PASS style-and-node-commands-are-immutable-and-invalid-edits-atomic
+PASS text-add-delete-descendants-and-root-protection
+PASS history-noop-undo-redo-branch-and-external-isolation
+PASS save-snapshot-duplicate-guard-edit-during-save-and-late-replies
+PASS save-quota-failure-retains-dirty-and-releases-retry
+{"passed":12,"failed":0}
+{"partition":"references","verifier":"verify-webflow-preview.mjs"}
+PASS real-empty-reference-dom-and-source-selection-geometry
+PASS native-vw-relative-unit-inheritance-no-depth-multiplication
+PASS native-viewport-reflows-vw-and-breakpoint-overrides
+PASS authored-text-live-edit-selection-and-html-escaping
+PASS native-line-height-inheritance-and-ui-scale-isolation
+PASS visibility-removes-hit-area-and-invalid-updates-preserve-dom
+PASS spacing-grid-and-border-use-native-css-with-reset
+PASS dispose-removes-frame-and-rejects-further-updates
+{"passed":8,"failed":0}
+{"partition":"references","verifier":"verify-webflow.mjs"}
+PASS webflow-installed-seda-source-icons-and-isolated-fonts
+PASS webflow-style-geometry-overlay-undo-redo
+PASS webflow-invalid-css-draft-cannot-change-selection-or-save
+PASS webflow-breakpoint-cascade-reset-and-native-percent-width
+PASS webflow-shared-css-class-edits-both-slides
+PASS webflow-add-real-text-content-and-relative-typography
+PASS webflow-visibility-and-iframe-keyboard-history
+PASS webflow-save-snapshot-edit-during-request-and-loading-size
+PASS webflow-storage-error-retry-and-recovery
+PASS webflow-seda-theme-size-spacing-matrix-preserves-authored-units
+PASS webflow-resizable-panels-preview-and-publish-boundary
+PASS webflow-viewport-draft-and-shortcuts-respect-focused-surface
+PASS webflow-corrupt-storage-safe-fallback-and-no-javascript-errors
+{"passed":13,"failed":0}
+{"partition":"references","verifier":"verify-framer-model.mjs"}
+PASS framer-four-source-pages-heading-and-inferred-layout-roundtrip
+PASS framer-breakpoint-thresholds-differ-from-webflow-without-changing-defaults
+PASS shared-css-intrinsic-sizing-and-flex-factors-are-validated
+PASS framer-fixed-and-fit-reset-main-axis-grow-atomically
+PASS framer-main-axis-fill-uses-real-flex-weight-and-zero-basis
+PASS framer-cross-axis-fit-does-not-remain-stretched-or-erase-other-fill
+PASS framer-height-fill-requires-parent-budget-and-preserves-width-mode
+PASS framer-phone-override-does-not-leak-and-native-default-main-auto-is-fit
+PASS framer-out-of-flow-fill-uses-containing-block-percentages
+PASS framer-size-input-rejects-partials-invalid-units-and-unknown-modes
+{"passed":10,"failed":0}
+{"partition":"references","verifier":"verify-framer-preview.mjs"}
+PASS framer-three-real-iframes-inferred-geometry-and-responsive-content
+PASS framer-inter-glyphs-paint-in-the-owning-iframe-document
+PASS framer-fill-fr-weights-are-distributed-by-native-flex
+PASS framer-fixed-fill-and-fit-recalculate-real-content-height
+PASS framer-cross-axis-fit-overrides-stretch-without-erasing-width-fill
+PASS framer-vertical-fill-and-width-fixed-own-independent-axes
+PASS framer-source-threshold-at-1199-and-phone-overrides-do-not-leak
+PASS framer-page-switch-preserves-team-edit-and-does-not-invent-other-content
+PASS framer-shared-preview-selection-ui-scale-isolation-and-disposal
+{"passed":9,"failed":0}
+{"partition":"references","verifier":"verify-framer.mjs"}
+PASS framer-application-installed-seda-three-native-frames-and-visible-text
+PASS framer-native-fill-weight-fixed-fit-and-history
+PASS framer-invalid-pending-draft-guards-selection-page-save-and-cancel
+PASS framer-height-fill-parent-budget-rejection-and-recovery
+PASS framer-responsive-override-cascade-reset-and-frame-ownership
+PASS framer-content-tag-visibility-safe-text-and-independent-pages
+PASS framer-save-captures-snapshot-edit-during-request-loading-and-reload
+PASS framer-storage-error-retry-and-corrupt-data-preservation
+PASS framer-pan-zoom-preview-and-keyboard-surface-boundaries
+PASS framer-appearance-matrix-real-fields-and-authored-css-isolation
+PASS framer-resizable-panels-search-and-explicit-external-boundaries
+PASS framer-browser-errors
+{"passed":12,"failed":0}
+{"partition":"references","verifier":"verify-workflow-model.mjs"}
+PASS workflow-source-roundtrip-empty-iterator-and-selected-closure
+PASS workflow-strict-import-prototypes-image-signatures-and-bounds
+PASS workflow-typed-input-ownership-and-atomic-invalid-connections
+PASS workflow-cycle-detection-and-unrelated-invalid-node-isolation
+PASS workflow-immutable-node-edits-delete-edges-and-history-branch
+PASS workflow-batch-runs-broadcast-and-output-budgets
+PASS workflow-fixture-is-metadata-and-pass-through-with-real-input-provenance
+PASS workflow-duplicate-begin-and-execute-do-not-dispatch-twice
+PASS workflow-cancel-aborts-and-late-resolution-cannot-overwrite-retry
+PASS workflow-cancel-from-progress-does-not-dispatch-next-side-effect
+PASS workflow-run-snapshot-retains-current-edits-and-adapter-isolation
+PASS workflow-executor-error-retry-malformed-type-and-batch-guard
+PASS workflow-snapshot-save-duplicate-late-response-quota-and-dirty
+PASS workflow-numeric-drafts-reject-partials-nonfinite-and-out-of-bounds
+PASS workflow-pointer-transaction-one-owned-commit-cancel-and-stale-guard
+PASS workflow-large-image-capable-history-has-bounded-retention
+{"passed":16,"failed":0}
+{"partition":"references","verifier":"verify-workflow.mjs"}
+PASS workflow-installed-seda-source-assets-empty-iterator-and-real-wire
+PASS workflow-real-image-decode-run-metadata-and-source-model-boundary
+PASS workflow-typed-connect-duplicate-cycle-and-required-input
+PASS workflow-run-cancel-and-retry-rejects-late-results
+PASS workflow-edit-during-run-retains-current-draft-and-labels-old-snapshot
+PASS workflow-simulated-executor-error-and-explicit-retry
+PASS workflow-invalid-property-draft-blocks-navigation-save-run-and-cancels
+PASS workflow-pointer-move-single-undo-cancel-and-keyboard-alternative
+PASS workflow-save-snapshot-loading-edit-during-save-and-local-reload
+PASS workflow-storage-quota-retry-and-corrupt-bytes-preserved
+PASS workflow-invalid-upload-add-delete-empty-graph-and-text-source
+PASS workflow-appearance-matrix-wire-geometry-and-isolated-document-coordinates
+PASS workflow-pan-zoom-wire-endpoints-and-panel-keyboard-resize
+PASS workflow-three-node-pipeline-runs-and-pass-through-output
+PASS workflow-browser-errors
+{"passed":15,"failed":0}
+{"partition":"references","scripts":24,"exitCode":0}

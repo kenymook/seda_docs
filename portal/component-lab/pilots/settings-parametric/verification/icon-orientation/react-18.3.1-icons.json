@@ -1,0 +1,4909 @@
+{
+  "installedPackage": true,
+  "sourceAlias": false,
+  "source": {
+    "fileKey": "Su1jWqKc9TkD1R8f7wHOQU",
+    "pageNodeId": "3:3828",
+    "pageName": "Icons"
+  },
+  "iconCount": 26,
+  "sourceValidation": {
+    "invalidModels": [
+      "unsupported-angle",
+      "unattributed-rotation",
+      "missing-source",
+      "different-source-file",
+      "different-figma-source",
+      "alias-chain",
+      "duplicate-name"
+    ],
+    "originalSVGFiles": 25
+  },
+  "orientation": {
+    "width": 96,
+    "height": 96,
+    "ink": 964,
+    "hasTransparency": true,
+    "rotationError": 0.015486941664632659,
+    "unrotatedError": 0.7189280876973126
+  },
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(10, 10, 11)",
+          "ownerColor": "rgb(10, 10, 11)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(15, 15, 16)",
+          "ownerColor": "rgb(15, 15, 16)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 14,
+          "height": 14,
+          "expected": 14,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(142, 142, 142)",
+          "ownerColor": "rgb(142, 142, 142)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 16,
+          "height": 16,
+          "expected": 16,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 18,
+          "height": 18,
+          "expected": 18,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "glyphs": [
+        {
+          "name": "add",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "add",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-right",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-left",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "close",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "search",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "calendar",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "clock",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "info",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "sun",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "moon",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "success",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "error",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "ai",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "upload",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "warning",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "user",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "undo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "redo",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "more",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "copy",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "trash",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "settings",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "circle",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        },
+        {
+          "name": "monitor",
+          "width": 20,
+          "height": 20,
+          "expected": 20,
+          "centerDelta": 0,
+          "color": "rgb(255, 255, 255)",
+          "ownerColor": "rgb(255, 255, 255)",
+          "hidden": "true"
+        }
+      ]
+    }
+  ],
+  "ink": [
+    {
+      "name": "add",
+      "pixels": 76
+    },
+    {
+      "name": "arrow-right",
+      "pixels": 83
+    },
+    {
+      "name": "arrow-left",
+      "pixels": 83
+    },
+    {
+      "name": "arrow-down",
+      "pixels": 83
+    },
+    {
+      "name": "arrow-chevron-down",
+      "pixels": 37
+    },
+    {
+      "name": "close",
+      "pixels": 88
+    },
+    {
+      "name": "search",
+      "pixels": 132
+    },
+    {
+      "name": "calendar",
+      "pixels": 183
+    },
+    {
+      "name": "clock",
+      "pixels": 156
+    },
+    {
+      "name": "info",
+      "pixels": 152
+    },
+    {
+      "name": "sun",
+      "pixels": 134
+    },
+    {
+      "name": "moon",
+      "pixels": 130
+    },
+    {
+      "name": "success",
+      "pixels": 164
+    },
+    {
+      "name": "error",
+      "pixels": 172
+    },
+    {
+      "name": "ai",
+      "pixels": 208
+    },
+    {
+      "name": "upload",
+      "pixels": 108
+    },
+    {
+      "name": "warning",
+      "pixels": 334
+    },
+    {
+      "name": "user",
+      "pixels": 135
+    },
+    {
+      "name": "undo",
+      "pixels": 105
+    },
+    {
+      "name": "redo",
+      "pixels": 104
+    },
+    {
+      "name": "more",
+      "pixels": 36
+    },
+    {
+      "name": "copy",
+      "pixels": 183
+    },
+    {
+      "name": "trash",
+      "pixels": 174
+    },
+    {
+      "name": "settings",
+      "pixels": 200
+    },
+    {
+      "name": "circle",
+      "pixels": 98
+    },
+    {
+      "name": "monitor",
+      "pixels": 146
+    }
+  ],
+  "forcedColors": [
+    {
+      "disabled": false,
+      "colors": [
+        {
+          "name": "add",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "add",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-right",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-right",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-left",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-left",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-down",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-down",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "close",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "close",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "search",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "search",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "calendar",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "calendar",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "clock",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "clock",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "info",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "info",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "sun",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "sun",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "moon",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "moon",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "success",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "success",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "error",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "error",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "ai",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "ai",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "upload",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "upload",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "warning",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "warning",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "user",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "user",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "undo",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "undo",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "redo",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "redo",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "more",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "more",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "copy",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "copy",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "trash",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "trash",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "settings",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "settings",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "circle",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "circle",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "monitor",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "monitor",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        }
+      ]
+    },
+    {
+      "disabled": true,
+      "colors": [
+        {
+          "name": "add",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "add",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-right",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-right",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-left",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-left",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-down",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-down",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "close",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "close",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "search",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "search",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "calendar",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "calendar",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "clock",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "clock",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "info",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "info",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "sun",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "sun",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "moon",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "moon",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "success",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "success",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "error",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "error",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "ai",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "ai",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "upload",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "upload",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "warning",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "warning",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "user",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "user",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "undo",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "undo",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "redo",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "redo",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "more",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "more",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "copy",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "copy",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "trash",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "trash",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "settings",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "settings",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "circle",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "circle",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "monitor",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "monitor",
+          "paint": "rgb(96, 0, 0)",
+          "owner": "rgb(96, 0, 0)"
+        },
+        {
+          "name": "arrow-chevron-down",
+          "paint": "rgb(0, 0, 0)",
+          "owner": "rgb(0, 0, 0)"
+        }
+      ]
+    }
+  ],
+  "forcedMenu": [
+    {
+      "name": "Copy",
+      "disabled": false,
+      "paint": "rgb(0, 0, 0)",
+      "owner": "rgb(0, 0, 0)"
+    },
+    {
+      "name": "Delete",
+      "disabled": false,
+      "paint": "rgb(0, 0, 0)",
+      "owner": "rgb(0, 0, 0)"
+    },
+    {
+      "name": "Blocked delete",
+      "disabled": true,
+      "paint": "rgb(96, 0, 0)",
+      "owner": "rgb(96, 0, 0)"
+    }
+  ],
+  "errors": []
+}

@@ -1,4 +1,6 @@
+import { useSedaSize } from "../../foundation/SedaProvider";
 import { forwardRef, useId } from "react";
+import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
 import type { RadioProps } from "./Radio.types";
 
@@ -15,22 +17,37 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
       onValueChange,
       options,
       required,
-      size = "m",
+      size: sizeProp,
       value,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedName = useId();
     const groupName = name ?? generatedName;
     const messageId = `${groupName}-message`;
+    const hasError = !disabled && hasMessage(errorText);
+    const message = hasError
+      ? errorText
+      : hasMessage(helperText)
+        ? helperText
+        : undefined;
+    const externalDescriptions = props["aria-describedby"]
+      ?.split(/\s+/)
+      .filter((id) => id && (message != null || id !== messageId))
+      .join(" ");
 
     return (
       <fieldset
         {...props}
-        aria-describedby={helperText || errorText ? messageId : props["aria-describedby"]}
-        aria-invalid={Boolean(errorText) || undefined}
+        aria-describedby={mergeDescriptionIds(
+          externalDescriptions,
+          message != null ? messageId : undefined,
+        )}
+        aria-invalid={hasError || undefined}
         className={cx("seda-radio-group", className)}
+        data-size={size}
         disabled={disabled}
         ref={ref}
       >
@@ -39,11 +56,22 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
           {required ? " *" : null}
         </legend>
         <span className="seda-radio-group__items">
-          {options.map((option) => (
-            <label className="seda-choice" data-size={size} key={option.value}>
+          {options.map((option, index) => (
+            <label
+              className="seda-choice"
+              data-disabled={disabled || option.disabled ? "true" : undefined}
+              data-size={size}
+              key={option.value}
+            >
               <input
+                aria-labelledby={`${generatedName}-option-${index}-label`}
+                aria-describedby={hasMessage(option.helperText) ? `${generatedName}-option-${index}-message` : undefined}
                 className="seda-choice__control"
-                defaultChecked={defaultValue === option.value}
+                defaultChecked={
+                  value === undefined
+                    ? defaultValue === option.value
+                    : undefined
+                }
                 disabled={disabled || option.disabled}
                 name={groupName}
                 onChange={(event) => {
@@ -54,18 +82,28 @@ export const Radio = forwardRef<HTMLFieldSetElement, RadioProps>(
                 required={required}
                 type="radio"
                 value={option.value}
-                checked={value === undefined ? undefined : value === option.value}
+                checked={
+                  value === undefined ? undefined : value === option.value
+                }
               />
               <span className="seda-choice__content">
-                <span className="seda-choice__label">{option.label}</span>
-                {option.helperText ? <span className="seda-field__message">{option.helperText}</span> : null}
+                <span className="seda-choice__label" id={`${generatedName}-option-${index}-label`}>{option.label}</span>
+                {hasMessage(option.helperText) ? (
+                  <span className="seda-field__message" id={`${generatedName}-option-${index}-message`}>
+                    {option.helperText}
+                  </span>
+                ) : null}
               </span>
             </label>
           ))}
         </span>
-        {errorText || helperText ? (
-          <span className="seda-field__message" data-tone={errorText ? "error" : undefined} id={messageId}>
-            {errorText ?? helperText}
+        {message != null ? (
+          <span
+            className="seda-field__message"
+            data-tone={hasError ? "error" : undefined}
+            id={messageId}
+          >
+            {message}
           </span>
         ) : null}
       </fieldset>

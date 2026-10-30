@@ -1,0 +1,70 @@
+
+added 24 packages in 6s
+
+> seda-parametric-settings-pilot@0.1.0 typecheck
+> tsc --noEmit && tsc --noEmit --project references/tsconfig.json
+
+{
+  "outputDir": "C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\dist",
+  "profileCount": 8,
+  "sourceAudit": true,
+  "tokenHash": "334af4749694972533babac55ef9f760e5a4501979854faab5c9c500331711f6"
+}
+{"samples":64,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-tooltip-workspace"}
+{"samples":32,"errors":[],"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-reference-modal"}
+PASS build-source-artifact-integrity
+PASS geometry-1440-Light-s
+PASS geometry-1440-Light-m
+PASS geometry-1440-Light-l
+PASS geometry-1440-Light-xl
+PASS geometry-1440-Dark-s
+PASS geometry-1440-Dark-m
+PASS geometry-1440-Dark-l
+PASS geometry-1440-Dark-xl
+PASS geometry-1180-Light-s
+PASS geometry-1180-Light-m
+PASS geometry-1180-Light-l
+PASS geometry-1180-Light-xl
+PASS geometry-1180-Dark-s
+PASS geometry-1180-Dark-m
+PASS geometry-1180-Dark-l
+PASS geometry-1180-Dark-xl
+PASS geometry-780-Light-s
+PASS geometry-780-Light-m
+PASS geometry-780-Light-l
+PASS geometry-780-Light-xl
+PASS geometry-780-Dark-s
+PASS geometry-780-Dark-m
+PASS geometry-780-Dark-l
+PASS geometry-780-Dark-xl
+PASS geometry-390-Light-s
+PASS geometry-390-Light-m
+PASS geometry-390-Light-l
+PASS geometry-390-Light-xl
+PASS geometry-390-Dark-s
+PASS geometry-390-Dark-m
+PASS geometry-390-Dark-l
+PASS geometry-390-Dark-xl
+PASS loading-Light-s
+PASS loading-Light-m
+PASS loading-Light-l
+PASS loading-Light-xl
+PASS loading-Dark-s
+PASS loading-Dark-m
+PASS loading-Dark-l
+PASS loading-Dark-xl
+PASS padding-x-Light-s
+PASS padding-x-Light-m
+PASS padding-x-Light-l
+PASS padding-x-Light-xl
+PASS padding-x-Dark-s
+PASS padding-x-Dark-m
+PASS padding-x-Dark-l
+PASS padding-x-Dark-xl
+PASS custom-formula-react-evidence
+PASS form-guard-snapshot-stale-retry-focus
+PASS projects-filter-cards-dialog-keyboard
+PASS token-react-propagation
+PASS padding-x-responsive
+PASS no-browser-errors
+{"passed":55,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-lab2"}

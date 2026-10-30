@@ -1,0 +1,614 @@
+{
+  "samples": [
+    {
+      "route": "chat",
+      "width": 960,
+      "brand": {
+        "wrap": "nowrap",
+        "x": 110,
+        "right": 323,
+        "parentRight": 323,
+        "text": "ChatGPT"
+      },
+      "values": [
+        {
+          "text": "0",
+          "rects": 1
+        },
+        {
+          "text": "Ожидание",
+          "rects": 1
+        }
+      ],
+      "buttons": [
+        {
+          "left": 102,
+          "right": 323,
+          "parentLeft": 102,
+          "parentRight": 323,
+          "accessible": "knmk boost",
+          "title": "knmk boost"
+        },
+        {
+          "left": 102,
+          "right": 323,
+          "parentLeft": 102,
+          "parentRight": 323,
+          "accessible": "DESIGN SYSTEM",
+          "title": "DESIGN SYSTEM"
+        },
+        {
+          "left": 102,
+          "right": 323,
+          "parentLeft": 102,
+          "parentRight": 323,
+          "accessible": "Seda Design System",
+          "title": "Seda Design System"
+        },
+        {
+          "left": 102,
+          "right": 323,
+          "parentLeft": 102,
+          "parentRight": 323,
+          "accessible": "SDDS",
+          "title": "SDDS"
+        },
+        {
+          "left": 777,
+          "right": 975,
+          "parentLeft": 760,
+          "parentRight": 992,
+          "accessible": "lab-overview-20261023.jpg",
+          "title": "lab-overview-20261023.jpg"
+        },
+        {
+          "left": 777,
+          "right": 975,
+          "parentLeft": 760,
+          "parentRight": 992,
+          "accessible": "seda-ai-lab-2-source-and-handoff.zip",
+          "title": "seda-ai-lab-2-source-and-handoff.zip"
+        }
+      ],
+      "jump": {
+        "x": 499,
+        "y": 421,
+        "width": 86,
+        "height": 86
+      },
+      "composer": {
+        "x": 348,
+        "y": 519,
+        "width": 388,
+        "height": 448
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1280,
+      "brand": {
+        "wrap": "nowrap",
+        "x": 110,
+        "right": 287,
+        "parentRight": 467,
+        "text": "ChatGPT"
+      },
+      "values": [
+        {
+          "text": "0",
+          "rects": 1
+        },
+        {
+          "text": "Ожидание",
+          "rects": 1
+        }
+      ],
+      "buttons": [
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "knmk boost",
+          "title": "knmk boost"
+        },
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "DESIGN SYSTEM",
+          "title": "DESIGN SYSTEM"
+        },
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "Seda Design System",
+          "title": "Seda Design System"
+        },
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "SDDS",
+          "title": "SDDS"
+        },
+        {
+          "left": 1057,
+          "right": 1255,
+          "parentLeft": 1040,
+          "parentRight": 1272,
+          "accessible": "lab-overview-20261023.jpg",
+          "title": "lab-overview-20261023.jpg"
+        },
+        {
+          "left": 1057,
+          "right": 1255,
+          "parentLeft": 1040,
+          "parentRight": 1272,
+          "accessible": "seda-ai-lab-2-source-and-handoff.zip",
+          "title": "seda-ai-lab-2-source-and-handoff.zip"
+        }
+      ],
+      "jump": {
+        "x": 711,
+        "y": 553,
+        "width": 86,
+        "height": 86
+      },
+      "composer": {
+        "x": 500,
+        "y": 651,
+        "width": 508,
+        "height": 316
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "brand": {
+        "wrap": "nowrap",
+        "x": 110,
+        "right": 287,
+        "parentRight": 467,
+        "text": "ChatGPT"
+      },
+      "values": [
+        {
+          "text": "0",
+          "rects": 1
+        },
+        {
+          "text": "Ожидание",
+          "rects": 1
+        }
+      ],
+      "buttons": [
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "knmk boost",
+          "title": "knmk boost"
+        },
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "DESIGN SYSTEM",
+          "title": "DESIGN SYSTEM"
+        },
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "Seda Design System",
+          "title": "Seda Design System"
+        },
+        {
+          "left": 102,
+          "right": 467,
+          "parentLeft": 102,
+          "parentRight": 467,
+          "accessible": "SDDS",
+          "title": "SDDS"
+        },
+        {
+          "left": 1217,
+          "right": 1415,
+          "parentLeft": 1200,
+          "parentRight": 1432,
+          "accessible": "lab-overview-20261023.jpg",
+          "title": "lab-overview-20261023.jpg"
+        },
+        {
+          "left": 1217,
+          "right": 1415,
+          "parentLeft": 1200,
+          "parentRight": 1432,
+          "accessible": "seda-ai-lab-2-source-and-handoff.zip",
+          "title": "seda-ai-lab-2-source-and-handoff.zip"
+        }
+      ],
+      "jump": {
+        "x": 791,
+        "y": 619,
+        "width": 86,
+        "height": 86
+      },
+      "composer": {
+        "x": 500,
+        "y": 717,
+        "width": 668,
+        "height": 250
+      }
+    },
+    {
+      "route": "sandbox",
+      "width": 960,
+      "zoom": {
+        "x": 676,
+        "y": 196,
+        "width": 184.53125,
+        "height": 86
+      },
+      "tablist": {
+        "x": 660,
+        "y": 291,
+        "width": 300,
+        "height": 103
+      },
+      "prototype": {
+        "x": 753.78125,
+        "y": 299,
+        "width": 198.515625,
+        "height": 86
+      },
+      "grids": [
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            },
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            },
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            }
+          ]
+        },
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            },
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            }
+          ]
+        },
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            },
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            }
+          ]
+        },
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            },
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            },
+            {
+              "left": 676,
+              "right": 944,
+              "parentLeft": 676,
+              "parentRight": 944
+            }
+          ]
+        }
+      ],
+      "dock": {
+        "x": 344,
+        "y": 854,
+        "width": 296,
+        "height": 104
+      },
+      "canvas": {
+        "x": 332,
+        "y": 0,
+        "width": 320,
+        "height": 970
+      },
+      "heading": {
+        "wrap": "nowrap",
+        "rects": 1
+      }
+    },
+    {
+      "route": "sandbox",
+      "width": 1280,
+      "zoom": {
+        "x": 996,
+        "y": 196,
+        "width": 184.53125,
+        "height": 86
+      },
+      "tablist": {
+        "x": 980,
+        "y": 291,
+        "width": 300,
+        "height": 103
+      },
+      "prototype": {
+        "x": 1073.78125,
+        "y": 299,
+        "width": 198.515625,
+        "height": 86
+      },
+      "grids": [
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            },
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            },
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            }
+          ]
+        },
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            },
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            }
+          ]
+        },
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            },
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            }
+          ]
+        },
+        {
+          "columns": "268px",
+          "fields": [
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            },
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            },
+            {
+              "left": 996,
+              "right": 1264,
+              "parentLeft": 996,
+              "parentRight": 1264
+            }
+          ]
+        }
+      ],
+      "dock": {
+        "x": 347,
+        "y": 854,
+        "width": 613,
+        "height": 104
+      },
+      "canvas": {
+        "x": 335,
+        "y": 0,
+        "width": 637,
+        "height": 970
+      },
+      "heading": {
+        "wrap": "nowrap",
+        "rects": 1
+      }
+    },
+    {
+      "route": "sandbox",
+      "width": 1440,
+      "zoom": {
+        "x": 1151,
+        "y": 196,
+        "width": 184.53125,
+        "height": 86
+      },
+      "tablist": {
+        "x": 1135,
+        "y": 291,
+        "width": 305,
+        "height": 103
+      },
+      "prototype": {
+        "x": 1233.78125,
+        "y": 299,
+        "width": 198.515625,
+        "height": 86
+      },
+      "grids": [
+        {
+          "columns": "273px",
+          "fields": [
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            },
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            },
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            }
+          ]
+        },
+        {
+          "columns": "273px",
+          "fields": [
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            },
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            }
+          ]
+        },
+        {
+          "columns": "273px",
+          "fields": [
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            },
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            }
+          ]
+        },
+        {
+          "columns": "273px",
+          "fields": [
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            },
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            },
+            {
+              "left": 1151,
+              "right": 1424,
+              "parentLeft": 1151,
+              "parentRight": 1424
+            }
+          ]
+        }
+      ],
+      "dock": {
+        "x": 347,
+        "y": 854,
+        "width": 768,
+        "height": 104
+      },
+      "canvas": {
+        "x": 335,
+        "y": 0,
+        "width": 792,
+        "height": 970
+      },
+      "heading": {
+        "wrap": "nowrap",
+        "rects": 1
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,75 @@
+2026-10-25T04:36:37.7825899Z PASS chat-message-branch-and-original-history
+2026-10-25T04:36:38.5298757Z PASS chat-search-rename-pin-trash-share-and-focus
+2026-10-25T04:36:43.1020291Z PASS chat-profile-matrix-draft-panels-and-active-run
+2026-10-25T04:36:44.4931166Z PASS chat-scroll-intent-and-streaming-reload
+2026-10-25T04:36:46.9072769Z PASS chat-storage-quota-and-explicit-recovery
+2026-10-25T04:36:47.8406896Z PASS chat-long-history-load-older-anchor
+2026-10-25T04:36:47.8407621Z PASS chat-javascript-errors
+2026-10-25T04:36:47.9220186Z {"modelPassed":4,"browserPassed":12,"failed":0,"output":"/home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/.diagnostics-chat"}
+2026-10-25T04:36:47.9950046Z PASS scene-source-reconstruction-roundtrip
+2026-10-25T04:36:47.9960705Z PASS scene-malformed-storage-and-hierarchy-rejected
+2026-10-25T04:36:47.9965457Z PASS scene-affine-inverse-and-nested-rotation
+2026-10-25T04:36:47.9971882Z PASS scene-world-move-and-parent-child-not-doubled
+2026-10-25T04:36:47.9979550Z PASS scene-reparent-preserves-world-geometry-and-rejects-cycle
+2026-10-25T04:36:47.9987837Z PASS scene-mixed-values-and-atomic-numeric-input
+2026-10-25T04:36:47.9990290Z PASS scene-lock-visibility-and-edit-ownership
+2026-10-25T04:36:48.0003719Z PASS scene-duplicate-delete-and-sibling-order
+2026-10-25T04:36:48.0007352Z PASS scene-rotated-resize-preserves-anchor
+2026-10-25T04:36:48.0015282Z PASS scene-align-and-distribute-world-space
+2026-10-25T04:36:48.0024394Z PASS scene-history-roundtrip-and-camera-ownership
+2026-10-25T04:36:48.0026914Z PASS scene-camera-anchor-fit-and-prototype-key
+2026-10-25T04:36:48.0033602Z PASS scene-group-ungroup-preserves-world-and-selection
+2026-10-25T04:36:48.0039694Z PASS scene-page-history-restores-document-and-camera
+2026-10-25T04:36:48.0060428Z PASS scene-schema-and-depth-rejection-remain-atomic
+2026-10-25T04:36:48.0099191Z PASS scene-captions-fit-measured-gutters-without-changing-document
+2026-10-25T04:36:48.0101050Z PASS scene-captions-selected-priority-is-deterministic-in-crowded-space
+2026-10-25T04:36:48.0102884Z PASS scene-captions-viewport-and-below-placement-boundaries
+2026-10-25T04:36:48.0150137Z PASS scene-captions-remain-disjoint-across-zoom-and-pan
+2026-10-25T04:36:48.0198782Z PASS sandbox-ui-scale-legacy-migration-and-validation
+2026-10-25T04:36:48.0208267Z {"modelPassed":20,"failed":0}
+2026-10-25T04:36:49.7311155Z PASS sandbox-source-assets-installed-controls-and-live-scene
+2026-10-25T04:36:50.3045861Z PASS sandbox-mixed-input-apply-undo-and-invalid-draft
+2026-10-25T04:36:52.4497979Z PASS sandbox-blur-to-canvas-and-late-gesture-ownership
+2026-10-25T04:36:53.8073643Z PASS sandbox-pointer-move-rotated-node-and-escape
+2026-10-25T04:36:55.0936708Z PASS sandbox-resize-rotated-anchor-and-keyboard-handle
+2026-10-25T04:36:56.1079739Z PASS sandbox-parent-child-selection-moves-once
+2026-10-25T04:36:57.3539034Z PASS sandbox-pan-zoom-and-document-isolation
+2026-10-25T04:36:58.8005869Z PASS sandbox-group-copy-ungroup-and-undo
+2026-10-25T04:37:00.3324493Z PASS sandbox-pages-url-rename-remove-and-history
+2026-10-25T04:37:01.7496051Z PASS sandbox-real-text-font-fill-lock-and-visibility
+2026-10-25T04:37:03.1702790Z PASS sandbox-align-and-distribute-real-objects
+2026-10-25T04:37:04.6080830Z PASS sandbox-draw-shapes-marquee-and-delete
+2026-10-25T04:37:05.9957391Z PASS sandbox-save-snapshot-loading-and-newer-draft
+2026-10-25T04:37:08.4300921Z PASS sandbox-storage-quota-export-and-import-validation
+2026-10-25T04:37:09.6879415Z PASS sandbox-dismissed-import-cannot-overwrite-newer-model
+2026-10-25T04:37:17.9376336Z PASS sandbox-profiles-controls-panels-and-document-isolation
+2026-10-25T04:37:20.1183801Z PASS sandbox-preview-same-renderer-and-corrupt-recovery
+2026-10-25T04:37:22.1485378Z PASS sandbox-captions-real-bounds-long-name-and-movement
+2026-10-25T04:37:25.0780374Z PASS sandbox-captions-zoom-pan-resize-without-document-mutation
+2026-10-25T04:37:25.0781363Z PASS sandbox-browser-errors
+2026-10-25T04:37:27.8902305Z PASS typography-real-public-text-and-canonical-provenance
+2026-10-25T04:37:42.7216769Z PASS typography-scale-reaches-headings-prose-and-inspector
+2026-10-25T04:37:43.5614065Z PASS typography-role-change-history-and-local-reload
+2026-10-25T04:37:44.2544212Z PASS typography-density-xy-radius-do-not-change-role
+2026-10-25T04:37:44.5982006Z PASS typography-long-cyrillic-wrap-and-responsive-panels
+2026-10-25T04:37:45.3145434Z PASS typography-theme-repaint-and-save
+2026-10-25T04:37:45.3152471Z PASS typography-no-javascript-errors
+2026-10-25T04:37:45.3923735Z {"passed":7,"failed":0}
+2026-10-25T04:37:45.5169013Z PASS spline-document-roundtrip-source-transform
+2026-10-25T04:37:45.5178792Z PASS spline-invalid-imports-rejected
+2026-10-25T04:37:45.5185498Z PASS spline-transform-material-lock-and-immutable-input
+2026-10-25T04:37:45.5189276Z PASS spline-number-drafts-reject-partial-and-nonfinite
+2026-10-25T04:37:45.5204036Z PASS spline-history-preserves-view-and-branches
+2026-10-25T04:37:45.5211964Z PASS spline-save-captures-snapshot-and-rejects-late-results
+2026-10-25T04:37:45.5214413Z PASS spline-storage-failure-retains-dirty-and-allows-retry
+2026-10-25T04:37:45.5242424Z PASS spline-transform-gesture-preview-is-one-owned-commit
+2026-10-25T04:37:45.5251109Z PASS spline-transform-gesture-invalid-cancel-and-stale-owner
+2026-10-25T04:37:45.5260573Z {"passed":9,"failed":0}
+2026-10-25T04:37:51.5827443Z PASS spline-real-webgl-nine-procedural-objects
+2026-10-25T04:37:53.1373583Z PASS spline-transform-material-and-visibility-repaint
+2026-10-25T04:37:56.3602326Z PASS spline-raycast-select-and-orbit-camera
+2026-10-25T04:38:01.8576827Z PASS spline-projection-resize-context-loss-and-restore
+2026-10-25T04:38:01.8773906Z PASS spline-renderer-disposal-and-javascript-errors
+2026-10-25T04:38:01.9508403Z {"passed":5,"failed":0}
+2026-10-25T04:38:14.0966901Z PASS spline-installed-seda-and-real-source-assets
+2026-10-25T04:38:16.5330913Z ##[error]The operation was canceled.

@@ -1,0 +1,72 @@
+{
+  "version": 52,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deployment": {
+    "id": "appgdep_6ade40c04ca481918e6942c4cebf4561",
+    "status": "succeeded",
+    "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_319858cb89508191a32af952c5cb0b8a"
+  },
+  "siteSourceCommit": "9ac35a5e547547caeb08163fc715d48e23a9ce96",
+  "runtimeGitHubCommit": "fb6d3edc4d189df3130b402f844d243aa86bd261",
+  "archiveStorage": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_0000000047d48243a4cf6b87064c6c70",
+    "content_hash": "sha256:602fd5ef49c16c7c3dd02654ccc543c07b2c2d00bbed809fbbc7167a2dd43e39",
+    "size_bytes": 31057920,
+    "file_count": 534
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "localChecks": {
+    "packageGroups": 63,
+    "reactVersions": [
+      "18.3.1",
+      "19.2.7"
+    ],
+    "popoverSamplesPerReact": 192,
+    "invalidModels": 14,
+    "contractTests": 123,
+    "verifierScripts": {
+      "lab": 21,
+      "references": 25
+    },
+    "typeScript": "PASS"
+  },
+  "productionChecks": {
+    "popovers": 48,
+    "shortWindows": 4,
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0
+  },
+  "provenance": {
+    "sourceHashesMatched": 897,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 674,
+    "installedArtifacts": 223,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "fb6d3edc4d189df3130b402f844d243aa86bd261",
+    "siteSourceCommit": "9ac35a5e547547caeb08163fc715d48e23a9ce96",
+    "archiveBytes": 7997925,
+    "archiveSHA256": "51c7da3183e1b83fb869a26e0c8e31bb82710499c007caa886cfc2f83666af80",
+    "popoverComponentsBundled": {
+      "recents": [
+        "Popover"
+      ],
+      "chat": [
+        "Popover"
+      ]
+    }
+  }
+}

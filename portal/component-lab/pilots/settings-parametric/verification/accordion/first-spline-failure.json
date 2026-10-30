@@ -1,0 +1,78 @@
+{
+  "scope": "Installed SEDA Spline reference application, procedural scene; visual fidelity and full AT acceptance remain open",
+  "passed": 4,
+  "failed": 6,
+  "results": [
+    {
+      "name": "spline-installed-seda-and-real-source-assets",
+      "status": "passed",
+      "evidence": {
+        "viewportFrame": {
+          "x": 336,
+          "y": 55,
+          "width": 858,
+          "height": 1217
+        },
+        "installedComponents": 21,
+        "sourceAssets": 18,
+        "sourceSceneRasterInRuntime": false
+      }
+    },
+    {
+      "name": "spline-contexts-share-document-transform-and-material",
+      "status": "passed",
+      "evidence": {
+        "sharedDocument": true,
+        "verifiedSourceXYZ": true
+      }
+    },
+    {
+      "name": "spline-invalid-draft-selection-guard-and-escape",
+      "status": "passed",
+      "evidence": {
+        "invalidRejected": true,
+        "tabGuard": true,
+        "escape": true,
+        "compositionGuard": true
+      }
+    },
+    {
+      "name": "spline-visible-material-repaint-and-history",
+      "status": "failed",
+      "error": "locator.screenshot: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m    - waiting for element to be stable\u001b[22m\n\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:17:807\n    at async check (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:3:51)\n    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-spline.mjs:17:2"
+    },
+    {
+      "name": "spline-keyboard-transform-camera-and-preview",
+      "status": "failed",
+      "error": "locator.focus: Target page, context or browser has been closed\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:18:86\n    at check (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:3:57)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:18:8"
+    },
+    {
+      "name": "spline-save-loading-captured-snapshot-and-reload",
+      "status": "failed",
+      "error": "page.evaluate: Target page, context or browser has been closed\n    at settle (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:4:90)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:19:81\n    at check (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:3:57)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:19:8"
+    },
+    {
+      "name": "spline-profile-matrix-fields-and-panels",
+      "status": "failed",
+      "error": "locator.click: Target page, context or browser has been closed\n    at menu (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:6:90)\n    at settings (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:9:33)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:20:163\n    at check (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:3:57)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:20:8"
+    },
+    {
+      "name": "spline-dialog-focus-and-agent-boundary",
+      "status": "failed",
+      "error": "page.setViewportSize: Target page, context or browser has been closed\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:21:76\n    at check (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:3:57)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:21:8"
+    },
+    {
+      "name": "spline-corrupt-storage-is-not-overwritten",
+      "status": "failed",
+      "error": "page.evaluate: Target page, context or browser has been closed\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:22:79\n    at check (C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:3:57)\n    at C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\verify-spline.mjs:22:8"
+    },
+    {
+      "name": "spline-no-javascript-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

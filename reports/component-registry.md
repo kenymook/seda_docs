@@ -1,5 +1,7 @@
 # Component Registry
 
+> Исторический Figma/spec snapshot от июня 2026. Числа `ready` ниже относятся к тогдашним спецификациям и не подтверждают готовность текущего React runtime. Актуальное source coverage собирается в [каталог покрытия](../docs/library/COMPONENT-CATALOG.md) при build портала; aliases ниже не являются автоматически React exports.
+
 Last updated: 2026-06-12  
 Figma inventory: `portal/docs-site/figma-components.json` generated at `2026-06-12T16:52:43.458Z`  
 Scope: 52 production component specs. This is the first AI-ready registry baseline: spec -> Figma node -> inventory match -> code props/handoff gaps. Button Social was removed as a standalone production component; provider auth scenarios now use Button and Button Group. Latest saved scan captures Button System, IconButton visual-token alignment, Tag rebinding, and Button Social removal.

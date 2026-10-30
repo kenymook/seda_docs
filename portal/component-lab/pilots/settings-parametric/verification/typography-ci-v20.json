@@ -1,0 +1,17 @@
+{
+  "commit": "1fcc034cfe901ab731d200cd67f6d073bef122e1",
+  "runId": 40027185664,
+  "jobId": 120666214894,
+  "status": "completed",
+  "conclusion": "failure",
+  "scope": "Completed previous functional1fcc034 CI; focus fix is a later change and must receive a new CI result.",
+  "failedScenario": "document-keyboard-move-nest-copy-delete",
+  "failure": "true !== false: outdent followed indent before RAF restored focused editable",
+  "contractsAndFoundationPassed": 120,
+  "installedPackageGroupsPassed": 25,
+  "typescript": true,
+  "build": true,
+  "browserPassedBeforeStop": 112,
+  "browserFailed": 1,
+  "remainingBrowserGroupsNotRun": 37
+}

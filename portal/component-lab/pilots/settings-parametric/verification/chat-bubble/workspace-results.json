@@ -1,0 +1,1594 @@
+{
+  "scope": "Installed ChatBubble, public Table/Card and preserved message provenance/attachment ownership; selected widths/themes/density, not complete Figma/AT acceptance",
+  "samples": [
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 404,
+          "right": 982,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 356,
+          "right": 982,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 404,
+          "right": 982,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 404,
+          "right": 982,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 356,
+          "right": 982,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 548,
+          "right": 1126,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 500,
+          "right": 1126,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 548,
+          "right": 1126,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 548,
+          "right": 1126,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 500,
+          "right": 1126,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 362,
+          "right": 940,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 314,
+          "right": 940,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 404,
+          "right": 982,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 356,
+          "right": 982,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 404,
+          "right": 982,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 404,
+          "right": 982,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 356,
+          "right": 982,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 548,
+          "right": 1126,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 500,
+          "right": 1126,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 548,
+          "right": 1126,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 548,
+          "right": 1126,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 500,
+          "right": 1126,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 760,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 760,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 760,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 376,
+          "right": 760,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 360,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 376,
+          "right": 760,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 376,
+          "right": 760,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 360,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 760,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 760,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 760,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 760,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 376,
+          "right": 760,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 360,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 376,
+          "right": 760,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 376,
+          "right": 760,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 360,
+          "right": 760,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 334,
+          "right": 706,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 318,
+          "right": 706,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 334,
+          "right": 706,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 334,
+          "right": 706,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 318,
+          "right": 706,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 736,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 736,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 736,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 736,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 736,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 12,
+          "paddingY": 6,
+          "font": 12.8,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 12.8,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 322,
+          "right": 696,
+          "paddingX": 16,
+          "paddingY": 10,
+          "font": 16,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 306,
+          "right": 696,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 16,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 334,
+          "right": 706,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 318,
+          "right": 706,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 334,
+          "right": 706,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 334,
+          "right": 706,
+          "paddingX": 32,
+          "paddingY": 18,
+          "font": 18.4,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 318,
+          "right": 706,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 18.4,
+          "busy": null
+        }
+      ]
+    },
+    {
+      "width": 960,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "overflow": 0,
+      "messages": [
+        {
+          "id": "source-user-1",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 736,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-1",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 736,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-2",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 736,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-user-3",
+          "sender": "outgoing",
+          "author": "ВыИсторический пример из Figma",
+          "x": 364,
+          "right": 736,
+          "paddingX": 48,
+          "paddingY": 28,
+          "font": 24,
+          "busy": null
+        },
+        {
+          "id": "source-assistant-2",
+          "sender": "ai",
+          "author": "ChatGPT · историческая записьAI · историческая запись из Figma",
+          "x": 348,
+          "right": 736,
+          "paddingX": 0,
+          "paddingY": 0,
+          "font": 24,
+          "busy": null
+        }
+      ]
+    }
+  ],
+  "copyKeepsAISource": true,
+  "actualAttachmentPreview": true,
+  "escapedFileContent": true,
+  "returnFocus": true,
+  "errors": []
+}

@@ -1,18 +1,22 @@
 # Package Export Coverage
 
-Last updated: 2026-06-12  
+Last updated: 2026-10-25
 Owner: Kenymook  
 Package: `@seda-ai/ui` at `packages/seda-ui`
 
-This report tracks code-export coverage across all 52 production component specs. Figma and docs are green; this file answers a different question: which components already have canonical production exports and which still exist only as documentation/Figma assets.
+This report tracks code-export coverage across all 52 production component specs. The historical spec status is not a runtime or fresh Figma acceptance certificate; this file answers a different question: which components already have canonical production exports and which still exist only as documentation/Figma assets.
 
-## Summary
+## Current runtime summary
 
-| Metric | Count |
-|---|---:|
-| Production component specs | 52 |
-| `packages/seda-ui` exports ready | 13 |
-| Remaining exports | 39 |
+`packages/seda-ui/src/index.ts` has33 component entry modules (including foundation Icon and reference-oriented Tree/SplitView), plus provider/host APIs. This is not33/52 complete production specs: those inventories are not one-to-one. Search now has an experimental export and real Files/Chat consumers; full local verification and independent runtime CI passed. Private version53 is published; production inspectors pass and native owner-browser Search navigation was checked separately from the incomplete production bypass-header runner. Full Figma/AT/OS acceptance and surface instance contracts remain open. Current evidence and gaps are in [component-maturity-matrix.md](component-maturity-matrix.md).
+
+The historical13-export list below is retained as a dated baseline, not a current count. Since then Icon, Tabs, DropdownMenu, SplitView, Tree, TextArea, Text, Modal, Tooltip, experimental Table, Card and Avatar/AvatarGroup were added. Table is a real installed-package implementation with controlled sort/selection/expansion/pagination and native semantics; it is not a registry instance contract or a fresh Figma acceptance. Source: `packages/seda-ui/src/components/Table`. Card and Avatar/AvatarGroup now have installed-package APIs and Projects/Team consumers; their full spec variants, instance contracts and Figma/OS/AT approval remain incomplete.
+
+Popover now has an experimental controlled nonmodal source export and Files/Chat consumers. Private version52 has passed63 package groups,46 application scripts and production Popover/inspector checks; it remains experimental and is not a production maturity certificate. See [Popover](2026-10-25-popover.md).
+
+Slider now has an experimental controlled native single/range export and installed Lab consumers. Private version53 passed65 package groups,47 application scripts and production Slider/inspector checks. No new instance contract or platform acceptance is claimed. [Proof and limits](2026-10-25-slider.md).
+
+## Historical coverage baseline — 2026-06-12
 
 ## Exported Components
 
@@ -60,11 +64,10 @@ The next work should deliberately broaden coverage instead of returning to the s
 
 Do the next batch as a breadth pass:
 
-1. `ChatBubble`
-2. `TopBar`
-3. `NotificationCenter`
-4. `Search`
-5. `DropdownMenu`
+1. Review Search version51 evidence and its explicit production automation limit; retain local/Linux and actual owner-browser results as separate scopes.
+2. Complete remaining public/instance contracts and fresh visual/platform acceptance for the components above; an export is not a maturity certificate.
+3. Search is no longer a missing source export. Its remaining gaps include a standalone anchored overlay host, full platform/AT/Figma review and executable instance contract.
+4. TopBar, Sidebar, Accordion and DropdownMenu already have exports. Their remaining review gaps must not be described as missing source components.
 
 This gives the package coverage for the app shell and AI conversation surfaces, not just form primitives.
 

@@ -1,0 +1,21 @@
+import type {TextareaHTMLAttributes,ReactNode} from 'react';
+import type {SedaSize} from '../../types';
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>,'size'|'value'|'defaultValue'|'children'|'dangerouslySetInnerHTML'> {
+ label:ReactNode;
+ size?:SedaSize;
+ value?:string;
+ defaultValue?:string;
+ helperText?:ReactNode;
+ errorText?:ReactNode;
+ hideLabel?:boolean;
+ /** Plain integrates into an owning surface; preserves geometry, error/disabled paint and focus. */
+ appearance?:'outlined'|'plain';
+ autoResize?:boolean;
+ maxRows?:number;
+ resize?:'vertical'|'none';
+ showCount?:boolean;
+ clearable?:boolean;
+ /** Visible localized header action. Clear remains owned by onClear for controlled values. */
+ clearLabel?:string;
+ onClear?:()=>void;
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "Selected actual Chromium screenshots and measurements; no independent Figma, OS or assistive-technology signoff.",
+  "reviewedLocal": [
+    "Four editor screens in Light/Dark at1024/XL150/X24/Y12 and selected1702/XL profiles",
+    "Normal1440/M100 inspector screens in both themes",
+    "Framer zoom value and picker before/after sizing fix"
+  ],
+  "reviewedProduction": [
+    "Four editors Light/Dark normal and extreme layouts",
+    "Framer zoom text versus available native select content width"
+  ],
+  "changes": [
+    "A persistent installed SplitView moves the inspector below the canvas when readable minima do not fit side by side.",
+    "Responsive minima exclude user requested inspector width; manual resizing does not trigger spurious reflow.",
+    "Framer zoom width accounts for text, field padding and icon space."
+  ],
+  "limits": [
+    "Very large parameters still need local scrolling; no comfortable density is claimed for every combination.",
+    "Navigation labels may ellipsize; command bars may still scroll horizontally.",
+    "Minimum application widths, authored reconstruction gaps and native desktop/OS/AT acceptance remain open."
+  ],
+  "screenshotScope": "PNG dimensions are indexed. Production route1440/M and1024/XL frames are from Inspector matrix at1000px height;1702/XL Dock frames are1244px high. Dock numeric samples/transitions separately use1244px height. Component-row captures are cropped regions. Shared filenames were retained with final Inspector frames; unique wide Dock frames also have dock-prefixed copies."
+}

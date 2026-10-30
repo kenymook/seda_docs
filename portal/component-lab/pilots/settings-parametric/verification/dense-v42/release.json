@@ -1,0 +1,349 @@
+{
+  "date": "2026-10-25",
+  "runtimeGitHubCommit": "814feb95387484496770c0e4f4f3812fdf200398",
+  "siteVersion": 42,
+  "siteSourceCommit": "67d4b2ee9726a5fc9ed1643d1b69fad205a17243",
+  "deployment": "appgdep_6add39dbb49c8191a4772037db07ca9a",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "archiveBytes": 7754171,
+  "archiveSha256": "435e44e61cb4a918dc8a3f440e8949d560168d35642ab0544fea1c6e432ef9e1",
+  "acl": {
+    "mode": "custom",
+    "revision": 1,
+    "ownerCount": 1,
+    "externalVisitors": 0,
+    "groups": 0
+  },
+  "proof": {
+    "sourceHashesMatched": 794,
+    "contracts": 123,
+    "installedPackageGroups": 45,
+    "filesParameterSamples": 48,
+    "composerParameterSamples": 48,
+    "routeThemeSamples": 16,
+    "javascriptErrors": 0
+  },
+  "scope": "Partial visual acceptance. Optical glyph normalization: Files only. Shared action/menu rules: 8 reference apps. No full DS readiness claim.",
+  "evidence": [
+    {
+      "file": "before-files-dark-grid.png",
+      "bytes": 404182,
+      "sha256": "58603323396a3cabaf8232f041c78c78930750bb31d7e5e35ac81c0fa6e46b83"
+    },
+    {
+      "file": "before-files-dark-list.png",
+      "bytes": 196122,
+      "sha256": "05e8a59792d3be9cc981550da3a1b4650ccf7c90b4e8c0060888a0afb2f9ebb8"
+    },
+    {
+      "file": "before-files-light-grid.png",
+      "bytes": 386847,
+      "sha256": "39ff7b53036c71b6d369d1b332e955c0f658215d7d9fe582ef1f4a950a9c568c"
+    },
+    {
+      "file": "before-files-light-list.png",
+      "bytes": 191317,
+      "sha256": "2904deefb055c43b5968effa4546f864176a5d4052dbb64544b51531f0c543fd"
+    },
+    {
+      "file": "build-metadata.json",
+      "bytes": 256172,
+      "sha256": "bfbf07bc96c6b19cd0c8f176984913814bf53877754695477b061a44613126fe"
+    },
+    {
+      "file": "chat-composer-chat-composer-before-growth-check.png",
+      "bytes": 316693,
+      "sha256": "3110c6fd9b8cc966a4d394140872b7ba7d9b6be4b09fa5d076984788dd7e1179"
+    },
+    {
+      "file": "chat-composer-chat-composer-dark-1440.png",
+      "bytes": 314295,
+      "sha256": "a20177464e5978d25a4dad581f2772cebb037dada7626c85d5ebf3bd7c1a2b99"
+    },
+    {
+      "file": "chat-composer-chat-composer-extreme-1440.png",
+      "bytes": 316693,
+      "sha256": "8efacaccb6d6d6bb74136e83e4fa4a77a7cda140c7cc230071a43b7c1f667a24"
+    },
+    {
+      "file": "chat-composer-results.json",
+      "bytes": 58075,
+      "sha256": "d2fba092611dc2c96cc242352fb245c6c1d924ab71755c51391f606395013470"
+    },
+    {
+      "file": "composer-original-assets.json",
+      "bytes": 1706,
+      "sha256": "fd0e947014e140445c0a19da281f5a1a95f623003771461c732f1cddec6428e3"
+    },
+    {
+      "file": "contracts.txt",
+      "bytes": 11540,
+      "sha256": "42781c1990362c5a3065721ef2b49b415f672055cf1045ee6c7183b301883532"
+    },
+    {
+      "file": "dense-workspace-dark-extreme-1440.png",
+      "bytes": 256709,
+      "sha256": "f3e55a50d43596be5b1e2bbf1408b6291822568346270f45b3b9e61768dc4301"
+    },
+    {
+      "file": "dense-workspace-dark-extreme-960.png",
+      "bytes": 158457,
+      "sha256": "14c505b24c361ec631198426bb092de9a196430d7396d1b663c2636c7d813a91"
+    },
+    {
+      "file": "dense-workspace-light-extreme-1440.png",
+      "bytes": 244279,
+      "sha256": "299768f0b3b8a8ea6a18d8e7eaef63051445eddfb893913acb7e042a6f73b44d"
+    },
+    {
+      "file": "dense-workspace-light-extreme-960.png",
+      "bytes": 158592,
+      "sha256": "8fc667a1b3c798002e320e6be181892ec7fa3b9b77e50a79ce310133d00b6fc6"
+    },
+    {
+      "file": "dense-workspace-results.json",
+      "bytes": 246167,
+      "sha256": "cdd17621d715b65e4ad147f8fb9f74eed060efd474e7b0a5dae2a002ccc26800"
+    },
+    {
+      "file": "final-applications.txt",
+      "bytes": 13531,
+      "sha256": "4459f9f96fb28cf47e5f0d3fc6a41240b6f4c9be603428d1ac80eb682bf88ce6"
+    },
+    {
+      "file": "final-building-results.json",
+      "bytes": 13027,
+      "sha256": "83912867e14e74e662728afa238c298a72526c4e98792cdf85ccef3b8fa3e18e"
+    },
+    {
+      "file": "final-chat-results.json",
+      "bytes": 15585,
+      "sha256": "146d626b23fa64535f9867d2ebf5e04e8df212ccf81e7e63d9df94a4deed2bdd"
+    },
+    {
+      "file": "final-files-dark-grid.png",
+      "bytes": 413240,
+      "sha256": "c7a62468cb4e8064fb8b22bee61c0685970f196aee499208e792d3a445bc15fa"
+    },
+    {
+      "file": "final-files-dark-list.png",
+      "bytes": 193535,
+      "sha256": "87e9f293e4d1007a7a5a02029b62f521cc5622e0de4d642e63cd164f9f4fffd3"
+    },
+    {
+      "file": "final-files-light-grid.png",
+      "bytes": 394363,
+      "sha256": "2cc31bc2727fe2f4f45336d57de458d5a1194f55cfd2687bfd2b11faf25b198a"
+    },
+    {
+      "file": "final-files-light-list.png",
+      "bytes": 188808,
+      "sha256": "26dc7017324b5be795ede72c291018348273a1721267fb6c66d7f568e3bab40b"
+    },
+    {
+      "file": "final-recents-results.json",
+      "bytes": 15225,
+      "sha256": "889f8893a1dedcf208320217aae6d75c448869e9be31f484e928defa869e3b47"
+    },
+    {
+      "file": "final-sandbox-results.json",
+      "bytes": 18323,
+      "sha256": "e26e6ea105817c1a2714fac1ea7e814a9ec564f8eaedba9714ed589a46d01498"
+    },
+    {
+      "file": "final-spline-manipulator-results.json",
+      "bytes": 7846,
+      "sha256": "be366073af2c1a15a991bb47a75f306f733dcb3cc8b8054751cc1de84d030f13"
+    },
+    {
+      "file": "final-spline-results.json",
+      "bytes": 12088,
+      "sha256": "2da9924807b90718704990478c0803671230f042e26af9e1d19adb2ebe77612d"
+    },
+    {
+      "file": "final-typography-results.json",
+      "bytes": 9376,
+      "sha256": "c4dc9c17d47b9e3f5cbc1f6e62112d6984a97dbe1d3d06a65b6749d8b92fd078"
+    },
+    {
+      "file": "final-webflow-results.json",
+      "bytes": 10596,
+      "sha256": "f91c5c633ba457065d3b9d96b7e2663f4fc41a12cb50531b84e04bde70718b3a"
+    },
+    {
+      "file": "focused.txt",
+      "bytes": 2584,
+      "sha256": "dfc1dfa86cae2dfbd2e0c8f94409910d1eded1bc4fb225888a03d4707b535985"
+    },
+    {
+      "file": "initial-sequence.txt",
+      "bytes": 7042,
+      "sha256": "ec7614da10adc5e29cc9f287b6429b4c9dd31f77f8c68c54b60300e1c6d8e4f9"
+    },
+    {
+      "file": "installed-package-results.json",
+      "bytes": 5811680,
+      "sha256": "d80250707fd4996ebbe4b337c61bd26763ee50929dec5b73a84f1d8f7aed0bb1"
+    },
+    {
+      "file": "package.txt",
+      "bytes": 1671,
+      "sha256": "64ba5bc4e4b143b88c79328cbbbeafe948e49848525925f0fb4953e57d977a9c"
+    },
+    {
+      "file": "production-chat-dark.png",
+      "bytes": 230932,
+      "sha256": "962f639ab69f8411b73661f4af3742dfd16db9fbca9e9b3281ce889e6bb50fb4"
+    },
+    {
+      "file": "production-light-extreme-960.png",
+      "bytes": 80887,
+      "sha256": "db3cde3092d7347d986f748d625534f5e966f11342d14d5557d5b6cadd9033f3"
+    },
+    {
+      "file": "production-recents-dark.png",
+      "bytes": 411182,
+      "sha256": "8b21460ac082bde2ffd812a64c0da620ad964d1337bb8e96823197b66cd4dc2e"
+    },
+    {
+      "file": "production-recents-light.png",
+      "bytes": 392483,
+      "sha256": "a358fa839e751e541d96520d0d5253e5b55ba81eaec9f47907de3c6cf54e6ff8"
+    },
+    {
+      "file": "production-results.json",
+      "bytes": 344425,
+      "sha256": "d9c1c2303b2d88c8e946d8511de8a646b39238c86babb233dddfb796e8fe8097"
+    },
+    {
+      "file": "states-dark-error-focus.png",
+      "bytes": 284846,
+      "sha256": "ac33629612ebde3b80f274dd6c02b168e11586ca18120fa898833eaed250f55f"
+    },
+    {
+      "file": "states-dark-search-focus.png",
+      "bytes": 405310,
+      "sha256": "48f63a3330e8defaeeb7bada73f1e118dfb921a55c9c8b8abca00e9eca626617"
+    },
+    {
+      "file": "states-dark-selection-menu.png",
+      "bytes": 399397,
+      "sha256": "b6278ed2df2ad3c8e1f4cd97edc2ec8733404e304911e2c5483f8dee64b5bc3e"
+    },
+    {
+      "file": "states-light-error-focus.png",
+      "bytes": 298256,
+      "sha256": "e22c170a0c1c8ab9e68c71652b99fad6157333962b339463254b25aad88c3a7a"
+    },
+    {
+      "file": "states-light-search-focus.png",
+      "bytes": 388643,
+      "sha256": "bb8cd85906a35e35868797f17eee0f79fdbdc150fc2a00887b0af9f1951e5baa"
+    },
+    {
+      "file": "states-light-selection-menu.png",
+      "bytes": 380934,
+      "sha256": "725bf9612facd9f693759b265c97216998f14ac9b62a15bc28580e028314ca05"
+    },
+    {
+      "file": "tail-source-and-controls.txt",
+      "bytes": 3867,
+      "sha256": "4beb7c18700f63fae69f26225ea4c5aa5f64490ac6f333214eebbf7136b5cb4c"
+    },
+    {
+      "file": "typescript.txt",
+      "bytes": 116,
+      "sha256": "0e374671e9662aa2a1cdcfff1957298ffa768fd034641d09de4ebd805e3c4aa8"
+    },
+    {
+      "file": "visual-review.json",
+      "bytes": 864,
+      "sha256": "5b7e48d31280a41d297aaa87fe64e175e041582b9fc1aede0868f7b128c77805"
+    },
+    {
+      "file": "workspace-rhythm-building-dark.png",
+      "bytes": 144170,
+      "sha256": "bf29fabb311f8e69fc5dc3264ef7b6c7f9756389bfa4ecf2e3e95faf87b78393"
+    },
+    {
+      "file": "workspace-rhythm-building-light.png",
+      "bytes": 142997,
+      "sha256": "bde7592bf1f36666df4dc3b15768c92534d46cfbf40d964799e759013554a047"
+    },
+    {
+      "file": "workspace-rhythm-chat-dark.png",
+      "bytes": 231193,
+      "sha256": "ee2e03af642a9cb2b4da038149ebb948d9554e64febf5421d7b655ba9f7be0ab"
+    },
+    {
+      "file": "workspace-rhythm-chat-light.png",
+      "bytes": 226803,
+      "sha256": "bb23f7410006c4e780ea6cd0196fd541b57a6d5ed24ced98f3f4218428d987ae"
+    },
+    {
+      "file": "workspace-rhythm-framer-dark.png",
+      "bytes": 111462,
+      "sha256": "c8b655cb875c1b592988c190aa116cd59870889788905abb624ba38884ae8852"
+    },
+    {
+      "file": "workspace-rhythm-framer-light.png",
+      "bytes": 109472,
+      "sha256": "1a0227b9d6480fc8e07aeeca59c7a02ea204767dde66fc031d17f6b9ae510665"
+    },
+    {
+      "file": "workspace-rhythm-recents-dark.png",
+      "bytes": 411182,
+      "sha256": "8b21460ac082bde2ffd812a64c0da620ad964d1337bb8e96823197b66cd4dc2e"
+    },
+    {
+      "file": "workspace-rhythm-recents-light.png",
+      "bytes": 393919,
+      "sha256": "3f246fe1f4ecae47483d327839f72c79dfc95df8a787ea5e2b63f09ff161fe4f"
+    },
+    {
+      "file": "workspace-rhythm-results.json",
+      "bytes": 6192,
+      "sha256": "7e01db48a37d796c8faaf8a926da15c8386bb5822d55dd358a92bddefd75aa86"
+    },
+    {
+      "file": "workspace-rhythm-sandbox-dark.png",
+      "bytes": 191316,
+      "sha256": "adee1936072345ec6dd96524d16f1e42e3bc16910c5b5d60c8a02383d0a71085"
+    },
+    {
+      "file": "workspace-rhythm-sandbox-light.png",
+      "bytes": 190251,
+      "sha256": "a5bdfffe533cb355582b73a3c181ce698335ef5ad081bd922a7bf3b697564175"
+    },
+    {
+      "file": "workspace-rhythm-spline-dark.png",
+      "bytes": 310540,
+      "sha256": "d34927396d233190f68e2e9228bc5cde02697caea16c92f64a411b97566141d9"
+    },
+    {
+      "file": "workspace-rhythm-spline-light.png",
+      "bytes": 308459,
+      "sha256": "fd22d54006aa9c55fb4f76e94bc01d2f59e2871504dc23915ccb214f47bc370c"
+    },
+    {
+      "file": "workspace-rhythm-webflow-dark.png",
+      "bytes": 102494,
+      "sha256": "d2a4c5a2171bc240664283a2d9b77a1129b1dadfcf02c405a096da5028cc6d21"
+    },
+    {
+      "file": "workspace-rhythm-webflow-light.png",
+      "bytes": 100390,
+      "sha256": "dbf6e34dc0dcc4e07703f7750f8dae3442734eece52c5688dba36c573763b592"
+    },
+    {
+      "file": "workspace-rhythm-workflow-dark.png",
+      "bytes": 102825,
+      "sha256": "595c72ab6b6dcbb73db78af180ef6e2a399a73fb2aa983b23bd5d1c6fecabe3a"
+    },
+    {
+      "file": "workspace-rhythm-workflow-light.png",
+      "bytes": 100863,
+      "sha256": "194fd028a9f44e8bf77170b46b32161a61022d50e33accc9ab5e636acbd296da"
+    }
+  ]
+}

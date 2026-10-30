@@ -49,10 +49,10 @@ Avatar — визуальное представление пользовате�
 
 ### Связанные спецификации
 
-- [Badge](../specs/data-display/badge.md) — статусы и счетчики рядом с Avatar.
-- [Card](../specs/data-display/card.md) — карточки пользователей и сущностей.
-- [Table](../specs/data-display/table.md) — Avatar в строках таблицы.
-- [Chat Bubble](../specs/data-display/chat-bubble.md) — автор сообщения.
+- [Badge](../data-display/badge.md) — статусы и счетчики рядом с Avatar.
+- [Card](../data-display/card.md) — карточки пользователей и сущностей.
+- [Table](../data-display/table.md) — Avatar в строках таблицы.
+- [Chat Bubble](../data-display/chat-bubble.md) — автор сообщения.
 
 ---
 
@@ -352,3 +352,27 @@ AI не должен:
 - Передавать online/busy/away только цветом.
 - Делать Avatar кликабельным без hover/focus/keyboard rules.
 - Масштабировать Avatar произвольно вне documented sizes.
+
+
+## 15. React runtime — experimental, 25.10.2026
+
+Статус ready в начале относится к сохранённой дизайн-спецификации. Публичные Avatar/AvatarGroup в @seda-ai/ui имеют собственную, пока экспериментальную приёмку. Это не новый executable instance contract общего registry.
+
+Avatar требует name. src загружается браузером; цепочка image → initials → оригинальный SEDA user glyph не показывает broken image и сохраняет диаметр. До загрузки виден fallback. Ключ изображения и проверка текущего committed source защищают от поздних load/error прежнего src. Source guard меняется в layout effect после commit; при приостановленном transition/Suspense render старое, ещё смонтированное изображение сохраняет право завершить загрузку. Повтор того же упавшего URL требует смены src или React key владельцем. Initials вычисляются из первых букв первого/последнего слова Unicode NFC; произвольная emoji-идентичность без букв получает glyph. Это не полная locale/IME-сертификация. Явные initials допускают0–2 буквенно-цифровые группы; пустая строка выбирает glyph. ai без override использует исходный AI glyph.
+
+| API | Текущее правило |
+| --- | --- |
+| name, src, alt, initials | name обязателен; alt по умолчанию name. alt="" убирает дублирование соседнего имени; status/selected при этом сохраняют текстовую альтернативу. |
+| variant | image/initials/icon/brand/ai; по умолчанию image при src, иначе initials. initials/icon не запрашивают src. |
+| size | xxs16/xs20/s24/m32/l40/xl48. По умолчанию следует controlSize SedaProvider. |
+| shape | Только circle. X/Y, textScale и множитель radius не растягивают identity frame. Изображение, initials и glyph вписываются в именованный диаметр; это identity scale, не font scale подписи. |
+| status, statusLabel | online/busy/away/offline требуют явного statusLabel. Индикатор не меняет frame; имя/status доступны через aria-label, status также имеет hover title. |
+| selected | Border + видимый исходный check glyph + текстовая альтернатива. Action Avatar с явным selected получает aria-pressed; обычный action не объявлен toggle. |
+| href / onClick | Взаимоисключающие native link/button; статический Avatar — named image, без tabindex/hover action. |
+| disabled, loading | Блокируют собственное действие через aria-disabled и guards, сохраняя фокус. loading показывает fallback. Малые interactive диаметры имеют расширенную pointer area минимум24px; OS/AT приёмка ещё открыта. |
+| AvatarGroup | label/items/maxVisible/overflowLabel обязательны; items имеют уникальные id и name. Порядок принадлежит приложению. Size s/m/l/xl сохраняет target overflow≥24px. |
+| onOverflow | Обязателен при скрытых участниках; native button +N сообщает полное число и ведёт к настоящему списку/области. Никаких фиктивных кликов. |
+
+Цвета происходят из существующих avatar/* tokens. Два CSS-алиаса --avatar-foreground-on-brand/on-ai указывают на исходные components.avatar.foreground.onBrand/onAi: importer paths не переименованы. Полная цепочка записана в profiles.json; отсутствие alias leaf останавливает сборку. Selected check использует avatar/foreground/fallback, поскольку отдельного selected glyph foreground нет. Диаметры, круг, status размеры и group gap4 — documented foundation fallback, не новые tokens. Group не перекрывает status-dot соседним Avatar.
+
+В пилоте реальные Avatar стоят у пространства, проектов и участников; AvatarGroup ведёт к таблице команды и снимает её фильтры. Персональные фото не генерируются, новые пользовательские данные/онлайн-статусы не выдумываются. Публичный gallery AI пример не является настоящим AI provider. Privacy/verification и AI identity требуют отдельной системной приёмки. Fresh Figma, полная локализация, все target OS/AT и Avatar Block/Add Button отдельными exports ещё открыты.

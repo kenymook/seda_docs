@@ -1,0 +1,84 @@
+{
+  "version": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_775ec726f6bc8191b5d6b55afe4d15b4",
+  "runtimeGitHubCommit": "8e79b15e9bc28002e30dc7a87b8cb15026bc84da",
+  "implementationCommit": "abe59ccdbcf6dbaa48b3e47162136fea84d6b71b",
+  "siteSourceCommit": "530a475b1992ec2f94f2519aae67417b4bc5e3f5",
+  "deployment": {
+    "id": "appgdep_6adea97453d08191a630a188824ef4a2",
+    "project_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "title": "SEDA AI — параметрическая форма",
+    "version_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_775ec726f6bc8191b5d6b55afe4d15b4",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-26T01:14:52.259521+00:00"
+  },
+  "savedVersion": {
+    "id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_775ec726f6bc8191b5d6b55afe4d15b4",
+    "project_id": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+    "version_number": 58,
+    "source": {
+      "commit_sha": "530a475b1992ec2f94f2519aae67417b4bc5e3f5"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000024dc81f48fb1ff2375f1553c",
+      "content_hash": "sha256:7c4b959960e46570a9924b8df21896285dc6c06c64db82902ccec460c74059c8",
+      "size_bytes": 33771520,
+      "file_count": 534
+    },
+    "screenshot_url": null,
+    "deployment_id": "appgdep_6adea97453d08191a630a188824ef4a2"
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "ci": {
+    "commit": "8e79b15e9bc28002e30dc7a87b8cb15026bc84da",
+    "runId": 40251803801,
+    "url": "https://github.com/kenymook/seda_docs/actions/runs/40251803801",
+    "jobs": [
+      {
+        "id": 121345129814,
+        "name": "Verify / references",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 121345130065,
+        "name": "Verify / package",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 121345130175,
+        "name": "Verify / lab",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 121349057420,
+        "name": "library",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "localChecks": {
+    "contracts": 139,
+    "packageGroups": 69,
+    "applicationScripts": 50,
+    "typescript": "passed",
+    "build": "8 profiles, source audit passed",
+    "scope": "Selected Chromium checks; not full Figma or platform acceptance"
+  }
+}

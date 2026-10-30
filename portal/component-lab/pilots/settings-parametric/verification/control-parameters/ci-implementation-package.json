@@ -1,0 +1,12 @@
+{
+  "commit": "abe59ccdbcf6dbaa48b3e47162136fea84d6b71b",
+  "run": 40250573626,
+  "job": 121341347707,
+  "scope": "Exact implementation commit; test-only table-gap correction is a later commit",
+  "verifiedLines": [
+    "2026-10-26T00:49:33.8471791Z {\"output\":\"/home/runner/work/seda_docs/seda_docs/packages/seda-ui/.diagnostics-package/2026-10-26T00-42-15-797Z\",\"passed\":69,\"failed\":0}",
+    "2026-10-26T00:50:42.4174953Z ℹ tests 139",
+    "2026-10-26T00:50:42.4175406Z ℹ pass 139",
+    "2026-10-26T00:50:42.4175630Z ℹ fail 0"
+  ]
+}

@@ -1,0 +1,2543 @@
+{
+  "sourceFrame": "1:3894",
+  "sourceComposer": "1:4244",
+  "reference": {
+    "x": 323,
+    "y": 1176,
+    "width": 768,
+    "height": 52
+  },
+  "assets": [
+    {
+      "name": "Добавить файлы",
+      "alias": "imgIcon",
+      "nodeId": "1:4249",
+      "width": 16,
+      "height": 16,
+      "naturalWidth": 20,
+      "naturalHeight": 20,
+      "mask": "url(\"http://127.0.0.1:63654/references/assets/chat-composer-imgIcon.svg\")"
+    },
+    {
+      "name": "Голосовой ввод не подключён",
+      "alias": "imgIcon2",
+      "nodeId": "1:4272",
+      "width": 16,
+      "height": 16,
+      "naturalWidth": 20,
+      "naturalHeight": 20,
+      "mask": "url(\"http://127.0.0.1:63654/references/assets/chat-composer-imgIcon2.svg\")"
+    },
+    {
+      "name": "Голосовой разговор не подключён",
+      "alias": "imgIcon3",
+      "nodeId": "1:4278",
+      "width": 16,
+      "height": 16,
+      "naturalWidth": 20,
+      "naturalHeight": 20,
+      "mask": "url(\"http://127.0.0.1:63654/references/assets/chat-composer-imgIcon3.svg\")"
+    }
+  ],
+  "samples": [
+    {
+      "width": 389,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "height": 116,
+      "scroll": 387,
+      "client": 387,
+      "inputWidth": 316,
+      "inputHeight": 43,
+      "inputTop": 1097,
+      "inputBottom": 1140,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 54,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Medium",
+          "left": 157.875,
+          "right": 282,
+          "top": 62,
+          "bottom": 107,
+          "width": 124.125,
+          "height": 45
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 286,
+          "right": 331,
+          "top": 62,
+          "bottom": 107,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 335,
+          "right": 380,
+          "top": 62,
+          "bottom": 107,
+          "width": 45,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "height": 122,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 312,
+      "inputHeight": 46,
+      "inputTop": 1091,
+      "inputBottom": 1137,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 57,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Medium",
+          "left": 140.046875,
+          "right": 275,
+          "top": 65,
+          "bottom": 113,
+          "width": 134.953125,
+          "height": 48
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 279,
+          "right": 327,
+          "top": 65,
+          "bottom": 113,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 331,
+          "right": 379,
+          "top": 65,
+          "bottom": 113,
+          "width": 48,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "height": 162,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 304,
+      "inputHeight": 78,
+      "inputTop": 979,
+      "inputBottom": 1057,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 21,
+          "bottom": 77,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 93.578125,
+          "right": 259,
+          "top": 97,
+          "bottom": 153,
+          "width": 165.421875,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 263,
+          "right": 319,
+          "top": 97,
+          "bottom": 153,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 323,
+          "right": 379,
+          "top": 97,
+          "bottom": 153,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "m",
+      "scale": 80,
+      "height": 130,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 308,
+      "inputHeight": 50,
+      "inputTop": 1083,
+      "inputBottom": 1133,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 61,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Medium",
+          "left": 128.953125,
+          "right": 267,
+          "top": 69,
+          "bottom": 121,
+          "width": 138.046875,
+          "height": 52
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 271,
+          "right": 323,
+          "top": 69,
+          "bottom": 121,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 327,
+          "right": 379,
+          "top": 69,
+          "bottom": 121,
+          "width": 52,
+          "height": 52
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "height": 138,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 304,
+      "inputHeight": 54,
+      "inputTop": 1075,
+      "inputBottom": 1129,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 106.21875,
+          "right": 259,
+          "top": 73,
+          "bottom": 129,
+          "width": 152.78125,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 263,
+          "right": 319,
+          "top": 73,
+          "bottom": 129,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 323,
+          "right": 379,
+          "top": 73,
+          "bottom": 129,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "height": 188,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 294,
+      "inputHeight": 94,
+      "inputTop": 953,
+      "inputBottom": 1047,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 24,
+          "bottom": 90,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 50.84375,
+          "right": 239,
+          "top": 113,
+          "bottom": 179,
+          "width": 188.15625,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 243,
+          "right": 309,
+          "top": 113,
+          "bottom": 179,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 313,
+          "right": 379,
+          "top": 113,
+          "bottom": 179,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "l",
+      "scale": 80,
+      "height": 144,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 301,
+      "inputHeight": 57,
+      "inputTop": 1069,
+      "inputBottom": 1126,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 68,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Medium",
+          "left": 98.140625,
+          "right": 253,
+          "top": 76,
+          "bottom": 135,
+          "width": 154.859375,
+          "height": 59
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 257,
+          "right": 316,
+          "top": 76,
+          "bottom": 135,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 320,
+          "right": 379,
+          "top": 76,
+          "bottom": 135,
+          "width": 59,
+          "height": 59
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "height": 178,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 296,
+      "inputHeight": 86,
+      "inputTop": 1035,
+      "inputBottom": 1121,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 73,
+          "top": 21,
+          "bottom": 85,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Medium",
+          "left": 72.40625,
+          "right": 243,
+          "top": 105,
+          "bottom": 169,
+          "width": 170.59375,
+          "height": 64
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 247,
+          "right": 311,
+          "top": 105,
+          "bottom": 169,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 315,
+          "right": 379,
+          "top": 105,
+          "bottom": 169,
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "height": 330,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 284,
+      "inputHeight": 146,
+      "inputTop": 811,
+      "inputBottom": 957,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 85,
+          "top": 45,
+          "bottom": 121,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Medium",
+          "left": 9,
+          "right": 219.890625,
+          "top": 165,
+          "bottom": 241,
+          "width": 210.890625,
+          "height": 76
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 223.890625,
+          "right": 299.890625,
+          "top": 165,
+          "bottom": 241,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 9,
+          "right": 85,
+          "top": 245,
+          "bottom": 321,
+          "width": 76,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "xl",
+      "scale": 80,
+      "height": 158,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 294,
+      "inputHeight": 64,
+      "inputTop": 1055,
+      "inputBottom": 1119,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 70.21875,
+          "right": 239,
+          "top": 83,
+          "bottom": 149,
+          "width": 168.78125,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 243,
+          "right": 309,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 313,
+          "right": 379,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "height": 198,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 288,
+      "inputHeight": 98,
+      "inputTop": 1015,
+      "inputBottom": 1113,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 81,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Medium",
+          "left": 38.578125,
+          "right": 227,
+          "top": 117,
+          "bottom": 189,
+          "width": 188.421875,
+          "height": 72
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 231,
+          "right": 303,
+          "top": 117,
+          "bottom": 189,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 307,
+          "right": 379,
+          "top": 117,
+          "bottom": 189,
+          "width": 72,
+          "height": 72
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "height": 372,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 274,
+      "inputHeight": 168,
+      "inputTop": 769,
+      "inputBottom": 937,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 95,
+          "top": 51,
+          "bottom": 137,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Medium",
+          "left": 9,
+          "right": 242.640625,
+          "top": 187,
+          "bottom": 273,
+          "width": 233.640625,
+          "height": 86
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 246.640625,
+          "right": 332.640625,
+          "top": 187,
+          "bottom": 273,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 9,
+          "right": 95,
+          "top": 277,
+          "bottom": 363,
+          "width": 86,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "width": 389,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "height": 116,
+      "scroll": 387,
+      "client": 387,
+      "inputWidth": 316,
+      "inputHeight": 43,
+      "inputTop": 1097,
+      "inputBottom": 1140,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 54,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Medium",
+          "left": 157.875,
+          "right": 282,
+          "top": 62,
+          "bottom": 107,
+          "width": 124.125,
+          "height": 45
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 286,
+          "right": 331,
+          "top": 62,
+          "bottom": 107,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 335,
+          "right": 380,
+          "top": 62,
+          "bottom": 107,
+          "width": 45,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "height": 122,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 312,
+      "inputHeight": 46,
+      "inputTop": 1091,
+      "inputBottom": 1137,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 57,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Medium",
+          "left": 140.046875,
+          "right": 275,
+          "top": 65,
+          "bottom": 113,
+          "width": 134.953125,
+          "height": 48
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 279,
+          "right": 327,
+          "top": 65,
+          "bottom": 113,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 331,
+          "right": 379,
+          "top": 65,
+          "bottom": 113,
+          "width": 48,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "height": 162,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 304,
+      "inputHeight": 78,
+      "inputTop": 979,
+      "inputBottom": 1057,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 21,
+          "bottom": 77,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 93.578125,
+          "right": 259,
+          "top": 97,
+          "bottom": 153,
+          "width": 165.421875,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 263,
+          "right": 319,
+          "top": 97,
+          "bottom": 153,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 323,
+          "right": 379,
+          "top": 97,
+          "bottom": 153,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "m",
+      "scale": 80,
+      "height": 130,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 308,
+      "inputHeight": 50,
+      "inputTop": 1083,
+      "inputBottom": 1133,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 61,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Medium",
+          "left": 128.953125,
+          "right": 267,
+          "top": 69,
+          "bottom": 121,
+          "width": 138.046875,
+          "height": 52
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 271,
+          "right": 323,
+          "top": 69,
+          "bottom": 121,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 327,
+          "right": 379,
+          "top": 69,
+          "bottom": 121,
+          "width": 52,
+          "height": 52
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "height": 138,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 304,
+      "inputHeight": 54,
+      "inputTop": 1075,
+      "inputBottom": 1129,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 106.21875,
+          "right": 259,
+          "top": 73,
+          "bottom": 129,
+          "width": 152.78125,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 263,
+          "right": 319,
+          "top": 73,
+          "bottom": 129,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 323,
+          "right": 379,
+          "top": 73,
+          "bottom": 129,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "height": 188,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 294,
+      "inputHeight": 94,
+      "inputTop": 953,
+      "inputBottom": 1047,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 24,
+          "bottom": 90,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 50.84375,
+          "right": 239,
+          "top": 113,
+          "bottom": 179,
+          "width": 188.15625,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 243,
+          "right": 309,
+          "top": 113,
+          "bottom": 179,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 313,
+          "right": 379,
+          "top": 113,
+          "bottom": 179,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "l",
+      "scale": 80,
+      "height": 144,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 301,
+      "inputHeight": 57,
+      "inputTop": 1069,
+      "inputBottom": 1126,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 68,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Medium",
+          "left": 98.140625,
+          "right": 253,
+          "top": 76,
+          "bottom": 135,
+          "width": 154.859375,
+          "height": 59
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 257,
+          "right": 316,
+          "top": 76,
+          "bottom": 135,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 320,
+          "right": 379,
+          "top": 76,
+          "bottom": 135,
+          "width": 59,
+          "height": 59
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "height": 178,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 296,
+      "inputHeight": 86,
+      "inputTop": 1035,
+      "inputBottom": 1121,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 73,
+          "top": 21,
+          "bottom": 85,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Medium",
+          "left": 72.40625,
+          "right": 243,
+          "top": 105,
+          "bottom": 169,
+          "width": 170.59375,
+          "height": 64
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 247,
+          "right": 311,
+          "top": 105,
+          "bottom": 169,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 315,
+          "right": 379,
+          "top": 105,
+          "bottom": 169,
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "height": 330,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 284,
+      "inputHeight": 146,
+      "inputTop": 811,
+      "inputBottom": 957,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 85,
+          "top": 45,
+          "bottom": 121,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Medium",
+          "left": 9,
+          "right": 219.890625,
+          "top": 165,
+          "bottom": 241,
+          "width": 210.890625,
+          "height": 76
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 223.890625,
+          "right": 299.890625,
+          "top": 165,
+          "bottom": 241,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 9,
+          "right": 85,
+          "top": 245,
+          "bottom": 321,
+          "width": 76,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 80,
+      "height": 158,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 294,
+      "inputHeight": 64,
+      "inputTop": 1055,
+      "inputBottom": 1119,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 70.21875,
+          "right": 239,
+          "top": 83,
+          "bottom": 149,
+          "width": 168.78125,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 243,
+          "right": 309,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 313,
+          "right": 379,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "height": 198,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 288,
+      "inputHeight": 98,
+      "inputTop": 1015,
+      "inputBottom": 1113,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 81,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Medium",
+          "left": 38.578125,
+          "right": 227,
+          "top": 117,
+          "bottom": 189,
+          "width": 188.421875,
+          "height": 72
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 231,
+          "right": 303,
+          "top": 117,
+          "bottom": 189,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 307,
+          "right": 379,
+          "top": 117,
+          "bottom": 189,
+          "width": 72,
+          "height": 72
+        }
+      ]
+    },
+    {
+      "width": 388,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "height": 372,
+      "scroll": 386,
+      "client": 386,
+      "inputWidth": 274,
+      "inputHeight": 168,
+      "inputTop": 769,
+      "inputBottom": 937,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 95,
+          "top": 51,
+          "bottom": 137,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Medium",
+          "left": 9,
+          "right": 242.640625,
+          "top": 187,
+          "bottom": 273,
+          "width": 233.640625,
+          "height": 86
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 246.640625,
+          "right": 332.640625,
+          "top": 187,
+          "bottom": 273,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 9,
+          "right": 95,
+          "top": 277,
+          "bottom": 363,
+          "width": 86,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "height": 63,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 464.875,
+      "inputHeight": 43,
+      "inputTop": 1175,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 54,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Medium",
+          "left": 536.875,
+          "right": 661,
+          "top": 9,
+          "bottom": 54,
+          "width": 124.125,
+          "height": 45
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 665,
+          "right": 710,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 714,
+          "right": 759,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "s",
+      "scale": 100,
+      "height": 66,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 445.046875,
+      "inputHeight": 46,
+      "inputTop": 1172,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 57,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Medium",
+          "left": 520.046875,
+          "right": 655,
+          "top": 9,
+          "bottom": 57,
+          "width": 134.953125,
+          "height": 48
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 659,
+          "right": 707,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 711,
+          "right": 759,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "s",
+      "scale": 150,
+      "height": 74,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 390.578125,
+      "inputHeight": 54,
+      "inputTop": 1151,
+      "inputBottom": 1205,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 473.578125,
+          "right": 639,
+          "top": 9,
+          "bottom": 65,
+          "width": 165.421875,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 643,
+          "right": 699,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 703,
+          "right": 759,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "m",
+      "scale": 80,
+      "height": 70,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 429.953125,
+      "inputHeight": 50,
+      "inputTop": 1168,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 61,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Medium",
+          "left": 508.953125,
+          "right": 647,
+          "top": 9,
+          "bottom": 61,
+          "width": 138.046875,
+          "height": 52
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 651,
+          "right": 703,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 707,
+          "right": 759,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "height": 74,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 403.21875,
+      "inputHeight": 54,
+      "inputTop": 1164,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 486.21875,
+          "right": 639,
+          "top": 9,
+          "bottom": 65,
+          "width": 152.78125,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 643,
+          "right": 699,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 703,
+          "right": 759,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 764,
+      "theme": "light",
+      "size": "m",
+      "scale": 150,
+      "height": 158,
+      "scroll": 762,
+      "client": 762,
+      "inputWidth": 670,
+      "inputHeight": 64,
+      "inputTop": 1067,
+      "inputBottom": 1131,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 426.84375,
+          "right": 615,
+          "top": 83,
+          "bottom": 149,
+          "width": 188.15625,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 619,
+          "right": 685,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 689,
+          "right": 755,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "l",
+      "scale": 80,
+      "height": 77,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 392.140625,
+      "inputHeight": 57,
+      "inputTop": 1161,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 68,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Medium",
+          "left": 478.140625,
+          "right": 633,
+          "top": 9,
+          "bottom": 68,
+          "width": 154.859375,
+          "height": 59
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 637,
+          "right": 696,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 700,
+          "right": 759,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "l",
+      "scale": 100,
+      "height": 82,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 361.40625,
+      "inputHeight": 62,
+      "inputTop": 1156,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 73,
+          "top": 9,
+          "bottom": 73,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Medium",
+          "left": 452.40625,
+          "right": 623,
+          "top": 9,
+          "bottom": 73,
+          "width": 170.59375,
+          "height": 64
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 627,
+          "right": 691,
+          "top": 9,
+          "bottom": 73,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 695,
+          "right": 759,
+          "top": 9,
+          "bottom": 73,
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 716,
+      "theme": "light",
+      "size": "l",
+      "scale": 150,
+      "height": 178,
+      "scroll": 714,
+      "client": 714,
+      "inputWidth": 612,
+      "inputHeight": 74,
+      "inputTop": 1011,
+      "inputBottom": 1085,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 85,
+          "top": 9,
+          "bottom": 85,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Medium",
+          "left": 336.109375,
+          "right": 547,
+          "top": 93,
+          "bottom": 169,
+          "width": 210.890625,
+          "height": 76
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 551,
+          "right": 627,
+          "top": 93,
+          "bottom": 169,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 631,
+          "right": 707,
+          "top": 93,
+          "bottom": 169,
+          "width": 76,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "size": "xl",
+      "scale": 80,
+      "height": 84,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 357.21875,
+      "inputHeight": 64,
+      "inputTop": 1154,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 450.21875,
+          "right": 619,
+          "top": 9,
+          "bottom": 75,
+          "width": 168.78125,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 623,
+          "right": 689,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 693,
+          "right": 759,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 764,
+      "theme": "light",
+      "size": "xl",
+      "scale": 100,
+      "height": 118,
+      "scroll": 762,
+      "client": 762,
+      "inputWidth": 315.578125,
+      "inputHeight": 98,
+      "inputTop": 1120,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 81,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Medium",
+          "left": 414.578125,
+          "right": 603,
+          "top": 23,
+          "bottom": 95,
+          "width": 188.421875,
+          "height": 72
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 607,
+          "right": 679,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 683,
+          "right": 755,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        }
+      ]
+    },
+    {
+      "width": 668,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "height": 198,
+      "scroll": 666,
+      "client": 666,
+      "inputWidth": 554,
+      "inputHeight": 84,
+      "inputTop": 991,
+      "inputBottom": 1075,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 95,
+          "top": 9,
+          "bottom": 95,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Medium",
+          "left": 245.359375,
+          "right": 479,
+          "top": 103,
+          "bottom": 189,
+          "width": 233.640625,
+          "height": 86
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 483,
+          "right": 569,
+          "top": 103,
+          "bottom": 189,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 573,
+          "right": 659,
+          "top": 103,
+          "bottom": 189,
+          "width": 86,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "height": 63,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 464.875,
+      "inputHeight": 43,
+      "inputTop": 1175,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 54,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Medium",
+          "left": 536.875,
+          "right": 661,
+          "top": 9,
+          "bottom": 54,
+          "width": 124.125,
+          "height": 45
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 665,
+          "right": 710,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 714,
+          "right": 759,
+          "top": 9,
+          "bottom": 54,
+          "width": 45,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "s",
+      "scale": 100,
+      "height": 66,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 445.046875,
+      "inputHeight": 46,
+      "inputTop": 1172,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 57,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Medium",
+          "left": 520.046875,
+          "right": 655,
+          "top": 9,
+          "bottom": 57,
+          "width": 134.953125,
+          "height": 48
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 659,
+          "right": 707,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 711,
+          "right": 759,
+          "top": 9,
+          "bottom": 57,
+          "width": 48,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "s",
+      "scale": 150,
+      "height": 74,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 390.578125,
+      "inputHeight": 54,
+      "inputTop": 1151,
+      "inputBottom": 1205,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 473.578125,
+          "right": 639,
+          "top": 9,
+          "bottom": 65,
+          "width": 165.421875,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 643,
+          "right": 699,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 703,
+          "right": 759,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "m",
+      "scale": 80,
+      "height": 70,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 429.953125,
+      "inputHeight": 50,
+      "inputTop": 1168,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 61,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Medium",
+          "left": 508.953125,
+          "right": 647,
+          "top": 9,
+          "bottom": 61,
+          "width": 138.046875,
+          "height": 52
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 651,
+          "right": 703,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 707,
+          "right": 759,
+          "top": 9,
+          "bottom": 61,
+          "width": 52,
+          "height": 52
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "height": 74,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 403.21875,
+      "inputHeight": 54,
+      "inputTop": 1164,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 65,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Medium",
+          "left": 486.21875,
+          "right": 639,
+          "top": 9,
+          "bottom": 65,
+          "width": 152.78125,
+          "height": 56
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 643,
+          "right": 699,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 703,
+          "right": 759,
+          "top": 9,
+          "bottom": 65,
+          "width": 56,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "width": 764,
+      "theme": "dark",
+      "size": "m",
+      "scale": 150,
+      "height": 158,
+      "scroll": 762,
+      "client": 762,
+      "inputWidth": 670,
+      "inputHeight": 64,
+      "inputTop": 1067,
+      "inputBottom": 1131,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 426.84375,
+          "right": 615,
+          "top": 83,
+          "bottom": 149,
+          "width": 188.15625,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 619,
+          "right": 685,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 689,
+          "right": 755,
+          "top": 83,
+          "bottom": 149,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "l",
+      "scale": 80,
+      "height": 77,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 392.140625,
+      "inputHeight": 57,
+      "inputTop": 1161,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 68,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Medium",
+          "left": 478.140625,
+          "right": 633,
+          "top": 9,
+          "bottom": 68,
+          "width": 154.859375,
+          "height": 59
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 637,
+          "right": 696,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 700,
+          "right": 759,
+          "top": 9,
+          "bottom": 68,
+          "width": 59,
+          "height": 59
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "l",
+      "scale": 100,
+      "height": 82,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 361.40625,
+      "inputHeight": 62,
+      "inputTop": 1156,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 73,
+          "top": 9,
+          "bottom": 73,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Medium",
+          "left": 452.40625,
+          "right": 623,
+          "top": 9,
+          "bottom": 73,
+          "width": 170.59375,
+          "height": 64
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 627,
+          "right": 691,
+          "top": 9,
+          "bottom": 73,
+          "width": 64,
+          "height": 64
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 695,
+          "right": 759,
+          "top": 9,
+          "bottom": 73,
+          "width": 64,
+          "height": 64
+        }
+      ]
+    },
+    {
+      "width": 716,
+      "theme": "dark",
+      "size": "l",
+      "scale": 150,
+      "height": 178,
+      "scroll": 714,
+      "client": 714,
+      "inputWidth": 612,
+      "inputHeight": 74,
+      "inputTop": 1011,
+      "inputBottom": 1085,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 85,
+          "top": 9,
+          "bottom": 85,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Medium",
+          "left": 336.109375,
+          "right": 547,
+          "top": 93,
+          "bottom": 169,
+          "width": 210.890625,
+          "height": 76
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 551,
+          "right": 627,
+          "top": 93,
+          "bottom": 169,
+          "width": 76,
+          "height": 76
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 631,
+          "right": 707,
+          "top": 93,
+          "bottom": 169,
+          "width": 76,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 80,
+      "height": 84,
+      "scroll": 766,
+      "client": 766,
+      "inputWidth": 357.21875,
+      "inputHeight": 64,
+      "inputTop": 1154,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 75,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Medium",
+          "left": 450.21875,
+          "right": 619,
+          "top": 9,
+          "bottom": 75,
+          "width": 168.78125,
+          "height": 66
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 623,
+          "right": 689,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 693,
+          "right": 759,
+          "top": 9,
+          "bottom": 75,
+          "width": 66,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "width": 764,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 100,
+      "height": 118,
+      "scroll": 762,
+      "client": 762,
+      "inputWidth": 315.578125,
+      "inputHeight": 98,
+      "inputTop": 1120,
+      "inputBottom": 1218,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 81,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Medium",
+          "left": 414.578125,
+          "right": 603,
+          "top": 23,
+          "bottom": 95,
+          "width": 188.421875,
+          "height": 72
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 607,
+          "right": 679,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 683,
+          "right": 755,
+          "top": 23,
+          "bottom": 95,
+          "width": 72,
+          "height": 72
+        }
+      ]
+    },
+    {
+      "width": 668,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "height": 198,
+      "scroll": 666,
+      "client": 666,
+      "inputWidth": 554,
+      "inputHeight": 84,
+      "inputTop": 991,
+      "inputBottom": 1075,
+      "viewport": 1288,
+      "buttons": [
+        {
+          "name": "Добавить файлы",
+          "left": 9,
+          "right": 95,
+          "top": 9,
+          "bottom": 95,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Medium",
+          "left": 245.359375,
+          "right": 479,
+          "top": 103,
+          "bottom": 189,
+          "width": 233.640625,
+          "height": 86
+        },
+        {
+          "name": "Голосовой ввод не подключён",
+          "left": 483,
+          "right": 569,
+          "top": 103,
+          "bottom": 189,
+          "width": 86,
+          "height": 86
+        },
+        {
+          "name": "Голосовой разговор не подключён",
+          "left": 573,
+          "right": 659,
+          "top": 103,
+          "bottom": 189,
+          "width": 86,
+          "height": 86
+        }
+      ]
+    }
+  ],
+  "voiceExplicitlyUnavailable": true,
+  "multilineRetained": true,
+  "errors": []
+}

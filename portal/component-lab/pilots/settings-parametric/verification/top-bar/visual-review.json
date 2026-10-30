@@ -1,0 +1,35 @@
+{
+  "reviewedThemes": [
+    "light",
+    "dark"
+  ],
+  "reviewedScreens": [
+    "Files",
+    "Building",
+    "Chat",
+    "Sandbox",
+    "Spline",
+    "Webflow",
+    "Framer",
+    "Workflow",
+    "TopBar gallery360/1000"
+  ],
+  "observations": [
+    "Glyph shapes remain painted, with theme-aware ink",
+    "Inspector fields and sections share rhythm; independent panel scroll retained",
+    "Header X/Y and action wrapping follow provider; content artwork/document typography isolated"
+  ],
+  "limitations": [
+    "No fresh Figma comparison due service quota",
+    "No AT/native desktop certification",
+    "Extreme density grows surfaces and requires local scrolling"
+  ],
+  "productionVersion": 47,
+  "productionReviewed": [
+    "Files Light/Dark",
+    "Building Light/Dark",
+    "Chat Light/Dark",
+    "Webflow Light/Dark",
+    "Workflow Light/Dark"
+  ]
+}

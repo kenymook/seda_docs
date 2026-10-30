@@ -1,0 +1,547 @@
+{
+  "scope": "Building reference 1:84",
+  "modelPassed": 5,
+  "browserPassed": 17,
+  "failed": 0,
+  "results": [
+    {
+      "name": "document-model-source-roundtrip",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "pages": 23,
+        "bodyBlocks": 35
+      }
+    },
+    {
+      "name": "document-model-restore-boundaries",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "rejected": 8
+      }
+    },
+    {
+      "name": "document-model-split-join-lossless",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "immutable": true,
+        "lossless": true
+      }
+    },
+    {
+      "name": "document-model-order-and-nesting",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "keyboardAlternatives": true,
+        "uniqueCopies": true
+      }
+    },
+    {
+      "name": "document-model-page-hierarchy",
+      "scope": "model",
+      "status": "passed",
+      "evidence": {
+        "ancestorPath": true,
+        "descendantScope": true
+      }
+    },
+    {
+      "name": "document-reference-structure-installed-package",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "source": "1:84",
+        "bodyBlocks": 35,
+        "bounds": {
+          "x": 480,
+          "y": 48,
+          "width": 708,
+          "height": 2440
+        }
+      }
+    },
+    {
+      "name": "document-content-typography-and-control-isolation",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "contentFont": "\"Segoe UI\", system-ui, sans-serif",
+        "contentSize": "16px",
+        "contentLine": "26px",
+        "titleWeight": "600",
+        "headingSize": "16px",
+        "headingWeight": "400",
+        "headingLine": "26px",
+        "calloutPadding": "4px 2px",
+        "listGuide": "1px",
+        "controlFont": "Inter, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "controlSize": "14px",
+        "renderedFonts": [
+          {
+            "family": "Segoe UI",
+            "postScript": "SegoeUI",
+            "glyphs": 243
+          }
+        ]
+      }
+    },
+    {
+      "name": "document-edit-caret-history-and-navigation",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "caret": true,
+        "undoRedo": true,
+        "draftAcrossPages": true,
+        "emptyTitleDoesNotCrash": true
+      }
+    },
+    {
+      "name": "document-split-join-slash-and-safe-paste",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "splitJoin": true,
+        "slashTypes": true,
+        "todo": true,
+        "plainPasteOnly": true
+      }
+    },
+    {
+      "name": "document-keyboard-move-nest-copy-delete",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "keyboardOrder": true,
+        "nesting": true,
+        "copyUnique": true,
+        "delete": true
+      }
+    },
+    {
+      "name": "document-structural-focus-without-animation-frame",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "successiveCommands": 6,
+        "focusBeforeAnimationFrame": true,
+        "lateFocusCannotDropShortcut": true
+      }
+    },
+    {
+      "name": "document-cross-block-edit-guard",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "elementBoundaries": true,
+        "enterDeleteBackspace": true,
+        "beforeinput": true,
+        "paste": true
+      }
+    },
+    {
+      "name": "document-pages-comments-trash-and-reload",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "nestedPages": true,
+        "comments": true,
+        "cancel": true,
+        "subtreeTrashRestore": true,
+        "reload": true
+      }
+    },
+    {
+      "name": "document-save-snapshot-duplicate-guard-loading",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "snapshot": true,
+        "newerDraftRetained": true,
+        "loadingDelta": 0
+      }
+    },
+    {
+      "name": "document-quota-error-retains-draft",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "visibleFailure": true,
+        "draftRetained": true,
+        "retry": true
+      }
+    },
+    {
+      "name": "document-profiles-panels-and-independent-scroll",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "samples": 24,
+        "measurements": [
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "s",
+            "control": 36,
+            "save": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "row": 36,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "m",
+            "control": 44,
+            "save": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "row": 44,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "l",
+            "control": 52,
+            "save": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "row": 52,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "light",
+            "size": "xl",
+            "control": 60,
+            "save": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "row": 60,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "s",
+            "control": 36,
+            "save": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "row": 36,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "m",
+            "control": 44,
+            "save": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "row": 44,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "l",
+            "control": 52,
+            "save": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "row": 52,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1280,
+            "theme": "dark",
+            "size": "xl",
+            "control": 60,
+            "save": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "row": 60,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "control": 36,
+            "save": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "row": 36,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "control": 44,
+            "save": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "row": 44,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "control": 52,
+            "save": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "row": 52,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "control": 60,
+            "save": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "row": 60,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "control": 36,
+            "save": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "row": 36,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "control": 44,
+            "save": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "row": 44,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "control": 52,
+            "save": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "row": 52,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "control": 60,
+            "save": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "row": 60,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "s",
+            "control": 36,
+            "save": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "row": 36,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "m",
+            "control": 44,
+            "save": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "row": 44,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "l",
+            "control": 52,
+            "save": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "row": 52,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "light",
+            "size": "xl",
+            "control": 60,
+            "save": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "row": 60,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "s",
+            "control": 36,
+            "save": 36,
+            "iconWidth": 36,
+            "iconHeight": 36,
+            "row": 36,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "m",
+            "control": 44,
+            "save": 44,
+            "iconWidth": 44,
+            "iconHeight": 44,
+            "row": 44,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "l",
+            "control": 52,
+            "save": 52,
+            "iconWidth": 52,
+            "iconHeight": 52,
+            "row": 52,
+            "column": 708,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "theme": "dark",
+            "size": "xl",
+            "control": 60,
+            "save": 60,
+            "iconWidth": 60,
+            "iconHeight": 60,
+            "row": 60,
+            "column": 708,
+            "overflow": 0
+          }
+        ],
+        "panelPersistence": true,
+        "keyboardResize": {
+          "before": 220,
+          "expectedWidth": 228,
+          "panelWidth": 228,
+          "afterReload": 228
+        }
+      }
+    },
+    {
+      "name": "document-textarea-profile-draft-and-comment-save",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "actualSedaTextArea": true,
+        "minimum": {
+          "actual": 88,
+          "line": 28
+        },
+        "profileXY": true,
+        "draftAcrossDialog": true,
+        "multilineReload": true
+      }
+    },
+    {
+      "name": "document-search-cover-and-shortcuts",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "search": true,
+        "cover": true,
+        "undo": true
+      }
+    },
+    {
+      "name": "document-corrupt-data-visible-recovery",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "corruption": true,
+        "explicitReset": true
+      }
+    },
+    {
+      "name": "document-rejected-edit-restores-visible-text",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "typingAndPasteRollback": true,
+        "focusRetained": true,
+        "attempts": 3
+      }
+    },
+    {
+      "name": "document-page-depth-rejection-is-atomic",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "acceptedDepth": 33,
+        "rejectedDepth": 34,
+        "modelRouteAndDraftRetained": true,
+        "saveReload": true
+      }
+    },
+    {
+      "name": "document-browser-errors",
+      "scope": "browser",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

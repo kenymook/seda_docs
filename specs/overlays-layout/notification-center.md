@@ -2,9 +2,9 @@
 
 > **Category** · Overlays & Layout
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / needs-review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-06-10
+> **Last reviewed** · 2026-10-25 (runtime; fresh Figma review unavailable)
 > **Figma** · [Notification Center](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6977-2860)
 
 ---
@@ -217,6 +217,29 @@ Figma component set: `Notification Center`. Variants: 40.
 ---
 
 ## 10. Handoff notes
+
+### React runtime — 25.10.2026
+
+`@seda-ai/ui` экспортирует `NotificationCenter` и типы `NotificationItem`, `NotificationLabels`, `NotificationFilter`. Это experimental реализация; архивный Figma scan не является приёмкой runtime. Свежая сверка6977:2860 не выполнена: ранее достигнута квота Figma service. Отдельный executable instance contract ещё отсутствует.
+
+State ownership:
+
+- `items` — полный переданный snapshot. Владелец отвечает за источник, порядок, timestamps, права и сохранение. Компонент не загружает данные и не отмечает записи прочитанными сам.
+- `state=ready|loading|error` отражает data lifecycle. Для ready компонент выводит `empty|has-unread|all-read` из snapshot, поэтому противоречащие `state` и `unreadCount` не принимаются. Счётчик относится только к переданным items, не к серверной пагинации.
+- `activeFilter` требует `onActiveFilterChange`; uncontrolled использует `defaultFilter`. Фильтры all/mentions/unread — общие Tabs. `mention` задаёт владелец, компонент не выводит упоминания из текста.
+- `onMarkRead(id)` и `onMarkAllRead(ids)` обязательны. Callback сообщает намерение; серверное подтверждение и rollback принадлежат владельцу. `busy=true` блокирует действия и требует `actionStatus`, чтобы объяснить ожидание.
+- Error требует `errorText` и либо `onRetry`, либо `unrecoverableReason`. Кнопка retry — настоящий Button; один callback защищён от повторного вызова в том же цикле. Долгий запрос обязан блокировать владелец через state/busy.
+- `labels` содержит локализованный текст: all, mentions, unread, markAllRead, markRead, empty, noResults, loading, retry, settings и функцию unreadCount(n). Нет встроенного перевода или скрытого бизнес-форматирования даты.
+- Item: уникальный непустой id, title/message/source, timestamp `{dateTime,label}`, unread, optional mention/icon. React nodes допустимы только для декоративной исходной иконки. Строка не притворяется интерактивной ссылкой: чтение и mark-read различны.
+- `placement=panel|overlay` задаёт содержимое поверхности. Для overlay владелец предоставляет non-modal host, anchor, dismiss и focus return; сам компонент не создаёт portal/dialog или focus trap. В Files используется non-blocking panel в маршруте notifications. Overlay host acceptance остаётся отдельным открытым пунктом.
+
+Дополнительные props нужны для разделения реальных product/data owners и статичных Figma states. Arbitrary visual overrides API не добавлены. `size=s|m|l|xl` следует provider; title/message/metadata используют общий Text, actions/Tab/Icon/Badge — собственные правила. Все используемые цвета берутся из существующих notification-center tokens и проходят missing-role build guard. Geometry token gap: foundation12px row Y/16px X, section16px, content gap4px, actions gap4/8px и provider extraX/extraY; radius и icon-size наследуют общий профиль. tokens.json не менялся.
+
+Native region с видимым heading, native list/time и Tabs задают семантику. Unread имеет Badge с доступным count и текстовый marker; цвет не единственный признак. После исчезновения focused mark-read или смены snapshot фокус локально возвращается к активной вкладке, внешний фокус сохраняется. Hidden Tab panels исключены из Tab/AT. Loading имеет readable status и spinner, reduced-motion отключает вращение. CSS не анимирует цвета действий между disabled/ready/theme, чтобы не создавать transient низкий контраст.
+
+Файлы используют реальный локальный журнал успешных операций, до200 записей. Отдельный storage key не смешивается с данными файлов; при ошибке история объясняет, что не сохранено, и даёт retry. Повреждение истории не сбрасывает документы. Это локальный executor, без внешнего сервиса, доставки и реальных упоминаний пользователей. Concurrent multi-tab merge, серверные permissions/delivery/pagination и target OS/AT не заявлены реализованными.
+
+Acceptance: installed package React18/19; SSR/Strict hydration; invalid models; фильтры и точный unread count; mark-read/all-read/retry ownership; disabled/busy; native keyboard/RTL; focus repair; long content без overflow; общие размеры/темы; действительные storage failures/reload с неизменными files. Требуются визуальная проверка, свежая Figma и screen-reader review; численность тестов не заменяет эти проверки.
 
 В handoff нужно передать:
 

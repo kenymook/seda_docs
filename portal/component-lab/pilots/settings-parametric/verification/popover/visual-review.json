@@ -1,0 +1,36 @@
+{
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "reviewed": [
+    "Installed package gallery",
+    "Actual Files news panel",
+    "Actual Chat share panel",
+    "Short Files/Chat windows at XL150/X24/Y12"
+  ],
+  "observations": [
+    "Shared Text/IconButton/field/action geometry",
+    "Logical placement and dense footer without full-screen scrim",
+    "Local authored data retained; selected-chat export only"
+  ],
+  "fixed": [
+    "Files short sticky toolbar previously covered its content",
+    "Native Select Escape previously closed its parent; native picker now owns the first Escape",
+    "Held Escape does not peel subsequent layers",
+    "Surface=l chosen for readable news title and compact share footer"
+  ],
+  "limits": [
+    "No fresh Figma/AT/OS/Firefox/WebKit signoff",
+    "Surface geometry gaps remain experimental",
+    "No new executable registry instance contract",
+    "No remote sharing or permissions service simulated"
+  ],
+  "productionVersion": 52,
+  "productionReviewed": [
+    "Files news Light/Dark",
+    "Chat share Light/Dark",
+    "Short window Light/Dark",
+    "Selected inspector screenshots Light/Dark"
+  ]
+}

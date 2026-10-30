@@ -1,0 +1,345 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/framer.html",
+  "productionVersion": 27,
+  "scope": "Reconstructed Framer editor application on installed SEDA; inferred authored layout, source H1 height mismatch remains open. Not Framer parity or full visual/AT/OS acceptance.",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "iframe-production-canonical-source-hashes",
+      "status": "passed",
+      "evidence": {
+        "matchedSourceHashes": 704
+      }
+    },
+    {
+      "name": "framer-application-installed-seda-three-native-frames-and-visible-text",
+      "status": "passed",
+      "evidence": {
+        "installedComponents": 12,
+        "applicationFrames": 3,
+        "totalPageIframes": 4,
+        "actualGlyphPaint": true,
+        "sourceHeight90Unmatched": true,
+        "sourceIcons": 5
+      }
+    },
+    {
+      "name": "framer-native-fill-weight-fixed-fit-and-history",
+      "status": "passed",
+      "evidence": {
+        "nativeFill2": 760,
+        "fixed": 200,
+        "fitIntrinsic": true,
+        "undoRedo": true
+      }
+    },
+    {
+      "name": "framer-invalid-pending-draft-guards-selection-page-save-and-cancel",
+      "status": "passed",
+      "evidence": {
+        "invalidDoesNotMutate": true,
+        "navigationBlocked": true,
+        "escapeReleases": true
+      }
+    },
+    {
+      "name": "framer-height-fill-parent-budget-rejection-and-recovery",
+      "status": "passed",
+      "evidence": {
+        "unappliedFillRejected": true,
+        "parentHeight300": true,
+        "nativeChildFill300": true
+      }
+    },
+    {
+      "name": "framer-responsive-override-cascade-reset-and-frame-ownership",
+      "status": "passed",
+      "evidence": {
+        "tablet24": true,
+        "phone20ThenCascades24": true,
+        "desktop40": true
+      }
+    },
+    {
+      "name": "framer-content-tag-visibility-safe-text-and-independent-pages",
+      "status": "passed",
+      "evidence": {
+        "safeText": true,
+        "semanticTag": true,
+        "visibilityUndo": true,
+        "emptyHome": true,
+        "teamEditRetained": true,
+        "addTextReal": true
+      }
+    },
+    {
+      "name": "framer-save-captures-snapshot-edit-during-request-loading-and-reload",
+      "status": "passed",
+      "evidence": {
+        "savedSnapshot32": true,
+        "newEdit36Dirty": true,
+        "reload36": true,
+        "loadingDelta": {
+          "width": 0,
+          "height": 0
+        }
+      }
+    },
+    {
+      "name": "framer-storage-error-retry-and-corrupt-data-preservation",
+      "status": "passed",
+      "evidence": {
+        "quotaVisible": true,
+        "retry30": true,
+        "corruptBytesPreserved": true
+      }
+    },
+    {
+      "name": "framer-pan-zoom-preview-and-keyboard-surface-boundaries",
+      "status": "passed",
+      "evidence": {
+        "panChangesViewOnly": true,
+        "zoomGeometryIndependent": true,
+        "previewReadOnly": true,
+        "canvasShortcutSave": true
+      }
+    },
+    {
+      "name": "framer-appearance-matrix-real-fields-and-authored-css-isolation",
+      "status": "passed",
+      "evidence": {
+        "nestedSamples": 16,
+        "samples": [
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 802
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 766
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 670
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 628
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 802
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 766
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 670
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 628
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 826
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 790
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 718
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 652
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 826
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 790
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 718
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "title": {
+              "height": 30,
+              "line": 30
+            },
+            "canvasHeight": 652
+          }
+        ],
+        "authoredCSSUnchanged": true
+      }
+    },
+    {
+      "name": "framer-resizable-panels-search-and-explicit-external-boundaries",
+      "status": "passed",
+      "evidence": {
+        "keyboardResize": true,
+        "pageSearch": true,
+        "agentNotPretended": true,
+        "externalPublishingNotPretended": true
+      }
+    },
+    {
+      "name": "framer-browser-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

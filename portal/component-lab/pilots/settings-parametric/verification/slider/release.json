@@ -1,0 +1,66 @@
+{
+  "version": 53,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deployment": {
+    "id": "appgdep_6ade4eca2f348191988fad2b056245ef",
+    "status": "succeeded",
+    "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_154c7e4ddaa4819192e0a57b5e7c8b4b"
+  },
+  "siteSourceCommit": "e01d4c279cd7aaf5fab2e1c9801556638876ccb1",
+  "runtimeGitHubCommit": "09c3bed8148bd6f03a63802d3eb19e44f79cf526",
+  "archiveStorage": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_000000008fe08243b5855cde77529cbe",
+    "content_hash": "sha256:96a3a2294567b637af0802b389c79db6577a9c788e3edf32269c6a7627920875",
+    "size_bytes": 31119360,
+    "file_count": 534
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "localChecks": {
+    "packageGroups": 65,
+    "reactVersions": [
+      "18.3.1",
+      "19.2.7"
+    ],
+    "sliderCasesPerReact": 32,
+    "invalidModels": 20,
+    "contractTests": 123,
+    "verifierScripts": {
+      "lab": 22,
+      "references": 25
+    },
+    "typeScript": "PASS"
+  },
+  "productionChecks": {
+    "sliderProfiles": 16,
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0
+  },
+  "provenance": {
+    "sourceHashesMatched": 906,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 677,
+    "installedArtifacts": 229,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "09c3bed8148bd6f03a63802d3eb19e44f79cf526",
+    "siteSourceCommit": "e01d4c279cd7aaf5fab2e1c9801556638876ccb1",
+    "archiveBytes": 8003065,
+    "archiveSHA256": "cd3e8bfed36da2a9d1fcf8a13233ff38ddfea8988649f5ba1af8b6ab1d05d042",
+    "sliderComponentsBundled": [
+      "Slider"
+    ]
+  }
+}

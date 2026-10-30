@@ -10,6 +10,14 @@
 
 ### Added
 
+- D33: общая experimental модель параметров контролов и `SedaProvider.controlParameters`. Численные результаты компилятора и CSS строятся из одного графа; параметры доступны установленной библиотеке без адаптера Lab. Дублирующие правила геометрии/состояний полей и выборов удалены из Lab, отдельные button overrides — из восьми reference apps.
+
+- Явное происхождение производной arrow-left: поворот исходной arrow-right на180° без изменения SVG. Spline использует публичные Icon вместо символов шрифта для Undo/Redo и камеры; tooltip различает команды истории и направления камеры.
+
+- Общая experimental композиция EditorDock для Sandbox, Spline, Webflow и Framer: инспектор переходит под canvas по доступной ширине и применённой типографике. Области остаются mounted; горизонтальная ширина и вертикальная высота независимы, reflow не присваивает себе историю или сохранение документа.
+
+- Experimental NumberField:13-й исполняемый контракт, общий raw numeric core, реальные Sandbox/Spline consumers с прежними владельцами истории/сохранения. TextField передаёт CSS variables всем слотам; Projects pagination actions выровнены снизу. Новые design tokens и Figma/OS/AT approval не заявлены.
+
 - Добавлен `foundation/governance.md` с lifecycle, versioning, deprecation policy и readiness checklist.
 - Добавлен `foundation/token-pipeline.md` с правилами поставки токенов из `tokens.json` в CSS, docs и Figma variables.
 - Добавлен `tools/check-token-refs.ps1`, `reports/token-reference-audit.md` и `reports/token-normalization-plan.md` для первичного аудита token references в specs.

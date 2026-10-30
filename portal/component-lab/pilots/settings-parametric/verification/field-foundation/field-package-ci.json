@@ -1,0 +1,14 @@
+{
+  "runtimeCommit": "d08de31f7b42b9a87cc2e1eeb8c280afbf6ae98f",
+  "runId": 40260589763,
+  "jobId": 121371925951,
+  "conclusion": "success",
+  "summary": [
+    "2026-10-26T02:54:26.4092705Z {\"output\":\"/home/runner/work/seda_docs/seda_docs/packages/seda-ui/.diagnostics-package/2026-10-26T02-45-21-265Z\",\"passed\":71,\"failed\":0}",
+    "2026-10-26T02:55:42.2140647Z ℹ tests 140",
+    "2026-10-26T02:55:42.2140998Z ℹ pass 140",
+    "2026-10-26T02:55:42.2141168Z ℹ fail 0",
+    "2026-10-26T02:55:42.2141336Z ℹ cancelled 0",
+    "2026-10-26T02:55:42.2141512Z ℹ skipped 0"
+  ]
+}

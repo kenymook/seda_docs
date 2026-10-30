@@ -1,0 +1,55 @@
+{
+  "version": 50,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "deployment": {
+    "id": "appgdep_6ade076a3c988191ba7184b77ee71f06",
+    "status": "succeeded",
+    "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_eab1d1002f6c81919a695f04e54f9aa9"
+  },
+  "siteSourceCommit": "f992471a3ae073a7fb492dd41e4cb33c4a629241",
+  "runtimeGitHubCommit": "daafd09fc2ba5c16dd19776b60f3f340206da3d7",
+  "archiveStorage": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_00000000cd6c81f49f501fd21944ae50",
+    "content_hash": "sha256:e10bf06cefdaca1231cb21437f08cc24d10308ecfcb79ab5ea7b3d5a83cf179e",
+    "size_bytes": 30904320,
+    "file_count": 534
+  },
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "groups": 0,
+    "externalVisitors": 0
+  },
+  "productionChecks": {
+    "notifications": 24,
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0
+  },
+  "provenance": {
+    "sourceHashesMatched": 878,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 667,
+    "installedArtifacts": 211,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "daafd09fc2ba5c16dd19776b60f3f340206da3d7",
+    "siteSourceCommit": "f992471a3ae073a7fb492dd41e4cb33c4a629241",
+    "archiveBytes": 7967352,
+    "archiveSHA256": "c0e480e75cd18a35a1d7781466912f5cd0aad645f35384e7fd872e8f8a2ea674",
+    "canonicalProofGitHubCommit": "a50bbd9b0f635822141404ebe1bc3bd77dda72f6",
+    "notificationComponentsBundled": {
+      "recents": [
+        "NotificationCenter"
+      ]
+    }
+  },
+  "verificationOnlyCommit": "a50bbd9b0f635822141404ebe1bc3bd77dda72f6"
+}

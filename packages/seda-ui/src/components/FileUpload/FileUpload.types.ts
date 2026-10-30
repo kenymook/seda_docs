@@ -7,7 +7,7 @@ export type FileUploadState = "default" | "hover" | "drag-over" | "uploading" | 
 export interface FileUploadProps
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    "children" | "size" | "type" | "value" | "onDragOver" | "onDragLeave" | "onDrop"
+    "children" | "size" | "type" | "value" | "defaultValue" | "onDragOver" | "onDragLeave" | "onDrop"
   > {
   label: ReactNode;
   variant?: FileUploadVariant;

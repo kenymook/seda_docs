@@ -1,0 +1,69 @@
+{
+  "version": 48,
+  "deployment": {
+    "id": "appgdep_6addf3b72a9c8191af9eea438f48d669",
+    "status": "succeeded",
+    "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+    "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_0986d5fd63948191854ffe83ca7604a8"
+  },
+  "sourceCommit": "472bdfe057a721d776ba962f8d588c8df89b7a38",
+  "runtimeGitHubCommit": "aa425d4f57e658cb2dd69c2ddbcccffa00bcf086",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "ownerCount": 1,
+    "groups": 0,
+    "external": 0
+  },
+  "storageArchive": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_00000000eed481f4ae7b5761e162c8ed",
+    "content_hash": "sha256:3f4ceae84a2ad4c49f1c544819bbac95f3327e8f1eaba1e7b9e81258223b3866",
+    "size_bytes": 30740480,
+    "file_count": 534
+  },
+  "localChecks": {
+    "packageGroups": 55,
+    "contracts": 123,
+    "pilotScripts": 42,
+    "labScripts": 21,
+    "referenceScripts": 21,
+    "typeScript": "passed"
+  },
+  "ci": {
+    "headRevision": "aa425d4f57e658cb2dd69c2ddbcccffa00bcf086",
+    "run": "https://github.com/kenymook/seda_docs/actions/runs/40192224872",
+    "status": "in_progress"
+  },
+  "productionChecks": {
+    "sidebar": 48,
+    "inspectors": 160,
+    "paintedGlyphs": 95,
+    "javaScriptErrors": 0
+  },
+  "provenance": {
+    "sourceHashesMatched": 859,
+    "artifactHashesMatched": 532,
+    "canonicalGitBlobsMatched": 660,
+    "installedArtifacts": 199,
+    "installedPackage": true,
+    "sourceAlias": false,
+    "messageComponentsBundled": [
+      "ChatBubble",
+      "Table",
+      "Card"
+    ],
+    "runtimeGitHubCommit": "aa425d4f57e658cb2dd69c2ddbcccffa00bcf086",
+    "siteSourceCommit": "472bdfe057a721d776ba962f8d588c8df89b7a38",
+    "archiveBytes": 7935395,
+    "archiveSHA256": "d82d74df216a55315e3a9d0d1d75f760b6dd1cf4a7d16177cbd8c62d080df950",
+    "sidebarComponentsBundled": {
+      "recents": [
+        "Sidebar"
+      ],
+      "chat": [
+        "Sidebar"
+      ]
+    }
+  }
+}

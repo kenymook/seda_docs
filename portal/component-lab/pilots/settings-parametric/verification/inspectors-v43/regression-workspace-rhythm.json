@@ -1,0 +1,354 @@
+{
+  "scope": "Shared action rhythm and menu disclosure; full-screen screenshots require visual review, not pixel fidelity certification",
+  "samples": [
+    {
+      "route": "recents",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "true",
+          "gap": 8
+        },
+        {
+          "kind": "true",
+          "gap": 8
+        }
+      ],
+      "menus": [
+        {
+          "name": "Kenymook",
+          "glyph": "arrow-chevron-down"
+        },
+        {
+          "name": "More",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "recents",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "true",
+          "gap": 8
+        },
+        {
+          "kind": "true",
+          "gap": 8
+        }
+      ],
+      "menus": [
+        {
+          "name": "Kenymook",
+          "glyph": "arrow-chevron-down"
+        },
+        {
+          "name": "More",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "building",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "default",
+          "gap": 8
+        },
+        {
+          "kind": "default",
+          "gap": 8
+        }
+      ],
+      "menus": [
+        {
+          "name": "KKenymook",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "building",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "default",
+          "gap": 8
+        },
+        {
+          "kind": "default",
+          "gap": 8
+        }
+      ],
+      "menus": [
+        {
+          "name": "KKenymook",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "chat",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [
+        {
+          "name": "Medium",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "chat",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [
+        {
+          "name": "Medium",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "sandbox",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [
+        {
+          "name": "Sandbox Ruslan",
+          "glyph": "arrow-chevron-down"
+        },
+        {
+          "name": "14%",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "sandbox",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [
+        {
+          "name": "Sandbox Ruslan",
+          "glyph": "arrow-chevron-down"
+        },
+        {
+          "name": "14%",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "spline",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [
+        {
+          "name": "200%",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "spline",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [
+        {
+          "name": "200%",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "webflow",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [],
+      "overflow": 0
+    },
+    {
+      "route": "webflow",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "compact",
+          "gap": 4
+        },
+        {
+          "kind": "compact",
+          "gap": 4
+        }
+      ],
+      "menus": [],
+      "overflow": 0
+    },
+    {
+      "route": "framer",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "default",
+          "gap": 8
+        }
+      ],
+      "menus": [],
+      "overflow": 0
+    },
+    {
+      "route": "framer",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "default",
+          "gap": 8
+        }
+      ],
+      "menus": [],
+      "overflow": 0
+    },
+    {
+      "route": "workflow",
+      "theme": "light",
+      "groups": [
+        {
+          "kind": "default",
+          "gap": 8
+        }
+      ],
+      "menus": [
+        {
+          "name": "Add node",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    },
+    {
+      "route": "workflow",
+      "theme": "dark",
+      "groups": [
+        {
+          "kind": "default",
+          "gap": 8
+        }
+      ],
+      "menus": [
+        {
+          "name": "Add node",
+          "glyph": "arrow-chevron-down"
+        }
+      ],
+      "overflow": 0
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,19 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"mounted":1,"cleaned":0}
+
+0 !== 1
+
+    at verifyTooltip (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-tooltip.mjs:28:208)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/[eval1]:1:251 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

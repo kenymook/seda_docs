@@ -1,0 +1,376 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/workflow.html",
+  "productionVersion": 29,
+  "scope": "Workflow reconstructed application on installed SEDA with typed DAG and local metadata/pass-through fixture. No AI inference, pixel analysis, billing, source visual fidelity or AT/OS acceptance.",
+  "passed": 17,
+  "failed": 0,
+  "results": [
+    {
+      "name": "iframe-production-canonical-source-hashes",
+      "status": "passed",
+      "evidence": {
+        "matchedSourceHashes": 724
+      }
+    },
+    {
+      "name": "workflow-installed-seda-source-assets-empty-iterator-and-real-wire",
+      "status": "passed",
+      "evidence": {
+        "installedComponents": 11,
+        "nodes": 3,
+        "wires": 1,
+        "sourceEmptyIterator": true,
+        "providerExplicitFixture": true
+      }
+    },
+    {
+      "name": "workflow-real-image-decode-run-metadata-and-source-model-boundary",
+      "status": "passed",
+      "evidence": {
+        "realPNGDecoded": true,
+        "metadataOutputDependsOnInput": true,
+        "noPixelAnalysisOrProviderClaim": true
+      }
+    },
+    {
+      "name": "workflow-typed-connect-duplicate-cycle-and-required-input",
+      "status": "passed",
+      "evidence": {
+        "portKeyboardActivation": true,
+        "duplicateRejected": true,
+        "typeMismatchRejected": true,
+        "cycleRejected": true,
+        "disconnectRequiresInput": true,
+        "keyboardConnectionEditor": true
+      }
+    },
+    {
+      "name": "workflow-run-cancel-and-retry-rejects-late-results",
+      "status": "passed",
+      "evidence": {
+        "cancelled": true,
+        "retryDone": true,
+        "lateOldResponseIgnored": true,
+        "runLoadingDelta": {
+          "width": 0,
+          "height": 0
+        }
+      }
+    },
+    {
+      "name": "workflow-edit-during-run-retains-current-draft-and-labels-old-snapshot",
+      "status": "passed",
+      "evidence": {
+        "oldResultClearlyMarked": true,
+        "currentPromptRetained": true,
+        "newRunUsesNewPrompt": true
+      }
+    },
+    {
+      "name": "workflow-simulated-executor-error-and-explicit-retry",
+      "status": "passed",
+      "evidence": {
+        "failureExplicitSimulation": true,
+        "retryAfterCorrection": true
+      }
+    },
+    {
+      "name": "workflow-invalid-property-draft-blocks-navigation-save-run-and-cancels",
+      "status": "passed",
+      "evidence": {
+        "invalidNotApplied": true,
+        "guardedNavigation": true,
+        "escapeRestores311": true,
+        "actualMoveX400": true
+      }
+    },
+    {
+      "name": "workflow-pointer-move-single-undo-cancel-and-keyboard-alternative",
+      "status": "passed",
+      "evidence": {
+        "pointerDelta": {
+          "x": 80,
+          "y": 30
+        },
+        "singleUndo": true,
+        "escapeRollback": true,
+        "keyboard1And10": true
+      }
+    },
+    {
+      "name": "workflow-save-snapshot-loading-edit-during-save-and-local-reload",
+      "status": "passed",
+      "evidence": {
+        "captured410": true,
+        "new450Retained": true,
+        "reload450": true,
+        "runOutputNotPretendedPersisted": true,
+        "loadingDelta": {
+          "width": 0,
+          "height": 0
+        }
+      }
+    },
+    {
+      "name": "workflow-storage-quota-retry-and-corrupt-bytes-preserved",
+      "status": "passed",
+      "evidence": {
+        "quotaVisible": true,
+        "retry420": true,
+        "arrayProviderRejectedAndPreserved": true,
+        "corruptBytesPreserved": true
+      }
+    },
+    {
+      "name": "workflow-invalid-upload-add-delete-empty-graph-and-text-source",
+      "status": "passed",
+      "evidence": {
+        "SVGRejected": true,
+        "allNodesDeleted": true,
+        "noDanglingWires": true,
+        "newTextNodeExecutes": true
+      }
+    },
+    {
+      "name": "workflow-appearance-matrix-wire-geometry-and-isolated-document-coordinates",
+      "status": "passed",
+      "evidence": {
+        "nestedSamples": 16,
+        "samples": [
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "canvasHeight": 891,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "canvasHeight": 865,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "canvasHeight": 803,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "canvasHeight": 771,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "canvasHeight": 891,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "canvasHeight": 865,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "canvasHeight": 803,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "canvasHeight": 771,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "canvasHeight": 891,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "canvasHeight": 865,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "canvasHeight": 803,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "canvasHeight": 771,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "canvasHeight": 891,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "canvasHeight": 865,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "canvasHeight": 803,
+            "wireStartMatchesNativePort": true
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "canvasHeight": 771,
+            "wireStartMatchesNativePort": true
+          }
+        ],
+        "documentCoordinatesPreserved": true
+      }
+    },
+    {
+      "name": "workflow-pan-zoom-wire-endpoints-and-panel-keyboard-resize",
+      "status": "passed",
+      "evidence": {
+        "zoomHalf": true,
+        "panOnlyView": true,
+        "keyboardResize": true
+      }
+    },
+    {
+      "name": "workflow-three-node-pipeline-runs-and-pass-through-output",
+      "status": "passed",
+      "evidence": {
+        "realThreeNodeDAG": true,
+        "outputCount2": true,
+        "originalInputImagePassedThrough": true,
+        "noGenerationClaim": true
+      }
+    },
+    {
+      "name": "workflow-production-target-viewports-and-independent-panels",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "width": 1280,
+            "height": 800,
+            "theme": "light",
+            "overflow": 0,
+            "canvasHeight": 660,
+            "runVisible": true,
+            "propertiesScrolls": true
+          },
+          {
+            "width": 1280,
+            "height": 800,
+            "theme": "dark",
+            "overflow": 0,
+            "canvasHeight": 660,
+            "runVisible": true,
+            "propertiesScrolls": true
+          },
+          {
+            "width": 1920,
+            "height": 1080,
+            "theme": "light",
+            "overflow": 0,
+            "canvasHeight": 940,
+            "runVisible": true,
+            "propertiesScrolls": true
+          },
+          {
+            "width": 1920,
+            "height": 1080,
+            "theme": "dark",
+            "overflow": 0,
+            "canvasHeight": 940,
+            "runVisible": true,
+            "propertiesScrolls": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "workflow-browser-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

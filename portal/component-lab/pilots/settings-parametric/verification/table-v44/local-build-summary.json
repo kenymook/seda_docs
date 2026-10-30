@@ -1,0 +1,41 @@
+{
+  "installedPackage": true,
+  "sourceAlias": false,
+  "bundledComponents": [
+    "node_modules/@seda-ai/ui/dist/components/Button/Button.js",
+    "node_modules/@seda-ai/ui/dist/components/IconButton/IconButton.js",
+    "node_modules/@seda-ai/ui/dist/components/Tooltip/Tooltip.js",
+    "node_modules/@seda-ai/ui/dist/components/Text/Text.js",
+    "node_modules/@seda-ai/ui/dist/components/Icon/index.js",
+    "node_modules/@seda-ai/ui/dist/components/Icon/seda-icon-assets.js",
+    "node_modules/@seda-ai/ui/dist/components/TextField/TextField.js",
+    "node_modules/@seda-ai/ui/dist/components/Select/Select.js",
+    "node_modules/@seda-ai/ui/dist/components/Checkbox/Checkbox.js",
+    "node_modules/@seda-ai/ui/dist/components/Radio/Radio.js",
+    "node_modules/@seda-ai/ui/dist/components/Toggle/Toggle.js",
+    "node_modules/@seda-ai/ui/dist/components/Badge/Badge.js",
+    "node_modules/@seda-ai/ui/dist/components/Tag/Tag.js",
+    "node_modules/@seda-ai/ui/dist/components/Alert/Alert.js",
+    "node_modules/@seda-ai/ui/dist/components/Toast/Toast.js",
+    "node_modules/@seda-ai/ui/dist/components/Toast/ToastProvider.js",
+    "node_modules/@seda-ai/ui/dist/components/Toast/toast-store.js",
+    "node_modules/@seda-ai/ui/dist/components/FileUpload/FileUpload.js",
+    "node_modules/@seda-ai/ui/dist/components/Tabs/Tabs.js",
+    "node_modules/@seda-ai/ui/dist/components/DropdownMenu/DropdownMenu.js",
+    "node_modules/@seda-ai/ui/dist/components/DropdownMenu/menuModel.js",
+    "node_modules/@seda-ai/ui/dist/components/SplitView/SplitView.js",
+    "node_modules/@seda-ai/ui/dist/components/SplitView/splitModel.js",
+    "node_modules/@seda-ai/ui/dist/components/Tree/Tree.js",
+    "node_modules/@seda-ai/ui/dist/components/Tree/treeModel.js",
+    "node_modules/@seda-ai/ui/dist/components/Table/Table.js"
+  ],
+  "validation": {
+    "valid": true,
+    "planned": []
+  },
+  "sourceAudit": {
+    "valid": true
+  },
+  "sourceHashCount": 805,
+  "artifactCount": 532
+}

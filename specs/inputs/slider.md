@@ -2,10 +2,56 @@
 
 > **Category** · Inputs
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · needs-review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-05-29
+> **Last reviewed** · 2026-10-25
 > **Figma** · [Slider](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=4113-3829)
+
+---
+
+## React runtime — experimental
+
+Публичный `Slider` из установленного `@seda-ai/ui` реализует horizontal single/range. [D31](../../packages/seda-contracts/SLIDER-CONTRACT.md) подключает исполняемый instance contract к общему компилятору и использует один числовой модуль в React/Node. Это расширение React-библиотеки по существующей spec; свежая Figma-сверка, target OS/AT/Firefox/WebKit и touch screen-reader review остаются открытыми. Для точного свободного числового ввода сохраняется TextField с владельцем черновика; Slider не парсит выражения, единицы CSS или Mixed.
+
+### Исполняемый API
+
+| Prop | Правило |
+| --- | --- |
+| `mode` | `single` по умолчанию либо `range`; vertical пока Needs system review |
+| `label` | Обязательная непустая видимая строка |
+| `value` | Обязательное конечное число в single; упорядоченная пара `[lower,upper]` в range |
+| `onValueChange` | Обязательный owner callback с числом либо новой парой; библиотека не мутирует переданную пару |
+| `thumbLabels` | Обязательные две непустые подписи в range; accessible name объединяет общий label и подпись бегунка |
+| `min/max/step` | По умолчанию0/100/1; конечные min<max, положительный representable step, диапазон делится на шаг. Все значения лежат на сетке от min. Невалидная модель отвергается, а не молча исправляется |
+| `size` | s/m/l/xl; наследуется от SedaProvider |
+| `disabled` | Реальная недоступность native inputs; также действует родительский native fieldset |
+| `helperText/errorText` | Общая связь aria-describedby с каждым бегунком; содержательная ошибка задаёт aria-invalid, при disabled prop скрывается |
+| `formatValue(number)` | Непустой plain text для visible output и aria-valuetext, например проценты. Не меняет числовую модель |
+| `name/form` | Настоящие native form inputs; range отправляет два значения под одним name в lower/upper порядке |
+| `id/className/style/dir`, root HTML attributes | id single input; range input IDs имеют суффиксы -lower/-upper. Root ref указывает group. style — host escape hatch, не набор новых visual props |
+
+Видимое output не live region: текущее значение уже доступно через native slider и aria-valuetext. Изменение props контролирует и DOM, и paint. Owner может отклонить intent; Slider не хранит альтернативное принятое значение. Controlled form reset принадлежит owner, defaultValue не добавлен.
+
+### Поведение
+
+- Использованы реальные input[type=range], native keyboard, form semantics и native drag thumb. Общий rail выбирает ближайший бегунок, сохраняет его на протяжении жеста и использует pointer capture; смена фокуса не переставляет inputs.
+- Значения range не пересекаются. Эффективные aria-valuemin/max каждого бегунка учитывают соседний. При совпадении значений оба остаются доступны в неизменном Tab-порядке.
+- Up/Down, Home/End и Page Up/Down работают нативно. В RTL шкала отражена, Left увеличивает значение, Right уменьшает; вертикальные стрелки сохраняют числовое направление.
+- На границе и при declined intent DOM не уходит от controlled value. Drag/keyboard публикуют непрерывные намерения; отдельного сетевого save/undo transaction API здесь нет. Группировка изменений документа и commit/cancel принадлежат приложению.
+- Pointer cancel прекращает жест, уже принятые owner значения сохраняются. Native fieldset disabled запрещает также клики по общему rail. Unmount освобождает capture нативно.
+- Params scale/X/Y/radius лаборатории используют этот export и общий compiler. Range на странице «Компоненты» проходит тот же instance contract; его значения принадлежат примеру и не фильтруют вымышленные данные. Проверка геометрии измеряет rail с минимумом44px, а не выдаёт его за кнопку32px.
+
+### Геометрия и tokens
+
+Используются существующие slider track/thumb/focus/label/value component tokens; tokens.json не изменяется. Font/line-height, thumb icon slot, control height и дополнительный X наследуются от общих bindings. Rail имеет минимум44px по высоте; thumb минимум12px либо общий icon size. В горизонтальном направлении rail отступает на extra X, а native thumb centers и painted track совпадают.
+
+Token gaps: track4px, thumb border2px, ring2px/offset3px, header gap8px, min targets44px/12px и круглые thumb/track пока документированные экспериментальные recipe values. Error foreground использует существующий semantic status/danger/text: отдельного slider error token нет. Это не pixel fidelity claim. Thumb остаётся круглым, глобальный radius не превращает маркер шкалы в прямоугольник.
+
+Ориентир семантики: [WAI Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider/) и [WAI Multi-thumb Slider](https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/). Эти документы отдельно требуют реальной touch AT проверки; Chromium keyboard/geometry tests её не заменяют.
+
+### Приёмка React
+
+Проверяются installed tarball и sourceAlias=false, SSR/Strict hydration, single/range API declarations, invalid runtime models, native keys/drag, неизменный Tab-порядок, границы/совпавшие бегунки, controlled owner refusal, decimals, FormData и native disabled fieldset. Визуальная проверка Light/Dark, RTL, sizes и общего compiler inheritance обязательна. Нельзя добавлять state prop для имитации interaction или выдавать этот проход за Figma/OS/AT certification.
 
 ---
 
@@ -164,10 +210,6 @@ Figma component set: `Slider`. Variants: 40.
 | `$collections/components/$modes/Mode 1/slider/label/disabled` | Component token | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/slider/value/foreground` | Component token | `text/primary` |
 | `$collections/components/$modes/Mode 1/slider/value/disabled` | Component token | `status/disabled/text` |
-| `$collections/components/$modes/Mode 1/color-picker/slider/border` | Component token | `border/default` |
-| `$collections/components/$modes/Mode 1/color-picker/slider/thumb` | Component token | `surface/base` |
-| `$collections/components/$modes/Mode 1/color-picker/slider/thumbBorder` | Component token | `border/strong` |
-| `$collections/components/$modes/Mode 1/color-picker/slider/thumbShadow` | Component token | `shadow/ambient` |
 
 ### Token gaps
 

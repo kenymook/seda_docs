@@ -1,0 +1,29 @@
+{
+  "head": "e4e67817ce13682e4a96f8e7700d40e2d7ec71ab",
+  "checks": [
+    {
+      "name": "library",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kenymook/seda_docs/actions/runs/40207928016/job/121215674798"
+    },
+    {
+      "name": "Verify / lab",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kenymook/seda_docs/actions/runs/40207928016/job/121213075861"
+    },
+    {
+      "name": "Verify / package",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kenymook/seda_docs/actions/runs/40207928016/job/121213075677"
+    },
+    {
+      "name": "Verify / references",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/kenymook/seda_docs/actions/runs/40207928016/job/121213075614"
+    }
+  ]
+}

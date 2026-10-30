@@ -1,0 +1,573 @@
+import React, { useLayoutEffect, useRef, useState } from "react";
+import {
+  Text,
+  Table,
+  Avatar,
+  AvatarGroup,
+  Button,
+  TextField,
+  Icon,
+  IconButton,
+  FileUpload,
+  Alert,
+  Toast,
+  ToastProvider,
+  ToastViewport,
+  useToast,
+  Badge,
+  Tag,
+  Chip,
+  EmptyState,
+  type AlertVariant,
+} from "@seda-ai/ui";
+
+import { TextArea, NumberField, Slider, Select, Checkbox, Radio, Toggle, Tabs } from "./contract-controls";
+import {EditorWorkspace} from "./EditorWorkspace";
+import type {WorkspacePage} from "./workspace-composition";
+
+type Props = {
+  size: "s" | "m" | "l" | "xl";
+  action: (role: string) => any;
+  children: React.ReactNode;
+  typography: any;
+  textScale: number;
+  page: WorkspacePage;
+};
+const teams = [
+  { value: "Core", label: "Core" },
+  { value: "Product", label: "Product" },
+  { value: "Design", label: "Design" },
+  { value: "Mobile", label: "Mobile" },
+];
+
+/** Stateful product composition. Demo data stays in memory; no network invitation is sent. */
+export function ProductWorkspace({ size, action, children, typography, textScale, page }: Props) {
+
+  const [settingsTab, setSettingsTab] = useState("general");
+  const invalidFocus = useRef<string | null>(null);
+  const [settings, setSettings] = useState({
+    name: "Atlas Platform",
+    description: "Рабочее пространство команды: проекты, материалы и обсуждения.",
+    email: "owner@atlas.example",
+    url: "https://atlas.example",
+    budget: "12000",
+    date: "2026-11-01",
+    team: "Core",
+    region: "eu",
+    visibility: "private",
+    notifications: true,
+    digest: true,
+  });
+  const [saved, setSaved] = useState(settings);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [notice, setNotice] = useState("");
+  useLayoutEffect(() => {
+    if (invalidFocus.current) {
+      document.getElementById(invalidFocus.current)?.focus();
+      invalidFocus.current = null;
+    }
+  }, [errors]);
+  const update = (key: keyof typeof settings, value: string | boolean) =>
+    setSettings((s) => ({ ...s, [key]: value }));
+  const [members, setMembers] = useState([
+    {
+      id: 1,
+      name: "Анна Смирнова",
+      email: "anna@atlas.example",
+      role: "owner",
+    },
+    { id: 2, name: "Марк Орлов", email: "mark@atlas.example", role: "editor" },
+    { id: 3, name: "Елена Ким", email: "elena@atlas.example", role: "viewer" },
+  ]);
+  const [memberQuery, setMemberQuery] = useState("");
+  const [memberSort, setMemberSort] = useState<import("@seda-ai/ui").TableSort|null>(null);
+  const [memberRole, setMemberRole] = useState("all");
+  const [inviteEmail, setInviteEmail] = useState("");
+  const [inviteRole, setInviteRole] = useState("editor");
+  const [inviteError, setInviteError] = useState("");
+  const memberId = useRef(4);
+  const roleOptions = [
+    { value: "owner", label: "Владелец" },
+    { value: "editor", label: "Редактор" },
+    { value: "viewer", label: "Наблюдатель" },
+  ];
+  const visibleMembers = members.filter(
+    (m) =>
+      (m.name + " " + m.email)
+        .toLowerCase()
+        .includes(memberQuery.toLowerCase()) &&
+      (memberRole === "all" || m.role === memberRole),
+  );
+  const orderedMembers=[...visibleMembers].sort((a,b)=>!memberSort?0:(memberSort.direction==='ascending'?1:-1)*a.name.localeCompare(b.name,'ru'));
+  const field = (
+    key: keyof typeof settings,
+    label: string,
+    type = "text",
+    extra: Record<string, any> = {},
+  ) => (
+    <TextField
+      id={"workspace-" + key}
+      label={label}
+      type={type}
+      size={size}
+      value={String(settings[key])}
+      onChange={(e) => update(key, e.target.value)}
+      errorText={errors[key]}
+      {...extra}
+    />
+  );
+  function saveSettings(e: React.FormEvent) {
+    e.preventDefault();
+    const next: Record<string, string> = {};
+    if (!settings.name.trim())
+      next.name = "Введите название рабочего пространства";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(settings.email))
+      next.email = "Введите корректный email";
+    if (!settings.url.startsWith("https://"))
+      next.url = "Используйте адрес https://";
+    if (
+      !Number.isFinite(Number(settings.budget)) ||
+      Number(settings.budget) < 0
+    )
+      next.budget = "Укажите бюджет не меньше нуля";
+    if (!settings.date) next.date = "Укажите дату запуска";
+    setErrors(next);
+    if (Object.keys(next).length) {
+      invalidFocus.current = "workspace-" + Object.keys(next)[0];
+      setSettingsTab("general");
+      setNotice("Проверьте поля формы");
+      return;
+    }
+    setSaved({ ...settings });
+    setNotice("Настройки сохранены в текущей сессии");
+  }
+  return (
+    <>
+      <div className="product-workspace-chrome">
+      <div className="product-masthead">
+        <div>
+          <Avatar name="Atlas workspace" initials="A" variant="brand" alt=""/>
+          <div>
+            <Text as="strong" variant="label/default">Atlas workspace</Text>
+            <Text variant="caption/default">Рабочее пространство · локальная демонстрация</Text>
+          </div>
+        </div>
+        <Text className="workspace-account" variant="caption/default">AK · Владелец</Text>
+      </div>
+
+      </div>
+      <div id="projects-page" hidden={page !== "projects"}>
+        {children}
+      </div>
+      <section
+        className="workspace-page"
+        id="settings-page"
+        hidden={page !== "settings"}
+        aria-labelledby="workspace-settings-title"
+      >
+        <div className="section-top">
+          <div>
+            <Text as="h1" variant="heading/section" id="workspace-settings-title">Настройки</Text>
+            <Text as="p" variant="body/default">
+              Общие параметры применяются к полям, выбору значений и действиям.
+            </Text>
+          </div>
+        </div>
+        <form
+          className="pane workspace-form"
+          id="workspace-settings"
+          noValidate
+          onSubmit={saveSettings}
+        >
+          <Tabs
+            id="settings-tabs"
+            label="Разделы настроек пространства"
+            size={size}
+            variant="line"
+            value={settingsTab}
+            onValueChange={setSettingsTab}
+            items={[
+              { value: "general", label: "Основные параметры", content: <div className="workspace-settings-panel">
+                  <div className="form-section-heading">
+                    <Text as="h2" variant="heading/panel">Основная информация</Text>
+                    <Text variant="caption/default">Текст · email · URL · число · дата · Select</Text>
+                  </div>
+                  <div className="workspace-form-grid">
+                    {field("name", "Название пространства", "text", { required: true })}
+                    {field("email", "Контактный email", "email", { required: true })}
+                    {field("url", "Адрес проекта", "url", {
+                      helperText: "Только HTTPS",
+                    })}
+                    {field("budget", "Месячный бюджет", "number", {
+                      min: 0,
+                      suffix: <span>₽</span>,
+                    })}
+                    {field("date", "Дата запуска", "date")}
+                    <TextArea id="workspace-description" className="workspace-description" size={size}
+                      label="Описание пространства" value={settings.description}
+                      onChange={event=>update('description',event.target.value)} clearable
+                      onClear={()=>update('description','')} showCount maxLength={500} rows={3}
+                      helperText="Контекст и правила работы команды" />
+                    <Select
+                      className="workspace-select"
+                      id="workspace-team"
+                      size={size}
+                      label="Основная команда"
+                      value={settings.team}
+                      options={teams}
+                      onValueChange={(v) => update("team", String(v))}
+                    />
+                    <Select
+                      className="workspace-select"
+                      id="workspace-region"
+                      size={size}
+                      label="Регион данных"
+                      value={settings.region}
+                      options={[
+                        { value: "eu", label: "Европа" },
+                        { value: "us", label: "Северная Америка" },
+                        { value: "ap", label: "Азия и Океания" },
+                      ]}
+                      onValueChange={(v) => update("region", String(v))}
+                    />
+                    <TextField
+                      id="workspace-id"
+                      label="Идентификатор"
+                      size={size}
+                      value="atlas-workspace-01"
+                      disabled
+                      helperText="Назначается системой"
+                    />
+                  </div>
+              </div> },
+              { value: "access", label: "Доступ и уведомления", content: <div className="workspace-settings-panel">
+                  <div className="form-section-heading">
+                    <Text as="h2" variant="heading/panel">Доступ и уведомления</Text>
+                    <Text variant="caption/default">Radio · Toggle · Checkbox</Text>
+                  </div>
+                  <div className="workspace-form-grid">
+                    <Radio
+                      className="workspace-radio"
+                      size={size}
+                      name="workspace-visibility"
+                      label="Доступ к проектам"
+                      value={settings.visibility}
+                      onValueChange={(v) => update("visibility", v)}
+                      options={[
+                        { value: "private", label: "Только участники" },
+                        { value: "team", label: "Вся команда" },
+                      ]}
+                    />
+                    <div className="workspace-preferences">
+                      <Toggle
+                        className="workspace-toggle"
+                        id="workspace-notifications"
+                        label="Уведомления о событиях"
+                        size={size}
+                        checked={settings.notifications}
+                        onCheckedChange={(v) => update("notifications", v)}
+                      />
+                      <Checkbox
+                        className="workspace-checkbox"
+                        id="workspace-digest"
+                        size={size}
+                        label="Еженедельный отчёт по email"
+                        checked={settings.digest}
+                        disabled={!settings.notifications}
+                        onCheckedChange={(v) => update("digest", v)}
+                      />
+                    </div>
+                  </div>
+              </div> },
+            ]}
+          />
+          <div className="workspace-form-footer">
+            <div className="actions">
+              <Button
+                {...action("save")}
+                size={size}
+                type="submit"
+                id="workspace-apply"
+                variant="primary"
+              >
+                Применить настройки
+              </Button>
+              <Button
+                {...action("cancel")}
+                size={size}
+                onClick={() => {
+                  setSettings(saved);
+                  setErrors({});
+                  setNotice("Восстановлены сохранённые настройки");
+                }}
+              >
+                Отменить изменения
+              </Button>
+            </div>
+            <Text as="p" variant="body/default" role="status" id="workspace-notice">
+              {notice || "Все данные остаются в этой демонстрации"}
+            </Text>
+          </div>
+        </form>
+      </section>
+      <section
+        className="workspace-page"
+        id="members-page"
+        hidden={page !== "members"}
+        aria-labelledby="workspace-members-title"
+      >
+        <div className="section-top">
+          <div>
+            <Text as="h1" variant="heading/section" id="workspace-members-title">Команда</Text>
+            <Text as="p" variant="body/default">Поиск, роли и добавление участника в локальную демонстрацию.</Text>
+          </div>
+          <AvatarGroup label="Участники команды" items={members.map(m=>({id:String(m.id),name:m.name}))} maxVisible={2}
+            overflowLabel="Показать всех участников в таблице" onOverflow={()=>{setMemberQuery('');setMemberRole('all');requestAnimationFrame(()=>{const region=document.querySelector<HTMLElement>('#members-table .seda-table__scroll');region?.scrollIntoView({block:'nearest'});region?.focus({preventScroll:true});});}}/>
+        </div>
+        <div className="preview">
+          <div className="toolbar workspace-members-toolbar">
+            <TextField
+              id="member-search"
+              prefix={<Icon name="search" />}
+              label="Поиск участников"
+              size={size}
+              value={memberQuery}
+              onChange={(e) => setMemberQuery(e.target.value)}
+            />
+            <Select
+              className="workspace-select"
+              id="member-role-filter"
+              label="Роль"
+              size={size}
+              value={memberRole}
+              onValueChange={(v) => setMemberRole(String(v))}
+              options={[{ value: "all", label: "Все роли" }, ...roleOptions]}
+            />
+          </div>
+          <Table minWidth={560} id="members-table" label="Таблица участников" data={orderedMembers} rowKey={m=>String(m.id)}
+            sort={memberSort} onSortChange={setMemberSort} emptyState={<EmptyState size="s" reason="no-results" title="Участники не найдены" description="Измените поиск или сбросьте фильтры." primaryAction={{label:'Сбросить фильтры',onAction:()=>{setMemberQuery('');setMemberRole('all');requestAnimationFrame(()=>document.getElementById('member-search')?.focus())}}}/>}
+            columns={[
+              {key:'name',header:'Участник',type:'text',sortable:true,render:m=><span className="workspace-project-name"><Avatar name={m.name} alt=""/>{m.name}</span>},
+              {key:'email',header:'Email',type:'text',render:m=>m.email},
+              {key:'role',header:'Роль',type:'text',render:m=>roleOptions.find(o=>o.value===m.role)?.label},
+            ]}/>
+
+        </div>
+        <form
+          className="pane workspace-invite"
+          id="workspace-invite"
+          noValidate
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inviteEmail)) {
+              setInviteError("Введите корректный email");
+              document.getElementById("invite-email")?.focus();
+              return;
+            }
+            if (
+              members.some(
+                (m) =>
+                  m.email.toLowerCase() === inviteEmail.trim().toLowerCase(),
+              )
+            ) {
+              setInviteError("Этот участник уже добавлен");
+              return;
+            }
+            setMembers((m) => [
+              ...m,
+              {
+                id: memberId.current++,
+                name: inviteEmail.split("@")[0],
+                email: inviteEmail.trim(),
+                role: inviteRole,
+              },
+            ]);
+            setInviteEmail("");
+            setInviteError("");
+            setMemberQuery("");
+            setMemberRole("all");
+          }}
+        >
+          <Text as="h2" variant="heading/panel">Добавить участника</Text>
+          <Text as="p" variant="body/default">Демонстрация добавления в таблицу. Письмо не отправляется.</Text>
+          <div className="workspace-form-grid">
+            <TextField
+              id="invite-email"
+              label="Email участника"
+              type="email"
+              size={size}
+              required
+              value={inviteEmail}
+              errorText={inviteError}
+              onChange={(e) => {
+                setInviteEmail(e.target.value);
+                setInviteError("");
+              }}
+            />
+            <Select
+              className="workspace-select"
+              id="invite-role"
+              label="Роль участника"
+              size={size}
+              value={inviteRole}
+              onValueChange={(v) => setInviteRole(String(v))}
+              options={roleOptions.filter((o) => o.value !== "owner")}
+            />
+          </div>
+          <Button
+            {...action("save")}
+            size={size}
+            type="submit"
+            variant="primary"
+          >
+            Добавить в демонстрацию
+          </Button>
+        </form>
+      </section>
+      <div id="editor-page" hidden={page!=="editor"}><EditorWorkspace size={size} action={action} typography={typography} textScale={textScale}/></div>
+      <section id="components-page" className="workspace-page" hidden={page!=="components"} aria-labelledby="components-title">
+        <Text as="h1" variant="heading/section" id="components-title">Согласованность компонентов</Text>
+        <Text as="p" variant="body/default">Сравните текст, иконки, края и интервалы при изменении общих параметров. Это рабочая проверка визуального слоя, а не отметка готовности библиотеки.</Text>
+        <VisualConsistency size={size} action={action} />
+      </section>
+      <section id="feedback-page" className="workspace-page" hidden={page!=="feedback"} aria-labelledby="feedback-title">
+        <Text as="h1" variant="heading/section" id="feedback-title">Состояния рабочего интерфейса</Text>
+        <Text as="p" variant="body/default">Сообщения, фильтр и счётчики собраны из SEDA. Выбор и удаление фильтра меняют локальный список; сетевые операции не выполняются.</Text>
+        <FeedbackWorkspace />
+      </section>
+    </>
+  );
+}
+
+function FeedbackWorkspace() {
+  const [severity,setSeverity]=useState<AlertVariant>("info");
+  const [selected,setSelected]=useState(false);
+  const [hasFilter,setHasFilter]=useState(true);
+  const [coreFilter,setCoreFilter]=useState(false);
+  const [showAlert,setShowAlert]=useState(true);
+  const [notice,setNotice]=useState<string|null>(null);
+  const noticeTrigger=useRef<HTMLButtonElement>(null);
+  const filterTrigger=useRef<HTMLButtonElement>(null);
+  const coreTrigger=useRef<HTMLButtonElement>(null);
+  const alertTrigger=useRef<HTMLButtonElement>(null);
+  const tone=severity==="error"?"danger":severity;
+  const projects=[{name:"Atlas",mine:true,team:"Core"},{name:"Nova",mine:false,team:"Core"},{name:"Orbit",mine:true,team:"Design"},{name:"Horizon",mine:false,team:"Mobile"}];
+  const matching=(mine:boolean,core:boolean)=>projects.filter(item=>(!mine||item.mine)&&(!core||item.team==="Core"));
+  const summary=(mine:boolean,core:boolean)=>{const count=matching(mine,core).length;return `${count} ${count===1?'проект':'проекта'}`;};
+  const items=matching(selected,coreFilter);
+  return <div className="feedback-workspace">
+    <div className="pane feedback-workspace__controls">
+      <Select id="feedback-severity" label="Вариант сообщения" value={severity} onValueChange={value=>setSeverity(value as AlertVariant)} options={[
+        {value:"info",label:"Информация"},{value:"success",label:"Успех"},{value:"warning",label:"Предупреждение"},{value:"error",label:"Ошибка"},{value:"ai",label:"AI-предложение"}]} />
+      <div className="visual-consistency__actions">
+        <Button ref={noticeTrigger} id="feedback-show-toast" iconLeft={<Icon name="info" />} onClick={()=>setNotice(`Показано проектов: ${items.length}`)}>Показать уведомление</Button>
+        <Button ref={alertTrigger} id="feedback-show-alert" disabled={showAlert} onClick={()=>{setShowAlert(true);requestAnimationFrame(()=>document.getElementById("feedback-severity")?.focus());}}>Вернуть сообщение</Button>
+      </div>
+    </div>
+    {showAlert&&<Alert id="feedback-alert" variant={severity} title={severity==="ai"?"AI-предложение требует проверки":"Пример состояния: "+severity}
+      description="Это визуальный пример сообщения. Его цвет, текст и иконка следуют общей системе; состояние сервера не имитируется."
+      dismissLabel="Скрыть пример сообщения" onDismiss={()=>{setShowAlert(false);requestAnimationFrame(()=>alertTrigger.current?.focus());}} />}
+    <div className="pane">
+      <div className="visual-consistency__actions">
+        {hasFilter&&<Tag id="feedback-filter" type="selectable" tone={tone} selected={selected} badgeValue={2}
+          leadingIcon={<Icon name="user" />} dismissible dismissLabel="Удалить фильтр моих проектов"
+          onSelectedChange={value=>{setSelected(value);setNotice(`Фильтр ${value?'включён':'выключен'}: ${summary(value,coreFilter)}`);}}
+          onDismiss={()=>{setHasFilter(false);setSelected(false);setNotice("Фильтр удалён");requestAnimationFrame(()=>filterTrigger.current?.focus());}}>Мои проекты</Tag>}
+        <Button ref={filterTrigger} id="feedback-restore-filter" disabled={hasFilter} onClick={()=>setHasFilter(true)}>Вернуть фильтр</Button>
+        <Button ref={coreTrigger} id="feedback-add-core" variant="secondary" disabled={coreFilter} onClick={()=>setCoreFilter(true)}>Фильтр Core</Button>
+        {coreFilter&&<Chip id="feedback-core-chip" label="Команда: Core" control="remove" removeLabel="Удалить фильтр команды Core" onRemove={()=>{setCoreFilter(false);requestAnimationFrame(()=>coreTrigger.current?.focus());}}/>}
+        <Badge id="feedback-count" count={items.length} tone={tone} accessibleLabel={`Проектов в списке: ${items.length}`} />
+      </div>
+      <ul className="feedback-workspace__list" id="feedback-projects">{items.map(item=><li key={item.name}><Text as="span" variant="body/default">{item.name}</Text><Tag leadingIcon={<Icon name="info" />}>{item.mine?"Мой проект":"Командный проект"}</Tag></li>)}</ul>
+    </div>
+    {notice&&<Toast id="feedback-toast" intent={severity==="ai"?"info":severity} duration={null} title={notice}
+      description="Постоянное уведомление: закройте его вручную. Автоочередь Toast здесь не имитируется."
+      actionLabel={selected?"Сбросить фильтр":undefined} onAction={()=>{setSelected(false);setNotice(`Фильтр сброшен: ${summary(false,coreFilter)}`);}}
+      dismissLabel="Закрыть уведомление" onDismiss={()=>{setNotice(null);noticeTrigger.current?.focus();}} />}
+    <ToastProvider><ToastQueueDemo /></ToastProvider>
+  </div>;
+}
+
+function ToastQueueDemo() {
+  const {notify,clear,visible,queued}=useToast();
+  const trigger=useRef<HTMLButtonElement>(null),serial=useRef(0);
+  const [reviewed,setReviewed]=useState(0);
+  return <div className="pane feedback-workspace__queue" id="feedback-queue-demo">
+    <Text as="h3" variant="heading/panel">Очередь уведомлений</Text>
+    <Text as="p" variant="body/default">До трёх сообщений одновременно. Время показа начинается после выхода из очереди и останавливается при наведении, фокусе или неактивном окне. Действия и ошибки остаются до закрытия.</Text>
+    <div className="visual-consistency__actions">
+      <Button id="queue-add" ref={trigger} iconLeft={<Icon name="add" />} onClick={()=>notify({title:`Локальное событие ${++serial.current}`,intent:"success",description:"Автозакрытие через 5 секунд активного показа.",dismissLabel:"Закрыть сообщение очереди"})}>Добавить событие</Button>
+      <Button id="queue-burst" onClick={()=>{for(let i=0;i<5;i++)notify({title:`Событие серии ${++serial.current}`,intent:"info",dismissLabel:"Закрыть сообщение очереди"});}}>Серия из 5</Button>
+      <Button id="queue-review" onClick={()=>notify({dedupeKey:"review",title:"Проверка макета",description:"Повторное нажатие обновляет это сообщение.",actionLabel:"Отметить проверенным",onAction:()=>setReviewed(value=>value+1),dismissLabel:"Закрыть сообщение очереди"})}>Сообщение с действием</Button>
+      <Button id="queue-clear" disabled={!visible.length&&!queued} onClick={clear}>Очистить очередь</Button>
+    </div>
+    <Text as="p" variant="body/default" id="queue-summary">Видимых: {visible.length} · В очереди: {queued} · Отметок проверки: {reviewed}</Text>
+    <ToastViewport id="feedback-queue" aria-label="Очередь событий рабочего пространства" restoreFocusRef={trigger} />
+  </div>;
+}
+
+function FieldValidationExample({size}: Pick<Props, "size">) {
+  const [tone,setTone]=useState("warning"),[name,setName]=useState("Atlas"),[width,setWidth]=useState("320"),[role,setRole]=useState("editor");
+  const messages={disabled:tone==="disabled",errorText:tone==="error"?"Проверьте значение":undefined,warningText:tone==="warning"?"Требуется проверка":undefined,successText:tone==="success"?"Значение подтверждено":undefined,helperText:"Редактируемое поле"};
+  return <section className="pane visual-consistency__sample" aria-label="Field validation" id="field-validation-example">
+    <Text as="h2" variant="heading/panel">Состояния полей</Text>
+    <Select id="field-validation-tone" label="Validation" value={tone} onValueChange={value=>setTone(String(value))} size={size} options={["default","error","warning","success","disabled"].map(value=>({value,label:value}))}/>
+    <div className="visual-consistency__fields">
+      <TextField {...messages} id="field-validation-text" label="Название" value={name} onChange={event=>setName(event.target.value)} prefix={<Icon name="search"/>} size={size}/>
+      <NumberField {...messages} id="field-validation-number" label="Ширина" value={width} onValueChange={setWidth} min={1} max={4096} suffix="px" size={size}/>
+      <Select {...messages} id="field-validation-select" label="Роль" value={role} onValueChange={value=>setRole(String(value))} options={[{value:"editor",label:"Редактор"},{value:"viewer",label:"Наблюдатель"}]} size={size}/>
+    </div>
+    <Text as="p" variant="caption/default">Warning и success не блокируют ввод. NumberField сохраняет промежуточный ввод и скрывает success, пока число не входит в диапазон 1–4096.</Text>
+  </section>;
+}
+
+function VisualConsistency({ size, action }: Pick<Props, "size" | "action">) {
+  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState("");
+  const [enabled, setEnabled] = useState(true);
+  const [numberValue,setNumberValue]=useState("320"),[mixedNumber,setMixedNumber]=useState("");
+  const [sliderValue,setSliderValue]=useState(40);
+  const [sliderRange,setSliderRange]=useState<[number,number]>([20,80]);
+  const [uploads, setUploads] = useState<Record<string, File[]>>({});
+  return <div className="visual-consistency">
+    <Checkbox id="visual-loading" label="Показать loading у действий" size={size} checked={loading} onChange={event=>setLoading(event.target.checked)} />
+    <Text as="p" variant="caption/default">Slider использует исполняемый контракт SEDA. Нативное поведение и геометрия проверяются отдельно; Figma/OS/AT приёмка остаётся открытой.</Text>
+    <FieldValidationExample size={size}/>
+    {(["default", "error", "disabled"] as const).map(state=><div key={state} className="pane visual-consistency__sample" data-visual-state={state}>
+      <Text as="h2" variant="heading/panel">{state==="default"?"Обычное состояние":state==="error"?"Ошибка поля":"Недоступное состояние"}</Text>
+      <div className="visual-consistency__fields">
+        <Slider id={`visual-slider-${state}`} label="Значение" size={size} value={sliderValue} onValueChange={setSliderValue} disabled={state==='disabled'} errorText={state==='error'?'Демонстрация ошибки значения':undefined}/>
+        <Slider id={`visual-range-${state}`} mode="range" label="Диапазон" thumbLabels={['От','До']} size={size} value={sliderRange} onValueChange={setSliderRange} disabled={state==='disabled'} errorText={state==='error'?'Демонстрация ошибки диапазона':undefined}/>
+      </div>
+      <div className="visual-consistency__fields">
+        <TextField id={`visual-field-${state}`} label="Поиск" prefix={<Icon name="search" />} size={size} value={query} onChange={event=>setQuery(event.target.value)} disabled={state==="disabled"} errorText={state==="error"?"Уточните запрос":undefined} helperText="Иконка и текст используют общий масштаб" />
+        <Select id={`visual-select-${state}`} label="Период" size={size} disabled={state==="disabled"} errorText={state==="error"?"Выберите другой период":undefined} options={[{value:"week",label:"Эта неделя"},{value:"month",label:"Этот месяц"}]} />
+      </div>
+      <div className="visual-consistency__fields">
+        <NumberField id={`visual-number-${state}`} label="Ширина" size={size} value={numberValue} onValueChange={setNumberValue} min={1} max={4096} suffix="px" disabled={state==="disabled"} errorText={state==="error"?"Уточните ширину":undefined}/>
+        <NumberField id={`visual-number-mixed-${state}`} label="Координата" size={size} value={mixedNumber} onValueChange={setMixedNumber} min={-100000} max={100000} mixed mixedLabel="Разные" suffix="px" disabled={state==="disabled"} errorText={state==="error"?"Задайте общее значение":undefined}/>
+      </div>
+      <div className="visual-consistency__actions">
+        <Button {...action("save")} id={`visual-button-${state}`} size={size} variant="primary" iconLeft={<Icon name="add" />} disabled={state==="disabled"} loading={loading}>Создать проект</Button>
+        <Button {...action("cancel")} size={size} iconRight={<Icon name="arrow-right" />} disabled={state==="disabled"} loading={loading}>Продолжить</Button>
+        <IconButton id={`visual-icon-${state}`} size={size} aria-label="Информация" icon={<Icon name="info" />} disabled={state==="disabled"} loading={loading} />
+      </div>
+      <div className="visual-consistency__actions">
+        <Checkbox id={`visual-check-${state}`} label="Включить в отчёт" size={size} defaultChecked disabled={state==="disabled"} errorText={state==="error"?"Проверьте выбранные разделы":undefined} />
+        <Toggle id={`visual-toggle-${state}`} label="Уведомления" size={size} checked={enabled} onChange={event=>setEnabled(event.target.checked)} disabled={state==="disabled"} />
+      </div>
+      <Radio id={`visual-radio-${state}`} name={`visual-period-${state}`} label="Периодичность" options={[{value:"weekly",label:"Еженедельно"},{value:"monthly",label:"Ежемесячно"}]} size={size} defaultValue="weekly" disabled={state==="disabled"} errorText={state==="error"?"Проверьте периодичность":undefined} />
+      <Tabs label={`Вкладки — ${state}`} size={size} items={[{value:"activity",label:"Активность",icon:<Icon name="clock" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Иконки в полях, действиях и навигации следуют одному размеру.</Text>},{value:"calendar",label:"Календарь",icon:<Icon name="calendar" />,disabled:state==="disabled",content:<Text as="p" variant="body/default">Состояние вкладки сохраняется при смене масштаба.</Text>}]} />
+      <div className="visual-consistency__uploads">
+        {(["dropzone","button","inline"] as const).map(variant=>{
+          const id=`visual-upload-${state}-${variant}`;
+          return <FileUpload key={variant} id={id} label={`Файлы — ${variant}`} variant={variant} size={size}
+            state={state==="disabled"?"disabled":loading?"uploading":"default"}
+            errorText={state==="error"?"Демонстрация ошибки выбора":undefined}
+            helperText="Локальный выбор файлов. Отправка не выполняется." actionLabel="Выбрать файлы" multiple
+            files={uploads[id]??[]} onFilesChange={files=>setUploads(previous=>({...previous,[id]:files}))} />;
+        })}
+      </div>
+    </div>)}
+  </div>;
+}

@@ -1,0 +1,29 @@
+{
+  "scope": "Selected current screenshots; manual review is distinct from geometry assertions. No full library or target-platform acceptance.",
+  "localReviewed": [
+    "16 normal screenshots: eight routes in Light/Dark at1440/M",
+    "Eight extreme screenshots: Sandbox/Spline/Webflow/Framer at1024/XL150/X24/Y12",
+    "NumberField M error/disabled and XL default/error in both themes across selected rows",
+    "Projects pagination normal Light/Dark"
+  ],
+  "productionReviewed": [
+    "NumberField Light/Dark M default and XL error/focus",
+    "Sandbox/Spline Light/Dark normal inspector frames",
+    "Projects pagination Light/Dark"
+  ],
+  "findings": [
+    "Shared NumberField/TextField label/value/unit alignment and theme colors agree in selected rows.",
+    "Normal inspector geometry and controls remain consistent in selected screens.",
+    "XL150/X24/Y12 is crowded: toolbar wrapping, truncated labels, reduced canvas and scrolling remain; not accepted as a comfortable dense desktop layout.",
+    "Authored canvas typography/artwork stays independent from application-chrome parameters."
+  ],
+  "fixed": [
+    "TextField inline custom properties now reach the entire field; ordinary input-only style stays on the native input.",
+    "Projects pagination buttons align with the Select control bottom."
+  ],
+  "limits": [
+    "Experimental component status;13 contracts do not certify all34 component modules.",
+    "Locale decimal parsing, pointer stepping/scrubbing, separate NumberField Figma approval remain open.",
+    "Native desktop/OS/AT/touch/Firefox/WebKit acceptance remains open."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "authoritative": "npm run verify",
+  "coverage": "complete-disjoint",
+  "total": 39,
+  "groups": {
+    "lab": 21,
+    "references": 18
+  },
+  "negativeGuardsPassed": [
+    "additional",
+    "omitted",
+    "duplicate",
+    "unknown"
+  ],
+  "requiredAggregate": "library requires all matrix parts",
+  "localPartitionRuns": {
+    "lab": {
+      "scripts": 21,
+      "exitCode": 0
+    },
+    "references": {
+      "scripts": 18,
+      "exitCode": 0
+    }
+  },
+  "runtimeChanged": false,
+  "linuxApplicationPartitions": {
+    "head": "8736d37",
+    "lab21": "success",
+    "references18": "success",
+    "package": "failed Tooltip fixture readiness; fix verified locally49/49"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "local",
+  "runtimeGitHubCommit": "f8d760dd25f6abff293d342d4c2218b3456d4fb3",
+  "sourceHashesMatched": 931,
+  "artifactHashesMatched": 532,
+  "installedPackage": true,
+  "sourceAlias": false,
+  "fieldConfigurations": 64,
+  "fieldRecords": 512,
+  "filterCases": 240,
+  "inspectorSamples": 160,
+  "glyphPaintSamples": 95,
+  "errors": [],
+  "rawResultSha256": "c504be5eb163a0f5fe17187417eba3b0fb25d0362e72ec2aa5b18ccc0082a0f8"
+}

@@ -1,0 +1,28 @@
+{
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "reviewed": [
+    "installed package gallery",
+    "real Chat M100/1440"
+  ],
+  "observations": [
+    "AI text uses readable on-emphasis ink in both themes",
+    "Identity/content/status/actions share spacing; plain reply keeps readable full-width text",
+    "Existing source strings/formatting remain intact; rich table and file now use public Table/Card",
+    "Native audio uses OS controls; it is not a Figma-player claim"
+  ],
+  "limitations": [
+    "Figma library quota prevents full fidelity review",
+    "No target AT/OS/Firefox/WebKit acceptance",
+    "Existing shell minimum viewport960px"
+  ],
+  "productionVersion": 46,
+  "productionReviewed": [
+    "Chat Light/Dark",
+    "Webflow Light/Dark",
+    "Workflow Light/Dark"
+  ],
+  "sourceAndArtifactMatch": "841 sources /532 artifacts;654 canonical Git blobs; installedPackage=true, sourceAlias=false"
+}

@@ -1,0 +1,12 @@
+
+added 24 packages in 13s
+
+> seda-parametric-settings-pilot@0.1.0 typecheck
+> tsc --noEmit && tsc --noEmit --project references/tsconfig.json
+
+{
+  "outputDir": "C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\dist",
+  "profileCount": 8,
+  "sourceAudit": true,
+  "tokenHash": "334af4749694972533babac55ef9f760e5a4501979854faab5c9c500331711f6"
+}

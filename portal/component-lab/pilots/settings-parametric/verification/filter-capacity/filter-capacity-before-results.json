@@ -1,0 +1,122 @@
+{
+  "scope": "Actual filter capacity; partial samples are retained on failure",
+  "samples": [
+    {
+      "section": "projects",
+      "theme": "Dark",
+      "size": "m",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "width": 1702,
+      "root": {
+        "x": 303,
+        "y": 648,
+        "width": 1041,
+        "height": 252,
+        "right": 1344,
+        "bottom": 900
+      },
+      "left": 325,
+      "right": 1322,
+      "available": 997,
+      "columns": "303.859px 217.047px 217.047px 217.047px",
+      "fields": [
+        {
+          "id": "search",
+          "x": 325,
+          "y": 700,
+          "width": 303.859375,
+          "height": 66,
+          "right": 628.859375,
+          "bottom": 766,
+          "font": 21,
+          "line": 30,
+          "required": 285.3603515625,
+          "textWidth": 183.3603515625,
+          "availableText": 202,
+          "constrainedByContainer": false,
+          "deficit": 0,
+          "value": ""
+        },
+        {
+          "id": "filter",
+          "x": 642.859375,
+          "y": 700,
+          "width": 217.046875,
+          "height": 66,
+          "right": 859.90625,
+          "bottom": 766,
+          "font": 21,
+          "line": 30,
+          "required": 277.998046875,
+          "textWidth": 175.998046875,
+          "availableText": 115,
+          "constrainedByContainer": false,
+          "deficit": 60.951171875,
+          "value": "all"
+        },
+        {
+          "id": "team-filter",
+          "x": 873.90625,
+          "y": 700,
+          "width": 217.046875,
+          "height": 66,
+          "right": 1090.953125,
+          "bottom": 766,
+          "font": 21,
+          "line": 30,
+          "required": 238.048828125,
+          "textWidth": 136.048828125,
+          "availableText": 115,
+          "constrainedByContainer": false,
+          "deficit": 21.001953125,
+          "value": "all"
+        },
+        {
+          "id": "project-sort",
+          "x": 1104.953125,
+          "y": 700,
+          "width": 217.046875,
+          "height": 66,
+          "right": 1322,
+          "bottom": 766,
+          "font": 21,
+          "line": 30,
+          "required": 297.931640625,
+          "textWidth": 195.931640625,
+          "availableText": 115,
+          "constrainedByContainer": false,
+          "deficit": 80.884765625,
+          "value": "original"
+        }
+      ],
+      "overflow": 0,
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 36,
+        "fieldPaddingX": 34,
+        "line": 30,
+        "font": 21,
+        "icon": 24,
+        "basePad": 5,
+        "py": 17,
+        "raw": 66,
+        "height": 66,
+        "radius": 8,
+        "formula": "max(30, 24) + 2 × 17 + 2 × 1 = 66 px",
+        "constraint": false
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,11 @@
+Bounded diagnostic excerpt; original lines: 10
+file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-colors.mjs:15
+  const background=backgrounds.toReversed().reduce((background,value)=>over(rgba(value),background),[255,255,255]);
+                               ^
+
+TypeError: backgrounds.toReversed is not a function
+    at textContrast (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-colors.mjs:15:32)
+    at verifyPopover (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-popover.mjs:40:227)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/run-popover.mjs:2:136
+
+Node.js v24.19.0

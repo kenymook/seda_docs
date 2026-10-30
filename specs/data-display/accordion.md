@@ -2,9 +2,9 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · experimental / needs-review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-05-28
+> **Last reviewed** · 2026-10-25 (React runtime; fresh Figma review pending)
 > **Figma** · [Accordion](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=6668-44)
 > **Foundation** · `accessibility.md`, `content.md`, `motion.md`, `tokens.md`
 
@@ -342,3 +342,18 @@ AI не должен:
 - Использовать неописательные titles вроде "Подробнее".
 - Создавать вложенные Accordion без review.
 - Использовать произвольные colors и borders вместо documented Accordion component tokens.
+
+## React runtime — experimental, 25.10.2026
+
+Public Accordion/AccordionItem/AccordionProps из installed @seda-ai/ui заменяют отдельные details/summary в реальных property inspectors Framer и Webflow и disclosure sections Spline. Форма, validation/drafts, save/request/model ownership сохраняются у приложений. Loading/error/retry показываются внутри content публичными feedback components и owned status; Accordion сам не запускает запросы.
+
+Required label, items и type=single|multiple. Single требует явный collapsible; value/defaultValue — string (пустая строка означает закрыто). Multiple — массив unique ids, collapsible исключён. Controlled value требует onValueChange; одновременный defaultValue запрещён типами и runtime. Uncontrolled defaultValue читается однократно. Удалённые local keys фильтруются; non-collapsible single при отсутствии доступного open item выбирает первый enabled. Controlled значение обязано соответствовать текущим items и required-open политике. Disabled открытая секция остаётся видимой, но не переключается; non-collapsible текущий trigger сохраняет focus и aria-disabled, не закрывая последнюю секцию.
+
+Item: unique id, visible string title, nonempty content; optional description, original icon, static badge string/nonnegative number и disabled. Badge использует public Badge, trigger — public Button/Icon/Text. Trigger не принимает интерактивные title/badge slots. Empty panels/invalid values/undocumented modes отклоняются. Нет произвольных spacing/color/animation props.
+
+Variants default/bordered/elevated/compact, density size compact/medium/large отделена от provider controlSize S/M/L/XL. Additive headingLevel=2–6 (default3) сохраняет outline инспекторов. ForceMount=true по умолчанию: hidden panels остаются mounted, исключены из tab/AT tree и сохраняют черновики. false явно разрешает unmount/reset app state. Native Enter/Space переключают; Tab следует доступным controls. RovingFocus=false по умолчанию; true включает один trigger tab stop, ArrowUp/Down/Home/End без изменения открытых секций. Все panel id/aria-controls и headings сохраняют связь. При скрытии/removal focused content focus ремонтируется к своему доступному trigger, следующему enabled либо root; внешний focus не перехватывается.
+
+Geometry: foundation horizontal16px (large24), trigger Y8/12/16 для compact/medium/large; common extra X/Y добавляются, minimum trigger height — shared control height. Panel X совпадает с trigger, bottom16+extraY. Compact panel использует existing accordion/surface/default transparent role для плотного inspector на общей host surface; остальные panel/container variants используют существующие component colors. Разделитель1px; named radius следует provider. Rotation150ms — foundation duration/base, reduced-motion none. Высота panel переключается сразу: это разрешённый foundation статичный переход без задержки доступности/анимации авторского содержимого. Shadow не придуман; surface geometry/animation tokens остаются gap. Нового executable instance contract нет, registry11 не увеличен.
+
+Свежая Figma6668:44 сверка недоступна из-за уже полученной service quota. Archived ready/health score не подтверждает актуальную fidelity/AT/native desktop. Проверки и границы фиксируются в reports/2026-10-25-accordion.md; ни количество DOM samples, ни partial integration не означают готовность всей библиотеки.
+Trigger title наследует общие control font/line-height от Button, поэтому размер текста и icon slots согласованы с выбранным control profile. Description использует Text caption role; provider textScale отдельно масштабирует semantic roles, а application bridge связывает общий масштаб текста с geometry controls.

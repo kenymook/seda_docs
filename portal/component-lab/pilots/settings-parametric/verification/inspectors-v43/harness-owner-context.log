@@ -1,0 +1,15 @@
+
+> seda-parametric-settings-pilot@0.1.0 verify
+> node verify-inspector-consistency.mjs && node verify-workspace-rhythm.mjs && node verify-dense-workspace.mjs && node verify-chat-composer.mjs && node verify-building-layout.mjs && node verify-tooltip-workspace.mjs && node verify-application-text.mjs && node verify-adaptive-panels.mjs && node verify-reference-modal.mjs && node verify-workspace-text.mjs && node verify-icon-workspace.mjs && node verify-choice-workspace.mjs && node verify-workspace-nontext.mjs && node verify-workspace-contrast.mjs && node verify-visual-consistency.mjs && node verify-feedback-workspace.mjs && node verify-lab2.mjs && node verify-workspace.mjs && node verify-controls.mjs && node verify-recents.mjs && node verify-building.mjs && node verify-chat.mjs && node verify-sandbox-model.mjs && node verify-sandbox.mjs && node verify-typography.mjs && node verify-spline-model.mjs && node verify-spline-renderer.mjs && node verify-spline.mjs && node verify-spline-manipulator.mjs && node verify-webflow-model.mjs && node verify-webflow-preview.mjs && node verify-webflow.mjs && node verify-framer-model.mjs && node verify-framer-preview.mjs && node verify-framer.mjs && node verify-workflow-model.mjs && node verify-workflow.mjs
+
+C:\Users\kauta\Desktop\Vibecoding\SEDA AI\.integration-lab2\portal\component-lab\pilots\settings-parametric\node_modules\playwright-core\lib\client\browserContext.js:256
+    if (this._ownerPage) throw new Error('Please use browser.newContext()');
+                               ^
+
+Error: Please use browser.newContext()
+    at BrowserContext.newPage (C:\Users\kauta\Desktop\Vibecoding\SEDA AI\.integration-lab2\portal\component-lab\pilots\settings-parametric\node_modules\playwright-core\lib\client\browserContext.js:256:32)
+    at verifyGlyphPaint (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-inspector-consistency.mjs:51:35)
+    at verifyInspectorConsistency (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-inspector-consistency.mjs:48:21)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/portal/component-lab/pilots/settings-parametric/verify-inspector-consistency.mjs:60:439
+
+Node.js v24.19.0

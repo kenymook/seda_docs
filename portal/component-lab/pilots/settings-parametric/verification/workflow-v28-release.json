@@ -1,0 +1,57 @@
+{
+  "version": 28,
+  "status": "succeeded",
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adc98ced13c8191949c7d9f997276d3",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_5708e4928cc481918770f4aa2063b3fe",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "route": "https://seda-ai-pilot.kenymook.chatgpt.site/references/workflow.html",
+  "siteSource": "244b6cb82d6cc8e089e814fd8c310e679ac6c8ec",
+  "githubFunctionalSource": "e8fc0ef2819550c9748f2622423658aa99302c94",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "users": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "production": {
+    "passed": 17,
+    "failed": 0,
+    "canonicalSourceHashes": 724,
+    "applicationGroups": 15,
+    "integrityChecks": 1,
+    "targetViewportGroup": 1,
+    "appearanceSamples": 16,
+    "extraViewportSamples": 4,
+    "runLoadingDelta": {
+      "width": 0,
+      "height": 0
+    },
+    "saveLoadingDelta": {
+      "width": 0,
+      "height": 0
+    },
+    "javascriptErrors": 0
+  },
+  "publicationCheckoutChecks": {
+    "typescriptProjects": 3,
+    "build": "PASS",
+    "applicationGroups": 214,
+    "isolatedGroups": 22,
+    "domainGroups": 75
+  },
+  "ciAtPublication": {
+    "run": 40090368775,
+    "job": 120861620761,
+    "commit": "e8fc0ef2819550c9748f2622423658aa99302c94",
+    "status": "in_progress"
+  },
+  "archive": {
+    "name": "seda-workflow-v28-deploy.tar.gz",
+    "bytes": 7448904,
+    "sha256": "0cb280de0399a06e992964ba768a09c34a53260d06a98892b065e17a40d16ed0"
+  },
+  "subsequentFinding": "Negative import audit found provider array accepted via String coercion; new regression15/1, correction prepares subsequent release. Do not use initial green functional results as full schema acceptance."
+}

@@ -120,6 +120,12 @@ Figma component set: `radio`. Node id: `1082:14510`.
 
 ## 7. Accessibility
 
+### Геометрия и описание варианта
+
+Маркер каждого варианта привязан к первой строке label; перенос label и helper не меняют эту опору. В горизонтальной группе варианты выравниваются через `align-items: first baseline`, а не по центру общей высоты. Высота первой строки согласована с Checkbox/Toggle того же preset.
+
+Каждый native input получает уникальный `aria-labelledby` на подпись варианта и `aria-describedby` на его helper. Helper не входит повторно в доступное имя; числовой helper `0` отображается. Legend и описание группы сохраняют отдельный контекст.
+
 Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
@@ -163,12 +169,13 @@ Figma component set: `radio`. Node id: `1082:14510`.
 | `$collections/components/$modes/Mode 1/radio/control/surface/selected` | Control surface selected | `container/brand/default` |
 | `$collections/components/$modes/Mode 1/radio/control/surface/error` | Control surface error | `status/danger/container` |
 | `$collections/components/$modes/Mode 1/radio/control/surface/disabled` | Control surface disabled | `status/disabled/container` |
-| `$collections/components/$modes/Mode 1/radio/control/border/default` | Control border default | `border/default` |
-| `$collections/components/$modes/Mode 1/radio/control/border/hover` | Control border hover | `border/hover` |
+| `$collections/components/$modes/Mode 1/radio/control/border/default` | Control border default | `border/control/default` |
+| `$collections/components/$modes/Mode 1/radio/control/border/hover` | Control border hover | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/radio/control/border/selected` | Control border selected | `border/brand/default` |
 | `$collections/components/$modes/Mode 1/radio/control/border/error` | Control border error | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/radio/control/border/disabled` | Control border disabled | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/radio/control/dot/selected` | Dot selected | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/radio/control/dot/error` | Selected error marker | `status/danger/icon` |
 | `$collections/components/$modes/Mode 1/radio/control/dot/disabled` | Dot disabled | `status/disabled/icon` |
 | `$collections/components/$modes/Mode 1/radio/control/dot/default` | Dot default | `surface/base` |
 
@@ -259,3 +266,8 @@ Figma component set: `radio`. Node id: `1082:14510`.
 - Прятать error только в цвете.
 - Смешивать options разных уровней детализации.
 - Добавлять custom selected colors без system review.
+
+
+## Исполняемый контракт web
+
+Контракт реализован в `packages/seda-contracts/contracts/Radio.json`. Общий compiler и runtime-проверки описаны в [D25](../../packages/seda-contracts/WORKSPACE-CONTRACTS.md). Источник исполнения — настоящий компонент `packages/seda-ui`, а не HTML-макет. Браузерное покрытие и ограничения платформ зафиксированы в [отчёте Lab](../../portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md).

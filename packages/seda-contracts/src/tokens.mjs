@@ -1,7 +1,7 @@
 /**
  * Resolver for SEDA's current token document, not a general DTCG resolver.
  * Foundation/components use Mode 1; semantic uses the requested Light/Dark.
- * An unqualified alias must match exactly one of these three collections.
+ * An unqualified alias must match exactly one token leaf in these collections.
  * Numeric values stay unitless unless the caller requests the px adapter.
  * Planned additions are reported, never fabricated.
  */
@@ -111,11 +111,17 @@ export function createTokenResolver(tokens) {
 
   function lookupAlias(path, theme, at) {
     const matches = [];
+    let branchFound = false;
     // No missing mode is silently replaced by a default mode.
     for (const collection of COLLECTIONS) {
       const { root } = modeOf(collection, theme);
-      if (read(root, path).found) matches.push({ collection, path });
+      const found = read(root, path);
+      if (found.found) {
+        if (object(found.node) && OWN(found.node, "$value")) matches.push({ collection, path });
+        else branchFound = true;
+      }
     }
+    if (!matches.length && branchFound) fail("TOKEN_BRANCH_AS_LEAF", at, `Alias {${path.join(".")}} points only to branches.`);
     if (!matches.length) fail("TOKEN_ALIAS_NOT_FOUND", at, `Alias {${path.join(".")}} has no target in the selected modes.`);
     if (matches.length > 1) {
       fail("TOKEN_ALIAS_AMBIGUOUS", at, `Alias {${path.join(".")}} matches multiple collections: ${matches.map(match => match.collection).join(", ")}.`);

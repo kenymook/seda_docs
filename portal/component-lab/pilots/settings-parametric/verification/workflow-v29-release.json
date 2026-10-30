@@ -1,0 +1,73 @@
+{
+  "version": 29,
+  "status": "succeeded",
+  "projectId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af",
+  "deploymentId": "appgdep_6adc9b20bdc88191a4649ea95c4f2c27",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_7924c69114508191a8969965b4bbb2e6",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "route": "https://seda-ai-pilot.kenymook.chatgpt.site/references/workflow.html",
+  "siteSource": "39f06610d24827cce15887761bb3bddba6df9ebb",
+  "githubFunctionalSource": "815f657437c0ee1a51516281016f073c0c9a9446",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "users": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "production": {
+    "passed": 17,
+    "failed": 0,
+    "canonicalSourceHashes": 724,
+    "applicationGroups": 15,
+    "integrityChecks": 1,
+    "targetViewportGroup": 1,
+    "appearanceSamples": 16,
+    "extraViewportSamples": 4,
+    "primitiveProviderStorageRegression": true,
+    "runLoadingDelta": {
+      "width": 0,
+      "height": 0
+    },
+    "saveLoadingDelta": {
+      "width": 0,
+      "height": 0
+    },
+    "javascriptErrors": 0
+  },
+  "publicationCheckoutChecks": {
+    "typescriptProjects": 3,
+    "build": "PASS",
+    "workflowApplicationGroups": 15,
+    "workflowDomainGroups": 16,
+    "scope": "One-line provider type validation fix plus regression tests. Other application suites were not repeated for this isolated change."
+  },
+  "ciAtPublication": {
+    "run": 40091230108,
+    "job": 120864147436,
+    "commit": "815f657437c0ee1a51516281016f073c0c9a9446",
+    "status": "in_progress"
+  },
+  "precedingCompletedCI": {
+    "run": 40090368775,
+    "job": 120861620761,
+    "commit": "e8fc0ef2819550c9748f2622423658aa99302c94",
+    "applicationGroups": 214,
+    "isolatedGroups": 22,
+    "domainGroups": 75,
+    "note": "Precedes strict primitive provider correction; not a full CI claim for version29."
+  },
+  "archive": {
+    "name": "seda-workflow-provider-v29-deploy.tar.gz",
+    "bytes": 7448881,
+    "sha256": "e0301603ae463d0a54455dfb5eec4732086ec0ea7e02b12e24b8ed568b1ff787"
+  },
+  "remaining": [
+    "Exact source visual/artwork fidelity and full keyboard/AT/OS/performance acceptance",
+    "FileUpload executable contract and complete X/Y binding; experimental SplitView",
+    "Real AI provider/inference/image generation/billing/server persistence absent",
+    "Graph import/asset library/search/recents/saved/multi-select/resize/clipboard and additional media ports",
+    "Full Figma/Notion/ChatGPT/Claude Design maturity objective"
+  ]
+}

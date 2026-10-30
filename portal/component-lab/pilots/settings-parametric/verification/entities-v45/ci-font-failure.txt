@@ -1,0 +1,7 @@
+Runtime9522781 Ubuntu CI: https://github.com/kenymook/seda_docs/actions/runs/40159585514/job/121068148068
+Package/contracts/typecheck passed; pilot failed source-font geometry comparison.
+2026-10-25T03:49:33.9783543Z ##[group]Run npm run verify:package
+2026-10-25T03:56:10.4025909Z ##[group]Run npm run verify
+2026-10-25T03:59:38.6422152Z AssertionError [ERR_ASSERTION]: {"id":"doc-block-block-165","key":"height","actual":104,"expected":78}
+2026-10-25T03:59:38.6424468Z     at verifyBuildingLayout (file:///home/runner/work/seda_docs/seda_docs/portal/component-lab/pilots/settings-parametric/verify-building-layout.mjs:8:332)
+2026-10-25T03:59:38.6585900Z ##[error]Process completed with exit code 1.

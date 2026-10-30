@@ -1,0 +1,329 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "NumberField",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/NumberField/NumberField.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/NumberField/NumberField.tsx",
+    "export": "NumberFieldProps",
+    "nativeElement": "input"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "label",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "span",
+      "prop": "label",
+      "required": true
+    },
+    {
+      "name": "control",
+      "element": "input",
+      "required": true
+    },
+    {
+      "name": "message",
+      "element": "span",
+      "required": false
+    },
+    {
+      "name": "prefix",
+      "element": "ReactNode",
+      "prop": "prefix",
+      "required": false
+    },
+    {
+      "name": "suffix",
+      "element": "ReactNode",
+      "prop": "suffix",
+      "required": false
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "step": 1,
+    "mixed": false,
+    "mixedLabel": "Mixed",
+    "disabled": false,
+    "readOnly": false
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled",
+      "read-only"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none",
+      "error",
+      "warning",
+      "success"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "text-field"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Supported NumberField instance",
+      "expected": "Непустой видимый label.",
+      "check": "text-content",
+      "layer": "instance",
+      "decision": "D32",
+      "prop": "label"
+    },
+    {
+      "id": "model",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Supported NumberField instance",
+      "expected": "Controlled raw string/owner and finite ordered bounds/positive step; partial/Mixed are not zero.",
+      "check": "number-field-model",
+      "layer": "instance",
+      "decision": "D32"
+    },
+    {
+      "id": "error",
+      "source": "packages/seda-contracts/FIELD-VALIDATION.md",
+      "condition": "При errorText/warningText/successText или validation preview",
+      "expected": "Непустое сообщение, единый приоритет и связь с реальным состоянием поля.",
+      "check": "error-message",
+      "layer": "instance",
+      "decision": "D32"
+    },
+    {
+      "id": "disabled",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Supported NumberField instance",
+      "expected": "Native availability blocks real interaction.",
+      "check": "native-disabled",
+      "layer": "instance",
+      "decision": "D32"
+    },
+    {
+      "id": "geometry",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Rendered NumberField",
+      "expected": "Actual TextField geometry/colors follow common compiler values.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D32"
+    },
+    {
+      "id": "focus",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Rendered NumberField",
+      "expected": "One visible focus ring and actual input ref/name.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D32"
+    },
+    {
+      "id": "keys",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Rendered NumberField",
+      "expected": "Stepping preserves decimal/large values, bounds, native text editing and IME.",
+      "check": "number-field-keyboard",
+      "layer": "browser",
+      "decision": "D32"
+    },
+    {
+      "id": "draft",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Rendered NumberField",
+      "expected": "Raw/Mixed and owner refusal preserve value; commit/save stay with host.",
+      "check": "number-field-draft",
+      "layer": "browser",
+      "decision": "D32"
+    },
+    {
+      "id": "form",
+      "source": "packages/seda-contracts/NUMBER-FIELD-CONTRACT.md",
+      "condition": "Rendered NumberField",
+      "expected": "FormData, fieldset, readOnly and owner reset preserve native behavior.",
+      "check": "number-field-form",
+      "layer": "browser",
+      "decision": "D32"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "numeric-buffer",
+      "status": "supported",
+      "reason": "Shared numeric core and explicit TextField visual alias; runtime proof separate."
+    },
+    {
+      "id": "fresh-figma-os-at",
+      "status": "not-checked",
+      "reason": "No separate Figma NumberField approval or native OS/AT certification."
+    }
+  ],
+  "evidence": {
+    "source": "specs/inputs/number-field.md",
+    "baseline": "packages/seda-ui/src/components/NumberField/NumberField.tsx",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "focus"
+      ],
+      [
+        "surface",
+        "error"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "focus"
+      ],
+      [
+        "border",
+        "error"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "label",
+        "default"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "helper",
+        "default"
+      ],
+      [
+        "helper",
+        "error"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "border",
+        "active"
+      ],
+      [
+        "foreground",
+        "placeholder"
+      ],
+      [
+        "affix",
+        "surface"
+      ],
+      [
+        "affix",
+        "foreground"
+      ],
+      [
+        "icon",
+        "default"
+      ],
+      [
+        "icon",
+        "active"
+      ],
+      [
+        "icon",
+        "disabled"
+      ],
+      [
+        "icon",
+        "error"
+      ],
+      [
+        "surface",
+        "warning"
+      ],
+      [
+        "border",
+        "warning"
+      ],
+      [
+        "helper",
+        "warning"
+      ],
+      [
+        "icon",
+        "warning"
+      ],
+      [
+        "surface",
+        "success"
+      ],
+      [
+        "border",
+        "success"
+      ],
+      [
+        "helper",
+        "success"
+      ],
+      [
+        "icon",
+        "success"
+      ]
+    ]
+  }
+}

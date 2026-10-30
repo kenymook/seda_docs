@@ -1,63 +1,257 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { Button, IconButton, TextField } from '@seda-ai/ui';
-import { createFormState, transitionForm } from '../../../../packages/seda-contracts/src/form.mjs';
-import { createWebBindings, bindWebRecipe } from '../../../../packages/seda-contracts/src/web.mjs';
-import { profiles, profile, provenance } from 'seda:catalog';
-import { ReviewFixtures } from './test-fixtures';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/700.css';
-import '@seda-ai/ui/styles.css';
-import './styles.css';
+import {SharedDesignProvider,useSavedProfiles} from './SharedDesignProvider';
+import {StudioHeader, StudioRail} from './StudioChrome';
+import {Tabs as ShellTabs} from '@seda-ai/ui';
+import './lab-studio.css';
+import {Table, Card, Avatar, Tooltip, Alert, Accordion, TopBar} from "@seda-ai/ui";
+import React, { useEffect, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
+import { SedaProvider, Text, Icon, Tag, Button, IconButton, TextField } from "@seda-ai/ui";
+import {
+  createFormState,
+  transitionForm,
+} from "../../../../packages/seda-contracts/src/form.mjs";
+import {
+  createWebBindings,
+  bindWebRecipe,
+} from "../../../../packages/seda-contracts/src/web.mjs";
+import { profiles, profile, provenance, ownerPolicy } from "seda:catalog";
+import { ControlFixtures } from "./control-fixtures";
+import { ReviewFixtures } from "./test-fixtures";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@seda-ai/ui/styles.css";
+import "./styles.css";
+import { Slider, Select, Checkbox, DropdownMenu, ControlContractProvider } from "./contract-controls";
+import { ProductWorkspace } from "./ProductWorkspace";
+import {workspaceCompositions, type WorkspacePage} from "./workspace-composition";
+import { createWorkspaceBindings } from "./workspace-bindings.mjs";
+import "./workspace.css";
+import { derive, fmt } from "./lab-model.mjs";
 
-type Configuration = { theme: 'Light' | 'Dark'; controlSize: 's' | 'm' | 'l' | 'xl'; density: 'regular' };
-type TransportMode = 'success' | 'failure' | 'manual';
-type RequestRecord = { requestId: number; value: string; status: 'pending' | 'success' | 'failure' };
-const isReview = new URLSearchParams(window.location.search).get('review') === '1';
-const initialConfiguration: Configuration = { ...profile.configuration };
-const HelpIcon = () => <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6"/><path d="M9.7 9.4a2.4 2.4 0 0 1 4.5 1.2c0 1.8-2.2 2-2.2 3.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/><circle cx="12" cy="16.7" r=".85" fill="currentColor"/></svg>;
-const ArrowIcon = () => <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7 5 5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+type Configuration = {
+  theme: "Light" | "Dark";
+  controlSize: "s" | "m" | "l" | "xl";
+  density: "regular";
+};
+type TransportMode = "success" | "failure" | "manual";
+type RequestRecord = {
+  requestId: number;
+  value: string;
+  status: "pending" | "success" | "failure";
+};
+const isReview =
+  new URLSearchParams(window.location.search).get("review") === "1";
+const initialConfiguration: Configuration = { ...profile.configuration, ...ownerPolicy.defaultConfiguration };
+const parameterRanges = ownerPolicy.controls;
+const defaultParameters = {
+  scale: parameterRanges.scale.default as number,
+  air: parameterRanges.air.default as number,
+  airX: parameterRanges.airX.default as number,
+  radius: parameterRanges.radius.default as number,
+  strict: parameterRanges.strict.default as boolean,
+};
+const projectPlural = new Intl.PluralRules("ru-RU");
+const projectCount = (count: number) => {
+  const category = projectPlural.select(count);
+  const suffix = category === "one" ? "проект" : category === "few" ? "проекта" : "проектов";
+  return `${count} ${suffix}`;
+};
+const HelpIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6" />
+    <path
+      d="M9.7 9.4a2.4 2.4 0 0 1 4.5 1.2c0 1.8-2.2 2-2.2 3.6"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    />
+    <circle cx="12" cy="16.7" r=".85" fill="currentColor" />
+  </svg>
+);
 
 function App() {
-  const [configuration, setConfiguration] = useState<Configuration>(initialConfiguration);
+  const profiles=useSavedProfiles();
+  const [rightPanel,setRightPanel]=useState("parameters");
+  const [parameters, setParameters] = useState({ ...defaultParameters });
+  const [view, setView] = useState("table");
+  const [workspacePage, setWorkspacePage] = useState<WorkspacePage>("projects");
+  const [teamFilter, setTeamFilter] = useState("all");
+  const [onlyActive, setOnlyActive] = useState(false);
+  const [sort, setSort] = useState("original");
+  const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
+  const [query, setQuery] = useState("");
+  const [deleteProject, setDeleteProject] = useState<string | null>(null);
+  const deleteDialog = useRef<HTMLDialogElement>(null);
+  const deleteReturnFocus = useRef<HTMLElement | null>(null);
+  const [filter, setFilter] = useState("all");
+  const [selected, setSelected] = useState("size");
+  const [projects, setProjects] = useState([
+    {
+      name: "Atlas Platform",
+      status: "active",
+      team: "Core",
+      updated: "Сегодня",
+    },
+    {
+      name: "Nova Console",
+      status: "draft",
+      team: "Product",
+      updated: "Вчера",
+    },
+    {
+      name: "Orbit Studio",
+      status: "active",
+      team: "Design",
+      updated: "12 окт",
+    },
+    { name: "Horizon App", status: "paused", team: "Mobile", updated: "9 окт" },
+  ]);
+  const [modalName, setModalName] = useState("");
+  const modal = useRef<HTMLDialogElement>(null);
+  const modalReturnFocus = useRef<HTMLElement | null>(null);
+  const [measurements, setMeasurements] = useState<
+    { id: string; h: number; expected: number; flexible?: boolean }[]
+  >([]);
+  const [configuration, setConfiguration] =
+    useState<Configuration>(initialConfiguration);
   const [replacement, setReplacement] = useState<any>(null);
-  const [form, setForm] = useState(() => createFormState('SEDA AI'));
-  const [transportMode, setTransportModeState] = useState<TransportMode>('success');
+  const [form, setForm] = useState(() => createFormState("Atlas Platform"));
+  const [transportMode, setTransportModeState] =
+    useState<TransportMode>("manual");
   const [requestRevision, setRequestRevision] = useState(0);
-  const [inspectedRole, setInspectedRole] = useState('save');
+  const [inspectedRole, setInspectedRole] = useState("save");
   const formRef = useRef(form);
   const configurationRef = useRef(configuration);
   const replacementRef = useRef<any>(null);
-  const transportRef = useRef<TransportMode>('success');
+  const transportRef = useRef<TransportMode>("manual");
   const requestsRef = useRef<RequestRecord[]>([]);
   const timersRef = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
   const generationRef = useRef(0);
-  const routeRef = useRef<'click' | 'enter' | 'programmatic' | 'retry'>('programmatic');
+  const routeRef = useRef<"click" | "enter" | "programmatic" | "retry">(
+    "programmatic",
+  );
   const fieldRef = useRef<HTMLInputElement>(null);
-  const compiled = replacement ?? profiles[`${configuration.theme}:${configuration.controlSize}`];
-  const bindings = createWebBindings(compiled);
+  const pendingHeightRef = useRef<number | null>(null);
+  const pendingPaddingRef = useRef<{ value: number; airX: number } | null>(
+    null,
+  );
+  const compiled =
+    replacement ??
+    profiles[`${configuration.theme}:${configuration.controlSize}`];
+  const baseBindings = createWebBindings(compiled);
+  const d = derive(compiled, parameters);
+  const geometryVars = {
+    "--seda-control-height": d.height + "px",
+    "--seda-control-radius": d.radius + "px",
+    "--seda-control-font-size": d.font + "px",
+    "--seda-control-line-height": d.line + "px",
+    "--seda-control-icon-size": d.icon + "px",
+  };
+  const geometryFor = (role: string, preserveRequest = false) => ({
+    ...geometryVars,
+    ...(compiled.instances[role].component === "IconButton"
+      ? {}
+      : {
+          "--seda-control-padding-inline":
+            (compiled.instances[role].component === "TextField"
+              ? d.fieldPaddingX
+              : preserveRequest && form.saving
+                ? (pendingPaddingRef.current?.value ?? d.buttonPaddingX)
+                : d.buttonPaddingX) + "px",
+        }),
+  });
+  const bindings = {
+    ...baseBindings,
+    recipes: Object.fromEntries(
+      Object.entries(baseBindings.recipes).map(([role, b]) => [
+        role,
+        {
+          ...b,
+          vars: { ...b.vars, ...geometryFor(role, role === "save") },
+          evidence: b.evidence.map((item) => {
+            const calculated = (
+              geometryFor(role, role === "save") as Record<string, string>
+            )[item.property];
+            return calculated
+              ? {
+                  ...item,
+                  baseCssValue: item.cssValue,
+                  cssValue: calculated,
+                  derivation: {
+                    source: "packages/seda-contracts/src/control-geometry.mjs",
+                    parameters:
+                      role === "save" &&
+                      form.saving &&
+                      item.property === "--seda-control-padding-inline"
+                        ? {
+                            ...parameters,
+                            airX:
+                              pendingPaddingRef.current?.airX ??
+                              parameters.airX,
+                          }
+                        : parameters,
+                    inputs: compiled.geometry,
+                  },
+                }
+              : item;
+          }),
+        },
+      ]),
+    ),
+  };
+  const real = (role: string, _preserveRequest = false) => ({
+    ...bindings.recipes[role].attributes,
+    style: Object.fromEntries(Object.entries(bindings.recipes[role].vars).filter(([name])=>!name.startsWith('--seda-control-'))) as React.CSSProperties,
+  });
 
-  const activeCompiled = () => replacementRef.current ?? profiles[`${configurationRef.current.theme}:${configurationRef.current.controlSize}`];
-  const refreshRequests = () => setRequestRevision(value => value + 1);
+  const workspaceBinding = createWorkspaceBindings(
+    compiled,
+    d,
+    parameters,
+
+  );
+  const workspaceStyle = workspaceBinding.vars as React.CSSProperties;
+  const activeCompiled = () =>
+    replacementRef.current ??
+    profiles[
+      `${configurationRef.current.theme}:${configurationRef.current.controlSize}`
+    ];
+  const refreshRequests = () => setRequestRevision((value) => value + 1);
 
   function dispatch(event: any) {
-    const result = transitionForm(formRef.current, event, activeCompiled().form.policy);
+    const result = transitionForm(
+      formRef.current,
+      event,
+      activeCompiled().form.policy,
+    );
     // Update before React renders: multiple submit routes in one event loop share the guard.
     formRef.current = result.state;
     setForm(result.state);
     for (const effect of result.effects) {
-      if (effect.type === 'focus') {
-        if (effect.target === 'projectName') fieldRef.current?.focus();
-      } else if (effect.type === 'save') {
-        requestsRef.current.push({ requestId: effect.requestId, value: effect.value, status: 'pending' });
+      if (effect.type === "focus") {
+        if (effect.target === "projectName") fieldRef.current?.focus();
+      } else if (effect.type === "save") {
+        pendingHeightRef.current = d.height;
+        pendingPaddingRef.current = {
+          value: d.buttonPaddingX,
+          airX: parameters.airX,
+        };
+        requestsRef.current.push({
+          requestId: effect.requestId,
+          value: effect.value,
+          status: "pending",
+        });
         refreshRequests();
         const outcome = transportRef.current;
-        if (outcome !== 'manual') {
+        if (outcome !== "manual") {
           const generation = generationRef.current;
           const timer = setTimeout(() => {
             timersRef.current.delete(timer);
-            if (generation === generationRef.current) respond(effect.requestId, outcome);
+            if (generation === generationRef.current)
+              respond(effect.requestId, outcome);
           }, 900);
           timersRef.current.add(timer);
         }
@@ -65,20 +259,39 @@ function App() {
     }
   }
 
-  function respond(requestId: number, outcome: 'success' | 'failure') {
-    if (!['success', 'failure'].includes(outcome)) throw new TypeError('Response must be success or failure.');
-    const request = requestsRef.current.find(item => item.requestId === requestId);
+  function respond(requestId: number, outcome: "success" | "failure") {
+    if (!["success", "failure"].includes(outcome))
+      throw new TypeError("Response must be success or failure.");
+    const request = requestsRef.current.find(
+      (item) => item.requestId === requestId,
+    );
     // The model also receives unknown/duplicate IDs so its stale-response guard remains authoritative.
-    dispatch({ type: outcome === 'success' ? 'saveSucceeded' : 'saveFailed', requestId });
-    if (request?.status === 'pending') { request.status = outcome; refreshRequests(); }
+    dispatch({
+      type: outcome === "success" ? "saveSucceeded" : "saveFailed",
+      requestId,
+    });
+    if (request?.status === "pending") {
+      request.status = outcome;
+      refreshRequests();
+    }
   }
 
   function configure(update: Partial<Configuration>) {
-    if (!update || typeof update !== 'object' || Array.isArray(update)) throw new TypeError('Configuration update must be an object.');
-    if (Object.keys(update).some(key => !['theme', 'controlSize', 'density'].includes(key))) throw new TypeError('Unknown configuration option.');
+    if (!update || typeof update !== "object" || Array.isArray(update))
+      throw new TypeError("Configuration update must be an object.");
+    if (
+      Object.keys(update).some(
+        (key) => !["theme", "controlSize", "density"].includes(key),
+      )
+    )
+      throw new TypeError("Unknown configuration option.");
     const next = { ...configurationRef.current, ...update };
-    if (next.density !== 'regular' || !profiles[`${next.theme}:${next.controlSize}`]) throw new TypeError('Unsupported profile configuration.');
-    dispatch({ type: 'profileChanged' });
+    if (
+      next.density !== "regular" ||
+      !profiles[`${next.theme}:${next.controlSize}`]
+    )
+      throw new TypeError("Unsupported profile configuration.");
+    dispatch({ type: "profileChanged" });
     configurationRef.current = next;
     replacementRef.current = null;
     setReplacement(null);
@@ -86,7 +299,8 @@ function App() {
   }
 
   function setTransportMode(mode: TransportMode) {
-    if (!['success', 'failure', 'manual'].includes(mode)) throw new TypeError('Unsupported demo transport mode.');
+    if (!["success", "failure", "manual"].includes(mode))
+      throw new TypeError("Unsupported demo transport mode.");
     transportRef.current = mode;
     setTransportModeState(mode);
   }
@@ -96,24 +310,33 @@ function App() {
     timersRef.current.forEach(clearTimeout);
     timersRef.current.clear();
     requestsRef.current = [];
-    routeRef.current = 'programmatic';
-    const next = createFormState('SEDA AI');
+    routeRef.current = "programmatic";
+    const next = createFormState("SEDA AI");
     formRef.current = next;
     setForm(next);
     configurationRef.current = { ...initialConfiguration };
     setConfiguration(configurationRef.current);
     replacementRef.current = null;
     setReplacement(null);
-    setTransportMode('success');
+    setTransportMode("manual");
+    setParameters({ ...defaultParameters });
     refreshRequests();
   }
 
   function replaceCompiled(candidate: any) {
-    if (!isReview) throw new Error('Compiled replacement is available only in the review fixture.');
+    if (!isReview)
+      throw new Error(
+        "Compiled replacement is available only in the review fixture.",
+      );
     createWebBindings(candidate);
-    if (!profiles[`${candidate.configuration.theme}:${candidate.configuration.controlSize}`]) throw new Error('Unsupported replacement configuration.');
+    if (
+      !profiles[
+        `${candidate.configuration.theme}:${candidate.configuration.controlSize}`
+      ]
+    )
+      throw new Error("Unsupported replacement configuration.");
     const next = structuredClone(candidate);
-    dispatch({ type: 'profileChanged' });
+    dispatch({ type: "profileChanged" });
     configurationRef.current = { ...next.configuration };
     setConfiguration(configurationRef.current);
     replacementRef.current = next;
@@ -122,97 +345,1029 @@ function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = compiled.domTheme;
+    document.body.classList.toggle("dark", compiled.domTheme === "dark");
   }, [compiled.domTheme]);
 
   useEffect(() => {
     (window as any).sedaPilot = {
-      configure, setTransportMode, respond, reset,
+      configure,
+      setTransportMode,
+      respond,
+      reset,
       getState: () => structuredClone(formRef.current),
       getCompiled: () => structuredClone(activeCompiled()),
-      getEvidence: () => structuredClone(createWebBindings(activeCompiled())),
+      getLab: () => ({ parameters, derived: d }),
+      getWorkspaceEvidence: () => structuredClone(workspaceBinding),
+      getEvidence: () => structuredClone(bindings),
       getRequests: () => structuredClone(requestsRef.current),
       ...(isReview ? { replaceCompiled } : {}),
     };
   });
 
-  useEffect(() => () => {
-    generationRef.current += 1;
-    timersRef.current.forEach(clearTimeout);
-    timersRef.current.clear();
-    delete (window as any).sedaPilot;
-  }, []);
+  useEffect(
+    () => () => {
+      generationRef.current += 1;
+      timersRef.current.forEach(clearTimeout);
+      timersRef.current.clear();
+      delete (window as any).sedaPilot;
+    },
+    [],
+  );
 
   const handlers = {
-    'form.change': (event: React.ChangeEvent<HTMLInputElement>) => dispatch({ type: 'change', value: event.currentTarget.value }),
-    'form.blur': () => dispatch({ type: 'blur' }),
-    'form.cancel': () => dispatch({ type: 'cancel' }),
-    'form.toggleHelp': () => dispatch({ type: 'toggleHelp' }),
+    "form.change": (event: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch({ type: "change", value: event.currentTarget.value }),
+    "form.blur": () => dispatch({ type: "blur" }),
+    "form.cancel": () => dispatch({ type: "cancel" }),
+    "form.toggleHelp": () => dispatch({ type: "toggleHelp" }),
   };
-  const slots = { 'help-icon': <HelpIcon/> };
-  const propsFor = (role: string): any => bindWebRecipe(profile.recipes[role], compiled.configuration, form, { handlers, slots });
+  const slots = { "help-icon": <HelpIcon /> };
+  const propsFor = (role: string): any =>
+    bindWebRecipe(profile.recipes[role], compiled.configuration, form, {
+      handlers,
+      slots,
+    });
   const requests = requestsRef.current;
   const lastRequest = requests[requests.length - 1];
-  const stateLabel = form.saving ? 'Сохранение…' : form.saveError ? 'Не удалось сохранить' : form.dirty ? 'Есть несохранённые изменения' : lastRequest?.status === 'success' ? 'Изменения сохранены' : 'Все изменения сохранены';
+  const stateLabel = form.saving
+    ? "Сохранение…"
+    : form.saveError
+      ? "Не удалось сохранить"
+      : form.dirty
+        ? "Есть несохранённые изменения"
+        : lastRequest?.status === "success"
+          ? "Изменения сохранены"
+          : "Все изменения сохранены";
   const evidence = bindings.recipes[inspectedRole].evidence;
-  const geometry = compiled.geometry;
+  const statusLabels: Record<string, string> = {
+    active: "Активный",
+    draft: "Черновик",
+    paused: "Приостановлен",
+  };
+  const filteredItems = projects.filter(
+    (p) =>
+      p.name.toLowerCase().includes(query.trim().toLowerCase()) &&
+      (filter === "all" || p.status === filter) &&
+      (teamFilter === "all" || p.team === teamFilter) &&
+      (!onlyActive || p.status === "active"),
+  );
+  if (sort === "name-asc")
+    filteredItems.sort((a, b) => a.name.localeCompare(b.name));
+  if (sort === "name-desc")
+    filteredItems.sort((a, b) => b.name.localeCompare(a.name));
+  const currentPage = Math.min(
+    pageIndex,
+    Math.max(0, Math.ceil(filteredItems.length / pageSize) - 1),
+  );
+  const items = filteredItems.slice(
+    currentPage * pageSize,
+    (currentPage + 1) * pageSize,
+  );
+  const selectedVisible = items.filter((p) =>
+    selectedProjects.includes(p.name),
+  );
+  const resetFilters = () => {
+    setQuery("");
+    setFilter("all");
+    setTeamFilter("all");
+    setOnlyActive(false);
+    setSort("original");
+    setPageIndex(0);
+  };
+  useEffect(
+    () => setPageIndex(0),
+    [query, filter, teamFilter, onlyActive, sort, pageSize],
+  );
+  const chooseProject = (name: string) => {
+    dispatch({ type: "change", value: name });
+    fieldRef.current?.focus();
+  };
+  const nodes: Record<string, { v: string; desc: string; deps: string }> = {
+    size: {
+      v: configuration.controlSize + " · " + d.preset.height + " px",
+      desc: "Компилированный профиль settings-form",
+      deps: "size → line-height, font-size, padding, minimum height, radius",
+    },
+    lineHeight: {
+      v: d.line + " px",
+      desc: d.preset.line + " × " + parameters.scale + "% = " + d.line,
+      deps: "size + text scale → line-height → height",
+    },
+    height: {
+      v: fmt(d.height) + " px",
+      desc: d.formula,
+      deps: "line-height + icon + padding-y + border + min-height → Button, IconButton, TextField, Select",
+    },
+    air: {
+      v: fmt(d.py) + " px",
+      desc:
+        "(" +
+        d.preset.height +
+        " − " +
+        d.preset.line +
+        " − 2 × " +
+        d.preset.border +
+        ") / 2 + " +
+        parameters.air +
+        " = " +
+        fmt(d.py),
+      deps: "compiled geometry + vertical air → padding-y → height",
+    },
+    airX: {
+      v:
+        "Button " +
+        fmt(d.buttonPaddingX) +
+        " / TextField " +
+        fmt(d.fieldPaddingX) +
+        " px",
+      desc:
+        "Button: " +
+        d.preset.buttonPaddingX +
+        " + " +
+        parameters.airX +
+        " = " +
+        fmt(d.buttonPaddingX) +
+        " px; TextField: " +
+        d.preset.fieldPaddingX +
+        " + " +
+        parameters.airX +
+        " = " +
+        fmt(d.fieldPaddingX) +
+        " px",
+      deps: "compiled buttonPaddingInline / textFieldPaddingInline + X → padding-inline → Button width / TextField inner space; IconButton → height × height",
+    },
+    radius: {
+      v: fmt(d.radius) + " px",
+      desc:
+        d.preset.radius + " × " + parameters.radius + "% = " + fmt(d.radius),
+      deps: "size + radius multiplier → radius of controls",
+    },
+    components: {
+      v: measurements.length + " однострочных контролов",
+      desc: "SEDA UI: Button, IconButton, TextField, Select, Checkbox, Radio, Toggle, Tabs, DropdownMenu",
+      deps: "height + radius + font → React → DOM",
+    },
+  };
+  const node = nodes[selected];
+  const issues = [
+    ...(d.line > d.preset.line
+      ? [
+          "Масштаб текста выше базового: высота увеличена для сохранения содержимого.",
+        ]
+      : []),
+    ...(d.constraint
+      ? ["Сработало ограничение минимальной высоты пресета."]
+      : []),
+    ...(d.font < 12
+      ? ["Размер текста меньше 12 px: требуется проверка читаемости."]
+      : []),
+  ];
+  const failed = measurements.filter((m) =>
+    m.flexible ? m.h < m.expected - 1 : Math.abs(m.h - m.expected) > 1,
+  );
+  useEffect(() => {
+    let frame = 0;
+    const geometryBySize = new Map<string, typeof d>([[configuration.controlSize, d]]);
+    const geometryOf = (el: Element) => {
+      const size = el.closest('[data-size]')?.getAttribute('data-size') ?? configuration.controlSize;
+      if (!geometryBySize.has(size)) geometryBySize.set(size, derive(profiles[`${configuration.theme}:${size}`], parameters));
+      if(el.matches('.seda-button[data-variant="text"]'))return derive(profiles[`${configuration.theme}:${size}`].actionVariants.text,parameters);
+      return geometryBySize.get(size)!;
+    };
+    const measure = () =>
+      setMeasurements(
+        Array.from(
+          document.querySelectorAll(
+            "[data-workspace] .seda-button,[data-workspace] .seda-icon-button,[data-workspace] .seda-field__control,[data-workspace] .seda-choice,[data-workspace] .seda-toggle,[data-workspace] .seda-tabs__tab,[data-workspace] .seda-slider__rail",
+          ),
+        )
+          .filter((el) => el.getBoundingClientRect().height > 0)
+          .map((el, index) => {
+            const own = geometryOf(el);
+            return {
+            id:
+              el.id ||
+              el.querySelector("input,select")?.id ||
+              "control-" + index,
+            h: el.getBoundingClientRect().height,
+            expected: el.matches(".seda-textarea__control") ? own.height+((el.querySelector("textarea") as HTMLTextAreaElement)?.rows-1)*own.line : el.matches(".seda-slider__rail") ? Math.max(compiled.controls.Slider.geometry.minRailHeight.value,own.height) : el.matches(".workspace-row-choice")
+              ? Math.max(own.icon, own.font)
+              : el.id === "save" && form.saving
+                ? (pendingHeightRef.current ?? own.height)
+                : own.height,
+            flexible: el.matches(".seda-choice,.seda-toggle"),
+          };}),
+      );
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(measure);
+    };
+    const target = document.querySelector("main[data-workspace]")!;
+    const mutation = new MutationObserver(schedule);
+    mutation.observe(target, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["hidden", "style", "data-state", "data-loading", "data-size", "data-variant"],
+    });
+    const resize = new ResizeObserver(schedule);
+    resize.observe(target);
+    schedule();
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      mutation.disconnect();
+      resize.disconnect();
+      window.removeEventListener("resize", schedule);
+    };
+  }, [compiled, parameters, form.saving]);
+  function exportJson() {
+    const payload = {
+      name: "SEDA AI Lab 2.0",
+      source: "seda-compiled-profile",
+      configuration,
+      parameters,
+      calculated: d,
+      baseGeometry: compiled.geometry,
+      pendingHeight: form.saving ? pendingHeightRef.current : null,
+      pendingPaddingX: form.saving ? pendingPaddingRef.current : null,
+      evidence: bindings,
+      workspace: workspaceBinding,
+      provenance,
+      scope:
+        "Custom geometry is a laboratory derivation; Table, Card and Avatar are experimental public SEDA components without instance contracts; Dialog is a composition.",
+    };
+    const url = URL.createObjectURL(
+      new Blob([JSON.stringify(payload, null, 2)], {
+        type: "application/json",
+      }),
+    );
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "seda-lab2-config.json";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 
-  return <main className="parametric-shell" data-theme={compiled.domTheme}>
-    <header className="lab-header">
-      <a className="lab-brand" href="#" aria-label="SEDA AI, начало страницы"><span className="lab-mark" aria-hidden="true"><i/><i/><i/></span>SEDA <span>AI</span></a>
-      <span className="lab-breadcrumb">Лаборатория <span>/</span> Параметрическая форма</span>
-      <span className="lab-stage">Этап 03</span>
-    </header>
+  const graphNode=(id:string,label:string)=><Button data-node={id} className="node" size="s"
+    variant={selected===id?"primary":"outline"} aria-pressed={selected===id}
+    onClick={()=>setSelected(id)}>{label}</Button>;
+  const composition = workspaceCompositions[workspacePage];
 
-    <div className="lab-intro">
-      <div><p className="lab-eyebrow">ОДИН ПРОФИЛЬ · СВЯЗАННЫЕ КОМПОНЕНТЫ</p><h1>Настроить один раз.</h1><p className="lab-lead">Измените тему или размер. Поле и действия обновятся вместе, сохраняя введённые данные.</p></div>
-      <div className="lab-profile-label"><span className="lab-status-dot"/> settings-form <span>v0.1</span></div>
-    </div>
+  return (
+    <SedaProvider id="lab-scope" theme={compiled.domTheme} controlSize="m" textScale={100} style={{display:"contents"}}>
+    <ControlContractProvider compiled={compiled}>
+      <div
+        className="shell lab-studio"
+        id="lab"
+        data-theme={compiled.domTheme}
+        style={
+          {
+            "--control-height": d.height + "px",
+            "--control-radius": d.radius + "px",
+            "--control-font": d.font + "px",
+          } as React.CSSProperties
+        }
+      >
+        <StudioHeader actions={<><IconButton id="theme-toggle" variant="ghost" aria-label="Тёмная тема" selected={compiled.domTheme === "dark"} tooltip={compiled.domTheme === "dark" ? "Включить светлую тему" : "Включить тёмную тему"} icon={<Icon name={compiled.domTheme === "dark" ? "sun" : "moon"}/>} disabled={!ownerPolicy.availableThemes.includes(compiled.domTheme === "dark" ? "Light" : "Dark")} onClick={()=>configure({theme:compiled.domTheme === "dark" ? "Light" : "Dark"})}/><Button size="s" variant="ghost"
+              onClick={() => {
+                configure(initialConfiguration);
+                setParameters({ ...defaultParameters });
+              }}
+              id="reset"
+            >
+              Сбросить
+            </Button>
+            <Button size="s" variant="secondary" onClick={exportJson} id="export">
+              Экспорт JSON
+            </Button>
+          </>}/>
+        <div className="workspace lab-studio-workspace">
+          <StudioRail area="lab"/>
+          <aside className="lab-navigation" aria-label="Навигация Lab"><div className="lab-panel-heading">SEDA AI Lab</div><nav aria-label="Навигация рабочего пространства">{[['projects','Проекты'],['settings','Настройки'],['members','Команда'],['editor','Редактор'],['components','Компоненты'],['feedback','Состояния']].map(([id,label])=><Button key={id} id={'nav-'+id} variant="ghost" aria-current={workspacePage===id?'page':undefined} onClick={()=>setWorkspacePage(id as WorkspacePage)}>{label}</Button>)}</nav><div className="lab-panel-heading">Примеры</div><nav aria-label="Эталонные приложения">{[['recents','Файлы'],['building','Документы'],['chat','Чат'],['sandbox','Sandbox'],['spline','3D Scene'],['webflow','Webflow'],['framer','Framer'],['workflow','Workflow']].map(([path,label])=><Button key={path} variant="ghost" onClick={()=>location.assign('./references/'+path+'.html'+(path==='spline'?'?context=scene':''))}>{label}</Button>)}</nav></aside>
 
-    <div className="lab-workspace">
-      <aside className="lab-sidebar" aria-label="Настройки профиля">
-        <section className="lab-panel">
-          <div className="lab-section-title"><span className="lab-section-number">01</span><h2>Профиль</h2></div>
-          <label className="lab-control" htmlFor="profile-theme"><span>Тема</span><select id="profile-theme" value={configuration.theme} onChange={event => configure({ theme: event.target.value as Configuration['theme'] })}><option value="Light">Светлая</option><option value="Dark">Тёмная</option></select></label>
-          <label className="lab-control" htmlFor="profile-size"><span>Размер контролов</span><select id="profile-size" value={configuration.controlSize} onChange={event => configure({ controlSize: event.target.value as Configuration['controlSize'] })}>{['s', 'm', 'l', 'xl'].map(size => <option key={size} value={size}>{size.toUpperCase()} · {profiles[`${configuration.theme}:${size}`].geometry.height.value} px</option>)}</select></label>
-          <div className="lab-density"><span>Плотность</span><span>Regular</span></div>
-          <p className="lab-muted">Общий размер применяется ко всем четырём элементам формы.</p>
-        </section>
 
-        <section className="lab-panel">
-          <div className="lab-section-title"><span className="lab-section-number">02</span><h2>Проверить сохранение</h2></div>
-          <label className="lab-control" htmlFor="transport-mode"><span>Ответ демо-сервера</span><select id="transport-mode" value={transportMode} onChange={event => setTransportMode(event.target.value as TransportMode)}><option value="success">Успешно</option><option value="failure">Ошибка</option><option value="manual">Ответить вручную</option></select></label>
-          <p className="lab-muted">Учебный сценарий: данные остаются на этой странице. Можно редактировать поле, пока выполняется запрос.</p>
-          {transportMode === 'manual' && <div className="lab-manual-actions"><button type="button" disabled={!form.saving} onClick={() => form.activeRequest && respond(form.activeRequest.id, 'success')}>Успех</button><button type="button" disabled={!form.saving} onClick={() => form.activeRequest && respond(form.activeRequest.id, 'failure')}>Ошибка</button></div>}
-        </section>
-
-        <div className="lab-sidebar-foot"><span className="lab-connected-icon" aria-hidden="true">↳</span><p>Button · IconButton · TextField<br/><span>Реальные компоненты SEDA</span></p></div>
-      </aside>
-
-      <section className="lab-preview" aria-label="Живой пример">
-        <div className="lab-preview-topline"><span>ПРЕДПРОСМОТР</span><span>{configuration.theme} <span className="lab-divider">/</span> {configuration.controlSize.toUpperCase()}</span></div>
-        <article className="settings-card" style={bindings.layout.vars as React.CSSProperties}>
-          <div className="settings-heading"><div className="settings-project-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z" stroke="currentColor" strokeWidth="1.6"/><path d="M8 13h8M8 16h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg></div><div><p>ПРОЕКТ</p><h2 id="settings-title">Настройки проекта</h2></div></div>
-          <p className="settings-description">Основная информация о вашем проекте.</p>
-          <form id="settings-form" noValidate={compiled.form.policy.noValidate} aria-labelledby="settings-title" onKeyDown={event => { if (event.key === 'Enter' && event.target instanceof HTMLInputElement) routeRef.current = 'enter'; }} onSubmit={event => { event.preventDefault(); const route = formRef.current.saveError ? 'retry' : routeRef.current; routeRef.current = 'programmatic'; dispatch({ type: 'submit', route }); }}>
-            <div className="settings-fields"><div className="settings-field-slot" {...bindings.recipes.projectName.attributes} style={bindings.recipes.projectName.vars as React.CSSProperties}><TextField {...propsFor('projectName')} id="project-name" ref={fieldRef}/></div></div>
-            <div className="settings-actions"><Button {...propsFor('save')} {...bindings.recipes.save.attributes} style={bindings.recipes.save.vars as React.CSSProperties} id="save-button" onClick={() => { if (routeRef.current !== 'enter') routeRef.current = 'click'; }}/><Button {...propsFor('cancel')} {...bindings.recipes.cancel.attributes} style={bindings.recipes.cancel.vars as React.CSSProperties} id="cancel-button"/><div className="settings-help-row"><IconButton {...propsFor('help')} {...bindings.recipes.help.attributes} style={bindings.recipes.help.vars as React.CSSProperties} id="help-button" aria-controls="help-panel"/><span>{compiled.instances.help.visibleExplanation}</span></div></div>
-            <div id="help-panel" className="settings-help-panel" hidden={!form.helpExpanded}>{compiled.copy.helpText}</div>
-            {form.saveError && <p id="form-error" className="settings-form-error" role="alert">{form.saveError}</p>}
-            <p className="settings-status" role="status" aria-live="polite" data-saving={form.saving ? 'true' : undefined} data-error={form.saveError ? 'true' : undefined}><span aria-hidden="true">{form.saving ? '◌' : form.saveError ? '!' : form.dirty ? '•' : '✓'}</span>{stateLabel}</p>
-          </form>
-        </article>
-        <div className="lab-metrics" aria-label="Разрешённая геометрия"><div><span>Высота</span><strong>{geometry.height.value}<small>px</small></strong></div><div><span>Радиус</span><strong>{geometry.radius.value}<small>px</small></strong></div><div><span>Текст / строка</span><strong>{geometry.fontSize.value}<small>/ {geometry.lineHeight.value}</small></strong></div><div><span>Связанных элементов</span><strong>4</strong></div></div>
-      </section>
-    </div>
-
-    <details className="lab-explain" id="source-explanation">
-      <summary><span className="lab-section-number">03</span><span><strong>Откуда берутся значения</strong><span>Применённые CSS-переменные и цепочки токенов</span></span><ArrowIcon/></summary>
-      <div className="lab-explain-content"><label className="lab-control lab-inspect-select" htmlFor="inspect-component"><span>Элемент</span><select id="inspect-component" value={inspectedRole} onChange={event => setInspectedRole(event.target.value)}><option value="save">Button · Сохранить</option><option value="cancel">Button · Отмена</option><option value="help">IconButton · Справка</option><option value="projectName">TextField · Название проекта</option></select></label><p className="lab-muted">Здесь показаны значения, назначенные адаптером. Состояние наведения, фокуса или отключения выбирает соответствующую роль в CSS.</p><div className="lab-evidence-table"><table><thead><tr><th>CSS-переменная</th><th>Значение</th><th>Источник</th></tr></thead><tbody>{evidence.map((item: any) => <tr key={item.property}><td><code>{item.property}</code></td><td><code>{String(item.cssValue)}</code></td><td>{item.chain?.length ? item.chain.map((step: any, index: number) => <span className="lab-token-step" key={index}>{index > 0 && <span aria-hidden="true"> → </span>}<code>{step.collection ? `${step.collection}/` : ''}{Array.isArray(step.path) ? step.path.join('/') : step.path ?? step.ref ?? JSON.stringify(step)}{step.mode ? ` [${step.mode}]` : ''}</code></span>) : <code>{item.source || 'system.json · adapter'}</code>}</td></tr>)}</tbody></table></div><div className="lab-provenance"><span>Исходная сборка · tokens.json · SHA-256</span><code>{provenance.tokensSha256}</code></div></div>
-    </details>
-
-    <footer className="lab-footer"><span>SEDA AI · исполняемый профиль</span><span>Light / Dark · S–XL · regular</span><span>Запросов в демо: <strong>{requests.length}</strong></span></footer>
-    {isReview && <ReviewFixtures compiled={compiled}/>}
-  </main>;
+          <main className="canvas" data-workspace style={workspaceStyle}>
+            <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
+            <ProductWorkspace size={configuration.controlSize} action={real} typography={compiled.typography.roles} textScale={parameters.scale} page={workspacePage}>
+              <div className="section-top">
+                <div>
+                  <Text as="h1" variant="heading/section">Product workspace</Text>
+                  <Text as="p" variant="body/default" id="projects-description">
+                    Один набор правил управляет формой, фильтрами, таблицей и
+                    карточками.
+                  </Text>
+                </div>
+                <div className="view-switch">
+                  <Button
+                    {...real("cancel")}
+                    size={configuration.controlSize}
+                    data-view="table"
+                    className={view === "table" ? "active" : ""}
+                    onClick={() => setView("table")}
+                  >
+                    Таблица
+                  </Button>
+                  <Button
+                    {...real("cancel")}
+                    size={configuration.controlSize}
+                    data-view="cards"
+                    className={view === "cards" ? "active" : ""}
+                    onClick={() => setView("cards")}
+                  >
+                    Карточки
+                  </Button>
+                </div>
+              </div>
+              <div className="preview" id="preview">
+                <div className="panelhead">
+                  <div>
+                    <Text as="h2" variant="heading/compact" id="projects-panel-title">Проекты</Text>
+                    <Text className="hint" variant="caption/default" id="projects-subtitle">
+                      Управление рабочим пространством
+                    </Text>
+                  </div>
+                  <Button
+                    {...real("save")}
+                    id="create"
+                    iconLeft={<Icon name="add" />}
+                    size={configuration.controlSize}
+                    variant="primary"
+                    onClick={(event) => {
+                      modalReturnFocus.current = event.currentTarget;
+                      modal.current?.showModal();
+                    }}
+                  >
+                    Создать проект
+                  </Button>
+                </div>
+                <div className="toolbar workspace-filters">
+                  <div className="searchwrap" {...real("projectName")}>
+                    <TextField
+                      id="search"
+                      prefix={<Icon name="search" />}
+                      label="Поиск проектов"
+                      aria-label="Поиск проектов"
+                      size={configuration.controlSize}
+                      placeholder="Поиск проектов..."
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
+                  </div>
+                  <Select
+                    className="workspace-select"
+                    id="filter"
+                    label="Статус"
+                    aria-label="Фильтр статуса"
+                    size={configuration.controlSize}
+                    value={filter}
+                    onValueChange={(v) => setFilter(String(v))}
+                    options={[
+                      { value: "all", label: "Все статусы" },
+                      { value: "active", label: "Активные" },
+                      { value: "draft", label: "Черновики" },
+                      { value: "paused", label: "Приостановлены" },
+                    ]}
+                  />
+                  <Select
+                    className="workspace-select"
+                    id="team-filter"
+                    label="Команда"
+                    size={configuration.controlSize}
+                    value={teamFilter}
+                    onValueChange={(v) => setTeamFilter(String(v))}
+                    options={["all", "Core", "Product", "Design", "Mobile"].map(
+                      (v) => ({
+                        value: v,
+                        label: v === "all" ? "Все команды" : v,
+                      }),
+                    )}
+                  />
+                  <Select
+                    className="workspace-select"
+                    id="project-sort"
+                    label="Сортировка"
+                    size={configuration.controlSize}
+                    value={sort}
+                    onValueChange={(v) => setSort(String(v))}
+                    options={[
+                      { value: "original", label: "Исходный порядок" },
+                      { value: "name-asc", label: "Название А → Я" },
+                      { value: "name-desc", label: "Название Я → А" },
+                    ]}
+                  />
+                  <div className="workspace-filter-actions">
+                    <Checkbox
+                      className="workspace-checkbox"
+                      id="only-active"
+                      label="Только активные"
+                      size={configuration.controlSize}
+                      checked={onlyActive}
+                      onCheckedChange={setOnlyActive}
+                    />
+                    <Button
+                      {...real("cancel")}
+                      size={configuration.controlSize}
+                      id="reset-filters"
+                      onClick={resetFilters}
+                    >
+                      Сбросить фильтры
+                    </Button>
+                  </div>
+                  <Text className="count" id="count" variant="caption/default">
+                    {projectCount(filteredItems.length)}
+                  </Text>
+                </div>
+                {selectedProjects.length > 0 && (
+                  <div
+                    className="workspace-bulk"
+                    role="region"
+                    aria-label="Групповые действия"
+                  >
+                    <Text as="strong" variant="label/default">Выбрано: {selectedProjects.length}</Text>
+                    <Button
+                      {...real("cancel")}
+                      id="bulk-pause"
+                      size={configuration.controlSize}
+                      onClick={() => {
+                        setProjects((previous) =>
+                          previous.map((p) =>
+                            selectedProjects.includes(p.name)
+                              ? { ...p, status: "paused" }
+                              : p,
+                          ),
+                        );
+                        setSelectedProjects([]);
+                      }}
+                    >
+                      Приостановить выбранные
+                    </Button>
+                    <Button
+                      {...real("cancel")}
+                      size={configuration.controlSize}
+                      onClick={() => setSelectedProjects([])}
+                    >
+                      Снять выбор
+                    </Button>
+                  </div>
+                )}
+                <div
+                  id="tableView"
+                  className="workspace-table-host"
+                  hidden={view !== "table"}
+                >
+                  <Table minWidth={680} id="projects-table" label="Таблица проектов" data={items} rowKey={p=>p.name} rowLabel={p=>p.name}
+                    selectedRowKeys={selectedProjects} onSelectionChange={setSelectedProjects} selectionLabel="Выбрать видимые проекты"
+                    sort={sort==='name-asc'?{key:'name',direction:'ascending'}:sort==='name-desc'?{key:'name',direction:'descending'}:null}
+                    onSortChange={next=>setSort(!next?'original':next.direction==='ascending'?'name-asc':'name-desc')}
+                    emptyState="Проекты не найдены"
+                    columns={[
+                      {key:'name',header:'Проект',type:'text',sortable:true,render:p=><span className="workspace-project-name"><Avatar name={p.name} variant="brand" alt=""/>{p.name}</span>},
+                      {key:'status',header:'Статус',type:'status',render:p=><Tag tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"}/>}>{statusLabels[p.status]}</Tag>},
+                      {key:'team',header:'Команда',type:'text',render:p=>p.team},
+                      {key:'updated',header:'Обновлён',type:'date',render:p=>p.updated},
+                    ]}
+                    rowActions={p=><DropdownMenu
+                              style={real("help").style}
+                              size={configuration.controlSize}
+                              triggerLabel={"Действия проекта " + p.name}
+                              iconOnly
+                              triggerIcon={<Icon name="more" />}
+                              variant="grouped"
+                              items={[
+                                {type:"group",id:"project",label:p.name,items:[
+                                  {id:"open",label:"Открыть сведения",icon:<Icon name="info" />,onSelect:()=>chooseProject(p.name)},
+                                  {id:"duplicate",label:"Создать копию",icon:<Icon name="copy" />,onSelect:()=>{modalReturnFocus.current=document.activeElement as HTMLElement;setModalName(p.name+" — копия");modal.current?.showModal();}},
+                                ]},
+                                {type:"separator",id:"danger-separator"},
+                                {id:"delete",label:"Удалить проект",icon:<Icon name="trash" />,danger:true,onSelect:()=>{
+                                  deleteReturnFocus.current=document.activeElement as HTMLElement;
+                                  setDeleteProject(p.name);deleteDialog.current?.showModal();
+                                }},
+                              ]}
+                            />}
+                  />
+                </div>
+                <div className="cards" id="cardsView" hidden={view !== "cards"}>
+                  {items.map((p) => (
+                    <Card className="productcard" key={p.name} variant="selectable" interactiveStrategy="selectable"
+                      selected={selectedProjects.includes(p.name)} onSelectedChange={checked=>setSelectedProjects(previous=>checked?Array.from(new Set([...previous,p.name])):previous.filter(name=>name!==p.name))}
+                      title={<span className="workspace-project-name"><Avatar name={p.name} variant="brand" alt=""/>{p.name}</span>}
+                      status={<Tooltip content={statusLabels[p.status] ?? p.status}>{trigger=><Tag {...trigger} tone={p.status==="active"?"success":p.status==="paused"?"warning":"info"} leadingIcon={<Icon name={p.status==="active"?"success":p.status==="paused"?"warning":"clock"}/>}>{statusLabels[p.status]}</Tag>}</Tooltip>}
+                      metadata={<><Text as="p" variant="body/small">Команда: {p.team}</Text><Text as="p" variant="body/small">Обновлён: {p.updated}</Text></>}
+                      actions={<Button {...real("cancel")} size={configuration.controlSize} onClick={()=>chooseProject(p.name)}>Подробнее</Button>}
+                    />
+                  ))}
+                  {!items.length && <Text as="p" variant="body/default">Проекты не найдены</Text>}
+                </div>
+              </div>
+              <div className="workspace-pagination">
+                <Text as="p" variant="caption/default" role="status">
+                  {filteredItems.length ? currentPage * pageSize + 1 : 0}–
+                  {Math.min((currentPage + 1) * pageSize, filteredItems.length)}{" "}
+                  из {filteredItems.length}
+                </Text>
+                <div>
+                  <Select
+                    className="workspace-select"
+                    id="page-size"
+                    label="Строк на странице"
+                    size={configuration.controlSize}
+                    value={String(pageSize)}
+                    onValueChange={(v) => setPageSize(Number(v))}
+                    options={[3, 5, 10].map((n) => ({
+                      value: String(n),
+                      label: String(n),
+                    }))}
+                  />
+                  <Button
+                    {...real("cancel")}
+                    id="previous-page"
+                    size={configuration.controlSize}
+                    disabled={currentPage === 0}
+                    onClick={() => setPageIndex((p) => Math.max(0, p - 1))}
+                  >
+                    Назад
+                  </Button>
+                  <Button
+                    {...real("cancel")}
+                    id="next-page"
+                    size={configuration.controlSize}
+                    disabled={
+                      (currentPage + 1) * pageSize >= filteredItems.length
+                    }
+                    onClick={() => setPageIndex((p) => p + 1)}
+                  >
+                    Далее
+                  </Button>
+                </div>
+              </div>
+              <div className="secondaryGrid">
+                <section className="pane">
+                  <Text as="h3" variant="heading/compact">Форма настроек</Text>
+                  <form
+                    id="settings-form"
+                    noValidate
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      dispatch({
+                        type: "submit",
+                        route: formRef.current.saveError
+                          ? "retry"
+                          : "programmatic",
+                      });
+                    }}
+                  >
+                    <div className="fieldrow">
+                      <div className="fieldslot" {...real("projectName")}>
+                        <TextField
+                          {...propsFor("projectName")}
+                          id="project"
+                          ref={fieldRef}
+                        />
+                      </div>
+                      <IconButton
+                        {...propsFor("help")}
+                        {...real("help")}
+                        id="help"
+                        aria-controls="help-panel"
+                      />
+                    </div>
+                    <div id="help-panel" hidden={!form.helpExpanded}>
+                      {compiled.copy.helpText}
+                    </div>
+                    <div className="msg" id="validation" aria-live="polite">
+                      {form.saveError}
+                    </div>
+                    <div className="actions">
+                      <Button
+                        {...propsFor("save")}
+                        {...real("save", true)}
+                        id="save"
+                      />
+                      <Button
+                        {...propsFor("cancel")}
+                        {...real("cancel")}
+                        id="cancel"
+                      />
+                    </div>
+                  </form>
+                  <div className="transport">
+                    <b>Тест запросов · демо без сервера</b>
+                    <span id="requestState" role="status">
+                      {form.activeRequest
+                        ? "Запрос #" +
+                          form.activeRequest.id +
+                          " · отправлено: «" +
+                          form.activeRequest.value +
+                          "»"
+                        : stateLabel}
+                    </span>
+                    <Select
+                      className="workspace-select"
+                      id="transport-mode"
+                      label="Ответ демо-транспорта"
+                      size={configuration.controlSize}
+                      value={transportMode}
+                      onValueChange={(v) =>
+                        setTransportMode(String(v) as TransportMode)
+                      }
+                      options={[
+                        { value: "manual", label: "Вручную" },
+                        { value: "success", label: "Успех через 900 мс" },
+                        { value: "failure", label: "Ошибка через 900 мс" },
+                      ]}
+                    />
+                    <div className="transportActions">
+                      <Button
+                        id="success"
+                        size="s"
+                        variant="secondary"
+                        disabled={!form.saving}
+                        onClick={() =>
+                          form.activeRequest &&
+                          respond(form.activeRequest.id, "success")
+                        }
+                      >
+                        Ответ: успех
+                      </Button>
+                      <Button
+                        id="failure"
+                        size="s"
+                        variant="secondary"
+                        disabled={!form.saving}
+                        onClick={() =>
+                          form.activeRequest &&
+                          respond(form.activeRequest.id, "failure")
+                        }
+                      >
+                        Ответ: ошибка
+                      </Button>
+                    </div>
+                  </div>
+                </section>
+                <section className="pane">
+                  <Text as="h3" variant="heading/compact">До → после</Text>
+                  <div className="compare">
+                    <div>
+                      <span>Базовый профиль</span>
+                      <strong id="before">{d.preset.height} px</strong>
+                    </div>
+                    <span className="arrow">→</span>
+                    <div>
+                      <span>Текущая система</span>
+                      <strong id="after">{fmt(d.height)} px</strong>
+                    </div>
+                  </div>
+                  <div className="delta" id="delta">
+                    Изменение высоты: {fmt(d.height - d.preset.height)} px
+                  </div>
+                  <div className="metricrow">
+                    <span>Размер шрифта</span>
+                    <b id="fontMetric">{d.font} px</b>
+                  </div>
+                  <div className="metricrow">
+                    <span>Радиус</span>
+                    <b id="radiusMetric">{fmt(d.radius)} px</b>
+                  </div>
+                  <div className="metricrow">
+                    <span>Затронутые контролы</span>
+                    <b>{measurements.length} видимых</b>
+                  </div>
+                  <div
+                    id="conflict"
+                    className={issues.length ? "conflict warn" : "conflict"}
+                    role="status"
+                  >
+                    {issues.join(" ") || "Конфликтов геометрии не обнаружено."}
+                  </div>
+                </section>
+              </div>
+            </ProductWorkspace>
+            </SedaProvider>
+          </main>
+          <aside className="lab-right-sidebar"><ShellTabs label="Панель Lab" value={rightPanel} onValueChange={setRightPanel} variant="line" items={[{value:'parameters',label:'Параметры',content:<>          <aside className="rail">
+            <Text as="h2" variant="heading/compact">Параметры</Text>
+            <Text as="p" variant="body/small">
+              Измените параметры системы. Результат пересчитывается в
+              интерфейсе.
+            </Text>
+            <Select id="theme" label="Тема" value={compiled.domTheme}
+              options={ownerPolicy.availableThemes.map((theme: Configuration["theme"])=>({value:theme.toLowerCase(),label:theme}))}
+              onValueChange={value=>configure({theme:value==="light"?"Light":"Dark"})}/>
+            <Select id="size" label="Размер" value={configuration.controlSize}
+              options={ownerPolicy.availableSizes.map((s: Configuration["controlSize"])=>({value:s,label:`${s.toUpperCase()} · ${profiles[configuration.theme+":"+s].geometry.height.value}`}))}
+              onValueChange={value=>configure({controlSize:value as Configuration["controlSize"]})}/>
+            <div className="control">
+              <Slider id="scale" label="Масштаб текста" size="s" min={parameterRanges.scale.min} max={parameterRanges.scale.max} step={parameterRanges.scale.step} value={parameters.scale} formatValue={n=>n+"%"} onValueChange={value=>setParameters(p=>({...p,scale:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{parameterRanges.scale.min}%</Text>
+                <Text variant="caption/tiny">{parameterRanges.scale.max}%</Text>
+              </div>
+            </div>
+            <div className="control">
+              <Slider id="air" label="Дополнительный отступ по Y" size="s" min={parameterRanges.air.min} max={parameterRanges.air.max} step={parameterRanges.air.step} value={parameters.air} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,air:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{parameterRanges.air.min}</Text>
+                <Text variant="caption/tiny">{parameterRanges.air.max}px</Text>
+              </div>
+            </div>
+            <div className="control">
+              <Slider id="airX" label="Дополнительный отступ по X" size="s" min={parameterRanges.airX.min} max={parameterRanges.airX.max} step={parameterRanges.airX.step} value={parameters.airX} formatValue={n=>"+"+n+" px"} onValueChange={value=>setParameters(p=>({...p,airX:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{parameterRanges.airX.min}</Text>
+                <Text variant="caption/tiny">{parameterRanges.airX.max}px</Text>
+              </div>
+              <Text as="p" variant="caption/default" className="small">
+                К базовым отступам Button, TextField и Select. IconButton остаётся
+                квадратным.
+              </Text>
+            </div>
+            <div className="control">
+              <Slider id="radius" label="Множитель радиуса" size="s" min={parameterRanges.radius.min} max={parameterRanges.radius.max} step={parameterRanges.radius.step} value={parameters.radius} formatValue={n=>(n/100).toFixed(2)+"×"} onValueChange={value=>setParameters(p=>({...p,radius:value}))}/>
+              <div className="ends">
+                <Text variant="caption/tiny">{(parameterRanges.radius.min/100).toFixed(2)}×</Text>
+                <Text variant="caption/tiny">{(parameterRanges.radius.max/100).toFixed(2)}×</Text>
+              </div>
+            </div>
+            <div className="sectionline"></div>
+            <Checkbox id="strict" label="Сохранять минимум высоты пресета"
+              checked={parameters.strict}
+              onCheckedChange={strict=>setParameters(p=>({...p,strict}))}/>
+            <Text as="p" variant="caption/default" className="small">
+              Если вычисленная высота меньше пресета, ограничение поднимает её
+              до минимальной.
+            </Text>
+            <Alert variant="info" size="s" title="Исходные профили"
+              description="S / M / L / XL — фиксированные пресеты. Формула служит общим ядром параметров SEDA и доступна через SedaProvider."/>
+          </aside></>},{value:'inspector',label:'Инспектор',content:<>          <aside className="inspector">
+            <Text as="h2" variant="heading/compact">Инспектор</Text>
+            <Text as="p" variant="body/small">
+              Выберите узел, чтобы увидеть значение, формулу и зависимые части
+              интерфейса.
+            </Text>
+            <div className="graph" id="graph">
+              {graphNode("size","size")}
+              <Text as="span" variant="label/small" className="edge">→</Text>
+              {graphNode("lineHeight","line-height")}
+              <Text as="span" variant="label/small" className="edge">→</Text>
+              {graphNode("height","height")}
+              <div className="graphsecond">
+                {graphNode("airX","padding-x")}
+                <Text as="span" variant="label/small" className="edge">→</Text>
+                <Text as="span" variant="caption/tiny" className="deps">Button / TextField / Select</Text>
+              </div>
+              <div className="graphsecond">
+                {graphNode("air","padding-y")}
+                <Text as="span" variant="label/small" className="edge">↗</Text>
+                {graphNode("radius","radius")}
+                <Text as="span" variant="label/small" className="edge">→</Text>
+                {graphNode("components","UI")}
+              </div>
+            </div>
+            <Card as="section" title="Сборка экрана" variant="compact" className="inspectcard composition-card">
+              <Text as="p" variant="label/default" id="composition-current-page">{composition.title}</Text>
+              <Text as="p" variant="body/small" className="composition-path">{composition.path}</Text>
+              <div className="composition-map">
+                <div><Text as="span" variant="caption/default">SEDA UI</Text><Text as="p" variant="body/small">{composition.components}</Text></div>
+                <div><Text as="span" variant="caption/default">Приложение</Text><Text as="p" variant="body/small">{composition.application}</Text></div>
+              </div>
+              <Text as="p" variant="body/small" className="composition-rule">{composition.rule}</Text>
+              <Text as="p" variant="caption/default" className="composition-boundary">{composition.boundary}</Text>
+            </Card>
+            <Card as="section" title="Охват workspace" variant="compact" className="inspectcard">
+              <Text as="p" variant="body/small">
+                Общие параметры применяются ко всей рабочей области приложения.
+                У Checkbox/Radio/Toggle X меняет интервал до подписи, Y — высоту
+                строки. Круг Radio и форма Toggle сохраняются. Служебная панель
+                лаборатории отделена.
+              </Text>
+              <Text as="p" variant="body/small">
+                Контракты: {workspaceBinding.coverage.contract.join(", ")}. Table, Card и Avatar — публичные SEDA-компоненты с экспериментальной геометрией; формы — композиции.
+              </Text>
+              <Accordion id="workspace-token-sources" label="Источники дополнительных контролов" type="single" collapsible variant="compact" size="compact" items={[{
+                id: "sources", title: "Источники", content: <div className="workspace-tokens">
+                {workspaceBinding.evidence.map((item: any) => (
+                  <div key={`${item.component}:${item.property}:${item.path}`}>
+                    <code>
+                      {item.property} = {item.cssValue}
+                    </code>
+                    <small>
+                      {item.chain
+                        .map(
+                          (step: any) =>
+                            step.collection + "/" + step.path.join("/"),
+                        )
+                        .join(" → ")}
+                    </small>
+                  </div>
+                ))}
+                </div>
+              }]} />
+            </Card>
+            <Card as="section" title="Активный узел" variant="compact" className="inspectcard" status={<code id="lab-active-node">{selected}</code>}>
+              <Text as="div" variant="metric/default" className="result" id="nodeResult">
+                {node.v}
+              </Text>
+              <Text as="p" variant="caption/default" id="nodeDesc">{node.desc}</Text>
+            </Card>
+            <Card as="section" title="Формула" variant="compact" className="inspectcard">
+              <Text as="div" variant="label/default" className="formula" id="formula">
+                H = max(L, I) + 2P + 2B
+              </Text>
+              <Text as="div" variant="code/small" className="equation" id="equation">
+                {d.formula}
+                {d.constraint
+                  ? ` → max(${fmt(d.raw)}, ${d.preset.height}) = ${fmt(d.height)} px`
+                  : ""}
+              </Text>
+              <div className="metricrow">
+                <Text variant="caption/default">Вычисленная высота</Text>
+                <Text as="strong" variant="metric/small" id="calculated">{fmt(d.height)} px</Text>
+              </div>
+              <div className="metricrow">
+                <Text variant="caption/default">Фактическая высота DOM</Text>
+                <Text as="strong" variant="metric/small" id="measured">
+                  {measurements.length ? fmt(measurements[0].h) + " px" : "—"}
+                </Text>
+              </div>
+              <Alert id="conformance" size="s" variant={!measurements.length ? "info" : failed.length ? "warning" : "success"}
+                title={!measurements.length ? "Измерение…" : failed.length ? "Расхождение > 1 px" : "PASS"}
+                description={!measurements.length ? undefined : failed.length
+                  ? failed.map((m) => m.id).join(", ")
+                  : measurements.length + " контролов, допуск ±1 px" +
+                    (form.saving ? " · loading сохраняет snapshot" : "")}/>
+            </Card>
+            <Card as="section" title="Зависимости" variant="compact" className="inspectcard">
+              <Text as="div" variant="caption/default" id="deps" className="deps">
+                {node.deps}
+              </Text>
+            </Card>
+            <Card as="section" title="Проверки" variant="compact" className="inspectcard">
+              <div id="checks" className="checks">
+                <div>
+                  <span>Источник профиля</span>
+                  <b>compiler/resolver</b>
+                </div>
+                <div>
+                  <span>Формула конечна</span>
+                  <b>{Number.isFinite(d.height) ? "PASS" : "FAIL"}</b>
+                </div>
+                <div>
+                  <span>Геометрия DOM ±1 px</span>
+                  <b>
+                    {!measurements.length
+                      ? "ожидание"
+                      : failed.length
+                        ? "FAIL"
+                        : "PASS"}
+                  </b>
+                </div>
+              </div>
+              <Text as="p" variant="body/small" className="small">
+                {workspaceBinding.coverage.contract.join(" · ")} — исполняемые контракты SEDA UI. Table · Card · Avatar — публичные SEDA-компоненты; их геометрия experimental. Dialog — композиция.
+                SplitView — общий experimental layout; размеры панелей управляются отдельно.
+                Badge/Tag/Alert/Toast и FileUpload — библиотечные адаптеры общей геометрии;
+                их instance contracts ещё не введены. Многострочная высота feedback не входит в проверку однострочных контролов.
+                Дополнительная геометрия — экспериментальный режим библиотеки, не сертифицированный
+                профиль.
+              </Text>
+              <Accordion id="applied-value-sources" label="Источники применённых значений" type="single" collapsible variant="compact" size="compact" items={[{
+                id: "sources", title: "Источники", content: <div className="applied-value-sources">
+                <Select
+                  id="source-component"
+                  label="Источник компонента"
+                  value={inspectedRole}
+                  onValueChange={value=>setInspectedRole(String(value))}
+                  options={Object.keys(bindings.recipes).map((r) => ({value:r,label:r}))}
+                />
+                {evidence.map((item: any) => (
+                  <div className="source" key={item.property}>
+                    <code>
+                      {item.property} ={" "}
+                      {String(
+                        (geometryVars as any)[item.property] ?? item.cssValue,
+                      )}
+                    </code>
+                    <span>
+                      {item.derivation ? "Lab derive ← " : ""}
+                      {item.path}
+                    </span>
+                    <small>
+                      {item.chain?.length
+                        ? item.chain
+                            .map(
+                              (s: any) =>
+                                s.collection +
+                                "/" +
+                                s.path.join("/") +
+                                " [" +
+                                s.mode +
+                                "]",
+                            )
+                            .join(" → ")
+                        : item.source}
+                    </small>
+                  </div>
+                ))}
+                <code>tokens SHA256: {provenance.tokensSha256}</code>
+                </div>
+              }]} />
+            </Card>
+          </aside></>}]} /></aside>
+        </div>
+      </div>
+      <SedaProvider controlSize={configuration.controlSize} textScale={parameters.scale} controlParameters={workspaceBinding.controlParameters} style={{...workspaceStyle,display:'contents'}}>
+      <dialog
+        id="modal"
+        data-workspace
+        ref={modal}
+        aria-labelledby="modal-title"
+        style={workspaceStyle}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            modal.current?.close();
+          }
+        }}
+        onClose={() => requestAnimationFrame(() => {
+          if (modalReturnFocus.current?.isConnected) modalReturnFocus.current.focus();
+          else document.getElementById("create")?.focus();
+        })}
+      >
+        <form
+          className="modalBody"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (!modalName.trim()) return;
+            setProjects((p) => [
+              {
+                name: modalName.trim(),
+                status: "draft",
+                team: "Product",
+                updated: "Сейчас",
+              },
+              ...p,
+            ]);
+            setModalName("");
+            setQuery("");
+            setFilter("all");
+            modal.current?.close();
+          }}
+        >
+          <Text as="h2" variant="heading/panel" id="modal-title">Создать проект</Text>
+          <div {...real("projectName")}>
+            <TextField
+              id="modalName"
+              label="Название"
+              required
+              size={configuration.controlSize}
+              placeholder="Например, Nova Console"
+              value={modalName}
+              onChange={(e) => setModalName(e.target.value)}
+            />
+          </div>
+          <div className="modalActions">
+            <Button {...real("cancel")} onClick={() => modal.current?.close()}>
+              Отмена
+            </Button>
+            <Button
+              {...real("save")}
+              id="confirmCreate"
+              type="submit"
+              variant="primary"
+            >
+              Создать
+            </Button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="delete-project-dialog" ref={deleteDialog} aria-labelledby="delete-project-title" data-workspace style={workspaceStyle}
+        onClose={()=>{setDeleteProject(null);if(deleteReturnFocus.current?.isConnected)deleteReturnFocus.current.focus();else document.getElementById("search")?.focus();}}>
+        <div className="modalBody">
+          <Text as="h2" variant="heading/panel" id="delete-project-title">Удалить проект?</Text>
+          <p>Проект «{deleteProject}» будет удалён из демонстрационного списка. Несохранённая форма останется без изменений.</p>
+          <div className="modalActions">
+            <Button {...real("cancel")} onClick={()=>deleteDialog.current?.close()}>Отмена</Button>
+            <Button {...real("save")} id="confirmDeleteProject" onClick={()=>{
+              if(deleteProject===null)return;
+              setProjects(previous=>previous.filter(project=>project.name!==deleteProject));
+              setSelectedProjects(previous=>previous.filter(name=>name!==deleteProject));
+              deleteDialog.current?.close();
+            }}>Удалить проект</Button>
+          </div>
+        </div>
+      </dialog>
+      {isReview && <ControlFixtures size={configuration.controlSize} style={workspaceStyle} />}
+      {isReview && (
+        <ReviewFixtures
+          compiled={compiled}
+          actionVars={bindings.recipes.save.vars as React.CSSProperties}
+        />
+      )}
+      </SedaProvider>
+    </ControlContractProvider>
+    </SedaProvider>
+  );
 }
-
-createRoot(document.getElementById('root')!).render(<App/>);
+createRoot(document.getElementById("root")!).render(<SharedDesignProvider><App /></SharedDesignProvider>);

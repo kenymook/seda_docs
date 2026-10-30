@@ -1,0 +1,23 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "animations": "disabled for finite-transition screenshots",
+  "samples": [
+    {
+      "theme": "light",
+      "color": "rgb(10, 10, 11)",
+      "expected": "rgb(10, 10, 11)",
+      "disabled": false,
+      "opacity": "1",
+      "background": "rgba(24, 25, 27, 0.12)"
+    },
+    {
+      "theme": "dark",
+      "color": "rgb(255, 255, 255)",
+      "expected": "rgb(255, 255, 255)",
+      "disabled": false,
+      "opacity": "1",
+      "background": "rgba(255, 255, 255, 0.15)"
+    }
+  ],
+  "pageErrors": []
+}

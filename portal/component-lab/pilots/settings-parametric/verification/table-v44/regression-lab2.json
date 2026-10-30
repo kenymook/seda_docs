@@ -1,0 +1,4887 @@
+{
+  "results": [
+    {
+      "name": "build-source-artifact-integrity",
+      "status": "passed",
+      "evidence": {
+        "sources": 805,
+        "artifacts": 532
+      }
+    },
+    {
+      "name": "geometry-1440-Light-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 305,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Light-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 297,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Light-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 289,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Light-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 281,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Dark-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(253, 253, 253)",
+            "bg": "rgba(254, 254, 254, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 305,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Dark-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 297,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Dark-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 289,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1440-Dark-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 281,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "270px 845px 325px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Light-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(11, 11, 12)",
+            "bg": "rgba(25, 26, 28, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 345,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Light-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 337,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Light-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 329,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Light-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 321,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Dark-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(254, 254, 254)",
+            "bg": "rgba(254, 254, 254, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 345,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Dark-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 337,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Dark-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 329,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-1180-Dark-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 321,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px 925px",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Light-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 680,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Light-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 672,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Light-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 664,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Light-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 656,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Dark-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(251, 251, 251)",
+            "bg": "rgba(253, 253, 253, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 680,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Dark-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 672,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Dark-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 664,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-780-Dark-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 656,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Light-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(11, 11, 12)",
+            "bg": "rgba(25, 26, 28, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 290,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Light-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 282,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Light-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 274,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Light-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgba(24, 25, 27, 0.06)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(24, 25, 27, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 266,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(10, 10, 11)",
+            "bg": "rgb(255, 255, 255)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Dark-s",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 134.875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 82.90625,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 64.171875,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(251, 251, 251)",
+            "bg": "rgba(253, 253, 253, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 24,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 290,
+            "height": 24,
+            "radius": 6,
+            "font": 12,
+            "line": 16,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Dark-m",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 160.6875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 101.71875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 79.875,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 32,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 282,
+            "height": 32,
+            "radius": 8,
+            "font": 14,
+            "line": 20,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Dark-l",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 186.484375,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 120.53125,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 95.5625,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 40,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 274,
+            "height": 40,
+            "radius": 10,
+            "font": 16,
+            "line": 24,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "geometry-390-Dark-xl",
+      "status": "passed",
+      "evidence": {
+        "geometry": [
+          {
+            "id": "create",
+            "width": 212.296875,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "save",
+            "width": 139.359375,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 100, 184)"
+          },
+          {
+            "id": "cancel",
+            "width": 111.25,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgba(255, 255, 255, 0.11)"
+          },
+          {
+            "id": "help",
+            "width": 48,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgba(255, 255, 255, 0.85)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "id": "project",
+            "width": 266,
+            "height": 48,
+            "radius": 12,
+            "font": 18,
+            "line": 28,
+            "color": "rgb(255, 255, 255)",
+            "bg": "rgb(23, 23, 24)"
+          }
+        ],
+        "columns": "255px minmax(0px, 1fr)",
+        "overflow": 0
+      }
+    },
+    {
+      "name": "loading-Light-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 35.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 57.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 57.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 79.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 82.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 104.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 104.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 126.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 203.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 225.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 225.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 247.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 47.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 69.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 69.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 91.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 94.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 116.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 116.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 138.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 215.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 237.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 237.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 259.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 83.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 105.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 105.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 127.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 130.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 152.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 152.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 174.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 251.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 273.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 273.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 295.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Light-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 46.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 70.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 70.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 94.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 101.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 125.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 125.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 149.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 242.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 266.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 266.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 290.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 58.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 82.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 82.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 106.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 113.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 137.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 137.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 161.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 254.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 278.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 278.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 302.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 94.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 118.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 118.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 142.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 149.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 173.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 173.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 197.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 290.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 314.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 314.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 338.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Light-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 57.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 83.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 83.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 109.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 120.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 146.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 146.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 172.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 281.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 307.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 307.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 333.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 69.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 95.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 95.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 121.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 132.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 158.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 158.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 184.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 293.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 319.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 319.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 345.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 105.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 131.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 131.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 157.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 168.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 194.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 194.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 220.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 329.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 355.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 355.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 381.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Light-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 68.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 96.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 96.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 124.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 139.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 167.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 167.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 195.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 320.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 348.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 348.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 376.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 80.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 108.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 108.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 136.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 151.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 179.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 179.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 207.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 332.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 360.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 360.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 388.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 116.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 144.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 144.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 172.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 187.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 215.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 215.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 243.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 368.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 396.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 396.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 424.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Dark-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 35.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 57.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 57.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 79.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 82.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 104.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 104.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 126.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 203.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 225.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 225.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 247.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 47.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 69.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 69.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 91.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 94.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 116.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 116.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 138.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 215.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 237.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 237.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 259.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 83.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 105.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 105.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 127.671875,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 130.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 152.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 152.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 174.90625,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 251.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 273.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 273.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 295.734375,
+          "height": 24,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Dark-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 46.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 70.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 70.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 94.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 101.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 125.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 125.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 149.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 242.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 266.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 266.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 290.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 58.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 82.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 82.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 106.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 113.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 137.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 137.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 161.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 254.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 278.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 278.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 302.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 94.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 118.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 118.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 142.609375,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 149.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 173.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 173.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 197.71875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 290.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 314.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 314.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 338.6875,
+          "height": 32,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Dark-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 57.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 83.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 83.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 109.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 120.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 146.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 146.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 172.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 281.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 307.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 307.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 333.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 69.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 95.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 95.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 121.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 132.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 158.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 158.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 184.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 293.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 319.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 319.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 345.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 105.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 131.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 131.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 157.546875,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 168.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 194.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 194.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 220.53125,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 329.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 355.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 355.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 381.640625,
+          "height": 40,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "loading-Dark-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "none",
+          "width": 68.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "left",
+          "width": 96.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "right",
+          "width": 96.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "OK",
+          "slot": "both",
+          "width": 124.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 139.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 167.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 167.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 195.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 320.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 348.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 348.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 0,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 376.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "none",
+          "width": 80.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "left",
+          "width": 108.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "right",
+          "width": 108.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "OK",
+          "slot": "both",
+          "width": 136.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 151.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 179.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 179.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 207.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 332.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 360.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 360.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 6,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 388.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "none",
+          "width": 116.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "left",
+          "width": 144.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "right",
+          "width": 144.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "OK",
+          "slot": "both",
+          "width": 172.5,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "none",
+          "width": 187.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "left",
+          "width": 215.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "right",
+          "width": 215.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить",
+          "slot": "both",
+          "width": 243.359375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "none",
+          "width": 368.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "left",
+          "width": 396.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "right",
+          "width": 396.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        },
+        {
+          "airX": 24,
+          "label": "Сохранить изменения проекта",
+          "slot": "both",
+          "width": 424.59375,
+          "height": 48,
+          "deltaWidth": 0,
+          "deltaHeight": 0
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Light-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 94.90625,
+          "fieldPadding": 16,
+          "iconWidth": 24
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 130.90625,
+          "fieldPadding": 34,
+          "iconWidth": 24
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Light-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 113.71875,
+          "fieldPadding": 16,
+          "iconWidth": 32
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 149.71875,
+          "fieldPadding": 34,
+          "iconWidth": 32
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Light-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 132.53125,
+          "fieldPadding": 16,
+          "iconWidth": 40
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 168.53125,
+          "fieldPadding": 34,
+          "iconWidth": 40
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Light-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 151.359375,
+          "fieldPadding": 16,
+          "iconWidth": 48
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 187.359375,
+          "fieldPadding": 34,
+          "iconWidth": 48
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Dark-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 94.90625,
+          "fieldPadding": 16,
+          "iconWidth": 24
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 130.90625,
+          "fieldPadding": 34,
+          "iconWidth": 24
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Dark-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 113.71875,
+          "fieldPadding": 16,
+          "iconWidth": 32
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 149.71875,
+          "fieldPadding": 34,
+          "iconWidth": 32
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Dark-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 132.53125,
+          "fieldPadding": 16,
+          "iconWidth": 40
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 168.53125,
+          "fieldPadding": 34,
+          "iconWidth": 40
+        }
+      ]
+    },
+    {
+      "name": "padding-x-Dark-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "airX": 6,
+          "buttonWidth": 151.359375,
+          "fieldPadding": 16,
+          "iconWidth": 48
+        },
+        {
+          "airX": 24,
+          "buttonWidth": 187.359375,
+          "fieldPadding": 34,
+          "iconWidth": 48
+        }
+      ]
+    },
+    {
+      "name": "custom-formula-react-evidence",
+      "status": "passed",
+      "evidence": {
+        "exportSource": "seda-compiled-profile"
+      }
+    },
+    {
+      "name": "form-guard-snapshot-stale-retry-focus",
+      "status": "passed",
+      "evidence": {
+        "requests": [
+          {
+            "requestId": 1,
+            "value": "A",
+            "status": "success"
+          },
+          {
+            "requestId": 2,
+            "value": "B",
+            "status": "failure"
+          },
+          {
+            "requestId": 3,
+            "value": "B",
+            "status": "success"
+          },
+          {
+            "requestId": 4,
+            "value": "Auto",
+            "status": "success"
+          }
+        ]
+      }
+    },
+    {
+      "name": "projects-filter-cards-dialog-keyboard",
+      "status": "passed",
+      "evidence": {
+        "projects": 5
+      }
+    },
+    {
+      "name": "token-react-propagation",
+      "status": "passed",
+      "evidence": {
+        "light": "rgba(24, 25, 27, 0.06)",
+        "dark": "rgba(255, 255, 255, 0.11)"
+      }
+    },
+    {
+      "name": "padding-x-responsive",
+      "status": "passed",
+      "evidence": [
+        {
+          "width": 1440,
+          "theme": "Light",
+          "size": "s",
+          "iconWidth": 24
+        },
+        {
+          "width": 1440,
+          "theme": "Light",
+          "size": "m",
+          "iconWidth": 32
+        },
+        {
+          "width": 1440,
+          "theme": "Light",
+          "size": "l",
+          "iconWidth": 40
+        },
+        {
+          "width": 1440,
+          "theme": "Light",
+          "size": "xl",
+          "iconWidth": 48
+        },
+        {
+          "width": 1440,
+          "theme": "Dark",
+          "size": "s",
+          "iconWidth": 24
+        },
+        {
+          "width": 1440,
+          "theme": "Dark",
+          "size": "m",
+          "iconWidth": 32
+        },
+        {
+          "width": 1440,
+          "theme": "Dark",
+          "size": "l",
+          "iconWidth": 40
+        },
+        {
+          "width": 1440,
+          "theme": "Dark",
+          "size": "xl",
+          "iconWidth": 48
+        },
+        {
+          "width": 390,
+          "theme": "Light",
+          "size": "s",
+          "iconWidth": 24
+        },
+        {
+          "width": 390,
+          "theme": "Light",
+          "size": "m",
+          "iconWidth": 32
+        },
+        {
+          "width": 390,
+          "theme": "Light",
+          "size": "l",
+          "iconWidth": 40
+        },
+        {
+          "width": 390,
+          "theme": "Light",
+          "size": "xl",
+          "iconWidth": 48
+        },
+        {
+          "width": 390,
+          "theme": "Dark",
+          "size": "s",
+          "iconWidth": 24
+        },
+        {
+          "width": 390,
+          "theme": "Dark",
+          "size": "m",
+          "iconWidth": 32
+        },
+        {
+          "width": 390,
+          "theme": "Dark",
+          "size": "l",
+          "iconWidth": 40
+        },
+        {
+          "width": 390,
+          "theme": "Dark",
+          "size": "xl",
+          "iconWidth": 48
+        }
+      ]
+    },
+    {
+      "name": "no-browser-errors",
+      "status": "passed"
+    }
+  ],
+  "screenshots": [
+    "1440-Light.png",
+    "1440-Dark.png",
+    "1180-Light.png",
+    "1180-Dark.png",
+    "780-Light.png",
+    "780-Dark.png",
+    "390-Light.png",
+    "390-Dark.png",
+    "x24-1440-Light.png",
+    "x24-1440-Dark.png",
+    "x24-390-Light.png",
+    "x24-390-Dark.png"
+  ],
+  "errors": []
+}

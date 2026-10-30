@@ -1,0 +1,55 @@
+{
+  "captured": "2026-10-25",
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "node": "1:3894",
+  "entries": [
+    {
+      "name": "composer-imgIcon.svg",
+      "alias": "composer-imgIcon",
+      "bytes": 1096,
+      "sha256": "ba578ee7dd7a4df684a59fa49bf098afd06366903e9d64d202e88323125ea739",
+      "existing": {
+        "file": "chat-composer-imgIcon.svg",
+        "bytes": 1096,
+        "sha256": "ba578ee7dd7a4df684a59fa49bf098afd06366903e9d64d202e88323125ea739"
+      },
+      "identical": true
+    },
+    {
+      "name": "composer-imgIcon1.svg",
+      "alias": "composer-imgIcon1",
+      "bytes": 892,
+      "sha256": "361532a2a48f5f743de7b41f5ada1cb5910f5f5dbb4c7ddfe077d8a37141bd56",
+      "existing": {
+        "file": "chat-composer-imgIcon1.svg",
+        "bytes": 892,
+        "sha256": "361532a2a48f5f743de7b41f5ada1cb5910f5f5dbb4c7ddfe077d8a37141bd56"
+      },
+      "identical": true
+    },
+    {
+      "name": "composer-imgIcon2.svg",
+      "alias": "composer-imgIcon2",
+      "bytes": 2230,
+      "sha256": "50bdbb40d6729359b9d389a1c481154d09c0a1bbc766a73f165784662dafb435",
+      "existing": {
+        "file": "chat-composer-imgIcon2.svg",
+        "bytes": 2230,
+        "sha256": "50bdbb40d6729359b9d389a1c481154d09c0a1bbc766a73f165784662dafb435"
+      },
+      "identical": true
+    },
+    {
+      "name": "composer-imgIcon3.svg",
+      "alias": "composer-imgIcon3",
+      "bytes": 1355,
+      "sha256": "79a67b00d3fbda6c8a8536c15a0c70a86fc7270cd0cb51d92a4ee7a12471904c",
+      "existing": {
+        "file": "chat-composer-imgIcon3.svg",
+        "bytes": 1355,
+        "sha256": "79a67b00d3fbda6c8a8536c15a0c70a86fc7270cd0cb51d92a4ee7a12471904c"
+      },
+      "identical": true
+    }
+  ]
+}

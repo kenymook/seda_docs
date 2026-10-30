@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-24",
+  "githubSource": "ccc2b1c9dd2e84e6dd3af72dccdf47a82f3cec41",
+  "siteSource": "35bddb422ecc99a62fbf9ed6fa3b607ea64f023c",
+  "version": 31,
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "deploymentId": "appgdep_6adcaeda60d4819187608d92f253452c",
+  "versionId": "appgprj_6ada9cdd1d4c8191ab6ccb4e9a59a8af~appgver_c5ddd6429ea88191a515d5cf19e992aa",
+  "status": "succeeded",
+  "access": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "visitors": 0,
+    "groups": 0
+  },
+  "archiveSha256": "7e777c8b1b0ec93cdffbeabf175eaa7f4a9be842693198de7e054c8cb84825cf",
+  "typeScriptProjects": 3,
+  "contractTestsPassed": 120,
+  "packageGroupsPassed": 27,
+  "packageGroupsFailed": 0,
+  "fileUploadConsumers": {
+    "react-18.3.1-file-upload": {
+      "states": 168,
+      "parametricSamples": 24,
+      "minimumActiveTextContrast": 4.617957231842579,
+      "errors": [],
+      "keyboardChooser": true,
+      "forcedColorsFocusAndIcon": true,
+      "disabledNoCallbacks": true
+    },
+    "react-19.2.7-file-upload": {
+      "states": 168,
+      "parametricSamples": 24,
+      "minimumActiveTextContrast": 4.617957231842579,
+      "errors": [],
+      "keyboardChooser": true,
+      "forcedColorsFocusAndIcon": true,
+      "disabledNoCallbacks": true
+    }
+  },
+  "pilotSequence": "All steps passed; visual/Lab first run, workspace and remaining sequence rerun after updating expected adapter list.",
+  "production": {
+    "sourceHashesMatched": 730,
+    "visualSamples": [
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 80,
+        "icon": 11,
+        "buttonHeight": 29,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 100,
+        "icon": 14,
+        "buttonHeight": 32,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "s",
+        "scale": 150,
+        "icon": 21,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 80,
+        "icon": 13,
+        "buttonHeight": 36,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 100,
+        "icon": 16,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "m",
+        "scale": 150,
+        "icon": 24,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 80,
+        "icon": 14,
+        "buttonHeight": 43,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 100,
+        "icon": 18,
+        "buttonHeight": 48,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "l",
+        "scale": 150,
+        "icon": 27,
+        "buttonHeight": 60,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 80,
+        "icon": 16,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 100,
+        "icon": 20,
+        "buttonHeight": 56,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Light",
+        "size": "xl",
+        "scale": 150,
+        "icon": 30,
+        "buttonHeight": 70,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 80,
+        "icon": 11,
+        "buttonHeight": 29,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 100,
+        "icon": 14,
+        "buttonHeight": 32,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "s",
+        "scale": 150,
+        "icon": 21,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 80,
+        "icon": 13,
+        "buttonHeight": 36,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 100,
+        "icon": 16,
+        "buttonHeight": 40,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "m",
+        "scale": 150,
+        "icon": 24,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 80,
+        "icon": 14,
+        "buttonHeight": 43,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 100,
+        "icon": 18,
+        "buttonHeight": 48,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "l",
+        "scale": 150,
+        "icon": 27,
+        "buttonHeight": 60,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 80,
+        "icon": 16,
+        "buttonHeight": 50,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 100,
+        "icon": 20,
+        "buttonHeight": 56,
+        "loadingWidthDelta": 0
+      },
+      {
+        "theme": "Dark",
+        "size": "xl",
+        "scale": 150,
+        "icon": 30,
+        "buttonHeight": 70,
+        "loadingWidthDelta": 0
+      }
+    ],
+    "errors": [],
+    "fileSelection": true,
+    "disabled": true,
+    "indeterminateProgress": true,
+    "activeTextContrastThreshold": 4.5
+  },
+  "limits": [
+    "No FileUpload executable instance contract yet",
+    "No transport or content validation inside FileUpload",
+    "No OS/AT acceptance",
+    "No full-library visual maturity claim"
+  ]
+}

@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/Line/copy">
+<g id="Vector">
+<path d="M15 3.6H6C4.67452 3.6 3.6 4.67452 3.6 6V15C3.6 16.3255 4.67452 17.4 6 17.4H6.52344L6.5 19L6 19C3.79086 19 2 17.2091 2 15V6C2 3.79086 3.79086 2 6 2H15C17.2091 2 19 3.79086 19 6L19 6.5H17.4V6C17.4 4.67452 16.3255 3.6 15 3.6Z" fill="#0A0A0B"/>
+<path d="M18 7.6H10C8.67452 7.6 7.6 8.67452 7.6 10V18C7.6 19.3255 8.67452 20.4 10 20.4H18C19.3255 20.4 20.4 19.3255 20.4 18V10C20.4 8.67452 19.3255 7.6 18 7.6ZM10 6C7.79086 6 6 7.79086 6 10V18C6 20.2091 7.79086 22 10 22H18C20.2091 22 22 20.2091 22 18V10C22 7.79086 20.2091 6 18 6H10Z" fill-rule="evenodd" clip-rule="evenodd" fill="#0A0A0B"/>
+</g>
+</g>
+</svg>

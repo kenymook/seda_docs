@@ -1,0 +1,341 @@
+/* Shared application workspace adapter. Lab configuration chrome is deliberately outside this scope. */
+.visual-consistency { display:grid; gap:24px; }
+.visual-consistency__sample { display:grid; gap:20px; }
+.visual-consistency__fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+.visual-consistency__actions { display:flex; flex-wrap:wrap; align-items:center; gap:16px; }
+.visual-consistency__actions:has(> .seda-choice, > .seda-toggle) { align-items:first baseline; }
+.visual-consistency__uploads { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; gap:16px; }
+@media(max-width:1100px) { .visual-consistency__uploads { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:900px) { .visual-consistency__fields { grid-template-columns:minmax(0,1fr); } }
+[data-workspace] {
+  min-width: 0;
+  font-family: var(--seda-font-family);
+  color-scheme: light;
+  --text-primary: var(--seda-foreground-default);
+  --text-tertiary: var(--seda-helper-default);
+}
+body.dark [data-workspace] {
+  color-scheme: dark;
+}
+/* Public SEDA owns control geometry, paint and states. */
+.product-masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #e2e7ef;
+  padding-bottom: 18px;
+  margin-bottom: 14px;
+}
+.product-masthead > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.product-masthead > div > div {
+  display: grid;
+  gap: 5px;
+}
+.product-masthead strong {
+  font-size: 15px;
+}
+.product-masthead>div>div>span.seda-text {
+  color: var(--text-tertiary);
+}
+.product-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.product-nav [aria-current="page"] {
+  outline: 2px solid var(--seda-focus-ring);
+  background: var(--seda-surface-hover);
+}
+.workspace-page[hidden],
+#projects-page[hidden] {
+  display: none;
+}
+.workspace-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.workspace-form h2,
+.workspace-invite h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.form-section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.form-section-heading span {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+.form-section-heading:not(:first-child) {
+  border-top: 1px solid #e1e7ef;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+.workspace-preferences {
+  display: grid;
+  gap: 10px;
+}
+.workspace-form-footer {
+  border-top: 1px solid #e1e7ef;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.workspace-form-footer p {
+  margin-bottom: 0;
+}
+.workspace-radio .seda-radio-group__items {
+  gap: 0;
+}
+[data-workspace] :is(.workspace-filters, .workspace-members-toolbar) {
+  /* Same text/padding/icon capacity recipe as Files. These are composition
+     inputs, not another set of control presets or a change to control geometry. */
+  --workspace-filter-gap: 14px;
+  --workspace-filter-max-columns: 2;
+  --workspace-filter-min: max(170px, calc(var(--seda-control-font-size) * 12 + var(--seda-control-field-padding-inline) * 2 + var(--seda-control-icon-size) + var(--seda-control-gap)));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(var(--workspace-filter-min), calc((100% - (var(--workspace-filter-max-columns) - 1) * var(--workspace-filter-gap)) / var(--workspace-filter-max-columns)))), 1fr));
+  align-items: end;
+  gap: var(--workspace-filter-gap);
+}
+.workspace-table-scroll {
+  overflow: auto;
+  max-width: 100%;
+}
+.workspace-invite {
+  margin-top: 20px;
+}
+.workspace-invite > .seda-button {
+  margin-top: 20px;
+}
+.workspace-filters .searchwrap {
+  height: auto;
+  display: block;
+  min-width: 0;
+}
+.workspace-filters .searchwrap .seda-field__label {
+  position: static;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+.workspace-filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  grid-column: 1/-1;
+}
+.workspace-bulk,
+.workspace-pagination {
+  padding: 12px 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #e1e7ef;
+}
+.workspace-bulk {
+  background: #eff4ff;
+  justify-content: flex-start;
+}
+.workspace-pagination .seda-field {
+  min-width: 120px;
+}
+.workspace-pagination > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+.workspace-pagination p {
+  margin: 0;
+}
+.workspace-row-choice .seda-choice__label,
+.workspace-row-choice .seda-choice__content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.workspace-row-choice {
+  --seda-choice-head: var(--seda-control-choice-size);
+  grid-template-columns: auto;
+  column-gap: 0;
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+.workspace-row-choice .seda-choice__control {
+  margin: 0;
+}
+.workspace-sort-button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.workspace-caption {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #6f819a;
+  margin-top: 16px;
+}
+.workspace-caption strong {
+  font-weight: 600;
+}
+.workspace-tokens {
+  max-height: 320px;
+  overflow: auto;
+}
+.workspace-tokens code {
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.workspace-tokens > div {
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e7ef;
+  font-size: 11px;
+}
+.workspace-select {
+  min-width: 0;
+}
+body.dark .product-masthead,
+body.dark .workspace-form-footer,
+body.dark .form-section-heading,
+body.dark .workspace-pagination {
+  border-color: #344256;
+}
+body.dark .workspace-bulk {
+  background: #253a58;
+  color: #c1d7ff;
+}
+body.dark .workspace-caption,
+body.dark .form-section-heading span {
+  color: #a2b3cd;
+}
+@media (min-width: 1600px) {
+  [data-workspace] .workspace-filters {
+    --workspace-filter-max-columns: 4;
+  }
+}
+@media (max-width: 780px) {
+  .workspace-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-workspace] :is(.workspace-filters, .workspace-members-toolbar) {
+    --workspace-filter-max-columns: 1;
+  }
+  .workspace-account {
+    display: none;
+  }
+  .workspace-form {
+    padding: 18px;
+  }
+  .product-nav .seda-button {
+    max-width: 100%;
+  }
+  .workspace-pagination {
+    align-items: stretch;
+  }
+  .workspace-pagination > div {
+    width: 100%;
+  }
+  .workspace-pagination .seda-field {
+    flex: 1;
+  }
+  .workspace-table-scroll table {
+    min-width: 600px;
+  }
+}
+[data-workspace] .view-switch .seda-button {
+  padding: 0 var(--seda-control-button-padding-inline);
+  border-radius: var(--seda-control-radius);
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+  color: var(--seda-foreground-default);
+  background: var(--seda-surface-default);
+}
+[data-workspace] .view-switch .seda-button.active {
+  background: var(--seda-surface-hover);
+  box-shadow: inset 0 0 0 1px var(--seda-border-hover);
+}
+/* Application actions retain a stable control box in narrow panes; full accessible names remain available. */
+[data-workspace] .seda-button {
+  min-width: 0;
+  max-width: 100%;
+}
+[data-workspace] .seda-button__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-workspace] .view-switch {
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+[data-workspace] table:not(.seda-table__element) td {
+  font-size: var(--seda-control-font-size);
+  line-height: var(--seda-control-line-height);
+  padding-block: calc(8px + var(--seda-control-padding-block));
+  padding-inline: var(--seda-control-padding-inline);
+}
+[data-workspace] table:not(.seda-table__element) th {
+  line-height: var(--seda-control-line-height);
+  padding-block: var(--seda-control-padding-block);
+  padding-inline: var(--seda-control-padding-inline);
+}
+/* Composition spacing belongs to the settings content, not to Tabs token overrides. */
+.workspace-settings-panel { padding-block-start: 24px; }
+
+/* Experimental editor composition, built with shared SplitView and controls. */
+.editor-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-block-end:16px; }
+.editor-toolbar > span { color:var(--seda-foreground-default); }
+.editor-surface { height:520px; min-width:0; border:1px solid var(--border-subtle); border-radius:var(--seda-control-radius); overflow:hidden; }
+.editor-objects,.editor-properties,.editor-preview { padding:16px; min-height:100%; }
+.editor-objects,.editor-properties { display:flex; flex-direction:column; align-items:stretch; gap:16px; }
+.editor-objects h2,.editor-properties h2 { font-size:var(--seda-control-font-size); margin:0; }
+.editor-objects .seda-button { justify-content:flex-start; }
+.editor-objects [aria-pressed="true"] { outline:2px solid var(--focus-ring); outline-offset:-2px; }
+.editor-preview { background:var(--surface-base); overflow:auto; }
+.editor-artboard { border:1px solid var(--border-subtle); padding:20px; }
+.editor-artboard h2 { overflow-wrap:anywhere; }
+.editor-artboard .seda-button { max-width:100%; }
+
+.feedback-workspace { display:grid; gap:24px; }
+.feedback-workspace__controls { display:grid; grid-template-columns:minmax(180px,1fr) minmax(0,2fr); align-items:end; gap:20px; }
+.feedback-workspace__list { list-style:none; padding:0; margin:20px 0 0; }
+.feedback-workspace__list li { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding-block:12px; border-block-start:1px solid var(--border-default); }
+@media(max-width:1100px) { .feedback-workspace__controls { grid-template-columns:minmax(0,1fr); } }
+
+/* Composition rhythm uses the same compiled layout roles as forms/actions. */
+.feedback-workspace__queue { display:grid; gap:var(--seda-layout-actions-gap); }
+.feedback-workspace__queue > :is(h3,p) { margin:0; }
+
+.workspace-table-host{min-width:0;max-width:100%}
+.workspace-project-name{display:flex;align-items:center;gap:8px;min-width:0}
+
+.workspace-project-name>.seda-avatar{flex:none}
+.workspace-description{grid-column:1 / -1}

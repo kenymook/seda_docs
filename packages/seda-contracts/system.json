@@ -263,6 +263,27 @@
         "bodySmall",
         "base"
       ]
+    },
+    "fieldWeight": {
+      "collection": "foundation",
+      "path": [
+        "font",
+        "body",
+        "base",
+        "weight"
+      ],
+      "expectedType": "string"
+    },
+    "fieldLetterSpacing": {
+      "collection": "foundation",
+      "path": [
+        "font",
+        "body",
+        "base",
+        "letterSpacing"
+      ],
+      "expectedType": "number",
+      "unit": "px"
     }
   },
   "geometry": {
@@ -298,7 +319,7 @@
       "collection": "foundation",
       "path": [
         "space",
-        "m"
+        "s"
       ],
       "expectedType": "number",
       "unit": "px"

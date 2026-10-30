@@ -2,10 +2,16 @@
 
 > **Category** · Data Display
 > **Version** · 1.0
-> **Status** · ready
+> **Status** · review
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-05-28
+> **Last reviewed** · 2026-10-24
 > **Figma** · [Tag / Read-only](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1172-1185), [Tag / Selectable](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1178-16954), [Tag / Interactive](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=1180-17533)
+
+## Runtime — 2026-10-24
+
+Tag использует общий font/line/icon и scale/X/Y, сохраняя pill shape. Selectable main — native button, dismiss — соседняя native button; nested buttons отсутствуют, dismiss не меняет selection. aria-pressed принадлежит main button, внешний ref — обёртке layout. Вложенный counter — настоящий Badge с документированным внутренним view tag-counter; значение 0 сохраняется. Неназначенный dismiss callback означает disabled action. Явные size остаются S/M/L; унаследованный Provider XL использует общую runtime геометрию и не выдаётся за отдельный Figma variant.
+
+[Точные aliases, SVG provenance и ограничения](../../docs/library/FEEDBACK-VISUAL-HANDOFF.md). Runtime адаптация не является executable instance contract или внешней визуальной/AT-приёмкой.
 
 ---
 
@@ -133,7 +139,7 @@ Tag — компактная метка для статуса, категори�
 | `enabled` / `default` | Все типы. | Базовое отображение. |
 | `hover` | `selectable`, `interactive`. | Показывает, что Tag можно активировать. |
 | `active` | `selectable`, `interactive`. | Момент нажатия. |
-| `focus` | `selectable`, `interactive`, dismiss button. | Keyboard focus через `tag/focus/ring`. |
+| `focus` | `selectable`, `interactive`, dismiss button. | Keyboard focus через `focus/ring`. |
 | `selected` | `selectable`. | Tag выбран как фильтр или toggle. |
 | `disabled` | Все типы. | Недоступен и не активируется. |
 | `skeleton` | Все типы. | Placeholder до загрузки label/status. |
@@ -223,24 +229,24 @@ Tag должен следовать [foundation/accessibility.md](../../foundati
 | `tag/foreground/brand` | Brand text. | `text/on-brand/primary` |
 | `tag/border/brand` | Brand border. | `border/brand/subtle` |
 | `tag/icon/brand` | Brand icon. | `text/on-brand/primary` |
-| `tag/surface/info` | Info surface. | `status/info/surface` |
-| `tag/foreground/info` | Info text. | `status/info/text` |
+| `tag/surface/info` | Info surface. | `status/info/container` |
+| `tag/foreground/info` | Info text. | `text/info` |
 | `tag/border/info` | Info border. | `status/info/border` |
 | `tag/icon/info` | Info icon. | `status/info/icon` |
-| `tag/surface/success` | Success surface. | `status/success/surface` |
-| `tag/foreground/success` | Success text. | `status/success/text` |
+| `tag/surface/success` | Success surface. | `status/success/container` |
+| `tag/foreground/success` | Success text. | `text/success` |
 | `tag/border/success` | Success border. | `status/success/border` |
 | `tag/icon/success` | Success icon. | `status/success/icon` |
-| `tag/surface/warning` | Warning surface. | `status/warning/surface` |
-| `tag/foreground/warning` | Warning text. | `status/warning/text` |
+| `tag/surface/warning` | Warning surface. | `status/warning/container` |
+| `tag/foreground/warning` | Warning text. | `text/warning` |
 | `tag/border/warning` | Warning border. | `status/warning/border` |
 | `tag/icon/warning` | Warning icon. | `status/warning/icon` |
-| `tag/surface/danger` | Danger surface. | `status/danger/surface` |
-| `tag/foreground/danger` | Danger text. | `status/danger/text` |
+| `tag/surface/danger` | Danger surface. | `status/danger/container` |
+| `tag/foreground/danger` | Danger text. | `text/danger` |
 | `tag/border/danger` | Danger border. | `status/danger/border` |
 | `tag/icon/danger` | Danger icon. | `status/danger/icon` |
-| `tag/surface/ai` | AI marker surface. | `status/ai/surface` |
-| `tag/foreground/ai` | AI marker text. | `status/ai/text` |
+| `tag/surface/ai` | AI marker surface. | `status/ai/container` |
+| `tag/foreground/ai` | AI marker text. | `text/ai` |
 | `tag/border/ai` | AI marker border. | `status/ai/border` |
 | `tag/icon/ai` | AI marker icon. | `status/ai/icon` |
 

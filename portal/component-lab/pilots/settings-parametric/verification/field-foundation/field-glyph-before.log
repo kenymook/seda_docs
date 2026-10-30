@@ -1,0 +1,22 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"theme":"light","size":"s","scale":100,"state":"default","id":"public-icon","glyph":{"color":"rgb(10, 10, 11)","width":14,"height":14,"centerDelta":0,"backgrounds":["rgba(0, 0, 0, 0)","rgb(255, 255, 255)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgb(255, 255, 255)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)","rgba(0, 0, 0, 0)"]},"expected":"rgba(24, 25, 27, 0.6)"}
++ actual - expected
+
++ 'rgb(10, 10, 11)'
+- 'rgba(24, 25, 27, 0.6)'
+      ^
+
+    at verifyFieldGlyphs (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-ui/scripts/verify-field-glyphs.mjs:57:47)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/run-field-glyph.mjs:6:44 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'rgb(10, 10, 11)',
+  expected: 'rgba(24, 25, 27, 0.6)',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

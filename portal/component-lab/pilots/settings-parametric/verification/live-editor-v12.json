@@ -1,0 +1,98 @@
+{
+  "editor": {
+    "keyboardResize": {
+      "before": 180,
+      "after": 188
+    },
+    "linkedPreview": true,
+    "undoRedo": true,
+    "localSaveReload": true,
+    "storedNavigation": 188,
+    "foundationEvidence": 13
+  },
+  "fieldThemeIsolation": [
+    {
+      "id": "filter",
+      "inner": "rgba(0, 0, 0, 0)",
+      "text": "rgb(255, 255, 255)",
+      "wrapperText": "rgb(255, 255, 255)"
+    },
+    {
+      "id": "project",
+      "inner": "rgba(0, 0, 0, 0)",
+      "text": "rgb(255, 255, 255)",
+      "wrapperText": "rgb(255, 255, 255)"
+    }
+  ],
+  "menu": {
+    "triggerAppearance": {
+      "variant": "ghost",
+      "background": "rgba(0, 0, 0, 0)",
+      "color": "rgba(255, 255, 255, 0.85)",
+      "underlying": "rgb(29, 41, 56)",
+      "contrast": 11.013389197533298,
+      "icon": "···"
+    },
+    "contract": true,
+    "copyDialog": true,
+    "deleteConfirmation": true,
+    "cancel": true,
+    "focusFallback": true,
+    "geometry": {
+      "height": 60,
+      "padding": 34
+    }
+  },
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "title": "SEDA AI Lab 2.0",
+  "status": 200,
+  "workspaceNavigation": "projects/settings/members/editor",
+  "memberRows": 4,
+  "tabs": {
+    "contract": true,
+    "crossPanelValidation": true,
+    "draftRetained": true,
+    "keyboard": true,
+    "tabGeometry": {
+      "height": 32,
+      "padding": 10
+    }
+  },
+  "contractCoverage": {
+    "contract": [
+      "Button",
+      "IconButton",
+      "TextField",
+      "Select",
+      "Checkbox",
+      "Radio",
+      "Toggle",
+      "Tabs",
+      "DropdownMenu"
+    ],
+    "libraryAdapter": [
+      "SplitView"
+    ],
+    "composition": [
+      "Navigation",
+      "Table",
+      "Card",
+      "Dialog",
+      "Editor"
+    ]
+  },
+  "matchedSourceHashes": 103,
+  "styledNativePicker": true,
+  "singleFocusRing": true,
+  "selectPadding": 22,
+  "selectHeight": 60,
+  "xDuringRequest": 24,
+  "iconSquare": true,
+  "paddingAfter": 44,
+  "loadingDelta": {
+    "width": 0,
+    "height": 0
+  },
+  "pageErrors": 0,
+  "savedSnapshot": "Live verification"
+}

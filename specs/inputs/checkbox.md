@@ -120,6 +120,12 @@ Figma component set: `checkbox`. Node id: `1090:16624`.
 
 ## 7. Accessibility
 
+### Геометрия подписи и описания
+
+Маркер центрируется относительно первой строки label. Helper/error располагается под полной подписью и не смещает маркер, в том числе при переносе label. Общая высота первой строки учитывает line-height и высоту Toggle того же preset, чтобы Checkbox, Radio и Toggle сохраняли общий ритм. Горизонтальные группы таких контролов используют `align-items: first baseline`; центрирование всей высоты компонентов с разными описаниями не подходит.
+
+В React label связан через `aria-labelledby`, helper/error — через `aria-describedby`. Описание не включается повторно в доступное имя. Явные `aria-label`/`aria-labelledby` потребителя сохраняются; числовой helper `0` отображается.
+
 Компонент следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Требование | Правило |
@@ -165,13 +171,14 @@ Figma component set: `checkbox`. Node id: `1090:16624`.
 | `$collections/components/$modes/Mode 1/checkbox/control/surface/indeterminate` | Control surface indeterminate | `container/brand/default` |
 | `$collections/components/$modes/Mode 1/checkbox/control/surface/error` | Control surface error | `status/danger/container` |
 | `$collections/components/$modes/Mode 1/checkbox/control/surface/disabled` | Control surface disabled | `status/disabled/container` |
-| `$collections/components/$modes/Mode 1/checkbox/control/border/default` | Control border default | `border/default` |
-| `$collections/components/$modes/Mode 1/checkbox/control/border/hover` | Control border hover | `border/hover` |
+| `$collections/components/$modes/Mode 1/checkbox/control/border/default` | Control border default | `border/control/default` |
+| `$collections/components/$modes/Mode 1/checkbox/control/border/hover` | Control border hover | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/checkbox/control/border/checked` | Control border checked | `border/brand/default` |
 | `$collections/components/$modes/Mode 1/checkbox/control/border/error` | Control border error | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/checkbox/control/border/disabled` | Control border disabled | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/checkbox/control/icon/checked` | Check icon | `text/on-brand/primary` |
 | `$collections/components/$modes/Mode 1/checkbox/control/icon/indeterminate` | Indeterminate icon | `text/on-brand/primary` |
+| `$collections/components/$modes/Mode 1/checkbox/control/icon/error` | Checked/mixed error marker | `status/danger/icon` |
 | `$collections/components/$modes/Mode 1/checkbox/control/icon/disabled` | Disabled icon | `status/disabled/icon` |
 
 ### Token gaps
@@ -262,3 +269,8 @@ Figma component set: `checkbox`. Node id: `1090:16624`.
 - Сохранять `indeterminate` как пользовательское значение.
 - Показывать error только цветом control.
 - Добавлять custom checked colors без system review.
+
+
+## Исполняемый контракт web
+
+Контракт реализован в `packages/seda-contracts/contracts/Checkbox.json`. Общий compiler и runtime-проверки описаны в [D25](../../packages/seda-contracts/WORKSPACE-CONTRACTS.md). Источник исполнения — настоящий компонент `packages/seda-ui`, а не HTML-макет. Браузерное покрытие и ограничения платформ зафиксированы в [отчёте Lab](../../portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md).

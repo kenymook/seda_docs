@@ -1,0 +1,346 @@
+{
+  "scope": "24 real Files notification page theme/width/profile cases; actual successful operations, history reload, unread filters, read acknowledgement, write recovery, corrupt-history isolation; no remote backend/mentions claimed",
+  "samples": [
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "rootOverflow": 0,
+        "overflow": 0,
+        "state": "has-unread",
+        "rows": 1
+      }
+    }
+  ],
+  "installedPackage": true,
+  "sourceAlias": false,
+  "historyWriteRecovery": true,
+  "corruptHistoryDoesNotResetFiles": true,
+  "errors": []
+}

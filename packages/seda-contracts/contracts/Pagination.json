@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Pagination",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Pagination/Pagination.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Pagination/Pagination.tsx",
+    "export": "PaginationProps",
+    "nativeElement": "nav"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "nav",
+      "required": true
+    },
+    {
+      "name": "page",
+      "element": "button",
+      "required": false
+    },
+    {
+      "name": "previous",
+      "element": "button",
+      "required": true
+    },
+    {
+      "name": "next",
+      "element": "button",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle",
+      "loading"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": []
+  },
+  "pilotVariants": [
+    "numbered",
+    "prev-next"
+  ],
+  "tokenBranches": {
+    "numbered": {
+      "collection": "components",
+      "path": [
+        "pagination"
+      ]
+    },
+    "prev-next": {
+      "collection": "components",
+      "path": [
+        "pagination"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "specs/navigation/pagination.md",
+      "condition": "Supported Pagination API",
+      "expected": "Navigation has a nonempty accessible name.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D35"
+    },
+    {
+      "id": "model",
+      "source": "specs/navigation/pagination.md",
+      "condition": "Supported Pagination API",
+      "expected": "Page bounds and the controlled page-change handler are valid.",
+      "check": "pagination-model",
+      "layer": "instance",
+      "decision": "D35"
+    },
+    {
+      "id": "focus",
+      "source": "specs/navigation/pagination.md",
+      "condition": "Supported Pagination API",
+      "expected": "Focus and disabled behavior require rendered verification.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D35"
+    },
+    {
+      "id": "geometry",
+      "source": "specs/navigation/pagination.md",
+      "condition": "Supported Pagination API",
+      "expected": "Rendered dimensions require verification.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D35"
+    },
+    {
+      "id": "tokens",
+      "source": "specs/navigation/pagination.md",
+      "condition": "Supported Pagination API",
+      "expected": "Rendered tokens require verification.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D35"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "platform-assistive-technology",
+      "status": "not-checked",
+      "reason": "Browser, OS and assistive technology acceptance remains open."
+    }
+  ],
+  "evidence": {
+    "source": "specs/navigation/pagination.md",
+    "baseline": "packages/seda-ui/scripts/verify-pagination.mjs",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "numbered": [
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "selected"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "hover"
+      ],
+      [
+        "item",
+        "foreground",
+        "selected"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "border",
+        "selected"
+      ],
+      [
+        "item",
+        "border",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "hover"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ],
+    "prev-next": [
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "selected"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "hover"
+      ],
+      [
+        "item",
+        "foreground",
+        "selected"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "border",
+        "selected"
+      ],
+      [
+        "item",
+        "border",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "hover"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "focus",
+        "ring"
+      ]
+    ]
+  }
+}

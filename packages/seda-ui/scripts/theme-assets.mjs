@@ -1,0 +1,456 @@
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import { createTokenResolver } from "../../seda-contracts/src/tokens.mjs";
+import {compileTypography,createTypographyBindings,typographyRoles,withSystemFontFallback} from '../../seda-contracts/src/typography.mjs';
+import {controlGeometryDeclarations,controlParameterMetadata} from '../../seda-contracts/src/control-geometry.mjs';
+import {resolveInlineAction,resolveInlineActionBranch} from '../../seda-contracts/src/inline-action.mjs';
+/** Build-time only: the consumer receives self-contained CSS and provenance JSON. */
+export function buildThemeAssets(packageRoot, output) {
+  const repo = path.resolve(packageRoot, "../..");
+  const tokensBytes = fs.readFileSync(path.join(repo, "tokens.json"));
+  const systemBytes = fs.readFileSync(
+    path.join(repo, "packages/seda-contracts/system.json"),
+  );
+  const profileBytes=fs.readFileSync(path.join(repo,"packages/seda-contracts/profiles/settings-form.json"));
+  const profile=JSON.parse(profileBytes);
+  const tokens = JSON.parse(tokensBytes),
+    system = JSON.parse(systemBytes);
+  const resolver = createTokenResolver(tokens);
+  const hash = (bytes) =>
+    crypto.createHash("sha256").update(bytes).digest("hex");
+  const actionContracts = Object.fromEntries(
+    ["Button", "IconButton"].map((name) => [
+      name,
+      JSON.parse(
+        fs.readFileSync(
+          path.join(repo, "packages/seda-contracts/contracts", name + ".json"),
+          "utf8",
+        ),
+      ),
+    ]),
+  );
+  const sliderContract=JSON.parse(fs.readFileSync(path.join(repo,'packages/seda-contracts/contracts/Slider.json'),'utf8'));
+  const textAreaContract=JSON.parse(fs.readFileSync(path.join(repo,'packages/seda-contracts/contracts/TextArea.json'),'utf8'));
+  const stylesBytes = fs.readFileSync(path.join(packageRoot, "src/styles.css"));
+  const providerBytes = fs.readFileSync(
+    path.join(packageRoot, "src/provider.css"),
+  );
+  const navigationBytes = fs.readFileSync(path.join(packageRoot, "src/navigation.css"));
+  const overlayBytes = fs.readFileSync(path.join(packageRoot, "src/overlays.css"));
+  const layoutBytes = fs.readFileSync(path.join(packageRoot, "src/layout.css"));
+  const usedProperties = new Set(
+    Array.from(
+      (String(stylesBytes) + "\n" + String(providerBytes) + "\n" + String(navigationBytes) + "\n" + String(overlayBytes) + "\n" + String(layoutBytes)).matchAll(
+        /var\((--[a-zA-Z0-9-]+)/g,
+      ),
+      (match) => match[1],
+    ),
+  );
+  const report = {
+    kind: "seda-ui-profiles",
+    schemaVersion: "0.1.0",
+    controlParameters:controlParameterMetadata(),
+    sources: {
+      "tokens.json": hash(tokensBytes),
+      "packages/seda-contracts/profiles/settings-form.json":hash(profileBytes),
+      ...Object.fromEntries(['src/control-geometry.mjs','src/control-geometry.d.mts','src/inline-action.mjs'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
+      ...Object.fromEntries(['contracts/Slider.json','src/slider.mjs','src/slider.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
+      ...Object.fromEntries(['contracts/NumberField.json','src/number-field.mjs','src/number-field.d.mts'].map(name=>['packages/seda-contracts/'+name,hash(fs.readFileSync(path.join(repo,'packages/seda-contracts',name)))])),
+      "packages/seda-contracts/src/typography.mjs":hash(fs.readFileSync(path.join(repo,'packages/seda-contracts/src/typography.mjs'))),
+      "packages/seda-contracts/contracts/TextArea.json":hash(fs.readFileSync(path.join(repo,"packages/seda-contracts/contracts/TextArea.json"))),
+      "packages/seda-contracts/system.json": hash(systemBytes),
+      "packages/seda-ui/src/styles.css": hash(stylesBytes),
+      "packages/seda-ui/src/provider.css": hash(providerBytes),
+      "packages/seda-ui/src/navigation.css": hash(navigationBytes),
+      "packages/seda-ui/src/overlays.css": hash(overlayBytes),
+      "packages/seda-ui/src/layout.css": hash(layoutBytes),
+      "packages/seda-ui/scripts/theme-assets.mjs": hash(
+        fs.readFileSync(new URL(import.meta.url)),
+      ),
+      ...Object.fromEntries(
+        ["Button", "IconButton"].map((name) => {
+          const file = "packages/seda-contracts/contracts/" + name + ".json";
+          return [file, hash(fs.readFileSync(path.join(repo, file)))];
+        }),
+      ),
+    },
+    profiles: {},
+    actionProfiles: {},
+    themes: {},
+    primitives: {},
+  };
+  const css = [
+    "/* Generated from tokens.json and the shared contract system. */",
+  ];
+  report.typography={};
+  for(const theme of system.supportedThemes){
+    const typography=compileTypography(resolver,{theme});report.typography[system.themeAdapter[theme]]=typography;
+    const {vars}=createTypographyBindings(typography);
+    css.push(':root,.seda-provider[data-seda-theme="'+system.themeAdapter[theme]+'"]{'+Object.entries(vars).map(([key,value])=>key+':'+value+';').join('')+'}');
+  }
+  for(const role of Object.keys(typographyRoles)){
+    const p='--seda-type-'+role.replaceAll('/','-');
+    css.push('.seda-text[data-seda-text="'+role+'"]{--seda-text-rendered-size:max(var('+p+'-minimum),calc(var('+p+'-size) * var(--seda-text-scale,1)));font-family:var('+p+'-family);font-size:var(--seda-text-rendered-size);line-height:calc(var(--seda-text-rendered-size) * var('+p+'-ratio));letter-spacing:calc(var(--seda-text-rendered-size) * var('+p+'-tracking-ratio));font-weight:var('+p+'-weight);'+(role.startsWith('metric/')?'font-variant-numeric:tabular-nums;':'')+'}');
+  }
+  css.push('.seda-text[data-seda-text]{margin:0;max-width:100%;min-width:0;overflow-wrap:anywhere;}');
+  const weight = { Regular: 400, Medium: 500, Semibold: 600, Bold: 700 };
+  const dimension = (value, theme) =>
+    value && typeof value === "object" && "collection" in value
+      ? resolver.resolve(value, { theme })
+      : { ...value, cssValue: value.value + "px" };
+  for (const theme of system.supportedThemes) {
+    for(const suffix of textAreaContract.tokenRequirements.default)resolver.resolve({collection:textAreaContract.tokenBranches.default.collection,path:[...textAreaContract.tokenBranches.default.path,...suffix],expectedType:"color"},{theme});
+    const key = system.themeAdapter[theme],
+      variables = new Map(),
+      evidence = [];
+    const add = (property, leaf) => {
+      if (variables.has(property) && variables.get(property) !== leaf.cssValue)
+        throw Error("CSS variable collision: " + property);
+      if (variables.has(property)) return;
+      variables.set(property, leaf.cssValue);
+      evidence.push({ property, ...leaf });
+    };
+    function visit(node, parts, collection) {
+      if (!node || typeof node !== "object") return;
+      // Importer data may contain both a leaf and named children at one node.
+      // Resolve each exact leaf path instead of dropping children after a parent leaf.
+      if ("$value" in node) {
+        const value=resolver.resolve({collection,path:parts},{theme});
+        if(value.type === "color") {
+          const property="--"+parts.join("-");
+          if(collection === "semantic" || usedProperties.has(property)) add(property,value);
+          if(collection === "components" && usedProperties.has("--seda-"+parts.join("-"))) add("--seda-"+parts.join("-"),value);
+        }
+      }
+      for(const [name,value] of Object.entries(node))
+        if(!name.startsWith("$")) visit(value,[...parts,name],collection);
+    }
+    for(const collection of ["semantic","components"])
+      visit(tokens.$collections[collection].$modes[collection === "semantic" ? theme : "Mode 1"],[],collection);
+    // Existing importer paths use camelCase leaves. Public CSS names are explicit
+    // aliases, not token renames; provenance retains the original source path.
+    for (const [property,name] of [
+      ['--avatar-foreground-on-brand','onBrand'],
+      ['--avatar-foreground-on-ai','onAi'],
+    ]) if (usedProperties.has(property)) {
+      add(property,resolver.resolve({collection:'components',path:['avatar','foreground',name],expectedType:'color'},{theme}));
+    }
+    const actionMappings = {
+      Button: {
+        primary: ["button", "primary", "solid"],
+        secondary: ["button", "neutral", "secondary"],
+        outline: ["button", "neutral", "outline"],
+        ghost: ["button", "neutral", "ghost"],
+        text: ["button", "neutral", "text"],
+        destruction: ["button", "danger", "solid"],
+      },
+      IconButton: {
+        primary: ["icon-button", "primary"],
+        secondary: ["icon-button", "neutral"],
+        outline: ["icon-button", "neutral"],
+        ghost: ["icon-button", "ghost"],
+        text: ["icon-button", "ghost"],
+        destruction: ["icon-button", "danger"],
+      },
+    };
+    for (const [component, variants] of Object.entries(actionMappings))
+      for (const [variant, fallbackPath] of Object.entries(variants)) {
+        const declared = actionContracts[component].tokenBranches[variant];
+        const branchPath = declared?.path ?? fallbackPath;
+        const branch = resolveInlineActionBranch(actionContracts[component],resolver.resolveBranch(
+          {
+            collection: declared?.collection ?? "components",
+            path: branchPath,
+          },
+          { theme },
+        ),variant);
+        const prefix = component === "Button" ? "button" : "icon-button";
+        for (const role of ["surface", "border", "foreground"])
+          if (!branch.children[role]?.default)
+            throw Error(
+              `Required ${component}.${variant} token role missing: ${role}/default`,
+            );
+        if (declared)
+          for (const parts of actionContracts[component].tokenRequirements[
+            variant
+          ])
+            resolver.resolve(
+              {
+                ...declared,
+                path: [...declared.path, ...parts],
+                expectedType: "color",
+              },
+              { theme },
+            );
+        function bindAction(node, parts = []) {
+          for (const [name, value] of Object.entries(node)) {
+            const p = [...parts, name];
+            if (value && typeof value === "object" && "cssValue" in value)
+              add("--" + prefix + "-" + variant + "-" + p.join("-"), {
+                ...value,
+                adapter: "public-action-variant",
+                apiVariant: variant,
+              });
+            else bindAction(value, p);
+          }
+        }
+        bindAction(branch.children);
+        if (key === "light") {
+          const assignments = [];
+          for (const role of ["surface", "border", "foreground"])
+            for (const state of [
+              "default",
+              "hover",
+              "pressed",
+              "disabled",
+              "loading",
+              "selected",
+            ])
+              assignments.push(
+                "--seda-action-" +
+                  role +
+                  "-" +
+                  state +
+                  ":var(--" +
+                  prefix +
+                  "-" +
+                  variant +
+                  "-" +
+                  role +
+                  "-" +
+                  state +
+                  ",var(--" +
+                  prefix +
+                  "-" +
+                  variant +
+                  "-" +
+                  role +
+                  "-default));",
+              );
+          assignments.push(
+            "--seda-action-spinner:var(--" +
+              prefix +
+              "-" +
+              variant +
+              "-spinner-foreground,var(--" +
+              prefix +
+              "-" +
+              variant +
+              "-foreground-loading,var(--" +
+              prefix +
+              "-" +
+              variant +
+              "-foreground-default)));",
+          );
+          assignments.push(
+            "--seda-action-focus:var(--" +
+              prefix +
+              "-" +
+              variant +
+              "-focus-ring,var(--focus-ring));",
+          );
+          css.push(
+            ".seda-provider .seda-" +
+              (component === "Button" ? "button" : "icon-button") +
+              '[data-variant="' +
+              variant +
+              '"]{' +
+              assignments.join("") +
+              "}",
+          );
+        }
+      }
+    const requiredCss = String(navigationBytes) + String(overlayBytes) + fs.readFileSync(
+      path.join(packageRoot, "src/provider.css"),
+      "utf8",
+    );
+    const prefixes = Object.keys(
+      tokens.$collections.components.$modes["Mode 1"],
+    ).map((name) => "--" + name + "-");
+    for (const match of requiredCss.matchAll(/var\((--[a-z0-9-]+)/g))
+      if (
+        prefixes.some((prefix) => match[1].startsWith(prefix)) &&
+        !variables.has(match[1])
+      )
+        throw Error("Required public component token is missing: " + match[1]);
+    for (const property of usedProperties)
+      if (["--divider-","--empty-state-","--pagination-","--chip-","--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-","--popover-","--slider-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
+        throw Error("Required public component token is missing: " + property);
+    report.sliderGeometry??={};report.sliderGeometry[key]={};
+    for(const name of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap']){
+      const ref=sliderContract.geometry?.[name];if(!ref)throw Error('Required Slider geometry is missing: '+name);
+      const raw=dimension(ref,theme),leaf=raw.type?raw:{...raw,type:'number',chain:[]};if(!Number.isFinite(leaf.value)||(name==='focusOffset'?leaf.value<0:leaf.value<=0))throw Error('Invalid Slider geometry: '+name);
+      report.sliderGeometry[key][name]=leaf;add('--seda-slider-'+name.replace(/[A-Z]/g,c=>'-'+c.toLowerCase()),leaf);
+    }
+    if(theme===system.supportedThemes[0])css.push(':root{'+Object.entries(report.sliderGeometry[key]).map(([name,leaf])=>'--seda-slider-'+name.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())+':'+leaf.cssValue+';').join('')+'}');
+    const primitives = {
+      choiceRadius: resolver.resolve(
+        {
+          collection: "foundation",
+          path: ["border", "radius", "xs"],
+          expectedType: "number",
+          unit: "px",
+        },
+        { theme },
+      ),
+      toggleInset: resolver.resolve(
+        {
+          collection: "foundation",
+          path: ["space", "2xs"],
+          expectedType: "number",
+          unit: "px",
+        },
+        { theme },
+      ),
+    };
+    report.primitives[key] = primitives;
+    for (const [name, leaf] of Object.entries(primitives))
+      add(
+        "--seda-primitive-" +
+          name.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase()),
+        leaf,
+      );
+    const family = resolver.resolve(system.typography.family, { theme }),
+      labelWeight = resolver.resolve(system.typography.labelWeight, { theme });
+    if (!weight[labelWeight.value])
+      throw Error("Unknown label weight " + labelWeight.value);
+    const familyCss = withSystemFontFallback(family);
+    add("--seda-font-family", familyCss);
+    variables.set("--seda-label-weight", weight[labelWeight.value]);
+    const fieldWeight=resolver.resolve(system.typography.fieldWeight,{theme});
+    if (!weight[fieldWeight.value]) throw Error("Unknown field weight "+fieldWeight.value);
+    add('--seda-field-weight',{...fieldWeight,cssValue:weight[fieldWeight.value],adapter:'font-weight-name-to-number'});
+    add('--seda-field-letter-spacing',resolver.resolve(system.typography.fieldLetterSpacing,{theme}));
+    for(const [property,key] of [['--seda-field-label-gap','labelToControl'],['--seda-field-message-gap','controlToMessage']]) add(property,dimension(profile.layout[key],theme));
+    for (const [size, preset] of Object.entries(system.sizes)) {
+      const values = { ...preset, ...system.geometry };
+      const resolved = Object.fromEntries(
+        Object.entries(values).map(([name, value]) => [
+          name,
+          dimension(value, theme),
+        ]),
+      );
+      report.profiles[key + ":" + size] = {
+        theme: key,
+        controlSize: size,
+        geometry: resolved,
+        typography: {
+          family: familyCss,
+          labelWeight: { ...labelWeight, cssValue: weight[labelWeight.value] },
+        },
+      };
+      report.actionProfiles[key+':'+size+':text']=resolveInlineAction(actionContracts.Button,resolved,{size,theme,resolver,resolveMeasurement:dimension,fontWeights:weight});
+      for (const [name, value] of Object.entries(resolved))
+        variables.set(
+          "--seda-size-" +
+            size +
+            "-" +
+            name.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase()),
+          value.cssValue,
+        );
+    }
+    report.themes[key] = evidence;
+    css.push(
+      '.seda-provider[data-seda-theme="' +
+        key +
+        '"]{color-scheme:' +
+        key +
+        ";" +
+        [...variables]
+          .map(([name, value]) => name + ":" + value + ";")
+          .join("") +
+        "}",
+    );
+  }
+  const classes =
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload,.seda-badge,.seda-tag,.seda-chip,.seda-pagination,.seda-alert,.seda-toast,.seda-sidebar,.seda-accordion,.seda-notification-center,.seda-search,.seda-popover,.seda-slider)";
+  for (const size of Object.keys(system.sizes)) {
+    const mapping = {
+      height: "height",
+      radius: "radius",
+      "font-size": "font-size",
+      "line-height": "line-height",
+      "icon-size": "icon-size",
+      "border-width": "border-width",
+      "field-padding": "text-field-padding-inline",
+      gap: "button-content-gap",
+      "field-gap": "text-field-affix-gap",
+      "button-gap": "button-content-gap",
+      "button-padding": "button-padding-inline",
+    };
+    const vars = Object.entries(mapping)
+      .map(
+        ([name, key]) =>
+          "--seda-preset-" +
+          name +
+          ":var(--seda-size-" +
+          size +
+          "-" +
+          key +
+          ");",
+      )
+      .join("");
+    const defaults = report.profiles["light:" + size].geometry;
+    const defaultVars = Object.entries(mapping)
+      .map(([name, key]) => {
+        const camel = key.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+        return "--seda-preset-" + name + ":" + defaults[camel].cssValue + ";";
+      })
+      .join("");
+    const primitiveVars =
+      "--seda-primitive-choice-radius:" +
+      report.primitives.light.choiceRadius.cssValue +
+      ";--seda-primitive-toggle-inset:" +
+      report.primitives.light.toggleInset.cssValue +
+      ";";
+    css.push(
+      classes +
+        '[data-size="' +
+        size +
+        '"]{' +
+        primitiveVars +
+        defaultVars +
+        "--seda-button-padding-x:" +
+        defaults.buttonPaddingInline.cssValue +
+        ";}",
+    );
+    css.push(
+      ".seda-provider " +
+        classes +
+        '[data-size="' +
+        size +
+        '"]{' +
+        vars +
+        "--seda-button-padding-x:var(--seda-size-" +
+        size +
+        "-button-padding-inline);}",
+    );
+    css.push(
+      '.seda-provider[data-seda-size="' +
+        size +
+        '"]{font-size:var(--seda-size-' +
+        size +
+        "-font-size);line-height:var(--seda-size-" +
+        size +
+        "-line-height);}",
+    );
+    css.push('.seda-provider[data-seda-control-parameters][data-seda-size="'+size+'"]{'+vars+'}');
+  }
+  for(const size of Object.keys(system.sizes)){
+    const action=report.actionProfiles['light:'+size+':text'],g=action.geometry;
+    const input=(role,key)=>'--seda-preset-'+role+':'+(['height','iconSize'].includes(key)?'var(--seda-size-'+size+'-line-height,'+g[key].cssValue+')':g[key].cssValue)+';';
+    const selector='.seda-button[data-variant="text"][data-size="'+size+'"]';
+    const roles={height:'height','icon-size':'iconSize','border-width':'borderWidth','button-padding':'buttonPaddingInline',gap:'buttonContentGap','button-gap':'buttonContentGap'};
+    css.push(selector+',.seda-provider '+selector+'{'+Object.entries(roles).map(([role,key])=>input(role,key)).join('')+'--seda-label-weight:'+action.actionTypography.weight.cssValue+';--seda-inline-paint-border:'+g.paintBorderWidth.cssValue+';'+controlGeometryDeclarations()+'}');
+  }
+  css.push('.seda-provider[data-seda-control-parameters],.seda-provider[data-seda-control-parameters] '+classes+'{'+controlGeometryDeclarations()+'}');
+  css.push('.seda-provider[data-seda-control-parameters]{font-size:var(--seda-control-font-size);line-height:var(--seda-control-line-height);}');
+  css.push('.seda-provider[data-seda-control-parameters] :is(.seda-choice,.seda-toggle){--seda-control-gap:calc(var(--seda-preset-gap) + var(--seda-parameter-extra-inline));}');
+  fs.writeFileSync(
+    path.join(output, "profiles.json"),
+    JSON.stringify(report, null, 2) + "\n",
+  );
+  fs.writeFileSync(path.join(output, "themes.css"), css.join("\n") + "\n");
+  return { css: css.join("\n") + "\n", report };
+}

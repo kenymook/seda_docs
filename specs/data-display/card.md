@@ -6,7 +6,7 @@
 > **Owner** · Kenymook
 > **Last reviewed** · 2026-05-28
 > **Figma** · [Cards](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=77-4322)
-> **Foundation** · `accessibility.md`, `content.md`, `layout.md`, `tokens.md`
+> **Foundation** · `accessibility.md`, `content.md`, `spacing-sizing.md`, `radius-border.md`, `tokens.md`
 
 ---
 
@@ -33,7 +33,7 @@ Card — контейнер для группировки связанного �
 Не используйте Card, когда:
 
 - нужно структурировать всю страницу — используйте layout primitives;
-- нужно просто отделить длинный текст — используйте spacing, headings и [Divider](../specs/data-display/divider.md);
+- нужно просто отделить длинный текст — используйте spacing, headings и [Divider](../data-display/divider.md);
 - внутри Card оказывается полноценный workflow или длинная форма;
 - вся страница превращается в набор вложенных cards;
 - Card нужна только как декоративный фон без смысловой группировки.
@@ -49,11 +49,11 @@ Card — контейнер для группировки связанного �
 
 ### Связанные спецификации
 
-- [Grid](../specs/overlays-layout/grid.md) — размещение Card в сетке.
-- [Container](../specs/overlays-layout/container.md) — layout wrapper для sections.
-- [Badge](../specs/data-display/badge.md) — статус внутри Card.
-- [Button](../specs/actions/button.md) — действия в footer.
-- [Avatar](../specs/data-display/avatar.md) — пользовательский preview.
+- [Grid](../overlays-layout/grid.md) — размещение Card в сетке.
+- [Container](../overlays-layout/container.md) — layout wrapper для sections.
+- [Badge](../data-display/badge.md) — статус внутри Card.
+- [Button](../actions/button.md) — действия в footer.
+- [Avatar](../data-display/avatar.md) — пользовательский preview.
 
 ---
 
@@ -100,7 +100,7 @@ Card — контейнер для группировки связанного �
 | Pattern | Когда использовать | Что проверить |
 |---|---|---|
 | `object-card` | Пользователь, проект, файл, товар. | Title, metadata, status, primary action. |
-| `metric-card` | Краткий аналитический виджет. | Не дублирует [Stat Metric](../specs/data-display/stat-metric.md). |
+| `metric-card` | Краткий аналитический виджет. | Не дублирует [Stat Metric](../data-display/stat-metric.md). |
 | `settings-card` | Группа настроек. | Не превращается в длинную форму. |
 | `preview-card` | Контент с media preview. | Alt text, aspect ratio, loading state. |
 
@@ -331,3 +331,29 @@ AI не должен:
 - Использовать произвольные colors, borders или shadows вместо documented Card component tokens.
 - Оставлять media без aspect ratio и loading fallback.
 - Смешивать несколько несвязанных сущностей в одной Card.
+
+
+## 15. React runtime — experimental, 25.10.2026
+
+Сохранённый ready в начале не сертифицирует новый runtime. Card экспортируется из установленного @seda-ai/ui; общие Card color tokens и Text roles используются напрямую. Отдельного executable instance contract Card нет. Спецификация выше шире текущего API: использовать можно только типы CardProps и правила ниже.
+
+| API | Текущее правило |
+| --- | --- |
+| title | Обязательный содержательный ReactNode; title в whole-card — только строка. В content/selectable Card по умолчанию h3; headingLevel2–6 позволяет согласовать outline с контекстом без вложенного heading. В native whole-card action — только phrasing Text. |
+| description, metadata, children | Описание — строка, metadata/body — slots с общими caption/default и body/default roles. Известные пустые значения/Fragments не создают пустые ряды. Opaque custom component остаётся ответственностью владельца. |
+| status, actions | Отдельные slots; actions-only surface не получает скрытый onClick, hover или tab stop. Вложенные кнопки не меняют выбор Card. |
+| variant | default/media/compact/clickable/selectable. elevated отсутствует: Needs system review для shadow/geometry tokens и визуальной приёмки. |
+| size | compact12/medium16/large24px базового padding. variant=compact выбирает compact по умолчанию; явный size определяет density. |
+| X/Y/radius/textScale | В Lab к padding прибавляются общие extra inline/block; radius следует общему radius, Text — compiler roles. За пределами Lab используются documented foundation fallback и SedaProvider typography. |
+| headingLevel |2–6, default3; только content/selectable. Root as не управляет outline, поэтому заголовок имеет отдельный semantic level. |
+| titleLines, descriptionLines |1–10 строк, defaults2/3. Полный текст остаётся в доступном дереве; карточка не меняет исходные данные. |
+| media, mediaAspectRatio | Media slot требует положительного aspect ratio и резервирует frame. Alt, загрузка/ошибка контентного media принадлежат приложению; это не Avatar image loader. |
+| variant=clickable | Требует interactiveStrategy=whole-card и ровно href либо onClick. Native link/button содержит только текстовые title/description/metadata; rich media/children/status/actions запрещены. Для сложной карточки используйте actions-only. |
+| variant=selectable | Требует interactiveStrategy=selectable, selected и onSelectedChange. Настоящий Checkbox подписан через title. Выбор только явным control, не кликом по любой поверхности. |
+| disabled | Только interactive/selectable Card. Отключает собственный primary/selection; independent actions принадлежат владельцу. Static content не имитирует disabled surface. |
+| loading, loadingLabel | Body остаётся смонтированным; progress line не занимает место и не закрывает title/metadata. Persistent status расположен вне aria-busy content. Own action/selection блокируются с сохранением фокуса; controls в slots владелец блокирует сам. |
+| as | article/section/li/div для content/selectable. Native action автоматически button/link; подмена через div запрещена. |
+
+Минимальная реализация не заменяет CardGroup, collection keyboard navigation, full media pipeline или surface-family compiler contract. Geometry padding/gap/radius fallback остаётся experimental; tokens.json не расширен. Progress использует существующий semantic container/brand/default из-за отсутствия Card loading token; motion выключается при reduced motion. Shared Checkbox без собственной подписи/message не резервирует label slot или пустой grid track: Card selection gap остаётся8px.
+
+Projects переиспользует selectable Card и тот же selection owner, что Table. Details — независимое действие, фильтры сохраняют off-page selection. Изображения/описания/действия не заменены статическими скриншотами. Требуются дальнейшая приёмка полного API исходной спецификации, fresh Figma, целевых browser/OS/AT и всех длинных локализованных данных. Наличие текста acceptance не является результатом проверки; результаты публикуются отдельным отчётом.

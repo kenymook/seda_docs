@@ -1,0 +1,665 @@
+{
+  "scope": "Four actual compiler parameter Sliders plus owned range fixture; selected Lab viewport/theme/density profiles, not all native platforms",
+  "samples": [
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1024,
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Light",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "s",
+      "parameters": {
+        "scale": 80,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 24,
+          "font": 12,
+          "line": 16,
+          "radius": 6,
+          "icon": 14,
+          "border": 1,
+          "buttonPaddingX": 8,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 8,
+        "fieldPaddingX": 10,
+        "line": 13,
+        "font": 10,
+        "icon": 11,
+        "basePad": 3,
+        "py": 3,
+        "raw": 21,
+        "height": 24,
+        "radius": 6,
+        "formula": "max(13, 11) + 2 × 3 + 2 × 1 = 21 px",
+        "constraint": true
+      },
+      "font": 10,
+      "railHeight": 44,
+      "trackInset": 6,
+      "buttonHeight": 24,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "m",
+      "parameters": {
+        "scale": 100,
+        "air": 0,
+        "airX": 0,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 32,
+          "font": 14,
+          "line": 20,
+          "radius": 8,
+          "icon": 16,
+          "border": 1,
+          "buttonPaddingX": 12,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 12,
+        "fieldPaddingX": 10,
+        "line": 20,
+        "font": 14,
+        "icon": 16,
+        "basePad": 5,
+        "py": 5,
+        "raw": 32,
+        "height": 32,
+        "radius": 8,
+        "formula": "max(20, 16) + 2 × 5 + 2 × 1 = 32 px",
+        "constraint": false
+      },
+      "font": 14,
+      "railHeight": 44,
+      "trackInset": 8,
+      "buttonHeight": 32,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "l",
+      "parameters": {
+        "scale": 115,
+        "air": 6,
+        "airX": 12,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 40,
+          "font": 16,
+          "line": 24,
+          "radius": 10,
+          "icon": 18,
+          "border": 1,
+          "buttonPaddingX": 16,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 28,
+        "fieldPaddingX": 22,
+        "line": 28,
+        "font": 18,
+        "icon": 21,
+        "basePad": 7,
+        "py": 13,
+        "raw": 56,
+        "height": 56,
+        "radius": 10,
+        "formula": "max(28, 21) + 2 × 13 + 2 × 1 = 56 px",
+        "constraint": false
+      },
+      "font": 18,
+      "railHeight": 56,
+      "trackInset": 10.5,
+      "buttonHeight": 56,
+      "rootOverflow": 0
+    },
+    {
+      "width": 1702,
+      "theme": "Dark",
+      "size": "xl",
+      "parameters": {
+        "scale": 150,
+        "air": 12,
+        "airX": 24,
+        "radius": 100,
+        "strict": true
+      },
+      "derived": {
+        "preset": {
+          "height": 48,
+          "font": 18,
+          "line": 28,
+          "radius": 12,
+          "icon": 20,
+          "border": 1,
+          "buttonPaddingX": 20,
+          "fieldPaddingX": 10
+        },
+        "buttonPaddingX": 44,
+        "fieldPaddingX": 34,
+        "line": 42,
+        "font": 27,
+        "icon": 30,
+        "basePad": 9,
+        "py": 21,
+        "raw": 86,
+        "height": 86,
+        "radius": 12,
+        "formula": "max(42, 30) + 2 × 21 + 2 × 1 = 86 px",
+        "constraint": false
+      },
+      "font": 27,
+      "railHeight": 86,
+      "trackInset": 15,
+      "buttonHeight": 86,
+      "rootOverflow": 0
+    }
+  ],
+  "installedPackage": true,
+  "sourceAlias": false,
+  "rangeStateRetained": true,
+  "errors": []
+}

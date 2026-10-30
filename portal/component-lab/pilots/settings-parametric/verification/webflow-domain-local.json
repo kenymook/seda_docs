@@ -1,0 +1,55 @@
+{
+  "scope": "Webflow reconstructed authored-document domain only. No UI, renderer, source fidelity, accessibility or publication acceptance.",
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "name": "source-reconstruction-roundtrip-and-empty-canvas",
+      "status": "passed"
+    },
+    {
+      "name": "strict-import-rejects-unknown-properties-and-invalid-tree",
+      "status": "passed"
+    },
+    {
+      "name": "prototype-names-and-object-inheritance-rejected",
+      "status": "passed"
+    },
+    {
+      "name": "css-input-parser-preserves-units-and-rejects-injection",
+      "status": "passed"
+    },
+    {
+      "name": "breakpoint-boundaries-and-downward-cascade",
+      "status": "passed"
+    },
+    {
+      "name": "shared-class-rule-updates-all-users-without-inline-duplication",
+      "status": "passed"
+    },
+    {
+      "name": "relative-inheritance-is-traced-but-not-reapplied-on-descendants",
+      "status": "passed"
+    },
+    {
+      "name": "style-and-node-commands-are-immutable-and-invalid-edits-atomic",
+      "status": "passed"
+    },
+    {
+      "name": "text-add-delete-descendants-and-root-protection",
+      "status": "passed"
+    },
+    {
+      "name": "history-noop-undo-redo-branch-and-external-isolation",
+      "status": "passed"
+    },
+    {
+      "name": "save-snapshot-duplicate-guard-edit-during-save-and-late-replies",
+      "status": "passed"
+    },
+    {
+      "name": "save-quota-failure-retains-dirty-and-releases-retry",
+      "status": "passed"
+    }
+  ]
+}

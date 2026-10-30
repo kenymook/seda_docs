@@ -1,0 +1,30 @@
+{
+  "reviewedThemes": [
+    "light",
+    "dark"
+  ],
+  "reviewed": [
+    "Framer/Webflow/Spline normal inspector density",
+    "installed Accordion gallery"
+  ],
+  "observations": [
+    "Titles and disclosure icons share control geometry; panel fields retain their own contracts",
+    "Compact panels preserve host surface and avoid duplicate section padding",
+    "Hidden forms retain drafts/validation; source authored canvases remain isolated"
+  ],
+  "fixed": [
+    "Transient low foreground contrast during theme color animation",
+    "Native ref/focus-capture owner protocol covered by installed consumer checks"
+  ],
+  "limitations": [
+    "Fresh Figma/AT/native desktop review unavailable",
+    "Long titles can grow beyond two lines and require content review",
+    "First Spline browser termination cause is unconfirmed; diagnostic and final runs must be reported separately"
+  ],
+  "productionVersion": 49,
+  "productionReviewed": [
+    "Framer Light/Dark",
+    "Webflow Light/Dark",
+    "Spline Light/Dark"
+  ]
+}

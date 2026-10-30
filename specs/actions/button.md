@@ -201,6 +201,8 @@ Button следует foundation rules для spacing, sizing, radius и iconogr
 - `fullWidth` допустим в forms, mobile layouts и narrow panels.
 - Icon-label gap должен оставаться token-driven.
 
+React-адаптер пока сохраняет однострочную исполняемую геометрию. `fullWidth` действительно ограничивает кнопку шириной parent, включая длинную подпись и icon slots: подпись получает ellipsis, иконки сохраняют собственные размеры. Для таких компактных строк приложение передаёт полную подпись в native `title`; accessible name остаётся полным. Нельзя незаметно обрезать критическое действие: предпочтительнее расширить область или сложить action group. Многострочный Button потребует отдельного geometry contract, а не локального изменения height. Loading фиксирует уже ограниченный фактический border box.
+
 ---
 
 ## 7. Accessibility
@@ -391,3 +393,11 @@ AI не должен:
 - Использовать `disabled` без объяснения причины.
 - Заменять loading label spinner без accessible name.
 - Создавать custom one-off button colors вне component tokens.
+
+### Runtime: loading geometry (Lab 2.0)
+
+В React-реализации leading slot создаётся только при наличии `iconLeft`. Перед показом центрированного spinner замеряется фактический border box; width/height фиксируются на время loading и возвращаются к authored styles после завершения. Label сохраняет accessible name, но визуально скрыт. Form guard дополнительно блокирует programmatic submit. Матрица проверки: Light/Dark × S/M/L/XL × три длины label × четыре набора icon slots, допуск 1 px.
+
+## Исполняемая геометрия text — D35
+
+Button text использует высоту строки и Regular вместо корпуса обычного действия. Geometry, размер icon slots, gap и внутренний stroke описаны в [контракте inline action](../../packages/seda-contracts/INLINE-ACTION-CONTRACT.md). Пустые boolean/Fragment icon slots не резервируют место; непрозрачные пользовательские React-компоненты сохраняют ответственность за собственное содержимое. Loading сохраняет фактические размеры, имя и запрет повторной активации. Primary/secondary/text входят в проверяемый compiler scope; остальные визуальные варианты требуют собственной приёмки.

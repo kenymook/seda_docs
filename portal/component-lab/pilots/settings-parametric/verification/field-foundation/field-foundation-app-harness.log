@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: visual-field-default height: 0 != 24
+    at near (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/verify-field-app.mjs:4:62)
+    at check (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/verify-field-app.mjs:17:307)
+    at async verifyFieldApplications (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/verify-field-app.mjs:23:55)
+    at async file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-input/field-foundation-runner.mjs:18:15 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

@@ -1,0 +1,31 @@
+{
+  "runtimeCommit": "9522781391a796a31869911cbd9aea7d97be282f",
+  "initialFinalRun": {
+    "packageGroups": 49,
+    "pilotScripts": 39,
+    "exitCode": 0,
+    "sources": "Equivalent Windows CRLF worktree; preserved release logs"
+  },
+  "canonicalRun": {
+    "reason": "Exact source and artifact SHA comparison detected only CRLF normalization; no semantic changes",
+    "packageGroups": 49,
+    "packageExitCode": 0,
+    "typecheckExitCode": 0,
+    "artifactMatch": "artifact-match.json",
+    "pilotLog": "surfaces-pilot-canonical.log",
+    "pilotScripts": 39,
+    "pilotExitCode": 0,
+    "harnessFollowUp": {
+      "change": "Wait for actual composite img.decode(); preserve all loaded/geometry/color/alpha assertions",
+      "runtimeChanged": false,
+      "localInspectorSamples": 160,
+      "localExitCode": 0
+    }
+  },
+  "contractSuite": {
+    "tests": 123,
+    "exitCode": 0,
+    "unchangedContractSources": true
+  },
+  "reproducedDefect": "surfaces-transition-probe.log: suspended render invalidates committed image before fix; surfaces-transition-fixed.log verifies fix"
+}

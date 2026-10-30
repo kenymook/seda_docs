@@ -1,0 +1,24 @@
+
+> @seda-ai/ui@0.1.0 verify:package
+> node scripts/verify-package.mjs
+
+PASS tarball-export-files-and-allowlist
+PASS deterministic-build
+PASS public-profile-sources-and-missing-state
+PASS react-18.3.1-native-esm-and-ssr
+PASS react-18.3.1-declarations
+PASS react-18.3.1-hydration-css-and-behavior
+PASS react-18.3.1-provider-profiles
+PASS react-18.3.1-tabs-navigation
+PASS react-18.3.1-menu-overlays
+PASS react-18.3.1-split-view
+PASS react-18.3.1-tree
+PASS react-18.3.1-textarea
+PASS react-18.3.1-typography
+PASS react-18.3.1-link-variants
+PASS react-18.3.1-file-upload
+Expected values to be strictly equal:
+
+26 !== 25
+
+{"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\packages\\seda-ui\\.diagnostics-package\\2026-10-25T22-30-12-451Z","passed":15,"failed":1}

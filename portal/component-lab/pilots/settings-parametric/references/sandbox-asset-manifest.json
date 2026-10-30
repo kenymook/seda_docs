@@ -1,0 +1,823 @@
+{
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "sourceNode": "1:1875",
+  "purpose": "Individual chrome assets; raster Canvas is excluded from runtime.",
+  "assets": [
+    {
+      "file": "sandbox-inspector-appearance-imgIcon.svg",
+      "bytes": 1418,
+      "sha256": "5c5c85ccbfb0fdeb95a983e3467655914f3860f5472a9f198794fb11778d562f",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-appearance-imgIcon1.svg",
+      "bytes": 849,
+      "sha256": "b6d335f297f3abcb820f98fe76c3eab89a06f14502435bb4a6dadceb982ea57f",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-appearance-imgIcon2.svg",
+      "bytes": 4105,
+      "sha256": "14e1151d39329bcbdd966f450795b95e8f2cc6f62747ffdd8f998873ccdaa8a2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-appearance-imgIcon3.svg",
+      "bytes": 3043,
+      "sha256": "f4010f85696dbc0976a932a9591bd204f1b1d207ac91f6853d1793aeeaa10f2f",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-appearance-imgIcon4.svg",
+      "bytes": 3022,
+      "sha256": "9bffc0072a843597183a7fa82d1dcea001362872be345627b977bd5cb9802811",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-fill-imgIcon.svg",
+      "bytes": 2762,
+      "sha256": "1d73ae10eb26f9c3550ee1b9056b23ab77cefa62d1871f5910dd211a93985b5b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-fill-imgIcon1.svg",
+      "bytes": 924,
+      "sha256": "2a12cc32cf3125055f0d4f969e53e9626d55b98ca4d28cb6c6a12ee65c10b865",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon.svg",
+      "bytes": 2245,
+      "sha256": "bdaf87536c901d9bffdfec4573bab09809f9eae8e51a5be618cfa435b2a3b172",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon1.svg",
+      "bytes": 1638,
+      "sha256": "9b5708833a9c758ac27584214056473dda7925f9ceb3400e4eb661c4df6ca096",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon2.svg",
+      "bytes": 1903,
+      "sha256": "2404d55993dba83e2befeb2366ac2afd30ffb258dbc91f99a24772d4af66e054",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon3.svg",
+      "bytes": 1916,
+      "sha256": "2ffb482c0e617d902c431ee66bc0526210bf62984c055cac5c76dda025d6c1fd",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon4.svg",
+      "bytes": 674,
+      "sha256": "9055801991c5805f48ac13e9eadecd13f6cb6bbd2cc27ac9173d837cdf678df1",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon5.svg",
+      "bytes": 1746,
+      "sha256": "73d0fe7f1571e792ce093d4e9acf5aa9c70401ce33621c839d46f119007e4b79",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon6.svg",
+      "bytes": 213,
+      "sha256": "f17317b2ed9179480ea18155d5aa3bcc43529d78ff7d664014b6744a4c4eaab3",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-layout-imgIcon7.svg",
+      "bytes": 305,
+      "sha256": "0cff33a2e4ca14a2872b36bce641c43056a265132a4bd658ffa990cf82d3d601",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon.svg",
+      "bytes": 1219,
+      "sha256": "3141c671aef1990a3633b78e206707c09e792bd97c5ef10214dfccd27d740ded",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon1.svg",
+      "bytes": 1306,
+      "sha256": "327532b7374844ff54253f014efb2c2e483b22494f039c02777dbb2c069a3246",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon10.svg",
+      "bytes": 1656,
+      "sha256": "77d30cc4bcb9b1c8fa168af12dc6949848dbd8dda044406b453b621cb267dbbf",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon2.svg",
+      "bytes": 1332,
+      "sha256": "c1f213d77834cace10ccca74adc28a68cd335d0347cce0c0bbd2362e70a88a0b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon3.svg",
+      "bytes": 1321,
+      "sha256": "4b2478a8573bf2cd764a4bdc0fde067a4968fd0ea8330090e85cc1a39613c48e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon4.svg",
+      "bytes": 1308,
+      "sha256": "9c20c42ee37331c8147af2372c818a8d7f8effade0f007770808d9d0fb579550",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon5.svg",
+      "bytes": 1234,
+      "sha256": "68de3aa1f63758e3dc3726d2d22976e0333a480fafa5754077cfea449f9dbe1c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon6.svg",
+      "bytes": 1260,
+      "sha256": "3e7d98caed289bcb0c7362cea2186cb939116599f32a8892313edae7e9692b20",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon7.svg",
+      "bytes": 857,
+      "sha256": "4a8c5e09617978646b784391bff68494652170b3dc57aa7155e69375ce9ad207",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon8.svg",
+      "bytes": 2222,
+      "sha256": "4eea6f14005c0725b2163bab5b32d7343def416919ee9372ac61e60d7bf6ca55",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-position-imgIcon9.svg",
+      "bytes": 1650,
+      "sha256": "d17d849ab1dacd3fae17c96cab3db6a13b18e8be24c5d065387375dc17e182f0",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-stroke-imgIcon.svg",
+      "bytes": 2762,
+      "sha256": "1d73ae10eb26f9c3550ee1b9056b23ab77cefa62d1871f5910dd211a93985b5b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-stroke-imgIcon1.svg",
+      "bytes": 924,
+      "sha256": "2a12cc32cf3125055f0d4f969e53e9626d55b98ca4d28cb6c6a12ee65c10b865",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-stroke-imgIcon2.svg",
+      "bytes": 1077,
+      "sha256": "ca70754b2ad5a128080c48978c8c5c1b93f1a262ddf59bb6868435768e6bb319",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-stroke-imgIcon3.svg",
+      "bytes": 1263,
+      "sha256": "609bce3691d2e7dc25f58106a1542751fe051c4e992cc31671c1166969789991",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-stroke-imgIcon4.svg",
+      "bytes": 2244,
+      "sha256": "c3d2f686b1173336da0e37f6faa2f055e017070fd912783bd0f841fbfbafba19",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-stroke-imgIcon5.svg",
+      "bytes": 634,
+      "sha256": "6ccdaf48249d27feffeb8cb4ecb5d515a9673a56398b77199e349ae0c1c662e6",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon.svg",
+      "bytes": 2762,
+      "sha256": "1d73ae10eb26f9c3550ee1b9056b23ab77cefa62d1871f5910dd211a93985b5b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon1.svg",
+      "bytes": 1077,
+      "sha256": "ca70754b2ad5a128080c48978c8c5c1b93f1a262ddf59bb6868435768e6bb319",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon10.svg",
+      "bytes": 1585,
+      "sha256": "fec66c600626fb2eb32c504f47ac3921e8713646dfbe19d07319fc255343f183",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon11.svg",
+      "bytes": 2244,
+      "sha256": "c3d2f686b1173336da0e37f6faa2f055e017070fd912783bd0f841fbfbafba19",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon2.svg",
+      "bytes": 1077,
+      "sha256": "ca70754b2ad5a128080c48978c8c5c1b93f1a262ddf59bb6868435768e6bb319",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon3.svg",
+      "bytes": 1561,
+      "sha256": "fd988f8136528afc85b236e8c0938369fbd5f54c91456604aa744c669f489bca",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon4.svg",
+      "bytes": 1940,
+      "sha256": "aee7a9ae156a8124b3f0da58338e597d7f53bd21aef1809a431aad0a0ce6d8d4",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon5.svg",
+      "bytes": 1236,
+      "sha256": "cda4ba73dbb215ec33291fb61c71c6efe62c210f5ed13fd530af1e140a1b77a8",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon6.svg",
+      "bytes": 1257,
+      "sha256": "fe5cc93d3bc6362b0149882d9d9cb3ba3c2e374da0cffdbfc73128cd15d2d300",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon7.svg",
+      "bytes": 1265,
+      "sha256": "d526890d692a2825b7a95528fbc27826a86d3b20c45f7ac0fa0111aa67bad528",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon8.svg",
+      "bytes": 1363,
+      "sha256": "124dcd90a4ccd170ec5ed93e9be8c70e9aed9b54477664ed9a4d321c07953c97",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-inspector-typography-imgIcon9.svg",
+      "bytes": 2162,
+      "sha256": "67aeb5567eccc44ca767eafc99863f48cab3ff5bc0989e2c242e81aa1d240a16",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-layers-child-row-imgIcon.svg",
+      "bytes": 767,
+      "sha256": "a55d1b51f7bfb06dd673e1ccb5a400cae5477531d6998b0ef0344c1efff35a2e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-layers-child-row-imgIcon1.svg",
+      "bytes": 1595,
+      "sha256": "8370db3b1b01d76a7422e083cd2fb4e726a998cec60fe6ed47bebefeb4e5e344",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-layers-frame-row-imgIcon.svg",
+      "bytes": 864,
+      "sha256": "8d385a0d8ff04cf11f48f142195e29da54f3e91de1751d81ed119a2feb11404c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-layers-frame-row-imgIcon1.svg",
+      "bytes": 939,
+      "sha256": "316ff5e8a6bf95c7cea3667ead7e619b64e36d8d927c66c4a36d83be3c8940eb",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-layers-selected-row-imgIcon.svg",
+      "bytes": 1069,
+      "sha256": "e21c2dc6d93dc01352a88485bcf03a795880e702940010d48c8462ed739e7a93",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-pages-imgIcon.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-pages-imgIcon1.svg",
+      "bytes": 1513,
+      "sha256": "80f7cb87090c618825afa82659825f34c04808ea076a78de64cb956c260ad220",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-pages-imgIcon2.svg",
+      "bytes": 924,
+      "sha256": "2a12cc32cf3125055f0d4f969e53e9626d55b98ca4d28cb6c6a12ee65c10b865",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgIcon.svg",
+      "bytes": 2599,
+      "sha256": "9d8fe3d1a6ace1091290e760f436baf2fbe3242f83d90c408246f53e739425bb",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgIcon1.svg",
+      "bytes": 1247,
+      "sha256": "0890a87906ef47963d1b667423d608e807bd77e27605a05d673c5ab629ba4a1d",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgIcon2.svg",
+      "bytes": 1554,
+      "sha256": "c29107ace9e29c2c73891513cf799490c5402566f2e5edf35e56e41d41d4e434",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgIcon3.svg",
+      "bytes": 2085,
+      "sha256": "7a954f273db5b2e6563b3f3f7420f75d13fc6fca2d5fd8a87b87d27ddebfc521",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgIcon4.svg",
+      "bytes": 2044,
+      "sha256": "65f5439feae8583df40ccc0ccbcfccd8e1d49aa1f12203536750c977ae3da1a5",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgIcon5.svg",
+      "bytes": 2215,
+      "sha256": "f387925a3f968708c3900140185198c45fabf6f3c926364cda7be3ec2be7bb79",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-rail-imgVector.svg",
+      "bytes": 1209,
+      "sha256": "18876faa99f87249dd95a0192a9147409fd269d56e58e9c4746dc16719917499",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-selection-imgIcon.svg",
+      "bytes": 7473,
+      "sha256": "66f05a35e4da89e4f745b89975bc39a9240477974d4a36956a6cb9d61450de8e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-selection-imgIcon1.svg",
+      "bytes": 2026,
+      "sha256": "22b05f94cf179ad0687c85b308792c5a39efde56475f0f08e12a9e01c4de42f2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-selection-imgIcon2.svg",
+      "bytes": 1788,
+      "sha256": "be0909bf002a7371a2ec02e0eb3ca0ddf0c037a828288d5440890814ecf9aeab",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-selection-imgIcon3.svg",
+      "bytes": 1077,
+      "sha256": "ca70754b2ad5a128080c48978c8c5c1b93f1a262ddf59bb6868435768e6bb319",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-selection-imgIcon4.svg",
+      "bytes": 2814,
+      "sha256": "608d0786665f4b84ac5fe8cea33f874afc7a1387a005718688a47521464691ed",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-selection-imgIcon5.svg",
+      "bytes": 1388,
+      "sha256": "6fd895a37d4be742a2ccb77ef1c7039f0f74815e041a897dc14c72a47cc092d6",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-sidebar-header-imgIcon.svg",
+      "bytes": 845,
+      "sha256": "4a9537daabf30b506e840fd3a5a8221ab96a15f266ff557235a3bf5a428e809d",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-sidebar-header-imgIcon1.svg",
+      "bytes": 958,
+      "sha256": "df3c20b12361a5aaedc837ed59fb6e15f8073ec78b3bafcf4e940b200efcd346",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup.svg",
+      "bytes": 6187,
+      "sha256": "0c1562ff49a8d49c787b1a3687fd42aa65a292d2142a42a941a0b2c23e5e8794",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup1.svg",
+      "bytes": 1119,
+      "sha256": "11197a62aec7595fb4c4e3e8f38e4a937e98985c5d063e323b61c30440a3614e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup10.svg",
+      "bytes": 909,
+      "sha256": "dc7907fd021284c18a4fe0224dd0ef4dbab9125841e18742a417d807a22ac74a",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup11.svg",
+      "bytes": 4425,
+      "sha256": "5d59043fe0d44b4e816ca474ee42dc7c7a4c71c8142d4b302a21b0bd6d757973",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup12.svg",
+      "bytes": 823,
+      "sha256": "8933fba09cd1eba9421645803cb597a900d83ffc34be28e9ab98217c39bcd56c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup13.svg",
+      "bytes": 11784,
+      "sha256": "c73efeff5026a92bcac73076ae0793e2e54e68e4ae622ee449e7c2f8ee3dcb9a",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup14.svg",
+      "bytes": 1654,
+      "sha256": "1140c638675880a1285288eb172ff7774aea9146e96167b161f758f5cb71753e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup15.svg",
+      "bytes": 403,
+      "sha256": "c063bba22c58b0ad767e3488c7de8aa87cb771f64f0855dc0c8962088ea5edfc",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup16.svg",
+      "bytes": 1655,
+      "sha256": "e879f92681dbb353a1bd00ebc8ce0deaa2cdcda91d5abeba1d304cb5bf68b5cc",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup17.svg",
+      "bytes": 1343,
+      "sha256": "b47e1e91e9a439bdd2f00997ad3cacf5441e4fc168b48e6d00bd52998086579c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup18.svg",
+      "bytes": 2382,
+      "sha256": "e0f3a52a1fe12073ce634c5a60a869cdc498592d56970d52c7c5a85f05dab9e5",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup19.svg",
+      "bytes": 3004,
+      "sha256": "b40d36ed12b21688879b7a9e07437f0a1ed23d99920116ba38334cbc87cdee41",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup2.svg",
+      "bytes": 7086,
+      "sha256": "35f594b551fcefb50abc9a5e98fa16fa36810510467c1cf76de42d6f6367a0f6",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup20.svg",
+      "bytes": 8644,
+      "sha256": "ce7f0149848e35c3523a3ed18a7b27b27467404f8fa371b2c96cb366f6c03be4",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup21.svg",
+      "bytes": 3459,
+      "sha256": "72aef455c36359b35b19287e8691a3051960379009572b1aff7484261822468b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup22.svg",
+      "bytes": 1697,
+      "sha256": "438e436066293df77d8e2cc9f744f348ad7d5ce9554da976c2d7541f62507d5e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup23.svg",
+      "bytes": 4067,
+      "sha256": "9fd9dce301523b28e72acbd95da767259689700157a66a0455cb67494f86cf6b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup24.svg",
+      "bytes": 991,
+      "sha256": "bc13b1eff8c8863b5359b715fd2da761d2e53ed6c4e7f17cecd5701e341b6268",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup25.svg",
+      "bytes": 8863,
+      "sha256": "42f7fe99448bbb1125581b8209aa382ac9d1c07a32ad8d71d5c863dbc82f6bd2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup26.svg",
+      "bytes": 1464,
+      "sha256": "6e50b9ba9241671dab774315b1dddaa679be45a88518efd98aac4890dc47114d",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup27.svg",
+      "bytes": 1424,
+      "sha256": "705099b6d716035c024ff12d44f1885ef81613e515758aae0580f57eb8cb508c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup28.svg",
+      "bytes": 983,
+      "sha256": "a3e096c51f1296754a714982b65c5b065c0569409304ed2d04675265e3921d3f",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup29.svg",
+      "bytes": 12007,
+      "sha256": "7f8379120a8241bb397a7165698a995a5f13b84f45ff420e067eaad55385cf39",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup3.svg",
+      "bytes": 1782,
+      "sha256": "cae58b7c4fb98fb1250ffac2bf6bcc716ac02c90961154d532eb0f90d8b81a20",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup4.svg",
+      "bytes": 395,
+      "sha256": "3a81590824ad28ae299737786d54574acb3acae150978f12c18dd02ce916ce1f",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup5.svg",
+      "bytes": 1783,
+      "sha256": "53bf358e8f69d0a328bdd2130e31c701dc9c937d025db9a18c1c47e2478a1076",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup6.svg",
+      "bytes": 1466,
+      "sha256": "31c965913720aab07ef8e8d4ea6bd7ab7a95d62d3aa33045ac961c223ff4978a",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup7.svg",
+      "bytes": 248,
+      "sha256": "04a428acf758bc751cd405f41cdbcfc69dee560291a84a7f4a4a50c8cdccfc4c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup8.svg",
+      "bytes": 681,
+      "sha256": "5051c0140e48a215c2c55fc9a6925d9403bc638d27b23f8c0d5d01baa8a77c5a",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgGroup9.svg",
+      "bytes": 963,
+      "sha256": "04a6bab4c974d3b8c91f6cf34853ba196218d53676e405dddd7ff89e634b32f1",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon1.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon10.svg",
+      "bytes": 1076,
+      "sha256": "3e241c58c091b604d4665c01ec99681ea66ee9af5eb98dcb023f714e2090651e",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon11.svg",
+      "bytes": 1044,
+      "sha256": "a1db089e88b4fe227e6b6a88f588e3ef26a6f0485ae929486beca46635433e8c",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon12.svg",
+      "bytes": 2644,
+      "sha256": "8b5fb2b86de04b4935c63d9b3137d386a4006a93131cb31940bc9dacb1152292",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon13.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon14.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon15.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon16.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon17.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon18.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon19.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon2.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon20.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon21.svg",
+      "bytes": 2676,
+      "sha256": "b6878a9f16922c9e286fc7150660209a206602913f82f3513021222ab23f6442",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon22.svg",
+      "bytes": 2433,
+      "sha256": "f3564a4275029e34215d12abf9c15645b6c072b4d4062b4c308b71bc9cb23766",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon23.svg",
+      "bytes": 2605,
+      "sha256": "9b16e00130fd53858d7a11e33365b85e69c542bd855ef50fff8ae06d39134327",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon24.svg",
+      "bytes": 1994,
+      "sha256": "1cf2a0258e55f4834732f2bfd686226b3bf9a9b34ee534e2e290a3aaf32c2734",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon3.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon4.svg",
+      "bytes": 204,
+      "sha256": "d6f42a190b576714ad18ea7ba12942dc528eeeea1060b393bdd6d442dad87de2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon5.svg",
+      "bytes": 1587,
+      "sha256": "e93fc367567ec79883df81b2853df24911a437a83060e99287c0a4bdee4921fc",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon6.svg",
+      "bytes": 1077,
+      "sha256": "ca70754b2ad5a128080c48978c8c5c1b93f1a262ddf59bb6868435768e6bb319",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon7.svg",
+      "bytes": 1575,
+      "sha256": "ff5006b8d27ba306f8129052ebd8204a60951e1cf96915e245faaa7dfe3e2262",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon8.svg",
+      "bytes": 893,
+      "sha256": "df564de783ce05df7b1c79aa37f4d099248e7c4c545ca3fc8940a1162d46c001",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgIcon9.svg",
+      "bytes": 2103,
+      "sha256": "c6515bf63332f9667583abf8f1411b3e67c2c3fc73837db76e9c7f688130e07b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgMaskGroup.svg",
+      "bytes": 3259,
+      "sha256": "294b5f3df1168be24f5a9507ee0e35a405b720a7fd67aa138210b17d604d1df8",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgMaskGroup1.svg",
+      "bytes": 3265,
+      "sha256": "2ffb78062a8d3b29f4c474a2da6e12773182777862630d23a267c2cd84db9cd2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgMaskGroup2.svg",
+      "bytes": 625,
+      "sha256": "1b0c3e3a1f99792a375eb81b308ffc5c9d6d9d6a8c51e88a3d91eb26cf7a6490",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgMaskGroup3.svg",
+      "bytes": 2028,
+      "sha256": "3ba3b6dcea479f7d8e28c22748d09f16bd8a410c11dfc36b740911b72a0dce33",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgMaskGroup4.svg",
+      "bytes": 8418,
+      "sha256": "6db83ac9ed82f8ed9c9da868595b324799b5c0bc4e8efd328b5b35a5858422ac",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector.svg",
+      "bytes": 738,
+      "sha256": "f9f87db24083debdff0c5db616f1a111a18049eaf1fb69f35a81deba7bca351b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector1.svg",
+      "bytes": 238,
+      "sha256": "95ed0393c3fd7ac41e6da0311d30ec32b8217556f35fc3414a2d5c2b17607f33",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector2.svg",
+      "bytes": 237,
+      "sha256": "16595fb66fde27901d54b1a37a423c0cd4baa05e7f4b6bdd0bd75c9b2e28d47b",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector3.svg",
+      "bytes": 525,
+      "sha256": "3521ae1234c95da4f6abfcc197b697cd49fb8dd9378d614a4d9b7540ac1d4b81",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector4.svg",
+      "bytes": 341,
+      "sha256": "a51ca8ce1b0c1d9765fde5de23d544f74be087a8afbdd19aa40590b8110423f7",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector5.svg",
+      "bytes": 257,
+      "sha256": "b24f8d379c9f76ef5efedc265af51fb89d4c3240bf44d81e534ad4f3f2060be1",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector6.svg",
+      "bytes": 257,
+      "sha256": "cfd5c809606eb892d107b9962132730055ef84a5a2badaff993683f6e5d8a3c2",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector7.svg",
+      "bytes": 256,
+      "sha256": "d460e91a59857ff94ff29ec4eae069e4c5baa8afa142bf8c8af09734f7a1fd14",
+      "qaOnly": false
+    },
+    {
+      "file": "sandbox-toolbar-imgVector8.svg",
+      "bytes": 370,
+      "sha256": "79cd92b15e0362c594116f975c63d74f783fe2731130623fff08df1e9392b4d1",
+      "qaOnly": false
+    }
+  ]
+}

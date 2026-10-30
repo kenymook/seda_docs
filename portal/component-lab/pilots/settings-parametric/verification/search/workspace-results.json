@@ -1,0 +1,1377 @@
+{
+  "scope": "48 selected real Files/Chat viewport/theme/profile cases, installed Search, local source filters, NFKC matching without rewritten titles, native modified links, owned SPA navigation, modal focus and authored-data isolation; no remote search service/OS IME certification claimed",
+  "samples": [
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 24,
+          "right": 232
+        },
+        "clear": {
+          "width": 24,
+          "height": 24,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 32,
+          "right": 232
+        },
+        "clear": {
+          "width": 32,
+          "height": 32,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 233,
+          "height": 56,
+          "right": 241
+        },
+        "clear": {
+          "width": 56,
+          "height": 56,
+          "right": 241
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 327,
+          "height": 86,
+          "right": 335
+        },
+        "clear": {
+          "width": 86,
+          "height": 86,
+          "right": 335
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 24,
+          "right": 232
+        },
+        "clear": {
+          "width": 24,
+          "height": 24,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 32,
+          "right": 232
+        },
+        "clear": {
+          "width": 32,
+          "height": 32,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 233,
+          "height": 56,
+          "right": 241
+        },
+        "clear": {
+          "width": 56,
+          "height": 56,
+          "right": 241
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1024,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 327,
+          "height": 86,
+          "right": 335
+        },
+        "clear": {
+          "width": 86,
+          "height": 86,
+          "right": 335
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 24,
+          "right": 232
+        },
+        "clear": {
+          "width": 24,
+          "height": 24,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 32,
+          "right": 232
+        },
+        "clear": {
+          "width": 32,
+          "height": 32,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 233,
+          "height": 56,
+          "right": 241
+        },
+        "clear": {
+          "width": 56,
+          "height": 56,
+          "right": 241
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 344,
+          "height": 86,
+          "right": 352
+        },
+        "clear": {
+          "width": 86,
+          "height": 86,
+          "right": 352
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 24,
+          "right": 232
+        },
+        "clear": {
+          "width": 24,
+          "height": 24,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 32,
+          "right": 232
+        },
+        "clear": {
+          "width": 32,
+          "height": 32,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 233,
+          "height": 56,
+          "right": 241
+        },
+        "clear": {
+          "width": 56,
+          "height": 56,
+          "right": 241
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1440,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 344,
+          "height": 86,
+          "right": 352
+        },
+        "clear": {
+          "width": 86,
+          "height": 86,
+          "right": 352
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 24,
+          "right": 232
+        },
+        "clear": {
+          "width": 24,
+          "height": 24,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 32,
+          "right": 232
+        },
+        "clear": {
+          "width": 32,
+          "height": 32,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 233,
+          "height": 56,
+          "right": 241
+        },
+        "clear": {
+          "width": 56,
+          "height": 56,
+          "right": 241
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 344,
+          "height": 86,
+          "right": 352
+        },
+        "clear": {
+          "width": 86,
+          "height": 86,
+          "right": 352
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 24,
+          "right": 232
+        },
+        "clear": {
+          "width": 24,
+          "height": 24,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 224,
+          "height": 32,
+          "right": 232
+        },
+        "clear": {
+          "width": 32,
+          "height": 32,
+          "right": 232
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 233,
+          "height": 56,
+          "right": 241
+        },
+        "clear": {
+          "width": 56,
+          "height": 56,
+          "right": 241
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "recents",
+      "width": 1920,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "localOverflow": 0,
+        "input": {
+          "width": 344,
+          "height": 86,
+          "right": 352
+        },
+        "clear": {
+          "width": 86,
+          "height": 86,
+          "right": 352
+        },
+        "nativeLabel": 1,
+        "clearInsideLabel": false
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 24
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 32
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 56
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 86
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 24
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 32
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 56
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1024,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 86
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 24
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 32
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 56
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 86
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 24
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 32
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 56
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1440,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 86
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "light",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 24
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "light",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 32
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "light",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 56
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 86
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "dark",
+      "size": "s",
+      "scale": 80,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 24
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "dark",
+      "size": "m",
+      "scale": 100,
+      "x": 0,
+      "y": 0,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 32
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "dark",
+      "size": "l",
+      "scale": 115,
+      "x": 12,
+      "y": 6,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 56
+      }
+    },
+    {
+      "route": "chat",
+      "width": 1920,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "overflow": 0,
+        "rootOverflow": 0,
+        "results": [
+          {
+            "href": "?thread=design",
+            "tag": "A",
+            "title": "Проектирование дизайн системы",
+            "width": 662
+          }
+        ],
+        "fieldHeight": 86
+      }
+    }
+  ],
+  "shortWindows": [
+    {
+      "width": 1024,
+      "height": 480,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "focused": "Figma frames 9",
+        "clips": [
+          {
+            "class": "seda-search__list",
+            "top": 183,
+            "bottom": 447,
+            "scrollTop": 2380,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "seda-search__results",
+            "top": 183,
+            "bottom": 447,
+            "scrollTop": 0,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "seda-modal__body",
+            "top": 135,
+            "bottom": 447,
+            "scrollTop": 126,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "seda-modal reference-dialog",
+            "top": 16,
+            "bottom": 464,
+            "scrollTop": 0,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "",
+            "top": 0,
+            "bottom": 480,
+            "scrollTop": 0,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "width": 1024,
+      "height": 480,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "focused": "Figma frames 9",
+        "clips": [
+          {
+            "class": "seda-search__list",
+            "top": 183,
+            "bottom": 447,
+            "scrollTop": 2380,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "seda-search__results",
+            "top": 183,
+            "bottom": 447,
+            "scrollTop": 0,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "seda-modal__body",
+            "top": 135,
+            "bottom": 447,
+            "scrollTop": 126,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "seda-modal reference-dialog",
+            "top": 16,
+            "bottom": 464,
+            "scrollTop": 0,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          },
+          {
+            "class": "",
+            "top": 0,
+            "bottom": 480,
+            "scrollTop": 0,
+            "focusedTop": 337,
+            "focusedBottom": 447,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "width": 1024,
+      "height": 640,
+      "theme": "light",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "focused": "Figma frames 9",
+        "clips": [
+          {
+            "class": "seda-search__list",
+            "top": 231,
+            "bottom": 583,
+            "scrollTop": 2292,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "seda-search__results",
+            "top": 231,
+            "bottom": 583,
+            "scrollTop": 0,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "seda-modal__body",
+            "top": 167,
+            "bottom": 583,
+            "scrollTop": 110,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "seda-modal reference-dialog",
+            "top": 32,
+            "bottom": 608,
+            "scrollTop": 0,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "",
+            "top": 0,
+            "bottom": 640,
+            "scrollTop": 0,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "width": 1024,
+      "height": 640,
+      "theme": "dark",
+      "size": "xl",
+      "scale": 150,
+      "x": 24,
+      "y": 12,
+      "measurements": {
+        "focused": "Figma frames 9",
+        "clips": [
+          {
+            "class": "seda-search__list",
+            "top": 231,
+            "bottom": 583,
+            "scrollTop": 2292,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "seda-search__results",
+            "top": 231,
+            "bottom": 583,
+            "scrollTop": 0,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "seda-modal__body",
+            "top": 167,
+            "bottom": 583,
+            "scrollTop": 110,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "seda-modal reference-dialog",
+            "top": 32,
+            "bottom": 608,
+            "scrollTop": 0,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          },
+          {
+            "class": "",
+            "top": 0,
+            "bottom": 640,
+            "scrollTop": 0,
+            "focusedTop": 473,
+            "focusedBottom": 583,
+            "visible": true
+          }
+        ]
+      }
+    }
+  ],
+  "installedPackage": true,
+  "sourceAlias": false,
+  "nativeModifiedNavigation": true,
+  "ownedNavigationPreservesDocument": true,
+  "authoredDataUnchanged": true,
+  "errors": []
+}

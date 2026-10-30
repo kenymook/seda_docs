@@ -1,0 +1,11 @@
+{
+  "commit": "8e79b15e9bc28002e30dc7a87b8cb15026bc84da",
+  "run": 40251803801,
+  "job": 121345130065,
+  "verifiedLines": [
+    "2026-10-26T01:05:50.5515247Z {\"output\":\"/home/runner/work/seda_docs/seda_docs/packages/seda-ui/.diagnostics-package/2026-10-26T00-57-52-515Z\",\"passed\":69,\"failed\":0}",
+    "2026-10-26T01:07:22.3188319Z ℹ tests 139",
+    "2026-10-26T01:07:22.3188745Z ℹ pass 139",
+    "2026-10-26T01:07:22.3188948Z ℹ fail 0"
+  ]
+}

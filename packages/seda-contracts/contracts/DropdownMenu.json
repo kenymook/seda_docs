@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "DropdownMenu",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/DropdownMenu/DropdownMenu.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/DropdownMenu/DropdownMenu.tsx",
+    "export": "DropdownMenuProps",
+    "nativeElement": "div"
+  },
+  "anatomy": [
+    {
+      "name": "root",
+      "element": "div",
+      "required": true
+    },
+    {
+      "name": "trigger",
+      "element": "button",
+      "prop": "triggerLabel",
+      "required": true
+    },
+    {
+      "name": "menu",
+      "element": "div",
+      "required": true
+    },
+    {
+      "name": "items",
+      "element": "button",
+      "prop": "items",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "variant": "menu",
+    "iconOnly": false,
+    "disabled": false,
+    "shortcutScope": "menu",
+    "side": "bottom",
+    "align": "start"
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled"
+    ],
+    "activity": [
+      "idle"
+    ],
+    "validation": [
+      "none"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [
+    "menu",
+    "with-icons",
+    "with-shortcuts",
+    "grouped",
+    "danger"
+  ],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "dropdown-menu"
+      ]
+    },
+    "menu": {
+      "collection": "components",
+      "path": [
+        "dropdown-menu"
+      ]
+    },
+    "with-icons": {
+      "collection": "components",
+      "path": [
+        "dropdown-menu"
+      ]
+    },
+    "with-shortcuts": {
+      "collection": "components",
+      "path": [
+        "dropdown-menu"
+      ]
+    },
+    "grouped": {
+      "collection": "components",
+      "path": [
+        "dropdown-menu"
+      ]
+    },
+    "danger": {
+      "collection": "components",
+      "path": [
+        "dropdown-menu"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "trigger-label",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Nonempty triggerLabel is required.",
+      "check": "text-content",
+      "layer": "instance",
+      "decision": "D28",
+      "prop": "triggerLabel"
+    },
+    {
+      "id": "items",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Unique IDs, nonempty labels, executable actions, flat groups and real unique shortcuts are required.",
+      "check": "menu-items",
+      "layer": "instance",
+      "decision": "D28"
+    },
+    {
+      "id": "open",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Controlled open requires onOpenChange and excludes defaultOpen; icon-only requires an icon.",
+      "check": "menu-open",
+      "layer": "instance",
+      "decision": "D28"
+    },
+    {
+      "id": "keyboard",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Keyboard opening, arrows/Home/End/typeahead, disabled guards and actual shortcuts work.",
+      "check": "menu-keyboard",
+      "layer": "browser",
+      "decision": "D28"
+    },
+    {
+      "id": "focus",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Escape/Tab/outside and dialog handoff preserve expected focus; profile changes do not steal it.",
+      "check": "menu-focus",
+      "layer": "browser",
+      "decision": "D28"
+    },
+    {
+      "id": "overlay",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Portal escapes clipping, placement respects viewport and cleanup removes owned overlays.",
+      "check": "menu-overlay",
+      "layer": "browser",
+      "decision": "D28"
+    },
+    {
+      "id": "geometry",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Menu rows inherit compiled geometry and common X/Y; long descriptions may increase height.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D28"
+    },
+    {
+      "id": "tokens",
+      "source": "specs/overlays-layout/dropdown-menu.md",
+      "condition": "Supported DropdownMenu API",
+      "expected": "Dropdown menu states and explicit semantic focus/danger adapters match resolved provenance.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D28"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "screen-readers-engines-desktop",
+      "status": "not-checked",
+      "reason": "Chromium proof does not establish other browser engines, screen readers or native desktop shells."
+    },
+    {
+      "id": "submenus-checkable-async-commands",
+      "status": "decision-needed",
+      "reason": "Nested/checkable items, async permission patterns and global command registry need system review."
+    }
+  ],
+  "evidence": {
+    "source": "specs/overlays-layout/dropdown-menu.md",
+    "baseline": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "secondary"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "description",
+        "foreground"
+      ],
+      [
+        "group-title",
+        "foreground"
+      ],
+      [
+        "separator",
+        "default"
+      ]
+    ],
+    "menu": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "secondary"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "description",
+        "foreground"
+      ],
+      [
+        "group-title",
+        "foreground"
+      ],
+      [
+        "separator",
+        "default"
+      ]
+    ],
+    "with-icons": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "secondary"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "description",
+        "foreground"
+      ],
+      [
+        "group-title",
+        "foreground"
+      ],
+      [
+        "separator",
+        "default"
+      ]
+    ],
+    "with-shortcuts": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "secondary"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "description",
+        "foreground"
+      ],
+      [
+        "group-title",
+        "foreground"
+      ],
+      [
+        "separator",
+        "default"
+      ]
+    ],
+    "grouped": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "secondary"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "description",
+        "foreground"
+      ],
+      [
+        "group-title",
+        "foreground"
+      ],
+      [
+        "separator",
+        "default"
+      ]
+    ],
+    "danger": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "default"
+      ],
+      [
+        "item",
+        "foreground",
+        "disabled"
+      ],
+      [
+        "item",
+        "foreground",
+        "secondary"
+      ],
+      [
+        "item",
+        "surface",
+        "default"
+      ],
+      [
+        "item",
+        "surface",
+        "hover"
+      ],
+      [
+        "item",
+        "surface",
+        "active"
+      ],
+      [
+        "item",
+        "surface",
+        "disabled"
+      ],
+      [
+        "item",
+        "icon",
+        "default"
+      ],
+      [
+        "item",
+        "icon",
+        "disabled"
+      ],
+      [
+        "item",
+        "description",
+        "foreground"
+      ],
+      [
+        "group-title",
+        "foreground"
+      ],
+      [
+        "separator",
+        "default"
+      ]
+    ]
+  }
+}

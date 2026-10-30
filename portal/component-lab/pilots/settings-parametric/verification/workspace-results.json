@@ -1,0 +1,3226 @@
+{
+  "scope": "joint web/desktop application workspace",
+  "results": [
+    {
+      "name": "workspace-geometry-Light-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Light-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Light-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Light-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-s",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 24
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 56
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 56
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-m",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 32
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 66
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 66
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-l",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 40
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 76
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "name": "workspace-geometry-Dark-xl",
+      "status": "passed",
+      "evidence": [
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 100,
+            "air": 0,
+            "airX": 0,
+            "radius": 100
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 48
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1543,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 1024,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "projects",
+          "visibleControls": 32,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "settings",
+          "visibleControls": 16,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "access",
+          "visibleControls": 12,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "members",
+          "visibleControls": 9,
+          "height": 86
+        },
+        {
+          "params": {
+            "scale": 150,
+            "air": 12,
+            "airX": 24,
+            "radius": 175
+          },
+          "width": 390,
+          "section": "editor",
+          "visibleControls": 11,
+          "height": 86
+        }
+      ]
+    },
+    {
+      "name": "workspace-tokens-and-native-keyboard",
+      "status": "passed",
+      "evidence": {
+        "resolvedLeaves": 247,
+        "selectSurface": "rgb(23, 23, 24)",
+        "keyboard": "Select/Radio/Toggle"
+      }
+    },
+    {
+      "name": "workspace-projects-coupled-table",
+      "status": "passed",
+      "evidence": {
+        "filters": "intersection",
+        "bulk": "2 active → paused",
+        "pagination": "3+1",
+        "creation": "resets filters"
+      }
+    },
+    {
+      "name": "workspace-settings-validation-state",
+      "status": "passed",
+      "evidence": {
+        "validation": "text/email/url/number",
+        "persistence": "navigation and profile changes",
+        "cancel": "last session snapshot"
+      }
+    },
+    {
+      "name": "workspace-tabs-contract-and-cross-panel-validation",
+      "status": "passed",
+      "evidence": {
+        "contract": "Tabs",
+        "draftRetained": true,
+        "crossPanelErrorRevealed": true,
+        "keyboard": true,
+        "notificationsRetained": true,
+        "tabGeometry": {
+          "height": 67,
+          "padding": 28
+        }
+      }
+    },
+    {
+      "name": "workspace-members-local-addition",
+      "status": "passed",
+      "evidence": {
+        "added": 1,
+        "duplicate": "blocked",
+        "networkInvitations": "none"
+      }
+    },
+    {
+      "name": "workspace-pending-save-across-navigation",
+      "status": "passed",
+      "evidence": {
+        "snapshot": "Request A",
+        "retained": "New B",
+        "navigation": "projects → settings → members → projects"
+      }
+    },
+    {
+      "name": "workspace-menu-contract-and-profile-focus",
+      "status": "passed",
+      "evidence": {
+        "measurements": [
+          {
+            "theme": "Light",
+            "size": "s",
+            "height": 36,
+            "font": 15,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Light",
+            "size": "m",
+            "height": 45,
+            "font": 18,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Light",
+            "size": "l",
+            "height": 54,
+            "font": 20,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Light",
+            "size": "xl",
+            "height": 63,
+            "font": 23,
+            "padding": 22,
+            "surface": "rgb(255, 255, 255)"
+          },
+          {
+            "theme": "Dark",
+            "size": "s",
+            "height": 36,
+            "font": 15,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          },
+          {
+            "theme": "Dark",
+            "size": "m",
+            "height": 45,
+            "font": 18,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          },
+          {
+            "theme": "Dark",
+            "size": "l",
+            "height": 54,
+            "font": 20,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          },
+          {
+            "theme": "Dark",
+            "size": "xl",
+            "height": 63,
+            "font": 23,
+            "padding": 22,
+            "surface": "rgb(38, 38, 39)"
+          }
+        ],
+        "focusRetained": true,
+        "iconTriggerSquare": true
+      }
+    },
+    {
+      "name": "workspace-menu-actions-and-dialog-handoff",
+      "status": "passed",
+      "evidence": {
+        "details": true,
+        "copyDialog": true,
+        "deleteConfirmation": true,
+        "cancelRetained": true,
+        "removedTriggerFocusFallback": true,
+        "formDraftRetained": true
+      }
+    },
+    {
+      "name": "workspace-dialog-field-theme-isolation",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "theme": "Light",
+            "size": "s",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(10, 10, 11)",
+            "wrapperColor": "rgb(10, 10, 11)",
+            "wrapperBackground": "rgb(255, 255, 255)",
+            "padding": 34
+          },
+          {
+            "theme": "Light",
+            "size": "m",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(10, 10, 11)",
+            "wrapperColor": "rgb(10, 10, 11)",
+            "wrapperBackground": "rgb(255, 255, 255)",
+            "padding": 34
+          },
+          {
+            "theme": "Light",
+            "size": "l",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(10, 10, 11)",
+            "wrapperColor": "rgb(10, 10, 11)",
+            "wrapperBackground": "rgb(255, 255, 255)",
+            "padding": 34
+          },
+          {
+            "theme": "Light",
+            "size": "xl",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(10, 10, 11)",
+            "wrapperColor": "rgb(10, 10, 11)",
+            "wrapperBackground": "rgb(255, 255, 255)",
+            "padding": 34
+          },
+          {
+            "theme": "Dark",
+            "size": "s",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(255, 255, 255)",
+            "wrapperColor": "rgb(255, 255, 255)",
+            "wrapperBackground": "rgb(23, 23, 24)",
+            "padding": 34
+          },
+          {
+            "theme": "Dark",
+            "size": "m",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(255, 255, 255)",
+            "wrapperColor": "rgb(255, 255, 255)",
+            "wrapperBackground": "rgb(23, 23, 24)",
+            "padding": 34
+          },
+          {
+            "theme": "Dark",
+            "size": "l",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(255, 255, 255)",
+            "wrapperColor": "rgb(255, 255, 255)",
+            "wrapperBackground": "rgb(23, 23, 24)",
+            "padding": 34
+          },
+          {
+            "theme": "Dark",
+            "size": "xl",
+            "innerBackground": "rgba(0, 0, 0, 0)",
+            "innerColor": "rgb(255, 255, 255)",
+            "wrapperColor": "rgb(255, 255, 255)",
+            "wrapperBackground": "rgb(23, 23, 24)",
+            "padding": 34
+          }
+        ]
+      }
+    },
+    {
+      "name": "workspace-editor-panels-history-and-local-save",
+      "status": "passed",
+      "evidence": {
+        "keyboardResize": true,
+        "history": true,
+        "previewLinked": true,
+        "disabledAndVisible": true,
+        "profileDraftRetained": true,
+        "navigationRetained": true,
+        "localReload": true,
+        "saved": {
+          "version": 1,
+          "document": {
+            "frame": {
+              "text": "Проект Atlas",
+              "visible": true,
+              "disabled": false
+            },
+            "heading": {
+              "text": "Рабочее пространство",
+              "visible": true,
+              "disabled": false
+            },
+            "button": {
+              "text": "Запустить задачу",
+              "visible": true,
+              "disabled": false
+            },
+            "buttonVariant": "secondary"
+          },
+          "navigation": 188,
+          "canvas": 300,
+          "treeSelection": "button",
+          "treeExpanded": [
+            "frame"
+          ]
+        }
+      }
+    },
+    {
+      "name": "workspace-editor-storage-errors-and-corruption",
+      "status": "passed",
+      "evidence": {
+        "corruptionFallback": true,
+        "emptyTextGuard": true,
+        "quotaErrorVisible": true
+      }
+    },
+    {
+      "name": "workspace-editor-tree-selection-expansion-and-reload",
+      "status": "passed",
+      "evidence": {
+        "sharedTree": true,
+        "focusDoesNotSelect": true,
+        "selectionInspectorPreview": true,
+        "hiddenSelectionPreserved": true,
+        "viewReload": true,
+        "historyUpdatesLabels": true
+      }
+    },
+    {
+      "name": "workspace-browser-errors",
+      "status": "passed"
+    }
+  ],
+  "errors": []
+}

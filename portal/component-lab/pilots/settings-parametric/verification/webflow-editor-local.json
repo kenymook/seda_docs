@@ -1,0 +1,404 @@
+{
+  "scope": "Webflow reconstructed editor application with installed SEDA and isolated native DOM preview. Not source artwork fidelity, complete Webflow feature parity, AT or production acceptance.",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "webflow-installed-seda-source-icons-and-isolated-fonts",
+      "status": "passed",
+      "evidence": {
+        "installedComponents": 12,
+        "loadedIconParts": 30,
+        "authoredNodes": 19,
+        "loadedFonts": 8,
+        "canvasInitiallyEmpty": true
+      }
+    },
+    {
+      "name": "webflow-style-geometry-overlay-undo-redo",
+      "status": "passed",
+      "evidence": {
+        "actualCssWidth": 400,
+        "overlayFollowsZoom": true,
+        "undo": true,
+        "redo": true
+      }
+    },
+    {
+      "name": "webflow-invalid-css-draft-cannot-change-selection-or-save",
+      "status": "passed",
+      "evidence": {
+        "invalidInputRejected": true,
+        "selectionAndSaveGuarded": true,
+        "escapeRestoresAppliedValue": true
+      }
+    },
+    {
+      "name": "webflow-breakpoint-cascade-reset-and-native-percent-width",
+      "status": "passed",
+      "evidence": {
+        "tabletPercentWidth": 346,
+        "portraitInheritedPercentWidth": 133.5,
+        "resetRevealsDesktop500": true
+      }
+    },
+    {
+      "name": "webflow-shared-css-class-edits-both-slides",
+      "status": "passed",
+      "evidence": {
+        "classOwner": "slide-1",
+        "twoNodesUpdated": true
+      }
+    },
+    {
+      "name": "webflow-add-real-text-content-and-relative-typography",
+      "status": "passed",
+      "evidence": {
+        "id": "text-40302841-8226-4b30-9439-dbbe369b9623",
+        "font": 25.792,
+        "lineHeight": 38.688,
+        "textEscaped": true
+      }
+    },
+    {
+      "name": "webflow-visibility-and-iframe-keyboard-history",
+      "status": "passed",
+      "evidence": {
+        "visibilityUndo": true,
+        "iframeUndoRedo": true
+      }
+    },
+    {
+      "name": "webflow-save-snapshot-edit-during-request-and-loading-size",
+      "status": "passed",
+      "evidence": {
+        "snapshotBeforeEdit": true,
+        "newEditRemainsDirty": true,
+        "reloadSavedEdit": true,
+        "loadingDelta": {
+          "width": 0,
+          "height": 0
+        }
+      }
+    },
+    {
+      "name": "webflow-storage-error-retry-and-recovery",
+      "status": "passed",
+      "evidence": {
+        "quotaErrorVisible": true,
+        "retryWrites": true,
+        "reloadWidth": 450
+      }
+    },
+    {
+      "name": "webflow-seda-theme-size-spacing-matrix-preserves-authored-units",
+      "status": "passed",
+      "evidence": {
+        "nestedSamples": 16,
+        "samples": [
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 33.3017578125,
+              "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 38.85205078125,
+              "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 44.40234375,
+              "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "light",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 49.95263671875,
+              "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 33.3017578125,
+              "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 38.85205078125,
+              "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 44.40234375,
+              "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1024,
+            "theme": "dark",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 49.95263671875,
+              "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 33.3017578125,
+              "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 38.85205078125,
+              "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 44.40234375,
+              "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "light",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 49.95263671875,
+              "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "s",
+            "height": 56,
+            "expected": 56,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 33.3017578125,
+              "client": 130
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "m",
+            "height": 66,
+            "expected": 66,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 38.85205078125,
+              "client": 148
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "l",
+            "height": 76,
+            "expected": 76,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 44.40234375,
+              "client": 166
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          },
+          {
+            "width": 1440,
+            "theme": "dark",
+            "size": "xl",
+            "height": 86,
+            "expected": 86,
+            "overflow": 0,
+            "viewportField": {
+              "textWidth": 49.95263671875,
+              "client": 184
+            },
+            "navigatorTitle": {
+              "height": 36,
+              "line": 36,
+              "text": "Navigator"
+            }
+          }
+        ],
+        "authoredUnitsUnchanged": true
+      }
+    },
+    {
+      "name": "webflow-resizable-panels-preview-and-publish-boundary",
+      "status": "passed",
+      "evidence": {
+        "keyboardResize": true,
+        "readOnlyPreview": true,
+        "externalPublishingNotPretended": true
+      }
+    },
+    {
+      "name": "webflow-viewport-draft-and-shortcuts-respect-focused-surface",
+      "status": "passed",
+      "evidence": {
+        "viewportDraftStaysEnabled": true,
+        "headerDeleteDoesNotDeleteNode": true,
+        "iframeSaveShortcut": true
+      }
+    },
+    {
+      "name": "webflow-corrupt-storage-safe-fallback-and-no-javascript-errors",
+      "status": "passed",
+      "evidence": {
+        "corruptDataPreservedUntilExplicitSave": true,
+        "sourceFallback": true,
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

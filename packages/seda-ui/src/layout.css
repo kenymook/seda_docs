@@ -1,0 +1,21 @@
+/* SplitView has no component token family yet: explicit semantic adapters. */
+.seda-split-view { display:grid; min-width:0; min-height:0; width:100%; height:100%; overflow:auto; }
+.seda-split-view[data-orientation="horizontal"] { grid-template-rows:minmax(0,1fr); }
+.seda-split-view[data-orientation="vertical"] { grid-template-columns:minmax(0,1fr); }
+.seda-split-view__panel { min-width:0; min-height:0; overflow:auto; overscroll-behavior:contain; }
+.seda-split-view__separator { position:relative; min-width:0; min-height:0; touch-action:none; user-select:none; background:var(--surface-base); }
+.seda-split-view[data-orientation="horizontal"] > .seda-split-view__separator { width:8px; cursor:col-resize; }
+.seda-split-view[data-orientation="vertical"] > .seda-split-view__separator { height:8px; cursor:row-resize; }
+.seda-split-view__separator::after { content:""; position:absolute; background:var(--border-subtle); }
+.seda-split-view[data-orientation="horizontal"] > .seda-split-view__separator::after { inset:0 calc(50% - .5px); width:1px; }
+.seda-split-view[data-orientation="vertical"] > .seda-split-view__separator::after { inset:calc(50% - .5px) 0; height:1px; }
+.seda-split-view__separator:hover::after,.seda-split-view[data-resizing] > .seda-split-view__separator::after { background:var(--focus-ring); }
+.seda-split-view__separator:focus-visible { outline:2px solid var(--focus-ring); outline-offset:-2px; z-index:1; }
+.seda-split-view__separator[aria-disabled="true"] { cursor:default; }
+.seda-split-view__separator[aria-disabled="true"]:hover::after { background:var(--border-subtle); }
+.seda-split-view[data-resizing] > .seda-split-view__panel { user-select:none; }
+@media(forced-colors:active) {
+ .seda-split-view__separator { background:Canvas; }
+ .seda-split-view__separator::after { background:CanvasText; }
+ .seda-split-view__separator:focus-visible { outline-color:Highlight; }
+}

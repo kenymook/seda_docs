@@ -1,0 +1,140 @@
+{
+  "scope": "Sandbox domain model; not visual acceptance",
+  "modelPassed": 15,
+  "failed": 0,
+  "results": [
+    {
+      "name": "scene-source-reconstruction-roundtrip",
+      "status": "passed",
+      "evidence": {
+        "pages": 15,
+        "artboards": 12,
+        "nodes": 156,
+        "geometryOrigin": "inferred reconstruction, not original Figma scene"
+      }
+    },
+    {
+      "name": "scene-malformed-storage-and-hierarchy-rejected",
+      "status": "passed",
+      "evidence": {
+        "rejected": 11
+      }
+    },
+    {
+      "name": "scene-affine-inverse-and-nested-rotation",
+      "status": "passed",
+      "evidence": {
+        "nestedRotation": true,
+        "inverseRoundtrip": true
+      }
+    },
+    {
+      "name": "scene-world-move-and-parent-child-not-doubled",
+      "status": "passed",
+      "evidence": {
+        "worldDelta": true,
+        "nestedTransform": true,
+        "rootSelectionNormalization": true
+      }
+    },
+    {
+      "name": "scene-reparent-preserves-world-geometry-and-rejects-cycle",
+      "status": "passed",
+      "evidence": {
+        "worldBoundsPreserved": true,
+        "cycleGuard": true
+      }
+    },
+    {
+      "name": "scene-mixed-values-and-atomic-numeric-input",
+      "status": "passed",
+      "evidence": {
+        "actualMixedResolution": true,
+        "perObjectApply": true,
+        "rejectedDrafts": 7,
+        "rejectedCommitAtomic": true
+      }
+    },
+    {
+      "name": "scene-lock-visibility-and-edit-ownership",
+      "status": "passed",
+      "evidence": {
+        "inheritedLock": true,
+        "inheritedVisibility": true,
+        "explicitUnlock": true
+      }
+    },
+    {
+      "name": "scene-duplicate-delete-and-sibling-order",
+      "status": "passed",
+      "evidence": {
+        "newIds": true,
+        "subtreeCopy": true,
+        "subtreeDelete": true,
+        "order": true
+      }
+    },
+    {
+      "name": "scene-rotated-resize-preserves-anchor",
+      "status": "passed",
+      "evidence": {
+        "nestedRotatedTopLeftFixed": true
+      }
+    },
+    {
+      "name": "scene-align-and-distribute-world-space",
+      "status": "passed",
+      "evidence": {
+        "rotationAwareAlign": true,
+        "equalCenterSpacing": true
+      }
+    },
+    {
+      "name": "scene-history-roundtrip-and-camera-ownership",
+      "status": "passed",
+      "evidence": {
+        "undoRedo": true,
+        "cameraNotDocumentHistory": true,
+        "redoInvalidated": true,
+        "noOp": true
+      }
+    },
+    {
+      "name": "scene-camera-anchor-fit-and-prototype-key",
+      "status": "passed",
+      "evidence": {
+        "zoomAnchorStable": true,
+        "fitContained": true,
+        "prototypeKeySafe": true
+      }
+    },
+    {
+      "name": "scene-group-ungroup-preserves-world-and-selection",
+      "status": "passed",
+      "evidence": {
+        "transparentGroup": true,
+        "preservedWorldGeometry": true,
+        "ungroupRemovesOnlyContainer": true
+      }
+    },
+    {
+      "name": "scene-page-history-restores-document-and-camera",
+      "status": "passed",
+      "evidence": {
+        "pageLifecycle": true,
+        "lastPageGuard": true,
+        "undoRestoresView": true
+      }
+    },
+    {
+      "name": "scene-schema-and-depth-rejection-remain-atomic",
+      "status": "passed",
+      "evidence": {
+        "depth32Accepted": true,
+        "depth33Rejected": true,
+        "unknownPropsRejected": true,
+        "historyUnchanged": true
+      }
+    }
+  ]
+}

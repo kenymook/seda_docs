@@ -1,0 +1,223 @@
+{
+  "checkedAt": "2026-10-25T02:01:33.385994+00:00",
+  "version": 43,
+  "runtimeGitHubCommit": "8312277dcfbfa1339317312341b6af76c53f6a99",
+  "sourceHashesMatched": 796,
+  "artifactHashesMatched": 532,
+  "inspectorSamples": 160,
+  "paintedGlyphVariants": 95,
+  "rhythmSamples": 16,
+  "errors": [],
+  "acl": {
+    "mode": "custom",
+    "revision": 1,
+    "owners": 1,
+    "externalVisitors": 0,
+    "groups": 0
+  },
+  "scope": "Fresh production verification of existing v43; no runtime changes or redeployment; uncommitted Table work excluded.",
+  "visuallyReviewed": [
+    "sandbox-light-1440-m.png",
+    "sandbox-dark-1440-m.png",
+    "webflow-light-1440-m.png",
+    "webflow-dark-1440-m.png",
+    "spline-light-1440-m.png",
+    "spline-dark-1440-m.png",
+    "workflow-light-1440-m.png",
+    "workflow-dark-1440-m.png"
+  ],
+  "frames": {
+    "building-dark-1024-xl.png": {
+      "sha256": "be7aadccdbb70f16324f1cb001a9e03669cd62af5449c1816b9384beac4efe4d",
+      "matchesPreviousEvidence": true
+    },
+    "building-dark-1440-m.png": {
+      "sha256": "a658002750f6c492977f8059c68634015302627bd1a1197453720cd61f22df33",
+      "matchesPreviousEvidence": true
+    },
+    "building-dark.png": {
+      "sha256": "fe73cae4cebd24164c1c179a3d9918ea528ca7ff24db19497a750c7343d9076f",
+      "matchesPreviousEvidence": false
+    },
+    "building-light-1024-xl.png": {
+      "sha256": "5c780854081d46247f5112e37193d39618520b1c6ffd1aa84bd066b8a4e2498e",
+      "matchesPreviousEvidence": true
+    },
+    "building-light-1440-m.png": {
+      "sha256": "7cadeb484b2d9fc308143361613781c469183f50a574c75c1db1a2b9437b0d36",
+      "matchesPreviousEvidence": false
+    },
+    "building-light.png": {
+      "sha256": "21f888a8438cf814e80de1e561fb11f471195ad9502082dff085a0b3560e78b8",
+      "matchesPreviousEvidence": false
+    },
+    "chat-dark-1024-xl.png": {
+      "sha256": "873c2694135343ae8f90fda361e1e7dd0fb824add758395dae2e48059731ae0c",
+      "matchesPreviousEvidence": false
+    },
+    "chat-dark-1440-m.png": {
+      "sha256": "b82d1183eec7b27739baa30af76acb162d9a36deb6ff3b50ff536c22200835b4",
+      "matchesPreviousEvidence": false
+    },
+    "chat-dark.png": {
+      "sha256": "0b2d7fde44670ac960823ee599d34e2614b984a8dee69df5af989d4489e5e648",
+      "matchesPreviousEvidence": false
+    },
+    "chat-light-1024-xl.png": {
+      "sha256": "fa52e58b0451b1095352ec2736d1ccf7ba533e4fe28e384473f602dceb886175",
+      "matchesPreviousEvidence": false
+    },
+    "chat-light-1440-m.png": {
+      "sha256": "5220d42c42eb4d6196ef826434d204641d057492f3a5752b52ccf36767b0f061",
+      "matchesPreviousEvidence": false
+    },
+    "chat-light.png": {
+      "sha256": "31ea5d3c5539d71afab8a51d60842961d0aae7accff2655e329f646ddd844471",
+      "matchesPreviousEvidence": false
+    },
+    "framer-dark-1024-xl.png": {
+      "sha256": "e0b43108013b4e5540b1cc89c7fd223c703e45e79ff1f8b7edda9de1a6e68b3b",
+      "matchesPreviousEvidence": true
+    },
+    "framer-dark-1440-m.png": {
+      "sha256": "822c8a9d749d7cdcebc19e38842b709a6dfd3fe1cd0887a32b9f6d1f27924132",
+      "matchesPreviousEvidence": true
+    },
+    "framer-dark.png": {
+      "sha256": "1f5486a4cb5e0e5faef597be325ec1d06507b753e667f06b05cfc04fdd75a6ef",
+      "matchesPreviousEvidence": false
+    },
+    "framer-light-1024-xl.png": {
+      "sha256": "6a421c319cd5d92d239c48a21723bab2dd31878ea60b93b8099f6475591f502e",
+      "matchesPreviousEvidence": true
+    },
+    "framer-light-1440-m.png": {
+      "sha256": "84dc7cfee2e407bac355358f6722a3f034b18f97d79bcebd85e442d6f74236c4",
+      "matchesPreviousEvidence": true
+    },
+    "framer-light.png": {
+      "sha256": "84dc7cfee2e407bac355358f6722a3f034b18f97d79bcebd85e442d6f74236c4",
+      "matchesPreviousEvidence": false
+    },
+    "recents-dark-1024-xl.png": {
+      "sha256": "f047bdcb1b68f44623338edd93f9d4d645f822bd4bb0c8aef61c6db6cce5fb9b",
+      "matchesPreviousEvidence": false
+    },
+    "recents-dark-1440-m.png": {
+      "sha256": "dc5f8563ad1dd8a630927e528ac58548f696d338f3e45f903caa70f18e81322f",
+      "matchesPreviousEvidence": false
+    },
+    "recents-dark.png": {
+      "sha256": "8b21460ac082bde2ffd812a64c0da620ad964d1337bb8e96823197b66cd4dc2e",
+      "matchesPreviousEvidence": false
+    },
+    "recents-light-1024-xl.png": {
+      "sha256": "8cf3b3b3d3bdd5e9e41c323c0c522b8dedc2ea1405b8924b9a0ab71cbacd2582",
+      "matchesPreviousEvidence": false
+    },
+    "recents-light-1440-m.png": {
+      "sha256": "0fc531a2bfff68cfeef1961a32ded71ca3cb7a6980485693252870b7c9b56986",
+      "matchesPreviousEvidence": false
+    },
+    "recents-light.png": {
+      "sha256": "26fff57736d63b0da9d8f8899b7e71c9d89f7c1b549425915fd46034599bc31f",
+      "matchesPreviousEvidence": false
+    },
+    "sandbox-dark-1024-xl.png": {
+      "sha256": "9a6d377a9637418925d817f21640a6ae6fc3dae1e6f60df96b33b54c7d54a55b",
+      "matchesPreviousEvidence": true
+    },
+    "sandbox-dark-1440-m.png": {
+      "sha256": "7dd0057abf55aaf853ea26691c7e2cfcc6a22aeed0ab81e434449e0946524b0c",
+      "matchesPreviousEvidence": true
+    },
+    "sandbox-dark.png": {
+      "sha256": "6f82e6b745156599e7d17b80cf3fafcf7616cc72b61ee1ed0c6b8bac1d121eeb",
+      "matchesPreviousEvidence": false
+    },
+    "sandbox-light-1024-xl.png": {
+      "sha256": "9026b7cbf028a69f0886a5ce20fd5c001c017ed0736d2baeca25fbbe580f99a7",
+      "matchesPreviousEvidence": true
+    },
+    "sandbox-light-1440-m.png": {
+      "sha256": "c5d8ea1a9d31b781e79bf674650976053e43897f087e3ef2ec99a773a0078b0b",
+      "matchesPreviousEvidence": true
+    },
+    "sandbox-light.png": {
+      "sha256": "0d75df9467f83ef17cf16314beec346c9d862efd912e59aeeb4e4a7519f3528a",
+      "matchesPreviousEvidence": false
+    },
+    "spline-dark-1024-xl.png": {
+      "sha256": "9ec7b38a7da1ccce3408a58ef6d0a1389a6c99d62fce5f01904f15a71994762e",
+      "matchesPreviousEvidence": true
+    },
+    "spline-dark-1440-m.png": {
+      "sha256": "0045330f0e9c0697223c1b2875f892dd4a4a9840b4fc2d2e12cb696922518b46",
+      "matchesPreviousEvidence": false
+    },
+    "spline-dark.png": {
+      "sha256": "fbb646ac889c60c4d0303de5e090ebb087a98491126192072a5ae9dc58646900",
+      "matchesPreviousEvidence": false
+    },
+    "spline-light-1024-xl.png": {
+      "sha256": "92e8736049f0ebf6ec2d3f93ce3f2cd2e0c00cffc6bd9114ef48b6331cdb17a2",
+      "matchesPreviousEvidence": true
+    },
+    "spline-light-1440-m.png": {
+      "sha256": "16ff43eeeb6699c57d7ea0d725af8681e108d0cd0151afa9ecdf0f00f7b22989",
+      "matchesPreviousEvidence": false
+    },
+    "spline-light.png": {
+      "sha256": "79da9b5053237d0b25ca8cf76eff9b1f419ae46f7360e4cdb6f0032a5737f919",
+      "matchesPreviousEvidence": false
+    },
+    "webflow-dark-1024-xl.png": {
+      "sha256": "4148b9909a02c39357a9b93762a65dc0f21e69bf0bedfee050e4073bc7d64ece",
+      "matchesPreviousEvidence": true
+    },
+    "webflow-dark-1440-m.png": {
+      "sha256": "db8e18fe498f6846e64eebfb12a428b835f5b97619e1dabf35ee37f46c1d5009",
+      "matchesPreviousEvidence": true
+    },
+    "webflow-dark.png": {
+      "sha256": "575253bf71f4612643e420a763064191cca1c939bb35918b4a1b60403f12c497",
+      "matchesPreviousEvidence": false
+    },
+    "webflow-light-1024-xl.png": {
+      "sha256": "45235174af53c5ed704be2b9c71324b8920e417d4e068aa0af90463154b5ffda",
+      "matchesPreviousEvidence": false
+    },
+    "webflow-light-1440-m.png": {
+      "sha256": "ca9cb3b90e416f63a1dd8e487e2cf99b6535e92f989b6d3ca78051d54e57f943",
+      "matchesPreviousEvidence": true
+    },
+    "webflow-light.png": {
+      "sha256": "ca9cb3b90e416f63a1dd8e487e2cf99b6535e92f989b6d3ca78051d54e57f943",
+      "matchesPreviousEvidence": false
+    },
+    "workflow-dark-1024-xl.png": {
+      "sha256": "6e099edbb1b8c39f8113317647720ef18b1bd03b34427e54017062e66ce229e2",
+      "matchesPreviousEvidence": true
+    },
+    "workflow-dark-1440-m.png": {
+      "sha256": "e4b8af8d46f5c7eff5bb43677001deaaa3b08d059713346524d3afdf9c654914",
+      "matchesPreviousEvidence": true
+    },
+    "workflow-dark.png": {
+      "sha256": "08cd7448568178121c11379dbcc956c3db4629d0187b6a1be05373c8bc7297af",
+      "matchesPreviousEvidence": false
+    },
+    "workflow-light-1024-xl.png": {
+      "sha256": "e490e6ca51d30a415e5f2ccf14b8ad3a9ecdea47ca2fb24eb5060ff16299bbe7",
+      "matchesPreviousEvidence": true
+    },
+    "workflow-light-1440-m.png": {
+      "sha256": "0bbc41ade38278fb41e714054c56bc02c3f9ce06f92d29400590d3466bc7272c",
+      "matchesPreviousEvidence": true
+    },
+    "workflow-light.png": {
+      "sha256": "e40226f6de7215a5e099c0e191b68c35ec98ce3ee7f77a101c391986473c7977",
+      "matchesPreviousEvidence": false
+    }
+  }
+}

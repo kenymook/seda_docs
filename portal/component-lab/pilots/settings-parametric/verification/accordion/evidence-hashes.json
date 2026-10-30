@@ -1,0 +1,130 @@
+{
+  "18.3.1-accordion-dark.png": {
+    "sha256": "9f713d175bc2020cd0efd59ecff4f220f2a367f9a60ce1367562941c281251d7",
+    "bytes": 23797
+  },
+  "18.3.1-accordion-light.png": {
+    "sha256": "05c006f98f30d749f2b553eb61b2894371be08060d176fbf968ad2d6d4386999",
+    "bytes": 23693
+  },
+  "18.3.1-accordion-results.json": {
+    "sha256": "8491c5240542ee0f1c9c0618f7a074d4bd1a540b124b05c3fb86a662efd9c24c",
+    "bytes": 1032297
+  },
+  "19.2.7-accordion-dark.png": {
+    "sha256": "9f713d175bc2020cd0efd59ecff4f220f2a367f9a60ce1367562941c281251d7",
+    "bytes": 23797
+  },
+  "19.2.7-accordion-light.png": {
+    "sha256": "05c006f98f30d749f2b553eb61b2894371be08060d176fbf968ad2d6d4386999",
+    "bytes": 23693
+  },
+  "19.2.7-accordion-results.json": {
+    "sha256": "54f558993a0c4c9b165419400b5690305513d550f66bb43f763fe46fcc0f3c04",
+    "bytes": 1033454
+  },
+  "contracts.log": {
+    "sha256": "7cb71cf134ecd4263946d6b3b1bdb2f5df651ca3d7a6ec93f7fa0b510483f366",
+    "bytes": 11530
+  },
+  "first-integrity-failure.log": {
+    "sha256": "302e5baefb90893a10cd6d5cced9b18914cf05b8d9c338e6935237f7ce0e6282",
+    "bytes": 8420
+  },
+  "first-spline-failure.json": {
+    "sha256": "34b24c4ddfc87bf5d7611bfad7f5197408fcac4b2707a619919e000f1600f6f4",
+    "bytes": 5745
+  },
+  "framer-dark.png": {
+    "sha256": "0246a03138e23eb43a39d3029a139fa2fb85526f1d77defb2eb2fdb828fa2b05",
+    "bytes": 110129
+  },
+  "framer-light.png": {
+    "sha256": "bac2306726d82f12c9a8419a680543e2103f73c18a2c4a8fd22812903229144f",
+    "bytes": 108287
+  },
+  "inspectors-results.json": {
+    "sha256": "a813cbafe3dcdc906809aacd69b01d353920e960ff69d5533107727338661c38",
+    "bytes": 693182
+  },
+  "lab.log": {
+    "sha256": "67166a2f506550daed3fe4e2933fc20e766c88e6572e7cc49a845f3700944007",
+    "bytes": 9924
+  },
+  "package-summary.json": {
+    "sha256": "791f2db668f014505d8c8bbb6dc3941c784abac0116ba30232697def1cb7dd7b",
+    "bytes": 4661
+  },
+  "package.log": {
+    "sha256": "16ebdd5531f1c6a618a4338c5dfffefa566fab3f7deb4fa012ac362a8a7bb7df",
+    "bytes": 1999
+  },
+  "production-framer-dark.png": {
+    "sha256": "0246a03138e23eb43a39d3029a139fa2fb85526f1d77defb2eb2fdb828fa2b05",
+    "bytes": 110129
+  },
+  "production-framer-light.png": {
+    "sha256": "bac2306726d82f12c9a8419a680543e2103f73c18a2c4a8fd22812903229144f",
+    "bytes": 108287
+  },
+  "production-results.json": {
+    "sha256": "bb0f792c1ee70a0924551b9ce74cc4e27ea6fb0e8d1f3b0683f57c122ddcc2fc",
+    "bytes": 1398865
+  },
+  "production-spline-dark.png": {
+    "sha256": "82fd49165923f0dc4ef1f272b9967e376e36a3ee99f725d84c4871a657d111df",
+    "bytes": 306429
+  },
+  "production-spline-light.png": {
+    "sha256": "a38b1770f0d6f2096ec54a12df7f117e9b457c3d817e313bb801af9d70a488f0",
+    "bytes": 305233
+  },
+  "production-webflow-dark.png": {
+    "sha256": "0d9ec4ad7d4c0908b688c551a44098873ed5f0aa67be3a93b71c6bac39324a13",
+    "bytes": 101976
+  },
+  "production-webflow-light.png": {
+    "sha256": "33671929567695e8b504f291ac583f0e7c7b081dcd15ce5f935162185e9f21dd",
+    "bytes": 99683
+  },
+  "provenance.json": {
+    "sha256": "f02edb39232a642ddddd1985792f511874ded7b7e9d462a2993c197ecbc51278",
+    "bytes": 671
+  },
+  "references.log": {
+    "sha256": "8348bc8bdc8d8f84f2feab9e329eb6f5288471356a24ddf952c87e1514e448c0",
+    "bytes": 16014
+  },
+  "release.json": {
+    "sha256": "23f7b3b316ab6253ba28783bcf68b21ba216f15ab16f029b76ccf66bd27e2e47",
+    "bytes": 1668
+  },
+  "spline-dark.png": {
+    "sha256": "82fd49165923f0dc4ef1f272b9967e376e36a3ee99f725d84c4871a657d111df",
+    "bytes": 306429
+  },
+  "spline-diagnostic.log": {
+    "sha256": "3779ef988a850a885b239a3b5d6f61ee8c9ea3bf7dcf5389863df897dddcdee9",
+    "bytes": 2645
+  },
+  "spline-light.png": {
+    "sha256": "261f40d477d8919b3a06a4a9b6b2f8f45a10951dc1ebfb7fc6526318a0db0dac",
+    "bytes": 305234
+  },
+  "visual-review.json": {
+    "sha256": "d82a1f2aefc11007ca07eb1194ad87e59981a504ef099e146b590c935453396b",
+    "bytes": 1024
+  },
+  "webflow-dark.png": {
+    "sha256": "0d9ec4ad7d4c0908b688c551a44098873ed5f0aa67be3a93b71c6bac39324a13",
+    "bytes": 101976
+  },
+  "webflow-light.png": {
+    "sha256": "33671929567695e8b504f291ac583f0e7c7b081dcd15ce5f935162185e9f21dd",
+    "bytes": 99683
+  },
+  "workspace-results.json": {
+    "sha256": "083135be1730952a0baada8c3839fa7c57eed7a66af7e63779171e8083c7b974",
+    "bytes": 606337
+  }
+}

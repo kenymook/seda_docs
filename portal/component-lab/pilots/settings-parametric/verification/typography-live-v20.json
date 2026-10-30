@@ -1,0 +1,340 @@
+{
+  "scope": "Production version20 parametric Text roles in existing Lab workspace",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site",
+  "httpStatus": 200,
+  "matchedSourceHashes": 589,
+  "passed": 7,
+  "failed": 0,
+  "results": [
+    {
+      "name": "typography-real-public-text-and-canonical-provenance",
+      "status": "passed",
+      "evidence": {
+        "size": 20,
+        "line": 32,
+        "weight": 600,
+        "family": "Inter, system-ui, sans-serif",
+        "text": "Рабочее пространство",
+        "tag": "H2",
+        "canonicalPublicText": true,
+        "installedPackageCss": true,
+        "provenance": true
+      }
+    },
+    {
+      "name": "typography-scale-reaches-headings-prose-and-inspector",
+      "status": "passed",
+      "evidence": {
+        "samples": 24,
+        "measurements": [
+          {
+            "theme": "Light",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Light",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 16,
+            "scale": 80,
+            "line": 25.6,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 23,
+            "scale": 115,
+            "line": 36.8,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          },
+          {
+            "theme": "Dark",
+            "size": 30,
+            "scale": 150,
+            "line": 48,
+            "weight": 600,
+            "family": "Inter, system-ui, sans-serif",
+            "text": "Рабочее пространство",
+            "tag": "H2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "typography-role-change-history-and-local-reload",
+      "status": "passed",
+      "evidence": {
+        "undo": true,
+        "redo": true,
+        "roleReload": true,
+        "scaleSessionOnly": true
+      }
+    },
+    {
+      "name": "typography-density-xy-radius-do-not-change-role",
+      "status": "passed",
+      "evidence": {
+        "independentOfControlSize": true,
+        "independentOfSpacingRadius": true
+      }
+    },
+    {
+      "name": "typography-long-cyrillic-wrap-and-responsive-panels",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "width": 1024,
+            "scroll": 213,
+            "client": 213,
+            "height": 180,
+            "line": 36,
+            "overflow": 0
+          },
+          {
+            "width": 1543,
+            "scroll": 226,
+            "client": 226,
+            "height": 144,
+            "line": 36,
+            "overflow": 0
+          },
+          {
+            "width": 1920,
+            "scroll": 226,
+            "client": 226,
+            "height": 144,
+            "line": 36,
+            "overflow": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "typography-theme-repaint-and-save",
+      "status": "passed",
+      "evidence": {
+        "savedRole": true,
+        "screenshots": true
+      }
+    },
+    {
+      "name": "typography-no-javascript-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

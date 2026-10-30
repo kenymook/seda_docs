@@ -220,12 +220,20 @@
         },
         "message": {
           "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "fieldWeight": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
+        },
+        "fieldLetterSpacing": {
+          "$ref": "urn:seda:common:0.1.0#/definitions/tokenRef"
         }
       },
       "required": [
         "family",
         "labelWeight",
-        "message"
+        "message",
+        "fieldWeight",
+        "fieldLetterSpacing"
       ]
     },
     "geometry": {

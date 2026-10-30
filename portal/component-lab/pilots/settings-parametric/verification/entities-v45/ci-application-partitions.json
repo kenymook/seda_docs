@@ -1,0 +1,30 @@
+{
+  "head": "8736d374583f88d8367fe66de673a3e5d43e12ce",
+  "applicationScripts": 39,
+  "parts": [
+    {
+      "job": {
+        "id": 121078628112,
+        "head_sha": "8736d374583f88d8367fe66de673a3e5d43e12ce",
+        "name": "Verify / lab",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "url": "https://github.com/kenymook/seda_docs/actions/runs/40163116898/job/121078628112",
+      "summary": "2026-10-25T04:58:23.5472349Z {\"partition\":\"lab\",\"scripts\":21,\"exitCode\":0}"
+    },
+    {
+      "job": {
+        "id": 121078627863,
+        "head_sha": "8736d374583f88d8367fe66de673a3e5d43e12ce",
+        "name": "Verify / references",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "url": "https://github.com/kenymook/seda_docs/actions/runs/40163116898/job/121078627863",
+      "summary": "2026-10-25T04:55:38.9069708Z {\"partition\":\"references\",\"scripts\":18,\"exitCode\":0}"
+    }
+  ],
+  "packageState": "Tooltip fixture readiness failed on this head; corrected fixture is verified separately.",
+  "runtimeChanged": false
+}

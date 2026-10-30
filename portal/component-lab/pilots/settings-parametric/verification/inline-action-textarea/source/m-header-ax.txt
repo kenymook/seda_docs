@@ -1,0 +1,325 @@
+Browser tab: 13, Title: "SEDA AI v0.2.0 – Figma", URL: "https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2187-3393&t=aa74NuhYMfN5Pe2P-0".
+0 AXWebArea SEDA AI v0.2.0 – Figma, URL: figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2187-3393&t=aa74NuhYMfN5Pe2P-0
+	1 container react-page
+		7 container
+			8 container fullscreen-root
+				9 container Figma Design, 1 item selected
+			10 text Screenreader support for the board is currently disabled. To enable it via Accessibility settings, press Ctrl+K, type Accessibility Settings, and press Enter. To see available keyboard shortcuts, enter Ctrl+Shift+Question mark .
+			11 container
+				12 text Warning: This file is part of a locked team.
+				13 container
+					14 text All of this team’s work is currently view-only. You can edit again when the team is unlocked.
+					15 link Description: Learn more, Value: figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=2187-3393&t=aa74NuhYMfN5Pe2P-0#
+				16 button Reactivate professional
+			17 container Comments on canvas
+				18 button Create new comment
+			19 container Left sidebar
+				20 toolbar Navigation Bar
+					21 pop up button (collapsed) Description: Main menu, ID: :rf:-trigger, Secondary Actions: Expand
+						22 image
+					23 button (expanded) Description: File, Secondary Actions: Collapse
+						24 image
+					25 pop up button (collapsed) Description: Review unpublished changes, Secondary Actions: Expand
+				26 container left-panel-container
+					27 container
+						28 button SEDA AI v0.2.0, file name
+						29 text File name
+						30 pop up button (collapsed) Description: Edit file menu, ID: :rk:, Secondary Actions: Expand
+						31 button Minimize UI
+						32 link Description: SEDA AI, Value: figma.com/files/team/1156313042119251770/project/588921952
+						33 button Locked
+						34 heading Text Area ✅ Find, Value: 2
+							35 button (collapsed) Text Area ✅, Secondary Actions: Expand
+							36 button Description: Find, ID: canvas-search-icon-button
+						37 heading Layers Collapse layers, Value: 2
+							38 button (expanded) Layers, Secondary Actions: Collapse
+							216 button Collapse layers
+						39 table
+							40 container
+								217 row (selectable, expanded) TextArea, Secondary Actions: Collapse
+									218 container
+										219 cell
+											220 text TextArea
+								221 row (selectable, collapsed) xl, hover, filled=true, Secondary Actions: Expand
+									222 container
+										223 cell
+											224 text xl, hover, filled=true
+								225 row (selectable, collapsed) xl, default, filled=true, Secondary Actions: Expand
+									226 container
+										227 cell
+											228 text xl, default, filled=true
+								229 row (selectable, collapsed) xl, error, filled=false, Secondary Actions: Expand
+									230 container
+										231 cell
+											232 text xl, error, filled=false
+								233 row (selectable, collapsed) xl, disabled, filled=false, Secondary Actions: Expand
+									234 container
+										235 cell
+											236 text xl, disabled, filled=false
+								237 row (selectable, collapsed) xl, focus, filled=false, Secondary Actions: Expand
+									238 container
+										239 cell
+											240 text xl, focus, filled=false
+								241 row (selectable, collapsed) xl, hover, filled=false, Secondary Actions: Expand
+									242 container
+										243 cell
+											244 text xl, hover, filled=false
+								245 row (selectable, collapsed) xl, default, filled=false, Secondary Actions: Expand
+									246 container
+										247 cell
+											248 text xl, default, filled=false
+								249 row (selectable, collapsed) l, error, filled=true, Secondary Actions: Expand
+									250 container
+										251 cell
+											252 text l, error, filled=true
+								253 row (selectable, collapsed) l, disabled, filled=true, Secondary Actions: Expand
+									254 container
+										255 cell
+											256 text l, disabled, filled=true
+								257 row (selectable, collapsed) l, focus, filled=true, Secondary Actions: Expand
+									258 container
+										259 cell
+											260 text l, focus, filled=true
+								261 row (selectable, collapsed) l, hover, filled=true, Secondary Actions: Expand
+									262 container
+										263 cell
+											264 text l, hover, filled=true
+								265 row (selectable, collapsed) l, default, filled=true, Secondary Actions: Expand
+									266 container
+										267 cell
+											268 text l, default, filled=true
+								269 row (selectable, collapsed) l, error, filled=false, Secondary Actions: Expand
+									270 container
+										271 cell
+											272 text l, error, filled=false
+								273 row (selectable, collapsed) l, disabled, filled=false, Secondary Actions: Expand
+									274 container
+										275 cell
+											276 text l, disabled, filled=false
+								277 row (selectable, collapsed) l, focus, filled=false, Secondary Actions: Expand
+									278 container
+										279 cell
+											280 text l, focus, filled=false
+								281 row (selectable, collapsed) l, hover, filled=false, Secondary Actions: Expand
+									282 container
+										283 cell
+											284 text l, hover, filled=false
+								285 row (selectable, collapsed) l, default, filled=false, Secondary Actions: Expand
+									286 container
+										287 cell
+											288 text l, default, filled=false
+								289 row (selectable, collapsed) m, error, filled=true, Secondary Actions: Expand
+									290 container
+										291 cell
+											292 text m, error, filled=true
+								293 row (selectable, collapsed) m, disabled, filled=true, Secondary Actions: Expand
+									294 container
+										295 cell
+											296 text m, disabled, filled=true
+								297 row (selectable, collapsed) m, focus, filled=true, Secondary Actions: Expand
+									298 container
+										299 cell
+											300 text m, focus, filled=true
+								301 row (selectable, collapsed) m, hover, filled=true, Secondary Actions: Expand
+									302 container
+										303 cell
+											304 text m, hover, filled=true
+								305 row (selectable, collapsed) m, default, filled=true, Secondary Actions: Expand
+									306 container
+										307 cell
+											308 text m, default, filled=true
+								309 row (selectable, collapsed) m, error, filled=false, Secondary Actions: Expand
+									310 container
+										311 cell
+											312 text m, error, filled=false
+								313 row (selectable, collapsed) m, disabled, filled=false, Secondary Actions: Expand
+									314 container
+										315 cell
+											316 text m, disabled, filled=false
+								317 row (selectable, collapsed) m, focus, filled=false, Secondary Actions: Expand
+									318 container
+										319 cell
+											320 text m, focus, filled=false
+								321 row (selectable, collapsed) m, hover, filled=false, Secondary Actions: Expand
+									322 container
+										323 cell
+											324 text m, hover, filled=false
+								325 row (selectable, expanded) m, default, filled=false, Secondary Actions: Collapse
+									326 container
+										327 cell
+											328 text m, default, filled=false
+								329 row (selected, collapsed) Label container, Secondary Actions: Expand
+									330 container
+										331 cell
+											332 text Label container
+								333 row (selectable, collapsed) _TextArea/Elements/Container, Secondary Actions: Expand
+									334 container
+										335 cell
+											336 text _TextArea/Elements/Container
+								337 row (selectable, collapsed) _TextField/Elements/Description, Secondary Actions: Expand
+									338 container
+										339 cell
+											340 text _TextField/Elements/Description
+								341 row (selectable, collapsed) s, error, filled=true, Secondary Actions: Expand
+									342 container
+										343 cell
+											344 text s, error, filled=true
+								345 row (selectable, collapsed) s, disabled, filled=true, Secondary Actions: Expand
+									346 container
+										347 cell
+											348 text s, disabled, filled=true
+								349 row (selectable, collapsed) s, focus, filled=true, Secondary Actions: Expand
+									350 container
+										351 cell
+											352 text s, focus, filled=true
+								353 row (selectable, collapsed) s, hover, filled=true, Secondary Actions: Expand
+									354 container
+										355 cell
+											356 text s, hover, filled=true
+								357 row (selectable, collapsed) s, default, filled=true, Secondary Actions: Expand
+									358 container
+										359 cell
+											360 text s, default, filled=true
+								361 row (selectable, collapsed) s, error, filled=false, Secondary Actions: Expand
+									362 container
+										363 cell
+											364 text s, error, filled=false
+								365 row (selectable, collapsed) s, disabled, filled=false, Secondary Actions: Expand
+									366 container
+										367 cell
+											368 text s, disabled, filled=false
+								369 row (selectable, collapsed) s, focus, filled=false, Secondary Actions: Expand
+									370 container
+										371 cell
+											372 text s, focus, filled=false
+								373 row (selectable, collapsed) s, hover, filled=false, Secondary Actions: Expand
+									374 container
+										375 cell
+											376 text s, hover, filled=false
+								377 row (selectable, collapsed) s, default, filled=false, Secondary Actions: Expand
+									378 container
+										379 cell
+											380 text s, default, filled=false
+								381 row (selectable) image 2
+									382 container
+										383 cell
+											384 text image 2
+					61 slider Description: Resize handle, Value: 240
+			62 container Right sidebar
+				63 container
+					64 container
+						65 pop up button (collapsed) Description: Multiplayer tools, ID: self-avatar-with-tools-container, Secondary Actions: Expand
+							66 image
+						67 container Prototype view
+							68 button Description: Present, ID: :r22:
+							69 pop up button (collapsed) Description: Prototype view, ID: :r21:, Secondary Actions: Expand
+						70 button Share
+						71 tab group
+							72 tab (selectable, settable, boolean) Comments, Value: 0, ID: tab:r25:-3-trigger
+							73 tab (selected, settable, boolean) Properties, Value: 1, ID: tab:r25:-2-trigger
+						74 pop up button (collapsed) Description: 257%, zoom and view options, ID: :r28:, Secondary Actions: Expand
+							75 text 257%
+							76 image
+						77 container
+							78 container
+								79 text Get coding, faster
+								80 button Close
+								81 image Mock box model and css code snippet
+								82 text Dev Mode simplifies handoff, speeds up inspection, and integrates with tools like VS Code and Storybook.
+								83 button Request access
+								84 container Auto layout
+								85 button Label container
+								386 container selection_hierarchy-inspection-panel
+									387 heading Parent component, Value: 3
+										388 text Parent component
+									389 container Variant
+									390 button size=m, state=default, filled=false
+									391 button Select layer
+								86 container componentProps-inspection-panel
+									87 heading Component properties, Value: 3
+										88 text Component properties
+									89 button Copy
+									90 button Copy size: —
+										91 container size
+											92 text size
+										93 container —
+											94 text —
+									392 button Copy state: —
+										393 container state
+											394 text state
+										395 container —
+											396 text —
+									397 button Copy filled: —
+										398 container filled
+											399 text filled
+										400 container —
+											401 text —
+									402 button Copy label: true
+										403 container label
+											404 text label
+										405 container true
+											406 text true
+									407 button Copy clear: true
+										408 container clear
+											409 text clear
+										410 container true
+											411 text true
+									412 button Copy hintText: true
+										413 container hintText
+											414 text hintText
+										415 container true
+											416 text true
+									417 button Copy errorInfo: true
+										418 container errorInfo
+											419 text errorInfo
+										420 container true
+											421 text true
+								125 container properties-inspection-panel
+									126 heading Layout, Value: 3
+										127 text Layout
+									128 button Copy
+									129 button Copy Flow: Horizontal
+										130 container Flow
+											131 text Flow
+										132 container Horizontal
+											133 text Horizontal
+									134 button Copy Width: Fill (260px)
+										135 container Width
+											136 text Width
+										137 container Fill (260px)
+											138 text Fill (260px)
+									139 button Copy Height: Hug (20px)
+										140 container Height
+											141 text Height
+										142 container Hug (20px)
+											143 text Hug (20px)
+									154 button Copy Gap: 4px
+										155 container Gap
+											156 text Gap
+										422 container 4px
+											423 text 4px
+								197 container
+									198 button Export
+									199 button Add export settings
+					200 slider Description: Resize handle, Value: 241
+		201 container Application toolbar
+			202 toolbar Editor
+				203 checkbox Description: Move, Value: 1
+					204 image
+				205 checkbox Description: Hand tool, Value: 0
+					206 image
+				207 checkbox Description: Comment, Value: 0
+					208 image
+				209 button (disabled) View only
+				210 Toolbelt Mode
+					211 text Toolbelt Mode
+					212 radio button (settable, integer) Description: Draw, Value: 0, ID: :r2b:-illustration
+					213 radio button (settable, integer) Description: Design, Value: 1, ID: :r2b:-design
+					214 radio button (settable, integer) Description: Motion, Value: 0, ID: :r2b:-metronome
+					215 radio button (settable, integer) Description: Dev Mode, Value: 0, ID: :r2b:-handoff
+		3 container Help/zoom toolbar
+			4 toolbar Help/zoom toolbar
+				5 pop up button (collapsed) Description: Help, ID: :r2:, Secondary Actions: Expand
+					6 image
+
+The focused UI element is 9 container Figma Design, 1 item selected

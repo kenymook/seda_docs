@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "0.1.0",
+  "kind": "seda-component-contract",
+  "id": "Select",
+  "api": {
+    "typesFile": "packages/seda-ui/src/components/Select/Select.types.ts",
+    "implementationFile": "packages/seda-ui/src/components/Select/Select.tsx",
+    "export": "SelectProps",
+    "nativeElement": "select"
+  },
+  "anatomy": [
+    {
+      "name": "control",
+      "element": "select",
+      "required": true
+    },
+    {
+      "name": "label",
+      "element": "ReactNode",
+      "prop": "label",
+      "required": true
+    }
+  ],
+  "targetDefaults": {
+    "size": "m",
+    "readOnly": false,
+    "loading": false
+  },
+  "states": {
+    "availability": [
+      "enabled",
+      "disabled",
+      "read-only"
+    ],
+    "activity": [
+      "idle",
+      "loading"
+    ],
+    "validation": [
+      "none",
+      "error",
+      "warning",
+      "success"
+    ],
+    "interaction": [
+      "hovered",
+      "focused",
+      "active"
+    ],
+    "data": [
+      "empty",
+      "filled"
+    ]
+  },
+  "pilotVariants": [],
+  "tokenBranches": {
+    "default": {
+      "collection": "components",
+      "path": [
+        "select"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "label",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "text-content",
+      "layer": "instance",
+      "prop": "label",
+      "decision": "D25"
+    },
+    {
+      "id": "value",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Unique nonempty options; correct single/multi value shape; controlled values require a change handler and omit defaultValue.",
+      "check": "selection-value",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "error",
+      "source": "packages/seda-contracts/SELECT-VALIDATION.md",
+      "condition": "Supported public API state",
+      "expected": "Nonempty validation messages use disabled > error > warning > success precedence; only error sets aria-invalid.",
+      "check": "error-message",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "disabled",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "native-disabled",
+      "layer": "instance",
+      "decision": "D25"
+    },
+    {
+      "id": "description-merge",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "description-merge",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "focus-visible",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "focus-visible",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "component-token-binding",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "component-token-binding",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "control-geometry",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "control-geometry",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "disabled-error-presentation",
+      "source": "packages/seda-contracts/WORKSPACE-CONTRACTS.md",
+      "condition": "Supported public API state",
+      "expected": "Native semantics, description composition, disabled precedence and compiled token geometry agree with the rendered control.",
+      "check": "disabled-error-presentation",
+      "layer": "browser",
+      "decision": "D25"
+    },
+    {
+      "id": "availability-behavior",
+      "source": "packages/seda-contracts/SELECT-AVAILABILITY.md",
+      "condition": "Select readOnly or loading is true",
+      "expected": "Prevent native picker and selection by pointer/keyboard; keep focus and form value; guard change callbacks; loading retains geometry and exposes busy state.",
+      "check": "select-availability",
+      "layer": "browser",
+      "decision": "D25"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "native-platform-popup",
+      "status": "not-checked",
+      "reason": "Chromium web evidence does not establish every OS popup, screen reader or native desktop shell."
+    }
+  ],
+  "evidence": {
+    "source": "specs/inputs/select.md",
+    "baseline": "portal/component-lab/pilots/settings-parametric/LAB2-INTEGRATION-REPORT.md",
+    "runtimeStatus": "not-checked"
+  },
+  "tokenRequirements": {
+    "default": [
+      [
+        "surface",
+        "default"
+      ],
+      [
+        "surface",
+        "hover"
+      ],
+      [
+        "surface",
+        "focus"
+      ],
+      [
+        "surface",
+        "disabled"
+      ],
+      [
+        "surface",
+        "error"
+      ],
+      [
+        "border",
+        "default"
+      ],
+      [
+        "border",
+        "hover"
+      ],
+      [
+        "border",
+        "focus"
+      ],
+      [
+        "border",
+        "disabled"
+      ],
+      [
+        "border",
+        "error"
+      ],
+      [
+        "foreground",
+        "default"
+      ],
+      [
+        "foreground",
+        "disabled"
+      ],
+      [
+        "label",
+        "default"
+      ],
+      [
+        "label",
+        "disabled"
+      ],
+      [
+        "helper",
+        "default"
+      ],
+      [
+        "helper",
+        "error"
+      ],
+      [
+        "focus",
+        "ring"
+      ],
+      [
+        "surface",
+        "active"
+      ],
+      [
+        "foreground",
+        "placeholder"
+      ],
+      [
+        "surface",
+        "read-only"
+      ],
+      [
+        "border",
+        "read-only"
+      ],
+      [
+        "foreground",
+        "read-only"
+      ],
+      [
+        "label",
+        "read-only"
+      ],
+      [
+        "surface",
+        "loading"
+      ],
+      [
+        "border",
+        "loading"
+      ],
+      [
+        "icon",
+        "loading"
+      ]
+    ]
+  }
+}

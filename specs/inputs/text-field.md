@@ -15,6 +15,10 @@
 
 Text Field — однострочный текстовый ввод для коротких значений: имя, email, пароль, номер, поисковый запрос, код, URL или другое значение, которое пользователь может ввести и проверить в рамках одного поля.
 
+React implementation: CSS custom properties из native `style` наследуются всем составом поля — label/control/affix/message; обычные CSS properties остаются стилями самого input. Это необходимо, чтобы вычисленные geometry/color bindings меняли рамку и связанные слоты вместе с текстом. NumberField использует этот же TextField без второй границы или слота.
+
+Непосредственные декоративные SEDA Icon и SVG в prefix/suffix используют роли `icon/default`, `icon/active`, `icon/error`, `icon/disabled`. Focus использует `active`; error и disabled сохраняют приоритет. Текстовые приставки, произвольные изображения и самостоятельные вложенные действия не перекрашиваются правилом декоративной иконки. Search владеет своими `search/input/icon/*` ролями. [D34](../../packages/seda-contracts/FIELD-ANATOMY.md) фиксирует read-only проверку конкретных слоёв Figma: отдельная подложка affix удалена, label/helper следуют размеру поля и Regular, интервалы связаны с существующими токенами. Полная визуальная приёмка всех вариантов и состояний остаётся открытой.
+
 В SEDA AI Text Field описан как часть AI-ready design system framework: спецификация связывает Figma variants, props contract, design tokens, accessibility, validation и handoff. AI может ускорять аудит, черновики microcopy, acceptance criteria и проверку соответствия rules, но не принимает финальные решения за дизайнера и разработчика.
 
 ### Когда использовать
@@ -192,13 +196,13 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/text-field/surface/focus` | Фон focus. | `surface/base` |
 | `$collections/components/$modes/Mode 1/text-field/surface/disabled` | Фон disabled. | `status/disabled/container` |
 | `$collections/components/$modes/Mode 1/text-field/surface/error` | Фон error. | `status/danger/container` |
-| `$collections/components/$modes/Mode 1/text-field/border/default` | Граница по умолчанию. | `border/default` |
-| `$collections/components/$modes/Mode 1/text-field/border/hover` | Граница hover. | `border/hover` |
+| `$collections/components/$modes/Mode 1/text-field/border/default` | Граница по умолчанию. | `border/control/default` |
+| `$collections/components/$modes/Mode 1/text-field/border/hover` | Граница hover. | `border/control/hover` |
 | `$collections/components/$modes/Mode 1/text-field/border/focus` | Граница focus. | `border/focus` |
 | `$collections/components/$modes/Mode 1/text-field/border/error` | Граница error. | `status/danger/border` |
 | `$collections/components/$modes/Mode 1/text-field/border/disabled` | Граница disabled. | `status/disabled/border` |
 | `$collections/components/$modes/Mode 1/text-field/foreground/default` | Текст value. | `text/primary` |
-| `$collections/components/$modes/Mode 1/text-field/foreground/placeholder` | Placeholder. | `text/muted` |
+| `$collections/components/$modes/Mode 1/text-field/foreground/placeholder` | Placeholder. | `text/tertiary` |
 | `$collections/components/$modes/Mode 1/text-field/foreground/disabled` | Текст disabled. | `status/disabled/text` |
 | `$collections/components/$modes/Mode 1/text-field/label/default` | Label. | `text/secondary` |
 | `$collections/components/$modes/Mode 1/text-field/label/disabled` | Label disabled. | `status/disabled/text` |
@@ -208,6 +212,10 @@ Accessibility checklist:
 | `$collections/components/$modes/Mode 1/text-field/helper/success` | Success helper. | `status/success/text` |
 | `$collections/components/$modes/Mode 1/text-field/affix/surface` | Prefix/suffix surface. | `container/subtle/default` |
 | `$collections/components/$modes/Mode 1/text-field/affix/foreground` | Prefix/suffix foreground. | `text/tertiary` |
+| `$collections/components/$modes/Mode 1/text-field/icon/default` | Декоративная иконка по умолчанию. | `icon/tertiary` |
+| `$collections/components/$modes/Mode 1/text-field/icon/active` | Иконка активного поля. | `icon/primary` |
+| `$collections/components/$modes/Mode 1/text-field/icon/error` | Иконка при ошибке. | `status/danger/icon` |
+| `$collections/components/$modes/Mode 1/text-field/icon/disabled` | Иконка недоступного поля. | `status/disabled/icon` |
 | `$collections/components/$modes/Mode 1/text-field/focus/ring` | Focus ring. | `focus/ring` |
 
 Token gaps:
@@ -310,3 +318,6 @@ Handoff для Text Field должен включать:
 - Использовать disabled для read-only значения.
 - Прятать ограничения формата только в Tooltip.
 - Генерировать handoff без validation triggers и value contract.
+
+
+Публичные warningText/successText, приоритеты сообщений и numeric confirmation описаны в [исполняемом контракте валидации](../../packages/seda-contracts/FIELD-VALIDATION.md).

@@ -1,0 +1,7 @@
+
+> @seda-ai/ui@0.1.0 typecheck
+> tsc --noEmit
+
+
+> seda-parametric-settings-pilot@0.1.0 typecheck
+> tsc --noEmit && tsc --noEmit --project references/tsconfig.json

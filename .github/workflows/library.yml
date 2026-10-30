@@ -1,0 +1,185 @@
+name: SEDA library and contracts
+on:
+  pull_request:
+  push:
+    branches: [master, main]
+permissions:
+  contents: read
+concurrency:
+  group: seda-library-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    name: Verify / ${{ matrix.part }}
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [package, lab, references]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            packages/seda-ui/package-lock.json
+            packages/seda-contracts/package-lock.json
+            portal/component-lab/pilots/settings-parametric/package-lock.json
+      - run: npm ci
+        working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: packages/seda-contracts
+      - run: npm run build
+        working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npx playwright install --with-deps chromium
+        working-directory: packages/seda-ui
+      - name: Use one installed Chromium for both verifiers
+        run: node -e 'const fs=require("node:fs");const {chromium}=require("./packages/seda-ui/node_modules/playwright");fs.appendFileSync(process.env.GITHUB_ENV,"SEDA_BROWSER_EXECUTABLE="+chromium.executablePath()+"\n");'
+      - run: npm run typecheck
+        if: matrix.part == 'package'
+        working-directory: packages/seda-ui
+      - run: npm run verify:package
+        if: matrix.part == 'package'
+        working-directory: packages/seda-ui
+      - run: npm test
+        if: matrix.part == 'package'
+        working-directory: packages/seda-contracts
+      - run: npm run typecheck
+        if: matrix.part != 'package'
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run build
+        if: matrix.part != 'package'
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - name: Validate complete disjoint pilot coverage
+        run: node verify-ci.mjs --check
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - name: Verify pilot partition
+        if: matrix.part != 'package'
+        run: node verify-ci.mjs ${{ matrix.part }}
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seda-verification-${{ matrix.part }}
+          include-hidden-files: true
+          path: |
+            packages/seda-ui/.diagnostics-package/*/results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/consumer.png
+            packages/seda-ui/.diagnostics-package/*/react-*/field-anatomy-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/field-anatomy-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-field-anatomy-workspace/*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/menu-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/menu-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/tabs-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/split-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/split-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/tree-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/tree-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/textarea-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/textarea-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-*/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-visual-consistency/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-feedback/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-contrast/*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/feedback-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/toast-host-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/field-contrast-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/field-interaction-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/control-contrast-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/control-contrast-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/control-parameters-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/parameters-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workspace/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workspace-filters/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-recents/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-building/*.png
+
+            portal/component-lab/pilots/settings-parametric/.diagnostics-chat/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-sandbox/model-results.json
+
+            portal/component-lab/pilots/settings-parametric/.diagnostics-typography/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-spline/*.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-spline/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-spline-icons/*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/icon-catalog-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/icon-catalog-*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/icon-arrow-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-spline-manipulator/*.png
+            packages/seda-ui/.diagnostics-package/*/react-*/typography-results.json
+            packages/seda-ui/.diagnostics-package/*/react-*/typography-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-webflow/*.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-webflow/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-framer/*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-workflow/*.png
+
+  browser-engines:
+    name: Verify / ${{ matrix.engine }}
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [firefox, webkit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SEDA_BROWSER_ENGINE: ${{ matrix.engine }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            packages/seda-ui/package-lock.json
+            packages/seda-contracts/package-lock.json
+            portal/component-lab/pilots/settings-parametric/package-lock.json
+      - run: npm ci
+        working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: packages/seda-contracts
+      - run: npm run build
+        working-directory: packages/seda-ui
+      - run: npm ci
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npx playwright install --with-deps ${{ matrix.engine }}
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run typecheck
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - run: npm run build
+        working-directory: portal/component-lab/pilots/settings-parametric
+      - name: Verify installed package in ${{ matrix.engine }}
+        working-directory: portal/component-lab/pilots/settings-parametric
+        run: |
+          node verify-lab2.mjs
+          node verify-recents.mjs
+          node verify-building.mjs
+          node verify-building-marks.mjs
+          node verify-select-engines.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: seda-verification-${{ matrix.engine }}
+          include-hidden-files: true
+          path: |
+            portal/component-lab/pilots/settings-parametric/.diagnostics-lab2-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-lab2-${{ matrix.engine }}/1440-*.png
+            portal/component-lab/pilots/settings-parametric/.diagnostics-recents-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-building-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-building-marks-${{ matrix.engine }}/results.json
+            portal/component-lab/pilots/settings-parametric/.diagnostics-select-engines-${{ matrix.engine }}/results.json
+
+  library:
+    name: library
+    needs: [verify, browser-engines]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require every verification partition
+        run: test '${{ needs.verify.result }}' = 'success' && test '${{ needs.browser-engines.result }}' = 'success'

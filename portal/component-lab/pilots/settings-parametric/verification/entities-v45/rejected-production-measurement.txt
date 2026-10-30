@@ -1,0 +1,3 @@
+Initial private v45 production proof: entities60/table60 passed; inspectors completed through spline100, then Webflow compound g.loaded false before decode. Assertion at verify-inspector-consistency.mjs:41.
+Focused probe reproduced webflow-5954-imgVector1.svg complete=false/naturalWidth0; all30 images decoded successfully; no failed requests or HTTP errors.
+Verifier now awaits actual img.decode() before measurements and retains loaded/geometry/foreground/alpha assertions. A broken image still rejects with URL. Runtime files and deployed artifact unchanged.

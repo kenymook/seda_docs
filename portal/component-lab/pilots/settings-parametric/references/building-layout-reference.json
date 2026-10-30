@@ -1,0 +1,338 @@
+{
+  "sourceFile": "31SUMzWpWJ52bT9fBeKIau",
+  "sourceNode": "1:84",
+  "captured": "2026-10-25",
+  "frame": {
+    "width": 1440,
+    "height": 1288
+  },
+  "note": "Fresh Figma metadata coordinates, not DOM-generated expected values. Match authored title and35 blocks; SEDA chrome styling is assessed separately. Text container widths intentionally excluded (editable hit area differs from Figma natural text width).",
+  "landmarks": [
+    {
+      "selector": ".building-header",
+      "x": 228,
+      "y": 0,
+      "width": 1212,
+      "height": 48
+    },
+    {
+      "selector": ".building-document",
+      "x": 480,
+      "y": 48,
+      "width": 708
+    }
+  ],
+  "text": [
+    {
+      "id": "doc-page-title",
+      "sourceId": "1:160",
+      "prefix": "SDDS описание",
+      "x": 480.0,
+      "y": 254.167,
+      "height": 64.0
+    },
+    {
+      "id": "doc-block-block-165",
+      "sourceId": "1:165",
+      "prefix": "SDDS — корпоративная дизайн‑система для внутренних",
+      "x": 482.0,
+      "y": 343.167,
+      "height": 78.0
+    },
+    {
+      "id": "doc-block-block-169",
+      "sourceId": "1:169",
+      "prefix": "SDDS — это стратегическая платформа, которая ускор",
+      "x": 482.0,
+      "y": 467.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-172",
+      "sourceId": "1:172",
+      "prefix": "Модели поставки и бизнес‑следствия",
+      "x": 482.0,
+      "y": 565.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-178",
+      "sourceId": "1:178",
+      "prefix": "Эталонная (reference) дизайн‑система",
+      "x": 506.0,
+      "y": 601.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-185",
+      "sourceId": "1:185",
+      "prefix": "Описание: команда SDDS развивает и поддерживает од",
+      "x": 530.0,
+      "y": 636.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-190",
+      "sourceId": "1:190",
+      "prefix": "Бизнес‑выгоды: обеспечивает максимальную консистен",
+      "x": 530.0,
+      "y": 697.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-195",
+      "sourceId": "1:195",
+      "prefix": "Управление: централизованное принятие решений, дол",
+      "x": 530.0,
+      "y": 758.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-200",
+      "sourceId": "1:200",
+      "prefix": "Коммерческая модель: internal shared service / бюд",
+      "x": 530.0,
+      "y": 819.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-206",
+      "sourceId": "1:206",
+      "prefix": "Форк + дизайн и код от Plasma (полный сервис)",
+      "x": 506.0,
+      "y": 881.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-213",
+      "sourceId": "1:213",
+      "prefix": "Описание: Plasma производит форк дизайн‑системы и ",
+      "x": 530.0,
+      "y": 916.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-218",
+      "sourceId": "1:218",
+      "prefix": "Бизнес‑выгоды: кастомизация под конкретный продукт",
+      "x": 530.0,
+      "y": 977.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-223",
+      "sourceId": "1:223",
+      "prefix": "Управление: SDDS отвечает за реализацию и поддержк",
+      "x": 530.0,
+      "y": 1038.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-228",
+      "sourceId": "1:228",
+      "prefix": "Коммерческая модель: проектные контракты/платные у",
+      "x": 530.0,
+      "y": 1099.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-234",
+      "sourceId": "1:234",
+      "prefix": "Форк + дизайн со стороны клиента, код — от SDDS (к",
+      "x": 506.0,
+      "y": 1161.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-241",
+      "sourceId": "1:241",
+      "prefix": "Описание: клиент сохраняет дизайн‑ответственность,",
+      "x": 530.0,
+      "y": 1196.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-246",
+      "sourceId": "1:246",
+      "prefix": "Бизнес‑выгоды: позволяет продуктовым командам сохр",
+      "x": 530.0,
+      "y": 1257.167,
+      "height": 78.0
+    },
+    {
+      "id": "doc-block-block-251",
+      "sourceId": "1:251",
+      "prefix": "Управление: чёткое разделение ответственности (диз",
+      "x": 530.0,
+      "y": 1344.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-256",
+      "sourceId": "1:256",
+      "prefix": "Коммерческая модель: ставка за реализацию/интеграц",
+      "x": 530.0,
+      "y": 1405.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-258",
+      "sourceId": "1:258",
+      "prefix": "Продукт DS Builder — бизнес‑эффект и возможности м",
+      "x": 482.0,
+      "y": 1467.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-264",
+      "sourceId": "1:264",
+      "prefix": "Описание: самостоятельный продукт команды — инстру",
+      "x": 506.0,
+      "y": 1503.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-270",
+      "sourceId": "1:270",
+      "prefix": "Бизнес‑выгоды: снижает число оперативных запросов ",
+      "x": 506.0,
+      "y": 1565.167,
+      "height": 78.0
+    },
+    {
+      "id": "doc-block-block-276",
+      "sourceId": "1:276",
+      "prefix": "Риски/управление: нужны guardrails и валидация, чт",
+      "x": 506.0,
+      "y": 1653.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-282",
+      "sourceId": "1:282",
+      "prefix": "Коммерческая модель: подписка/лимит доступа, платн",
+      "x": 506.0,
+      "y": 1715.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-284",
+      "sourceId": "1:284",
+      "prefix": "Операционные рекомендации и контрактные моменты",
+      "x": 482.0,
+      "y": 1777.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-290",
+      "sourceId": "1:290",
+      "prefix": "SLA и поддержка: определить уровни поддержки для к",
+      "x": 506.0,
+      "y": 1813.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-296",
+      "sourceId": "1:296",
+      "prefix": "Владелец roadmaps: для эталонной версии — SDDS; дл",
+      "x": 506.0,
+      "y": 1875.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-302",
+      "sourceId": "1:302",
+      "prefix": "Обновления и миграции: предусмотреть механизм пере",
+      "x": 506.0,
+      "y": 1937.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-308",
+      "sourceId": "1:308",
+      "prefix": "Качество и приёмка: чек‑листы, критерии соответств",
+      "x": 506.0,
+      "y": 1999.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-314",
+      "sourceId": "1:314",
+      "prefix": "Безопасность и соответствие: учесть нормативные/ко",
+      "x": 506.0,
+      "y": 2061.167,
+      "height": 52.0
+    },
+    {
+      "id": "doc-block-block-316",
+      "sourceId": "1:316",
+      "prefix": "KPI и метрики успеха",
+      "x": 482.0,
+      "y": 2123.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-322",
+      "sourceId": "1:322",
+      "prefix": "Время от запроса до релиза компонента.",
+      "x": 506.0,
+      "y": 2159.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-328",
+      "sourceId": "1:328",
+      "prefix": "Количество обращений к SDDS по поддержке/кастомиза",
+      "x": 506.0,
+      "y": 2195.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-334",
+      "sourceId": "1:334",
+      "prefix": "Доля команд, использующих эталонную систему vs фор",
+      "x": 506.0,
+      "y": 2231.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-340",
+      "sourceId": "1:340",
+      "prefix": "Снижение дублирования компонентов и общего объёма ",
+      "x": 506.0,
+      "y": 2267.167,
+      "height": 26.0
+    },
+    {
+      "id": "doc-block-block-346",
+      "sourceId": "1:346",
+      "prefix": "Скорость внедрения изменений через DS Builder (вре",
+      "x": 506.0,
+      "y": 2303.167,
+      "height": 52.0
+    }
+  ],
+  "guides": [
+    {
+      "sourceId": "1:180",
+      "x": 492.0,
+      "y": 632.167,
+      "width": 1.0,
+      "height": 243.0
+    },
+    {
+      "sourceId": "1:208",
+      "x": 492.0,
+      "y": 912.167,
+      "width": 1.0,
+      "height": 243.0
+    },
+    {
+      "sourceId": "1:236",
+      "x": 492.0,
+      "y": 1192.167,
+      "width": 1.0,
+      "height": 269.0
+    }
+  ]
+}

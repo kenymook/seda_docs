@@ -173,7 +173,7 @@ Tooltip не получает `selected`, `disabled`, `error`, `loading` или 
 
 ## 7. Accessibility
 
-Tooltip следует [foundation/accessibility.md](../foundation/accessibility.md).
+Tooltip следует [foundation/accessibility.md](../../foundation/accessibility.md).
 
 | Элемент | Атрибут | Правило |
 | --- | --- | --- |
@@ -313,3 +313,23 @@ Tooltip следует [foundation/accessibility.md](../foundation/accessibility
 - Использовать click-trigger вместо Popover.
 - Оставлять Tooltip недоступным с клавиатуры.
 - Создавать локальные colors, shadows или widths вне documented tokens.
+
+
+## React runtime (2026-10-24)
+
+Публичный `Tooltip` использует render function `children(triggerProps)`. Привяжите `triggerProps.ref` и `triggerProps["aria-describedby"]` к настоящему focusable trigger. Обёртка не добавляет tab-stop, не клонирует элемент и не задаёт accessible name. `describedBy` сохраняет существующие ID описания. `content` — непустая строка: интерактивные children подсказки исключены API. `IconButton.tooltip` использует этот же runtime и сохраняет ref, обработчики и геометрию кнопки; при наличии Tooltip дублирующий native title не выводится.
+
+Реализованы `variant=default|light`, `placement=top|bottom|left|right`, `disabled`. Остальные suggested props выше не являются публичным API: `size`, `arrow`, произвольные delay и controlled open **не реализованы**. Размер текста — существующий `Text caption/default`, наследующий provider textScale, независимо от controlSize. Surface padding 8×12, radius6, max-width304, viewport gutter8 и bridge6 — экспериментальная геометрия до проверки исходного Figma, не новые component tokens. Цвета используют существующие tooltip dark/light tokens. Нет тени, стрелки и анимации.
+
+Hover задержан на350ms, focus открывает сразу. Pointer может перейти с trigger на поверхность через прозрачный bridge; закрытие после ухода из обеих областей и потери focus получает100ms grace. Нет auto-dismiss timeout. Escape/activation закрывают слой, не активируют кнопку и не меняют focus. После Escape подсказка не открывается снова, до нового входа focus или нового hover без сохранённого focus. Один Tooltip на document; открытие следующего закрывает предыдущий. При disabled/loading trigger подсказка скрывается. Native disabled кнопку нельзя использовать единственным источником важного объяснения.
+
+Portal остаётся внутри owning native dialog, Popover top layer обходит clipping; без Popover API предусмотрен fixed portal fallback (не гарантирует выход из transformed ancestor/native top layer). Flip/shift учитывает visual viewport; собственные ResizeObserver, scroll и theme/style mutation обновляют положение. Полностью скрытый/clipped/offscreen trigger закрывает подсказку. Unmount очищает таймеры, portal и listeners. Tooltip участвует в общей очереди overlay Escape: сначала закрывается подсказка, затем Menu/Modal.
+
+Правила [WCAG1.4.13](https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html): dismissible, hoverable, persistent. [APG Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) используется как guidance, его pattern пока не имеет финального task force consensus. Автотесты не означают прохождения screen reader/OS приёмки. Полная fidelity и executable surface-family contract ещё открыты.
+
+```tsx
+<Tooltip content="Полный адрес документа" describedBy="format-help">
+  {trigger => <button {...trigger}>Адрес</button>}
+</Tooltip>
+<IconButton aria-label="Параметры" tooltip="Параметры рабочего пространства" icon={<Icon name="settings"/>}/>
+```

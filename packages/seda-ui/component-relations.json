@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "button-system": {"kind":"family","members":["button","icon-button"],"note":"Specification of a family; no standalone ButtonSystem export."},
+    "number-field": {"kind":"composition","sharedTokenBranches":["text-field"],"note":"Public NumberField composes TextField and has its own numeric instance contract."},
+    "inline-toolbar": {"kind":"composition","note":"Shared toolbar shell; children own their component tokens. No dedicated component token branch."},
+    "split-view": {"kind":"composition","note":"Panel layout/resize primitive. No dedicated component token branch."},
+    "text": {"kind":"foundation","note":"Public typography role renderer; uses foundation typography and semantic text roles."},
+    "icon": {"kind":"foundation","foundationDocs":["foundation/iconography.md"],"note":"Public original-glyph renderer. No standalone component spec or colour branch."}
+  },
+  "recordedVisualEvidence": {
+    "text": [{"path":"docs/library/TYPOGRAPHY-REVIEW.md","scope":"Recorded typography review; not acceptance of every role/platform."}],
+    "text-area": [{"path":"docs/library/TEXTAREA-REVIEW.md","scope":"Recorded input and visual review; current full Figma/OS/AT acceptance remains open."}],
+    "link": [{"path":"docs/library/LINK-REVIEW.md","scope":"Recorded Link review; not full current screen acceptance."}],
+    "select": [{"path":"packages/seda-contracts/SELECT-VALIDATION.md","scope":"Validation state implementation and bounded proofs."},{"path":"packages/seda-contracts/SELECT-AVAILABILITY.md","scope":"Read-only/loading implementation and bounded proofs."}],
+    "text-field": [{"path":"packages/seda-contracts/FIELD-VALIDATION.md","scope":"Field validation state implementation and bounded proofs."}],
+    "number-field": [{"path":"packages/seda-contracts/FIELD-VALIDATION.md","scope":"Numeric buffer and field validation proofs; not full locale/OS/AT acceptance."}],
+    "file-upload": [{"path":"docs/library/FILEUPLOAD-VISUAL-HANDOFF.md","scope":"Recorded source handoff and limitations."}]
+  },
+  "relatedPlatformEvidence": [
+    {"path":"docs/library/CROSS-ENGINE-REVIEW.md","scope":"Historical Lab, Files and Building browser checks; not current acceptance of all components or desktop shells."}
+  ]
+}

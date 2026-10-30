@@ -1,0 +1,104 @@
+{
+  "samples": [
+    {
+      "theme": "light",
+      "size": "s",
+      "height": 40,
+      "expected": 40,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 144
+    },
+    {
+      "theme": "light",
+      "size": "m",
+      "height": 48,
+      "expected": 48,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 160
+    },
+    {
+      "theme": "light",
+      "size": "l",
+      "height": 60,
+      "expected": 60,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 188
+    },
+    {
+      "theme": "light",
+      "size": "xl",
+      "height": 72,
+      "expected": 72,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 216
+    },
+    {
+      "theme": "light",
+      "size": "stress",
+      "height": 134,
+      "expected": 134,
+      "hidden": 2,
+      "outerOverflow": 0,
+      "firstCardY": 456
+    },
+    {
+      "theme": "dark",
+      "size": "s",
+      "height": 40,
+      "expected": 40,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 144
+    },
+    {
+      "theme": "dark",
+      "size": "m",
+      "height": 48,
+      "expected": 48,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 160
+    },
+    {
+      "theme": "dark",
+      "size": "l",
+      "height": 60,
+      "expected": 60,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 188
+    },
+    {
+      "theme": "dark",
+      "size": "xl",
+      "height": 72,
+      "expected": 72,
+      "hidden": 0,
+      "outerOverflow": 0,
+      "firstCardY": 216
+    },
+    {
+      "theme": "dark",
+      "size": "stress",
+      "height": 134,
+      "expected": 134,
+      "hidden": 2,
+      "outerOverflow": 0,
+      "firstCardY": 456
+    }
+  ],
+  "checks": [
+    "one header row",
+    "all commands exactly once",
+    "keyboard menu and Escape",
+    "real create domain types",
+    "draft survives resize",
+    "focus repair when command collapses"
+  ],
+  "writes": 0,
+  "errors": []
+}

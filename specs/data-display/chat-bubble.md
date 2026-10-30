@@ -1,10 +1,10 @@
 # Chat Bubble
 
 > **Category** · Data Display
-> **Version** · 1.0
-> **Status** · ready
+> **Version** · 1.1
+> **Status** · needs-review (runtime experimental)
 > **Owner** · Kenymook
-> **Last reviewed** · 2026-06-10
+> **Last reviewed** · 2026-10-25
 > **Figma** · [Chat Bubble](https://www.figma.com/design/Su1jWqKc9TkD1R8f7wHOQU/SEDA-AI--v0.2.0?node-id=7063-1570)
 > **Foundation** · `accessibility.md`, `content.md`, `iconography.md`, `motion.md`, `tokens.md`
 
@@ -53,12 +53,12 @@ Chat Bubble — компонент отображения одного сооб�
 
 ### Связанные спецификации
 
-- [Avatar](../specs/data-display/avatar.md) — автор сообщения.
-- [Button](../specs/actions/button.md) — retry, submit, feedback actions.
-- [Icon Button](../specs/actions/icon-button.md) — copy, react, more actions.
-- [Link](../specs/actions/link.md) — ссылки внутри сообщения.
-- [Text Area](../specs/inputs/text-area.md) — composer input.
-- [Toast](../specs/feedback/toast.md) — transient feedback вместо message bubble.
+- [Avatar](avatar.md) — автор сообщения.
+- [Button](../actions/button.md) — retry, submit, feedback actions.
+- [Icon Button](../actions/icon-button.md) — copy, react, more actions.
+- [Link](../actions/link.md) — ссылки внутри сообщения.
+- [Text Area](../inputs/text-area.md) — composer input.
+- [Toast](../feedback/toast.md) — transient feedback вместо message bubble.
 
 ---
 
@@ -232,12 +232,16 @@ Size описывает плотность и максимальную шири�
 | Incoming surface default | `chat-bubble/incoming/surface/default` | `surface/subtle` |
 | Incoming foreground default | `chat-bubble/incoming/foreground/default` | `text/primary` |
 | Timestamp foreground | `chat-bubble/timestamp/foreground` | `text/tertiary` |
-| Read status foreground | `chat-bubble/status/read` | `status/info/text` |
-| Error status foreground | `chat-bubble/status/error` | `status/danger/text` |
+| AI surface | `chat-bubble/ai/surface` | `status/ai/surface` |
+| AI foreground | `chat-bubble/ai/foreground` | `text/on-brand/primary` |
+| AI border | `chat-bubble/ai/border` | `status/ai/border` |
+| AI icon | `chat-bubble/ai/icon` | `icon/on-brand/primary` |
+| Action icon | `chat-bubble/action/icon/default`, `hover` | `icon/tertiary`, `icon/primary` |
 
 ### Token gaps
 
-- Нет component tokens для AI/system surface/foreground/border/icon, outgoing/incoming hover surfaces, secondary foreground, sent/delivered status colors, radius, tail, spacing, max width, attachment surface, reaction surface, action icons и streaming indicator.
+- AI tokens, incoming/outgoing hover и secondary foreground, action icons существуют в importer. Ранее перечисленные `chat-bubble/status/read` и `status/error` отсутствуют и не используются runtime.
+- Открыты system-specific palette, delivery status colors, radius, tail, spacing, max width, attachment/reaction surface и streaming indicator. До отдельного token review geometry использует foundation spacing, control radius и Text roles; readable status не требует выдуманного цветового token.
 - Для вложенных действий используйте Button, Icon Button, Link и attachment component tokens.
 - Не добавляйте новые Chat Bubble token names без token architecture review.
 
@@ -274,6 +278,8 @@ Size описывает плотность и максимальную шири�
 ---
 
 ## 10. Handoff notes
+
+Public React API и реальные content/state models описаны в [runtime contract](#react-runtime). Runtime experimental; исторический Figma status не является приёмкой пакета. Registry остаётся11 controls. Результаты проверок и ограничения — `reports/2026-10-25-chat-bubble.md`.
 
 Handoff для Chat Bubble должен фиксировать:
 
@@ -364,3 +370,48 @@ AI не должен:
 - Создавать custom bubble colors вне component tokens.
 - Делать hover-revealed actions недоступными с клавиатуры.
 - Рендерить empty bubble без содержимого.
+
+---
+
+<a id="react-runtime"></a>
+
+## 13. ChatBubble — React runtime
+
+25.10.2026 · experimental / needs-review. Типы `packages/seda-ui/src/components/ChatBubble/ChatBubble.types.ts`.
+
+Public export: `ChatBubble`, `ChatBubbleProps`, `ChatBubbleContent`, `ChatBubbleAction`. Компонент представляет одно сообщение. Запросы, scroll, chronological order, thread, clipboard и право применить ответ принадлежат приложению.
+
+## Identity и layout
+
+Native `as="article|li|div"`, default article. `author` всегда обязателен. `authorVisibility="accessible"` сохраняет имя в DOM. Group position single/first/middle/last: middle/last убирают повтор avatar/author, но не AI/source label. Optional avatar — Avatar identity без собственного имени/размера; имя берётся из author, размер наследует Provider.
+
+`appearance="bubble"` использует incoming/outgoing/AI tokens. `neutral` и `plain` — code-level расширение: Chat reference1:3917 имеет neutral outgoing,1:3921 — plain assistant. View не подменяет sender. System пока использует incoming palette. `sourceLabel` отделяет архивное происхождение от author. `aiLabel` обязателен для AI; владелец сохраняет маркировку при copy/quote/export. Локальный fixture не обозначается реальным AI.
+
+Size s/m/l/xl наследует SedaProvider. Foundation padding X×Y:12×6,16×10,20×12,24×16; общие дополнительные X/Y прибавляются к surface. Plain не получает искусственный padding. Max width480/640/704/768; plain rich response занимает доступную ширину. Radius наследует control radius, body — Text body/large. Это явный foundation fallback, не новые geometry tokens и не registry instance contract.
+
+## Content
+
+- text: `content` — непустая строка, intentional line breaks сохраняются.
+- rich: ReactNode, без HTML/Markdown parser. Известные пустые fragments/arrays отклоняются. Opaque application components и их семантика принадлежат владельцу.
+- code: `{code,languageLabel,copyLabel,onCopy}`. Native pre с локальной прокруткой и настоящий Button. Copy не подменяется фиктивным успехом.
+- file: `{name,description,action:{label,href}}` либо action с onClick вместо href. Ровно одно настоящее действие через Link/Button.
+- image: `{src,alt,width,height,caption?,loadingLabel,errorLabel,retryLabel}`. Positive geometry резервирует frame. Пустой alt требует meaningful caption. Native loading/error; retry реально перезапускает ресурс. Keyed source и committed DOM ref не дают старому событию управлять новым ресурсом. Retry сохраняется loading-кнопкой. Успех переводит фокус на media только если фокус принадлежал retry.
+- audio: `{src,name,transcript,errorLabel,retryLabel}`. Native controls без autoplay. Transcript — `{text,label}` либо `{unavailableLabel}` с явной политикой продукта. OS player не выдан за нарисованный Figma control; ASR не имитируется. Recovery реально повторяет native загрузку.
+
+Code/rich остаются code-level моделями до отдельного Figma variant review.
+
+## State и slots
+
+Delivery status sending/sent/delivered/read/edited/error требует readable statusLabel. Error дополнительно требует `recovery:{label,onClick,disabled?,loading?}`. Состояние запросов/кнопки владелец передаёт сам. Статус расположен вне busy body.
+
+`streaming=true` требует явных announcementPolicy off/status-only и statusLabel; deliveryStatus несовместим со streaming. Body всегда aria-live=off. Persistent status node объявляет смену статуса, а не каждый фрагмент. Status-only можно сохранять для финального статуса. Это политика DOM, а не screen-reader signoff.
+
+Timestamp — видимый текст; dateTime требует валидной даты и timestamp. Actions/reactions/attachments — owner slots с настоящими вложенными SEDA actions. Known empty slots не оставляют пустые rows. Actions всегда доступны с клавиатуры и не зависят от hover.
+
+## Tokens и review
+
+Tokens.json меняет только два alias leaves: AI foreground → text.on-brand.primary, AI icon → icon.on-brand.primary. Прежний Light status.ai.text на status.ai.surface не давал читаемого контраста. Importer и semantic namespace сохранены. Отсутствующие status/read/error tokens не изобретены; system-specific palette и geometry tokens остаются gaps.
+
+Проверки: installed consumer `packages/seda-ui/scripts/verify-chat-bubble.mjs`, реальный `references/chat.tsx`, новый workspace verifier и существующие ChatRunner сценарии. Результаты — `reports/2026-10-25-chat-bubble.md`.
+
+Figma library7063:1570 ограничена Starter quota; два reference context не доказывают full library fidelity. Open: fresh Figma acceptance, Firefox/WebKit, целевые screen readers/native shell, rich content accessibility, полная i18n и performance. Chat shell сохраняет существующий minimum viewport960px; narrow-shell redesign остаётся отдельным gap. Geometry experimental; registry всё ещё11 control contracts.

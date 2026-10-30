@@ -1,5 +1,8 @@
-import { forwardRef } from "react";
+import { useSedaSize } from "../../foundation/SedaProvider";
+import { forwardRef, useRef, useImperativeHandle } from "react";
+import { useBrowserLayoutEffect } from "../../utils/useBrowserLayoutEffect";
 import { cx } from "../../utils/classNames";
+import { hasSlotContent } from "../../utils/hasSlotContent";
 import type { ButtonProps } from "./Button.types";
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -13,14 +16,53 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconRight,
       loading = false,
       onClick,
-      size = "m",
+      size: sizeProp,
       type = "button",
       variant = "secondary",
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const isBlocked = disabled || loading;
+    const element = useRef<HTMLButtonElement>(null);
+    const measured = useRef<{ width: number; height: number } | null>(null);
+    useImperativeHandle(ref, () => element.current!);
+    useBrowserLayoutEffect(() => {
+      const button = element.current;
+      if (!button) return;
+      const authored = {
+        width: button.style.width,
+        height: button.style.height,
+        paddingInlineStart: button.style.paddingInlineStart,
+        paddingInlineEnd: button.style.paddingInlineEnd,
+      };
+      if (loading) {
+        // Hidden label/icons still occupy their intrinsic box, so this is the
+        // actual pre-spinner geometry even after fonts or the container resize.
+        const { width, height } = button.getBoundingClientRect();
+        measured.current = { width, height };
+        button.style.width = `${measured.current.width}px`;
+        button.style.height = `${measured.current.height}px`;
+        // New profile padding must not impose a border-box minimum wider than
+        // the frozen width of a short label (e.g. S -> XL while pending).
+        const computed = getComputedStyle(button);
+        button.style.paddingInlineStart = computed.paddingInlineStart;
+        button.style.paddingInlineEnd = computed.paddingInlineEnd;
+      } else if (!loading) {
+        const { width, height } = button.getBoundingClientRect();
+        measured.current = { width, height };
+      }
+      return () => {
+        // Restore authored dimensions before the next measurement or unmount.
+        if (loading) {
+          button.style.width = authored.width;
+          button.style.height = authored.height;
+          button.style.paddingInlineStart = authored.paddingInlineStart;
+          button.style.paddingInlineEnd = authored.paddingInlineEnd;
+        }
+      };
+    }, [loading]);
 
     return (
       <button
@@ -40,23 +82,31 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           }
           onClick?.(event);
         }}
-        ref={ref}
+        ref={element}
         type={type}
       >
-        <span
-          aria-hidden="true"
-          className="seda-button__icon seda-button__leading"
-          data-empty={iconLeft == null ? "true" : undefined}
-        >
-          <span className="seda-button__icon-content">{iconLeft}</span>
-          {loading ? <span className="seda-button__spinner" /> : null}
-        </span>
+        {hasSlotContent(iconLeft) && (
+          <span
+            aria-hidden="true"
+            className="seda-button__icon seda-button__leading"
+          >
+            <span className="seda-button__icon-content">{iconLeft}</span>
+          </span>
+        )}
         <span className="seda-button__label">{children}</span>
-        {iconRight != null ? (
-          <span aria-hidden="true" className="seda-button__icon seda-button__trailing">
+        {hasSlotContent(iconRight) ? (
+          <span
+            aria-hidden="true"
+            className="seda-button__icon seda-button__trailing"
+          >
             <span className="seda-button__icon-content">{iconRight}</span>
           </span>
         ) : null}
+        {loading && (
+          <span className="seda-button__loading-center" aria-hidden="true">
+            <span className="seda-button__spinner" />
+          </span>
+        )}
       </button>
     );
   },

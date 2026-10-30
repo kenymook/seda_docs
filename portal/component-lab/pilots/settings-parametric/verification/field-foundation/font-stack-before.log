@@ -1,0 +1,27 @@
+✖ Web font stacks: control recipes and Text roles share a documented fallback without changing token provenance (1093.1668ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2070.6806
+
+✖ failing tests:
+
+test at packages\seda-contracts\test\web.test.mjs:10:1
+✖ Web font stacks: control recipes and Text roles share a documented fallback without changing token provenance (1093.1668ms)
+  AssertionError [ERR_ASSERTION]: A named but unavailable font must not fall back to the browser serif default
+      at TestContext.<anonymous> (file:///C:/Users/kauta/Desktop/Vibecoding/SEDA%20AI/.integration-lab2/packages/seda-contracts/test/web.test.mjs:15:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

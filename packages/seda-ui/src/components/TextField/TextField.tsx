@@ -1,25 +1,9 @@
-import { Fragment, forwardRef, isValidElement, useId } from "react";
-import type { ReactNode } from "react";
+import { useSedaSize } from "../../foundation/SedaProvider";
+import { forwardRef, useId } from "react";
+import type { CSSProperties } from "react";
+import { hasMessage, mergeDescriptionIds } from "../../utils/fieldMessage";
 import { cx } from "../../utils/classNames";
 import type { TextFieldProps } from "./TextField.types";
-
-// Known empty content does not create a validation error. Custom React
-// components remain opaque: the owner must provide a meaningful message.
-function hasMessage(value: ReactNode): boolean {
-  if (value == null || typeof value === "boolean") return false;
-  if (typeof value === "string") return value.trim().length > 0;
-  if (typeof value === "number") return Number.isFinite(value);
-  if (Array.isArray(value)) return value.some(hasMessage);
-  if (isValidElement<{ children?: ReactNode }>(value) && (typeof value.type === "string" || value.type === Fragment)) {
-    return hasMessage(value.props.children);
-  }
-  return true;
-}
-
-function mergeDescriptionIds(...values: Array<string | undefined>): string | undefined {
-  const ids = values.flatMap(value => value?.trim().split(/\s+/).filter(Boolean) ?? []);
-  return [...new Set(ids)].join(" ") || undefined;
-}
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
@@ -27,32 +11,41 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       className,
       disabled,
       errorText,
+      warningText,
+      successText,
       filled,
       helperText,
       id,
       label,
       prefix,
       required,
-      size = "m",
+      size: sizeProp,
       state = "default",
+      style,
       suffix,
       value,
       ...props
     },
     ref,
   ) => {
+    const size = useSedaSize(sizeProp);
     const generatedId = useId();
     const inputId = id ?? generatedId;
     const labelId = `${inputId}-label`;
     const messageId = `${inputId}-message`;
     const hasError = !disabled && hasMessage(errorText);
-    const message = hasError ? errorText : hasMessage(helperText) ? helperText : undefined;
-    const resolvedState = disabled ? "disabled" : hasError ? "error" : state === "error" || state === "disabled" ? "default" : state;
+    const invalid = props["aria-invalid"] === true || props["aria-invalid"] === "true" || props["aria-invalid"] === "grammar" || props["aria-invalid"] === "spelling";
+    const validation = disabled ? undefined : hasError ? "error" : hasMessage(warningText) ? "warning" : !invalid && hasMessage(successText) ? "success" : undefined;
+    const message = validation === "error" ? errorText : validation === "warning" ? warningText : validation === "success" ? successText : hasMessage(helperText) ? helperText : undefined;
+    const resolvedState = disabled ? "disabled" : validation ?? (["error", "warning", "success", "disabled"].includes(state) ? "default" : state);
     const isFilled = filled ?? (value != null && String(value).length > 0);
     const externalDescriptions = props["aria-describedby"]?.split(/\s+/).filter(id => id && (message != null || id !== messageId)).join(" ");
+    // Component variables must reach the border, affixes and message as well as
+    // the input. Ordinary native input styles retain their original target.
+    const rootVariables = style ? Object.fromEntries(Object.entries(style).filter(([key]) => key.startsWith("--"))) as CSSProperties : undefined;
 
     return (
-      <label className={cx("seda-field", "seda-field--text", className)} data-disabled={disabled ? "true" : undefined} data-size={size} data-state={resolvedState} htmlFor={inputId}>
+      <label className={cx("seda-field", "seda-field--text", className)} style={rootVariables} data-disabled={disabled ? "true" : undefined} data-size={size} data-state={resolvedState} htmlFor={inputId}>
         <span className="seda-field__label" id={labelId}>
           {label}
           {required ? <span aria-hidden="true"> *</span> : null}
@@ -68,13 +61,14 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             disabled={disabled}
             id={inputId}
             ref={ref}
+            style={style}
             required={required}
             value={value}
           />
           {suffix ? <span className="seda-field__affix">{suffix}</span> : null}
         </span>
         {message != null ? (
-          <span className="seda-field__message" data-tone={hasError ? "error" : undefined} id={messageId}>
+          <span className="seda-field__message" data-tone={validation} id={messageId}>
             {message}
           </span>
         ) : null}

@@ -41,6 +41,70 @@ test("real component aliases resolve through semantic and foundation in both the
   assert.deepEqual(input, ref("components", "text-field", "foreground", "default"));
 });
 
+test("field-like controls resolve the same layered surface in both themes", () => {
+  const resolver = createTokenResolver(source);
+  const branches = [
+    ["text-field", "surface"], ["select", "surface"], ["text-area", "surface"],
+    ["date-picker", "surface"], ["time-picker", "surface"],
+    ["search", "input", "surface"], ["verification-code", "cell", "surface"],
+    ["color-picker", "trigger", "surface"],
+  ];
+  for (const branch of branches) for (const theme of ["Light", "Dark"]) {
+    const normal = resolver.resolve(ref("components", ...branch, "default"), { theme });
+    const hovered = resolver.resolve(ref("components", ...branch, "hover"), { theme });
+    assert.equal(normal.chain[1].path.join("."), "surface.control");
+    assert.equal(hovered.chain[1].path.join("."), "surface.control-hover");
+    assert.equal(normal.value, theme === "Dark" ? "#ffffff12" : "#ffffff");
+    assert.equal(hovered.value, theme === "Dark" ? "#ffffff1c" : "#f8f8f9");
+  }
+  const missing = structuredClone(source);
+  delete missing.$collections.semantic.$modes.Dark.surface.control;
+  raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "select", "surface", "default"), { theme: "Dark" }));
+});
+
+test("field borders soften in Dark without changing Light or choice outlines", () => {
+  const resolver = createTokenResolver(source);
+  const states = { default: "default", hover: "hover", active: "pressed", "read-only": "default", loading: "default" };
+  for (const theme of ["Light", "Dark"]) {
+    for (const [componentState, roleState] of Object.entries(states)) {
+      for (const component of ["text-field", "select", "text-area"]) {
+        const actual = resolver.resolve(ref("components", component, "border", componentState), { theme });
+        const role = resolver.resolve(ref("semantic", "border", "field", roleState), { theme });
+        assert.equal(actual.value, role.value, `${theme} ${component} ${componentState}`);
+        assert.equal(actual.chain[1].path.join("."), `border.field.${roleState}`);
+        if (theme === "Light") assert.equal(actual.value, resolver.resolve(ref("semantic", "border", "control", roleState), { theme }).value);
+      }
+    }
+  }
+  assert.deepEqual(["default", "hover", "pressed"].map(state => resolver.resolve(ref("semantic", "border", "field", state), { theme: "Dark" }).value), ["#ffffff4d", "#ffffff59", "#ffffff66"]);
+  for (const component of ["checkbox", "radio", "toggle"]) {
+    const result = resolver.resolve(ref("components", component, ...(component === "toggle" ? [] : ["control"]), "border", "default"), { theme: "Dark" });
+    assert.equal(result.chain[1].path.join("."), "border.control.default");
+  }
+  const missing = structuredClone(source);
+  delete missing.$collections.semantic.$modes.Dark.border.field.hover;
+  raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "select", "border", "hover"), { theme: "Dark" }));
+});
+
+test("Search input borders inherit the field roles while focus and disabled retain their own roles", () => {
+  const resolver = createTokenResolver(source);
+  for (const theme of ["Light", "Dark"]) {
+    for (const [state, role] of [["default", "default"], ["hover", "hover"], ["active", "pressed"]]) {
+      const actual = resolver.resolve(ref("components", "search", "input", "border", state), { theme });
+      const expected = resolver.resolve(ref("semantic", "border", "field", role), { theme });
+      assert.equal(actual.value, expected.value, `${theme} Search ${state}`);
+      assert.equal(actual.chain[1].path.join("."), `border.field.${role}`);
+    }
+    for (const [state, role] of [["focus", "border.focus"], ["disabled", "status.disabled.border"]]) {
+      const actual = resolver.resolve(ref("components", "search", "input", "border", state), { theme });
+      assert.equal(actual.chain[1].path.join("."), role);
+    }
+  }
+  const missing = structuredClone(source);
+  delete missing.$collections.semantic.$modes.Dark.border.field.hover;
+  raises("TOKEN_ALIAS_NOT_FOUND", () => createTokenResolver(missing).resolve(ref("components", "search", "input", "border", "hover"), { theme: "Dark" }));
+});
+
 test("all pilot component branches resolve in Light and Dark with leaf provenance", () => {
   const resolver = createTokenResolver(source);
   for (const theme of ["Light", "Dark"]) {
@@ -193,4 +257,28 @@ test("same-valued roles retain separate references and independent resolution ch
   assert.equal(radius.cssValue, "6px");
   assert.notDeepEqual(gap.ref, radius.ref);
   assert.notDeepEqual(gap.chain, radius.chain);
+});
+test('an alias names a token leaf, not a same-named branch in another collection',()=>{
+ const resolver=createTokenResolver(source);
+ for(const theme of ['Light','Dark']){
+  const link=resolver.resolve(ref('components','link','default','foreground','default'),{theme});
+  assert.equal(link.value,resolver.resolve(ref('semantic','link','default'),{theme}).value);
+  assert.ok(link.chain.some(step=>step.collection==='semantic'));
+ }
+ const doc=empty();doc.$collections.semantic.$modes.Light.branch={child:color('#ffffff')};doc.$collections.components.$modes['Mode 1'].consumer=color('{branch}');
+ raises('TOKEN_BRANCH_AS_LEAF',()=>createTokenResolver(doc).resolve(ref('components','consumer')));
+});
+
+
+test('semantic colour roles link directly to the palette in each theme',()=>{
+ let count=0;
+ for(const [theme,root] of Object.entries(source.$collections.semantic.$modes)){
+  function walk(node,path=[]){if(node&&typeof node==='object'&&'$value' in node){if(node.$type==='color'){
+   assert.match(node.$value,/^\{color\.[\w.-]+\}$/u,theme+'/'+path.join('/'));
+   const result=createTokenResolver(source).resolve({collection:'semantic',path,expectedType:'color'},{theme});
+   assert.deepEqual(result.chain.map(step=>step.collection),['semantic','foundation']);count++;
+  }return;}for(const [name,child]of Object.entries(node??{}))if(!name.startsWith('$'))walk(child,[...path,name]);}
+  walk(root);
+ }
+ assert.ok(count>0);
 });

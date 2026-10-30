@@ -9,7 +9,10 @@
   "exports": {
     ".": "./src/index.mjs",
     "./web": "./src/web.mjs",
-    "./form": "./src/form.mjs"
+    "./form": "./src/form.mjs",
+    "./slider": "./src/slider.mjs",
+    "./number-field": "./src/number-field.mjs",
+    "./control-geometry": "./src/control-geometry.mjs"
   },
   "scripts": {
     "validate": "node src/cli.mjs validate",

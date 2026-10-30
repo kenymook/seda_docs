@@ -1,0 +1,13 @@
+PASS framer-application-installed-seda-three-native-frames-and-visible-text
+PASS framer-native-fill-weight-fixed-fit-and-history
+PASS framer-invalid-pending-draft-guards-selection-page-save-and-cancel
+PASS framer-height-fill-parent-budget-rejection-and-recovery
+PASS framer-responsive-override-cascade-reset-and-frame-ownership
+PASS framer-content-tag-visibility-safe-text-and-independent-pages
+PASS framer-save-captures-snapshot-edit-during-request-loading-and-reload
+PASS framer-storage-error-retry-and-corrupt-data-preservation
+PASS framer-pan-zoom-preview-and-keyboard-surface-boundaries
+PASS framer-appearance-matrix-real-fields-and-authored-css-isolation
+PASS framer-resizable-panels-search-and-explicit-external-boundaries
+PASS framer-browser-errors
+{"passed":12,"failed":0}

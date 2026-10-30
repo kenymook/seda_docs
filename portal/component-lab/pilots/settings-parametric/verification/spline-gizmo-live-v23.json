@@ -1,0 +1,296 @@
+{
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/references/spline?context=object",
+  "productionVersion": 23,
+  "scope": "Real TransformControls pointer integration in installed SEDA app; event cancellation fixtures do not claim OS/AT certification",
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "name": "gizmo-pointer-translate-is-one-undo-and-camera-isolated",
+      "status": "passed",
+      "evidence": {
+        "pointerMoves": 8,
+        "historyEntries": 1,
+        "cameraUnchangedAfterUndo": true,
+        "wheelSuppressed": true,
+        "secondaryPointerIgnored": true,
+        "previewNotSaved": true
+      }
+    },
+    {
+      "name": "gizmo-escape-restores-preview-and-preserves-selection",
+      "status": "passed",
+      "evidence": {
+        "rollback": true,
+        "selectionPreserved": true
+      }
+    },
+    {
+      "name": "gizmo-pointercancel-and-lost-capture-rollback",
+      "status": "passed",
+      "evidence": {
+        "pointercancelDispatched": true,
+        "nativeCaptureReleased": true
+      }
+    },
+    {
+      "name": "gizmo-rotate-scale-and-positive-scale-boundary",
+      "status": "passed",
+      "evidence": {
+        "rotationDegrees": 40.16994837145925,
+        "scaleXApplied": true,
+        "negativeScaleRolledBack": true
+      }
+    },
+    {
+      "name": "gizmo-invalid-draft-cannot-start-or-steal-selection",
+      "status": "passed",
+      "evidence": {
+        "draftPreserved": true,
+        "selectionPreserved": true
+      }
+    },
+    {
+      "name": "gizmo-window-blur-and-resize-cancel",
+      "status": "passed",
+      "evidence": {
+        "blurEventDispatched": true,
+        "resizeRollback": true
+      }
+    },
+    {
+      "name": "gizmo-context-loss-cancels-and-restores-interaction",
+      "status": "passed",
+      "evidence": {
+        "contextRollback": true,
+        "gestureAfterRestore": true
+      }
+    },
+    {
+      "name": "gizmo-commit-save-reload-and-keyboard-alternative",
+      "status": "passed",
+      "evidence": {
+        "reload": true,
+        "keyboardXYZ": true,
+        "keyboardUndo": true
+      }
+    },
+    {
+      "name": "gizmo-locked-hidden-and-preview-guards",
+      "status": "passed",
+      "evidence": {
+        "locked": true,
+        "hidden": true,
+        "preview": true
+      }
+    },
+    {
+      "name": "gizmo-theme-density-and-constrained-panels",
+      "status": "passed",
+      "evidence": {
+        "samples": [
+          {
+            "theme": "light",
+            "size": "s",
+            "width": 1024,
+            "viewportHeight": 468,
+            "deltaWorld": 38.461538461538524,
+            "inputGeometry": {
+              "width": 264,
+              "scroll": 264,
+              "value": "147.79153846153852"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "s",
+            "width": 1440,
+            "viewportHeight": 1136,
+            "deltaWorld": 15.845070422535173,
+            "inputGeometry": {
+              "width": 230,
+              "scroll": 230,
+              "value": "125.17507042253517"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "m",
+            "width": 1024,
+            "viewportHeight": 448,
+            "deltaWorld": 40.17857142857146,
+            "inputGeometry": {
+              "width": 264,
+              "scroll": 264,
+              "value": "149.50857142857146"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "m",
+            "width": 1440,
+            "viewportHeight": 1116,
+            "deltaWorld": 16.129032258064512,
+            "inputGeometry": {
+              "width": 277,
+              "scroll": 277,
+              "value": "125.45903225806451"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "l",
+            "width": 1024,
+            "viewportHeight": 344,
+            "deltaWorld": 52.325581395348664,
+            "inputGeometry": {
+              "width": 602,
+              "scroll": 602,
+              "value": "161.65558139534866"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "l",
+            "width": 1440,
+            "viewportHeight": 1012,
+            "deltaWorld": 17.78656126482207,
+            "inputGeometry": {
+              "width": 324,
+              "scroll": 324,
+              "value": "127.11656126482207"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "xl",
+            "width": 1024,
+            "viewportHeight": 314,
+            "deltaWorld": 57.324840764331285,
+            "inputGeometry": {
+              "width": 602,
+              "scroll": 602,
+              "value": "166.65484076433128"
+            }
+          },
+          {
+            "theme": "light",
+            "size": "xl",
+            "width": 1440,
+            "viewportHeight": 982,
+            "deltaWorld": 18.32993890020373,
+            "inputGeometry": {
+              "width": 371,
+              "scroll": 371,
+              "value": "127.65993890020373"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "s",
+            "width": 1024,
+            "viewportHeight": 468,
+            "deltaWorld": 38.461538461538524,
+            "inputGeometry": {
+              "width": 264,
+              "scroll": 264,
+              "value": "147.79153846153852"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "s",
+            "width": 1440,
+            "viewportHeight": 1136,
+            "deltaWorld": 15.845070422535173,
+            "inputGeometry": {
+              "width": 230,
+              "scroll": 230,
+              "value": "125.17507042253517"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "m",
+            "width": 1024,
+            "viewportHeight": 448,
+            "deltaWorld": 40.17857142857146,
+            "inputGeometry": {
+              "width": 264,
+              "scroll": 264,
+              "value": "149.50857142857146"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "m",
+            "width": 1440,
+            "viewportHeight": 1116,
+            "deltaWorld": 16.129032258064512,
+            "inputGeometry": {
+              "width": 277,
+              "scroll": 277,
+              "value": "125.45903225806451"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "l",
+            "width": 1024,
+            "viewportHeight": 344,
+            "deltaWorld": 52.325581395348664,
+            "inputGeometry": {
+              "width": 602,
+              "scroll": 602,
+              "value": "161.65558139534866"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "l",
+            "width": 1440,
+            "viewportHeight": 1012,
+            "deltaWorld": 17.78656126482207,
+            "inputGeometry": {
+              "width": 324,
+              "scroll": 324,
+              "value": "127.11656126482207"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "xl",
+            "width": 1024,
+            "viewportHeight": 314,
+            "deltaWorld": 57.324840764331285,
+            "inputGeometry": {
+              "width": 602,
+              "scroll": 602,
+              "value": "166.65484076433128"
+            }
+          },
+          {
+            "theme": "dark",
+            "size": "xl",
+            "width": 1440,
+            "viewportHeight": 982,
+            "deltaWorld": 18.32993890020373,
+            "inputGeometry": {
+              "width": 371,
+              "scroll": 371,
+              "value": "127.65993890020373"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "gizmo-no-javascript-errors",
+      "status": "passed",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

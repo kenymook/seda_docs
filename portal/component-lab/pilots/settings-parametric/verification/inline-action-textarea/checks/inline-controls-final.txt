@@ -1,0 +1,13 @@
+PASS control-states-Light-s
+PASS control-states-Light-m
+PASS control-states-Light-l
+PASS control-states-Light-xl
+PASS control-states-Dark-s
+PASS control-states-Dark-m
+PASS control-states-Dark-l
+PASS control-states-Dark-xl
+PASS control-keyboard-multi-and-disabled-options
+PASS control-loading-and-disabled-guards
+PASS field-single-focus-ring-and-picker
+PASS errors-and-real-library-source
+{"passed":12,"failed":0,"output":"C:\\Users\\kauta\\Desktop\\Vibecoding\\SEDA AI\\.integration-lab2\\portal\\component-lab\\pilots\\settings-parametric\\.diagnostics-controls"}

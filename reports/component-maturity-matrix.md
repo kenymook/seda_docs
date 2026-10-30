@@ -1,40 +1,66 @@
 # Component Maturity Matrix
 
-Last updated: 2026-06-12  
-Figma inventory: `portal/docs-site/figma-components.json` generated at `2026-06-12T16:52:43.458Z`  
-Figma file: `SEDA AI v0.2.0` / `Su1jWqKc9TkD1R8f7wHOQU`
+Порядок дальнейшей работы: [ROADMAP — версии 0.2–1.0](../docs/library/ROADMAP.md). Проверенный inventory на 29 октября: [roadmap-baseline.json](../docs/library/roadmap-baseline.json). Исторические результаты ниже сохраняют свой scope/commit и не являются текущим PASS всей системы.
 
-This matrix tracks whether SEDA AI can be treated as an AI-ready design system, not just a green Figma scan. Portal health is currently `score=100` after the latest scan and health rerun, but production readiness also requires stable component APIs, reviewed specs, owners, Figma links, visual QA, and handoff/code mapping.
+Breadcrumbs (2026-10-29): добавлен публичный experimental React-компонент с существующими component tokens, ghost/text и slash/triangle, размерами и общими параметрами Provider. Native hierarchy, current span, недоступные предки без ссылок, раскрытие длинного пути inline с фокусом, сброс на смену иерархии. Studio больше не показывает заглушку; Files использует его для возврата из реальной локальной папки. Packed-package React18/19: SSR, types, 16 theme/size/variant samples на версию, клавиатура, long RTL/LTR, scale/icon, forced colors; приложение — Studio autosave/reload и Files folder/back/filter/focus в обеих темах на изолированном API. Это не новый instance contract и не завершённая Figma/OS/AT приёмка. [API и границы](../specs/navigation/breadcrumbs.md).
 
-## Current Readiness
+TextField/NumberField validation: публичные warningText/successText подключены к существующим surface/border/helper/icon, compiler state, token requirements и web bindings. NumberField не подтверждает empty/Mixed/partial/invalid/out-of-range buffer. На рабочем экране добавлена живая композиция TextField/NumberField/Select; Studio text-field отображает выбранные warning/success. [Контракт и границы](../packages/seda-contracts/FIELD-VALIDATION.md). Проверено 56 installed-package message/paint случаев (2 темы × 2 компонента × direct/contract binding × 7 сообщений), 2 live React темы, сохранение raw buffer/DOM/value, stepping, disabled и узкий экран. Отдельно 72 field paint и 16 Select validation случаев, 24 workspace geometry/loading сценария; TypeScript и audited build — PASS. Полная межбраузерная/OS/AT и React 18/19 матрица этого расширения не выполнена; readOnly/loading TextField не объявляются готовыми.
 
-| Layer | Current state | Readiness |
-|---|---|---:|
-| Tokens | `tokens.json` has foundation, semantic, and component token layers; portal reports `invalidReferences=0`. | Strong |
-| Foundation | 19 foundation docs exist, including governance, validation, token pipeline, accessibility, content, and theming. | Strong |
-| Component specs | 52 production specs exist, follow the AI documentation structure, and are marked `ready`. Button Social was removed as a standalone production spec. | Strong |
-| Figma inventory | 107 component sets, 164 standalone components, 3757 variants. | Strong |
-| Automated health | Saved scan captures Button System, IconButton visual-token alignment, Tag rebinding, and Button Social removal. Button / Button, Button / IconButton, Tag / Interactive, and Tag / Selectable all have score `100`, unstyled text `0`, raw paints `0`, and audit warnings `0`. | Strong |
-| Governance | All production specs have owner `Kenymook`, real Figma links, and markdown status `ready`; the owner approval pass is complete. | Strong |
-| Public API consistency | Main P1 API normalization batch is reflected in the saved Figma inventory; remaining API work is strategic visual/semantic modeling. | Strong |
-| Visual QA | Initial P2 fixes and Button System scan are reflected in the saved inventory. IconButton live visual-token validation now matches Button across all 144 combinations and the saved scan captures the aligned 144-variant set. | Strong |
-| Code mapping | Specs include code mapping sections; registry, Code Connect plan, package export coverage report, Wave 1 mapping review, verified Wave 1 `packages/seda-ui` scaffold, and Wave 2 Badge/Tag/Alert/Toast/FileUpload exports exist. Real Code Connect mappings are blocked by Figma access. | Medium |
+Field paint: устранена подмена component error border/surface в TextField и его композиции NumberField общей status/danger ролью, а также перекрытие ошибки hover. `verify-field-state-paint.mjs`: 72 installed-package browser cases (3 компонента × 4 размера × 3 состояния × 2 темы), проверены реальные border/surface/helper/icon, focus outline и стабильность геометрии; 24 workspace geometry/loading cases и 16 Select validation cases прошли. TypeScript и audited build — PASS. Визуально просмотрены обе темы, включая отдельную композицию трёх полей с ошибкой. Это целевое исправление CSS, не новая поддержка warning/success/readOnly у TextField и не полная приёмка других движков/OS/AT.
 
-Overall maturity: **Level 3 candidate / AI-ready Design System pending Code Connect mappings**.
+Select availability: добавлены реальные readOnly/loading, guard изменения, сохранность FormData, controlled/uncontrolled reset и стабильный слот spinner. [Контракт и границы](../packages/seda-contracts/SELECT-AVAILABILITY.md). Это не полная приёмка Select: active, popup/OS/AT и остальные движки остаются открытыми.
 
-Target maturity: **Level 3 / AI-ready Design System**.
+Select validation: замкнуты warning/success между публичным API, compiler state и реальной отрисовкой border/helper/arrow. [Поведение и доказательства](../packages/seda-contracts/SELECT-VALIDATION.md). Это устранение конкретного разрыва, не подтверждение полной зрелости библиотеки для интерфейсов уровня Figma/Notion/ChatGPT/Cloude Design. readOnly/loading реализованы следующим расширением; active и общая OS/AT-приёмка остаются открытыми.
 
-## Blocking Themes
+Private v62: Button text и TextArea получили общие source-роли компактного действия и поля, включая typography, header gap и loading; реальная Settings-композиция проверена в обеих темах. [D35, installed-package, local/production proofs и открытые ограничения](2026-10-26-inline-action-textarea.md). Это проверенный слой ядра, не полная приёмка всех компонентов, экранов и платформ.
 
-| Theme | Count / Scope | Why it blocks 100% |
-|---|---:|---|
-| Spec status is not `ready` | 0 specs | Done: all 52 production specs are owner-approved as `ready`. |
-| Placeholder Figma links | 0 public specs | Done for production specs; `specs/component-spec-template.md` intentionally keeps `TBD`. |
-| Public API normalization | Strategic residuals | Most public API inconsistencies have been normalized; remaining decisions affect visual semantics and code mapping. |
-| Known visual QA gaps | 0 tracked items after live fix | IconButton visual-token alignment is captured in the saved scan with score `100` and no raw/direct semantic issues. |
-| Scan quality polish | 9 saved-scan items | Remaining saved-scan penalties are Avatar effect/text token gaps, standalone emoji artwork without bindings, and provider-logo brand artwork exceptions. |
-| Code Connect missing | System-wide | Priority plan, mapping review, package export coverage report, verified `packages/seda-ui` Wave 1 scaffold, and Badge/Tag/Alert/Toast/FileUpload Wave 2 exports exist; Figma-side mapping is blocked by account access. |
-| Package export coverage | 39 remaining exports | `packages/seda-ui` currently covers 13 of 52 production specs. The remaining components are tracked in `reports/package-export-coverage.md`; next batch should broaden into app shell and AI surfaces. |
+Private v61: TextField/Select/NumberField получили source label/helper typography, два отдельных gap4 и TextField content gap6 без affix surface. [D34, installed-package/CI/production proofs и открытые визуальные ограничения](2026-10-26-field-anatomy.md). Это исправление общего ядра, не завершение полной визуальной и OS/AT приёмки.
+
+Private v60: TextField/NumberField используют существующие роли icon/default/active/error/disabled для SEDA Icon и SVG; compiler/Provider/Text имеют общий fallback stack с сохранением provenance. [Результаты installed package, actual screens, production и границы Figma-проверки](2026-10-26-field-foundation.md). Новых токенов, glyph assets и instance contracts нет; подложка/anatomy affix и полная визуальная приёмка остаются открытыми.
+
+Private v59: фильтры «Проектов» и «Команды» перестраиваются с учётом масштаба, X, иконок и gap, сохраняя геометрию контролов. [Замеры до/после, production и ограничения узких окон](2026-10-26-filter-capacity.md). Это улучшение композиции, не новый контракт и не завершение визуальной приёмки всей системы.
+
+D33: общие параметры контролов вынесены из Lab в public Provider и общий numeric/CSS граф; private v58, отдельная проверка installed React18/19 и совместных экранов. [Отчёт и границы](2026-10-26-control-parameters.md). Это experimental foundation, не новый instance contract и не приёмка всей библиотеки.
+
+Актуальная оценка: 2026-10-26. Цель — зрелая библиотека для веб- и десктоп-приложений, на которой можно собрать интерфейсы уровня Figma, Notion, ChatGPT и Cloude Design. Зелёный token scan, количество specs и число DOM-измерений не доказывают достижение этой цели.
+
+## Текущее состояние React-реализации
+
+| Область | Авторитетное основание | Статус |
+| --- | --- | --- |
+| Исполняемый пакет | `packages/seda-ui/src/index.ts`: 36 component entry modules плюс provider/host APIs, source inventory на 29 октября | Реальная реализация, не полная библиотека; число модулей не равно числу принятых компонентов |
+| Контракты | 13 executable control contracts и 8 общих профилей | Проверяемое ядро, включая Slider и NumberField; feedback/FileUpload/Modal instance contracts ещё отсутствуют |
+| Иконки | Исходные SVG + Figma node IDs + генератор/публичный каталог | 26 публичных имён /25 исходных SVG; arrow-left явно производная от arrow-right с поворотом 180°. [Private v57: source/raster/app proofs](2026-10-26-icon-orientation.md). Полнота для всех приложений не достигнута |
+| Совместные приложения | 8 reference routes, 9 исходных Figma frames | Работают на установленном пакете; визуальное соответствие требует отдельной приёмки |
+| Визуальная согласованность | Текущие доказательства: `verification/inspectors-v43/release.json` и предыдущий `verification/dense-v42/` в pilot | Общие glyph slots/foreground/optical bounds и inspector recipe перенесены на reference apps; 160 selected samples и 32 визуальных кадра. Полная приёмка всех states/surfaces/Figma/OS/AT открыта |
+| Modal | Public native dialog + common WorkspaceDialog in 8 reference apps | Реальный React-компонент; 32 production route/theme/density samples и package React18/19 PASS; surface geometry experimental, Figma fidelity и surface-family executable contract открыты |
+| Tooltip | Public text-only Tooltip and IconButton.tooltip in 4 reference apps | 45 package groups before final keyboard listener; final Tooltip21 workflows and 16 matrix samples per React18/19, plus production Tooltip64/Modal32/text24, source hashes783. Experimental geometry; no surface instance contract or AT/Figma acceptance |
+| Visual reference: Building | Fresh Figma context/metadata/render 2026-10-25, node1:84 | Authored36 text boxes: X0/Y≤0.167px;3 guides and3 action bindings checked. Shared Tree host paint fixed. Exact source coordinates depend on installed Segoe UI; portable fallback flow tested separately and Linux fidelity unverified. Full-screen chrome/other8 frames remain unaccepted |
+| Table | Public generic native Table, Projects/Team use installed package; source aliases removed from main Lab | Experimental: controlled sort/selection/expansion/pagination, data states, density/scroll. [v44 report](2026-10-25-native-table.md): 47 installed-package groups,48 Table samples per React18/19,60 production workspace cases. Separate instance contract, advanced grid and fresh Figma/AT/OS acceptance remain open |
+| Card / Avatar / AvatarGroup | Public native entity surfaces and identity fallback; Projects/Team use installed package | Experimental: controlled Card/Table selection, independent actions, real group overflow, image/transition guards; [v45 report](2026-10-25-entity-surfaces.md): 49 package groups,48 samples per React18/19 and60 production workspace cases. Full variants, instance contracts, Figma and target OS/AT acceptance remain open |
+| ChatBubble / TopBar | Public message models and shared Files/Building/Chat headers; installed package and production proofs v46/v47 | Experimental: content/action/request ownership retained, TopBar72/inspector160/glyph95 production cases. Instance contracts/Figma/AT review open |
+| Sidebar | Общий installed export в Files/Chat вместо локальной навигации; native links/actions, named groups, controlled collapse и local scroll | Experimental; current local verification/report: [Sidebar](2026-10-25-sidebar.md). Нового instance contract нет, Figma/AT/OS review открыт |
+| Accordion | Public installed component в Framer/Webflow/Spline; disclosure state, native semantics, form retention и focus repair | Experimental; [текущий отчёт](2026-10-25-accordion.md). Новый instance contract/Figma/AT/OS review открыт |
+| NotificationCenter | Общий компонент и реальная локальная история операций Files; фильтры/read ownership, loading/error/retry, независимое от файлов storage | Experimental; [приватная v50 и production proof](2026-10-25-notification-center.md). CI head5e687fd success во всех4 группах. Новый instance contract, fresh Figma/AT и overlay host acceptance открыты |
+| Search | Общий query/results pattern с snapshot identity, реальными Files filter и Chat Modal consumers | Experimental; [текущий проход](2026-10-25-search.md). Приватная v51;61 package groups,45 scripts и runtime Linux CI пройдены. Production inspectors160/glyph95, реальные owner-browser переходы проверены; полный production Search runner ограничен приватной авторизацией новой вкладки. Instance contract/Figma/AT/OS и standalone anchored overlay открыты |
+| Popover | Controlled nonmodal host, installed Files news / Chat share; source tokens, native/fallback, focus ownership and Search overlay composition | Experimental; [текущий проход](2026-10-25-popover.md). Приватная v52;63 package groups,46 scripts, production Popover48+4 / inspector160 / glyph95. Полные результаты и границы в отчёте. Instance contract/Figma/AT/OS approval открыты |
+| Slider | Controlled native single/range export; four actual compiler parameters and explicit range/state examples | Experimental private v54; D31 executable contract/shared numeric model/provenance. Contracts128, package65, application47 across recorded cohorts, production Slider16 + inspector160/glyph95. [D31 proof and limits](2026-10-25-slider-contract.md). Figma/OS/AT acceptance open |
+| NumberField | Actual TextField composition, raw numeric buffer and shared D32 compiler model; Sandbox/Spline preserve document owners | Experimental; private v55, contracts132/package67/scripts48; production NumberField16 +2 editor flows, Table60/Inspector160. [Proof and limits](2026-10-25-number-field.md). Figma/locales/pointer/OS/AT acceptance open |
+| Композиция EditorDock | Shared installed SplitView recipe in four editors; side/bottom by readable minima, persistent DOM and separate width/height | Experimental private v56;49 application scripts, production32 cases/8 transitions. [Proof and limits](2026-10-26-editor-dock.md); full docking/Figma/OS/AT acceptance open |
+| Browser/OS/AT | Chromium package/application checks; Linux CI подтвердил Firefox и WebKit для Lab, Files, Building и inline marks в [run #40389044447](https://github.com/kenymook/seda_docs/actions/runs/40389044447) | Остальные экраны, screen readers и native desktop shell не сертифицированы. [Точная область проверки](../docs/library/CROSS-ENGINE-REVIEW.md) |
+| Figma → code mapping | Сохранённые node IDs и исходные assets | Code Connect и полная актуальная fidelity-приёмка не завершены |
+
+Обязательные условия готовности: реальные SEDA-компоненты вместо макета, управляемые общими параметрами контроли и типографика, согласованные icon/text/padding/состояния, рабочие сложные экраны, проверенные keyboard/focus/persistence/async сценарии, сопоставление с исходными Figma frames и целевыми browser/OS/AT. Каждый пункт требует соответствующего по объёму доказательства. Ни один частный зелёный тест не заменяет приёмку всей библиотеки.
+
+Открыты оставшиеся состояния и поверхности сложных редакторов, полнота public icon catalog, все component variants/backgrounds/popups, полный RTL, системная accessibility и performance. Текущая библиотека не объявляется Level 3 или production-ready на основании архивного Figma health score.
+
+## Визуальный проход Files и перенос правил — 25.10
+
+Первый плотный экран Files получил optical/theme glyph adapter,24px gutters/gaps, общий radius и flow layout filters. Shared menu disclosure и action rhythm применены к8 routes; просмотрены16 theme/route screenshots и6 Files states. Composer использует public TextArea plain. Проверки:123contracts,45installed-package groups, Files48 иComposer48 parameter samples. Это частичная визуальная приёмка; остальные source icon families, inspector density и полный Figma/OS/AT review открыты. [Результаты и границы](2026-10-25-dense-visual-consistency.md).
+
+## Архивная оценка Figma от 2026-06-12
+
+Ниже сохранён прежний отчёт snapshot `2026-06-12T16:52:43.458Z`. Его “Done”, scan score 100, owner approval и “Strong” относятся только к тем историческим проверкам. Они не являются текущим статусом React runtime, визуальной готовности или всей цели. Эта архивная часть требует нового аудита при использовании её сведений.
 
 ## Latest Scan Results
 
@@ -132,7 +158,7 @@ Legend:
 | File Upload | ready | File Upload | OK | Scan confirms API `variant/state/size`, `s` helper readability, disabled contextual reason, quality score `100`, and `packages/seda-ui` export is ready. |
 | Radio | ready | radio | OK | Ready. |
 | Segmented Control | ready | Segmented Control | OK | Ready. |
-| Select | ready | Select | OK | API normalized to `selection/size/state`. |
+| Select | ready | Select | OK | API normalized to `selection/size/state`. Реальный keyboard/focus/filter сценарий добавлен для трёх движков; popup Firefox остаётся платформенным и не имеет визуального паритета с `base-select`. |
 | Slider | ready | Slider | OK | API normalized to `mode/size/state`. |
 | Text Area | ready | TextArea | OK | Ready. |
 | Text Field | ready | TextField variants | OK | Verify registry alias and code mapping. |
@@ -157,7 +183,17 @@ Legend:
 
 Continue with **Wave 2 package growth while Code Connect access is blocked**. `packages/seda-ui` TypeScript validation passes through the local Node command; Figma-side Code Connect remains blocked by required Developer seat / Organization or Enterprise access.
 
-1. Add the next Wave 2 source export, recommended `ChatBubble`.
+1. Review the new experimental ChatBubble export/real consumer; continue Wave2 app-shell coverage without calling partial runtime full Figma acceptance.
 2. Continue the breadth batch from `reports/package-export-coverage.md`: TopBar, NotificationCenter, Search, and DropdownMenu.
 3. Enable a Figma Developer seat in an Organization or Enterprise plan for Code Connect access.
 4. Create Wave 1 Code Connect mappings and run retrieval tests once access is available.
+
+## 25.10 — продолжение: glyphs и инспекторы
+
+[Текущий проход](2026-10-25-inspector-icon-consistency.md) переносит optical/theme/source-alpha adapter на остальные7 reference apps и общий section16/field8/label4 recipe на существующие inspector families. Проверены160 selected parameter/theme/width samples и95 painted glyph variants; просмотрены32 снимка. Это закрывает ограниченный объём согласованности показанных панелей, сохраняя открытыми все variants/states, полноту public icon catalog, Figma fidelity и target OS/AT. Исторические замечания выше к иконкам/плотности уточнены этим объёмом, а не превращены в утверждение о готовности всей библиотеки.
+
+## 25.10 — native Table и поставка пакета
+
+Текущий следующий шаг — [общий ChatBubble](2026-10-25-chat-bubble.md): public experimental API, реальный Chat consumer и shared Table/Card вместо локальных message compositions.26 entry modules не означают26 готовых specs. Source/contracts всё ещё требуют Figma/AT/OS review; registry остаётся11 control contracts. Подтверждённая публикация — приватная v46, а не завершение общей цели.
+
+Добавлен реальный public Table вместо локальных HTML tables в Projects/Team. Весь корневой Lab переведён с source alias на installed ESM; metadata проверяет отсутствие source imports и реальные bytesInOutput компонентов. Table использует существующие component color tokens и compiler typography/geometry fallbacks; новый registry instance contract не объявлен. Advanced data grid (virtualization, cell editing/navigation, pin/resize/reorder), public Card/Avatar и полный review по исходным Figma и целевым platform/AT всё ещё необходимы для общей цели.

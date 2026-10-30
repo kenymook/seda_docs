@@ -1,0 +1,14 @@
+{
+  "siteVersion": 63,
+  "siteDeployment": "appgdep_6adf13c387d481918c67fe64be2d92ab",
+  "url": "https://seda-ai-pilot.kenymook.chatgpt.site/",
+  "audience": {
+    "mode": "custom",
+    "ownerCount": 1,
+    "groupCount": 0,
+    "externalVisitorCount": 0,
+    "revision": 1
+  },
+  "runtimeCommit": "8c9d8ee2eee9c7b9cf7dd6873ab80eac16aac07c",
+  "siteSourceCommit": "48602bbe6d89f97e6b2b9014eeed589c624c6781"
+}
