@@ -1,5 +1,5 @@
 import React from 'react';
-import {Breadcrumbs,Button,Checkbox,Chip,EmptyState,Icon,Pagination,Radio,Select,TextField,Toggle} from '@seda-ai/ui';
+import {Breadcrumbs,Button,Checkbox,Chip,Divider,EmptyState,Icon,Pagination,Radio,Select,TextField,Toggle} from '@seda-ai/ui';
 
 export type StudioPreviewProps={path:string;label:string;variables:Record<string,string>};
 type PreviewRenderer=(props:StudioPreviewProps)=>React.ReactNode;
@@ -17,6 +17,7 @@ function PaginationPreview({path}:StudioPreviewProps){
 // One literal registry is used by Studio and inspected by the build-time catalogue.
 // Registration means a live adapter exists, not that every state is accepted.
 export const studioPreviews={
+ 'divider':({path}:StudioPreviewProps)=><div style={{width:240,maxWidth:'100%'}}><Divider label="Раздел" emphasis={path==='divider/line/strong'?'strong':path==='divider/line/inverse'?'inverse':'default'}/></div>,
  'empty-state':()=> <EmptyState size="s" reason="no-results" title="Ничего не найдено" description="Измените запрос или фильтры." media={<Icon name="search"/>}/>,
  'pagination':(props:StudioPreviewProps)=><PaginationPreview {...props}/>,
  'chip':(props:StudioPreviewProps)=><ChipPreview {...props}/>,

@@ -1,6 +1,6 @@
 # Каталог покрытия SEDA
 
-Каталог отвечает на вопрос «что существует и чем подтверждено», а не присваивает общий `ready`. Он собирается из исходников при каждом build портала. Текущая точка: 59 записей, 58 спецификаций, 39 public modules, 16 executable contracts, 52 component token branches и 10 Studio adapters. Это разные множества, их нельзя складывать или выдавать за число принятых компонентов.
+Каталог отвечает на вопрос «что существует и чем подтверждено», а не присваивает общий `ready`. Он собирается из исходников при каждом build портала. Текущая точка: 59 записей, 58 спецификаций, 40 public modules, 16 executable contracts, 52 component token branches и 11 Studio adapters. Это разные множества, их нельзя складывать или выдавать за число принятых компонентов.
 
 ## Источники и использование
 
@@ -28,7 +28,7 @@
 
 Примеры: NumberField — public composition с собственным числовым контрактом и shared TextField tokens. Button System — family, не выдуманный ButtonSystem export. Breadcrumbs имеет runtime и Studio adapter, но не зарегистрированный instance contract. Chip имеет experimental public runtime, Studio adapter и зарегистрированный instance contract; полная визуальная и platform-приёмка остаётся открытой. Icon использует foundation documentation.
 
-Каталог фиксирует 19 записей без public runtime и одно family-only семейство. Нулевые `visualAccepted/platformAccepted` означают отсутствие полной актуальной приёмки по gates roadmap; прежние целевые проверки не обнуляются и перечислены как evidence с ограниченным scope.
+Каталог фиксирует 18 записей без public runtime и одно family-only семейство. Нулевые `visualAccepted/platformAccepted` означают отсутствие полной актуальной приёмки по gates roadmap; прежние целевые проверки не обнуляются и перечислены как evidence с ограниченным scope.
 
 ## Проверка
 

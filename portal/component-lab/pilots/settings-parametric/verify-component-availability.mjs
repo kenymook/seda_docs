@@ -40,6 +40,10 @@ try{
   const empty=page.locator('.studio-selected-element .seda-empty-state');
   assert.equal(await empty.getByRole('heading',{name:'Ничего не найдено'}).count(),1);
   assert.ok(await empty.evaluate(n=>getComputedStyle(n).getPropertyValue('--empty-state-title-foreground').trim()));
+  assert.equal(await library.getByRole('button',{name:'divider',exact:true}).getAttribute('data-availability'),'live');
+  await library.getByRole('button',{name:'divider',exact:true}).click();
+  const divider=page.locator('.studio-selected-element .seda-divider');await divider.waitFor();
+  assert.equal(await divider.getAttribute('aria-hidden'),'true');assert.ok(await divider.evaluate(n=>getComputedStyle(n).getPropertyValue('--divider-line-default').trim()));
   assert.equal(await library.getByRole('button',{name:'button-group',exact:true}).getAttribute('data-availability'),'tokens');
   for(const [id,kind]of [['avatar','runtime'],['button-group','tokens']]){
    const button=library.getByRole('button',{name:id,exact:true});await button.click();

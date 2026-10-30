@@ -1816,3 +1816,13 @@
 .seda-empty-state__title{color:var(--empty-state-title-foreground)}
 .seda-empty-state__description{color:var(--empty-state-description-foreground)}
 .seda-empty-state__actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:4px;max-width:100%}
+
+.seda-divider{box-sizing:border-box;display:flex;align-items:center;min-width:0;color:var(--divider-label-foreground)}
+.seda-divider__line{flex:1 1 0;min-width:0;border:0;border-block-start:1px solid var(--divider-line-default)}
+.seda-divider[data-emphasis=strong] .seda-divider__line{border-color:var(--divider-line-strong)}
+.seda-divider[data-emphasis=inverse] .seda-divider__line{border-color:var(--divider-line-inverse)}
+.seda-divider__label{padding-inline:8px;background:var(--divider-label-surface);font:inherit}
+.seda-divider[data-orientation=vertical]{align-self:stretch;flex-direction:column;min-height:0}
+.seda-divider[data-orientation=vertical] .seda-divider__line{min-height:0;border:0;border-inline-start:1px solid var(--divider-line-default)}
+.seda-divider[data-orientation=vertical][data-emphasis=strong] .seda-divider__line{border-color:var(--divider-line-strong)}
+.seda-divider[data-orientation=vertical][data-emphasis=inverse] .seda-divider__line{border-color:var(--divider-line-inverse)}

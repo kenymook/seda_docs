@@ -44,3 +44,4 @@ export * from './components/Breadcrumbs';
 export * from './components/Chip';
 export * from './components/Pagination';
 export * from './components/EmptyState';
+export * from './components/Divider';
