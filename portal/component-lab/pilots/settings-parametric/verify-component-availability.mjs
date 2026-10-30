@@ -35,6 +35,11 @@ try{
   await pagination.getByRole('button',{name:'Следующая страница'}).click();
   assert.equal(await pagination.locator('[aria-current="page"]').innerText(),'4');
   assert.ok(await pagination.evaluate(n=>getComputedStyle(n).getPropertyValue('--pagination-item-surface-selected').trim()));
+  assert.equal(await library.getByRole('button',{name:'empty-state',exact:true}).getAttribute('data-availability'),'live');
+  await library.getByRole('button',{name:'empty-state',exact:true}).click();
+  const empty=page.locator('.studio-selected-element .seda-empty-state');
+  assert.equal(await empty.getByRole('heading',{name:'Ничего не найдено'}).count(),1);
+  assert.ok(await empty.evaluate(n=>getComputedStyle(n).getPropertyValue('--empty-state-title-foreground').trim()));
   assert.equal(await library.getByRole('button',{name:'button-group',exact:true}).getAttribute('data-availability'),'tokens');
   for(const [id,kind]of [['avatar','runtime'],['button-group','tokens']]){
    const button=library.getByRole('button',{name:id,exact:true});await button.click();

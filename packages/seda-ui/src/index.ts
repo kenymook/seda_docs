@@ -43,3 +43,4 @@ export * from './components/InlineToolbar';
 export * from './components/Breadcrumbs';
 export * from './components/Chip';
 export * from './components/Pagination';
+export * from './components/EmptyState';

@@ -213,6 +213,12 @@ Empty State следует [foundation/accessibility.md](../foundation/accessibi
 | Description foreground | `empty-state/description/foreground` | Цвет описания. | `text/secondary` |
 | Action foreground | `empty-state/action/foreground` | Цвет текстового secondary action или link-like action. | `text/brand` |
 
+### Экспериментальная React-реализация
+
+`EmptyState` экспортируется из `@seda-ai/ui`: заголовок обязателен, описание и декоративное `media` необязательны; причины и размеры передаются как props. Действиями управляет приложение через callbacks, а отображаются они существующими SEDA Button. `media` скрывается от вспомогательных технологий и не должно содержать интерактивные элементы; объявление изменений принадлежит контейнеру приложения. Реализация подключена к пустому результату фильтра команды и к Studio preview.
+
+Сейчас применяются цветовые токены `illustration/foreground`, `title/foreground` и `description/foreground`. `illustration/accent` и `action/foreground` пока не привязаны: кнопки сохраняют собственные токены. Исполняемый контракт компонента, полная проверка состояний, размеров, доступности и платформенная приёмка ещё не выполнены; наличие runtime и предпросмотра не означает готовность компонента.
+
 ### Token gaps
 
 - Нет component tokens для `root` gap, action gap, media size и responsive spacing.

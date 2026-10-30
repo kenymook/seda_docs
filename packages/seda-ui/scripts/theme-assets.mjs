@@ -275,7 +275,7 @@ export function buildThemeAssets(packageRoot, output) {
       )
         throw Error("Required public component token is missing: " + match[1]);
     for (const property of usedProperties)
-      if (["--pagination-","--chip-","--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-","--popover-","--slider-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
+      if (["--empty-state-","--pagination-","--chip-","--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-","--popover-","--slider-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
         throw Error("Required public component token is missing: " + property);
     report.sliderGeometry??={};report.sliderGeometry[key]={};
     for(const name of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap']){

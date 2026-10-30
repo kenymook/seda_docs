@@ -1808,3 +1808,11 @@
 .seda-pagination button.seda-pagination__arrow{color:var(--pagination-item-icon-default)}
 .seda-pagination button.seda-pagination__arrow:hover:not(:disabled):not([aria-disabled="true"]){color:var(--pagination-item-icon-hover)}
 .seda-pagination button.seda-pagination__arrow:disabled,.seda-pagination button.seda-pagination__arrow[aria-disabled="true"]{color:var(--pagination-item-icon-disabled)}
+
+.seda-empty-state{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:0;max-width:100%;padding:24px;color:var(--empty-state-title-foreground)}
+.seda-empty-state[data-size="s"]{padding:12px;gap:6px}
+.seda-empty-state__media{display:inline-flex;color:var(--empty-state-illustration-foreground)}
+.seda-empty-state__title,.seda-empty-state__description{margin:0;max-width:48ch;overflow-wrap:anywhere}
+.seda-empty-state__title{color:var(--empty-state-title-foreground)}
+.seda-empty-state__description{color:var(--empty-state-description-foreground)}
+.seda-empty-state__actions{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:4px;max-width:100%}

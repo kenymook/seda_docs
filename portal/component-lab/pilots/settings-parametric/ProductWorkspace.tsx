@@ -17,6 +17,7 @@ import {
   Badge,
   Tag,
   Chip,
+  EmptyState,
   type AlertVariant,
 } from "@seda-ai/ui";
 
@@ -344,7 +345,7 @@ export function ProductWorkspace({ size, action, children, typography, textScale
             />
           </div>
           <Table minWidth={560} id="members-table" label="Таблица участников" data={orderedMembers} rowKey={m=>String(m.id)}
-            sort={memberSort} onSortChange={setMemberSort} emptyState="Участники не найдены"
+            sort={memberSort} onSortChange={setMemberSort} emptyState={<EmptyState size="s" reason="no-results" title="Участники не найдены" description="Измените поиск или сбросьте фильтры." primaryAction={{label:'Сбросить фильтры',onAction:()=>{setMemberQuery('');setMemberRole('all');requestAnimationFrame(()=>document.getElementById('member-search')?.focus())}}}/>}
             columns={[
               {key:'name',header:'Участник',type:'text',sortable:true,render:m=><span className="workspace-project-name"><Avatar name={m.name} alt=""/>{m.name}</span>},
               {key:'email',header:'Email',type:'text',render:m=>m.email},
