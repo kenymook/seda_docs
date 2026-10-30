@@ -10,6 +10,8 @@ export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onCh
   size?: SedaSize;
   disabled?: boolean;
   loading?: boolean;
+  /** Keep an already focused control reachable while an async request or boundary disables it. */
+  retainFocusOnDisabled?: boolean;
   previousLabel?: string;
   nextLabel?: string;
   pageLabel?: (page: number) => string;

@@ -4,6 +4,7 @@ import {useSedaConfiguration} from '../../foundation/SedaProvider';
 import {Checkbox} from '../Checkbox';
 import {Button} from '../Button';
 import {Icon} from '../Icon';
+import {Pagination} from '../Pagination';
 import {cx} from '../../utils/classNames';
 import type {TableProps} from './Table.types';
 
@@ -97,10 +98,9 @@ export function Table<Row>({label,columns,data,rowKey,rowLabel,density='medium',
     </div>
       <div className={cx("seda-table__announcement",loading&&data.length>0&&!hasError?"seda-table__loading":"seda-table__sr")} role="status">{loading?loadingLabel:null}</div>
     </div>
-    {(footer||pagination)&&<div className="seda-table__footer">{footer}{pagination&&<nav aria-label={'Страницы: '+label} className="seda-table__pagination">
+    {(footer||pagination)&&<div className="seda-table__footer">{footer}{pagination&&<div className="seda-table__pagination">
       <span role="status"><bdi dir="ltr">{pagination.total&&data.length?(pagination.page-1)*pagination.pageSize+1:0}–{pagination.total&&data.length?Math.min((pagination.page-1)*pagination.pageSize+data.length,pagination.total):0}</bdi>{' из '}<bdi>{pagination.total}</bdi></span>
-      <Button variant="ghost" aria-disabled={busy||!data.length||pagination.page<=1||undefined} onClick={()=>{if(!busy&&data.length&&pagination.page>1)pagination.onPageChange(pagination.page-1);}}>Назад</Button>
-      <Button variant="ghost" aria-disabled={busy||!data.length||pagination.page*pagination.pageSize>=pagination.total||undefined} onClick={()=>{if(!busy&&data.length&&pagination.page*pagination.pageSize<pagination.total)pagination.onPageChange(pagination.page+1);}}>Далее</Button>
-    </nav>}</div>}
+      <Pagination label={'Страницы: '+label} variant="prev-next" page={pagination.page} pageCount={Math.max(pagination.page,Math.ceil(pagination.total/pagination.pageSize))} onPageChange={pagination.onPageChange} previousLabel="Назад" nextLabel="Далее" disabled={busy||!data.length||pagination.page>Math.max(1,Math.ceil(pagination.total/pagination.pageSize))} loading={loading} retainFocusOnDisabled/>
+    </div>}</div>}
   </div>;
 }
