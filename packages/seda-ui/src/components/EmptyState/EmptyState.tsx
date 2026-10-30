@@ -8,7 +8,7 @@ const nonempty=(value:unknown):value is string=>typeof value==='string'&&value.t
 /** Data and announcements belong to the host; actions are actual SEDA Buttons. */
 export const EmptyState=forwardRef<HTMLDivElement,EmptyStateProps>(function EmptyState({title,description,reason='no-data',size:sizeProp,media,primaryAction,secondaryAction,headingLevel=3,className,...props},ref){
  const size=useSedaSize(sizeProp);
- if(!nonempty(title)||description!==undefined&&!nonempty(description)||!['no-data','no-results','no-access','error','first-time'].includes(reason)||![2,3,4,5,6].includes(headingLevel))throw new TypeError('EmptyState requires a title and supported reason and heading level');
+ if(!nonempty(title)||description!==undefined&&!nonempty(description)||!['no-data','no-results','no-access','error','first-time'].includes(reason)||![2,3,4,5,6].includes(headingLevel)||!['s','m','l','xl'].includes(size))throw new TypeError('EmptyState requires a title and supported reason, size and heading level');
  for(const action of [primaryAction,secondaryAction])if(action&&(!nonempty(action.label)||typeof action.onAction!=='function'))throw new TypeError('EmptyState actions require a label and callback');
  if(secondaryAction&&!primaryAction)throw new TypeError('EmptyState secondary action requires a primary action');
  return <div {...props} ref={ref} className={cx('seda-empty-state',className)} data-size={size} data-reason={reason}>
