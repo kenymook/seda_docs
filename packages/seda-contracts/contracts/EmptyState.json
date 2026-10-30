@@ -1,0 +1,17 @@
+{
+  "schemaVersion":"0.1.0", "kind":"seda-component-contract", "id":"EmptyState",
+  "api":{"typesFile":"packages/seda-ui/src/components/EmptyState/EmptyState.types.ts","implementationFile":"packages/seda-ui/src/components/EmptyState/EmptyState.tsx","export":"EmptyStateProps","nativeElement":"div"},
+  "anatomy":[{"name":"root","element":"div","required":true},{"name":"title","element":"h3","prop":"title","required":true},{"name":"media","element":"span","prop":"media","required":false},{"name":"actions","element":"div","required":false}],
+  "targetDefaults":{"size":"m"},
+  "states":{"availability":["enabled"],"activity":["idle"],"validation":["none"],"interaction":[],"data":[]},
+  "pilotVariants":[],
+  "tokenBranches":{"default":{"collection":"components","path":["empty-state"]}},
+  "rules":[
+    {"id":"title","source":"specs/feedback/empty-state.md","condition":"Every instance","expected":"A nonempty title is required.","check":"text-content","layer":"instance","prop":"title","decision":"D35"},
+    {"id":"actions","source":"specs/feedback/empty-state.md","condition":"Supported composition","expected":"Descriptions and action callbacks are valid.","check":"empty-state-model","layer":"instance","decision":"D35"},
+    {"id":"tokens","source":"specs/feedback/empty-state.md","condition":"Rendered component","expected":"Verify actual token binding.","check":"component-token-binding","layer":"browser","decision":"D35"}
+  ],
+  "capabilities":[{"id":"platform-assistive-technology","status":"not-checked","reason":"Platform and assistive technology acceptance remains open."}],
+  "evidence":{"source":"specs/feedback/empty-state.md","baseline":"packages/seda-ui/scripts/verify-empty-state.mjs","runtimeStatus":"not-checked"},
+  "tokenRequirements":{"default":[["illustration","foreground"],["title","foreground"],["description","foreground"]]}
+}

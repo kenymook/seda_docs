@@ -147,7 +147,8 @@
             "number-field-draft",
             "number-field-form",
             "chip-control",
-            "pagination-model"
+            "pagination-model",
+            "empty-state-model"
           ]
         },
         "prop": {

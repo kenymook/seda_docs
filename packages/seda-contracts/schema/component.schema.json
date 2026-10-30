@@ -24,7 +24,8 @@
         "Slider",
         "NumberField",
         "Chip",
-        "Pagination"
+        "Pagination",
+        "EmptyState"
       ]
     },
     "api": {
@@ -138,7 +139,7 @@
               "active"
             ]
           },
-          "minItems": 1,
+          "minItems": 0,
           "uniqueItems": true
         },
         "data": {

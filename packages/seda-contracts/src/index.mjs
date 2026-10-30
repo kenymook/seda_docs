@@ -45,6 +45,7 @@ const requiredChecks = {
   NumberField: [['text-content','label'],['number-field-model'],['error-message'],['native-disabled']],
   Chip: [['text-content','label'],['chip-control']],
   Pagination: [['text-content','label'],['pagination-model']],
+  EmptyState: [['text-content','title'],['empty-state-model']],
 };
 
 export function loadBundle(packageRoot = defaultPackageRoot) {
@@ -143,6 +144,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     if (!contract) return { valid: false, issues: [issue('COMPONENT_UNKNOWN', '/', `Unknown component ${name}`)], checks: [] };
     const invalidContract = schemaIssues('component', contract, '/contract');
     if (contract.id !== name) invalidContract.push(issue('COMPONENT_ID_MISMATCH', '/contract/id', `Requested ${name}, received ${contract.id}.`));
+    if(name!=='EmptyState' && !contract.states?.interaction?.length)invalidContract.push(issue('INTERACTION_REQUIRED','/contract/states/interaction','Controls require supported interaction states.'));
     if(!invalidContract.length)invalidContract.push(...sliderGeometryIssues(contract,'/contract',bundle.system.supportedThemes));
     if (invalidContract.length) return { valid: false, issues: invalidContract, checks: [] };
     const actual = api.get(name);
@@ -182,6 +184,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     if (new Set(ids).size !== ids.length || components.some(name => !ids.includes(name))) result.push(issue('CONTRACT_SET_INVALID', '/contracts', 'Exactly one contract for each pilot component is required.'));
     for (const contract of candidate.contracts) {
       const at = `/contracts/${contract.id}`;
+      if(contract.id!=='EmptyState' && !contract.states?.interaction?.length)result.push(issue('INTERACTION_REQUIRED',at+'/states/interaction','Controls require supported interaction states.'));
       const actual = api.get(contract.id);
       const expected = { typesFile: actual.sourcePath, implementationFile: actual.implementationPath, export: `${contract.id}Props`, nativeElement: nativeElements[contract.id] };
       for(const key of Object.keys(contract.geometry??{}))if(key in candidate.system.sizes.m||key in candidate.system.geometry||key==='boxSizing')result.push(issue('COMPONENT_GEOMETRY_COLLISION',at+'/geometry/'+key,'Component geometry must not replace a shared preset.'));
@@ -284,6 +287,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
   }
 
   function compileControl(name, props, { theme = bundle.profile.configuration.theme, interaction = {},controlParameters } = {}) {
+    if(name==='EmptyState')throw new ContractValidationError([issue('COMPOSITION_NOT_CONTROL','/component','Use compileComposition for EmptyState; it has no control-height geometry.')]);
     const contract = bundle.contracts.find(item => item.id === name);
     const checked = validateInstance(name, props, { interaction });
     if (!checked.valid) throw new ContractValidationError(checked.issues);
@@ -299,6 +303,16 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     }
     const presentation=actionPresentation(contract,componentGeometry(name,effective.size,theme),effective.size,theme,effective.variant),{geometry}=presentation;
     return { component: name, ...presentation,...compileParameters(geometry,controlParameters), ...(['TextField','NumberField','Select','TextArea'].includes(name)?{fieldTypography:fieldTypography(theme)}:{}), props: effective, state: checked.state, checks: checked.checks, tokenRequirements: contract.tokenRequirements[effective.variant ?? 'default'], tokenBranch: resolveInlineActionBranch(contract,resolver.resolveBranch(branch, { theme }),effective.variant), ...(name === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(name==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}), runtimeConformance: 'not-checked' };
+  }
+
+  function compileComposition(name,props,{theme=bundle.profile.configuration.theme}={}){
+    if(name!=='EmptyState')throw new ContractValidationError([issue('COMPOSITION_UNSUPPORTED','/component',String(name))]);
+    if(!bundle.system.supportedThemes.includes(theme))throw new ContractValidationError([issue('THEME_UNSUPPORTED','/theme',theme)]);
+    const checked=validateInstance(name,props);if(!checked.valid)throw new ContractValidationError(checked.issues);
+    const contract=bundle.contracts.find(item=>item.id===name),branch=contract.tokenBranches.default,requirements=contract.tokenRequirements.default;
+    if(!branch||!requirements?.length)throw new ContractValidationError([issue('TOKEN_REQUIREMENTS_MISSING','/tokenRequirements','Composition needs its applied token requirements.')]);
+    for(const suffix of requirements)try{resolver.resolve({collection:branch.collection,path:[...branch.path,...suffix],expectedType:'color'},{theme});}catch(error){throw new ContractValidationError([issue(error.code??'TOKEN_INVALID',`/contracts/${name}/tokenRequirements/${suffix.join('/')}`,error.message)]);}
+    return {component:name,kind:'composition',props:{...props,...checked.appliedDefaults},checks:checked.checks,tokenRequirements:requirements,tokenBranch:resolver.resolveBranch(branch,{theme}),runtimeConformance:'not-checked'};
   }
 
   // Explicit temporary adapters for documented component token gaps; resolved with provenance.
@@ -331,7 +345,7 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
       const presentation=actionPresentation(contract,componentGeometry(recipe.component,props.size??controlSize,theme),props.size??controlSize,theme,props.variant);
       instances[role] = { ...(presentation.actionLayout?presentation:{}),component: recipe.component, props, state: checked.state, tokenBranch: resolveInlineActionBranch(contract,resolver.resolveBranch(branch, { theme }),props.variant), auxiliaryTokens, ...(recipe.visibleExplanation ? { visibleExplanation: recipe.visibleExplanation } : {}), checks: checked.checks };
     }
-    const controls = Object.fromEntries(bundle.contracts.filter(c => ['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField').map(contract => [contract.id, { component: contract.id, ...(['NumberField','Select','TextArea'].includes(contract.id)?{fieldTypography:fieldTypography(theme)}:{}), geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
+    const controls = Object.fromEntries(bundle.contracts.filter(c => c.id!=='EmptyState' && (['Tabs','DropdownMenu'].includes(c.id) || !c.pilotVariants.length && c.id !== 'TextField')).map(contract => [contract.id, { component: contract.id, ...(['NumberField','Select','TextArea'].includes(contract.id)?{fieldTypography:fieldTypography(theme)}:{}), geometry:componentGeometry(contract.id,controlSize,theme), tokenRequirements: contract.tokenRequirements.default, api: contract.api, states: contract.states, rules: contract.rules, tokenBranch: resolver.resolveBranch(contract.tokenBranches.default, { theme }), ...(contract.id === 'DropdownMenu' ? {semanticAdapters:menuSemantics(theme)} : {}),...(contract.id==='Slider'?{semanticAdapters:sliderSemantics(theme)}:{}) }]));
     const parameters=compileParameters(geometry,controlParameters);
     if(controlParameters!==undefined){for(const control of Object.values(controls))Object.assign(control,compileParameters(control.geometry,controlParameters));for(const instance of Object.values(instances))Object.assign(instance,compileParameters(instance.geometry??componentGeometry(instance.component,instance.props.size??controlSize,theme),controlParameters));}
     const foundationTokens = Object.fromEntries([['surface',['surface','base']],['separator',['border','subtle']],['focus',['focus','ring']]].map(([key,path])=>[key,resolver.resolve({collection:'semantic',path,expectedType:'color'},{theme})]));
@@ -345,5 +359,5 @@ export function createContractEngine({ packageRoot = defaultPackageRoot, repoRoo
     return { reference: bundle.system.source, files: Object.fromEntries([...files].sort().map(file => [file, crypto.createHash('sha256').update(fs.readFileSync(path.join(repoRoot, file))).digest('hex')])) };
   }
 
-  return { bundle, api, resolver, validate, validateInstance, audit, compile, compileControl, provenance };
+  return { bundle, api, resolver, validate, validateInstance, audit, compile, compileControl, compileComposition, provenance };
 }

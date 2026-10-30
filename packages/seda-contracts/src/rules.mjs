@@ -4,7 +4,7 @@ import{createSliderModel}from'./slider.mjs';
 import { deriveTree, validateTreeState } from './tree.mjs';
 const own = (o, key) => Object.prototype.hasOwnProperty.call(o, key);
 const browserChecks = new Set(['select-availability','control-geometry', 'focus-visible', 'stable-loading-width', 'description-merge', 'disabled-error-presentation', 'component-token-binding', 'icon-box', 'full-tooltip', 'tabs-keyboard', 'tabs-panels', 'tabs-focus-repair', 'menu-keyboard', 'menu-focus', 'menu-overlay','tree-keyboard','tree-focus','tree-semantics','slider-keyboard','slider-pointer','slider-form','slider-value-text','number-field-keyboard','number-field-draft','number-field-form']);
-const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model','chip-control','pagination-model']);
+const instanceChecks = new Set(['text-content', 'slot-present', 'controlled-value', 'error-message', 'native-disabled', 'aria-disabled-activation', 'persistent-selection-unused', 'pilot-variant', 'selection-value', 'checked-value', 'tabs-items', 'tabs-selection', 'menu-items', 'menu-open','tree-items','tree-state','textarea-value','textarea-layout','slider-model','number-field-model','chip-control','pagination-model','empty-state-model']);
 export const ruleCheckNames = [...instanceChecks, ...browserChecks];
 
 function content(value) {
@@ -134,6 +134,12 @@ export function evaluateRules(contract, props) {
         if (!Number.isSafeInteger(props.pageCount) || props.pageCount<0 || !Number.isSafeInteger(props.page) || props.page<1 || props.page>Math.max(1,props.pageCount)) violate('Pagination requires an in-range integer page and nonnegative pageCount.');
         if (!handler(props.onPageChange)) violate('Pagination requires a page change handler.');
         if (props.previousLabel !== undefined && (typeof props.previousLabel !== 'string' || !props.previousLabel.trim()) || props.nextLabel !== undefined && (typeof props.nextLabel !== 'string' || !props.nextLabel.trim())) violate('Navigation labels must not be empty.');
+        break;
+      }
+      case 'empty-state-model': {
+        if (props.description !== undefined && (typeof props.description !== 'string' || !props.description.trim())) violate('Description must be nonempty when supplied.');
+        for (const action of [props.primaryAction,props.secondaryAction]) if (action != null && (typeof action !== 'object' || Array.isArray(action) || typeof action.label !== 'string' || !action.label.trim() || !handler(action.onAction))) violate('Each action requires a nonempty label and handler.');
+        if (props.secondaryAction && !props.primaryAction) violate('A secondary action requires a primary action.');
         break;
       }
       case 'chip-control': {
