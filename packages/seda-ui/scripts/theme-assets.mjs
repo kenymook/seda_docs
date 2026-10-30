@@ -275,7 +275,7 @@ export function buildThemeAssets(packageRoot, output) {
       )
         throw Error("Required public component token is missing: " + match[1]);
     for (const property of usedProperties)
-      if (["--chip-","--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-","--popover-","--slider-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
+      if (["--pagination-","--chip-","--file-upload-","--alert-","--toast-","--badge-","--tag-","--avatar-","--card-","--chat-bubble-","--top-bar-","--sidebar-","--accordion-","--notification-center-","--search-","--popover-","--slider-"].some(prefix=>property.startsWith(prefix)) && !variables.has(property))
         throw Error("Required public component token is missing: " + property);
     report.sliderGeometry??={};report.sliderGeometry[key]={};
     for(const name of ['minRailHeight','minThumbSize','trackHeight','thumbBorderWidth','focusWidth','focusOffset','headerGap']){
@@ -364,7 +364,7 @@ export function buildThemeAssets(packageRoot, output) {
     );
   }
   const classes =
-    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload,.seda-badge,.seda-tag,.seda-chip,.seda-alert,.seda-toast,.seda-sidebar,.seda-accordion,.seda-notification-center,.seda-search,.seda-popover,.seda-slider)";
+    ":is(.seda-button,.seda-icon-button,.seda-field,.seda-choice,.seda-toggle,.seda-radio-group,.seda-tabs,.seda-tree,.seda-dropdown-menu,.seda-dropdown-menu__surface,.seda-file-upload,.seda-badge,.seda-tag,.seda-chip,.seda-pagination,.seda-alert,.seda-toast,.seda-sidebar,.seda-accordion,.seda-notification-center,.seda-search,.seda-popover,.seda-slider)";
   for (const size of Object.keys(system.sizes)) {
     const mapping = {
       height: "height",

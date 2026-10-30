@@ -1795,3 +1795,16 @@
 .seda-chip[data-selected] .seda-chip__remove:not(:disabled):hover{color:var(--chip-remove-icon-selected);background:var(--chip-remove-surface-selectedHover)}
 .seda-chip__main:focus-visible,.seda-chip__remove:focus-visible{outline:2px solid var(--chip-focus-ring);outline-offset:2px}
 .seda-chip button:disabled{cursor:not-allowed}.seda-chip svg{width:var(--seda-control-icon-size,16px);height:var(--seda-control-icon-size,16px);flex:none}
+
+.seda-pagination{display:inline-flex;align-items:center;gap:4px;max-width:100%;font-size:var(--seda-control-font-size,var(--seda-preset-font-size,14px));line-height:var(--seda-control-line-height,var(--seda-preset-line-height,20px))}
+.seda-pagination button{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-width:var(--seda-control-height,var(--seda-preset-height,32px));height:var(--seda-control-height,var(--seda-preset-height,32px));padding:0 8px;border:1px solid var(--pagination-item-border-default);border-radius:var(--seda-control-radius,var(--seda-preset-radius,8px));font:inherit;color:var(--pagination-item-foreground-default);background:var(--pagination-item-surface-default);cursor:pointer}
+.seda-pagination button:hover:not(:disabled):not([aria-current]){background:var(--pagination-item-surface-hover);color:var(--pagination-item-foreground-hover)}
+.seda-pagination button:active:not(:disabled):not([aria-current]){background:var(--pagination-item-surface-active)}
+.seda-pagination button[aria-current]{background:var(--pagination-item-surface-selected);border-color:var(--pagination-item-border-selected);color:var(--pagination-item-foreground-selected)}
+.seda-pagination button:disabled{background:var(--pagination-item-surface-disabled);border-color:var(--pagination-item-border-disabled);color:var(--pagination-item-foreground-disabled);cursor:not-allowed}
+.seda-pagination button:focus-visible{outline:2px solid var(--pagination-focus-ring);outline-offset:2px}
+.seda-pagination__gap{padding-inline:4px;color:var(--pagination-foreground-default)}
+@media(forced-colors:active){.seda-pagination button{border-color:ButtonText}.seda-pagination button[aria-current]{outline:2px solid Highlight;outline-offset:-2px}.seda-pagination button:disabled{color:GrayText;border-color:GrayText}.seda-pagination button:focus-visible{outline:2px solid Highlight}}
+.seda-pagination button.seda-pagination__arrow{color:var(--pagination-item-icon-default)}
+.seda-pagination button.seda-pagination__arrow:hover:not(:disabled){color:var(--pagination-item-icon-hover)}
+.seda-pagination button.seda-pagination__arrow:disabled{color:var(--pagination-item-icon-disabled)}

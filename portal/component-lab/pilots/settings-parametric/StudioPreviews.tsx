@@ -1,5 +1,5 @@
 import React from 'react';
-import {Breadcrumbs,Button,Checkbox,Chip,Icon,Radio,Select,TextField,Toggle} from '@seda-ai/ui';
+import {Breadcrumbs,Button,Checkbox,Chip,Icon,Pagination,Radio,Select,TextField,Toggle} from '@seda-ai/ui';
 
 export type StudioPreviewProps={path:string;label:string;variables:Record<string,string>};
 type PreviewRenderer=(props:StudioPreviewProps)=>React.ReactNode;
@@ -10,9 +10,14 @@ function ChipPreview({path}:StudioPreviewProps){
  if(path.startsWith('chip/control/'))return <div><Chip label="Фильтр" control="expand" expanded={expanded} controlsId={popupId} onOpenChange={setExpanded} disabled={path.endsWith('/disabled')}/><div id={popupId} hidden={!expanded}>Параметры фильтра</div></div>;
  return visible?<Chip label="Активный фильтр" control="remove" removeLabel="Удалить фильтр" onRemove={()=>setVisible(false)} disabled={path.endsWith('/disabled')} variant={path.endsWith('/selected')?'selected':path.endsWith('/filled')?'filled':'default'}/>:<Button variant="secondary" onClick={()=>setVisible(true)}>Восстановить фильтр</Button>;
 }
+function PaginationPreview({path}:StudioPreviewProps){
+ const [page,setPage]=React.useState(3);
+ return <Pagination label="Страницы проектов" page={page} pageCount={9} onPageChange={setPage} disabled={path.endsWith('/disabled')}/>;
+}
 // One literal registry is used by Studio and inspected by the build-time catalogue.
 // Registration means a live adapter exists, not that every state is accepted.
 export const studioPreviews={
+ 'pagination':(props:StudioPreviewProps)=><PaginationPreview {...props}/>,
  'chip':(props:StudioPreviewProps)=><ChipPreview {...props}/>,
  'breadcrumbs':({path}:StudioPreviewProps)=><Breadcrumbs label="Путь документа" expandLabel="Показать весь путь" items={[{id:'workspace',label:'Atlas',href:'#atlas',disabled:path.endsWith('/disabled'),icon:<Icon name="monitor"/>},{id:'project',label:'Проекты',href:'#projects',disabled:path.endsWith('/disabled')},{id:'current',label:'Документ'}]}/>,
  'select':({path,label}:StudioPreviewProps)=><Select label={label} options={[{value:'all',label:'Все роли'},{value:'editor',label:'Редактор'},{value:'viewer',label:'Наблюдатель'}]} defaultValue="all" disabled={path.endsWith('/disabled')} readOnly={path.endsWith('/read-only')} loading={path.endsWith('/loading')} warningText={path.endsWith('/warning')?'Проверьте доступ':undefined} successText={path.endsWith('/success')?'Доступ подтверждён':undefined} errorText={path.endsWith('/error')?'Проверьте значение':undefined}/>,
